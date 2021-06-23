@@ -1,0 +1,36 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+THE BOOTSTRAP
+Learning Outcomes
+Approximate a sampling distribution using the bootstrap
+Compute a bootstrapped confidence interval for a statistic
+Photo by Ashim D’Silva on Unsplash
+Sampling the Population
+Sample of Penguins
+Statistic
+Repeat
+Sampling
+Distribution
+Going Beyond
+The Bootstrap
+Bootstrapping a CI
+Compute bootstrap means
+
+boot_means = [np.mean(rng.choice(xs, n))              for i in range(10000)]np.quantile(boot_means, [0.025, 0.975])
+
+Result: array([194.10294118, 197.52941176])
+This is what Seaborn catplot does for error bars!
+Bootstrap Distribution
+Fun and Games with the Bootstrap
+Estimate the sampling distribution for any statistic
+Estimate arbitrary properties of the sampling distribution
+Mean?
+Median?
+Quantiles?
+Variance?
+
+Wrapping Up
+The sampling distribution requires taking multiple samples from the population.
+
+The bootstrap allows us to approximate sampling distributions by resampling a sample.
+Image from Disney’s “Club Penguin”, taken from Club Penguin Wiki

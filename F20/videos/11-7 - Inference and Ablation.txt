@@ -1,0 +1,92 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+INFERENCE AND ABLATION
+Learning Outcomes
+Make inferences about model accuracy
+Understand interplay of cross-validation and inference
+Use ablation studies to make inferences about feature or sub-model importance
+Photo by Siora Photography on Unsplash
+Train/Test Split
+The Data
+Training Data
+Testing Data
+One Way
+Train model
+Experiment with different model designs
+Experiment with different features
+Select hyperparameters
+Evaluate Effectiveness
+
+Significant?
+Testing Effectiveness
+For test data, we have:
+Individual classifications, right or wrong
+Single metric value (accuracy, precision, etc.) for each classifier
+
+Can’t significance test a single value!
+
+
+
+Testing Objectives
+Does my classifier perform better than benchmark value?
+What is the precision of my estimated classifier accuracy?
+Confidence interval
+Does classifier A perform better than B?
+P-value
+Confidence interval for the difference
+Test Samples: Confidence Intervals
+Solution 1: treat each test item as a binary measurement
+
+If metric denominator from test data: Wilcox confidence interval
+statsmodels: proportion_confint (with method=‘wilson’)
+Works for accuracy, FPR, FNR, recall, specificity
+
+Any metric:
+Bootstrap the test samples
+Compute metric from bootstrap samples
+P-Value for Accuracy
+Testing Regression
+For regression, each sample is a continuous measurement of the model’s prediction error.
+
+Use paired t-test or appropriate bootstrap
+Repeated Testing
+With repeated cross-validation, we can compute a t-statistic
+Run 5 times
+Each time, do 2-fold cross-validation
+
+See reading.
+
+Simple cross-validation not great– too much non-independence
+Repeated test sampling unreliable – too much non-independence
+Cross-Validation and Train/Test Split
+Cross-validation sometimes used for final eval
+
+Allows data leakage – what did you do your model & feature selection on?
+
+Good for:
+Limited engineering – just see how well the model works
+Model and feature design – when done on training data
+Understanding Performance & Behavior
+Suppose you are detecting spam with:
+Text features
+Metadata features
+URL features
+URL reputation model
+Sender reputation model
+
+What makes it work?
+Ablation Studies
+An ablation study examines impact of individual components
+Turn each off in turn
+Measure classification performance
+
+Lets you see how much each component contributes
+Do use results for production decisions, future work
+Do not use results to revisit model design (in this trial)
+Wrapping Up
+Inference for classifier performance is not immediately straightforward.
+
+Several techniques helpful.
+
+Be careful about data leakage. Sometimes tradeoffs are needed.
+Photo by Bianca Ackermann on Unsplash

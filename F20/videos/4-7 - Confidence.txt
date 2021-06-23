@@ -1,0 +1,32 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SAMPLING DISTRIBUTIONS AND CONFIDENCE INTERVALS
+Learning Outcomes
+Compute a confidence interval for the mean using the standard error
+Correctly interpret a confidence interval
+Photo by Ashim D’Silva on Unsplash
+Sampling the Population
+Sample of Penguins
+Statistic
+Sampling Distributions
+How does a statistic relate to the underlying parameter?
+
+Classical frequentist statistics considers the outcome of repeating the experiment.
+
+This gives us the sampling distribution of the statistic.
+Sampling Distributions
+Sampling Distribution of the Sample Mean
+Confidence Interval
+Aside: Pop and Sample SD
+Comparing Confidence
+The confidence intervals do not overlap.
+
+This is evidence that the species have different flipper lengths.
+
+We’ll see a direct comparison later.
+Interpreting Confidence
+Wrapping Up
+Taking a sample and computing a statistic is a random process that results in a sampling distribution.
+
+We can use the sampling distribution to estimate the precision of an estimate (e.g. statistic estimating a parameter).
+Photo by Joshua Rawson-Harris on Unsplash

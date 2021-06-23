@@ -1,0 +1,67 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SIMULATION
+Learning Outcomes
+Simulate data to understand statistical behavior
+Understand the difference between simulation and the bootstrap
+Photo by Markus Spiske on Unsplash
+Simulation
+We can make up data (with a random number generator)
+We know the population parameters (we set them)
+We can take unlimited samples (it’s just an RNG)
+
+Result: we can study the behavior of sampling and statistical methods
+Setting Up the RNG
+Modern: np.random.Generator
+Create with np.random.default_rng()
+Can provide a seed (starting point) - integer
+Recommended!
+Same seed + software versions + platform ⇒ same results
+
+Legacy: np.random functions
+Python standard library also has random module
+Drawing from Distributions
+integers(k, size=n) — n integers in range [0,k)
+integers(j, k, size=n) — n integers in range [j,k)
+random(n) — n floats uniformly from [0,1)
+normals(μ, σ, n) — n normally-distributed floats
+exponential(λ, n) — n exponentially-distributed floats
+
+Random and uniform are not the same thing.
+
+
+More Randomness
+Operating on arrays:
+choice(a, n) — n draws from array a w/ replacement
+permutation(a) — random reordering of a
+
+More distributions: scipy.stats
+
+Go NUTS: PyMC3, STAN
+Example: Mean
+Simulating Means (Law of Large Numbers)
+Simulating Means — Check for Normality
+Exponential
+Simulation
+We have a proof of the Central Limit Theorem
+
+More complex methods are much harder to characterize.
+Simulation lets us explore behavior
+
+Also: useful for learning, gaining intuition
+Not the Bootstrap
+Bootstrap
+Unknown population parameters
+Resample actual observations
+Estimate sampling distribution
+Purpose: estimate population parameters
+Simulation
+Known population parameters
+Sampling from theoretical distributions, making up data
+Characterize sampling distributions & other properties
+Purpose: understand estimate / parameter relationships
+Wrapping Up
+Simulation lets us study the behavior of statistical methods by drawing many samples with known population parameters.
+
+This is commonly used in statistics research. You do it in A4.
+Photo by Aditya Chinchure on Unsplash

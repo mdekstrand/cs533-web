@@ -1,0 +1,59 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+DATA
+Learning Outcomes (week)
+Locate data sources
+Integrate data from multiple sources
+Reason about bias and social effects of data
+Photo by Aaron Burden on Unsplash
+Sources of Data
+Business records
+Administrative records
+Public service organizations
+Physical observations
+Surveys
+Experiments (physical or social)
+Online services / observations
+Questions (from Week 2)
+Who collected it?
+Why?
+How?
+What does it contain?
+What limitations does it have?
+Pictures from dreamstime, located by @PACropDoc and @NoroNerd
+Questions
+How do we link it to other data?
+Should we link it to other data?
+How effective is the linkage?
+What cleanup is needed to make it useful?
+What ethical concerns govern its collection or use?
+What biases might it contain?
+We will never be exhaustive
+Data is biased – question is how, and with what effect?
+
+
+Things to Do
+Get the raw data files
+Transform data into usable format
+Convert data types
+Unify appropriate special codes (e.g. missing data)
+Extract identifiers
+Link with additional data sources
+Extract the data set needed for your task
+General Principles
+Avoid Discarding Data
+Measure Every Step
+Look At Your Data
+The Anna Karenina Principle of Data Science
+Clean data sources are all alike; each messy data source is messy in its own way.
+Wrapping Up
+Data comes from a variety of sources.
+
+We often need to compile multiple data sources to answer a question.
+
+We need to question and document our data.
+
+
+
+
+Photo by Giorgio Trovato on Unsplash

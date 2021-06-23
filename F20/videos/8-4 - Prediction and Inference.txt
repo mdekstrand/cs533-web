@@ -1,0 +1,52 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PREDICTION AND INFERENCE
+Learning Outcomes
+Distinguish between prediction and inference
+Understand different meanings of the word ‘inference’
+Photo by Mark Boss on Unsplash
+Prediction and Inference
+Prediction tries to predict the future with the model.
+
+Model does not need to be valid
+Quality & strength: accuracy of predicting unseen data
+Evaluation does need to be valid
+Inference uses the model’s structure and parameters to learn.
+
+Validity depends on assumptions
+Quality & strength: R2, p-value, assumption checks, coefficients
+Inference
+Assumptions:
+Linearity — that this is actually a linear relationship
+Independent observations
+Normal residuals
+Homoskedastic residuals (equal variance)
+Prediction
+Fitting assumptions: none
+
+Testing assumptions: test data excluded from training
+Train-Test
+Data
+Train
+Test
+Model
+Split
+Predict
+Split before exploratory analysis of features.
+Supervised learning – we have thing to predict
+Splitting Data
+Split before exploratory analysis
+If testing multiple versions: split in 3
+Train – train the model
+Tune – optimize model, compare modeling decisions
+Test – final validation, compare with current / previous system
+Other Uses of Inference
+Here: using analysis to understand (“infer”) things about the underlying world
+Sometimes elsewhere: using a trained model to make predictions about specific instance (the “inference” stage of a machine learning pipeline)
+Wrapping Up
+Inference uses a model’s structure and parameters to understand an underlying phenomenon.
+
+Prediction uses a model to predict future observations.
+
+Inference has stronger requirements.
+Photo by NeONBRAND on Unsplash

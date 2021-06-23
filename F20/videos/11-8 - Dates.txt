@@ -1,0 +1,65 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+DATES
+Learning Outcomes
+Parse and transform dates
+Adjust dates using date offsets
+Photo by J. on Unsplash
+Dates and Representations
+Time moves forward at a constant rate (generally…)
+How we record it changes
+Daylight savings time – the same hour happens twice
+
+Key insight: time is different from representation
+Typically: store time in monotonic form, translate for presentation
+Numeric Representations
+Unix timestamps — time since (or before) midnight Jan 1, 1970
+Seconds, milliseconds, nanoseconds
+Reference point is UTC
+Julian day numbers
+Days since January 1, 4713 BC
+Floating point stores time as fraction of a day
+“1900 system” (Excel): days since Jan. 1, 1900
+String Representations
+ISO: 2020-11-03
+Alphabetic sorts by date (for AD, until 10000)
+Localized numeric
+US: 11/03/2020
+EU: 03/11/2020
+Longer
+November 3, 2020
+datetime64
+The Pandas datetime64 type stores dates (and times).
+Construct from:
+Number, units, and epoch
+pd.to_datetime(230481083, unit='s') — seconds since Unix epoch
+pd.to_datetime(3810401, unit='D', origin='julian') — days since Julian epoch
+String and format
+pd.to_datetime('2020-11-03') — convert from ISO
+pd.to_datetime('Nov 3 2020', format='%b %d %Y')
+timedelta
+The Pandas timedelta type stores time offsets
+Create from number + units or string
+‘1 day 00:30:22’ – one day, 30 minutes, and 22 seconds
+Mark advances in linear time
+DateOffset
+DateOffset type stores date offsets to adjust calendar days
+Create from number + units
+pd.DateOffset(months=240)
+Correctly offset dates, even with underlying nonlinearities
+Months don’t have the same length
+DST, leap years, leap seconds
+Not directly supported by Series
+Can use in ‘apply’:month_series.apply(lambda m: pd.DateOffset(months=m))
+Date Arithmetic
+datetime + timedelta = datetime
+datetime + DateOffset = datetime
+DateOffset * num = DateOffset
+Comparisons
+DateTime supports comparison operators (==, <, etc.)
+Need to create DateTimes on both sides
+Wrapping Up
+Dates and times are typically stored internally using offsets from an origin.
+
+Pandas provides several date and time features, including datetime, timedelta, and DateOffset.
+Photo by Bundo Kim on Unsplash

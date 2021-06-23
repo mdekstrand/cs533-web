@@ -1,0 +1,60 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PUBLISHING PROJECTS
+Learning Outcomes
+Understand what is needed to go from analysis to publishable reports.
+Outline a research paper.
+Photo by Good Good Good on Unsplash
+Publication Audiences
+Data science document products can be for:
+Collaborators
+Decision-makers
+Other organizations
+Scientific community
+Lay public
+
+Formats
+Written document (electronic or printed)
+Presentation (live or recorded)
+Interactive online demo/dashboard
+Publication Goals
+Reader needs to understand:
+What you did
+What you learned
+What they should do / take away
+
+(In general. Not everything is actionable.)
+Typical Outline
+Introduction
+Background & Related Work
+Methods
+Results
+Discussion
+Conclusion
+Variants:
+Some communities put related work at the end
+Institutional reports often lead with Executive Summary
+1-2 page summary w/ key points
+Discussion may be merged w/ Results or Conclusion
+Methods may split
+Rendering Plots
+High-quality images
+When practical: vector images (PDF good for LaTeX)
+Otherwise: high-resolution images (at least 300dpi, 600 better)
+Complex images can overwhelm PDF
+Clean and clear labels and captions
+Distinct colors, shapes, etc.
+Experiment with dimensions & aspect ratio
+E.g. 5”-wide image, scale down to 3.75” columns
+Step Outside Yourself
+Forget you did the work and wrote the document.
+
+Can you understand it? Could you reproduce it? Is info missing?
+
+Applies everywhere:
+Reports
+Papers
+README
+Wrapping Up
+Internal and external publications require special attention to writing and visual presentation.
+Photo by Kari Shea on Unsplash

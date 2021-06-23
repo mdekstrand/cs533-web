@@ -1,0 +1,40 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PRESENTING DATA
+Learning Outcomes (Week)
+Create plots for data
+Identify the appropriate type of plot for data in question
+Read and interpret a plot
+Refine a plot to more clearly show data
+Write a well-organized notebook to present data analysis
+Photo by Austin Distel on Unsplash
+Purposes of Data Presentation
+Guide reader attention to important results
+Focus
+Make it easy to ask the key questions
+Substantiate results and conclusions
+Do so with integrity
+Audiences
+You’ll need to present data to several audiences:
+
+Yourself
+Your collaborators, supervisors, etc.
+Expert readers (know subject, not your work)
+Decision-makers
+The general public
+Guiding Questions
+What did you seek to find out?
+What did you learn?
+Why should the reader trust your conclusions?
+
+Presentation with integrity shows the reader what you learned.
+Dishonest presentation manipulates them.
+Created by W.E.B. Du Bois for the 1900 Paris  Exposition.
+From https://www.loc.gov/resource/ppmsca.33892/
+Created by W.E.B. Du Bois for the 1900 Paris  Exposition.
+From https://www.loc.gov/item/2013650445/
+Wrapping Up
+The goal of good presentation is to guide the reader to what we learned and how we know it.
+
+Effective presentation will highlight the important things without distraction or deception.
+Photo by Ben White on Unsplash

@@ -1,0 +1,32 @@
+html, body {
+    font-size: 12pt;
+}
+
+.md-typeset {
+    font-size: 1rem;
+}
+
+.md-typeset h1 {
+    margin: 0;
+}
+
+.md-typeset h2, .md-typeset h3 {
+    margin: 1em 0 0;
+}
+
+.md-typeset .admonition {
+    font-size: 1rem;
+}
+
+.md-typeset .admonition.resource {
+    border-left: none;
+    margin: 0 0 1em;
+}
+
+.md-typeset .admonition.resource :first-child {
+    margin-top: 0;
+}
+
+.md-typeset .admonition.resource :last-child {
+    margin-bottom: 0;
+}

@@ -1,0 +1,79 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+GROUPS AND AGGREGATES
+Learning Outcomes
+Compute aggregate values from a Pandas series
+Compute grouped aggregate values from a Pandas data frame
+Order a data frame
+Join two Pandas data frames for additional context
+Photo by jean wimmerlin on Unsplash
+Data Frame
+Aggregates
+What’s the mean rating?
+
+ratings['rating'].mean()
+
+Use data frame
+Select column rating
+Compute mean
+
+What’s the conceptual problem here?
+Aggregate Functions
+Many aggregates:
+mean
+median
+mode
+min / max
+sum
+count
+std (standard deviation)
+var (variance)
+All are methods on pandas Series.
+Count and Length
+Total size of series, including missing values:
+series.size
+len(series)
+
+Number of values, not including missing data:
+series.count()
+Quantiles
+Grouped Aggregates
+Remember: # of ratings per movie could be a movie variable?
+
+ratings.groupby('movieId')['rating'].count()
+
+Yields a Series:
+indexed by movieId
+Values are # of ratings per movie
+We’re only aggregating one series
+If we did the other way, we wouldn’t have a movieid to group by!
+Multiple Aggregates
+See notebook…
+Sorting
+Sometimes we want to sort data:
+sort_values(col) re-sorts the data
+
+Sometimes we just need that to get the largest or smallest:
+nlargest(n, col) gets n rows with largest values of col
+nsmallest(n, col) gets the smallest
+Joining
+Joining two frames lets us combine data
+Simplest: join on common index
+set_index sets the index
+join joins two frames (by default on their indexes)
+Can specify join columns
+
+More later (including in readings)
+Aggregating Aggregates
+Our movie-level rating statistics are just more variables!
+
+That can be aggregated.
+
+Practice: compute the mean # of ratings per movie
+Wrapping Up
+Aggregates combine a series or array into a single value
+
+Can compute over whole series, or over groups.
+
+Join combines frames
+Photo by Dwayne Legrand on Unsplash

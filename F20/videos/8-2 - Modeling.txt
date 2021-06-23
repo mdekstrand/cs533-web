@@ -1,0 +1,54 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+MODELING
+Learning Outcomes
+Understand the relationship of models to reality
+Photo by Andrew Neel on Unsplash
+What Is a Model?
+A mathematical representation
+
+Of the essential dynamics
+
+Of a system of interest
+Things
+“Raw” Data
+Data Set
+Inferences
+Answers
+Phenomena / Experiment
+Data Pipeline
+Data Generating Process
+Things
+“Raw” Data
+Phenomena / Experiment
+Statistical Modeling
+Simplify the DGP to predict an outcome
+Correlational models look at relationships between observables
+No causal claim unless experiment design enables it
+Causal models model DGP more deeply to estimate causality
+Subtle and quick to anger
+
+Simplifications
+Models necessarily simplify the problem
+
+They hopefully capture enough to infer or predict usefully.
+
+Unpredicted value is residual or error.
+Movie Genres
+Movie
+Genre(s)
+Reviews
+?
+Parameters
+Model parameters are numeric values as part of the model.
+
+We estimate them from the data.
+Mean critic rating for each genre (how to handle multiple membership?)
+
+If the model captures the DGP, these are also underlying population parameters.
+Example (adapted from Wikipedia)
+Wrapping Up
+Models simplify a process so we can understand or predict features of interest.
+
+They are simplifications of the data generating process, to learn about it.
+Photo by Scarbor Siu on Unsplash

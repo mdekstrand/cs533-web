@@ -1,0 +1,56 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PIPELINES AND TRANSFORMERS
+Learning Outcomes
+Use a SciKit-Learn Pipeline to combine feature transforms and prediction
+Photo by Danil Sorokin on Unsplash
+Pipelines
+Our data often takes the form of a pipeline:
+Transform features
+Fit model
+
+Prediction then requires:
+Transform features
+Generate predictions
+SciKit-Learn
+Pipeline: create a sequence of ‘models’
+Typically one or more transforms followed by regressor or classifier
+Fit the pipeline and it will fit its inner models
+
+Transformer
+The SciKit-learn use case so far has been:
+Train data with fit(X, y)
+Generate predictions with predict(X)
+
+Transformers have a third method: transform(X)
+Learn transformation parameters with fit(X) (y is ignored)
+Transform with transform(X)
+Only apply to input features – not targets
+ColumnTransformer
+Transformers apply to all columns
+Good when they’re all numerics
+
+ColumnTransformer transforms different columns differently
+List of (name, transformer, column) triples for columns
+Some transformers take 1 column, some a list of columns
+remainder option for remaining columns (‘drop’, transform, etc.)
+Useful Transformers
+StandardScaler – standardizes variables
+PowerTransformer – applies power transformations
+Binarizer – converts numeric to 0/1 with threshold
+OneHotEncoder – encodes categorical as dummy
+FunctionTransformer – transform with a function you write
+Transforming Outcomes
+Transformers only apply to features
+
+The TransformedTargetRegressor class transforms target variables
+Wraps an underlying predictor
+Transforms target before calling inner ‘fit’ or ‘predict’
+Un-transforms the results of ‘predict’
+Wrapping Up
+Pipelines let us combine multiple data steps into a single operation.
+
+This facilitates applying train data transforms to test data.
+
+Pay very close attention to defaults in SciKit-Learn.
+Photo by Fabio Bracht on Unsplash

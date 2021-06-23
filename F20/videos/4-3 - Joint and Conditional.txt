@@ -1,0 +1,25 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+JOINT, CONDITIONAL, AND MARGINAL PROBABILITY
+Learning Outcomes
+Understand the definitions of and relationship between joint, conditional, and marginal probability
+Apply Bayes’ theorem to invert a conditional probability
+Describe what it means for two variables to be independent
+Photo by Mika Baumeister on Unsplash
+Joint Probability
+Two-Dimensional Spaces
+Dice
+Cards
+Conditional Probability
+Conditional and Joint
+Marginal Probability
+Marginalization
+Independence
+Bayes’ Theorem
+Wrapping Up
+Joint probability: multiple events.
+
+Conditional probability describes an event conditioned on other information.
+
+These are building blocks for more reasoning. We will use them a lot.
+Photo by Mika Baumeister on Unsplash

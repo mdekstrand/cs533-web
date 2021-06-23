@@ -1,0 +1,16 @@
+@media (min-width: 40em) {
+    .md-typeset dl {
+        display: grid;
+        grid-template-columns: 10em 1fr;
+        grid-gap: 1em 1ex;
+    }
+    .md-typeset dt {
+        grid-column: 1;
+        padding-left: 1ex;
+        margin: 0;
+    }
+    .md-typeset dd {
+        grid-column: 2;
+        margin: 0;
+    }
+}

@@ -1,0 +1,62 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+HUMAN SUBJECTS ETHICS
+Learning Outcomes
+Know the pillars of classical human subjects research ethics 
+Apply these principles to data science applications
+Know when to get IRB approval
+Understand boundaries and some concerns not covered by classic ethics
+
+Photo by Joel & Jasmin Førestbird on Unsplash
+Principles of Human Subjects Ethics
+Respect for Persons
+Individuals should be treated as autonomous agents
+Persons with diminished autonomy are entitled to protection
+Beneficence
+Avoid harm, provide benefit
+Justice
+How are costs and benefits of research distributed?
+See the Belmont Report
+Informed Consent
+Research subjects should
+Be informed about the research
+In terms they can understand
+So they can voluntarily choose whether to participate
+Photo by Philipp Wüthrich on Unsplash
+Compliance
+Ethics is about doing the right thing
+
+Compliance is about following rules and regulations
+
+Some rules are to enforce a baseline of ethical behavior, but compliance is not ethics.
+Regulation in US Federal Funding
+Common Rule regulates federally-funded human subjects research
+Organizations must have an Institutional Review Board (IRB)
+IRB must approve human subjects research
+Uses Belmont principles
+Reviews consent procedures, analysis, etc.
+Weighs risks and benefits
+
+IRB approval does not mean something is ethical.
+Human Subjects
+U.S. Common Rule:
+Human subject means a living individual about whom an investigator (whether professional or student) conducting research:
+(i) Obtains information or biospecimens through intervention or interaction with the individual, and uses, studies, or analyzes the information or biospecimens; or
+(ii) Obtains, uses, studies, analyzes, or generates identifiable private information or identifiable biospecimens.
+
+Additional Relevant Concerns
+Data protection regulation, law, and rights
+EU GDPR
+California, many jurisdictions have similar laws
+Principles are broader than implementation
+Contextual integrity — people may not expect data to be reused
+Anti-discrimination (both law and principle)
+Further development of respect and justice concerns
+Pushing further on racial and gender justice
+Wrapping Up
+Our work has ethical implications.
+
+It is our responsibility as scientists and as human beings to work through the ethics of our work and be accountable.
+
+Rules and regulations can provide some guidance.
+Photo by Tiago Felipe Ferreira on Unsplash

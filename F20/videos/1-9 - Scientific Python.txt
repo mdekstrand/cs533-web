@@ -1,0 +1,82 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SCIENTIFIC PYTHON
+Learning Outcomes
+Understand the limitations of core Python data types for data science
+Know the three key array data types:
+ndarray
+Series
+DataFrame
+Perform basic vectorized operations
+Photo by Faris Mohammed on Unsplash
+Lists of Numbers
+Python:
+numbers = [0.3, 9.2, 1.0, 6.7]
+
+Remember that everything is an object?
+List of 4 pointers (8 bytes each), with header (16 bytes)
+To 4 objects: 8 bytes (double) + 16 bytes (object header)
+Total: 144 bytes
+Elements can have different types!
+Sum our Numbers
+total = 0for x in numbers:    total = total + x
+
+What’s wrong?
+Python is slow – convenient, but slow
+Interpreted
+Dynamically typed
+Pointers to objects cause cache misses
+Enter NumPy
+NumPy provides efficient numeric array types (‘ndarray’s)
+
+import numpy as npnumbers = np.array([0.3, 9.2, 1.0, 6.7])
+
+All elements have the same type
+Stored directly in the array – no indirection, contiguous
+Many ways to load or create arrays without going through lists
+Sum our Numbers
+	sum = np.sum(numbers)
+
+Shorter (although we could have used Python’s sum earlier)
+Implemented in compiled language
+NumPy array internal layout is compatible with C and/or Fortran
+
+Don’t loop over arrays.
+Vectorization
+NumPy lets us perform operations on arrays:
+scale = np.linspace(0, 1, 4)numbers + scale
+Result:
+array([0.3       , 9.53333333, 1.66666667, 7.7       ])
+linspace creates an array from 0 to 1 (both inclusive), evenly spaced into 4 elements (same size as numbers)
++ does elementwise addition: adds corresponding elements
+Efficiently in compiled code
+About Arrays
+Each array has 3 key things:
+
+A data type (dtype) – what kind of elements?
+A shape (tuple of ints) – how big?
+May be multidimensional, e.g. (100,50) for 100x50 matrix
+Elements – the data itself
+Pandas
+Pandas builds on NumPy with two new data types:
+
+Series – an array with an associated index (element labels)
+DataFrame - a table where each column is a series
+
+You’ll see these briefly in A0, and more next week!
+Use of Lists and Loops
+We’ll still sometimes use lists and loops
+
+Lists of arrays or data frames
+Looping over input files or groups of data
+
+But we avoid looping over individual data points.
+Wrapping Up
+NumPy provides efficient arrays
+
+These are the backbone of our data processing
+
+Prefer ‘vectorized’ operation whenever possible
+
+Practice: put these in a notebook!
+Fortak, Lord High Researcher of Clan Urdnot; Mass Effect 2

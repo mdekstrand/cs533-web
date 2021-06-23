@@ -1,0 +1,24 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+LOG LIKELIHOOD
+Learning Outcomes
+Compute the log likelihood of data from a model estimating probabilities.
+Understand the objective function of logistic regression.
+Photo by Devin Avery on Unsplash
+Logistic Regression
+Probability of Observed
+Conditioning on Parameters
+Likelihood Function
+Proportionality
+Log Likelihood
+Maximum Likelihood Estimator
+Expanded Log Likelihood
+Example
+Can compare on same data
+
+Different data ⇒ different likelihood
+Likelihood and Posterior
+Maximizing
+Wrapping Up
+Logistic function is trained by maximizing the log likelihood of the training data given the model.
+Photo by Geran de Klerk on Unsplash

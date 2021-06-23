@@ -1,0 +1,38 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PYTHON ERRORS
+Learning Outcomes
+Read a Python error message
+Understand common kinds of Python errors
+Photo by Wesley Tingey on Unsplash
+Stack Trace
+Stack Trace Components
+Error type
+Location in the code
+Error information (type + message)
+Common Error Types
+NameError – trying to use a variable that does not exist
+AttributeError – trying to use a class member (method or field) that does not exist
+KeyError – trying to look up a key (in a dictionary or Pandas index) that does not exist
+Sometimes arises when Pandas doesn’t correctly figure out how to process the thing you’re using to index
+IndexError – accessing an item by a position (in a list or with Pandas .iloc) that is out of bounds
+Common Error Types
+FileNotFoundError – trying to access a file that does not exist
+Reading: the file does not exist
+Writing: usually the directory doesn’t exist
+OSError – other error reading/writing a file
+Reading an Error
+What kind of thing went wrong? (error type)
+What specifically went wrong? (message sometimes helps)
+Where did it go wrong? (stack trace)
+
+Key is to understand what went wrong, in your code.
+Copying errors into Google often doesn’t help.
+Need to understand problem, and translate back to your context
+Understanding helps you learn, but sometimes hard
+Wrapping Up
+Python errors are reported by exceptions.
+
+The stack trace shows you where in the code the exception occurred.
+raise WatercraftInversionError
+Photo by Quino Al on Unsplash

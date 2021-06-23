@@ -1,0 +1,25 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CORRELATION
+Learning Outcomes
+Compute correlation coefficient
+Understand the relationship between covariance and correlation
+Photo by Scott Webb on Unsplash
+Correlation
+We can see the relationship.
+
+But how correlated are the two variables?
+Variance
+Covariance
+Covariance
+Correlation
+Correlations
+Figure from Wikipedia. CC BY-SA 3.0.
+Correlation and Independence
+Estimating and Testing
+Wrapping Up
+Correlation measures the degree of linear relationship between two variables.
+
+It is a normalized version of covariance.
+
+Pandas: cov and cor.

@@ -1,0 +1,48 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+STATISTICS AND DIFFERENCES
+Learning Outcomes
+Review statistics (or metrics)
+Compute absolute and relative differences
+Interpret a relative difference
+
+Photo by Franck V. on Unsplash
+Statistics
+We compute various statistics
+Mean
+Median
+Max
+Success rate
+90 %ile
+Count
+Sum
+Many others…
+Often serve as metric for analysis or evaluation
+Comparing Values
+Take two values: population (2018 est.) of
+Boise: 228,790
+Salt Lake City: 200,591
+
+Can compare in two ways:
+Absolute – Boise has 28K more people than SLC
+Relative – Boise has 14.05% more people than SLC
+Absolute Comparison
+Relative Comparison
+Ratio Comparison
+Appropriate Comparison
+Depends on context and problem.
+
+Netflix paid $1M to the team that beat its movie recommender by 10% on their chosen metric
+Difference-in-difference
+Visual Comparison
+Bar charts emphasize relative difference
+
+Point plots emphasize absolute difference
+Also relative difference-in-difference
+Wrapping Up
+There are three primary ways to compare statistics: absolute, relative, and ratio.
+
+Be clear and unambiguous when writing the results of a comparison.
+
+Seek to accurately understand others’ writing.
+Photo by Nick Fewings on Unsplash

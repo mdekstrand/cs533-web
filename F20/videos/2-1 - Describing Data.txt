@@ -1,0 +1,60 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+DESCRIBING DATA
+Learning Outcomes (Week)
+To load a data file into Pandas and describe its basic structural characteristics.
+To identify the type of a variable and descriptive statistics appropriate to it.
+To describe the distribution of a variable numerically and visually.
+To describe how data was collected.
+To reason about limitations of the collection of data.
+Photo by Michael Aleo on Unsplash
+What is data?
+Oxford:
+data, n.: Facts and statistics collected together for reference or analysis.
+
+Where does it come from? Where does it go?
+Things
+“Raw” Data
+Data Set
+Inferences
+Answers
+Phenomena / Experiment
+Cleaning Things Up
+Data
+Data set
+Photo by Dan-Cristian Pădureț on Unsplash
+Photo by Brian Kostiuk on Unsplash
+Data sets
+Many definitions, see the reading.
+
+A set of data that is
+Collected or curated
+For a purpose
+Mostly ready-to-use
+Documented
+Examples
+Measure the ground speed of three-toed sloths
+Data set: measured time for sloths moving 5 meters
+May include other sloth attributes (height, weight, etc.)
+
+Movie ratings
+Thing: people enjoy movies
+Phenomena: watch and rate movies
+Data: user-provided ratings of movies
+What We Need To Know
+How much data do we have?
+What kind(s) of data do we have?
+What is the data about?
+How was the data collected?
+How was the data recorded?
+What biases might the data have?
+What do we know about the data generating process?
+
+Reading discusses more!
+Wrapping Up
+Data sets arise from curating or collecting data, resulting from observations, for a purpose.
+
+There are layers between what we want to study and the data we have.
+
+Do the reading!
+Photo by Rick Mason on Unsplash

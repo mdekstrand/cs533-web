@@ -1,0 +1,91 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+BIASES AND ASSUMPTIONS
+Learning Outcomes
+Reason about potential biases in classification inputs and outputs
+Identify cases where building a classifier is not appropriate
+Assumptions of Most Predictions
+Outcome variable is unbiased
+Features unbiased
+Outcome variable matches target
+Predicting this outcome with these features is reasonable
+Think about what the predictor implies
+A Few Sources of Bias (Week 2)
+Selection bias
+Some people more likely to be contacted
+
+Response bias
+Some people are more likely to respond
+
+Measurement bias
+Measurement skews one way or another
+
+
+
+Error and Bias
+Observations are often erroneous.
+
+Bias is when they are systematically erroneous.
+Tend high or low
+May be different for different groups
+Biased Features
+If features are unbiased ⇒ errors roll into model uncertainty
+
+If they have known bias ⇒ may be able to correct
+Remove bias term
+Normalize by groups?
+
+Unknown bias ⇒ how severe? (may need to abandon!)
+Assumptions
+Example: SAT scores — differ by SES (socio-economic status)
+
+What’s more likely?
+Poor students are less academically capable
+Poor students have less access to academic preparation
+The SAT measures both academic capability and familiarity with middle- to upper-class social conventions
+Outcome/Target Mismatch
+Aren’t predicting what we think we are
+
+Example: crime
+Data: crime reports or arrests
+Goal: predict crime level
+Reality: predict crime report level or police activity
+Photo by Woody Kelly on Unsplash
+Claims and Evidence
+Our claims must be supported by our evidence
+
+Can’t claim a crime detector when our data is crime reports
+
+This is why the goal ⇔ question ⇔ analysis chain is critical!
+Task Reasonableness
+What does trying to predict Y with X inherently assume?
+Predict college GPA with SAT scores
+Performance on a standardized test is legitimate basis for predicting future academic grades
+Classifying ‘criminal’ based on photos
+Facial features are a legitimate predictor of criminality
+This is called ‘physiognomy’, and has been rejected for a century
+Related: ‘phrenology’, connecting personality to skull shape
+Crime/Face Correlation
+What is crime?
+
+Why would it be a physically observable characteristic?
+
+Be careful what you assume
+Theory drives research questions
+Theory drives predictions
+Label Dependencies
+What to Do?
+Assume data is biased (especially social data)
+Understand how the data is collected and what labels actually are
+Study what is known about those biases
+Look for systematic variations in the data
+Clarify and document your assumptions
+Always be critical — does problem or outcome make sense?
+Read broadly and critically
+Wrapping Up
+All analyses are based on assumptions — be clear about what yours are.
+
+Data are biased. Study to see how.
+
+There’s no magic bullet.
+Photo by Parizad Shojaei on Unsplash

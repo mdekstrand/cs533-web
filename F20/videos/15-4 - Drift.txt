@@ -1,0 +1,33 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CONCEPT AND DATA DRIFT
+Learning Outcomes
+Know crucial assumptions of machine learning evaluation and deployment
+Understand how models can degrade over time
+
+Photo by guille pozzi on Unsplash
+Fundamental Assumption
+Deployment Assumption
+Drifts and Shifts
+Offline Solution: Temporal Splitting
+Random train-test split ensures train/test comparable
+Assumes test is uniformly drawn from same distribution!
+Alternative: temporal split
+Select temporally-contiguous test data (e.g. 1 month)
+Train on data before test data (no time travel!)
+
+Benefit: simulates actual use
+Drawback: temporal data no longer random, inference harder
+Online Solution: Continuous Monitoring
+Instrument your system in production
+Watch key metrics over time
+Click-through rate
+Classification rate
+Regularly re-train and re-evaluate
+Train model on new data
+Evaluate model on new data
+Wrapping Up
+ML training and evaluation assumes that the training and test data match real life.
+
+You can’t always rely on that.
+Photo by Jackson Douglas on Unsplash

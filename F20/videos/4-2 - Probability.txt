@@ -1,0 +1,35 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PROBABILITY
+Learning Outcomes
+Know the fundamental set operations
+Know the fundamental concepts of probability theory for single events
+Photo by Tengku Nadia on Unsplash
+Sets
+Set Operations
+Events
+Logic
+Event Space
+Amazing Events
+“Something amazing” is an event
+The set of all elementary events that are amazing
+Therefore, something not-amazing is also an event
+Something boring?
+6-sided Die
+A First Theorem
+Probability (Axioms - Kolmogorov)
+Probability
+Consequences
+Some Probability Facts
+What does Probability Mean?
+Deep philosophical question…
+
+Expected or long-run outcome of a random process
+Degree of belief or expectation
+Wrapping Up
+We can use sets to describe events or outcomes, and logical combinations.
+
+Probability quantifies likelihood of different events.
+
+Probabilities follow several rules, with rich emergent properties.
+Photo by ÉMILE SÉGUIN 🇨🇦 on Unsplash

@@ -1,0 +1,48 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PREDICTION AND OVERFITTING
+Learning Outcomes
+Understand overfitting
+Design an evaluation that reduces the likelihood of overfitting
+Understand that we can overfit process not just an individual model
+Photo by Jennifer Burk on Unsplash
+Prediction Goals
+Predict future unseen data
+We can just look at the data we have to learn about it
+We want to forecast or predict the future
+
+One way of thinking about generalizability
+Overfitting
+Overfitting
+Train-Test
+Data
+Train
+Test
+Model
+Split
+Predict
+Test data is unseen
+
+Can model generalize to it?
+Fitting to Data
+The model structure:
+Choice of model (linear, tree, etc.)
+Selection & transformation of features
+Hyper-parameter values
+
+The model parameters:
+Coefficients learned from data
+
+Both can overfit. Train-test addresses parameters.
+Tuning Data
+Data
+Train
+Test
+Train
+Test
+Tune
+Wrapping Up
+Overfitting arises when our model learns too much, so it can’t generalize to new data.
+
+Splitting our data into training, tuning, and testing sets helps with this.
+Photo by Darren Nunis on Unsplash

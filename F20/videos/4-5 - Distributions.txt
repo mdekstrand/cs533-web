@@ -1,0 +1,42 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+DISTRIBUTIONS
+Learning Outcomes
+Understand the idea of a distribution
+Identify parameters and statistics of a distribution
+
+Notebook has details!
+Photo by Emiliano Vittoriosi on Unsplash
+Numeric Distributions
+We’re going to focus on distributions of numeric variables
+Both discrete and continuous
+Categorical: encoded to 0, 1, etc.
+
+Bernoulli Distribution
+Characterizing Distributions
+Parameters:
+location, scale, shape
+Characterizing Distributions
+Parameters:
+location, scale, shape
+
+Density or mass function
+
+Support (range it’s defined over)
+
+Underlying random process
+Key Statistics
+Mean (first moment)
+Standard deviation or variance
+Variance is second central moment
+Median (50th %ile)
+Binomial
+Binomial(10, 0.3)
+Normal (Gaussian)
+Wrapping Up
+Random variables are often described by probability distributions, which may have parameters.
+
+There are many standard probability distributions.
+
+See notebook + resources for more!
+Photo by JOSHUA COLEMAN on Unsplash

@@ -1,0 +1,1883 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../logo.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
+    
+    
+      
+        <title>Week 14 — Workflow - Intro to Data Science</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.875de78c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+<link href="../../stylesheets/print.css" rel="stylesheet" media="print">
+
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font-family:"Lato";--md-code-font-family:""}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    
+      
+    
+    
+
+
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#from-notebooks-to-workflows" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Intro to Data Science" class="md-header__button md-logo" aria-label="Intro to Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96-96 42.98-96 96 42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Intro to Data Science
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 14 — Workflow
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Course Info
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../syllabus/" class="md-tabs__link">
+      Syllabus
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../schedule/" class="md-tabs__link">
+      Schedule
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/" class="md-tabs__link">
+        Resources
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Content
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../assignments/" class="md-tabs__link">
+        Assignments
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Intro to Data Science" class="md-nav__button md-logo" aria-label="Intro to Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96-96 42.98-96 96 42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z"/></svg>
+
+    </a>
+    Intro to Data Science
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Course Info
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/" class="md-nav__link">
+        Syllabus
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schedule/" class="md-nav__link">
+        Schedule
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Resources
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/software/" class="md-nav__link">
+        Software Installation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/onyx/" class="md-nav__link">
+        Remotely Using Onyx
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/notebook-checklist/" class="md-nav__link">
+        Notebook Checklist
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/problems/" class="md-nav__link">
+        Common Problems
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/probability/" class="md-nav__link">
+        Notes on Probability
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/git-resources/" class="md-nav__link">
+        Git Resources
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/tutorials/" class="md-nav__link">
+        Tutorial Notebooks
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      <label class="md-nav__link" for="__nav_5">
+        Content
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Content" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Content
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Course Content
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week1/" class="md-nav__link">
+        Week 1 — Question
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week2/" class="md-nav__link">
+        Week 2 — Description
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week3/" class="md-nav__link">
+        Week 3 — Presentation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week4/" class="md-nav__link">
+        Week 4 — Inference
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week5/" class="md-nav__link">
+        Week 5 — Filling In
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week6/" class="md-nav__link">
+        Week 6 — Two Variables
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week7/" class="md-nav__link">
+        Week 7 — Getting Data
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week8/" class="md-nav__link">
+        Week 8 — Regression
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week9/" class="md-nav__link">
+        Week 9 — Models & Prediction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week10/" class="md-nav__link">
+        Week 10 — Classification
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week11/" class="md-nav__link">
+        Week 11 — Evaluation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week12/" class="md-nav__link">
+        Week 12 — Text
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week13/" class="md-nav__link">
+        Week 13 — Unsupervised
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Week 14 — Workflow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Week 14 — Workflow
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#from-notebooks-to-workflows" class="md-nav__link">
+     From Notebooks to Workflows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scripts-and-modules" class="md-nav__link">
+     Scripts and Modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducing-git" class="md-nav__link">
+     Introducing Git
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weekly-quiz-14" class="md-nav__link">
+     Weekly Quiz 14
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-for-data-science" class="md-nav__link">
+     Git for Data Science
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extract-transform-load" class="md-nav__link">
+     Extract, Transform, Load
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#split-apply-combine" class="md-nav__link">
+     Split, Apply, Combine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuning-hyperparameters" class="md-nav__link">
+     Tuning Hyperparameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuning-example" class="md-nav__link">
+     Tuning Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reproducible-pipelines" class="md-nav__link">
+     Reproducible Pipelines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-examples" class="md-nav__link">
+     More Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignment-7" class="md-nav__link">
+     Assignment 7
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week15/" class="md-nav__link">
+        Week 15 — What Next?
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Assignments
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Assignments" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Assignments
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignments/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      <label class="md-nav__link" for="__nav_6_2">
+        Assignment 0
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Assignment 0" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Assignment 0
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignments/A0/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignments/A0/A0-Notebook/" class="md-nav__link">
+        CS 533 Assignment 0
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignments/A0/A0-Solution.pdf" class="md-nav__link">
+        PDF
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#from-notebooks-to-workflows" class="md-nav__link">
+     From Notebooks to Workflows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scripts-and-modules" class="md-nav__link">
+     Scripts and Modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducing-git" class="md-nav__link">
+     Introducing Git
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weekly-quiz-14" class="md-nav__link">
+     Weekly Quiz 14
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-for-data-science" class="md-nav__link">
+     Git for Data Science
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extract-transform-load" class="md-nav__link">
+     Extract, Transform, Load
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#split-apply-combine" class="md-nav__link">
+     Split, Apply, Combine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuning-hyperparameters" class="md-nav__link">
+     Tuning Hyperparameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuning-example" class="md-nav__link">
+     Tuning Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reproducible-pipelines" class="md-nav__link">
+     Reproducible Pipelines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-examples" class="md-nav__link">
+     More Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignment-7" class="md-nav__link">
+     Assignment 7
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+
+
+                
+                
+                <h1 id="week-14-workflow">Week 14 — Workflow</h1>
+<p>In this week, we are going to talk more about <em>workflows</em>.
+What does it look like to build a practical data science pipeline?</p>
+<div class="toc">
+<ul>
+<li><a href="#from-notebooks-to-workflows"> From Notebooks to Workflows</a></li>
+<li><a href="#scripts-and-modules"> Scripts and Modules</a></li>
+<li><a href="#introducing-git"> Introducing Git</a></li>
+<li><a href="#weekly-quiz-14"> Weekly Quiz 14</a></li>
+<li><a href="#git-for-data-science"> Git for Data Science</a></li>
+<li><a href="#extract-transform-load"> Extract, Transform, Load</a></li>
+<li><a href="#split-apply-combine"> Split, Apply, Combine</a></li>
+<li><a href="#tuning-hyperparameters"> Tuning Hyperparameters</a></li>
+<li><a href="#tuning-example"> Tuning Example</a></li>
+<li><a href="#reproducible-pipelines"> Reproducible Pipelines</a></li>
+<li><a href="#more-examples"> More Examples</a></li>
+<li><a href="#assignment-7"> Assignment 7</a></li>
+</ul>
+</div>
+<p>This week's videos are also available as a <a href="https://boisestate.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=67ac8104-6d5d-458c-a546-ac82004d4567">Panopto playlist</a>.</p>
+<h2 data-length="3m44s" id="from-notebooks-to-workflows"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> From Notebooks to Workflows</h2>
+<p>In this video, we introduce going beyond notebooks to broader structures for our Python projects.</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=0eccb59d-2a96-440a-82eb-ac82004d0a86&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2173401&amp;authkey=AKrc_UfM5PLb-hc&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<aside class="slides text hidden">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+FROM NOTEBOOKS TO WORKFLOWS
+Learning Outcomes (Week)
+Break code into scripts, modules, and notebooks.
+Design a data pipeline to run and reproduce an analysis.
+Use Git to version-control code.
+Photo by Jessica Furtney on Unsplash
+Managing Code and Data
+Notebooks are great
+Interactively test code
+View results with code
+Good visualization capabilities
+Combine discussion, methods, and results
+
+Limitations of Notebooks
+Hard to reuse code from one notebook in another
+Not great for long-running tasks
+Limited running capabilities
+Moving Beyond
+Scripts are Python programs that run on their own.
+
+Modules hold Python code to reuse elsewhere
+Scripts
+Notebooks
+Other Modules
+Pipelines
+Transform / Prepare (ETL)
+Raw Source Data
+Prepared Data
+Inference
+Findings
+Modeling
+Model + Predictions
+Data Description
+Wrapping Up
+Significant data science projects usually have multiple components in a pipeline.
+
+Git is useful for tracking and versioning the code to generate these components.
+Photo by Fran Jacquier on Unsplash
+</aside>
+
+<h2 data-length="15m33s" id="scripts-and-modules"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Scripts and Modules</h2>
+<p>This video introduces Python scripts and modules, and how to organize Python code outside of a notebook.</p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=3af006eb-8e58-434e-b7f7-ac8200547864&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2173403&amp;authkey=AA0tIVINHt7Z2GE&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<aside class="slides text hidden">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SCRIPTS AND MODULES
+Learning Outcomes
+Write a Python script
+Put Python code in a module
+Understand the Python module/package structure
+Photo by Simon Goetz on Unsplash
+Scripts
+A .py file can be run as a script from the command line:python my-script.py
+Runs the code in the file
+‘def’, ‘class’, etc. are just Python statements
+
+Example: read in a file, and write a filtered file
+Starts with a docstring (optional)
+"""Filter ratings to only real ones"""import pandas as pdratings = pd.read_csv('ratings.csv')r2 = ratings[ratings['rating'] >0]r2.to_csv('filtered-ratings.csv',          index=False)
+Scripts and Pipelines
+Typical script:
+Reads input files
+Does some processing
+Pandas manipulations
+SciKit-Learn model training/evaluation
+Saves results
+Data frame as CSV, Parquet, etc.
+Model as pickle file
+Docstrings
+A Python code object can start with a docstring
+Script, class, function, module
+
+Documents the code
+Purpose
+Function arguments
+Class fields
+
+Doc renderers & IPython/Jupyter use these
+Configurability
+Scripts can take command line arguments
+python script.py in.csv out.csv
+
+In list sys.argv
+0 is name of the program
+Libraries help parse:
+argparse (in standard lib)
+docopt (uses help message)
+"""Filter ratings to only real ones"""import sysimport pandas as pdin_file = sys.argv[1]out_file = sys.argv[2]ratings = pd.read_csv(in_file)r2 = ratings[ratings['rating'] >0]r2.to_csv(out_file, index=False)
+Import Protection
+Python files can be either run as a script or imported as a module
+
+Import-protect your scripts to avoid potential problems & enable code reuse:
+Put all code in functions
+Call main function in ‘if’ statement at end of script
+"""Filter ratings to only real ones"""import sysimport pandas as pddef main():    in_file = sys.argv[1]    out_file = sys.argv[2]    ratings = pd.read_csv(in_file)    r2 = ratings[ratings['rating'] >0]    r2.to_csv(out_file, index=False)if __name__ == '__main__':    main()
+Modules
+import foo
+
+Looks for file foo.py
+In script’s directory (or local dir for notebooks / console)
+In PYTHONPATH environment variable
+In Python installation
+Runs file to create definitions
+Exposes definitions under ‘foo’ object
+def bar()… becomes foo.bar
+Exposes all assigned names: variables, functions, classes, other imports…
+Packages
+Modules can be grouped together into packages
+A package is just a directory with a file __init__.py
+Init file can be empty
+Init can have docstring to document package
+Packages can contain other packages
+
+Let's see an example…
+Script Advice
+Write a docstring (quickly glance at script to see purpose)
+With docopt, docstring is also script usage information
+Import-protect scripts
+Provide reasonable configurability
+If script has too many different modes, break apart
+Multiple scripts
+Common code in modules
+
+Disconnected Runs
+What if you lose connection?
+Can we start a process running, go home, and check it later?
+
+The tmux program does this!
+tmux creates a new session
+Ctrl+b d (Ctrl+b followed by ‘d’) detaches
+tmux attach re-attaches to session
+Many other capabilities under Ctrl+b.
+General Principles
+Use packages and modules to organize code for your project
+Layout
+Common utilities
+Presentation themes?
+Always refer to relative paths
+Applies to all code!
+Beware excessive configurability
+In either functions or scripts
+If multiple ways to combine pieces, extract pieces & have different scripts or functions that combine them in different ways.
+Wrapping Up
+Scripts and modules are useful for organizing code in larger projects.
+
+We can reuse code and operations across multiple parts of the project.
+Photo by Klára Vernarcová on Unsplash
+</aside>
+
+<h3 id="resources">Resources</h3>
+<ul>
+<li><a href="https://docs.python.org/3/tutorial/modules.html">Python Modules</a></li>
+<li><a href="http://docopt.org/">docopt</a>, a very useful tool for processing command-line arguments</li>
+<li><a href="../../resources/glossary/#envvar">Environment Variables in glossary</a></li>
+<li><a href="https://github.com/lenskit/lk-demo-experiment">LK Demo Experiment</a>, which I used in the demo; this also uses DVC</li>
+<li><a href="https://github.com/tmux/tmux/wiki">tmux</a></li>
+</ul>
+<h2 data-length="12m2s" id="introducing-git"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Introducing Git</h2>
+<p>This video introduces version control with Git.</p>
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=bf2603f3-2329-49b7-aafb-ac8200547812&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2173404&amp;authkey=ACF19qqHL2TJnCs&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<aside class="slides text hidden">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+INTRODUCING GIT
+Learning Outcomes
+Use Git to save versions of scripts and notebooks
+Share code through GitHub
+Merge code changes from collaborators
+
+This video introduces concepts — see links for hands-on learning.
+Photo by Ula Kuźma on Unsplash
+Problems with Saving Files
+Make a change that didn’t work — get back the old version
+Save work to make sure you don’t lose it
+Making sure you have the right version of the file on multiple computers
+Share changes with collaborators 
+Versions
+Git is a tool for storing versions of software
+Snapshot of current state
+History of versions
+
+A commit is a snapshot with a pointer to the previous commit(s)
+Chain of commits form history
+Can go back to previous commits
+Commits form basis for sharing and merging changes
+Core Concepts
+The working tree is your directory of files, ready to run or edit
+The index is a staging area for changes to be commit
+A repository stores the history
+Local repository is in .git directory in working tree
+Remote repositories (e.g. GitHub) don't have working trees
+Your local copy has the entire history!
+A branch is a is a line of development
+Points to a commit
+Updated as you make new commits
+Default branch is either ‘main’ or ‘master’
+Local and Remote
+You have a local repository where you work and make changes
+It can have configured remotes where you push and pull changes
+GitHub is one service for hosting repositories
+Configure your GitHub repo(s) as remotes on your local
+Other options include BitBucket and GitLab
+Operations
+commit records the current version of your files
+clone creates a repository & working tree by copying another
+push sends commits (and files) to a remote repository
+Updates remote branch to match local branch
+fetch retrieves data from a remote repository
+merge updates one branch to include changes from another
+pull updates local branch to include remote (fetch + merge)
+
+Use Case: Tracking History
+Work on your code and notebooks
+Commit when you have a version you want to save
+Do this very frequently
+It's useful for commits to successfully run
+
+Result: local history to go back and recover old versions
+Use Case: Multiple Computers
+Work on one machine
+Commit your changes
+Push to remote repo (e.g. GitHub)
+Pull on other machine, continue working
+
+Significantly less error-prone than manually copying files
+Cannot directly push between machines (can pull, though)
+Use Case: Collaboration
+Work, committing changes from time to time
+Pull from shared remote to get collaborator's current work
+Merge if necessary
+Push your work to shared remote
+Can only do if your branch is current w/ remote changes
+Collaborator pulls changes
+
+Always commit before merging
+Ignoring Files
+.gitignore files specify files to ignore
+These are committed to Git, to share w/ others
+Should ignore:
+Editor temp files (e.g. ~, .bak, .swp, etc.)
+OS weird files (e.g. .DS_Store on Mac)
+Python bytecode cache (__pycache__ dir, .pyc/.pyo files)
+Compiled files
+Most generated files
+Commit source and generators
+In data science projects, may store results of analysis (or even processing)
+Tools / Interfaces
+git command-line tool
+You’ll need to learn this, even if you primarily use other tools(running code on servers / clusters)
+Sometimes you need to fix things
+Integrated support in editor / IDE
+I use VS Code for almost all code — it has very good Git support
+Dedicated GUI like Tower, SourceTree, or GitKraken
+Free through GitHub Student Developer Pack
+Wrapping Up
+Git allows you to record versions of your code to track history, roll back changes, and share with others.
+
+Commit early and often.
+Photo by Jed Villejo on Unsplash
+</aside>
+
+<h3 id="resources_1">Resources</h3>
+<ul>
+<li><a href="../../resources/git-resources/">Git Resources</a> (including my example <code>.gitignore</code> file)</li>
+<li><a href="https://guides.github.com/introduction/git-handbook/">Git Handbook</a></li>
+<li><a href="https://try.github.io/">Resources to Learn Git</a></li>
+<li><a href="https://ericsink.com/vcbe/index.html">Version Control by Example</a></li>
+<li><a href="https://education.github.com/pack">GitHub Student Developer Pack</a></li>
+</ul>
+<h2 id="weekly-quiz-14"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2M7 8h2v4H8V9H7V8m3 9v1H7v-.92L9 15H7v-1h2.25c.41 0 .75.34.75.75 0 .2-.08.39-.21.52L8.12 17H10m1-13c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m6 13h-5v-2h5v2m0-6h-5V9h5v2z"/></svg></span> Weekly Quiz 14</h2>
+<p>Take <strong>Quiz 14</strong> in Blackboard.</p>
+<h2 data-length="6m52s" id="git-for-data-science"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Git for Data Science</h2>
+<p>How do you use Git effectively in a data science project?</p>
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=501f007d-6a32-44fd-802d-ac820054783e&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2173405&amp;authkey=AGba4PqAto3WUCU&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<aside class="slides text hidden">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+GIT FOR DATA SCIENCE
+Learning Outcomes
+Understand limits of git
+Ignore data files
+Know additional tools to look at for managing data files
+Photo by Lianhao Qu on Unsplash
+Git Strengths
+Git is very good at tracking:
+Modestly-sized files (less than a few MB)
+Text files
+
+Not good for:
+Binary files (although small ones are ok)
+Large files (especially binary)
+Hard-to-merge files (e.g. notebooks)
+
+Ignoring Files
+In a data science project, we often ignore more files
+Data files (e.g. *.csv, *.csv.gz)
+Inputs, intermediate files, and large outputs
+Keep the notebooks (and possibly other documents)
+Method 1: Inputs + Recreate
+Ignore data files
+Include script to fetch input data from central server
+File store
+Database
+Reproduce intermediate files locally by re-running scripts
+Optional: commit outputs / summaries
+Optional: save results into database / shared repo
+
+Good if analysis is relatively cheap
+Method 2: Data Data Repository
+Ignore data files
+Include scripts to fetch current inputs + intermediates from another server (file share, Amazon S3, etc.)
+Include scripts to update inputs on other server
+May commit:
+Outputs
+File versions
+Can be bespoke or use standard tools (I use DVC)
+Method 3: Large File Storage
+Git LFS (Large File Storage)
+Manage large media files with Git, looks like they are committed
+Commits stub file with pointer to actual content
+Content stored on separate server, not in git repo
+Stub replaced with content on checkout
+You may commit outputs in this mode!
+If someone changes, re-commit and push
+Caveat: if you use GitHub, limited space + bandwidth
+
+Notebooks
+Notebooks are text, but are complex JSON
+Hard to compare
+Hard to merge
+Change when run!
+2 solutions, roughly:
+Commit as normal
+Merge by just taking one version
+Merge with nbdime
+Coordinate notebook edits
+Commit without outputs
+nbstripout filter
+Wrapping Up
+Git works great for data science, but requires a few new tricks.
+
+Be thoughtful about how you handle data in Git.
+
+Notebooks can be annoying.
+Photo by laura adai on Unsplash
+</aside>
+
+<h3 id="resources_2">Resources</h3>
+<ul>
+<li>
+<p><a href="https://nbdime.readthedocs.io/en/latest/">NoteBook DIff and MErge (nbdime)</a> — tools for diff/merge of notebooks.  Available in Conda:</p>
+<pre><code>conda install nbdime
+</code></pre>
+</li>
+<li>
+<p><a href="https://git-lfs.github.com/">git-lfs</a></p>
+</li>
+</ul>
+<h2 data-length="6m46s" id="extract-transform-load"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Extract, Transform, Load</h2>
+<p>The Extract, Transform, Load (ETL) pipeline is a common design pattern for data ingest.
+Sometimes it is adjusted to Extract, Load, Transform.</p>
+<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=493fed70-4eff-4fd0-9e90-ac820056c58f&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2173407&amp;authkey=AEmcmPne5UWF0ts&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<aside class="slides text hidden">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+EXTRACT, TRANSFORM, LOAD
+Learning Outcomes
+Use standard design patterns to think about data integration and transformation.
+Photo by Dom Heartley on Unsplash
+Pipelines
+Transform / Prepare (ETL)
+Raw Source Data
+Prepared Data
+Inference
+Findings
+Modeling
+Model + Predictions
+Data Description
+Stages of Transformation
+Input: a source of initial, unprocessed data
+
+Extract data (download, export, scrape, etc.)
+Transform data (into common format, initial cleaning, etc.)
+Load data into system for analysis (store in DB, save in file)
+
+Result: cleaned, integrated data ready for analysis or modeling
+Benefits of Design Patterns
+A design pattern is a common structure for (software) design
+
+Common language for documenting & understanding software
+Context for developing best practices
+Can benefit from automation support
+
+Another example: SKLearn ‘fit’ design
+ETL in Context
+Stand-alone projects: may live in repo
+One or more ETL scripts
+Saves data ready for subsequent stages of analysis
+Organizational resource: may be on its own
+ETL pipeline to prepare data for use across organization
+Many different projects use results of common ETL pipeline
+Data “loaded” into shared database (or data warehouse / data “lake”)
+Variant: Extract, Load, Transform
+Sometimes transformations are done in the database
+
+Extract raw source data
+Load into (initial) database tables
+Transform in-DB (e.g. with SQL queries)
+
+Use layered schema design (load-side and transform-side tables)
+ELT in Practice
+Book Data Tools are a shared ELT pipeline
+Extract from 6–8 input data sources
+Load into PostgreSQL
+Transform (w/ SQL queries) into integrated tables
+
+Any project in group can use this data.
+Wrapping Up
+Design patterns provide a common language for talking about software design.
+
+Extract, Transform, Load and Extract, Load, Transform are patterns for data pre-processing.
+Photo by Arseny Togulev on Unsplash
+</aside>
+
+<h3 id="resources_3">Resources</h3>
+<ul>
+<li><a href="https://medium.com/hashmapinc/etl-understanding-it-and-effectively-using-it-f827a5b3e54d">ETL — Understanding It and Effectively Using It</a></li>
+<li><a href="https://www.iri.com/blog/data-transformation2/etl-vs-elt-we-posit-you-judge/">ETL vs. ELT</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Extract,_transform,_load">Wikipedia article on ETL</a></li>
+<li>The <a href="../week7/#example"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Week 7 Example</a> uses an ELT design</li>
+</ul>
+<h2 data-length="6m45s" id="split-apply-combine"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Split, Apply, Combine</h2>
+<p>We've seen group-by operations this semester; they're a specific form of a general paradigm called <em>split, apply, combine</em>.</p>
+<div class="tabbed-set" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=a87c9e55-f0c3-4b93-996e-ac82005bf3f7&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2173408&amp;authkey=AEuwR_CdpmKJj_o&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<aside class="slides text hidden">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SPLIT, APPLY, COMBINE
+Learning Outcomes
+Use the split/apply/combine to analyze and transform data.
+Photo by Omar Flores on Unsplash
+GroupBy
+ratings.groupby('movieId')['userId'].count()
+
+Split data by movie ID
+Apply the operation ‘count user IDs’
+Combine results into data frame (of movie rating counts)
+
+This is another pattern!
+Split
+groupby splits data by values of one (or more) columns
+
+Each group results in data frame
+Can see this by iterating over a groupby
+Each iteration yields a grouping key & subset data frame
+Apply
+Programming languages: you ‘apply’ a function to data
+
+Pandas apply operations:
+agg: apply an aggregate function (returns single value)
+transform: apply a 1:1 op (output size matches input size)
+apply: apply arbitrary function
+May return value, series, or data frame
+Should return same type for every partition
+Combine
+Pandas automatically combines results of the applied operation
+
+Value → series indexed by grouping columns
+Series → series indexed by grouping columns + result index
+DataFrame → DF indexed by grouping columns + result index
+Apply should return same columns for every partition
+Why?
+Pandas takes care of split/combine bookkeeping
+
+Easier to understand code in standard paradigm
+
+Trivial to parallelize
+Dask parallelizes with same API
+Runs apply op on multiple processes or machines
+Related: Map/Reduce
+Define two operations:
+Map transforms element to key-value pairs
+Reduce transforms key & set of values to single value
+May have partial / repeated reduce, w/ values from previous
+
+Map/reduce framework (e.g. Hadoop) parallelizes.
+Example: count ratings
+
+def map(rating):    yield rating.movieId, 1
+
+def reduce(id, counts):    return np.sum(counts)
+Wrapping Up
+The split/apply/combine pattern lets us transform groups of data.
+
+It improves understandability, modifiability, and parallelism.
+Photo by Erol Ahmed on Unsplash
+</aside>
+
+<h3 id="resources_4">Resources</h3>
+<ul>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html">Split, Apply, Combine at Pandas</a></li>
+</ul>
+<h2 data-length="10m49s" id="tuning-hyperparameters"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Tuning Hyperparameters</h2>
+<p>How can we move beyond <code>GridSearchCV</code> in our quest to tune hyperparameters?</p>
+<div class="tabbed-set" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=a8a2d475-1b2d-48a0-a351-ac82005bf3b2&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2173409&amp;authkey=ACJeAazU69nVuOI&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<aside class="slides text hidden">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+TUNING HYPERPARAMETERS
+Learning Outcomes
+Apply different techniques to tune hyperparameters
+Understand the principle of random search
+Photo by Marten Newhall on Unsplash
+Selecting Hyperparameters
+Need to pick good values for hyperparameters
+Regularization strength
+Number of trees in the forest
+Number of neighbors
+Latent space dimensionality
+Grid Search
+Characteristics of Grid Search
+Random Search
+Why Does Random Search Work?
+Principle 1: we don’t need best, just good enough
+Principle 2: more than one setting probably good enough
+
+If 5% of the search space is “good enough”
+And you sample 60 points
+Probability you have at least 1 good-enough point: 95%
+G
+Proof
+G
+Random Search Summary
+Only needs 60-100 points, regardless of # of parameters
+Trivially parallelizable (like grid search)
+May not find best solution
+Requires assumption about size of “good enough” set
+
+SciKit Learn: RandomizedSearchCV
+Hyperparameter Search as Optimization
+Bayesian Optimization
+Tests model at a few initial points
+Maintains surrogate model to predict performance at new settings
+Uses model to pick next test points
+
+Implemented by scikit-optimize.
+BayesSearchCV: SciKit-compatible optimizer
+gp_minimize: general-purpose function minimizer
+Bayesian Optimization Characteristics
+Trades off parallelism for optimization ability
+Next search point(s) depend on results so far
+Can batch searches (e.g. try 4 new points instead of 1)
+Useful for complex search spaces if random isn’t good enough
+Can be more efficient than random w/ early stopping
+In a Workflow
+We’ve been using CV to search while we run
+
+I often use a hyperparameter search script
+Runs tuning on training data
+Saves optimal parameter values to a file (e.g. JSON file)
+
+Later scripts read & use settings
+Wrapping Up
+Hyperparameter tuning is an expensive optimization problem.
+
+Several techniques are useful, with good automation for scikit-learn.
+Photo by Clem Onojeghuo on Unsplash
+</aside>
+
+<h3 id="resources_5">Resources</h3>
+<ul>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html">RandomizedSearchCV</a></li>
+<li><a href="https://scikit-optimize.github.io/stable/">scikit-optimize</a></li>
+<li><a href="https://scikit-optimize.github.io/stable/auto_examples/sklearn-gridsearchcv-replacement.html">BayesSearchCV example</a></li>
+</ul>
+<h2 id="tuning-example"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 7V5h2V4a2 2 0 0 1 2-2h6v7l2.5-1.5L18 9V2h1c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m4 4H5v2h2v-2m0-4V5H5v2h2m0 12v-2H5v2h2z"/></svg></span> Tuning Example</h2>
+<p>The <a href="../../resources/tutorials/TuningExample/">Tuning Example</a> notebook demonstrates hyperparameter tuning by cross-validation with multiple techniques.</p>
+<h2 data-length="8m28s" id="reproducible-pipelines"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Reproducible Pipelines</h2>
+<p>I provide <em>very brief</em> pointers to additional tools you may want for workflow management in more advanced projects.</p>
+<div class="tabbed-set" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=260993ac-f0a9-4054-ae5c-ac82005bf383&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><label for="__tabbed_8_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2173410&amp;authkey=ADPxMcuuaI3Kv0w&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<aside class="slides text hidden">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+REPRODUCIBLE PIPELINES
+Learning Outcomes
+Understand the value of a reproducible pipeline for both science and industrial application.
+Know where to read more about tools to help build and automate them.
+Photo by Anne Nygård on Unsplash
+Reproducibility
+Cornerstone of current scientific philosophy
+A result only observable once is unlikely to be valid (or at least useful)
+Need to re-run with new data
+Update forecasts / models for the next month
+Check for bugs and sensitivity
+End-to-end re-run catches order-of-operations bugs
+Re-running with new random seed(s) checks for seed-sensitivity
+Helps ensure you actually did what you say you did
+Goal
+Rerun the entire analysis end-to-end with a single command
+Well-documented set of steps acceptable alternative
+
+Possibly with new:
+Data
+Software versions
+Settings
+Requirements
+What steps need to happen?
+What scripts or notebooks?
+What arguments?
+What order do they need to happen in?
+Optional: Is a step up-to-date?
+Only recompute out-of-date steps
+Saves time, energy, money
+Sounds like make?
+Data Version Control (dvc)
+Pipeline has stages, with:
+Input files
+Output files
+Command to produce outputs from inputs
+
+Stages defined in DVC files committed to Git
+Output-only stage just records the presence of a file
+DVC – Reproduce Stage(s)
+Checks if it’s up-to-date
+Inputs, outputs, command match last recorded run
+Re-runs command if out of date
+Recursively updates dependencies first
+Like Make, but uses checksums instead of mtimes
+Commits checksums to Git
+Reproduce entire pipeline by ensuring final stage(s) are current
+DVC – Manage Data
+DVC also manages data
+Stage files contain input/output checksums
+Git ignores all outputs
+DVC copies outputs to/from data server (e.g. Amazon S3)
+
+Easy to insure you have the current copy of the data
+DVC in Practice
+Entire pipeline in DVC
+Experiment with manual commands
+Save to DVC once I have the run figured out
+Run expensive models on university cluster
+Push results to data server
+Pull to other machine for final analysis with notebooks
+Easy to make sure we have current data (just as with Git)
+
+Other Tools
+MLflow
+Make
+Gradle (useful for Java-based environments)
+
+Many others.
+Wrapping Up
+Fully reproducible data science pipelines help science and practice.
+
+Tools such as dvc can help you build them.
+Photo by Possessed Photography on Unsplash
+</aside>
+
+<h3 id="resources_6">Resources</h3>
+<p>Some software that supports data and/or workflow management:</p>
+<ul>
+<li><a href="https://dvc.org">Data Version Control</a> — I use this</li>
+<li><a href="https://mlflow.org/">MLflow</a> — support for machine learning workflows</li>
+</ul>
+<h2 id="more-examples"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 7V5h2V4a2 2 0 0 1 2-2h6v7l2.5-1.5L18 9V2h1c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m4 4H5v2h2v-2m0-4V5H5v2h2m0 12v-2H5v2h2z"/></svg></span> More Examples</h2>
+<p>My <a href="https://github.com/BoiseState/book-author-gender">book author gender</a> project is an example of an advanced workflow with DVC.</p>
+<h2 id="assignment-7"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 15h-4a3 3 0 0 1-3 3 3 3 0 0 1-3-3H5V5h14m0-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Assignment 7</h2>
+<p><a href="../../assignments/A7/index.md">Assignment 7</a> is due <strong>December 13, 2020</strong>.</p>
+                
+              
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../week13/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Week 13 — Unsupervised
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../week15/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Week 15 — What Next?
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright â“’ 2020 Michael D. Ekstrand. All rights reserved.
+No part of this site may be copied or redistributed without the
+written consent of the author.
+
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+<!-- <script src="../../js/katex.mjs" type="module" async></script> -->
+<script src="../../js/frobnicate.js" async></script>
+
+    
+      <script src="../../assets/javascripts/bundle.34eae1b6.min.js"></script>
+      
+        <script src="../../js/math-config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

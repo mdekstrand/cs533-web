@@ -1,0 +1,122 @@
+.md-typeset dt {
+    font-weight: 600;
+}
+
+.md-typeset dd {
+    margin: 0;
+    padding-left: 2em;
+}
+
+li .video::before {
+    display: inline-block;
+    content: url('https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/video.svg');
+    position: relative;
+    top: 6px;
+    padding: 0 1ex;
+}
+
+li .task::before {
+    display: inline-block;
+    content: url('https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/check-circle.svg');
+    position: relative;
+    top: 6px;
+    padding: 0 1ex;
+}
+
+h2[id].video::before {
+    display: inline-block;
+    content: url('https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/video.svg');
+    position: relative;
+    top: 0.35ex;
+    vertical-align: baseline;
+    margin-top: 0;
+    padding: 0 1ex 0 0;
+}
+
+h2[id].task::before {
+    display: inline-block;
+    content: url('https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/check-circle.svg');
+    position: relative;
+    top: 0.35ex;
+    vertical-align: baseline;
+    margin-top: 0;
+    padding: 0 1ex 0 0;
+}
+
+.video-container, .slide-container {
+    position: relative;
+}
+
+.video-container.video-embed {
+    padding-top: 56.25%;
+    margin-bottom: 24px;
+}
+
+.video-container.video-embed iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.video-embed-frame {
+    width: 100%;
+}
+
+.slide-container {
+    padding-top: calc(56.25% + 24px);
+}
+
+.vjs-menu-button-popup .vjs-menu .vjs-menu-content {
+    max-height: 20em;
+}
+.vjs-playback-rate .vjs-menu {
+    width: 5em;
+}
+.vjs-chapters-button .vjs-menu {
+    width: 20em;
+}
+
+.smart-player-embed-iframe, .slide-embed {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slide-embed {
+    width: 100%;
+    height: 100%;
+}
+
+.md-content {
+    counter-reset: toc-number;
+}
+.md-content article > h2 {
+    counter-increment: toc-number;
+}
+/* .md-content article > h2[id]::before {
+    display: inline-block;
+    content: counter(toc-number) ".\2002";
+} */
+
+.md-content__button {
+    position: relative;
+    z-index: 5;
+}
+.notebook-content .cell {
+    display: block !important;
+}
+.notebook-content h1 {
+    margin-top: 0 !important;
+}
+
+.md-typeset div.arithmatex {
+    overflow: auto;
+}
+
+.md-content .slides.hidden {
+    display: none;
+}

@@ -1,0 +1,62 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+QUESTIONING QUESTIONS
+Learning Outcomes
+Identify stakeholders and subgroups for a problem
+Evaluate the operationalization of a question to see who and what it prioritizes
+
+Key concept: understand a metric by asking what makes it improve
+Example from Last Video
+Goal: Assess whether new change improved CS121
+
+Question: Are students better prepared for next class?
+Question: Are students more likely to pass CS 221?
+
+Data: student grades for CS121 & 221
+
+Caveats: many
+Measuring the Question
+Option 1: Pass Rate
+What fraction of students pass CS221?
+Does the new 121 method improve it?
+
+Option 2: Grade
+What is the average grade in CS221?
+Does the new 121 method improve it?
+Letter or course points?
+Understanding Measurements
+How do I improve this measurement?
+Improving Metrics
+Option 1: Pass Rate
+Increase the number of people who pass the class
+The only way to improve it is helping those w/ the most difficulty
+
+Option 2: Grade
+Make students do better
+Can be improved at the top (A- → A)
+Measurement
+You get what you measure.
+Stakeholders
+Students
+Faculty
+Department
+Employers
+University
+High-performing students
+Underprepared students
+Marginalized students
+How Do I Improve This?
+Clarifies metric behavior
+
+What changes to improve it?
+What can remain the same while it is improved?
+How can it be gamed or manipulated?
+
+Metrics are always lossy and reductive, but this question helps evaluate and improve.
+Wrapping Up
+It is crucial to appropriately define measurements, and question our definitions.
+
+How do we improve a metric?
+
+Who or what does a metric prioritize?
+Photo: Nicolos Tissot on Unsplash

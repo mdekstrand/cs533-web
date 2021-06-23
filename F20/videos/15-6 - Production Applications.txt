@@ -1,0 +1,54 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PRODUCTION APPLICATIONS
+Learning Outcomes
+Understand how data science outcomes can be used.
+Think about how to put mdoels and outcomes into production.
+Photo by C D-X on Unsplash
+Using Data Science
+Data-driven reports to inform decisions
+Regular forecasts for internal purposes
+Data science outputs for real-time decisions
+Internal
+Customer-facing
+Reproducibility
+Reproduction is crucial:
+Regular reports / predictions re-run
+Daily / weekly / monthly reports
+Retraining models for online use
+Online Use
+Many modalities: web, mobile app, desktop app, server infra
+Mobile & desktop often use web tech to connect to models
+HTTP (often REST) API
+Some low-latency exceptions
+Multiple audiences
+Internal reporting
+Internal decision-making
+Customer decision-making
+Service-Oriented Architecture
+Client
+Web Server
+Services
+Databases
+Deployment
+Predictions made available via a web service
+E.g. TensorFlow Serving
+Model trained offline on other hardware
+Model-training script saves trained model to disk
+Web service loads trained model & serves predictions
+Useful Infrastructure Capabilities
+Train models on live or freshly-exported data
+Hold out test data to evaluate new model before deployment
+Version your models (including retrain w/ same hyperparams!)
+Roll back to old model version
+
+Details depend on institution & infrastructure.
+Skills to Learn
+Web back-end programming (to build services)
+Web front-end programming (to build dashboards)
+Performance measurement & tuning
+Wrapping Up
+Many data science projects result in online production capabilities.
+
+Often done by training a model and deploying it in a web service.
+Photo by Massimo Botturi on Unsplash

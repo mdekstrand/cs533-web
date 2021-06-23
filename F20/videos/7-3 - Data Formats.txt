@@ -1,0 +1,92 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+DATA TYPES AND FORMATS
+Learning Outcomes
+Understand broad categories of data formats
+Know where to look for particular data formats
+Read data in different encodings
+Photo by Joshua Newton on Unsplash
+Types of Data
+Tabular is organized into columns and rows like a spreadsheet.
+Each row has the same shape & attributes.
+Semi-Structured data has structure, like labeled fields, but different objects can have different fields.
+Unstructured data has no defined structure. Includes raw text and images.
+Tabular Data
+Delimited text
+Comma-separated (CSV)
+Tab-separated (TSV)
+Spreadsheet files
+Excel (xlsx or xls)
+Sometimes actually TSV 🤦‍♂️
+
+“.dat” means nothing
+Binary formats
+HDF
+NetCDF
+Parquet
+Other
+Matlab
+STATA
+…
+
+Delimited Text
+One record per line (usually)
+Delimiter: comma, tab (\t), |, …
+Escape:
+Quotes: "field"
+Double-up quotes to escape inside
+Backslashes
+Header: usually first row
+Pandas read_csv / to_csv pretty portable (though watch index!)
+Semi-Structured Data
+JSON: dictionaries, lists, strings, numbers, true/false, null
+
+XML: trees of nodes with text and attributes
+
+YAML: JSON ++
+MSGPACK
+RDF, SQL
+Others…
+{ "fit": "fit", "user_id": "420272", "bust size": "34d", "item_id": "2260466", "weight": "137lbs", "rating": "10", "rented for": "vacation", "review_text": "An adorable romper! Belt and zipper were a little hard to navigate in a full day of wear/bathroom use, but that's to be expected. Wish it had pockets, but other than that-- absolutely perfect! I got a million compliments.", "body type": "hourglass", "review_summary": "So many compliments!", "category": "romper", "height": "5' 8\"", "size": 14, "age": "28", "review_date": "April 20, 2016"}
+Unstructured Data
+Raw text — (usually) human-written text 
+
+Images — we can try to get data from images
+
+Can appear as a field in tabular or semi-structured data.
+More Data
+A table…
+… in a PDF
+… in an image in a PDF
+… in a photograph in a PDF
+
+Corrupt data
+Syntactically invalid XML
+Incorrect JSON syntax
+Weird nonprinting characters
+Encodings
+Text data is encoded (more on this later)
+UTF-8: modern standard
+Many older encodings, both single-byte and double-byte
+XML declares encoding
+JSON almost always UTF-8
+Text (delimited or unstructured): ???
+
+Encodings are not self-describing.
+Look at Data
+Mac/Linux: less
+Windows: Notepad++ (or other text editor)
+
+Data may be compressed, usually indicated in extension
+.gz
+.xz
+.7z
+.zip	
+Unix: zless, etc.
+Wrapping Up
+Data comes in many formats.
+
+Sometimes it is tabular, semi-structured, or unstructured.
+
+Some formats are nice. Others are not.
+Photo by Wesley Tingey on Unsplash

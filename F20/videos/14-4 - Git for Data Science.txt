@@ -1,0 +1,70 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+GIT FOR DATA SCIENCE
+Learning Outcomes
+Understand limits of git
+Ignore data files
+Know additional tools to look at for managing data files
+Photo by Lianhao Qu on Unsplash
+Git Strengths
+Git is very good at tracking:
+Modestly-sized files (less than a few MB)
+Text files
+
+Not good for:
+Binary files (although small ones are ok)
+Large files (especially binary)
+Hard-to-merge files (e.g. notebooks)
+
+Ignoring Files
+In a data science project, we often ignore more files
+Data files (e.g. *.csv, *.csv.gz)
+Inputs, intermediate files, and large outputs
+Keep the notebooks (and possibly other documents)
+Method 1: Inputs + Recreate
+Ignore data files
+Include script to fetch input data from central server
+File store
+Database
+Reproduce intermediate files locally by re-running scripts
+Optional: commit outputs / summaries
+Optional: save results into database / shared repo
+
+Good if analysis is relatively cheap
+Method 2: Data Data Repository
+Ignore data files
+Include scripts to fetch current inputs + intermediates from another server (file share, Amazon S3, etc.)
+Include scripts to update inputs on other server
+May commit:
+Outputs
+File versions
+Can be bespoke or use standard tools (I use DVC)
+Method 3: Large File Storage
+Git LFS (Large File Storage)
+Manage large media files with Git, looks like they are committed
+Commits stub file with pointer to actual content
+Content stored on separate server, not in git repo
+Stub replaced with content on checkout
+You may commit outputs in this mode!
+If someone changes, re-commit and push
+Caveat: if you use GitHub, limited space + bandwidth
+
+Notebooks
+Notebooks are text, but are complex JSON
+Hard to compare
+Hard to merge
+Change when run!
+2 solutions, roughly:
+Commit as normal
+Merge by just taking one version
+Merge with nbdime
+Coordinate notebook edits
+Commit without outputs
+nbstripout filter
+Wrapping Up
+Git works great for data science, but requires a few new tricks.
+
+Be thoughtful about how you handle data in Git.
+
+Notebooks can be annoying.
+Photo by laura adai on Unsplash

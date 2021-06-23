@@ -1,0 +1,44 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SINGLE REGRESSION
+Learning Outcomes
+Model a linear relationship between two variables
+Estimate the parameters of this model
+Identify the assumptions needed for the model’s inferential validity
+Photo by Alessio Lin on Unsplash
+Variables and Model
+This is univariate (one-variable) regression
+Regression Model
+Regression Model
+Note: I have extended this plot to have 0 at the left end of the x axis to highlight the intercept. Intercept is where the line crosses 0, not where it crosses the left Y axis.
+DGP
+Movie: *exists*
+Critics: this is ok, I guess
+Audience: 👏
+
+Critic ratings do not cause audience ratings
+Relationship does not need to imply causality
+Fitting Lines
+We can (almost) always fit a line
+Resulting line is least squares
+Can be used to predict
+
+Inference makes assumptions:
+Linear relationship
+Independent observations
+Normal residuals
+Equal variance of residuals
+Result: residuals are i.i.d. normal
+Penguins
+Explains 76% of variance
+1mm flipper ⇔ 49.7g mass
+
+Stats models warns us about condition number – not actually a problem here. But we can still make it go away.
+Penguins
+Wrapping Up
+Linear regression predicts one variable with another using a linear relationship.
+
+Inference makes several key assumptions.
+
+Standardizing variables puts coefficients in units of standard deviations.
+Photo by Gemma Evans on Unsplash

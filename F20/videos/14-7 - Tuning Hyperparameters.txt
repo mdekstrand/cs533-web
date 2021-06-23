@@ -1,0 +1,61 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+TUNING HYPERPARAMETERS
+Learning Outcomes
+Apply different techniques to tune hyperparameters
+Understand the principle of random search
+Photo by Marten Newhall on Unsplash
+Selecting Hyperparameters
+Need to pick good values for hyperparameters
+Regularization strength
+Number of trees in the forest
+Number of neighbors
+Latent space dimensionality
+Grid Search
+Characteristics of Grid Search
+Random Search
+Why Does Random Search Work?
+Principle 1: we don’t need best, just good enough
+Principle 2: more than one setting probably good enough
+
+If 5% of the search space is “good enough”
+And you sample 60 points
+Probability you have at least 1 good-enough point: 95%
+G
+Proof
+G
+Random Search Summary
+Only needs 60-100 points, regardless of # of parameters
+Trivially parallelizable (like grid search)
+May not find best solution
+Requires assumption about size of “good enough” set
+
+SciKit Learn: RandomizedSearchCV
+Hyperparameter Search as Optimization
+Bayesian Optimization
+Tests model at a few initial points
+Maintains surrogate model to predict performance at new settings
+Uses model to pick next test points
+
+Implemented by scikit-optimize.
+BayesSearchCV: SciKit-compatible optimizer
+gp_minimize: general-purpose function minimizer
+Bayesian Optimization Characteristics
+Trades off parallelism for optimization ability
+Next search point(s) depend on results so far
+Can batch searches (e.g. try 4 new points instead of 1)
+Useful for complex search spaces if random isn’t good enough
+Can be more efficient than random w/ early stopping
+In a Workflow
+We’ve been using CV to search while we run
+
+I often use a hyperparameter search script
+Runs tuning on training data
+Saves optimal parameter values to a file (e.g. JSON file)
+
+Later scripts read & use settings
+Wrapping Up
+Hyperparameter tuning is an expensive optimization problem.
+
+Several techniques are useful, with good automation for scikit-learn.
+Photo by Clem Onojeghuo on Unsplash

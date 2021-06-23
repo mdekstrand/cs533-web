@@ -1,0 +1,45 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SCIKIT-LEARN
+Learning Outcomes
+Train and apply a logistic regression model with scikit-learn
+Understand API differences between scikit-learn and statsmodels
+Photo by Elijah Hail on Unsplash
+Training a Model
+feat_cols = ['gre', 'gpa', 'rank']out_col = 'admit’
+
+train_x = train[feat_cols]train_y = train[out_col]
+
+lg_mod = LogisticRegression(penalty='none')lg_mod.fit(train_x, train_y)
+Using a Model
+test_d = lg_mod.predict(test_x)np.mean(test_d == test_y)  # returned decisions
+
+test_yhat = lg_mod.decision_function(test_x)
+# returned log odds
+
+test_prob = lg_mod.predict_proba(test_x)[:, 1]
+Differences from Statsmodels
+Works with matrices, not data frames
+Data frames are matrices, but SciKit-Learn doesn’t know that
+Column labels not used – everything based on position
+Fit and predict column positions must match
+Single model object updated by fit(…)
+No separate results object
+predict returns predicted class not score
+Use decision_function for log odds ratio
+Use predict_proba for probability
+Use Cases
+Statsmodels is good for inference
+Reports statistical goodness-of-fit measures
+Defaults to unregularized models
+
+SciKit-Learn is good for prediction
+Many models
+APIs output actual predictions by default
+Many data transformation features
+Only saves parameter estimates
+Wrapping Up
+Scikit-learn provides many machine learning models, including logistic (and linear) regression.
+
+It is more difficult to do inference with scikit-learn, but it has a broader selection for prediction.
+Photo by Andy Hall on Unsplash

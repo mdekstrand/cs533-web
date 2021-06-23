@@ -1,0 +1,103 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+ORGANIZING NOTEBOOKS
+Learning Outcomes
+Use Markdown document structure to organize a notebook
+Use Jupyter and Markdown features to format text in a notebook
+Create a notebook that clearly tells the story of a data analysis
+Photo by Kelly Sikkema on Unsplash
+Notebooks as Documents
+The notebook is a document – it is meant to be read
+
+Some structure imposed by code ordering
+
+Factor particularly complex computations out of the notebook!
+Notebook Components
+Notebooks have two types of cells
+
+Code cells, with Python code and its output
+Markdown cells, containing formatted text
+Heading cells are just Markdown cells with headings
+Code Cells
+Keep individual cells relatively short
+A few lines
+One function
+If helpful, show results after cell
+Do this a lot in development
+Too much can make it hard to read the notebook – clean up to ones that help the reader understand
+Good to show after:
+Loading data
+Complex manipulation
+Markdown Cells
+Markdown is a text syntax for simple markup
+
+Inline formatting
+**bold**
+*italics*
+`code` (use this one – it’s useful for function names, etc.)
+LaTeX math: $y = \beta_0 + beta_1 x$
+Markdown Block Elements
+Paragraphs – separated by blank lines
+Bulleted lists – lines start with ‘-’ or ‘*’
+Numbered lists – lines start with ‘1.’, ‘2’. Etc.
+Code blocks – indent 4 spaces, or put between fences (``` lines)
+Block mathematics – $$f(x) = x^2$$ (double-$ means block)
+Headings
+Markdown headings are lines starting with #, ##, etc.
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+These do not mean “big and bold” – they mean “section heading”
+
+Nest them properly
+Start notebook with H1
+All other headings 2 or lower
+Short – section headers, not sentences
+If they wrap, rethink
+Writing Text
+Use the document to tell a story
+What is the goal?
+What is the data? What do we know about it going in?
+Why are we doing each piece of the analysis?
+What is the approach? Don’t repeat the code, but explain the code’s conceptual operation, esp. if not obvious.
+What do we learn from it? (when appropriate, which is most of the time)	
+Around a Result
+What are we going to do?
+If not immediately clear, how are we going to do it?
+<code>
+<results>
+What do we observe?
+Document Structure
+Title and Intro
+What is the notebook for?
+Where does the data come from?
+If appropriate, what’s the research question(s)?
+Set up environment (python libraries?)
+Load data (sometimes merged with setup)
+Show data tables!
+Perform analysis (more sections as needed)
+Summarize / conclude
+Document Maintenance
+You’ll write a lot of cells & outputs while debugging
+Clean up before submitting / sharing
+Remove dead ends, extraneous outputs
+Consider supplementary notebook with discarded alternatives
+Re-run top-to-bottom (Kernel → Restart and Rerun All)
+While editing, code can get out-of-order, and may break!
+Audience and Purpose
+Know your audience and your purpose
+Teaching notebooks (for this class) differ from research notebooks!
+You, your supervisor, and the public are all different!
+Not all audiences are well-served by notebooks
+Often need separate final report
+In notebook, write copies of plots to files
+Wrapping Up
+The notebook is a document.
+
+Take advantage of that structure – use it to tell the story of your analysis.
+
+Pay attention to class examples.
+Photo by Bookblock on Unsplash

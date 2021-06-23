@@ -1,0 +1,35 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+MODELING AND PREDICTION
+Learning Outcomes (Week)
+Simulate to understand the behavior of a system
+Understand overfitting and apply appropriate design to mitigate it
+Select and engineer features for a model
+Photo by Jamie Street on Unsplash
+Taking Our Bearings
+We’ve seen:
+Basic data operations
+Visualization
+Probability and inference
+Correlations and linear models
+Prediction and inference
+
+Where we’re going:
+Classification
+Mostly prediction going forward
+Evaluating model accuracy
+More data types
+Text
+Time
+Workflows
+
+This Week
+More on variance
+Simulation methods
+Prediction accuracy evaluation
+Features
+Wrapping Up
+We’re going to learn more about building and assessing models.
+
+This will set us up to move from regression to classification.
+Photo by vorster vanzyl on Unsplash

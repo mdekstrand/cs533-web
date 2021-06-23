@@ -1,0 +1,16 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+VARIANCE AND SUM OF SQUARES
+Learning Outcomes
+Compute various sums-of-squares for a linear model
+Understand what “explains 30% of the variance” means
+Photo by Cris DiNoto on Unsplash
+Sum of Squares
+Other Sums of Squares
+Decomposing
+Residual Variance
+Wrapping Up
+The variance in the outcome variable decomposes into regression variance and residual variance.
+
+R2 measures the fraction of total variance explained by the regression.
+Photo by Pritesh Sudra on Unsplash

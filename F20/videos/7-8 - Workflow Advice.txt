@@ -1,0 +1,33 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+WORKFLOW ADVICE
+Learning Outcomes
+Understand basic principles for data processing workflows
+Design a workflow that preserves data as much as possible
+Photo by Ivan Bandura on Unsplash
+Workflow
+Single-Source Cleaning
+Standardize representations
+Delete corrupt data
+De-duplicate if appropriate
+Preserve information for downstream use
+To evaluate impact of decisions
+Keep goals and questions in mind
+Integration
+Link or pool records
+De-duplicate (if appropriate)
+Unify representations (if not done in per-source cleaning)
+Describe integration results & resulting data set
+Preserve information for downstream use
+Analysis
+Now you get to drop data, etc.
+
+Select & reprocess the subset of data for a particular analysis
+Different analyses may have different requirements
+Multiple analyses and variants from the same data
+Still may need to iterate w/ cleaning & integration
+Wrapping Up
+Data processing is an iterative, multi-stage process.
+
+Preserving information for downstream use gives flexibility and helps us assess impact of upstream decisions.
+Photo by Ravi Pinisetti on Unsplash

@@ -1,0 +1,32 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+UNSTRUCTURED DATA
+Learning Outcomes
+Introduce processing unstructured data for modeling.
+Understand different types of features from unstructured data.
+Photo by Nikita Kachanovsky on Unsplash
+So Far
+Tabular data – equivalent set of features for each instance
+
+Other types:
+Semi-structured – has defined fields, can vary
+Unstructured – no defined fields
+May have associated semi-structured metadata
+Features from Data
+“Raw” features
+Words
+Pixels
+
+Tabular features
+Size / length
+Sentiment, etc. (mined with other models)
+This Week
+We’re going to:
+Process unstructured text
+Use words (or similar tokens) as features
+Use it to classify (and eventually cluster)
+Wrapping Up
+Unstructured data doesn’t come with nice data-frame features.
+
+We can use direct content as a large feature space, or derive a smaller set of features from the data.
+Photo by Eileen Pan on Unsplash

@@ -1,0 +1,61 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SPLIT, APPLY, COMBINE
+Learning Outcomes
+Use the split/apply/combine to analyze and transform data.
+Photo by Omar Flores on Unsplash
+GroupBy
+ratings.groupby('movieId')['userId'].count()
+
+Split data by movie ID
+Apply the operation ‘count user IDs’
+Combine results into data frame (of movie rating counts)
+
+This is another pattern!
+Split
+groupby splits data by values of one (or more) columns
+
+Each group results in data frame
+Can see this by iterating over a groupby
+Each iteration yields a grouping key & subset data frame
+Apply
+Programming languages: you ‘apply’ a function to data
+
+Pandas apply operations:
+agg: apply an aggregate function (returns single value)
+transform: apply a 1:1 op (output size matches input size)
+apply: apply arbitrary function
+May return value, series, or data frame
+Should return same type for every partition
+Combine
+Pandas automatically combines results of the applied operation
+
+Value → series indexed by grouping columns
+Series → series indexed by grouping columns + result index
+DataFrame → DF indexed by grouping columns + result index
+Apply should return same columns for every partition
+Why?
+Pandas takes care of split/combine bookkeeping
+
+Easier to understand code in standard paradigm
+
+Trivial to parallelize
+Dask parallelizes with same API
+Runs apply op on multiple processes or machines
+Related: Map/Reduce
+Define two operations:
+Map transforms element to key-value pairs
+Reduce transforms key & set of values to single value
+May have partial / repeated reduce, w/ values from previous
+
+Map/reduce framework (e.g. Hadoop) parallelizes.
+Example: count ratings
+
+def map(rating):    yield rating.movieId, 1
+
+def reduce(id, counts):    return np.sum(counts)
+Wrapping Up
+The split/apply/combine pattern lets us transform groups of data.
+
+It improves understandability, modifiability, and parallelism.
+Photo by Erol Ahmed on Unsplash

@@ -1,0 +1,1347 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../logo.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
+    
+    
+      
+        <title>Week 10 — Classification - Intro to Data Science</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.875de78c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+<link href="../../stylesheets/print.css" rel="stylesheet" media="print">
+
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font-family:"Lato";--md-code-font-family:""}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    
+      
+    
+    
+
+
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#what-is-classification" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Intro to Data Science" class="md-header__button md-logo" aria-label="Intro to Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96-96 42.98-96 96 42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Intro to Data Science
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 10 — Classification
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Course Info
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../syllabus/" class="md-tabs__link">
+      Syllabus
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../schedule/" class="md-tabs__link">
+      Schedule
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/" class="md-tabs__link">
+        Resources
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Content
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../assignments/" class="md-tabs__link">
+        Assignments
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Intro to Data Science" class="md-nav__button md-logo" aria-label="Intro to Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96-96 42.98-96 96 42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z"/></svg>
+
+    </a>
+    Intro to Data Science
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Course Info
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/" class="md-nav__link">
+        Syllabus
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schedule/" class="md-nav__link">
+        Schedule
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Resources
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/software/" class="md-nav__link">
+        Software Installation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/onyx/" class="md-nav__link">
+        Remotely Using Onyx
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/notebook-checklist/" class="md-nav__link">
+        Notebook Checklist
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/problems/" class="md-nav__link">
+        Common Problems
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/probability/" class="md-nav__link">
+        Notes on Probability
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/git-resources/" class="md-nav__link">
+        Git Resources
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/tutorials/" class="md-nav__link">
+        Tutorial Notebooks
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      <label class="md-nav__link" for="__nav_5">
+        Content
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Content" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Content
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Course Content
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week1/" class="md-nav__link">
+        Week 1 — Question
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week2/" class="md-nav__link">
+        Week 2 — Description
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week3/" class="md-nav__link">
+        Week 3 — Presentation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week4/" class="md-nav__link">
+        Week 4 — Inference
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week5/" class="md-nav__link">
+        Week 5 — Filling In
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week6/" class="md-nav__link">
+        Week 6 — Two Variables
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week7/" class="md-nav__link">
+        Week 7 — Getting Data
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week8/" class="md-nav__link">
+        Week 8 — Regression
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week9/" class="md-nav__link">
+        Week 9 — Models & Prediction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Week 10 — Classification
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Week 10 — Classification
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-classification" class="md-nav__link">
+     What is Classification?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-odds-and-logistics" class="md-nav__link">
+     Log-Odds and Logistics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logistic-regression" class="md-nav__link">
+     Logistic Regression
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-confusion-matrix" class="md-nav__link">
+     The Confusion Matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logistic-regression-demo" class="md-nav__link">
+     Logistic Regression Demo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#week-10-quiz" class="md-nav__link">
+     Week 10 Quiz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#floating-point" class="md-nav__link">
+     Floating Point
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statsmodels-documentation" class="md-nav__link">
+     StatsModels Documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-likelihood" class="md-nav__link">
+     Log Likelihood
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scikit-learn" class="md-nav__link">
+     Scikit-Learn
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scikit-learn-logistic-regression" class="md-nav__link">
+     SciKit-Learn Logistic Regression
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#receiver-operating-characteristic" class="md-nav__link">
+     Receiver Operating Characteristic
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice" class="md-nav__link">
+     Practice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#biases-and-assumptions" class="md-nav__link">
+     Biases and Assumptions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prediction-based-decisions" class="md-nav__link">
+     Prediction-Based Decisions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abolish-the-techtoprison-pipeline" class="md-nav__link">
+     Abolish the #TechToPrison Pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignment-5" class="md-nav__link">
+     Assignment 5
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week11/" class="md-nav__link">
+        Week 11 — Evaluation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week12/" class="md-nav__link">
+        Week 12 — Text
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week13/" class="md-nav__link">
+        Week 13 — Unsupervised
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week14/" class="md-nav__link">
+        Week 14 — Workflow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week15/" class="md-nav__link">
+        Week 15 — What Next?
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Assignments
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Assignments" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Assignments
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignments/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      <label class="md-nav__link" for="__nav_6_2">
+        Assignment 0
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Assignment 0" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Assignment 0
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignments/A0/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignments/A0/A0-Notebook/" class="md-nav__link">
+        CS 533 Assignment 0
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignments/A0/A0-Solution.pdf" class="md-nav__link">
+        PDF
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-classification" class="md-nav__link">
+     What is Classification?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-odds-and-logistics" class="md-nav__link">
+     Log-Odds and Logistics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logistic-regression" class="md-nav__link">
+     Logistic Regression
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-confusion-matrix" class="md-nav__link">
+     The Confusion Matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logistic-regression-demo" class="md-nav__link">
+     Logistic Regression Demo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#week-10-quiz" class="md-nav__link">
+     Week 10 Quiz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#floating-point" class="md-nav__link">
+     Floating Point
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statsmodels-documentation" class="md-nav__link">
+     StatsModels Documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-likelihood" class="md-nav__link">
+     Log Likelihood
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scikit-learn" class="md-nav__link">
+     Scikit-Learn
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scikit-learn-logistic-regression" class="md-nav__link">
+     SciKit-Learn Logistic Regression
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#receiver-operating-characteristic" class="md-nav__link">
+     Receiver Operating Characteristic
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice" class="md-nav__link">
+     Practice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#biases-and-assumptions" class="md-nav__link">
+     Biases and Assumptions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prediction-based-decisions" class="md-nav__link">
+     Prediction-Based Decisions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abolish-the-techtoprison-pipeline" class="md-nav__link">
+     Abolish the #TechToPrison Pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignment-5" class="md-nav__link">
+     Assignment 5
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+
+
+                
+                
+                <h1 id="week-10-classification">Week 10 — Classification</h1>
+<p>Activities:</p>
+<div class="toc">
+<ul>
+<li><a href="#what-is-classification"> What is Classification?</a></li>
+<li><a href="#log-odds-and-logistics"> Log-Odds and Logistics</a></li>
+<li><a href="#logistic-regression"> Logistic Regression</a></li>
+<li><a href="#the-confusion-matrix"> The Confusion Matrix</a></li>
+<li><a href="#logistic-regression-demo"> Logistic Regression Demo</a></li>
+<li><a href="#week-10-quiz"> Week 10 Quiz</a></li>
+<li><a href="#floating-point"> Floating Point</a></li>
+<li><a href="#statsmodels-documentation"> StatsModels Documentation</a></li>
+<li><a href="#log-likelihood"> Log Likelihood</a></li>
+<li><a href="#scikit-learn"> Scikit-Learn</a></li>
+<li><a href="#scikit-learn-logistic-regression"> SciKit-Learn Logistic Regression</a></li>
+<li><a href="#receiver-operating-characteristic"> Receiver Operating Characteristic</a></li>
+<li><a href="#practice"> Practice</a></li>
+<li><a href="#biases-and-assumptions"> Biases and Assumptions</a></li>
+<li><a href="#prediction-based-decisions"> Prediction-Based Decisions</a></li>
+<li><a href="#abolish-the-techtoprison-pipeline"> Abolish the #TechToPrison Pipeline</a></li>
+<li><a href="#assignment-5"> Assignment 5</a></li>
+</ul>
+</div>
+<p>The videos are also available as a <a href="https://boisestate.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=bb7da565-7bad-4b88-9560-ac5d00219ea1">Panopto playlist</a>.</p>
+<h2 data-length="6m39s" id="what-is-classification"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> What is Classification?</h2>
+<p>In this video, I introduce the week and what classification is.</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=5c480e36-8608-402c-a129-ac5d001ff796&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2173290&amp;authkey=AIrnE1IeJheWGMo&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<h2 data-length="10m4s" id="log-odds-and-logistics"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Log-Odds and Logistics</h2>
+<p>In this video, I introduce log-odds, along with the <em>logistic function</em> and its inverse, <em>logit</em>.</p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=5443ea85-5c44-4fda-9945-ac5d001ff832&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2173292&amp;authkey=ADvOZLcsA-Eof-M&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<h2 data-length="9m7s" id="logistic-regression"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Logistic Regression</h2>
+<p>We're now ready for our first classification model: <em>logistic regression</em>.</p>
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=4e40bba2-840d-4c81-a9a3-ac5d001ff7bf&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2173293&amp;authkey=AMtiFgrMB1GajNQ&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<h2 data-length="11m50s" id="the-confusion-matrix"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> The Confusion Matrix</h2>
+<p>The <em>confusion matrix</em> describes the outcomes of a classification model and is the basis for computing effectiveness metrics.</p>
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=da6ee201-03c8-4d93-9abe-ac5d001ff7f8&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2173294&amp;authkey=AP40RfAwO30CwLE&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<h3 id="resources">Resources</h3>
+<ul>
+<li>The <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Wikipedia article</a> has a very good diagram of the confusion matrix and its derived metrics.</li>
+</ul>
+<h2 id="logistic-regression-demo"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 7V5h2V4a2 2 0 0 1 2-2h6v7l2.5-1.5L18 9V2h1c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m4 4H5v2h2v-2m0-4V5H5v2h2m0 12v-2H5v2h2z"/></svg></span> Logistic Regression Demo</h2>
+<p>The <a href="LogitRegressionDemo/">demo notebook</a> for the first-half videos.</p>
+<h2 id="week-10-quiz"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2M7 8h2v4H8V9H7V8m3 9v1H7v-.92L9 15H7v-1h2.25c.41 0 .75.34.75.75 0 .2-.08.39-.21.52L8.12 17H10m1-13c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m6 13h-5v-2h5v2m0-6h-5V9h5v2z"/></svg></span> Week 10 Quiz</h2>
+<p>The Week 10 quiz will be posted to Blackboard.</p>
+<h2 id="floating-point"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m9 16v-2H6v2h9m3-4v-2H6v2h12z"/></svg></span> Floating Point</h2>
+<ul>
+<li><a href="https://floating-point-gui.de/">Floating Point Guide</a></li>
+</ul>
+<p>This is provided for reference.</p>
+<h2 id="statsmodels-documentation"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m9 16v-2H6v2h9m3-4v-2H6v2h12z"/></svg></span> StatsModels Documentation</h2>
+<p>The following StatsModels page documents its logistic regression:</p>
+<ul>
+<li><a href="https://www.statsmodels.org/stable/discretemod.html">Regression with Discrete Dependent Variable</a></li>
+</ul>
+<p>This is <strong>not</strong> an assigned reading - it is here for your reference.</p>
+<h2 data-length="16m54s" id="log-likelihood"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Log Likelihood</h2>
+<p>This video describes the <em>log likelihood</em> that is the objective function used by logistic regression.</p>
+<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=1e548030-76ea-45e9-b543-ac5f0054f199&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2173298&amp;authkey=ADOpJqu9OvKINK4&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<h2 data-length="6m42s" id="scikit-learn"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Scikit-Learn</h2>
+<p>This video introduces SciKit-Learn, and using it for a logistic regression.</p>
+<div class="tabbed-set" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=029a7a8d-a7fe-4474-a551-ac5f0054f129&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2173300&amp;authkey=AHK68fjvLEWn8GY&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<h2 id="scikit-learn-logistic-regression"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 7V5h2V4a2 2 0 0 1 2-2h6v7l2.5-1.5L18 9V2h1c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m4 4H5v2h2v-2m0-4V5H5v2h2m0 12v-2H5v2h2z"/></svg></span> SciKit-Learn Logistic Regression</h2>
+<p>The <a href="SciKitLogistic/">SciKit Logistic</a> notebook demonstrates training and using a logistic regression classifier with SciKit-Learn.</p>
+<h2 data-length="7m25s" id="receiver-operating-characteristic"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Receiver Operating Characteristic</h2>
+<p>This video introduces the <em>receiver operating characteristic</em> (ROC) curve, and its use in evaluating classifiers and selecting tradeoffs.</p>
+<div class="tabbed-set" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=0a3a7981-c4cf-47a9-9236-ac5f0054f174&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2173301&amp;authkey=ABkYIOGgIpko-K4&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<h2 id="practice"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2m-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span> Practice</h2>
+<p>Load the Penguin data, and use a logistic regression to try to classify a penguin as Gentoo or Chinstrap using various measurements.
+Delete the Adelie penguins first, so you have a binary classification problem.</p>
+<h2 data-length="22m" id="biases-and-assumptions"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Biases and Assumptions</h2>
+<p>This video revisits sources of bias and discusses the assumptions underlying prediction.</p>
+<div class="tabbed-set" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=eb40dfed-7a3e-4c08-a7f8-ac5f005a7e34&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><label for="__tabbed_8_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2173303&amp;authkey=AHZT9DGmNOxGZxM&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<h2 data-length="3650 words" id="prediction-based-decisions"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m9 16v-2H6v2h9m3-4v-2H6v2h12z"/></svg></span> Prediction-Based Decisions</h2>
+<p>Read Sections 1 and 2 of the following paper:</p>
+<blockquote>
+<p>Shira Mitchell, Eric Potash, Solon Barocas, Alexander D'Amour, Kristian Lum. 2018.
+<a href="https://arxiv.org/abs/1811.07867">Prediction-Based Decisions and Fairness: A Catalogue of Choices, Assumptions, and Definitions</a>.
+arXiv:1811.07867 [stat.AP].</p>
+</blockquote>
+<p>We'll come back to ideas here, but sections 1 and 2 describe the assumptions underlying most classification problems.</p>
+<p>If you would like to learn more, I recommend:</p>
+<ul>
+<li><a href="http://papers.ssrn.com/abstract=2477899">Big Data's Disparate Impact</a></li>
+<li><a href="http://dx.doi.org/10.3389/fdata.2019.00013">Social Data</a></li>
+</ul>
+<h2 data-length="2000 words" id="abolish-the-techtoprison-pipeline"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m9 16v-2H6v2h9m3-4v-2H6v2h12z"/></svg></span> Abolish the #TechToPrison Pipeline</h2>
+<p>Read <a href="https://medium.com/@CoalitionForCriticalTechnology/abolish-the-techtoprisonpipeline-9b5b14366b16">Abolish the #TechToPrison Pipeline</a> (the Medium reading time estimate includes the thorough — and valuable — footnotes and list of 2435 signatories).
+This article probes in more detail the assumptions underlying classes of criminal justice data science applications.</p>
+<h2 id="assignment-5"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 15h-4a3 3 0 0 1-3 3 3 3 0 0 1-3-3H5V5h14m0-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Assignment 5</h2>
+<p><a href="../../assignments/A5/index.md">Assignment 5</a> is due <strong>November 11, 2020</strong>.</p>
+                
+              
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../week9/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Week 9 — Models & Prediction
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../week11/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Week 11 — Evaluation
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright â“’ 2020 Michael D. Ekstrand. All rights reserved.
+No part of this site may be copied or redistributed without the
+written consent of the author.
+
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+<!-- <script src="../../js/katex.mjs" type="module" async></script> -->
+<script src="../../js/frobnicate.js" async></script>
+
+    
+      <script src="../../assets/javascripts/bundle.34eae1b6.min.js"></script>
+      
+        <script src="../../js/math-config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

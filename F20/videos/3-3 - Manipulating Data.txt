@@ -1,0 +1,74 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+MANIPULATING DATA
+Learning Outcomes
+Know key reshaping operations and corresponding Pandas functions
+Think about the process of transforming data in steps
+
+Tour guide to notebook – it has the actual code.
+Photo by Mika Baumeister on Unsplash
+Data Shapes
+Rows - # of them
+Columns - # and type
+
+Assumption: each row is another observation of the same kind of thing.
+Fixing that will be a topic for later
+R calls this tidy data
+
+Each method returns a new frame
+Selecting Columns
+Have: frame
+Want: same frame, fewer columns
+
+Pick one column: frame['column']
+Pick multiple columns: frame[['c1', 'c2']]
+Remove column(s): frame.drop(columns=['c1', 'c2'])
+Selecting Rows
+Have: frame
+Want: same frame, subset of rows
+
+Select by Boolean mask
+Good for selecting by column values
+Select by position (.iloc)
+Select by index key (.loc)
+If using RangeIndex, these are the same
+
+Collapsing Rows
+Have: frame w/ column(s) identifying group membership
+Want: frame or series  w/ row per group
+
+Group-by + aggregate
+Tall and Wide
+Wide Data – column per variable
+Tall/Long Data – (id, name, value)
+Wide is common source format
+Tall data is useful for plotting, grouping
+
+Wide to tall: melt
+Tall to wide: pivot, pivot_table
+Tall from List
+Have: data frame where one column contains lists
+Want: one row per list element, duplicating other columns
+
+explode
+
+Series / Data Frame
+Data frame to series: select column
+
+Series to frame:
+Create single-column frame w/ to_frame
+Reset index with reset_index
+Pull out one index level with unstack
+
+Strategy
+Decide what you want the end product to look like
+What are your target observations?
+What are your target variables?
+Plot a path from current data to end product
+Wrapping Up
+Pandas has many tools for reshaping data.
+
+Start with the end in mind – work from what you have to what you need.
+
+Read tutorial notebook!
+Photo by Element5 Digital on Unsplash

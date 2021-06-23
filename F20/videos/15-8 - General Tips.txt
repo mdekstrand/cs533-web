@@ -1,0 +1,42 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+GENERAL TIPS
+Learning Outcomes
+Some concluding tips for your data science work.
+Photo by Sam Dan Truong on Unsplash
+Questions
+Good questions are fundamental
+Tukey:
+Far better an approximate answer to the right question, which is often vague, than an exact answer to the wrong question, which can always be made precise.
+
+Photo by Jon Tyson on Unsplash
+Work Reproducibly
+For many, many reasons.
+
+But accurate description is easier if work is reproducible (and internally reproduced).
+Never Lose Context
+Keep the big picture in mind
+Goals — Questions — Analysis — Data
+Keeping the goal in mind helps with:
+Contextualizing results
+Identifying limitations
+Generating next ideas
+Photo by Adrian Dascal on Unsplash
+Don’t Overlook Detail
+Be precise and specific in specifying questions and results
+Always know what, precisely, you are measuring
+Communicate precise results & definitions
+Put them in context
+Photo by dorota dylka on Unsplash
+Be Curious
+Learn more about statistics
+Learn more about applications
+Learn more about anything interesting
+Photo by Siora Photography on Unsplash
+Pause and Reflect
+Photo by Lukasz Saczek on Unsplash
+Wrapping Up
+Good data science requires ongoing reflection, study, and practice.
+
+Try to do better science tomorrow than you did yesterday.
+Photo by Jan Tinneberg on Unsplash

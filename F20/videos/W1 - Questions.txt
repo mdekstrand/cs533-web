@@ -1,0 +1,59 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+WEEK 1: QUESTIONS
+Learning Outcomes
+Know how to use the class
+Form clarifying questions about a problem statement
+Ask questions about a data set's collection and representativeness
+
+Structure
+Videos for learning material
+This session for working through pieces of it
+Today: just talking and taking notes
+Future: will have some code – please come with a notebook connection already open (either on your machine or Onyx)
+Thursdays for open discussion / Q&A
+
+Zoom calls are not recorded. I’ll post relevant clarifications as announcements after class.
+Deliverables
+8 assignments (warm-up plus 7 real ones)
+2 weeks each
+Due Sundays
+Goal is even pacing
+Exams
+Quizzes (weekly, count highest 10)
+Participation (showing up today counts!)
+Feedback
+This semester is strange!
+Online / remote / flipped
+We have a pandemic
+
+Communication will be key
+Let me know if things aren’t working
+Let me know if they are 
+Piazza has anonymous posts
+Questions?
+ A Question
+Do we have enough capacity on the downtown/campus shuttle?
+
+What is the likely goal?
+ A Question
+Do we have enough capacity on the downtown/campus shuttle?
+
+Identify several clarifying questions in breakout groups.
+
+Designate someone to report out when you return.
+Refining the Question
+What is a more precise question we can ask?
+Complexifiers
+Availability affects use
+People are more likely to use transit systems that are effective and reliable
+
+
+Finding Data
+Do we have enough capacity on the downtown/campus shuttle?
+
+What data could we look at to answer these questions?
+We Have Data
+I hand you a data set. What do you want to know about it?
+
+Think about this! Big topic for next week.

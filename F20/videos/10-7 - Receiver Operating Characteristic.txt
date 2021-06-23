@@ -1,0 +1,32 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+ROC CURVES
+Learning Outcomes
+Plot an accuracy curve
+Compute and interpret a receiver operating characteristic curve.
+Photo by Steve Halama on Unsplash
+Metrics and Tradeoffs
+Metrics from the confusion matrix are hard yes/no.
+
+A single classifier often has tradeoff points.
+Precision Curve
+Plot precision at different thresholds.
+
+See tradeoff.
+
+Can do for any metric.
+Receiver Operating Characteristic
+Plot TPR (Recall) vs. FPR
+
+What FPR must you tolerate for a certain recall?
+
+Diagonal line is random
+Area Under the Curve
+Compute area under curve (AUC)
+0.5 is random
+Greater is good (1 is perfect)
+< 0.5, invert classifier
+AUC and Probability
+Wrapping Up
+ROC curves give us a way to see tradeoffs and compare the tradeoff curves of multiple classifiers.
+Photo by David Talley on Unsplash

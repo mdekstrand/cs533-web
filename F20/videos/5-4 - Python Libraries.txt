@@ -1,0 +1,28 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PYTHON LIBRARIES
+Learning Outcomes
+Know the relationships between key libraries in Python
+Photo by Shunya Koide on Unsplash
+NumPy
+NumPy provides array features
+ndarray (n-dimensional array
+Vector
+Matrix
+Many manipulation functions
+Array broadcasting support
+Backbone of vectorization
+More Libraries
+NumPy
+SciPy
+Pandas
+StatsModels
+matplotlib
+Seaborn
+If You Need
+Array functions – NumPy
+Advanced array / basic stats – SciPy
+Signal processing, etc.
+Distributions
+Labeled data management – Pandas
+Statistical Models - statsmodels

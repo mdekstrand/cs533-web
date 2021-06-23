@@ -1,0 +1,54 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CONTROL STRUCTURES
+Learning Outcomes
+Write basic Python control structures
+Understand Python block syntax
+Know standard practice for whitespace
+
+Key concept: Python uses whitespace to detect blocks, such as the bodies of loops or conditionals.
+Photo by gryffyn m on Unsplash
+For Loops
+for i in range(5):    print(f'iteration {i}')print('done')
+
+Iterate over an iterable
+range(5) iterates 0, 1, 2, 3, 4
+Whitespace delimits blocks
+Blocks
+Python blocks begin with ‘:’ at the end of a line
+if, else, elif, for, while, def, class
+
+Block content is indented one level
+Standard practice is 4 spaces (Jupyter defaults to this)
+
+Block ends when indentation returns to previous level
+for i in range(5):    print(f'iteration {i}’)print('done')
+Comments
+Python comments
+Begin with ‘#’
+Continue until end of line
+
+# this is a comment
+print('foo')  # can comment here too
+If Statements
+x = 5if x >= 10:    print('big')elif x >= 5:    print('medium')else:    print('small')
+These are false:
+False (Boolean value)
+None (equiv. to null)
+0
+Empty list, set, or tuple ([])
+Empty string('')
+
+Most other things are true.
+While Loops
+while condition:    # do something    pass
+Iterates until condition is false
+‘pass’ does nothing
+Here only to make it valid Python
+Wrapping Up
+Python provides the usual control structures (if, for, while)
+
+Blocks are based on indentation
+
+'#' starts a comment
+Photo by Erik Kroon on Unsplash

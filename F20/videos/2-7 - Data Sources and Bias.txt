@@ -1,0 +1,59 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SOURCES AND BIAS
+Learning Outcomes
+Understand what bias means
+Identify sources of bias in a observations of a variable
+Photo by MILKOVÍ on Unsplash
+Estimating
+Goal: estimate the value of a parameter
+Things
+“Raw” Data
+Data Set
+Inferences
+Answers
+Phenomena / Experiment
+Data Pipeline
+Estimating
+Goal: estimate the value of a parameter
+True value in the world or population
+Estimated by a statistic
+
+Example: estimate approval of our company
+Parameter: net approval (% of people who have a positive opinion)
+Statistic: % of a sample of people who say they have a positive opinion
+Goal: statistic is approximately parameter
+A Few Sources of Bias
+Selection bias
+Some people more likely to be contacted
+
+Response bias
+Some people are more likely to respond
+
+Measurement bias
+Measurement skews one way or another
+
+
+
+Population
+Contacted
+Responds
+Opinion
+Non-Uniform Bias
+Bias may not affect all groups equally
+Under-representation
+Over-representation
+Measurement skews
+E.g. standardized test scores reflect socio-economic status
+Documenting
+Clearly and fully document data collection process!
+
+See Datasheets for Datasets reading
+Enables further and future analysis of collection process!
+Helps future users assess if biases affect their problem
+
+Wrapping Up
+Goal is for data to accurately reflect population, and statistics to approximate parameters.
+
+Various sources of bias can impede this.
+Photo by Enayet Raheem on Unsplash

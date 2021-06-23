@@ -1,0 +1,104 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SCRIPTS AND MODULES
+Learning Outcomes
+Write a Python script
+Put Python code in a module
+Understand the Python module/package structure
+Photo by Simon Goetz on Unsplash
+Scripts
+A .py file can be run as a script from the command line:python my-script.py
+Runs the code in the file
+‘def’, ‘class’, etc. are just Python statements
+
+Example: read in a file, and write a filtered file
+Starts with a docstring (optional)
+"""Filter ratings to only real ones"""import pandas as pdratings = pd.read_csv('ratings.csv')r2 = ratings[ratings['rating'] >0]r2.to_csv('filtered-ratings.csv',          index=False)
+Scripts and Pipelines
+Typical script:
+Reads input files
+Does some processing
+Pandas manipulations
+SciKit-Learn model training/evaluation
+Saves results
+Data frame as CSV, Parquet, etc.
+Model as pickle file
+Docstrings
+A Python code object can start with a docstring
+Script, class, function, module
+
+Documents the code
+Purpose
+Function arguments
+Class fields
+
+Doc renderers & IPython/Jupyter use these
+Configurability
+Scripts can take command line arguments
+python script.py in.csv out.csv
+
+In list sys.argv
+0 is name of the program
+Libraries help parse:
+argparse (in standard lib)
+docopt (uses help message)
+"""Filter ratings to only real ones"""import sysimport pandas as pdin_file = sys.argv[1]out_file = sys.argv[2]ratings = pd.read_csv(in_file)r2 = ratings[ratings['rating'] >0]r2.to_csv(out_file, index=False)
+Import Protection
+Python files can be either run as a script or imported as a module
+
+Import-protect your scripts to avoid potential problems & enable code reuse:
+Put all code in functions
+Call main function in ‘if’ statement at end of script
+"""Filter ratings to only real ones"""import sysimport pandas as pddef main():    in_file = sys.argv[1]    out_file = sys.argv[2]    ratings = pd.read_csv(in_file)    r2 = ratings[ratings['rating'] >0]    r2.to_csv(out_file, index=False)if __name__ == '__main__':    main()
+Modules
+import foo
+
+Looks for file foo.py
+In script’s directory (or local dir for notebooks / console)
+In PYTHONPATH environment variable
+In Python installation
+Runs file to create definitions
+Exposes definitions under ‘foo’ object
+def bar()… becomes foo.bar
+Exposes all assigned names: variables, functions, classes, other imports…
+Packages
+Modules can be grouped together into packages
+A package is just a directory with a file __init__.py
+Init file can be empty
+Init can have docstring to document package
+Packages can contain other packages
+
+Let's see an example…
+Script Advice
+Write a docstring (quickly glance at script to see purpose)
+With docopt, docstring is also script usage information
+Import-protect scripts
+Provide reasonable configurability
+If script has too many different modes, break apart
+Multiple scripts
+Common code in modules
+
+Disconnected Runs
+What if you lose connection?
+Can we start a process running, go home, and check it later?
+
+The tmux program does this!
+tmux creates a new session
+Ctrl+b d (Ctrl+b followed by ‘d’) detaches
+tmux attach re-attaches to session
+Many other capabilities under Ctrl+b.
+General Principles
+Use packages and modules to organize code for your project
+Layout
+Common utilities
+Presentation themes?
+Always refer to relative paths
+Applies to all code!
+Beware excessive configurability
+In either functions or scripts
+If multiple ways to combine pieces, extract pieces & have different scripts or functions that combine them in different ways.
+Wrapping Up
+Scripts and modules are useful for organizing code in larger projects.
+
+We can reuse code and operations across multiple parts of the project.
+Photo by Klára Vernarcová on Unsplash

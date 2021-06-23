@@ -1,0 +1,76 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+REPRODUCIBLE PIPELINES
+Learning Outcomes
+Understand the value of a reproducible pipeline for both science and industrial application.
+Know where to read more about tools to help build and automate them.
+Photo by Anne Nygård on Unsplash
+Reproducibility
+Cornerstone of current scientific philosophy
+A result only observable once is unlikely to be valid (or at least useful)
+Need to re-run with new data
+Update forecasts / models for the next month
+Check for bugs and sensitivity
+End-to-end re-run catches order-of-operations bugs
+Re-running with new random seed(s) checks for seed-sensitivity
+Helps ensure you actually did what you say you did
+Goal
+Rerun the entire analysis end-to-end with a single command
+Well-documented set of steps acceptable alternative
+
+Possibly with new:
+Data
+Software versions
+Settings
+Requirements
+What steps need to happen?
+What scripts or notebooks?
+What arguments?
+What order do they need to happen in?
+Optional: Is a step up-to-date?
+Only recompute out-of-date steps
+Saves time, energy, money
+Sounds like make?
+Data Version Control (dvc)
+Pipeline has stages, with:
+Input files
+Output files
+Command to produce outputs from inputs
+
+Stages defined in DVC files committed to Git
+Output-only stage just records the presence of a file
+DVC – Reproduce Stage(s)
+Checks if it’s up-to-date
+Inputs, outputs, command match last recorded run
+Re-runs command if out of date
+Recursively updates dependencies first
+Like Make, but uses checksums instead of mtimes
+Commits checksums to Git
+Reproduce entire pipeline by ensuring final stage(s) are current
+DVC – Manage Data
+DVC also manages data
+Stage files contain input/output checksums
+Git ignores all outputs
+DVC copies outputs to/from data server (e.g. Amazon S3)
+
+Easy to insure you have the current copy of the data
+DVC in Practice
+Entire pipeline in DVC
+Experiment with manual commands
+Save to DVC once I have the run figured out
+Run expensive models on university cluster
+Push results to data server
+Pull to other machine for final analysis with notebooks
+Easy to make sure we have current data (just as with Git)
+
+Other Tools
+MLflow
+Make
+Gradle (useful for Java-based environments)
+
+Many others.
+Wrapping Up
+Fully reproducible data science pipelines help science and practice.
+
+Tools such as dvc can help you build them.
+Photo by Possessed Photography on Unsplash

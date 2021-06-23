@@ -1,0 +1,48 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+TIME SERIES
+Learning Outcomes
+Summarize and plot time series data with Pandas
+Understand that time series data is often not independent
+Photo by Bruno Figueiredo on Unsplash
+Time Series
+Time Series
+Time Representation
+Many representations:
+String dates
+Years & months
+Timestamps (seconds, ms, etc.)
+
+Pandas: must convert to a datetime
+pd.to_datetime
+Pandas Setup Steps
+Create/convert datetime column with instance times
+Index data frame by timestamp
+Sort index
+
+ratings['timestamp'] = pd.to_datetime(ratings['timestamp'], unit='s')rts = ratings.set_index('timestamp').sort_index()
+
+Time series exception to “prefer unique indexes” guideline
+Operation: Resampling
+Like groupby, but on time intervals
+Compute aggregate functions for time intervals
+‘on’ option allows a non-index column
+
+monthly_ratings = rts.resample('1M')['rating'].count()
+Operation: Plotting
+Matplotlib & Seaborn render timestamp X axes well
+
+sns.lineplot(data=monthly_ratings)
+Operation: Range Select
+Time series indexes support range operations
+Select by range: rts.loc['2010-01-01':'2010-12-31']
+Includes end point (unlike normal slice!)
+Select by period: rts.loc['2010-07']
+Operation: Diff and Shift
+Time Effects
+Autocorrelation
+Wrapping Up
+Repeated data over time requires particular handling and has distinct operations.
+
+Pandas provides these through datetime columns and indexes.
+Photo by Javier Esteban on Unsplash

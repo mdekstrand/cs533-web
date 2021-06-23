@@ -1,0 +1,37 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+REGULARIZATION
+Learning Outcomes
+Understand the function of a regularization term in a loss function
+Apply regularization to logistic regression models
+Tune regularization parameters
+Photo by Joshua Hoehne on Unsplash
+Multicollinearity
+Correlated predictors cause poor model fit
+X1
+X2
+Y
+Loss and Regularization
+Vector Norms
+Understanding Regularization
+How do you increase loss?
+Increase a coefficient
+How does that happen?
+Strong relationship
+More of the common factor on one than another
+Balancing
+Regularization Factor
+Lasso Regression
+The Elastic Net
+Applying Regularization
+Standardize numeric first
+Coefficient strengths are comparable
+0 is neutral, coefficient magnitude is strength of relationship
+Select hyperparameters based on performance on tuning data
+Scikit-Learn CV classes help with this
+See notebook for example
+Wrapping Up
+Regularization penalizes large values of coefficients.
+
+This controls model structure and, combined with standardization, requires “strong” beliefs in relationships to be justified by reducing training error.
+Photo by Jasper Garratt on Unsplash

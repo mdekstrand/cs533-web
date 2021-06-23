@@ -1,0 +1,82 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+DESCRIPTIVE STATISTICS
+Learning Outcomes
+Know what a statistic is
+Identify whether a mean or a median is more appropriate
+Describe the central tendency and spread of a data series
+Photo by Fabio Santaniello Bruun on Unsplash
+Statistic
+A statistic is a value computed from a collection of data
+
+Often summarizes (observations of) a variable
+Descriptive Questions
+Where is the variable centered?
+How large does it tend to be?
+Called meaure of central tendency
+How spread out is it?
+
+Mean
+What is a Mean?
+What does the mean measure?
+If every instance had the same value, what would it be?
+“Points per player”
+
+How do you change it?
+Increase total (score more points)
+It doesn’t matter where – one person can do all of it!
+Spread - Variance and Standard Deviation
+What is Variance?
+What does variance measure?
+The mean squared distance from the mean
+If mean is center, how far away do values tend to be?
+If mean is expectation, how far off does it tend to be?
+Square penalizes large differences more
+Standard deviation translates back to original units
+Computing Statistics
+Pandas:
+Series.mean()
+Series.std()
+Series.var()
+
+Note: np.std and np.var compute population std and var, not sample
+Change with ddof=1
+
+Outliers
+Outliers are particularly large or small values
+
+Outliers draw the mean towards them! (also affect SD)
+Median
+What value divides upper half from lower half?
+Sort values
+Pick middle one
+If even number: take mean of middle 2
+
+0  0  0  2  2  7  8  8  15  45
+
+How to increase? Increase small values.
+Spread – Range and IQR
+The range is max – min
+
+The inter-quartile range is distance between 1st and 3rd quartiles (width of “middle 50%”)
+
+0  0  0  2  2  |  7  8  8  15  45
+Quick Summary
+>>> movie_info['count'].describe()count    59047.000000mean       423.393144std       2477.885821min          1.00000025%          2.00000050%          6.00000075%         36.000000max      81491.000000Name: count, dtype: float64
+Mean, Median, and Skew
+What question do we want to answer?
+If we distributed the points equally, how many would each have?
+
+If we randomly selected a player, are they equally likely to have more or less points?
+Mode
+The most common value
+doesn’t work great for continuous values
+fantastic for categorical variables!
+
+Wrapping Up
+Mean and median describe where a value tends to be.
+
+Standard deviation, variance, range, and IQR measure how spread out it is.
+
+Mean-based computationally useful; median-based robust to outliers.
+Photo by Brylee Hawkins on Unsplash

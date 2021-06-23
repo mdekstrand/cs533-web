@@ -1,0 +1,1782 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../logo.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
+    
+    
+      
+        <title>Week 1 — Question - Intro to Data Science</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.875de78c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+<link href="../../stylesheets/print.css" rel="stylesheet" media="print">
+
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font-family:"Lato";--md-code-font-family:""}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    
+      
+    
+    
+
+
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#intro" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Intro to Data Science" class="md-header__button md-logo" aria-label="Intro to Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96-96 42.98-96 96 42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Intro to Data Science
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 1 — Question
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Course Info
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../syllabus/" class="md-tabs__link">
+      Syllabus
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../schedule/" class="md-tabs__link">
+      Schedule
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/" class="md-tabs__link">
+        Resources
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Content
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../assignments/" class="md-tabs__link">
+        Assignments
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Intro to Data Science" class="md-nav__button md-logo" aria-label="Intro to Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96-96 42.98-96 96 42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z"/></svg>
+
+    </a>
+    Intro to Data Science
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Course Info
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/" class="md-nav__link">
+        Syllabus
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schedule/" class="md-nav__link">
+        Schedule
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Resources
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/software/" class="md-nav__link">
+        Software Installation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/onyx/" class="md-nav__link">
+        Remotely Using Onyx
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/notebook-checklist/" class="md-nav__link">
+        Notebook Checklist
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/problems/" class="md-nav__link">
+        Common Problems
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/probability/" class="md-nav__link">
+        Notes on Probability
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/git-resources/" class="md-nav__link">
+        Git Resources
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/tutorials/" class="md-nav__link">
+        Tutorial Notebooks
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      <label class="md-nav__link" for="__nav_5">
+        Content
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Content" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Content
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Course Content
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Week 1 — Question
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Week 1 — Question
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+     Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asking" class="md-nav__link">
+     Asking Questions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questioning" class="md-nav__link">
+     Questioning Questions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quiz" class="md-nav__link">
+     Week 1 Quiz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuesday-session" class="md-nav__link">
+     Tuesday Session
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-me" class="md-nav__link">
+     About Me
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intro-piazza" class="md-nav__link">
+     Introduce Yourself
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#textbook" class="md-nav__link">
+     Textbook Chapters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+     Install Software
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+     Content Structure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-notebook" class="md-nav__link">
+     Our First Python Notebook
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-types-and-control-flow" class="md-nav__link">
+     Data Types and Control Flow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-structures" class="md-nav__link">
+     Control Structures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scientific-python" class="md-nav__link">
+     Scientific Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignment-0" class="md-nav__link">
+     Assignment 0
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week2/" class="md-nav__link">
+        Week 2 — Description
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week3/" class="md-nav__link">
+        Week 3 — Presentation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week4/" class="md-nav__link">
+        Week 4 — Inference
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week5/" class="md-nav__link">
+        Week 5 — Filling In
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week6/" class="md-nav__link">
+        Week 6 — Two Variables
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week7/" class="md-nav__link">
+        Week 7 — Getting Data
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week8/" class="md-nav__link">
+        Week 8 — Regression
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week9/" class="md-nav__link">
+        Week 9 — Models & Prediction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week10/" class="md-nav__link">
+        Week 10 — Classification
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week11/" class="md-nav__link">
+        Week 11 — Evaluation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week12/" class="md-nav__link">
+        Week 12 — Text
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week13/" class="md-nav__link">
+        Week 13 — Unsupervised
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week14/" class="md-nav__link">
+        Week 14 — Workflow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week15/" class="md-nav__link">
+        Week 15 — What Next?
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Assignments
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Assignments" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Assignments
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignments/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      <label class="md-nav__link" for="__nav_6_2">
+        Assignment 0
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Assignment 0" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Assignment 0
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignments/A0/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignments/A0/A0-Notebook/" class="md-nav__link">
+        CS 533 Assignment 0
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignments/A0/A0-Solution.pdf" class="md-nav__link">
+        PDF
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+     Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asking" class="md-nav__link">
+     Asking Questions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questioning" class="md-nav__link">
+     Questioning Questions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quiz" class="md-nav__link">
+     Week 1 Quiz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuesday-session" class="md-nav__link">
+     Tuesday Session
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-me" class="md-nav__link">
+     About Me
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intro-piazza" class="md-nav__link">
+     Introduce Yourself
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#textbook" class="md-nav__link">
+     Textbook Chapters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+     Install Software
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+     Content Structure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-notebook" class="md-nav__link">
+     Our First Python Notebook
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-types-and-control-flow" class="md-nav__link">
+     Data Types and Control Flow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-structures" class="md-nav__link">
+     Control Structures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scientific-python" class="md-nav__link">
+     Scientific Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignment-0" class="md-nav__link">
+     Assignment 0
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+
+
+                
+                
+                <h1 id="week-1-question">Week 1 — Question</h1>
+<p>The key learning outcomes for this week are:</p>
+<ul>
+<li>Ask and refine questions that can be answered with data</li>
+<li>Install and run the software required for the course</li>
+<li>Write and run basic Python code in a Jupyter notebook</li>
+<li>Begin to think about the complexity of meaningful questions</li>
+</ul>
+<p>This week uses chapters 1–3 from the textbook.  If you already know Python, that should mostly be review.</p>
+<p>We'll do this through several resources and activities:</p>
+<div class="toc">
+<ul>
+<li><a href="#intro"> Introduction</a></li>
+<li><a href="#asking"> Asking Questions</a></li>
+<li><a href="#questioning"> Questioning Questions</a></li>
+<li><a href="#quiz"> Week 1 Quiz</a></li>
+<li><a href="#tuesday-session"> Tuesday Session</a></li>
+<li><a href="#about-me"> About Me</a></li>
+<li><a href="#intro-piazza"> Introduce Yourself</a></li>
+<li><a href="#textbook"> Textbook Chapters</a></li>
+<li><a href="#install"> Install Software</a></li>
+<li><a href="#structure"> Content Structure</a></li>
+<li><a href="#first-notebook"> Our First Python Notebook</a></li>
+<li><a href="#data-types-and-control-flow"> Data Types and Control Flow</a></li>
+<li><a href="#control-structures"> Control Structures</a></li>
+<li><a href="#scientific-python"> Scientific Python</a></li>
+<li><a href="#assignment-0"> Assignment 0</a></li>
+</ul>
+</div>
+<p>This week's videos are available as a <a href="https://boisestate.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=fe0a0a3c-4b1a-40cc-93ae-ac1c0130d704">Panopto playlist</a>.</p>
+<h2 data-length="15m39s" id="intro"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Introduction</h2>
+<p>This video introduces the course and our learning outcomes for the term.</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=7e74123e-dcfc-4964-bb50-ac1c01281061&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2172940&amp;authkey=%21ANCZZ6K7N8BKP1g&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<aside class="slides text hidden">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+INTRODUCTION
+Video Outcomes
+Introduce the class subject
+Understand course learning outcomes
+Understand structure of this class
+Know where to get help
+What is Data Science?
+The use of data to provide quantitative insights on questions of scientific, business, or social interest.
+Data and Meaning
+
+“By itself, some piece of data has no meaning. Data is only given meaning – as evidence – by the people who make use of it.”
+
+Sergio Sismondo, An Introduction to Science and Technology Studies, 2nd Edition. Wiley-Blackwell, 2010, page 133.
+Learning Outcomes
+Explore a data set to determine whether and how it might illuminate questions of interest.
+Define and operationalize a research question such that a data analysis could produce meaningful knowledge.
+Use best practices to carry out analyses in a documented, reproducible, and efficient fashion.
+Present the results of a data analysis with appropriate visuals and written argument.
+Identify weaknesses in a data analysis and assess their impact on the correctness and utility of the results.
+Assess ethical implications of an analysis in terms of both classical human subject research ethics and contemporary concerns such as fairness and bias.
+Understand the space of data science techniques and applications, and relate future learning to this framework.
+Course Components
+Videos and readings – this is the content delivery
+Zoom meetings – Q&A, discussion, and exercises
+Exercises and practice (ungraded)
+Assignments
+Exams (delivered online)
+2 midterm + final
+Getting Help
+Course forum on Piazza – encouraged!
+Office hours – by appointment
+Google Calendar appointment slots, link online
+Please use Piazza for course inquiries
+Wrapping Up
+This is going to be a different semester
+
+Learning through videos and reading
+
+Discussion and support on Zoom
+
+Let’s learn!
+We’re in the Internet!
+</aside>
+
+<h2 data-length="10m35s" id="asking"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Asking Questions</h2>
+<p>In this video, I introduce <em>questions</em> in their broader context of using data to advance goals. 
+I also introduce the idea of <strong>operationalization</strong>, which will be a key concept throughout the class.</p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=fc08fd53-5dac-4c95-ad25-ac1c0128133d&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2172944&amp;authkey=AFZ_21-M4BmFQyE&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<div class="admonition bug">
+<p class="admonition-title">Lighting</p>
+<p>That video is just a little off, you may notice.  Forgot to turn on the lights when recording it.</p>
+</div>
+<aside class="slides text hidden">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+ASKING QUESTIONS
+Learning Outcomes
+Understand components of a good question
+Understand how questions relate to goals and analyses
+Think about data for a question
+
+Key term: operationalization
+
+What is Data Science?
+The use of data to provide quantitative insights on questions of scientific, business, or social interest.
+Example: Department Interest
+Context: changed assignment structures in CS121
+Goal: Assess whether new change improved CS121
+
+What does ‘improve’ mean?
+What data could inform the assessment?
+What could we do with that data to measure improvement?
+Operationalization
+We call this operationalization
+
+Start with a goal
+Refine through intermediate questions
+Define a specific measurement to take
+What, precisely, is collected
+How, precisely, it is computed
+operationalize, v.:
+The process of doing this.
+
+operationalization, n.:
+The result of this process.
+Example: Department Interest
+Goal: Assess whether new change improved CS121
+
+Question: Are students better prepared to excel at work?
+Question: Are students better prepared for the next class?
+Goals, Questions, and Analysis
+Questions do not have 1 level
+May be multiple levels
+Answering the question should advance the goal.
+Or higher-level question
+
+Carrying out the analysis should answer the question.
+Operationalized Questions
+They are specific
+They are answerable
+They can be answered with available data
+Questions that fail this are not bad!
+
+Example: Department Interest
+Goal: Assess whether new change improved CS121
+
+Question: Are students better prepared for next class?
+Question: Are students more likely to pass CS 221?
+
+Data: student grades for CS121 & 221
+
+Caveats: many
+Clarifying Questions
+Your boss, client, etc. sets goals, may have questions
+
+But they need to be refined before meeting data!
+
+Refine this through clarifying questions!
+Wrapping Up
+Multiple layers to translate between data and high-level goals or objectives.
+
+Questions bridge this gap.
+
+Multiple levels of questions may be needed.
+</aside>
+
+<h3 id="further-reading">Further Reading</h3>
+<ul>
+<li><a href="https://towardsdatascience.com/how-to-ask-the-right-questions-as-a-data-scientist-913621907411">How to Ask the Right Questions</a></li>
+</ul>
+<h2 data-length="8m54s" id="questioning"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Questioning Questions</h2>
+<p>We make our operationalizations better by questioning them.  What do they capture?  Who or what do they prioritize?</p>
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=5e304f06-a2fc-4611-8be1-ac1c0116145e&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2172946&amp;authkey=ADgXZwd15GxB2yo&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<aside class="slides text hidden">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+QUESTIONING QUESTIONS
+Learning Outcomes
+Identify stakeholders and subgroups for a problem
+Evaluate the operationalization of a question to see who and what it prioritizes
+
+Key concept: understand a metric by asking what makes it improve
+Example from Last Video
+Goal: Assess whether new change improved CS121
+
+Question: Are students better prepared for next class?
+Question: Are students more likely to pass CS 221?
+
+Data: student grades for CS121 & 221
+
+Caveats: many
+Measuring the Question
+Option 1: Pass Rate
+What fraction of students pass CS221?
+Does the new 121 method improve it?
+
+Option 2: Grade
+What is the average grade in CS221?
+Does the new 121 method improve it?
+Letter or course points?
+Understanding Measurements
+How do I improve this measurement?
+Improving Metrics
+Option 1: Pass Rate
+Increase the number of people who pass the class
+The only way to improve it is helping those w/ the most difficulty
+
+Option 2: Grade
+Make students do better
+Can be improved at the top (A- → A)
+Measurement
+You get what you measure.
+Stakeholders
+Students
+Faculty
+Department
+Employers
+University
+High-performing students
+Underprepared students
+Marginalized students
+How Do I Improve This?
+Clarifies metric behavior
+
+What changes to improve it?
+What can remain the same while it is improved?
+How can it be gamed or manipulated?
+
+Metrics are always lossy and reductive, but this question helps evaluate and improve.
+Wrapping Up
+It is crucial to appropriately define measurements, and question our definitions.
+
+How do we improve a metric?
+
+Who or what does a metric prioritize?
+Photo: Nicolos Tissot on Unsplash
+</aside>
+
+<h2 id="quiz"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2M7 8h2v4H8V9H7V8m3 9v1H7v-.92L9 15H7v-1h2.25c.41 0 .75.34.75.75 0 .2-.08.39-.21.52L8.12 17H10m1-13c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m6 13h-5v-2h5v2m0-6h-5V9h5v2z"/></svg></span> Week 1 Quiz</h2>
+<p>Take the Week 1 Quiz in Blackboard (it's under “Quizzes”).</p>
+<div class="admonition note">
+<p class="admonition-title">Tuesday Breakpoint</p>
+<p>If you have completed through this point, you are ready for Tuesday's synchronous activities.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">First Week Grace</p>
+<p>The due date for the Week 1 quiz is flexible.  I strongly encourage you to complete it on Monday,
+but it is not due until the end of the week.</p>
+<p>Subsequent weekly quizzes will be due at the end of the day on Monday.</p>
+</div>
+<h2 id="tuesday-session"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 17a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H9.46c.35.61.54 1.3.54 2h10v11h-9v2m4-10v2H9v13H7v-6H5v6H3v-8H1.5V9a2 2 0 0 1 2-2H15M8 4a2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2 2 2 0 0 1 2 2z"/></svg></span> Tuesday Session</h2>
+<ul>
+<li><a href="https://1drv.ms/p/s!ArDdMaT5eVlJhLoJq-dqonIKAk4VOA">Slides</a></li>
+<li><a href="https://docs.google.com/document/d/1SoznVzA3WQLVE3RXRT-9_0iBNvKtxeX4Shuk4LNtp10/edit#">Notes</a></li>
+</ul>
+<h2 data-length="6m51s" id="about-me"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> About Me</h2>
+<div class="admonition tip">
+<p class="admonition-title">Working Ahead</p>
+<p>While this and following sections are not required before Tuesday's class, there is no reason you can't
+get started whenever you want.</p>
+</div>
+<p>In this video, I talk about about my background, teaching, and research, as well as the structure of publishing computer science research and my professional involvement with different parts of that.</p>
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=2fd1e220-d72c-4e8c-a2b5-ac1c01474d38&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2172945&amp;authkey=AB_5xK88mUyI0Vc&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<aside class="slides text hidden">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+ABOUT ME
+CVish
+Ph.D 2014, University of Minnesota
+Asst. Prof @ Boise State 2016–present
+Sr. Member, Association for Computing Machinery
+
+Human-computer interaction, data science
+Teaching
+Lots of things about data
+
+Storing and querying it (CS 410/510)
+Using it for science (CS 533)
+Using it to recommend things (CS 538)
+Research
+Information access systems (search, recommendation, etc.)
+
+Are they fair and equitable?
+What are their human impacts, for good or ill?
+How do we build them to meet overlooked needs?
+Professional Communities
+ACM Conference on Recommender Systems (RecSys)
+General Chair 2018, Steering Committee, program committee
+ACM Conference on Fairness, Accountability, and Transparency (FAccT)
+Network Co-chair (coordinating workshops)
+Executive Committee
+Review for many other conferences
+Distinguished Reviewer for TiiS journal
+How CS Scholarship Works
+Conference
+Submit paper (full, short)
+Peer-reviewed
+Presented at conference
+
+Workshop
+Affiliated with conference
+Lower-prestige, often WIP
+Journal
+More developed ideas
+Longer treatment
+Sometimes expanded version of conference papers
+
+Lots of variance
+All of these require committees, labor to function!
+Some Favorites
+📺   Deep Space Nine, The Good Place
+🎥   The Iron Giant
+📚   The Broken Earth trilogy (N.K. Jemisin)
+🤣   Savage Chickens, Calvin and Hobbes
+See you in class!
+</aside>
+
+<h2 id="intro-piazza"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2m-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span> Introduce Yourself</h2>
+<p>On Piazza, there is a thread for self-introductions.  Reply and introduce yourself!</p>
+<p><strong>This counts towards participation points.</strong></p>
+<h2 id="textbook"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12z"/></svg></span> Textbook Chapters</h2>
+<p>The Python material we are working on this week is a subset of the material in chapters <strong>1–3</strong> of the <a href="../../resources/#books">textbook</a>.
+I don't expect to you get through all 3 chapters thoroughly this week, and we will be introducing more Python features as we need them throughout
+the semester.
+I will note specific chapters and sections relevant to videos in their <em>Resources</em> subsections.</p>
+<h2 id="install"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2m-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span> Install Software</h2>
+<p>Make sure you have <a href="../../resources/software/">installed the course software</a> so you can complete the assignment.</p>
+<h2 data-length="6m59s" id="structure"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Content Structure</h2>
+<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=b476ba75-0f14-4925-8731-ac1e016779a4&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2172942&amp;authkey=ADw27TNDgucpUdc&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<aside class="slides text hidden">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CONTENT STRUCTURE
+Learning Outcomes
+Understand the organization of the class content
+
+Photo by Prateek Katyal on Unsplash
+A Class in 4 Acts
+Act 1   Answering Questions with Data
+Act 2   Building and Evaluating Models
+Act 3   Sourcing, Cleaning, and Integrating Data
+Act 4   More Data Types and Models
+Assignments and Dependencies
+Class material is (mostly) sequentially dependent
+
+We’ll use what came before to understand the next thing
+Assignments and exams semi-cumulative
+Within a Week
+Each week has a page
+Page contains all content
+Videos
+References to readings
+Online
+Textbook
+Multiple ways to learn some material
+Wrapping Up
+The course is blocked into pieces.
+
+We’ll build sequentially throughout the semester.
+Photo by Markus Spiske on Unsplash
+</aside>
+
+<h2 data-length="9m30s" id="first-notebook"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Our First Python Notebook</h2>
+<p>This video shows you how to start Jupyter, create a notebook, and run Python code.
+It also shows you how to prepare a notebook to submit as an assignment.</p>
+<div class="tabbed-set" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=1ce12205-8a6c-451e-af11-ac1e000e8e49&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">Onyx Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=8e280072-b2c3-4cb3-a629-ac210160137f&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+</div>
+<aside class="slides text hidden">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+OUR FIRST PYTHON NOTEBOOK
+Learning Outcomes
+Start Jupyter
+Run Python code
+Prepare a notebook for submission
+
+USINNG ONYX
+</aside>
+
+<h3 id="resources">Resources</h3>
+<ul>
+<li><a href="DemoNotebook/">Notebook</a></li>
+<li><a href="../../resources/tutorials/">Tutorial notebooks</a></li>
+</ul>
+<h2 data-length="19m17s" id="data-types-and-control-flow"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Data Types and Control Flow</h2>
+<p>This video introduces fundamental Python data types and operations, along with variables and basic control flow.</p>
+<div class="tabbed-set" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=f272cf44-6287-4126-b702-ac1f0004728a&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="1-7-slides.html"></iframe>
+</div></p>
+</div>
+</div>
+<h3 id="resources_1">Resources</h3>
+<ul>
+<li><a href="1-7%20-%20Data%20Types%20and%20Operations/">Slide deck notebook</a></li>
+<li><a href="https://docs.python.org/3/tutorial/index.html">Python tutorial</a></li>
+<li>Textbook 2.3, 3.1</li>
+<li>Coming soon: notebooks on Python features</li>
+</ul>
+<h2 data-length="6m56s" id="control-structures"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Control Structures</h2>
+<p>This video introdcues Python control structures and code layout.</p>
+<div class="tabbed-set" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=aada724e-872c-4585-b620-ac1f0177ddfb&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><label for="__tabbed_8_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2172965&amp;authkey=ABwaNR_XOZeDHwo&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<aside class="slides text hidden">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CONTROL STRUCTURES
+Learning Outcomes
+Write basic Python control structures
+Understand Python block syntax
+Know standard practice for whitespace
+
+Key concept: Python uses whitespace to detect blocks, such as the bodies of loops or conditionals.
+Photo by gryffyn m on Unsplash
+For Loops
+for i in range(5):    print(f'iteration {i}')print('done')
+
+Iterate over an iterable
+range(5) iterates 0, 1, 2, 3, 4
+Whitespace delimits blocks
+Blocks
+Python blocks begin with ‘:’ at the end of a line
+if, else, elif, for, while, def, class
+
+Block content is indented one level
+Standard practice is 4 spaces (Jupyter defaults to this)
+
+Block ends when indentation returns to previous level
+for i in range(5):    print(f'iteration {i}’)print('done')
+Comments
+Python comments
+Begin with ‘#’
+Continue until end of line
+
+# this is a comment
+print('foo')  # can comment here too
+If Statements
+x = 5if x >= 10:    print('big')elif x >= 5:    print('medium')else:    print('small')
+These are false:
+False (Boolean value)
+None (equiv. to null)
+0
+Empty list, set, or tuple ([])
+Empty string('')
+
+Most other things are true.
+While Loops
+while condition:    # do something    pass
+Iterates until condition is false
+‘pass’ does nothing
+Here only to make it valid Python
+Wrapping Up
+Python provides the usual control structures (if, for, while)
+
+Blocks are based on indentation
+
+'#' starts a comment
+Photo by Erik Kroon on Unsplash
+</aside>
+
+<h2 data-length="13m20s" id="scientific-python"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg></span> Scientific Python</h2>
+<p>This video introduces NumPy <code>ndarray</code>, the fundamental numeric array data structure for scientific computing.</p>
+<div class="tabbed-set" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">Video</label><div class="tabbed-content">
+<p><div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=88a81f19-1fb6-4a6b-bd7a-ac1f01760afb&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></p>
+</div>
+<input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><label for="__tabbed_9_2">Slides</label><div class="tabbed-content">
+<p><div class=slide-container>
+<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=495979F9A431DDB0%2172967&amp;authkey=AMuE85znE-djS3E&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+</div></p>
+</div>
+</div>
+<aside class="slides text hidden">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SCIENTIFIC PYTHON
+Learning Outcomes
+Understand the limitations of core Python data types for data science
+Know the three key array data types:
+ndarray
+Series
+DataFrame
+Perform basic vectorized operations
+Photo by Faris Mohammed on Unsplash
+Lists of Numbers
+Python:
+numbers = [0.3, 9.2, 1.0, 6.7]
+
+Remember that everything is an object?
+List of 4 pointers (8 bytes each), with header (16 bytes)
+To 4 objects: 8 bytes (double) + 16 bytes (object header)
+Total: 144 bytes
+Elements can have different types!
+Sum our Numbers
+total = 0for x in numbers:    total = total + x
+
+What’s wrong?
+Python is slow – convenient, but slow
+Interpreted
+Dynamically typed
+Pointers to objects cause cache misses
+Enter NumPy
+NumPy provides efficient numeric array types (‘ndarray’s)
+
+import numpy as npnumbers = np.array([0.3, 9.2, 1.0, 6.7])
+
+All elements have the same type
+Stored directly in the array – no indirection, contiguous
+Many ways to load or create arrays without going through lists
+Sum our Numbers
+    sum = np.sum(numbers)
+
+Shorter (although we could have used Python’s sum earlier)
+Implemented in compiled language
+NumPy array internal layout is compatible with C and/or Fortran
+
+Don’t loop over arrays.
+Vectorization
+NumPy lets us perform operations on arrays:
+scale = np.linspace(0, 1, 4)numbers + scale
+Result:
+array([0.3       , 9.53333333, 1.66666667, 7.7       ])
+linspace creates an array from 0 to 1 (both inclusive), evenly spaced into 4 elements (same size as numbers)
++ does elementwise addition: adds corresponding elements
+Efficiently in compiled code
+About Arrays
+Each array has 3 key things:
+
+A data type (dtype) – what kind of elements?
+A shape (tuple of ints) – how big?
+May be multidimensional, e.g. (100,50) for 100x50 matrix
+Elements – the data itself
+Pandas
+Pandas builds on NumPy with two new data types:
+
+Series – an array with an associated index (element labels)
+DataFrame - a table where each column is a series
+
+You’ll see these briefly in A0, and more next week!
+Use of Lists and Loops
+We’ll still sometimes use lists and loops
+
+Lists of arrays or data frames
+Looping over input files or groups of data
+
+But we avoid looping over individual data points.
+Wrapping Up
+NumPy provides efficient arrays
+
+These are the backbone of our data processing
+
+Prefer ‘vectorized’ operation whenever possible
+
+Practice: put these in a notebook!
+Fortak, Lord High Researcher of Clan Urdnot; Mass Effect 2
+</aside>
+
+<h3 id="resources_2">Resources</h3>
+<ul>
+<li>Textbook 4</li>
+</ul>
+<h2 id="assignment-0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 15h-4a3 3 0 0 1-3 3 3 3 0 0 1-3-3H5V5h14m0-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg></span> Assignment 0</h2>
+<p>Complete and submit <a href="../../assignments/A0/">Assignment 0</a> by <strong>midnight on Sunday, August 30</strong>.</p>
+                
+              
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Course Content
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../week2/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Week 2 — Description
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright â“’ 2020 Michael D. Ekstrand. All rights reserved.
+No part of this site may be copied or redistributed without the
+written consent of the author.
+
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+<!-- <script src="../../js/katex.mjs" type="module" async></script> -->
+<script src="../../js/frobnicate.js" async></script>
+
+    
+      <script src="../../assets/javascripts/bundle.34eae1b6.min.js"></script>
+      
+        <script src="../../js/math-config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

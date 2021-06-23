@@ -1,0 +1,144 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+WAYS OF KNOWING
+Learning Outcomes
+Understand different sources of knowledge
+Identify sources of knowledge appropriate to a question
+Photo by Jaredd Craig on Unsplash
+Some Types of Knowledge
+Quantitative
+Qualitative
+Analytical / Proof
+Theory
+Critical
+
+No form is the “best”.  And, we often need multiple together!
+These are both empirical
+Quantitative Methods
+Numeric measurements and estimates.
+How many?
+What fraction?
+Predicting numeric outcomes
+Quantitative Submethods
+Observational studies – what can we see?
+
+Experimental studies – what happens when we act?
+
+Simulation studies – what happens in synthetic environments?
+Numbers. What Are They Good For?
+We can:
+How often does X happen?
+When X happens, is Y likely to happen?
+
+We can’t:
+Why does X happen?
+What do the situations where X happens look like?
+What new X should we look for?
+Qualitative Methods
+Interpretation and analysis.
+Why did someone do X?
+What do people want?
+
+Engages directly with source material.
+
+Note: surveys are not qualitative.
+
+Example Problem
+Goal: identify employee concerns and opportunities to improve
+Method: semi-structured interviews
+Resulting Data: interviews with employees
+
+Don’t have time to interview them all.
+
+Goal is not statistical representation.
+
+Example Method: Grounded Theory
+Break interviews into distinct statements / observations
+Group observations together into themes
+If it is like an existing theme: add it
+If it is not like an existing theme: start a new one
+Merge themes if/as necessary
+
+Stop at saturation – more data does not produce more concepts
+
+Outcome: themes with illustrative quotations
+Qualitative Empiricism
+Qualitative methods are empirical
+Conclusions are grounded in and supported by data
+The data is just analyzed differently!
+
+Qualitative can demonstrate:
+Existence of phenomena
+Mechanisms for phenomena
+
+Data is “thick”, but low in quantity
+Mixing Methods
+Qual and quant can work together
+
+Qual first:
+Qualitative study with small group to identify concerns
+Quantitative survey to measure prevalence
+
+Quant first:
+Quantitative analysis to identify stores with low employee retention
+Qualitative interviews to see what is happening at those stores
+A Number
+30
+Numbers Have No Meaning
+What does 30 mean?
+
+We need context to interpret the meaning
+Typical size of this class
+High for graduate classes, average for department
+Class size affects student-teacher engagement
+Context
+We need context to
+
+Interpret quantities
+Identify quantities of interest
+
+Analytical Methods
+Mathematical proofs and derivations.
+
+Usually quantitative
+Always true (given assumptions)
+May be probabilistic
+
+Example: law of large numbers
+On average, the average of a random sample is approximately the true average
+Critical Methods
+Analyze and explicate power structures.
+
+Who has power in a situation?
+What are the effects of that power?
+How does perspective & power affect questions and conclusions?
+
+Example: employer-employee power dynamic affects response to survey.
+One Application
+Who is making decisions?
+What to ask
+Who to ask
+What to do with the results
+
+Asking employees is not sharing power
+Theory
+Merriam-Webster:
+A plausible or scientifically acceptable general principle or body of principles offered to explain phenomena.
+
+Theory drives analysis – what questions do we ask?
+
+Theory comes from all these sources
+
+Data refines, confirms, and rejects theory
+Social Construction
+Knowledge is said to be socially constructed.
+
+Knowledge comes through processes
+These processes are social
+And therefore have biases, etc.
+
+Does not mean knowledge is fake, made up, or unreliable.
+Wrapping Up
+Quantitative measurements and analysis are not the only, or the best, way to produce knowledge.
+
+Multiple sources together give us knowledge and insight.

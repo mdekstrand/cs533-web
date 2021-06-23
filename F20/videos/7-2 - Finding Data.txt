@@ -1,0 +1,48 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+FINDING DATA
+Learning Outcomes
+Identify potential sources for data
+Think about the data needed to answer a question
+Photo by elCarito on Unsplash
+Questions
+What do you want to learn?
+
+Need for data flows from what you want to learn.
+
+Sometimes in practice we will start with data, but that shouldn’t be our default.
+Example
+Q: Does poverty correlate with adverse health outcomes?
+
+Need:
+Wealth/poverty data
+Census
+Health data
+Public health agencies
+Global health data exchange
+Locating Existing Data
+Lists of data sets
+UCI Machine Learning Repository
+Various lists on GitHub
+Governmental operations
+US federal: data.gov
+Individual government agencies
+Government data portals
+Your organization
+Searching on the Web
+Purchasing
+Asking data owners
+Scraping from web sites
+Large repositories
+Common Crawl
+Semantic Scholar
+Seeing what other papers use
+Wrapping Up
+We sometimes need to be creative when locating data for a problem.
+
+There is a lot of data available, but our question should drive our data.
+
+
+
+
+Photo by Garrett Sears on Unsplash
