@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /seaborn/
+Disallow: /assignments/
+Disallow: /F20/assignments/
+Disallow: /F21/assignments/

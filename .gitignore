@@ -1,0 +1,5 @@
+/site/
+/full-site/
+/.venv/
+/.netlify/
+build.stats
