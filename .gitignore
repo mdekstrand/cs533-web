@@ -1,5 +1,6 @@
 /.venv/
 /.vscode/
+_build/
 /site/
 /full-site/
 /node_modules/

@@ -1,0 +1,10 @@
+format: jb-book
+root: index
+parts:
+- caption: Course Info
+  chapters:
+  - file: syllabus
+  - file: schedule
+- caption: Assignments
+  chapters:
+  - file: assignments/A0/index.md

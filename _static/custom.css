@@ -1,0 +1,3 @@
+tr p:last-child, td p:last-child {
+    margin-bottom: 0;
+}

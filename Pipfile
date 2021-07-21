@@ -13,6 +13,7 @@ tinytag = "~=1.5"
 python-pptx = ">= 0.6.18"
 docopt = ">= 0.6"
 notebook = "*"
+livereload = "==2.*"
 
 [requires]
 python_version = "3.8"

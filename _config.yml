@@ -1,0 +1,31 @@
+title: CS 533 Fall 2021
+author: Michael D. Ekstrand
+copyright: '2021'
+# logo: logo.png
+
+# bibtex_bibfiles:
+  # - references.bib
+
+repository:
+  url: https://github.com/mdekstrand/cs533-web
+  branch: main
+
+parse:
+  myst_enable_extensions:
+    - colon_fence
+    - deflist
+    - dollarmath
+    - linkify
+    - substitution
+
+execute:
+  exclude_patterns:
+  - assignments/*/*.md
+
+html:
+  use_issues_button: true
+  use_repository_button: true
+  favicon: logo.png
+
+launch:
+  binderhub_url: null
