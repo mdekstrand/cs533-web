@@ -1,4 +1,4 @@
-# Assignment List
+# Assignments
 
 - [Assignment 0](./A0/index.md) (due **August 29**)
 - Assignment 1 (due **September 12**)

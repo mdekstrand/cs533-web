@@ -19,7 +19,7 @@ It is my goal that after completing this course successfully, you will be able t
 1.	Explore a data set to determine whether and how it might illuminate questions of interest.
 2.	Define and operationalize a research question such that a data analysis could produce meaningful knowledge.
 3.	Use best practices to carry out analyses in a documented, reproducible, and efficient fashion.
-4.	Present the results of a data analysis with appropriate visuals and written argu-ment.
+4.	Present the results of a data analysis with appropriate visuals and written argument.
 5.	Identify weaknesses in a data analysis and assess their impact on the correctness and utility of the results.
 6.	Assess ethical implications of an analysis in terms of both classical human subject research ethics and contemporary concerns such as fairness and bias.
 7.	Understand the space of data science techniques and applications, and relate future learning to this framework.
@@ -32,11 +32,11 @@ Course Title
 Credits
 :   3
 
-Schedule
+In-Person Schedule
 :   Tuesdays and Thursdays 9:00–10:15 AM in CCP 221
 
 Course Website
-:   <https://cs533.ekstrandom.net/>
+:   <https://cs533.ekstrandom.net/F21/>
 :   Canvas (private links, grades, and assignments)
 
 Course Discussion

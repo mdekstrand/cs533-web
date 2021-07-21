@@ -5,6 +5,16 @@ parts:
   chapters:
   - file: syllabus
   - file: schedule
-- caption: Assignments
+- caption: Course Content
   chapters:
-  - file: assignments/A0/index.md
+  - file: resources/index
+    sections:
+    - file: resources/notebook-checklist
+    - file: resources/glossary
+    - file: resources/problems
+    - file: resources/probability
+    - file: resources/git-resources
+    - file: resources/tutorials/index
+  - file: assignments/index
+    sections:
+    - file: assignments/A0/index
