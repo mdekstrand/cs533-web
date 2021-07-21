@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+jupyter-book = "==0.11.*"
+mdit-py-plugins = "<0.2.7"
+
+[dev-packages]
+XlsxWriter = "~=1.3"
+tinytag = "~=1.5"
+python-pptx = ">= 0.6.18"
+docopt = ">= 0.6"
+notebook = "*"
+
+[requires]
+python_version = "3.8"
