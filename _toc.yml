@@ -5,8 +5,11 @@ parts:
   chapters:
   - file: syllabus
   - file: schedule
-- caption: Course Content
+- caption: Course Materials
   chapters:
+  - file: content/index
+    sections:
+    - file: content/week1/index
   - file: resources/index
     sections:
     - file: resources/software

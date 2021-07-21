@@ -33,6 +33,7 @@ launch_buttons:
 
 sphinx:
   local_extensions:
+    admonitions: extensions
     media: extensions
   config:
     mathjax_config:
