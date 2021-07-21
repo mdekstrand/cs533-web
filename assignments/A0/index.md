@@ -22,7 +22,7 @@ It is due **August 29, 2021** at midnight.
 
 The steps of this assignment:
 
-1. Download the [starter notebook](A0-Notebook.ipynb).
+1. Download the [starter notebook](A0-Notebook.ipynb) (direct link: {download}`A0-Notebook.ipynb`).
 2. Download the {download}`code PDF <A0-Solution.pdf>`.
 3. Start Jupyter and open the notebook.
 3. Fill in the code in the notebook, running each cell.
@@ -43,5 +43,5 @@ As shown in [the First Notebook video](../../content/week1/index.md#first-notebo
 
 ## Resources
 
-- [Starter notebook](A0-Notebook.ipynb)
+- [Starter notebook](A0-Notebook.ipynb) ({download}`A0-Notebook.ipynb`)
 - {download}`PDF with code <A0-Solution.pdf>`

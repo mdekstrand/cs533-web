@@ -20,12 +20,12 @@ parse:
 
 execute:
   exclude_patterns:
-  - assignments/*/*.md
+  - assignments/*/*.ipynb
 
 html:
   use_issues_button: true
   use_repository_button: true
   favicon: logo.png
 
-launch:
-  binderhub_url: null
+launch_buttons:
+  binderhub_url: ''
