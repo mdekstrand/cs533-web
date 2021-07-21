@@ -125,17 +125,18 @@ This tunnels port 8888 from your local computer to the same port on `localhost` 
 computer (the Onyx node). You need to change 8888 and `onyxnode03` to match your port number and
 Onyx node.
 
-??? tip "Direct MobaXterm Tunnel"
+```{admonition} Direct MobaXterm Tunnel
+:class: dropdown
+If you are using MobaXterm directly with the VPN, use the *Tunneling* tool in the toolbar (if you are using MobaXterm as a command-line terminal to run the `ssh` command, this will not work; instead use the command-line instructions).
+Create a new tunnel with the following settings:
 
-    If you are using MobaXterm directly with the VPN, use the *Tunneling* tool in the toolbar (if you are using MobaXterm as a command-line terminal to run the `ssh` command, this will not work; instead use the command-line instructions).
-    Create a new tunnel with the following settings:
-
-    - Forwarded port: port number (e.g. 8888)
-    - SSH server: the node (e.g. `onxnode03.boisestate.edu`)
-    - SSH login: your username
-    - SSH port: 22
-    - Remote server: `localhost`
-    - Remote port: port number (e.g. 8888)
+- Forwarded port: port number (e.g. 8888)
+- SSH server: the node (e.g. `onxnode03.boisestate.edu`)
+- SSH login: your username
+- SSH port: 22
+- Remote server: `localhost`
+- Remote port: port number (e.g. 8888)
+```
 
 The forwarded port (in `ssh -L`, the first port number) does not have to match the remote port.
 If you have something else running on your computer using port 888, you can forward any port you want.
@@ -144,5 +145,6 @@ Once you have the port forward or tunnel set up, go to the URL indicated in the 
 The tunnel makes `localhost:8888` on your computer route to `localhost:8888` on the Onyx node, and everything works.
 
 ## Video
+
 
 {{ media.video('8e280072-b2c3-4cb3-a629-ac210160137f') | trim }}

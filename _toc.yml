@@ -9,12 +9,16 @@ parts:
   chapters:
   - file: resources/index
     sections:
+    - file: resources/software
+    - file: resources/onyx
     - file: resources/notebook-checklist
     - file: resources/glossary
     - file: resources/problems
     - file: resources/probability
     - file: resources/git-resources
     - file: resources/tutorials/index
+      sections:
+      - glob: resources/tutorials/*
   - file: assignments/index
     sections:
     - file: assignments/A0/index
