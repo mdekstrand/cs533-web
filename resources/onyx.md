@@ -144,7 +144,8 @@ If you have something else running on your computer using port 888, you can forw
 Once you have the port forward or tunnel set up, go to the URL indicated in the Jupyter Notebook output in your web browser.
 The tunnel makes `localhost:8888` on your computer route to `localhost:8888` on the Onyx node, and everything works.
 
-## Video
+## Demo Video
 
-
-{{ media.video('8e280072-b2c3-4cb3-a629-ac210160137f') | trim }}
+```{video}
+:id: 8e280072-b2c3-4cb3-a629-ac210160137f
+```

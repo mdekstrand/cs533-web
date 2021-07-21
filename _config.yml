@@ -32,6 +32,8 @@ launch_buttons:
   binderhub_url: ''
 
 sphinx:
+  local_extensions:
+    media: extensions
   config:
     mathjax_config:
       TeX:
