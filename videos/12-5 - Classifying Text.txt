@@ -1,0 +1,23 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CLASSIFYING TEXT
+Learning Outcomes
+Use vector-space representations to classify texts
+Classify into more than 2 classes
+Photo from United Nations COVID-19 Response on Unsplash
+Classifying Text
+We want to classify texts
+Spam and not-spam
+Identify news categories
+Separate news from opinion
+Identify fraud
+
+Input: term vectors
+K-NN Classifier
+Naïve Bayes Classifier
+Naïve Bayes
+Wrapping Up
+K-NN and Naïve Bayes can predict multiple classes from vector data, such as term frequency vectors from text.
+
+Spam filter example notebook demonstrates naïve Bayes.
+Photo by Elijah Hail on Unsplash

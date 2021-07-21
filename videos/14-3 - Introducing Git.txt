@@ -1,0 +1,98 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+INTRODUCING GIT
+Learning Outcomes
+Use Git to save versions of scripts and notebooks
+Share code through GitHub
+Merge code changes from collaborators
+
+This video introduces concepts — see links for hands-on learning.
+Photo by Ula Kuźma on Unsplash
+Problems with Saving Files
+Make a change that didn’t work — get back the old version
+Save work to make sure you don’t lose it
+Making sure you have the right version of the file on multiple computers
+Share changes with collaborators 
+Versions
+Git is a tool for storing versions of software
+Snapshot of current state
+History of versions
+
+A commit is a snapshot with a pointer to the previous commit(s)
+Chain of commits form history
+Can go back to previous commits
+Commits form basis for sharing and merging changes
+Core Concepts
+The working tree is your directory of files, ready to run or edit
+The index is a staging area for changes to be commit
+A repository stores the history
+Local repository is in .git directory in working tree
+Remote repositories (e.g. GitHub) don't have working trees
+Your local copy has the entire history!
+A branch is a is a line of development
+Points to a commit
+Updated as you make new commits
+Default branch is either ‘main’ or ‘master’
+Local and Remote
+You have a local repository where you work and make changes
+It can have configured remotes where you push and pull changes
+GitHub is one service for hosting repositories
+Configure your GitHub repo(s) as remotes on your local
+Other options include BitBucket and GitLab
+Operations
+commit records the current version of your files
+clone creates a repository & working tree by copying another
+push sends commits (and files) to a remote repository
+Updates remote branch to match local branch
+fetch retrieves data from a remote repository
+merge updates one branch to include changes from another
+pull updates local branch to include remote (fetch + merge)
+
+Use Case: Tracking History
+Work on your code and notebooks
+Commit when you have a version you want to save
+Do this very frequently
+It's useful for commits to successfully run
+
+Result: local history to go back and recover old versions
+Use Case: Multiple Computers
+Work on one machine
+Commit your changes
+Push to remote repo (e.g. GitHub)
+Pull on other machine, continue working
+
+Significantly less error-prone than manually copying files
+Cannot directly push between machines (can pull, though)
+Use Case: Collaboration
+Work, committing changes from time to time
+Pull from shared remote to get collaborator's current work
+Merge if necessary
+Push your work to shared remote
+Can only do if your branch is current w/ remote changes
+Collaborator pulls changes
+
+Always commit before merging
+Ignoring Files
+.gitignore files specify files to ignore
+These are committed to Git, to share w/ others
+Should ignore:
+Editor temp files (e.g. ~, .bak, .swp, etc.)
+OS weird files (e.g. .DS_Store on Mac)
+Python bytecode cache (__pycache__ dir, .pyc/.pyo files)
+Compiled files
+Most generated files
+Commit source and generators
+In data science projects, may store results of analysis (or even processing)
+Tools / Interfaces
+git command-line tool
+You’ll need to learn this, even if you primarily use other tools(running code on servers / clusters)
+Sometimes you need to fix things
+Integrated support in editor / IDE
+I use VS Code for almost all code — it has very good Git support
+Dedicated GUI like Tower, SourceTree, or GitKraken
+Free through GitHub Student Developer Pack
+Wrapping Up
+Git allows you to record versions of your code to track history, roll back changes, and share with others.
+
+Commit early and often.
+Photo by Jed Villejo on Unsplash

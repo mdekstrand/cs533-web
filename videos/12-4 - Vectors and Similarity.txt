@@ -1,0 +1,34 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+VECTORS AND SIMILARITY
+Learning Outcomes
+Understand the value of vector representations of instances.
+Compute similarities between vectors
+Photo by Yogendra Singh on Unsplash
+What Is a Vector?
+Homogenous and Heterogenous Vectors
+An instance’s features form a vector (array of values)
+Different features have different scales (unless standardized)
+Not necessarily meaningful to relate to each other
+
+Homogenous vector representations are particularly useful
+All entries are the same ‘kind’ of thing
+Positions instances in a vector space
+
+Vectors
+Can represent:
+A point in space
+A line from origin to point
+Angles
+Vector Similarity
+Cosine similarity is a common measure of object similarity
+How related are two vectors?
+If vectors are mean-centered, equivalent to Pearson correlation
+
+Very common to do with TF-IDF vectors to compare documents
+Tricks
+Wrapping Up
+Vector representations such as TF-IDF can be used for further computations.
+
+Similarity between vectors is often measured with their cosine, e.g. to compute similarity between documents.
+Photo by Raquel Martínez on Unsplash

@@ -1,0 +1,27 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+REPLICATION, BIAS, AND VARIANCE
+Learning Outcomes
+Reason about repeated training on different samples
+Introduce the bias-variance tradeoff
+
+Photo by Nick Reynolds on Unsplash
+Replication
+Remember bootstrapping and simulation?
+Repeated samples
+Compute expectation, variance, etc. of parameters
+
+What about prediction?
+Test Error
+Population
+Test Error (Repeated Training)
+Population
+Bias-Variance Tradeoff
+Variance
+Bias2
+Noise
+Wrapping Up
+Expected test error is the error we expect from predicting new, unobserved data points.
+
+When training from samples, expected error can be decomposed into model bias, model variance, and noise.
+Photo by Mitchell Luo on Unsplash

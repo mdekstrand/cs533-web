@@ -1,0 +1,96 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SAMPLING AND THE DATA GENERATION PROCESS
+Learning Outcomes
+Understand the relationship between a sample and a population
+Identify when we can make an inference about the population and when it’s just a statistic of the data
+Determine whether data is likely to be independent and identically distributed
+Photo by Dan Meyers on Unsplash
+Sampling
+The inferential logic of statistics is based on samples
+
+From a distribution
+Generate random numbers!
+From a population
+Select them with a representative sampling strategy
+
+Sampling the Population
+Sample of Penguins
+Statistic
+Is the sample representative?
+Does it teach us about population?
+Ideal Penguin
+Representative Samples
+We need a couple of things for a sample:
+Representative of the population (w.r.t. parameter of interest)
+Biases affect this (sampling, selection, response, etc.)
+Large enough to allow inference of parameter of interest
+This size does not depend on population size!
+
+Better data often better than more data!
+Historically, much statistics concerned w/ efficiently using samples
+Uniform Sampling
+All population members equally likely to be sampled
+Harder than it sounds in practice
+Resulting statistical analysis relatively straightforward
+Small subgroups easy to omit!
+More Strategies
+Stratified Sampling
+Make sure different groups are represented, possibly equally
+
+Oversampling
+Sample more from a minority group for in-group data
+Correct (resample or reweight) for whole-sample inference
+Penguins
+We have:
+3 species of penguin
+Measurements for a sample within each
+
+What is the population?
+
+Can we answer:
+Distribution of penguin species?
+Typical measurements within a species?
+Two Sampling Strategies
+sample
+Spec. 1
+Spec. 2
+Analysis
+Spec. 1
+Spec. 2
+Analysis
+Sample 1
+Sample 2
+The Data Generating Process
+How did we get our data?
+People and movies exist
+People find movies and watch them
+Netflix recommends more movies
+People maybe watch them (feed back into 2)
+
+Reasoning about DGP helps identify sample status, 
+I.I.D.
+Common desiderata for values, and samples:
+independent and identically distributed
+
+Independent: one value does not affect another
+Identically distributed: all drawn from the same distribution
+Equal mean, variance, distribution family
+
+Uniform at random from large pop is i.i.d.
+Small pop: sampling removes items! (unless with replacement)
+German Tank Problem
+You capture a tank.
+
+It has serial number 2089.
+
+How many tanks does the enemy have?
+
+This is inference for the max.
+Wrapping Up
+Our data comes by some process.
+
+Classically, we think about this in terms of sampling – how did we pick these items to analyze?
+
+The data generation process is how our data comes into existence.
+Photo by Museums Victoria on Unsplash

@@ -1,0 +1,31 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+COMPARING DISTRIBUTIONS
+Learning Outcomes
+Draw a Q-Q plot to compare two distributions
+Assess distribution fit with a Q-Q plot
+Photo by Wesley Tingey on Unsplash
+Distribution
+Normal?
+The Q-Q Plot
+Points: quantiles
+Y-axis: quantile in data
+X-axis: quantile from distribution
+
+Straight line indicates match
+
+X can be:
+Values from a theoretical
+2nd data set
+Plotting
+Statsmodels: qqplot
+line=45 shows ‘match’ line
+fit=True aligns data to work w/ line
+Notebook demonstrates
+Also shows how to build your own
+Don’t do that
+
+Wrapping Up
+Q-Q plots let us compare data against a distribution (or other data)
+
+Data is on a straight line when the distribution matches.

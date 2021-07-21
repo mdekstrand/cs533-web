@@ -1,0 +1,37 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+LOGISTIC REGRESSION
+Learning Outcomes
+Compute a logistic regression to predict a binary value
+Understand generalizing linear regression
+Photo by Vishnu Prasad on Unsplash
+Linear Regression
+Classification Setup
+General Linear Models (GLMs)
+Logistic Regression
+Training a GLM
+Generalized linear model
+Binomial family (logit link)
+
+p-values test significance
+
+Predicting with GLM
+scores = lg_res.predict(test)
+
+Results in predicted scores (estimated probabilities)
+
+Convert to binary class w/ threshold:
+
+decisions = preds > 0.5
+Terms
+Outcome — the true outcome of the data we seek to predict
+Called ground truth
+Score — our prediction score (logistic: estimated probability)
+Decision — our binary decision
+Usually done by thresholding score
+Some models & software directly output predictions
+Wrapping Up
+General linear models allow linear predictions of other quantities.
+
+Logistic regression lets us use linear models for binary classification.
+Photo by Michèle Eckert on Unsplash

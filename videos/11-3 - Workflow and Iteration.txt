@@ -1,0 +1,67 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+WORKFLOW AND ITERATION
+Learning Outcomes
+Properly split training, tuning, and evaluation data.
+Understand what is and is not “cheating” for evaluating a predictive model.
+Photo by Tam DV on Unsplash
+Split the Testing Data
+The Data
+Training Data
+Testing Data
+One Way
+Train model
+Experiment with different model designs
+Experiment with different features
+Select hyperparameters
+Evaluate Effectiveness
+Refine
+Motivation
+Purpose: build models that can process new data
+
+Eval goal: simulate model processing new data
+Method: hide some data and pretend it’s new
+
+Violation: allowing “new” data to affect the model design
+Iterative Modeling
+Work with the train data:
+Exploratory analysis
+Try different features and transforms
+Try different hyperparameters
+Try different models (logistic, random forest, etc.)
+Test effectiveness with tuning set (another test set held out from the training data)
+Or cross-validation (e.g. LogisticRegressionCV)
+Applying to Test Data
+Apply feature transforms / combos to test data
+Otherwise the model won’t work
+Apply them, but don’t use test data to assess if they’re useful
+If you transform target in train, do that in test too!
+Use trained model to predict test data
+Measure accuracy / precision / whatever
+
+Outcome of model process: one model (or one from each family) to evaluate for effectiveness.
+Dos and Don’ts
+Do
+Split training data into further subsets (tune data) to test model concepts
+Iteratively refine model’s predictive quality w/ tuning data
+Explore and test features on training data
+Don’t
+Go back to fix the model if it performs poorly on test data
+Use test data to inform model or feature decisions
+
+Production Systems
+Production systems often have new streams of test data.
+New data arrives tomorrow!
+
+Knowledge from today’s test data can be used for tomorrow’s modeling.
+Carrying Knowledge Forward
+Use what you learned on your test data for the next project
+May have new data ⇒ no problem
+Same data set ⇒ technical violation; less problematic w/ new test sample
+
+Over-reuse of data is a problem, ramifications not fully known.
+Wrapping Up
+Train/test splits are to help us test the ability of a model to predict future, unseen data.
+
+Using test-data knowledge to inform modeling decisions breaks that down.
+Photo by Alexandre Debiève on Unsplash

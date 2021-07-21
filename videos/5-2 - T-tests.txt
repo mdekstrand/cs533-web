@@ -1,0 +1,31 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+T-TESTS
+Learning Outcomes
+Select the appropriate form of T-test for a value
+Understand what the T-test does
+Photo by Jonathan Farber on Unsplash
+Single Variable
+Distribution Under the Null
+Degrees of Freedom
+Two-Sample T-test
+Penguin T-test Results
+Paired T-tests
+Tests
+One sample, mean: one-sample t-test
+Scipy ttest_1samp
+Paired measurements: paired t-test
+Scipy ttest_rel, or use 1samp on differences
+Two independent samples: two-sample independent t-test
+Scipy ttest_ind
+Warning: assumes equal variance by default – turn off with equal_var=False
+Other Tests
+This is the usual practice for a significance test:
+Compute statistic
+Compare to distribution under null hypothesis
+
+Can bootstrap them too
+Wrapping Up
+Significance tests compute the probability of a statistic under the null hypothesis.
+
+The T-test does this with the t-statistic, a standardized mean.

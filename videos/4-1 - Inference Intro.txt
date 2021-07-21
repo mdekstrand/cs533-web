@@ -1,0 +1,36 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PROBABILITY AND INFERENCE
+Learning Outcomes (Week)
+Understand probability notation
+Express formulas with probability notation
+Understand the difference between estimation and testing
+Compute confidence intervals and other estimates of the precision and significance of an effect
+Photo by William Warby on Unsplash
+Statistics
+Inference
+Inference is learning about data.
+
+Estimating the value of a parameter
+Testing the data’s support for an hypothesis
+
+Estimates
+An estimate is an estimated value of some underlying quantity
+Often has a confidence interval or similar (e.g. credible interval)
+
+An estimator is a procedure for computing an estimate.
+
+An estimand is a thing we try to estimate.
+
+Often use a statistic from a sample to estimate a parameter, which is the estimand.
+Effect Size
+The effect size is the size of the difference between two groups or treatments.
+Perspective
+Few bright-line rules – multiple pieces of evidence increase confidence
+Probability is meaningful even without a random process – can quantify degrees of belief
+Effect size and estimates are usually more important than hypothesis tests (but I’ll teach those anyway)
+Wrapping Up
+We’re going to move beyond computing and comparing statistics to reasoning about their impact and implications.
+
+The foundations of this will be probability theory.
+Photo by Celpax on Unsplash

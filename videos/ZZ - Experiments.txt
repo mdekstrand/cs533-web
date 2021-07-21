@@ -1,0 +1,17 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+EXPERIMENTS
+Learning Outcomes
+Design a simple experiment to test an effect
+Identify challenges to all-other-things-equal
+Understand the role of randomness in an experiment
+Photo by Daiga Ellaby on Unsplash
+Experiment Design
+Question: does 
+Wrapping Up
+Data is messy.
+
+Pandas gives us a number of tools for working with individual values or columns.
+
+
+Photo by Ashim D’Silva on Unsplash

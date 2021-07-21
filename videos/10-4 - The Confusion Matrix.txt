@@ -1,0 +1,129 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CONFUSION AND ACCURACY
+Learning Outcomes
+Count true and false positives and negatives
+Understand the confusion matrix
+Compute precision, recall, and accuracy
+Photo by marianne bos on Unsplash
+Decisions and Outcomes
+Confusion Matrix
+True positives & negatives — correct decisions.
+
+False positive — incorrectly decide yes
+
+False negative — incorrectly decide no
+False Negative
+True Negative
+False Positive
+True Positive
+1
+0
+Truth
+1
+0
+Decision
+Accuracy
+False Negative
+True Negative
+False Positive
+True Positive
+1
+0
+Truth
+1
+0
+Decision
+Precision
+False Negative
+True Negative
+False Positive
+True Positive
+1
+0
+Truth
+1
+0
+Decision
+Recall
+False Negative
+True Negative
+False Positive
+True Positive
+1
+0
+Truth
+1
+0
+Decision
+Why Not Just Use Accuracy?
+Not all errors have equal costs
+False positive in a preliminary cancer screen: run another test
+False negative: miss a life-threatening illness
+
+Imbalanced classes skew accuracy
+90% cases positive: always guessing 1 has 90% accuracy
+
+Confusion: any of these metrics sometimes called accuracy metrics.
+Precision [P(Y=1|D=1)]
+Captures correctness of positive decisions
+When we say spam, is it spam?
+When we say fraud, is it fraud?
+When we say good loan, is it a good loan?
+
+Also called Positive Predictive Value
+
+Useful when FP cost is high, getting it right is important
+Sensitive to prevalence of positive outcomes
+Recall [P(D=1|Y=1)]
+Captures detection rate of true outcomes
+If it’s spam, do we find it?
+If it’s fraud, do we find it?
+If it’s cancer, do we find it?
+
+Also called Sensitivity or True Positive Rate
+
+Crucial when FN (missed detection) cost is high
+False Positive Rate
+False Negative
+True Negative
+False Positive
+True Positive
+1
+0
+Truth
+1
+0
+Decision
+False Negative Rate
+False Negative
+True Negative
+False Positive
+True Positive
+1
+0
+Truth
+1
+0
+Decision
+Specificity
+False Negative
+True Negative
+False Positive
+True Positive
+1
+0
+Truth
+1
+0
+Decision
+Metrics
+We can derive many metrics from the confusion matrix
+Metrics reflect different needs and consequences
+Metrics reflect different stakeholder perspectives
+FPR: how likely am I to be falsely accused?
+Wrapping Up
+The confusion matrix categorizes classification results and errors.
+
+Ratios of various counts produce metrics for classifier accuracy.
+Photo by Jon Tyson on Unsplash

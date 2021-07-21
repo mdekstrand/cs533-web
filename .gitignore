@@ -1,0 +1,13 @@
+/.venv/
+/.vscode/
+/site/
+/full-site/
+/node_modules/
+*.log
+*.prof
+*.stats
+.ipynb_checkpoints/
+/pythonenv*
+
+# Local Netlify folder
+.netlify

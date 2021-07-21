@@ -1,0 +1,11 @@
+# to-update redirects
+/   /F20    302
+/current/*  /F21/:splat 302
+
+/content/*  /F20/content/:splat 302
+/assignments/*  /F20/assignments/:splat 302
+/resources/*    /F20/resources/:splat   302
+
+# one-time redirects
+/syllabus/      /F20/syllabus/  301
+/schedule/      /F20/schedule/  301

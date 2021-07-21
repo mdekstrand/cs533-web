@@ -1,0 +1,51 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+ABOUT ME
+CVish
+Ph.D 2014, University of Minnesota
+Asst. Prof @ Boise State 2016–present
+Sr. Member, Association for Computing Machinery
+
+Human-computer interaction, data science
+Teaching
+Lots of things about data
+
+Storing and querying it (CS 410/510)
+Using it for science (CS 533)
+Using it to recommend things (CS 538)
+Research
+Information access systems (search, recommendation, etc.)
+
+Are they fair and equitable?
+What are their human impacts, for good or ill?
+How do we build them to meet overlooked needs?
+Professional Communities
+ACM Conference on Recommender Systems (RecSys)
+General Chair 2018, Steering Committee, program committee
+ACM Conference on Fairness, Accountability, and Transparency (FAccT)
+Network Co-chair (coordinating workshops)
+Executive Committee
+Review for many other conferences
+Distinguished Reviewer for TiiS journal
+How CS Scholarship Works
+Conference
+Submit paper (full, short)
+Peer-reviewed
+Presented at conference
+
+Workshop
+Affiliated with conference
+Lower-prestige, often WIP
+Journal
+More developed ideas
+Longer treatment
+Sometimes expanded version of conference papers
+
+Lots of variance
+All of these require committees, labor to function!
+Some Favorites
+📺	Deep Space Nine, The Good Place
+🎥	The Iron Giant
+📚	The Broken Earth trilogy (N.K. Jemisin)
+🤣	Savage Chickens, Calvin and Hobbes
+See you in class!

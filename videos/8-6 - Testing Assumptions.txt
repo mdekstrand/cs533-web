@@ -1,0 +1,57 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+TESTING ASSUMPTIONS
+Learning Outcomes
+Know the assumptions of linear models
+Identify violations of assumptions regarding residuals
+
+Photo by Austin Kehmeier on Unsplash
+Linear Model Assumptions
+Linearity — outcome and predictor have linear relationship.
+Independence — observations are independent of each other
+Normal errors — residuals are normally distributed
+Equal variance — residuals have constant variance (called homoskedasticity; violation is heteroskedasticity)
+
+Last three result in i.i.d. normal residuals
+Linearity
+Fundamental assumption – we wouldn’t run a linear model for things we think aren’t linear.
+
+Scatter plot shows the line seems to fit.
+Independence
+Property of data collection
+Not directly checkable
+Commonly violated by:
+Time series
+Groups or common environments
+Common environments
+Repeated individuals
+Solutions: correlated error models, hierarchical models, mixed effects models
+Normal Errors
+Errors must be (approximately) normally distributed.
+
+Check with a Q-Q plot of residuals.
+
+Violations mean:
+Line still fits
+P-values and CIs are unreliable
+Equal Variance of Errors (homoskedasticity)
+Residuals must have constant variance.
+
+Check with residuals vs. fitted scatterplot or regplot.
+
+Vertical positions should look like random noise.
+
+Violation means model is failing to capture a systematic effect.
+Heteroskedastic Errors
+What to Do
+Prediction? Might not matter.
+Throw away the model – this might not work
+Add, remove, or transform predictors
+Transform outcome
+Go to non-parametric, such as bootstraps or nonparametric regression (won’t have time for NPR)
+Hierarchical or mixed-effects model
+Wrapping Up
+Linear models make four key assumptions necessary for inferential validity.
+
+Plotting the residuals allows us to detect violations of some of them.
+Photo by Neil Thomas on Unsplash

@@ -1,0 +1,9 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+OUR FIRST PYTHON NOTEBOOK
+Learning Outcomes
+Start Jupyter
+Run Python code
+Prepare a notebook for submission
+
+USINNG ONYX

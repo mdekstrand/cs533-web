@@ -1,0 +1,43 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CLUSTERING
+Learning Outcomes
+Understand the idea of ‘clustering’
+Interpret the results of clustering with k-means
+Photo by Markus Winkler on Unsplash
+Grouping Things Together
+What if we want to find groups in our data points?
+
+We don’t know the groups (or we would classify)
+Find them from the data
+
+This is clustering
+Membership Kinds
+Mixed-membership: point can be in more than one cluster
+Matrix factorization can be a kind of clustering
+
+Single-membership: point is in precisely one cluster
+Centroid-Based Clustering
+K-Means Algorithm
+Clustering in SKlearn
+KMeans class
+fit(X) learns cluster centers (can take y but will ignore)
+predict(X) maps data points to cluster numbers
+cluster_centers_ has cluster centers (in input space)
+
+Other clustering algorithms have similar interface.
+Evaluating Clusters
+Look at them
+Seriously. Look at them.
+If you have labels, compare
+Useful for understanding behavior
+Quality scores
+E.g. silhouette compares inter- and intra-cluster distances
+Can be used to compare clusterings, no absolute quality values
+Wrapping Up
+Clustering allows us to identify groups of items from the data.
+
+May or may not make sense.
+
+Cluster quality depends on features, metric, cluster count, and more.
+Photo by Igor Milicevic on Unsplash

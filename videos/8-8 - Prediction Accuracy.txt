@@ -1,0 +1,44 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PREDICTION ACCURACY
+Learning Outcomes
+Compute the accuracy of a regression’s predictions
+Understand the benefits of RMSE over MAE
+Photo by Sheri Hooley on Unsplash
+Prediction and Inference
+Prediction tries to predict the future with the model.
+Inference uses the model’s structure and parameters to learn.
+Train-Test
+Data
+Train
+Test
+Model
+Split
+Predict
+Split before exploratory analysis of features.
+Supervised learning – we have thing to predict
+Train-Test
+Create test sample:
+test = predictable.sample(frac=0.2)
+
+Filter other data for training:
+train_mask = pd.Series(True, index=predictable.index)
+train_mask[test.index] = False
+train = predictable[train_mask]
+Evaluate
+Fit model on train
+Use fit’s predict method on testpreds = pfit.predict(test)
+Compare predictions to test outcomes
+Mean Absolute Error
+Root Mean Squared Error
+Translating a Formula
+Why RMSE?
+Interpreting Prediction Accuracy
+MAE and RMSE are both in original outcome variable’s units
+“Good enough” depends on application
+What’s needed?
+What’s the “noise floor” (minimum possible error)?
+Can compare error of multiple models on equivalent test data
+Wrapping Up
+We measure a predictor’s accuracy by comparing predictions to test data that wasn’t seen in the training process.
+Photo by Charles Deluvio on Unsplash

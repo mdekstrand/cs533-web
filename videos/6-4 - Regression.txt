@@ -1,0 +1,20 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+REGRESSION
+Learning Outcomes
+Compute a linear regression with one predictor
+Photo by Andre Benz on Unsplash
+Trend Line
+Where did this come from?
+
+Variables and Model
+Regression Model
+coef – strength of relationship
+R2 – frac. of variance explained
+
+Ignore p-values and standard errors for now
+Wrapping Up
+Regression predicts one value with another.
+
+Lets us go beyond same-scale (paired t-test) to determine strength of relationship.
+Photo by Lucy-Claire on Unsplash

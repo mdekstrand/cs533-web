@@ -1,0 +1,58 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+STATISTICAL GRAPHICS
+Learning Outcomes
+Understand the value of graphics for presenting data
+Identify the parts of a statistical image
+Understand some pitfalls in graphics
+Graphic by W.E.B. Du Bois, for the 1900 World’s Fair in Paris.
+Example Chart
+Parts to identify:
+X-axis
+Y-axis
+Axis labels
+Data
+From “Enhancing Classroom Instruction with Online News”, by Michael D. Ekstrand, Katherine Landau Wright, and Maria Soledad Pera (Aslib Journal of Information Mangement, online June 2020)
+What Charts Can Reveal
+Patterns (or lack thereof)
+Comparisons
+Compare two bars
+See where points are
+Trends
+Do lines go up or down? Or jaggedy?
+Documenting Charts
+Clearly state:
+What is being presented (what is each point?)
+What values are plotted on the axes
+Often, this is done in the axis label
+Make sure units are clear if relevant
+Sometimes this can be implicit, but if in any doubt: be explicit
+
+The chart + caption should be interpretable on their own!
+Observations may be saved for referencing text.
+Captions, Titles, and Context
+In a paper, a figure has a caption
+Labels the figure
+Can provide interpretive guidance
+Other contexts, we often need a title
+Shorter, doesn’t explain details
+Labels the whole figure
+In notebooks, surrounding text may be sufficient, but title often a good idea for quick reading.
+Pitfalls
+Distorting perspective or distances – make sure lengths accurately represent quantities
+Bar charts start at 0!
+Violating conventions
+Users have expectations, e.g. linear, even spacing
+Don’t Rely on Graphics
+Graphics illustrate an effect
+
+They may help find an effect
+
+They are not conclusive proof of an effect
+Wrapping Up
+Graphics can make data clearer, leverage human perception to understand it.
+
+Graphics are not a replacement for numeric analysis, but give it context.
+
+Clearly label and describe graphics.
+Photo by Susn Matthiessen on Unsplash

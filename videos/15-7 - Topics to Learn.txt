@@ -1,0 +1,46 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+THINGS TO LEARN
+Learning Outcomes
+Know topics and software to study for expanding your data science skills.
+Select the classes to take to complete your graduate degree.
+Photo by Reinhart Julian on Unsplash
+Machine Learning and Statistics
+CS 534: Machine Learning
+Math 562: Probability and Statistics II
+Math 572: Computational Statistics
+Math 573: Time Series Analysis
+Working with Text
+CS 536: Natural Language Processing
+CS 537: Introduction to Information Retrieval
+Read about NLP and IR
+Application Areas
+Social media: CS539, read papers in ICWSM & CSCW
+Information retrieval: CS 537 & 637
+Recommendation & personalization: CS 538
+Software Development
+CS 573: Advanced Software Engineering
+Study programming practices & software engineering
+Practice, practice, practice
+Think about your code’s readability & effectiveness
+Advanced ML
+CS 633: Deep Learning
+Software: TensorFlow, PyTorch
+“Modular differentiable programming”
+Bayesian Inference
+I’m a Bayesian. Mostly.
+Book: Statistical Rethinking (McElreath)
+Software: STAN or PyMC3
+Causal Inference
+Book: Counterfactuals and Causal Inference (Morgan & Winship)
+ECON 522: Advanced Econometrics
+Critical Perspectives
+Book: Data Feminism (D’Ignazio & Klein)
+Book: Data, Now Bigger And Better
+Book: Introduction to Science and Technology Sudies (Sismondo)
+Keyword: Critical Data Studies
+Wrapping Up
+This class lays a foundation for you to integrate further knowledge.
+
+Never stop learning new things.
+Photo by Annie Spratt on Unsplash

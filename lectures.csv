@@ -1,0 +1,118 @@
+name,slides,length
+0 - Leader,1,
+0 - Welcome,,83.28997777777778
+1-1 - Introduction,9,939.3632666666666
+1-2 - Asking Questions,12,635.9713333333333
+1-3 - Questioning Questions,11,
+1-3 - Questioning-Questions,,534.9645333333333
+1-4 - About Me,9,411.13252222222224
+1-5 - Content Structure,7,419.2595
+1-6 - Our First Python,4,
+1-6 - Our First Python Notebook,,570.6303888888889
+1-6a - Using Jupyter on Onyx,,514.9257111111111
+1-7 - Data Types and Operations,5,1157.3754222222221
+1-8 - Control Structures,9,416.4731111111111
+1-9 - Scientific Python,12,800.9955555555556
+10-1 - What Is Classification,7,399.5922
+10-2 - Log-Odds and Logistics,11,604.8101555555555
+10-3 - Logistic Regression,11,547.8980444444444
+10-4 - The Confusion Matrix,16,710.7395888888889
+10-5 - Log Likelihood,15,1014.2708444444445
+10-6 - Scikit-Learn,8,402.3321555555556
+10-7 - Receiver Operating Characteristic,9,445.59093333333334
+10-8 - Biases and Assumptions,15,1437.5009555555555
+11-1 - Intro and Context,8,279.4057111111111
+11-2 - Feature Transforms,16,1263.2119777777777
+11-3 - Workflow and Iteration,11,869.1693444444444
+11-4 - Pipelines,10,439.4608666666667
+11-5 - Regularization,13,904.5565555555555
+11-6 - Models and Depth,9,443.36181111111114
+11-7 - Inference and Ablation,14,895.7794111111111
+11-8 - Dates,12,515.2275777777778
+12-1 - Unstructured Data,7,177.40045555555557
+12-2 - Unicode and Encodings,25,1725.3122888888888
+12-3 - Text Processing Pipeline,19,1056.5311555555556
+12-4 - Vectors and Similarity,10,418.9112
+12-5 - Classifying Text,8,369.801
+13-1 - No Supervision,8,171.758
+13-2 - Decomposing Matrices,15,1042.8778222222222
+13-3 - Clustering,10,416.4731111111111
+13-4 - Vectors and Spaces,12,447.33242222222225
+14-1 - From Notebooks to Workflows,8,224.83882222222223
+14-2 - Scripts and Modules,14,933.3957333333333
+14-3 - Introducing Git,14,722.6049888888889
+14-4 - Git for Data Science,10,412.40961111111113
+14-5 - ETL,10,406.9297
+14-6 - Split Apply Combine,10,405.60616666666664
+14-7 - Tuning Hyperparameters,15,649.6711111111111
+14-8 - Reproducible Pipelines,12,508.56344444444443
+15-1 - Recap,13,383.03636666666665
+15-2 - Drift,9,433.93451111111114
+15-3 - Time Series Operations,14,676.7688
+15-4 - Correlated Errors,16,830.2294777777778
+15-5 - Publishing Projects,10,595.6382777777778
+15-6 - Production Applications,11,448.6327444444444
+15-7 - Topics to Learn,12,385.5441222222222
+15-8 - General Tips,10,625.8938777777778
+15-9 - Farewell,,118.02703333333334
+2-1 - Describing Data,10,387.4946
+2-2 - Pandas Basics,,506.5433111111111
+2-3 - Variables and Types,16,946.9794111111111
+2-4 - Groups and Aggregates,14,851.8240333333333
+2-5 - Descriptive Statistics,18,992.2351
+2-6 - Describing Distributions,11,616.5594555555556
+2-7 - Data Sources and Bias,10,
+2-7 - Sources and Bias,,525.6765555555555
+2-8 - Codings and Encodings,10,537.1704333333333
+3-1 - Goals and Audiences,10,595.5686222222222
+3-2 - Statistical Graphics,10,855.3302444444445
+3-3 - Manipulating Data,12,558.2077111111112
+3-4 - Types of Charts,16,810.9569111111111
+3-5 - Metrics and Differences,12,410.9003222222222
+3-6 - Charts from the Ground Up,20,1494.6917
+3-7 - Organizing Notebooks,15,996.0431777777778
+4-1 - Inference Intro,9,636.0642222222223
+4-2 - Probability,17,826.3285222222222
+4-3 - Joint and Conditional,12,710.8092555555555
+4-4 - Continuous Probability,13,713.3634444444444
+4-5 - Distributions,10,563.9430333333333
+4-6 - Sampling and the DGP,14,1073.6907
+4-7 - Confidence,12,786.9707
+4-8 - The Bootstrap,11,446.07854444444445
+4-9 - Testing Hypotheses,11,891.9713333333333
+5-1 - Comparing Distributions,7,306.1318777777778
+5-2 - T-tests,12,744.1763222222222
+5-3 - Python Errors,9,448.40054444444445
+5-4 - Python Libraries,6,223.25986666666665
+5-5 - Epistemology,21,1544.0573222222222
+5-6 - Learning More,,310.4740111111111
+6-1 - Two Variables Intro,9,276.41034444444443
+6-2 - Displaying Variables,8,224.76915555555556
+6-3 - Correlation,12,671.5675333333334
+6-4 - Regression,7,362.67246666666665
+6-5 - Features,8,259.69197777777777
+7-1 - Data,,502.71202222222223
+7-1 - Intro,10,
+7-2 - Finding Data,7,445.3587333333333
+7-3 - Data Formats,12,835.7093888888888
+7-4 - Integrating Data,13,700.8943333333333
+7-5 - Values and Types,12,495.5602666666667
+7-6 - Ethics,10,850.2683
+7-7 - Real Example,35,2937.208166666667
+7-8 - Workflow Advice,8,324.59174444444443
+8-1 - Introducing Regression,8,306.71237777777776
+8-2 - Modeling,12,486.22585555555554
+8-3 - Single Regression,11,614.3303444444444
+8-4 - Prediction and Inference,10,513.2306555555556
+8-5 - Categorical Predictors,8,221.1004111111111
+8-6 - Testing Assumptions,11,586.7682555555556
+8-7 - Multiple Regression,18,1148.9930111111112
+8-8 - Prediction Accuracy,13,552.7974555555555
+8-9 - Instances and Sampling,12,580.2434444444444
+9-1 - More Regression,6,187.59401111111112
+9-2 - Simulation,14,888.7902
+9-3 - Variance and Sums of Squares,,359.3752333333333
+9-3 - Variance and the Sum of Squares,8,
+9-4 - Overfitting,10,631.3041222222222
+9-5 - Bias-Variance,8,556.7448555555555
+9-6 - Optimizing Loss,13,843.5112888888889

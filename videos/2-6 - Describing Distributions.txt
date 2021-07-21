@@ -1,0 +1,75 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+DESCRIBING DISTRIBUTIONS
+Learning Outcomes
+Provide numerical descriptions of a distribution
+Visualize the distribution of a variable
+Photo by Leohoho on Unsplash
+What Questions?
+What is the average value?
+Mean, median
+How spread out is the data?
+Standard deviation, IQR
+Is it skewed?
+What does it look like?
+Numeric Descriptions
+Previous video!
+
+>>> numbers.describe()count    10000.000000mean         5.006208std          0.998461min          1.41039225%          4.33046850%          4.99063675%          5.678746max          9.081399dtype: float64
+Histograms
+Shows how common different values are
+X-axis: values
+Y-axis: frequency (count or relative)
+
+Bins controls division points
+Pick for clarity and integrity!
+
+import matplotlib.pyplot as plt
+This data is symmetrical (not skewed)
+>>> plt.hist(numbers, bins=25)
+Real Data – Average Movie Rating
+>>> plt.hist(movie_info['mean'])
+>>> movie_info['mean'].describe()
+count    59047.000000mean         3.071374std          0.739840min          0.50000025%          2.68750050%          3.15000075%          3.500000max          5.000000Name: mean, dtype: float64
+Slight left skew
+Mean less than median
+Longer tail on the left of the histogram
+Real Data – Movie Rating Count
+>>> plt.hist(movie_info['mean’], bins=100)
+>>> movie_info['count'].describe()count    59047.000000
+mean       423.393144
+std       2477.885821
+min          1.000000
+25%          2.000000
+50%          6.000000
+75%         36.000000
+max      81491.000000
+Name: count, dtype: float64
+Very strong right skew
+Mean much greater than median
+Most movies have far fewer ratings than mean!
+Hard to really see in a histogram
+Alternate Histogram
+hist = movie_info['count'].value_counts()plt.scatter(hist.index, hist)plt.yscale('log')plt.ylabel('Number of Movies’)plt.xscale('log')plt.xlabel('Number of Ratings’)
+
+Points rather than bars
+One point per rating count
+Plotted on logarithmic axis
+The mode is 1 (100)
+
+Power law distribution (almost)
+Artifact
+Movie mean rating, more bins
+
+Certain values more common!
+1, 2, 3, 4, 5, 2.5, 3.5…
+These are exact rating values
+Because so many movies have only one rating!
+>>> plt.hist(movie_info['mean'], bins=50)
+Categorical Distributions
+Categorical distributions with bar charts
+
+spec_counts = penguins['species'].value_counts()plt.bar(spec_counts.index, spec_counts)plt.xlabel('Species’)plt.ylabel('# of Penguins’)
+
+Adelie is most common
+

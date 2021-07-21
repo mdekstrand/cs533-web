@@ -1,0 +1,280 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+A REAL EXAMPLE
+Integrating Book Data
+Learning Outcomes
+See some of the data cleaning and integration decisions in a real data science project
+Photo by Sharon McCutcheon on Unsplash
+Question
+Are book authors of different genders well-represented in user ratings and reviews ratings in online book platforms?
+Data Requirements
+Books
+“Easy” public data:
+Library of Congress Open MARC Data (10.5M records)
+OpenLibrary (26.7M records)
+GoodReads (crawled by UCSD; limited data)
+MARC
+Standard format for book and author data
+Stores data in fields and subfields with numeric tags
+Available in XML format
+Same structure and tags
+Easier to parse w/ standard tools
+Still must know MARC fields!
+Leader/00-23	*****nam##22*****#a#4500
+001	<control number>
+003	<control number identifier>
+005	19920331092212.7
+007/00-01	ta
+008/00-39	820305s1991####nyu###########001#0#eng##
+020	##$a0845348116 :$c$29.95 (£19.50 U.K.)
+020	##$a0845348205 (pbk.)
+040	##$a[organization code]$c[organization code]
+050	14$aPN1992.8.S4$bT47 1991
+082	04$a791.45/75/0973$219
+100	1#$aTerrace, Vincent,$d1948-
+245	10$aFifty years of television :$ba guide to series and pilots, 1937-1988 /$cVincent Terrace.
+246	1#$a50 years of television
+260	##$aNew York :$bCornwall Books,$cc1991.
+300	##$a864 p. ;$c24 cm.
+500	##$aIncludes index.
+650	#0$aTelevision pilot programs$zUnited States$vCatalogs.
+650	#0$aTelevision serials$zUnited States$vCatalogs.
+What is a Book?
+LoC catalogs many things:
+Books
+Periodicals
+Government records
+Music
+Films
+A “book” is:
+Textual (MARC format ‘t’)
+Also included ‘a’ (Map) to catch atlases
+Not a government record
+International Standard Book Number (ISBN)
+Identifies books across publishers
+Defined to identify a single edition of a book
+Come in 10- and 13-digit formats
+13-digit is variant of EAN
+Can convert 10 to 13
+Problems:
+Many formats, surrounding text, etc.
+Corrupt ISBNs
+Extra digits
+Missing digits
+Incorrect check digit
+Non-ISBNs in ISBN field
+$15
+
+
+Other Identifiers
+Library of Congress Control Number (LCCN)
+OpenLibrary edition & work IDs
+GoodReads book & work IDs
+Our own table primary keys
+Amazon Standard Identification Number (ASIN)
+
+Define unified book code – number identifying a book record
+Real “ISBNs”
+0836932722
+013027190X (v. 2)
+8719359022. ISBN 8719359004 (pbk.)
+2890401448 : $5.00
+$10.00
+978-963-87472-2-8
+0981482295 (978-0-9814822-9-3 : alk. paper)
+0877030863 lib. bdg. (from label mounted on verso of t.p. correcting printed ISBN) (v. 1)
+
+
+Cleaning ISBNs
+Process ISBN fields:
+Extract things that look like ISBNs
+Digits, with allowable separators and terminating X
+Long enough to be an ISBN
+Extract “tags” (e.g. ‘pbk’)
+Define allowable prefixes, postfixes, and separators
+Clean junk and separators from inside ISBNs to standardize
+
+Recursive descent parser driven by regular expressions (CS 361 & 354!)
+Development Process
+Start with simple rules
+Manually verify some matches
+Look for patterns not yet matched
+Add to matcher!
+Make ignore patterns for known-unparsable patterns
+Iterate until everything is matched, ignored, or unusable
+OpenLibrary
+JSON – much easier to work with
+Shares many ISBN problems – used same logic
+What is a Book?
+Books have multiple editions
+Different publishers
+Different ISBNs
+Ratings / reviews usually attached to a single edition
+OpenLibrary, GoodReads group into “work”
+Not complete
+Some records more complete than others
+Best to recommend works
+Grouping by Connected Components
+Work
+Work
+Book
+Book
+Book
+Book
+ISBN
+ISBN
+ISBN
+Each connected component gets a cluster identifier
+Problems with Grouping
+Miss groups when we don’t have records to link them
+ISBN that never appears in any book data
+Over-grouping when ISBNs are mislinked
+ISBN erroneously recorded for wrong book
+Two books’ ISBNs corrupted to same value
+ISBN reuse
+Combined volumes
+
+Not yet good solutions – documented as limitation
+Integration So Far
+Book data from 3 sources
+ISBNs (and ASINs) extracted 
+Book records mapped into clusters
+ISBN ⇔ cluster mapping (what ISBNs are in a cluster?)
+
+This is (complex) pooling, but w/o standardization
+Next: linking!
+Book Ratings and Reviews
+Collected from online platforms:
+BookCrossing [BX] (collected from an old book rating site, often used for recommender systems research)
+Amazon [AZ] (public ratings and reviews, collected by UCSD in 2014)
+GoodReads [GR] (ratings, reviews, and add-to-shelf actions by users with public profiles, collected by UCSD in 2017)
+BookCrossing and Amazon Linking
+BX: user ID, ISBN, rating
+ISBNs can be corrupt – remove invalid chars
+Link to book clusters
+
+AZ: user ID, ASIN, rating, review text
+Treat as ISBNs
+Link to book clusters
+
+GoodReads Linking
+GoodReads contains:
+User adds book to shelf (user ID, book ID, shelf ID, timestamp)
+Shelf IDs not meaningful
+“Is Read” flag for adding to the Read shelf
+5-star rating (accompanying some add-to-shelf actions)
+Review text (with user ID, item ID, timestamp, rating)
+
+All have GoodReads book IDs – directly link to cluster
+Integration So Far
+Book Cluster
+LoC Book Records
+OpenLib Edition Records
+GoodReads Book Records
+OpenLib Work Records
+BookCrossing Ratings
+Amazon Ratings & Reviews
+GoodReads Ratings, Adds, Reviews
+GoodReads Work Records
+Author Data
+Book data includes list of authors
+OpenLibrary & GoodReads have author entries
+Linked identifiers
+
+But we want author gender — missing!
+
+Let’s not guess from names.
+Authority Records
+Librarians create two kinds of records:
+Bibliographic records about books
+Name authority records about authors
+
+More MARC, and… MARC Authority field 375 is “gender”!
+Recording Gender
+MARC Authority Field 375:
+Defined as gender identity
+Uses an open vocabulary
+Allows for multiple gender records per author with validity dates
+
+Program for Cooperative Cataloging Working Group provides guidance on filling the field
+
+Un-Recording Gender
+Library of Congress
+PCC coordinates contributing libraries
+Some contributors do not record gender
+Only covers LoC collections
+
+Virtual Internet Authority File
+Combines LoC with other national libraries
+Smashes all gender records into male/female without dates
+
+Linking Authority
+MARC records do not have linking identifiers
+Bibliographic record stores author name
+Authority record has control number, but it isn’t referenced
+
+OpenLibrary records VIAF control numbers for a few authors
+Linking by Name
+Find VIAF record(s) with names matching first author’s name
+Extract gender identity field
+
+Assumption: it is unlikely for two authors to have the same full name and different genders.
+Combine all matching gender records into male, female, ambiguous, or unknown
+Only reasonable because of goal/question
+Names
+Authority records list multiple name variants for an author
+OpenLibrary also lists multiple names for author
+Book only lists one
+Inconsistent on “Family, Given” or “Given Family”
+
+Solution:
+If authority record has “B, A”, generate additional “A B” name
+Accept match on any name
+Integration
+Book Cluster
+LoC Book Records
+OpenLib Edition Records
+GoodReads Book Records
+OpenLib Work Records
+BookCrossing Ratings
+Amazon Ratings & Reviews
+GoodReads Ratings, Adds, Reviews
+GoodReads Work Records
+First Author Gender
+Measuring
+Representation
+Limitations
+Over-links authors, which can cause some gender errors
+Over-links books, causing some gender and book errors
+Only records binary gender
+Unknown gender distribution of unknown books
+Presence of the label is probably biased, we don’t know how
+
+LoC has linked data that should help; not yet publicly available
+Software
+Rust program
+Parses raw data files
+Loads into SQL database
+Cleans ISBNs
+
+Rust:
+Compiled language (fast like C)
+High-level features (memory management, types, strings, XML parsers, etc.)
+PostgreSQL
+Stores data
+Extracts desired fields from natural objects
+Integrates data sources
+
+Python
+Clusters books
+Computes statistics
+DVC controls whole process
+Wrapping Up
+Many decisions go into a serious data integration project.
+
+Document and justify them all.
+
+Design workflow to make it transparent and reproducible.
+
+
+Photo by Erol Ahmed on Unsplash

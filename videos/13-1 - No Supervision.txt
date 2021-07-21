@@ -1,0 +1,38 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+NO SUPERVISION
+Learning Outcomes (Week)
+Distinguish between supervised and unsupervised learning.
+Project data into lower-dimensional space with matrix factorization.
+Cluster data points.
+Photo by Benedikt Geyer on Unsplash
+Learning So Far
+We learn to predict a label
+Categorical label → classification
+Continuous label → regression
+
+This is called supervised learning
+We have ground truth for outcome
+Sometimes called supervision signal
+Unsupervised Learning
+What can we do without a supervision signal?
+Group instances together (clustering)
+Learn vector spaces for items
+Learn relationships between items
+Learn relationships between features
+Middle Ground: Self-Supervised Learning
+Sometimes we can extract supervision signals from data
+Word embeddings: predict if two words appear together
+
+Why?
+Exploring data
+Reducing data complexity
+For visualization
+For learning (“curse of dimensionality”)
+Inputs into other models
+Sometimes it’s all we have
+Wrapping Up
+Unsupervised learning learns patterns from data without labels.
+
+It’s useful for grouping items together, exploration, and as input to other models.
+Photo by Fran Jacquier on Unsplash

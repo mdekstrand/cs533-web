@@ -1,0 +1,78 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+MULTIPLE LINEAR REGRESSION
+Learning Outcomes
+Build models with 2 or more predictors
+Compare models using the Adjusted R2 and AIC
+
+Photo by Jen Theodore on Unsplash
+Base Model
+Assumption Checks
+Adding Species
+Do different species have different flipper lengths?
+
+Formula API automatically dummy-codes species.
+
+Intercept: baseline Adelie mass
+Species: increase/decrease in baseline mass for each species
+Adding Species
+Adjusted R2 for multivariate regression
+Adjusts for multiple variables
+
+AIC compares models for same predictor – lower is better fit
+Combines estimation power with model complexity
+Plot & Residuals
+Interaction Effects
+Interaction effects apply to products of variables
+
+Categorical + Numeric: adjust slope by category
+Plot & Residuals
+Specifying Main and Interaction Effects
+Main effect – effect of the variable(s) on their own
+Specified with V1 + V2 + … + Vn
+Interaction effect – interaction (product) of variables
+Specified with V1:V2
+Full effects – main and interaction
+Specified with V1 * V2
+Expands to V1 + V2 + V1:V2
+Sexual Dimorphism
+Flipper/species interaction not significant
+After accounting for species and sex differences, data does not support different flipper/mass slopes for different species.
+Simplified
+Slightly better AIC
+Same Adj. R2
+Species & Sex have subtle interpretation
+Most of the chinstrap difference is that male chinstraps are smaller
+Gentoos and Adelies likely have the same mass dimorphism
+Assumption Checks
+Beware Correlated Predictors
+Correlated predictors cause poor model fits
+Problem is called multicollinearity
+X1
+X2
+Y
+X1 causes X2?
+X2 causes X1?
+X? causes X1 and X2?
+
+Which coefficient gets the common effect?
+
+Can even invert signs!
+Pair Plot – useful for detecting correlations
+Also use a correlation matrix.
+Occam’s Razor
+Given two explanations, prefer the one with fewer assumptions
+
+Application to modeling:
+Prefer simple models
+Features and complexity need to earn their keep
+
+AIC is one embodiment of this.
+
+Wrapping Up
+Linear models can extend to multiple variables.
+
+We can look at separate (main) and interaction effects.
+
+Prefer simple models.
+Photo by Luís Eusébio on Unsplash

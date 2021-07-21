@@ -1,0 +1,47 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+WEEK 2: DESCRIBING DATA
+Learning Outcomes
+Hands-on practice loading data files in Python
+Basic file descriptions
+Identifying variable types
+Text encodings
+Questions
+We’re a week in!
+
+Questions or concerns?
+HetRec Data
+Documented in README.txt
+
+From MovieLens (see demo)
+Cross-referenced with IMDB and Rotten Tomatoes
+Data Questions
+Look at README.txt
+
+What are 3 things you learn from it?
+What are some open questions about the data?
+What is one question you could try to answer with this data?
+Observations and Variables
+What are some of the observations? What kind of thing is being observed?
+What are some variables? What kind are they?
+Loading a File
+These are TSV files  - tab-separated values
+
+pd.read_csv('movies.dat', delimiter='\t', encoding='latin1')
+
+Change delimiter to tab
+Read in Latin-1 text encoding
+Load the Data
+One person share screen with Jupyter
+Others follow along or co-pilot
+Load some of the data files
+Show data file size (len(frame), frame.shape, frame.info())
+What columns do we have?
+What types are the columns loaded as?
+Does that match our expectation from variable discussion?
+What open questions remain?
+
+Questions
+Let’s try one of these questions!
+What operations do we need?
+We probably haven’t discussed them yet!

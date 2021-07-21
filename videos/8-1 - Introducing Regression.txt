@@ -1,0 +1,30 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+INTRODUCING REGRESSION
+Learning Outcomes (Week)
+Compute single- and multi-variable linear regressions
+Test for violations of linear model assumptions
+Measure the predictive accuracy of a regression model
+
+Photo by John Rodenn Castillo on Unsplash
+Variables and Model
+What Is a Model?
+A mathematical representation
+
+Of the essential dynamics
+
+Of a system of interest
+Purposes of Modeling
+Understand predictor/outcome relationships
+Correlational, not causal (at least alone)
+Predict future outcomes
+Estimate hypothetical outcomes
+Correct for effects for further analysis
+
+Regression predicts (or estimates) a continuous variable
+Linearity
+Wrapping Up
+Models summarize data generating processes and let us predict future outcomes.
+
+Linear models are a particularly simple but flexible class of models.
+Photo by Drew Graham on Unsplash

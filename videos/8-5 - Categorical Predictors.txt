@@ -1,0 +1,32 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CATEGORICAL PREDICTORS
+Learning Outcomes
+Use categorical predictors
+Understand dummy coding
+
+Photo by v2osk on Unsplash
+Categorical Variables
+Unordered, discrete values (called levels)
+Cannot do arithmetic
+What’s gentoo * 3?
+Even when integer-encoded, cannot use as model predictors!
+Linear model coefficients measure change in outcome
+Why should increasing user ID by 1 change outcome predictably?
+One-Hot / Dummy Encoding
+Convert levels to separate integer columns.
+
+Encode with a 1 in the level’s variable, 0 elsewhere
+N-1 Dummy Coding
+Drop one level (typically first)
+
+All 0 encodes the dropped level
+Other levels encoded with a 1 in the proper place
+Results
+Categoricals are encoded as numeric variables
+Can use in models (e.g. multiply by coefficients)
+Wrapping Up
+To use categorical variables in linear models, we need to encode them numerically.
+
+Dummy-coding converts each level into a 0/1 variable indicating whether the observation has that value of the variable.
+Photo by Hamed Daram on Unsplash

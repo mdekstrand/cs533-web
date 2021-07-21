@@ -1,0 +1,26 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+WEEK 3: DESCRIBING DATA
+Learning Outcomes
+Hands-on working with data frames
+Drawing charts
+Questions
+WEEK 3!!
+A1 is due!
+
+Questions or concerns?
+HetRec Data
+Documented in README.txt
+
+From MovieLens (see demo)
+Cross-referenced with IMDB and Rotten Tomatoes
+‘Score’
+We’re going to look at RT score, not rating
+‘% fresh’ — % of critics / users who rated positively
+
+Describe distributions (numerically and graphically)
+Show relationships between types
+If you’ve read about it, consider missingness
+What are the most critically underrated and overrated movies?
+* Do you need to account for number of reviews somehow?
+Live demo Qs for me?

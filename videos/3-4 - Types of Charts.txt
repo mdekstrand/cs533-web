@@ -1,0 +1,108 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+TYPES OF CHARTS
+Learning Outcomes
+Identify the appropriate type of chart for data and a question
+Understand key rules to avoid common errors
+Photo by KOBU Agency on Unsplash
+Software
+Seaborn (sns)
+Matplotlib (plt)
+Plotnine / ggplot2 (pn)
+Chart Types
+XKCD #688, ⓒ Randall Monroe. Used under CC-BY-NC
+Bar Charts
+Show numeric values grouped by a categorical (or ordinal) variable
+Best with moderate number of categories
+Can have second categorical in bar color
+Y often mean, sum, or count within group
+Can rotate to horizontal bar
+Whiskers: confidence interval
+
+Titanic Passenger Survival Rates by Gender and Passage Class
+From Seaborn gallery
+Bar Charts
+Functions:
+sns.countplot(count by category)
+sns.catplot(mean by category)
+plt.bar
+pn.geom_bar
+
+
+Titanic Passenger Survival Rates by Gender and Passage Class
+From Seaborn gallery
+Bar Chart Rules
+Never start y axis at anything but 0 – skews relative sizes
+If including whiskers: define how they are computed
+If using SNS catplot or countplot without a color group: set color, or they’ll recolor for no reason.
+Histograms
+Bar chart where ‘categorical’ is bins of a numeric value.
+Bar chart showing relative frequency of categorical values also a histogram
+
+Y is either number or fraction of occurrences
+
+Goal is to see relative frequency of different values
+
+One way to graphically describe a distribution.
+Scatter Plots
+Shows two numeric values
+Observations have two numeric variables
+Want to see how they relate
+Does one increase with the other?
+Do points clump in space?
+Are there other patterns? Outliers?
+Restaurant Tips and Bills
+From Seaborn documentation
+Refinements
+Color by categorical variable
+Plot a trend or context line (not shown)
+X can be categorical (point plot or strip plot)
+
+Functions:
+plt.scatter
+sns.scatterplot
+pn.geom_point
+Restaurant Tips and Bills
+From Seaborn documentation
+Line Plots
+Two numeric values
+One y per x value
+Emphasizes progression (or continuity) from one to the next
+Very common for time series
+
+Functions
+sns.lineplot
+plt.line
+pn.geom_line
+From Seaborn tutorial
+Box Plots
+Show distribution of numeric variable grouped by categorical
+Median
+Quartiles
+Min/max
+Outliers (in much software)
+
+Functions:
+sns.boxplot
+plt.boxplot
+pn.geom_box
+From Seaborn gallery
+More Plot Types
+Violin plots (like box, but mean-based)
+Swarm plots (categorical scatter plot)
+Pie (usually best avoid – bar or stacked bar)
+Donut
+Rug (displaying distribution in a margin)
+Learning More
+Class readings
+Textbook
+Seaborn and Matplotlib docs
+Tutorials
+Gallery
+Wrapping Up
+Many types of charts.
+
+Learning good graphics techniques takes time and practice.
+
+Review plotting library galleries!
+Photo by Edgar Chaparro on Unsplash

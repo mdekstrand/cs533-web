@@ -1,0 +1,177 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+UNICODE AND ENCODINGS
+Learning Outcomes
+Understand how text is stored in memory and files
+Encode and decode text for storage and communication
+Distinguish between characters, code points, and bytes
+Photo by Mauro Sbicego on Unsplash
+Text
+Input:
+Someone must have slandered Josef K., for one morning, without having done anything truly wrong, he was arrested.
+
+What is this?
+A sentence in the English language (the first of the English translation of The Trial by Franz Kafka)
+A sequence of characters
+A sequence of bytes encoding those characters
+ASCII
+American Standard Code for Information Interchange
+
+English letters, symbols, control codes
+Represented in 7 bits
+Numbers: 48–57
+Uppercase: 65–90
+Lowercase: 97–122
+Beyond ASCII
+Encoding only English is naïve
+Latin and Cyrillic alphabets: extended code pages
+Latin-1: 0–127 ASCII, 128–255 western European accents
+Latin-15: 0–127 ASCII, 128–255 eastern European accents
+Windows-1252: both (latin-1 with eastern EU in reserved space)
+KOI8-R: 0–127 ASCII, 128–255 Russian Cyrillic characters
+Ideograph languages: multi-byte character sets (e.g. Big5, GB2312)
+Must know encoding.
+Very hard to mix encodings and therefore languages (e.g. Turkish and Chinese)
+Unicode
+International standard for text representation
+Text is a sequence of code points
+It is encoded into bytes
+Universal encodings can encode all valid Unicode
+UTF-8, UTF-16, UCS-4
+Historic encodings defined as translations for a subset of Unicode
+Decode KOI8-R to Unicode code points
+Encode to Windows-1252 (may fail!)
+Unicode Coverage
+Goal: all non-fictional written human language
+Includes ancient scripts like Phoenician
+Includes math symbols, IPA, emoji, etc.
+Does not include fictional languages (Klingon, Elvish, etc)
+Python String Types
+Python has two string types:
+str is a text string, a sequence of code points
+s[7] returns the 8th code point in the string
+bytes is a byte string, a sequence of 8-bit bytes
+bs[7] returns the 8th byte in the string
+Convert with:
+str.encode() → bytes
+bytes.decode() → str
+Pandas String Types
+Historically: ‘object’ storing Python strings
+Either bytes or str
+Still the default
+
+Now: ‘string’ type
+Get with .astype('string')
+Or ‘string’ dtype while loading file
+
+Both support string methods as .str.method()
+
+Encoding and Decoding
+Python objects: bytes.decode() / str.encode()
+Pandas series: .str.decode() / .str.encode()
+Code Points and Characters
+Each character is a code point (often written U+004A)
+
+Characters in LATIN-1 use their Extended ASCII numbers
+Combining Characters
+Combining characters modify the preceding character
+Add an accent
+Modify shape
+Assemble complex emoji
+Complex Emoji
+woman running: dark skin tone
+
+U+1F3C3 — runner
+U+1F3FF — skin tone dark
+U+200D — zero-width joiner
+U+2640 — female
+U+FE0F — display as emoji
+Code Points ≠ Characters
+A character can require multiple code points
+len(string) is # of code points, not # of characters
+So it won’t tell you how wide it is when printed
+A character can be encoded multiple ways
+‘ö’ is either U+00F6 or U+006F U+0308 (‘o’ + combining diaresis)
+U+2160 is ROMAN NUMERAL ONE, indistinguishable from U+0049 (LATIN CAPITAL LETTER I)
+Code Point Data
+Unicode database tracks many properties of code points:
+Type (letter, number, punctuation, space, etc.)
+Case
+Many more properties…
+
+Code points divided into blocks
+Python unicodedata module provides access
+Normalization
+Unicode defines normal forms:
+NFD (decomposed): always use combining characters
+NFC (composed): use single code points whenever possible
+NFK[DC]: NFD/NFC with “compatibility characters” replaced
+Roman Numeral One turns into Latin Capital I
+
+Non-normalized strings may not be =
+Normalization Methods
+Python: unicodedata.normalize(form, string)
+'Mötley Crüe'.normalize('NFD’)
+Length may change
+
+Pandas: .str.normalize(form)
+Unicode Subtleties
+str.lower() converts string to lower-case
+
+str.casefold() eliminates case distinctions
+E.g. ‘ß’ becomes ‘ss’
+
+Many rules locale-specific (e.g. sort order)
+locale.strcoll (compare two strings using locale rules)
+locale.strxform (convert strings into comparable strings)
+Universal Encodings
+UTF-8: code points take 1–4 bytes
+ASCII is valid UTF-8
+
+UTF-16: 2 bytes per basic character
+Characters outside Basic Multilingual Plane (BMP) use 4 bytes
+Two-point “surrogate”
+Requires byte order
+
+UCS-4: 4 bytes per character, also requires byte order
+
+Python Internal Representation
+Stores strings with one of:
+Latin-1 (one byte per character)
+UCS-2 (two bytes per character, only BMP)
+UCS-4
+
+Uses most compact representation that can store the string
+
+len(s) returns the number of code points
+
+
+Other Internal Representations
+Many systems use UTF-16
+Java
+JavaScript
+Windows & Mac APIs
+
+But: often treat it as UCS-2
+Java/JS charAt(i) returns UTF-16 code unit
+length is 2-byte pairs
+First Steps of Processing
+Decode the text to convert bytes into text
+Normalize the text to render into consistent form
+Unicode normal form
+Optionally: strip accents (will lose meaning!)
+Optionally: casefold
+Points to Remember
+Always need to know what our encoding is
+Decode bytes to get a text string (seq. of code points)
+Code points do not map 1:1 with characters
+Length of string does not mean printed # of characters
+Normalization makes strings comparable
+Casefolding makes strings comparable case-insensitively
+Sorting is locale-specific
+If you have single-byte text that’s not UTF-8, Latin-1 is common
+Wrapping Up
+“String” is not a simple data type.
+
+Text is encoded both for on-disk storage and in-memory processing.
+Photo by Marcel Kovačič on Unsplash

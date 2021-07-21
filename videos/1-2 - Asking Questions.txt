@@ -1,0 +1,71 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+ASKING QUESTIONS
+Learning Outcomes
+Understand components of a good question
+Understand how questions relate to goals and analyses
+Think about data for a question
+
+Key term: operationalization
+
+What is Data Science?
+The use of data to provide quantitative insights on questions of scientific, business, or social interest.
+Example: Department Interest
+Context: changed assignment structures in CS121
+Goal: Assess whether new change improved CS121
+
+What does ‘improve’ mean?
+What data could inform the assessment?
+What could we do with that data to measure improvement?
+Operationalization
+We call this operationalization
+
+Start with a goal
+Refine through intermediate questions
+Define a specific measurement to take
+What, precisely, is collected
+How, precisely, it is computed
+operationalize, v.:
+The process of doing this.
+
+operationalization, n.:
+The result of this process.
+Example: Department Interest
+Goal: Assess whether new change improved CS121
+
+Question: Are students better prepared to excel at work?
+Question: Are students better prepared for the next class?
+Goals, Questions, and Analysis
+Questions do not have 1 level
+May be multiple levels
+Answering the question should advance the goal.
+Or higher-level question
+
+Carrying out the analysis should answer the question.
+Operationalized Questions
+They are specific
+They are answerable
+They can be answered with available data
+Questions that fail this are not bad!
+
+Example: Department Interest
+Goal: Assess whether new change improved CS121
+
+Question: Are students better prepared for next class?
+Question: Are students more likely to pass CS 221?
+
+Data: student grades for CS121 & 221
+
+Caveats: many
+Clarifying Questions
+Your boss, client, etc. sets goals, may have questions
+
+But they need to be refined before meeting data!
+
+Refine this through clarifying questions!
+Wrapping Up
+Multiple layers to translate between data and high-level goals or objectives.
+
+Questions bridge this gap.
+
+Multiple levels of questions may be needed.

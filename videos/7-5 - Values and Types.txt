@@ -1,0 +1,77 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CLEANING VALUES
+Learning Outcomes
+Clean up individual values or columns
+Identify useful Pandas operations for cleaning values
+Photo by Daiga Ellaby on Unsplash
+Types of Operations
+Convert data types
+Standardize data codes
+Remove or clean corrupt data
+Fill missing data (with care)
+Basic Data Type Conversion
+.astype()
+Converts data from one type to another
+Parses strings w/ simple rules
+
+df['column'].astype('i4')
+Common NumPy data types:
+Integer: i1, i2, i4, i8
+Unsigned: u1, u2, u4, u8
+Float: f4, f8
+
+Also have bit-based sizes:
+i4 = int32
+f8 = float64 (double-precision)
+
+Parsing Strings
+pd.to_datetime — parse strings to date/time objects
+Can specify format!
+pd.to_timedelta — parse strings to difference between times)
+
+Making Categoricals
+Categorical variables save memory and can improve presentation.
+
+String: series.astype('category')
+Integer: pd.Categorical
+After initialization: rename/reorder etc.
+Standardizing Data
+Normalize missing data
+String encoding like ‘NA’?
+Numeric sentinel values like -999?
+Reassign to NA
+Unify case (upper, lower, title, casefold) [series.str.upper]
+Replace substrings [series.str.replace]
+Trim whitespace [strip/rstrip/lstrip]
+Rename codes [cat.rename_categories]
+Merge codes [reassign, then cat.remove_unused_categories]
+Cleaning Data
+Strings are often corrupt – excess characters, etc.
+Drop leading/trailing whitespace [strip and friends]
+Match with regular expressions
+Expression to match expected data & keep
+Expression to match invalid data & delete
+series.str.replace(regex, replace)
+Extract specific columns [series.str.slice]
+Clearing Data
+Sometimes values are unrecoverably corrupt
+Delete value (replace with NA or INVALID code)
+May separate UNKNOWN from INVALID
+Or just use one UNKNOWN code
+Depends on question – I often separate early, combine later
+Delete record (if unusable)
+Don’t delete from underlying files – in memory, or in new files
+Pandas Features to Study
+Series methods
+Top-level
+Category methods under ‘.cat’
+String methods under ‘.str’
+Date-time methods under ‘.dt’
+Wrapping Up
+Data is messy.
+
+Pandas gives us a number of tools for working with individual values or columns.
+
+
+Photo by Ashim D’Silva on Unsplash

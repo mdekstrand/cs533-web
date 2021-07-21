@@ -1,0 +1,32 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+TESTING HYPOTHESES
+Learning Outcomes
+Define null and alternative hypotheses
+Carry out a T-test for a hypothesis
+Bootstrap a p-value
+Photo by Amplitude Magazin on Unsplash
+Flippers
+Do Gentoo penguins have longer flippers than Chinstrap penguins?
+
+What we can do:
+Measure difference in average flipper length
+Compute probability we would see that big a difference if they didn’t have longer flippers
+
+This is called a “p-value”.
+Hypotheses
+Tests
+Assumptions
+Each test makes assumptions.
+
+These are often quite strong!
+T-test: data are i.i.d. normal
+Pretty robust to violations
+
+ANOVA
+Data are i.i.d. normal
+NOT so robust
+Bootstrapping the p-value
+Flippers
+Multiple Comparisons
+Pitfalls to p-values

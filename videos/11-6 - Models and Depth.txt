@@ -1,0 +1,42 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+MODELS AND DEPTH
+Learning Outcomes
+Introduce models beyond linear and logistic models
+Introduce the idea of a model output as a feature
+Photo by Tim Mossholder on Unsplash
+More Models
+Decision Tree
+Tree of nodes
+Each node is a decision point
+Result when you reach the bottom
+
+Can learn complex interaction effects on their own
+Random Forest
+Decision trees can have high variance – they can memorize a lot of the model
+
+Random forest:
+Take (partial) bootstrap samples of the training data
+Fit decision trees
+Predict by taking vote from trees
+Models as Features
+Feature outputs don’t have to come directly from data
+Transformation models (e.g. principal component analysis)
+Prediction models for other tasks
+
+Example: LinkedIn job ad recommender
+Logistic regression
+Features from text, job description, user, etc.
+One feature: transition probability estimate
+Many Models
+Linear (GLM, GAM, etc.)
+Support vector machines
+Naïve Bayes classifiers (we’ll see those later)
+Neural nets
+Often play the logistic regression game – logit function to convert model scores to probabilities
+
+Wrapping Up
+There are many models for classification (and regression).
+
+Model outputs can also be features for other (often linear) models.
+Photo by Michal Janek on Unsplash

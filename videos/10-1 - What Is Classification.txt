@@ -1,0 +1,34 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+WHAT IS CLASSIFICATION?
+Learning Outcomes (Week)
+Predict binary outcomes or classes for observed instances
+Evaluate the accuracy of a classification model
+Use Scikit-Learn for predictive modeling
+Photo by Photos Hobby on Unsplash
+Outcome Variables
+Continuous — regression
+Categorical — classification
+Two-level category (or ordinal) is binary classification
+Multi-level ordinal — ordinal regression
+Multi-level categorical — multi-class classification
+
+Sometimes we’ll simplify to binary problem!
+“mostly fresh”: % Fresh greater than 50%
+
+
+
+Groups and Classes
+Inference
+What is the difference?
+t-tests etc.
+
+Classification
+Where does a new animal go?
+Photos by The Lucky Neko and Jametlene Reskp on Unsplash
+Classification and Probability
+Wrapping Up
+Classification allows us to predict discrete outcome variables.
+
+There are many models. We will start with linear ones.
+Photo by Adam Nieścioruk on Unsplash

@@ -1,0 +1,25 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CONTINUOUS PROBABILITY AND RANDOM VARIABLES
+Learning Outcomes
+Compute an expected value
+Understand why continuous events have probability densities, and the relationship to distribution functions
+Photo by Roepers on Wikimedia Commons. CC-BY 3.0.
+Random Variable
+Expectation and Mean
+Continuous Variables
+Continuous Variables
+Continuous Probability
+Figure from Wikipedia.
+Continuous Probability
+Probability Density
+Figure from Wikipedia.
+Probability Density
+Continuous Expectation
+Wrapping Up
+The probability of any single value of a continuous variable is effectively zero.
+
+Instead, we use probability density, distribution functions, and assign probability to intervals.
+
+Expectation is the mean of a random variable.
+Photo by Andrés Dallimonti on Unsplash

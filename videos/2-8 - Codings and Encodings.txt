@@ -1,0 +1,69 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CODINGS AND ENCODINGS
+Learning Outcomes
+Recognize when a variable needs a codebook or dictionary
+Understand the difference between a variable and its encoding
+Transform an encoding to another
+Photo by KOBU Agency on Unsplash
+Recording Data
+All data we record must be encoded: how do we actually store it?
+
+The encoding and the value encoded are not the same!
+
+Warmup example:
+27
+Twenty-seven
+0x1B
+
+Basic Encodings
+Numbers:
+Binary integer
+Floating-point binary number
+Decimal number (ASCII or BCD)
+
+Encodings can be lossy – floating-point loses precision, integer truncation
+41 D8 00 00
+00 00 00 1B
+32 37 00
+Documenting Numbers
+The syntactic encoding is not enough to interpret number!
+
+How was it measured?
+What are the units?
+Has it been transformed?
+Are there sentinel values? (e.g. -99 for unknown)
+Categorical Codes
+We need a codebook to define the codes (or levels)
+
+What are the codes? (numeric or string)
+Numeric common, esp. in older data sets
+How are they defined?
+What are the rules for deciding which one to apply?
+
+Meta-question: who decided definitions and how?
+
+Examples
+Penguin species: Adelie, Chinstrap, Gentoo – from bio taxonomy
+Species name as a string
+
+German credit checking account status
+A11 – overdrawn
+A12 – 0 to 200 DM
+A13 – at least 200 DM, or at least a year of salary deposits
+A14 – no checking account
+Categorical Encoding
+Directly store in string or integer
+One-hot encoding
+One variable per code / level
+Exactly one is 1
+Dummy coding
+One variable per code / level except for one
+At most one is 1 (all 0s mean the omitted variable)
+Wrapping Up
+Data must be coded and encoded in order for us to process and analyze it.
+
+The process of coding affects the data!
+
+Representation must be documented for us to properly understand.
+Photo by Alexander Schimmeck on Unsplash

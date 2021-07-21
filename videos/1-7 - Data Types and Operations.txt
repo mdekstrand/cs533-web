@@ -1,0 +1,26 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+DATA TYPES AND OPERATIONS
+Learning Outcomes
+Understand basic Python data types and operations
+Store Python objects in variables
+Write simple Python code to do arithmetic
+Perform basic operations with lists and dictionaries
+
+More resources linked!
+
+Numbers
+Python supports numbers like other programming languages
+
+Integers: 1, 2, 47
+Floating-point (decimal-ish): 3.5, 1.9, 2.4492
+Can write in scientific notation: 6.02214e23
+Can be negative: -3.14
+Numeric Operations
+Normal arithmetic operations behave how you expect:
+
++ - / *
+Power: 2**5
+
+Division is always floating-point: 5 / 2 is 2.5
+Floor (integer) division: 5 // 2 is 2

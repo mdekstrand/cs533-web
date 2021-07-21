@@ -1,0 +1,40 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+FROM NOTEBOOKS TO WORKFLOWS
+Learning Outcomes (Week)
+Break code into scripts, modules, and notebooks.
+Design a data pipeline to run and reproduce an analysis.
+Use Git to version-control code.
+Photo by Jessica Furtney on Unsplash
+Managing Code and Data
+Notebooks are great
+Interactively test code
+View results with code
+Good visualization capabilities
+Combine discussion, methods, and results
+
+Limitations of Notebooks
+Hard to reuse code from one notebook in another
+Not great for long-running tasks
+Limited running capabilities
+Moving Beyond
+Scripts are Python programs that run on their own.
+
+Modules hold Python code to reuse elsewhere
+Scripts
+Notebooks
+Other Modules
+Pipelines
+Transform / Prepare (ETL)
+Raw Source Data
+Prepared Data
+Inference
+Findings
+Modeling
+Model + Predictions
+Data Description
+Wrapping Up
+Significant data science projects usually have multiple components in a pipeline.
+
+Git is useful for tracking and versioning the code to generate these components.
+Photo by Fran Jacquier on Unsplash

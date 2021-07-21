@@ -1,0 +1,101 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+VARIABLES, OBSERVATIONS, AND TYPES
+Learning Outcomes
+Know the relationship between Pandas structures and statistical variables
+Identify the type of a statistical variable
+Photo by Fabio Santaniello Bruun on Unsplash
+Things
+“Raw” Data
+Data Set
+Inferences
+Answers
+Phenomena / Experiment
+Data Pipeline
+Observations
+An observation (sometimes called a sample)
+Of the values of one or more variables
+Pertaining to a single object/instance
+Stored in Pandas as a DataFrame
+Variables are columns
+Data: Palmer Penguins
+Penguin Variables
+Species: penguin species (Adelie, Gentoo, Chinstrap)
+Island: island measured (3 options)
+BillLength: length of bill (mm)
+BillDepth: depth of bill (mm)
+FlipLength: length of flipper (mm)
+BodyMass: penguin body mass (g)
+Sex: penguin sex (M or F)
+
+Each about one penguin
+Continuous Variables
+Discrete Variables
+A discrete variable takes on distinct values
+Can have values with no intermediates
+Might not even have order
+Basically all other types of data!
+Many types (next slides)
+
+Stored as: lots of things
+Integer
+Integers are discrete
+Counts, etc.
+Order (4 < 5)
+Example: number of penguins measured
+Often treated continuously, to e.g. compute means
+Average number of cats per cat-owning household (1.8)1
+Stored as: int, sometimes float
+
+1 From American Veterinary Medical Association U.S. Pet Ownership Statistics
+Categorical
+Variable that takes on one of a fixed set of unordered values
+Can compare for equality
+Cannot sort or do arithmetic
+Can sort for convenience, but reflects convention, not meaning
+Example: species (Adelie, Gentoo, Chinstrap)
+Example: user (userId in MovieLens)
+Stored as: string (object), int, pandas Category
+Boolean / Logical
+Variable that is True or False
+Special case of categorical
+Usually stored as int or bool (which is a type of int)
+Ordinal
+Variable that takes on one of a fixed set of ordered values
+Can sort, compare for inequality
+Example: movie ratings (1–5 stars)
+Example: class grades
+Example: Likert scale (strongly agree – strongly disagree)
+Really can’t do arithmetic
+But we sometimes do anyway
+Stored as: int, float, string (with externally-defined order), Pandas Category (in ordered mode)
+Other Types
+Time – usually continuous
+Text – categorical-ish, usually converted to categorical or count
+Images – matrix of ints or reals, will extract features
+Money – often stored as int or float, but be very careful
+Pandas Type Insufficient
+Knowing the Python/NumPy/Pandas type is not sufficient
+
+What is an ‘int64’?
+Categorical? E.g. MovieLens userId, movieId
+Continuous measured with integer precision?
+Ordinal?
+Logical 0/1?
+
+Integers with missing values load as floats!
+A Bit About Entities
+What are the things being observed?
+Databases: we call these entities
+Sometimes straightforward: penguins
+Sometimes complex and linked
+Ratings
+About movies
+# of ratings could be a variable for a movie!
+Wrapping Up
+Many kinds of variables, broadly divided into continuous and discrete.
+
+Conceptual variable types do not map 1:1 to Pandas types.
+
+Need to be documented!
+Photo by Omer Salom on Unsplash

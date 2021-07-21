@@ -1,0 +1,107 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+TEXT PROCESSING PIPELINE
+Learning Outcomes
+Understand the different stages of text processing
+Extract vectors from text
+Know some of the things that are possible beyond what we will discuss in class
+Photo by Andrej Lišakov on Unsplash
+Text Processing
+Input:
+Someone must have slandered Josef K., for one morning, without having done anything truly wrong, he was arrested.
+Output:
+Features
+Vectors
+Scores
+Decisions
+Corpus
+Text Processing Pipeline (term vector)
+Decode
+Normalize Text
+Tokenize
+Remove Stop Words / Filter Tokens
+Stem / Lemmatize
+Vectorize Text
+Normalize Vectors
+<do more things>
+
+Decoding and Normalization
+See previous video
+
+May delay normalization until after tokenization
+Tokenization
+Split text into individual tokens
+
+For now: words (sequences of alphanumeric characters)
+someone must have slandered josef k.
+
+someonemusthaveslanderedjosefk
+Remove Stop Words
+Common utility words not useful for many tasks
+And, or, but, if, etc.
+
+Can remove with:
+List of stop words
+Frequency (words appearing in most documents)
+
+Whether you do this depends on task
+Stemming and Lemmatiziation
+“change”, “changes”, “changed”, “changing” — all the same word
+
+Stemming transforms word forms into common stems
+Not necessarily a word (e.g. ‘chang’)
+Different forms will have the same stem
+English: snowball is a common algorithm
+
+Lemmatization transforms words into ‘lemma’ form
+Normalizes to an actual word (e.g. “change”)
+More computationally intensive
+Vectorizing
+SciKit CountVectorizer
+The SciKit-Learn CountVectorizer gets us to this stage
+fit() learns vocabulary
+transform() turns array of text into (sparse) matrix
+
+CountVectorizer pipeline
+Decode (if necessary)
+Lowercase (optional)
+Strip accents (optional, also normalizes Unicode)
+Tokenize (default: 2+ alphanumeric characters are a word)
+Vectorize (values are term frequencies)
+Problems with Term Frequency
+All words equally important
+Count vector has higher values just for longer documents
+
+Solution?
+Weigh words differently
+Uncommon words higher weight? More likely useful for classification!
+Normalize to use relative frequency instead of absolute count
+TF-IDF
+Normalized TF-IDF
+Text Processing Pipeline (term vector)
+Decode
+Normalize Text
+Tokenize
+Remove Stop Words / Filter Tokens
+Stem / Lemmatize
+Vectorize Text
+Normalize Vectors
+Result: each document has a vector assigning scores to terms
+Alternatives
+N-grams (e.g. bigrams) instead of words
+Either words or characters
+Sentence-level analysis
+Two-level tokenization: words and sentences
+Tag words by part of speech
+Analyze relationships between words
+Transformer architectures
+Neural nets for sequences of words
+Significant power, significant processing cost
+nltk provides a lot of capabilities, can integrate with scikit-learn 
+Wrapping Up
+Term vectors treat each word as a feature, for which documents have scores.
+
+Often normalized to give uncommon words higher weight, and for document length.
+
+
+Photo by Jael Rodriguez on Unsplash

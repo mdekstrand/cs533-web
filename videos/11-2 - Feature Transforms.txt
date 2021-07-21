@@ -1,0 +1,69 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+FEATURE TRANSFORMS
+Learning Outcomes
+Transform individual features
+Derive features
+Combine features
+
+This applies to both regression and classification models
+Photo by Clay Banks on Unsplash
+Discrete Feature Transforms
+Recode
+Rename codes (for interpretability)
+Merge codes (some distinctions irrelevant)
+Convert to logical or 0/1 numeric
+‘is value’
+>= value (for ordinal) (e.g.: ‘rated positively’ for >3 stars)
+Dummy-code
+
+Individual Continuous Feature Transforms
+Log
+Square root
+Square (or higher-order polynomial)
+Standardize and center
+Discretize (convert to bins)
+When to Transform?
+Feature has nonlinear relationship to outcome
+Transformation can make it linear
+Feature is not normally distributed
+Not inherently a problem
+But close-to-normally-distributed features can work better + be linear
+Example: Standardizing
+Example: Log Transform
+Heavily skewed data
+Large values -> large swings (or small coefficients)
+Log transform: less skew, smaller range
+Example: Discretizing
+Sometimes from outside knowledge
+Term >= 240 months ⇒ real estate loan (A5)
+> 3 stars ⇒ “liked” (can reduce noise in ratings!)
+
+Nonlinear response with sharp change at “is high”
+>= median (or mean)
+Inflection point
+
+Discretization can have subtle effects — be careful
+Advanced Transforms
+Box-Cox or Power transformations
+Make anything (almost) normal
+Spline functions
+Learn complex functions of a single variable
+Multi-Feature Normalizations
+Interaction: Product
+Interaction: Ratio or Fraction
+Other Combinations
+Developing Features
+It takes practice and creativity
+
+Look for normality
+Look for linear relationships
+Look for hard jumps (discretization useful)
+Read people writing about their features
+
+Do feature exploration & design on training data.
+Wrapping Up
+Transforming and expanding features is a powerful part of model building.
+
+The model can only work with the features you give it.
+Photo by Max Bender on Unsplash

@@ -1,0 +1,56 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CORRELATED ERRORS
+Learning Outcomes
+Understand the idea of correlated errors and how they can be addressed.
+Know when you need to look for a model that can handle correlated error.
+Know two models to study further when needed.
+Photo by Tyler Nix on Unsplash
+Correlated Errors
+Observations are not necessarily independent:
+Time series: autocorrelated
+Within-subjects designs: grouped
+Other data may also be grouped
+Medical data collected by hospital
+Grouping Example
+Example problem: measuring search engine effectiveness
+Two search algorithms
+Users issue queries
+Results are assessed for relevance (experts or click logs)
+
+Problem: results are not independent
+* Some queries are harder than others
+Naïve Solution
+Stratified Errors / Group Effects
+Fixed and Random Effects
+Basic Idea: Modeling Additional Effects
+Random effects capture natural sources of variance shared between observations
+Performance: system effectiveness + query difficulty
+Remaining variance (residuals) hopefully i.i.d. normal!
+Our linear model works again
+
+This applies generally – if we know an effect in the variance structure, we can remove it (“control for” it).
+When To Use Stratified Errors
+Any time your data points come in groups
+Multiple measurements for the same object
+Trying to understand difference between measurements
+Understanding diff. between objects, they are fixed effects!
+
+When you have an external feature shared between instances
+
+Autocorrelation
+Autoregression
+Moving Average
+ARIMA
+Auto Regression Integrated Moving Average: ARIMA(p, q, r)
+AR(p) model
+MA(r) model
+Applied to q-order diffs (1 = diff, 2 = diff of diffs)
+
+AR & I can be viewed as a type of feature engineering
+Integration with Prediction
+Wrapping Up
+We often have structured errors in a regression problem.
+
+In some cases, modeling that structure yields a valid model.
+Photo by Pawel Janiak on Unsplash

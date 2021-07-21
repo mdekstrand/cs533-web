@@ -1,0 +1,30 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+DISPLAYING VARIABLES
+Learning Outcomes
+Display relationships between two variables for exploratory analysis.
+Extend this to more than two.
+Photo by Greg Jeanneau on Unsplash
+Scatterplots
+Remember them?
+
+Scatter plots show relationships between two variables:
+Each point is an observation
+One variable on X axis
+Other on Y axis
+
+sns.scatterplot
+plt.scatter
+Including Distributions
+Can include marginal distributions with scatter
+
+Histograms on margins (jointplot)
+“Rug plots” along axes
+
+Useful for exploratory analysis.
+Trend Lines - regplot
+Pairwise Correlations - pairplot
+Wrapping Up
+We want to explore the relationships between variables.
+
+Scatter plots and their variants let us do that, with possible augmentations.

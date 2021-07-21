@@ -1,0 +1,84 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+INTEGRATING DATA
+Learning Outcomes
+Combine two data sources
+Identify the kinds of data useful to make a link
+Photo by Sandy Millar on Unsplash
+Data Integration
+?
+Types of Integration
+Linking records – matching records in one set with another
+Best case: we have a linking identifier shared between data sets.
+
+Pooling records — taking records of the same kind from different sources
+Convert each into common format, and stack!
+Identifiers?
+XKCD 927: Standards. © Randall Monroe. CC-BY-NC 2.5. Modified by me.
+identifiers
+identifier
+identifiers
+identifiers
+Example: Linking US Geopolitical Data
+State name (unique, fine)
+Postal code (2-character state abbreviation, unique, also fine)
+FIPS code (Federal Information Processing Standard Series)
+States and counties!
+Withdrawn but still in use
+Great when you have them!
+ZIP codes
+Legislative districts
+Census tracts
+Geographic position (lat, long) (ugggh)
+
+Linking Challenges
+Corrupt identifiers
+Clean and correct them
+Duplicate identifiers
+Measure frequency of occurrence, try to measure impact
+Missing identifiers
+Find alternate linking strategies
+
+
+Alternate linking strategies
+Names?
+Often not unique
+Often take different forms
+Locations?
+Require complex geographic matching
+Or address matching / normalization
+
+Linking takes creativity and care
+Recommended Approach
+Take a conservative, incremental approach
+Prefer identifiers
+Minimize munging
+Look at unlinked records, see what rules need to be added
+Measure success of every linked step
+Successfully-linked records
+Unlinked records
+Sometimes: use rate of different link strategies
+Document and justify
+Technical Pieces (for linking with Pandas)
+Cleaning up individual columns
+Series operations (esp. string ops!)
+
+Merge data frames
+pd.merge or pd.DataFrame.join (for linking records)
+Pooling Records
+Convert into common structure
+Stack on top of each other
+Sometimes: de-duplicate
+
+Usually good to keep a field identifying record source.
+
+pd.concat is your friend
+Wrapping Up
+We often need to combine data from multiple sources; sometimes linking, sometimes pooling.
+
+Linking identifiers make this easy (sometimes).
+
+We don’t always have them.
+
+
+Photo by Joshua Hoehne on Unsplash

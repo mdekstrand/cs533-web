@@ -1,0 +1,119 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CHARTS FROM THE GROUND UP
+Learning Outcomes
+Design a chart by thinking first of the questions, goals, and data
+Photo by Ryan Quintal on Unsplash
+What is the Question?
+What question do we want to answer?
+
+How, precisely, did we operationalize it?
+
+What data are we using?
+Specifically, variables
+Example: Titanic Survival
+Question: were passengers in higher classes more likely to survive?
+
+Outcome variable: survival
+Logical variable, 0/1 encoded
+Taking mean yields numeric response!
+Mean is probability of survival (1)
+Also called response variable or dependent variable
+
+Explanatory variable: passage class
+Categorical
+Also called independent variable
+Bar chart
+Showing Relationships
+Most plots show how a numeric variable changes between different values of one or more other variables.
+
+What is the variable to show?
+What do we want to show about it?
+Statistic?
+Distribution?
+How do we want to compare between EV values?
+Even histograms follow this!
+Response: frequency (count, proportion, density)
+Explanatory: value or bin
+Pipeline
+Identifying these informs:
+
+Data processing (e.g. binning, group-aggregate, transform)
+Choice of plot type
+Axes, labels, colors, facets
+Variable Types
+Response is numeric (or transformed to be)
+Categorical → relative frequency
+
+Explanatory can be anything
+Numeric → continuous axis
+Categorical → discrete axis
+Ordinal → discrete axis preserving order; may omit some labels
+One Explanatory Variable
+If EV is continuous: scatter or line
+Scatter plots we sometimes blur response/explanatory
+
+If EV is discrete:
+Bar chart shows statistic, emphasizing relative difference
+Point plot shows statistic, emphasizing absolute difference
+Box or violin plot shows distribution
+Two Explanatory Variables
+Pseudo-3D:
+Contour plot: identify peak(s) & shape
+Heat map: see where high & low points are
+Demonstration
+Two Explanatory Variables
+Pseudo-3D:
+Contour plot: identify peak & shape
+Heat map: see where high & low points are
+
+Other aesthetics for secondary variables:
+color, shape, size
+Occasionally used to indicate second response variable
+
+Titanic by Class and Sex
+More than Two EVs
+Can’t really have more than 1, maybe 2 numeric
+Others can be binned
+
+Facets let us break down the plot by more categorical explanatory variables.
+Facet Plot
+More than Two EVs
+Can’t really have more than 1, maybe 2 numeric
+Others can be binned
+
+Facets let us break down the plot by more categorical explanatory variables.
+
+Pay attention to order. It strongly affects what readers compare.
+Stacking
+Stacking lets us see differences in composition – how do the parts of a whole change?
+
+Stacked bar charts
+Stacked area charts
+
+Can be either raw values or fractions.
+
+
+Transformations
+Sometimes we transform the axis
+Log-10 scale – shows order of magnitude
+Generally don’t do this to bars
+
+Sometimes we transform the data
+Rescale, log, square root
+Normalize by a value
+Be Careful
+Avoid excessive complexity
+Be careful with color (easy to make indistuingishable)
+
+A good graphic reveals the data, and does not distort or obscure
+
+Wrapping Up
+Identify variables and relationships you want to highlight.
+
+Design a plot that illustrates them.
+
+Study plotting library APIs.
+
+
+Photo by Daniel Cheung on Unsplash

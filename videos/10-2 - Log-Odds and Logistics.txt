@@ -1,0 +1,27 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+LOG ODDS
+Learning Outcomes
+Convert between probability, odds, and log odds.
+Understand the function of the logistic and logit functions.
+Photo by Madara Parma on Unsplash
+Odds
+Probability and Odds
+Odds
+Logarithms
+Very useful for compute
+Avoid floating point over/underflow
+Be careful though:
+Addition and subtraction can compound errors
+
+
+Odd Logs
+Photo by Jennifer Ekstrand
+Log Odds
+Logistic
+Diagram from Wikipedia
+Wrapping Up
+Odds are another way of representing probabilities.
+
+The logistic and logit functions convert between probabilities and log-odds.
+Photo by Praveen kumar Mathivanan on Unsplash

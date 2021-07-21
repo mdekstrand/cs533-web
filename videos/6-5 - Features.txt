@@ -1,0 +1,44 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+FEATURES
+Learning Outcomes
+Compute new features for observations
+Think about feature relatedness
+Preview: split data
+Photo by Logan Clark on Unsplash
+Features
+Penguins:
+Bill length
+Bill depth
+Flipper length
+Body mass
+Can compute:
+Bill aspect ratio
+
+Augments data with a new feature
+Featured Selection
+Things we’ll want to do:
+Extract features
+Select features
+Rescale, normalize, and transform features
+Combine features into new ones
+
+These can improve performance and interpretability.
+Desired Feature Properties
+Well-distributed
+Normal often easiest to work with
+Interpretable, if we’re doing inference
+Uncorrelated
+Two correlated features may not contribute more value!
+Cause problems with some models!
+Beware
+Don’t look at correlation between outcome and predictors in exploration!
+
+Biases your feature selection
+
+Hold out testing / validation data, then explore your “training data”.
+Wrapping Up
+We want to take care in curating and transforming features.
+
+We’re going to need to split data into pieces soon.
+Photo by James Fitzgerald on Unsplash

@@ -1,0 +1,44 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+LOSS AND OPTIMIZATION
+Learning Outcomes
+Understand a loss function
+Optimize model for a loss function
+
+See attached notebook for code!
+Photo by Nick Reynolds on Unsplash
+Least Squares Regression
+Solve Least Squares
+Minimization
+Many problems are minimization (or maximization) problems!
+
+scipy.optimize provides a minimize function
+Model and Loss
+def predict_mass_uv(params, data=penguin_std):    b0, b1 = params    return b0 + data['flipper'] * b1
+
+def squared_loss_uv(params, data=penguin_std):    preds = predict_mass_uv(params, data)    err = data['mass'] - preds    return np.sum(np.square(err))
+Minimization
+init_guess = rng.standard_normal(2)
+result = spopt.minimize(squared_loss_uv, init_guess)
+# get model parametersresult.xarray([1.12829633e-09, 8.71201757e-01])
+Statsmodel OLS model
+General Optimization
+Understand data (features and outcome variables)
+Define loss (or gain/utility) function
+Define predictive model
+Search for parameters that minimize loss function
+Train and Test
+We optimize the loss function on the train data
+Evaluate on the test data
+Sometimes loss function is eval; sometimes not
+Mean squared error: often used for both
+Augmented Loss
+We can add more things to the loss function
+Penalize model complexity
+Penalize “strong” beliefs
+Requires predictive utility to overcome them
+Wrapping Up
+Least squares generalizes into minimizing loss functions.
+
+This is the heart of machine learning, particularly supervised learning.
+Photo by Mitchell Luo on Unsplash

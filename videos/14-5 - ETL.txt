@@ -1,0 +1,59 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+EXTRACT, TRANSFORM, LOAD
+Learning Outcomes
+Use standard design patterns to think about data integration and transformation.
+Photo by Dom Heartley on Unsplash
+Pipelines
+Transform / Prepare (ETL)
+Raw Source Data
+Prepared Data
+Inference
+Findings
+Modeling
+Model + Predictions
+Data Description
+Stages of Transformation
+Input: a source of initial, unprocessed data
+
+Extract data (download, export, scrape, etc.)
+Transform data (into common format, initial cleaning, etc.)
+Load data into system for analysis (store in DB, save in file)
+
+Result: cleaned, integrated data ready for analysis or modeling
+Benefits of Design Patterns
+A design pattern is a common structure for (software) design
+
+Common language for documenting & understanding software
+Context for developing best practices
+Can benefit from automation support
+
+Another example: SKLearn ‘fit’ design
+ETL in Context
+Stand-alone projects: may live in repo
+One or more ETL scripts
+Saves data ready for subsequent stages of analysis
+Organizational resource: may be on its own
+ETL pipeline to prepare data for use across organization
+Many different projects use results of common ETL pipeline
+Data “loaded” into shared database (or data warehouse / data “lake”)
+Variant: Extract, Load, Transform
+Sometimes transformations are done in the database
+
+Extract raw source data
+Load into (initial) database tables
+Transform in-DB (e.g. with SQL queries)
+
+Use layered schema design (load-side and transform-side tables)
+ELT in Practice
+Book Data Tools are a shared ELT pipeline
+Extract from 6–8 input data sources
+Load into PostgreSQL
+Transform (w/ SQL queries) into integrated tables
+
+Any project in group can use this data.
+Wrapping Up
+Design patterns provide a common language for talking about software design.
+
+Extract, Transform, Load and Extract, Load, Transform are patterns for data pre-processing.
+Photo by Arseny Togulev on Unsplash

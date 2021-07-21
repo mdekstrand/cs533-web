@@ -1,0 +1,23 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+BUILDING AND EVALUATING MODELS
+Learning Outcomes (Week)
+Build and refine a predictive model
+Construct features for a model
+Apply regularization to control features and their interaction
+Measure a model’s effectiveness and other behavior
+Photo by Hannah Olinger on Unsplash
+Where We’re At
+Linear regression (continuous prediction)
+Logistic regression (binary classification)
+Optimizing objective functions
+Minimize loss functions (e.g. squared error)
+Maximize utility functions (e.g. log likelihood)
+Conditional Estimates
+Distinction: Model Probability vs. Make Decision
+Trick: Probability and Expectation
+Wrapping Up
+We are building models that estimate conditional probability or expectation and use them to make classifications.
+
+We’re going to see more about their inputs and outputs this week.
+Photo by Klim Musalimov on Unsplash

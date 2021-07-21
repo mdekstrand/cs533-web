@@ -1,0 +1,41 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+VECTOR SPACES
+Learning Outcomes
+Introduce more formally the concept of a vector space
+Understand vector space transformations
+Photo by Markus Winkler on Unsplash
+Vector Spaces
+Vector Operations
+Addition (and subtraction)
+Scalar multiplication
+Inner products (sum of elementwise products)
+Distance (inner product of subtraction with itself)
+Matrix of Data Points
+What Is A Matrix?
+A collection of row vectors
+A collection of column vectors
+A linear map from one vector space to another
+
+A few matrix ops:
+Addition
+Multiplication (by scalar or compatible matrix or vector)
+Transpose
+Special Matrices
+Matrix-Vector Multiplication
+Transformations
+All by multiplying by a matrix:
+Reduce (or increase) dimensionality
+Translate
+Scale
+Skew
+Rotate
+Any linear transformation (this is actually what linear means)
+Linear Systems
+Wrapping Up
+Vectors represent data points in a vector space.
+
+These can be manipulated and transformed.
+
+Linear algebra teaches much more.
+Photo by Jurica Koletić on Unsplash

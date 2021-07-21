@@ -1,0 +1,78 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+RECAP
+Learning Outcomes (Week)
+Wrapping up!
+Tie together the class content again
+Apply Pandas time series operations and model correlated regression errors
+Take the results of data science analysis in production or publication
+Know some topics to study further to expand your data science skills
+Photo by Lumitar on Unsplash
+The Data Science Workflow
+Transform / Prepare (ETL)
+Raw Source Data
+Prepared Data
+Inference
+Findings
+Modeling
+Model + Predictions
+Data Description
+What is Data Science?
+The use of data to provide quantitative insights on questions of scientific, business, or social interest.
+Data Management
+Reading from static files
+Processing and integrating with Pandas
+
+To learn more:
+CS 510 Databases
+Application- and type-specific data in other classes
+Mathematical Fundamentals
+Probability Theory
+Linear algebra (a little)
+
+To learn more:
+Math 562 (Probability and Statistics)
+Math 503 (Advanced Linear Algebra)
+Inference
+Basic parametric pairwise comparisons (t-tests)
+Bootstrapping
+Sampling theory
+Linear regression models (OLS & logistic)
+
+To learn more:
+Math 562 (Probability and Statistics)
+
+Prediction
+Regression: continuous outcomes
+Classification: categorical (esp. binary) outcomes
+
+To learn more:
+CS 534 (Machine Learning)
+Many other data science classes
+Evaluation and Tuning
+Train/test splits
+Classification and continuous prediction metrics
+Hyperparameter tuning
+
+To learn more:
+CS 534 (Machine Learning)
+Unsupervised Learning
+Lower-dimensional embedding (matrix decomposition)
+Clustering
+
+To learn more:
+CS 534 (Machine Learning)
+Will appear in other data science classes
+Workflows
+Data science pipeline
+Breaking code into separate scripts & modules
+Design patterns for code workflows
+
+You will apply this throughout your classes!
+Wrapping Up
+This class is designed to lay a conceptual foundation for your future data science studies.
+
+Other classes will build on these concepts and ideas!
+
+
+Photo by Dave Heere on Unsplash

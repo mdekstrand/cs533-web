@@ -1,0 +1,47 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+DECOMPOSING MATRICES
+Learning Outcomes
+Review matrix multiplication
+Decompose a matrix into a lower-rank approximation
+Photo by Carissa Weiser on Unsplash
+What Is a Matrix?
+Matrix Multiplication
+Sparse Matrix
+A matrix is sparse (mathematically) if most values are 0.
+
+Sparse matrix representations only store nonzero values
+scipy.sparse
+
+np.ndarray is our dense matrix
+DataFrame and Series cannot be sparse 😔 (they store 0s)
+Dimensionality Reduction
+Why?
+Compact representation
+Remove noise from original matrix
+Plot high-dimensional data to show relationships
+SVD preserves distance
+SVD can improve distance
+Find relationships between features
+Principle Component Analysis – find vectors of highest variance
+How?
+Principal Component Analysis
+Use Case 1: Compression & Denoising
+Use Case 2: Visualization
+Low-dimensional vectors can be visualized!
+See example notebooks
+
+Use Case 3: Better Neighborhoods
+High-dimensional spaces have 2 problems for distance:
+Distance more expensive to compute
+Points approach equidistant in high-dimensional space
+
+Decomposed matrices can improve this!
+k-NN classification
+k-means clustering
+Use Case 4: Categorical Interactions
+Wrapping Up
+Matrix decomposition (also called matrix factorization or dimensionality reduction) breaks a high-dimensional matrix into a low-dimensional one.
+
+It preserves distance and, in some configurations, finds the direction of maximum variance.
+Photo by Thomas Willmott on Unsplash

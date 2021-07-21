@@ -1,0 +1,53 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+INSTANCES AND SAMPLING
+Learning Outcomes
+Identify the instances in a data set
+Determine the correct level at which to sample for the bootstrap or test data
+Bootstrap a CI for a linear regression’s coefficients
+Photo by Mael BALLAND on Unsplash
+Instances
+An observation of a single thing
+Has one or more variables
+The variable values go together – row 0 is one penguin
+Covariance / correlation measure intra-instance relationships
+Sampling
+Goal: bootstrap a confidence interval for flipper/mass correlation
+
+Sample: penguin instances
+Each bootstrap sample has n of them
+
+Compute: correlation coefficient
+
+CI is 95% interval of the bootstrap sample correlation coefficient
+Bootstrapping Linear Models
+We can bootstrap any statistic
+Say, a linear model coefficient!
+Sample rows (penguin instances)
+Fit the model to each sample
+Extract statistic
+Can do multiple statistics simultaneously
+Bootstrap Code
+Related Quantities
+We often compute relationships between variables of an instance
+Paired t-test
+Correlation coefficient
+Linear regression
+
+Keep instances together is the common rule
+Bootstrap Components
+Two pieces to a bootstrap design:
+Statistic(s) to compute
+Sampling strategy
+
+To bootstrap a CI, sample instances
+For single-variable statistic, can just sample values
+Sampling a variable & taking variable from sample are the same
+Two or more variables – must sample instances to keep them together
+Bootstrapping P-values
+Sampling Review
+Wrapping Up
+A cleaned and ready-to-model data set consists of instances.
+
+Most of our sampling procedures should sample instances.
+Photo by Dušan S. on Unsplash

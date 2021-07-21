@@ -1,0 +1,46 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+TWO VARIABLES
+Learning Outcomes (Week)
+Explore relationships between two variables
+Understand correlation and covariance
+Photo by Sonny Ravesteijn on Unsplash
+We’ve Seen
+Computing within a group
+Paired t-tests
+Two-sample t-tests
+
+Both relate a numeric outcome to a categorical predictor.
+Paired Observations
+Observe more than one variable for the same object
+Top Critics rating
+All Critics rating
+# of MovieLens ratings
+
+Relating Observations
+Observations happen at different levels
+A student graduated, or did not
+The students at a school graduated at some rate
+The students of a particular race at a school graduated at some rate
+Predictions
+Often, we group two (or more) variables into two:
+
+Outcome variable describes a result
+Dependent
+Endogenous
+Predictor variable(s) are used to explain or predict outcomes
+Explanatory
+Independent
+Exogenous
+The Week
+Two Variables
+Midterm Exam (Wed. PM through Saturday, 72 hours)
+Covers through Week 5
+Notebook + Conceptual Questions
+Concept Qs more specific than quizzes – apply!
+Wrapping Up
+A lot of interesting problems will have two (or more) variables per observation.
+
+We’re going to look at how to measure these variables’ relationships.
+
+Often an outcome and 1 or more predictors.
