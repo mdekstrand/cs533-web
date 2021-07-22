@@ -50,11 +50,10 @@ class VideoDirective(Directive):
             scc = nodes.container("", type="tabbed", new_group=False, selected=False, classes=["tabbed-container", "slides"])
             sl = nodes.rubric("Slides", "Slides", classes=["tabbed-label"])
             scc += sl
-            sc = nodes.container("", is_div=True, classes=["tabbed-content"])
+            sc = nodes.container("", is_div=True, classes=["tabbed-content", "slides"])
 
             sid = nodes.raw('', f"""
-<div class=slide-container>
-<iframe class=slide-embed src="https://onedrive.live.com/embed?resid={slide_id}&amp;authkey={slide_auth}&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+<div class=slide-container data-id="{slide_id}" data-key={slide_auth}>
 </div>
             """.strip(), format='html')
             sc += sid

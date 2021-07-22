@@ -1,9 +1,9 @@
 # Week 1 — Question
 
-```{draft}
+:::{draft}
 This content is still in draft state and has not yet been finalized.
 Do not depend on it as the final requirements for this week.
-```
+:::
 
 The key learning outcomes for this week are:
 
@@ -20,6 +20,10 @@ This week's videos are available as a [Panopto playlist](https://boisestate.host
 
 This video introduces the course and our learning outcomes for the term.
 
+:::{draft}
+This video will be re-recorded before class.
+:::
+
 ```{video}
 :id: 7e74123e-dcfc-4964-bb50-ac1c01281061
 :length: 15m39s
@@ -28,24 +32,18 @@ This video introduces the course and our learning outcomes for the term.
 :name: 1-1 - Introduction
 ```
 
-## :material-video: Asking Questions {: #asking data-length="10m35s"}
+## Asking Questions
 
 In this video, I introduce *questions* in their broader context of using data to advance goals. 
 I also introduce the idea of **operationalization**, which will be a key concept throughout the class.
 
-=== "Video"
-
-    {{ media.video('fc08fd53-5dac-4c95-ad25-ac1c0128133d') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2172944', 'AFZ_21-M4BmFQyE') }}
-
-!!! bug "Lighting"
-
-    That video is just a little off, you may notice.  Forgot to turn on the lights when recording it.
-
-{{ media.vidtext('1-2 - Asking Questions') }}
+```{video}
+:id: fc08fd53-5dac-4c95-ad25-ac1c0128133d
+:length: 10m35s
+:slide-id: 495979F9A431DDB0%2172944
+:slide-auth: AFZ_21-M4BmFQyE
+:name: 1-2 - Asking Questions
+```
 
 ### Further Reading
 

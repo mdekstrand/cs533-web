@@ -1,0 +1,5 @@
+@import url("https://unpkg.com/typeface-lato@1.1.13/index.css");
+
+:root {
+    --pst-font-family-base: Lato, sans-serif;
+}
