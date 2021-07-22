@@ -8,6 +8,8 @@ from docutils import nodes
 from docutils.parsers.rst import Directive
 from docutils.parsers.rst import directives
 
+_vid_root = Path('videos')
+
 
 class VideoDirective(Directive):
     option_spec = {
@@ -21,6 +23,7 @@ class VideoDirective(Directive):
     def run(self):
         result = []
 
+        name = self.options.get('name', None)
         video_id = self.options.get('id', None)
         length = self.options.get('length', None)
         if video_id:
@@ -57,6 +60,15 @@ class VideoDirective(Directive):
             sc += sid
             scc += sc
             result.append(scc)
+
+        if name:
+            tfile = _vid_root / f'{name}.txt'
+            if tfile.exists():
+                text = tfile.read_text(encoding='utf8')
+                hid = nodes.container('', is_div=True, classes=['slides', 'text', 'hidden'])
+                tn = nodes.Text(text)
+                hid += tn
+                result.append(hid)
 
         return result
 

@@ -104,7 +104,7 @@ In this video, I talk about about my background, teaching, and research, as well
 
 {{ media.vidtext('1-4 - About Me') }}
 
-## :material-check-circle: Introduce Yourself {: #intro-piazza}
+## :material-check-circle: Introduce Yourself
 
 On Piazza, there is a thread for self-introductions.  Reply and introduce yourself!
 

@@ -2,6 +2,10 @@ tr p:last-child, td p:last-child {
     margin-bottom: 0;
 }
 
+.hidden {
+    display: none;
+}
+
 /* Video styling */
 .video-container, .slide-container {
     position: relative;
