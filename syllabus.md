@@ -44,7 +44,8 @@ Course Discussion
 
 ## Instructor
 
-I am [Michael Ekstrand](https://md.ekstrandom.net), an assistant professor in the Dept. of Computer Science.
+I am [Michael Ekstrand](https://md.ekstrandom.net), an assistant professor in the Dept. of Computer
+Science.
 
 Office
 :   CCP 255
