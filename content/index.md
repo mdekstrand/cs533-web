@@ -1,8 +1,8 @@
 # Course Content
 
 - [Week 0 — Getting Ready](week0/index.md) (pre-class)
-- [Week 1 — I Have A Question](week1/index.md) (Aug. 24–28)
-- [Week 2 — Describing Data](week2/index.md) (Aug. 31–Sep. 4)
+- [Week 1 — I Have A Question](week1/index.md) (Aug. 23-27)
+- [Week 2 — Describing Data](week2/index.md) (Aug. 30–Sep. 3)
 <!-- - [Week 3 — Presenting and Visualizing](week3/index.md) (Sep. 7–11)
 - [Week 4 — Probability and Inference](week4/index.md) (Sep. 14–18)
 - [Week 5 — Practice](week5/index.md) (Sep. 21–25)
