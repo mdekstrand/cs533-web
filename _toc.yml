@@ -9,6 +9,7 @@ parts:
   chapters:
   - file: content/index
     sections:
+    - file: content/week0/index
     - file: content/week1/index
   - file: resources/index
     sections:
