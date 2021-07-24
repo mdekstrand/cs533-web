@@ -80,10 +80,11 @@ class VideoDirective(Directive):
 
 class CourseDomain(Domain):
     name = 'res'
+    label = 'Course'
 
-    def __init__(self, env: "BuildEnvironment") -> None:
-        super().__init__(env)
-        self.add_object_type('video', ObjType('video', ('video',)))
+    object_types = {
+        'video': ObjType('video', 'video')
+    }
 
 
 def setup(app: Sphinx):
