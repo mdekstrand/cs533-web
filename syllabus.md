@@ -108,13 +108,13 @@ content delivery is asynchronous through the following resources:
 -   The textbook
 -   Other readings linked from the lecture notes and course web page
 
-Each week has approximately 90 minutes of video material, plus some reading.  There will be a short
-quiz before each Thursday's class as an initial check on your understanding of the material.  Weeks
+Each week has approximately 75–90 minutes of video material, plus some reading.  There will be a
+short quiz in each Thursday's class as an initial check on your understanding of the material. Weeks
 with exams will have lower video and reading loads.
 
 Our in-person class time will be for discussing the course material and topics, additional
-mini-lectures to supplement your understanding of the course, and group or individual exercises to
-practice the material with ready access to peer and instructor support.
+mini-lectures to supplement your understanding of the course, and team-based exercises to practice
+the material with ready access to peer and instructor support.
 
 Putting these together, along with the larger assignments, results in the following components of
 the class:
@@ -143,6 +143,22 @@ total course points, you will receive at least a B-).
 
 I expect you to actively participate in our class sessions.  Since these are interactive working
 sessions, if you have a laptop please bring it to class.
+
+The in-person class sessions are based on the principles of team-based learning, adapted to this
+class's needs and role in the graduate curriculum.  You will be working with a group of your peers
+throughout the semester helping each other practice the material, discuss and apply it to small
+exercises and examples, and identify places where you need and want to learn more.
+
+On **Thursdays**, our class will look like a “normal” team-based learning class — a quiz (the
+*Readiness Assessment Process*), supplementary content discussion as needed, and an application
+exercise.  The readiness assessment process consists of two parts: an individual quiz, followed by
+re-taking the quiz as a team to discuss and improve your answers.
+
+**Tuesdays** will be more varied.  The first Tuesday will be the class introduction and overview,
+and our exams will be on Tuesdays.  On weeks when an assignment is due (see the
+[schedule](schedule.md)), we will use the class period for collaborative problem-solving about the
+assignment.  Other Tuesdays will be for more extended discussion and application exercises depending
+on where we are in the semester.
 
 ### Quizzes
 

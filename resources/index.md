@@ -3,7 +3,6 @@
 ## Subpages
 
 - [Notebook Checklist](notebook-checklist.md)
-- [Glossary](glossary.md)
 - [Common Problems](problems.md)
 - [Notes on Probability](probability.md)
 - [Git Resources](git-resources.md)

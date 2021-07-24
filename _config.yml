@@ -36,6 +36,7 @@ sphinx:
     admonitions: extensions
     media: extensions
   config:
+    primary_domain: res
     mathjax_config:
       TeX:
         Macros:

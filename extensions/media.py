@@ -2,11 +2,13 @@
 Sphinx extension to implement video support
 """
 
+from logging import warn
 from pathlib import Path
 from sphinx.application import Sphinx
 from docutils import nodes
 from docutils.parsers.rst import Directive
 from docutils.parsers.rst import directives
+from sphinx.domains import Domain, ObjType
 
 _vid_root = Path('videos')
 
@@ -26,6 +28,10 @@ class VideoDirective(Directive):
         name = self.options.get('name', None)
         video_id = self.options.get('id', None)
         length = self.options.get('length', None)
+
+        # tgt = nodes.target(text=name)
+        # result.append(tgt)
+
         if video_id:
             vcc = nodes.container("", type="tabbed", new_group=False, selected=False, classes=["tabbed-container", "video"])
             title = "Video"
@@ -72,5 +78,15 @@ class VideoDirective(Directive):
         return result
 
 
+class CourseDomain(Domain):
+    name = 'res'
+
+    def __init__(self, env: "BuildEnvironment") -> None:
+        super().__init__(env)
+        self.add_object_type('video', ObjType('video', ('video',)))
+
+
 def setup(app: Sphinx):
+    app.add_domain(CourseDomain)
     app.add_directive('video', VideoDirective)
+    # app.add_role('video', AnyXRefRole(innernodeclass=nodes.inline))

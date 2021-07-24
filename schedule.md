@@ -22,8 +22,9 @@ Following is a tentative schedule.  Topics may shift a little bit depending on h
 | 15   | 12/6  | [What's Next?][W15]                 | A7     |
 | F    | 12/13 | Finals week                         | Final  |
 
-Assignments are due at **midnight on Sunday** at the end of the week in which they are listed.
-For example, A0 is due at midnight, August 29, 2021.
+Assignments are due at **midnight on Sunday** at the end of the week in which they are listed. For
+example, A0 is due at midnight, August 29, 2021.  Exams are in class on Tuesdays the weeks they are
+listed (including the final).
 
 [A0]: assignments/A0/index.md
 [A1]: assignments/A1/index.md

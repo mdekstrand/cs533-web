@@ -5,6 +5,7 @@ parts:
   chapters:
   - file: syllabus
   - file: schedule
+  - file: glossary
 - caption: Course Materials
   chapters:
   - file: content/index
@@ -16,7 +17,6 @@ parts:
     - file: resources/software
     - file: resources/onyx
     - file: resources/notebook-checklist
-    - file: resources/glossary
     - file: resources/problems
     - file: resources/probability
     - file: resources/git-resources
