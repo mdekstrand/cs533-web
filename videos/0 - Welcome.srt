@@ -1,0 +1,268 @@
+1
+00:00:00,180 --> 00:00:05,250
+Hello and welcome to CBS five thirty three, whether this is your first class at Boise State or your 30th,
+
+2
+00:00:05,250 --> 00:00:10,590
+I'm very pleased to welcome you to Introduction to Data Science. I'm Michael Ekstrand, your professor for this fall.
+
+3
+00:00:10,590 --> 00:00:15,240
+In this video, I wanted to give you a little bit of an introduction to what to expect this fall,
+
+4
+00:00:15,240 --> 00:00:20,130
+how I've structured the class to make use of the different modalities we have available to us,
+
+5
+00:00:20,130 --> 00:00:29,610
+and how to prepare ahead. If you're looking to to get a jump start on the semester and to talk a little bit about how to succeed in a semester,
+
+6
+00:00:29,610 --> 00:00:34,020
+that's going to look more normal than the last couple of semesters, hopefully.
+
+7
+00:00:34,020 --> 00:00:44,070
+But still, we have a lot of lingering public health risks that we need to to be prepared for and be flexible for.
+
+8
+00:00:44,070 --> 00:00:50,850
+There are several components of this class and the overall structure may be a little bit different than what you might be used to from other classes.
+
+9
+00:00:50,850 --> 00:00:58,920
+There are a couple of reasons for this. One is to give the flexibility needed in order to complete the semester successfully
+
+10
+00:00:58,920 --> 00:01:06,600
+no matter what curveballs may come our way, to enable you to get to get caught up if you have to miss class for a little while and also to make
+
+11
+00:01:06,600 --> 00:01:15,420
+use of the each of the different ways that we can interact in a way that captures the unique potential of that particular interaction method.
+
+12
+00:01:15,420 --> 00:01:19,950
+So to start with, I'm not actually going to be lecturing in class very much.
+
+13
+00:01:19,950 --> 00:01:24,840
+We're going to talk a lot more about the course details, the first class meeting on Tuesday,
+
+14
+00:01:24,840 --> 00:01:31,800
+but the primary content delivery is going to be through online video lectures and readings.
+
+15
+00:01:31,800 --> 00:01:38,460
+The course website is going to contain all of those. So for each week, you can scroll through and you can see that week's readings.
+
+16
+00:01:38,460 --> 00:01:48,060
+You can get access to my lecture slides. You can watch the videos and watch them at your own pace.
+
+17
+00:01:48,060 --> 00:01:55,050
+When we're in the classroom, we're going to be using this time in this space for things that can really only be done in a classroom environment.
+
+18
+00:01:55,050 --> 00:02:01,170
+We're going to be focusing on engaging with the material together through a combination of discussion,
+
+19
+00:02:01,170 --> 00:02:07,000
+small lectures to clear up additional material you may have questions on,
+
+20
+00:02:07,000 --> 00:02:15,870
+group activities that you're going to work on with your classmates to apply in practice and develop your knowledge of the material,
+
+21
+00:02:15,870 --> 00:02:22,530
+as well as taking our exams and having some time for collaborative problem solving on the assignments.
+
+22
+00:02:22,530 --> 00:02:27,240
+Science of all kinds, data science or other analysis is a social process.
+
+23
+00:02:27,240 --> 00:02:32,710
+It's done by people in communication with other people. And so we're going to use this time to practice that,
+
+24
+00:02:32,710 --> 00:02:39,130
+engage with the material of the class and the problems that we're applying to together as a group
+
+25
+00:02:39,130 --> 00:02:45,930
+to collaboratively deepen our understanding of data science and the things to which we apply it to.
+
+26
+00:02:45,930 --> 00:02:51,060
+These online lectures and our in-person engagement are going to be supplemented with a set of
+
+27
+00:02:51,060 --> 00:02:57,240
+assignments throughout the semester to enable you to develop more extended practice with the material,
+
+28
+00:02:57,240 --> 00:03:04,200
+concepts and techniques that we cover and to demonstrate your ability to apply them to more significant projects,
+
+29
+00:03:04,200 --> 00:03:07,350
+both with code and with writing and visuals.
+
+30
+00:03:07,350 --> 00:03:19,210
+We also have two mid-term exams and a final for you to demonstrate your understanding of key class concepts.
+
+31
+00:03:19,210 --> 00:03:27,280
+These are structured so that the workload throughout the semester should be fairly even the assignments come at a pace every other week,
+
+32
+00:03:27,280 --> 00:03:34,810
+we don't have a big culminating project at the end that you're going to have to do a significant amount of extra work.
+
+33
+00:03:34,810 --> 00:03:44,530
+You should have even and predictable load between the assignments, the exams and our various class and learning activities throughout the semester.
+
+34
+00:03:44,530 --> 00:03:47,920
+There's a lot of moving pieces here that you need to keep track of at this class.
+
+35
+00:03:47,920 --> 00:03:53,410
+So I want to give you a few tips for success both throughout the class and also in preparing for it.
+
+36
+00:03:53,410 --> 00:03:59,590
+The first is to read the syllabus. There's a lot of information in the syllabus about the course structure, about the course policies,
+
+37
+00:03:59,590 --> 00:04:05,830
+including various policies to help us plan ahead for the unexpected this semester.
+
+38
+00:04:05,830 --> 00:04:12,040
+Also, keep up on the videos and readings. The first week of content is going to be fully available before class even starts.
+
+39
+00:04:12,040 --> 00:04:19,960
+If you want to start working ahead, you can you can peek ahead to the content from last year and providing a link to that here.
+
+40
+00:04:19,960 --> 00:04:25,600
+If you want, make sure you check the assignments and deliverables this year before you work off of old instructions.
+
+41
+00:04:25,600 --> 00:04:32,770
+But most of the material that I'm doing is going to be very, very similar to what we did with the fully online course last year.
+
+42
+00:04:32,770 --> 00:04:37,420
+Thursday, we're going to be having quizzes on each week's reading material and videos.
+
+43
+00:04:37,420 --> 00:04:43,600
+So work ahead, understand the material and be prepared in order to take the quiz.
+
+44
+00:04:43,600 --> 00:04:49,840
+That's going to help both you and I assess your understanding in the material as we start working into applying it.
+
+45
+00:04:49,840 --> 00:04:57,070
+I also encourage you to make use of the features of the video interface Panopto allows you to change the playback speed.
+
+46
+00:04:57,070 --> 00:05:04,660
+If I talk too quickly or too slowly for you, you can also download the videos to watch them on your own device in another context.
+
+47
+00:05:04,660 --> 00:05:07,930
+And I also recommend that you get started on the assignments early.
+
+48
+00:05:07,930 --> 00:05:13,360
+They're going to be up at the beginning of the two week period, at the end of which there do you can get started right away.
+
+49
+00:05:13,360 --> 00:05:20,650
+And we're going to be giving time early in the second week of the assignment for collaborative problem solving and discussion on the assignment.
+
+50
+00:05:20,650 --> 00:05:27,620
+And you'll be able to take the best advantage of that if you've already gotten started.
+
+51
+00:05:27,620 --> 00:05:31,900
+I'm here at the Idaho and Frank human rights area to conclude this video,
+
+52
+00:05:31,900 --> 00:05:38,530
+because as we will see as we get the material, many of the applications of data science have a profound human impact.
+
+53
+00:05:38,530 --> 00:05:43,750
+We may be doing data science to understand human behavior, the effects of human activity.
+
+54
+00:05:43,750 --> 00:05:49,270
+We may be doing data science to make decisions or recommendations that are going to affect people.
+
+55
+00:05:49,270 --> 00:05:57,080
+People will have to implement many of the decisions that result from our analysis, even when the analysis themselves are not about human subjects.
+
+56
+00:05:57,080 --> 00:06:07,360
+And one of the goals of my teaching and my research is to use technology, data, science, computing to for human flourishing.
+
+57
+00:06:07,360 --> 00:06:12,590
+And so one of the things that I want to equip you with in this class, besides the technical,
+
+58
+00:06:12,590 --> 00:06:20,260
+with the mathematical and the conceptual underpinnings in order to carry out the work of data science is tools to be able to understand everything,
+
+59
+00:06:20,260 --> 00:06:27,220
+reason about its human impact, to do data science in a way that respects human dignity and advances justice.
+
+60
+00:06:27,220 --> 00:06:33,000
+And I also want this class itself to work for the humans it affects: you.
+
+61
+00:06:33,000 --> 00:06:35,800
+So I have a design for how the class is going to work,
+
+62
+00:06:35,800 --> 00:06:41,350
+but there's also an ongoing conversation if you have concerns other in advance of the class or how,
+
+63
+00:06:41,350 --> 00:06:48,790
+as the class progresses about what's happening, if there are things that are not working for you, I want to hear about those.
+
+64
+00:06:48,790 --> 00:06:53,620
+You can email me, you can post a message on Piazza. Can't guarantee I can fix everything.
+
+65
+00:06:53,620 --> 00:06:57,100
+Some things I may need to take into account for the next iteration of this class.
+
+66
+00:06:57,100 --> 00:07:01,480
+But I want it to work for you and I want it to work for the students who are going to come after you.
+
+67
+00:07:01,480 --> 00:07:11,833
+So with that, I look forward to seeing you in class. And let's learn some data science.
+

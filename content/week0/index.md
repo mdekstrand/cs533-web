@@ -7,6 +7,14 @@ you can know what to expect in our class, and things to do if you want to start 
 
 Welcome to class!
 
+```{video}
+:id: 3b861253-5e5a-4e65-b0cd-ad73014839ea
+:length: 7m8s
+:slide-id: "495979F9A431DDB0%2173563"
+:slide-auth: "AHTYqnlO5AKjbwU"
+:name: 0 - Welcome
+```
+
 ## Course Design
 
 This is a **flipped classroom** course.  Online videos — like the one you just watched — along with

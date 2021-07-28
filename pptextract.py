@@ -23,7 +23,7 @@ print('loading slide decks')
 for file in src_dir.glob('*.pptx'):
     print('reading', file.name)
     name = file.stem
-    out_file = out_dir / f'{name}.txt'
+    out_file = out_dir / f'{name}.slides.txt'
     ppt = pptx.Presentation(file)
     with open(out_file, 'w', encoding='utf8') as otf:
         slide_counts[name] = len(ppt.slides)

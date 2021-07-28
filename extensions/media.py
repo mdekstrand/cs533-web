@@ -9,6 +9,7 @@ from docutils import nodes
 from docutils.parsers.rst import Directive
 from docutils.parsers.rst import directives
 from sphinx.domains import Domain, ObjType
+import srt
 
 _vid_root = Path('videos')
 
@@ -67,12 +68,23 @@ class VideoDirective(Directive):
             result.append(scc)
 
         if name:
-            tfile = _vid_root / f'{name}.txt'
+            tfile = _vid_root / f'{name}.slides.txt'
             if tfile.exists():
                 text = tfile.read_text(encoding='utf8')
                 hid = nodes.container('', is_div=True, classes=['slides', 'text', 'hidden'])
                 tn = nodes.Text(text)
                 hid += tn
+                result.append(hid)
+
+            sffile = _vid_root / f'{name}.srt'
+            if sffile.exists():
+                subs = srt.parse(sffile.read_text(encoding='utf8'))
+                hid = nodes.container('', is_div=True, classes=['captions', 'text', 'hidden'])
+                kids = nodes.bullet_list()
+                for sub in subs:
+                    tn = nodes.Text(sub.content)
+                    kids += nodes.list_item('', tn)
+                hid += kids
                 result.append(hid)
 
         return result
