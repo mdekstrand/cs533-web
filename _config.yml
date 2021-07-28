@@ -17,6 +17,15 @@ parse:
     - dollarmath
     - linkify
     - substitution
+  myst_substitutions:
+    mcal: 📅
+    mvideo: 🎥
+    mbook: 📖
+    mclass: 👨‍🏫
+    mnotebook: 📝
+    massignment: 📩
+    mtask: ✅
+    mquiz: 🚩
 
 execute:
   exclude_patterns:

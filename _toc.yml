@@ -12,6 +12,9 @@ parts:
     sections:
     - file: content/week0/index
     - file: content/week1/index
+      sections:
+      - file: content/week1/DemoNotebook
+      - file: content/week1/1-7-types-operations
   - file: resources/index
     sections:
     - file: resources/software

@@ -219,7 +219,7 @@ Operationalization
 
     Introduced in [:material-video: Asking Questions](../content/week1/index.md#asking).
 
-Odds {: #odds}
+Odds
     An alternative way of framing probability, as the ratio of the likelihood for or against an event:
 
     $$\Odds(A) = \frac{P(A)}{P(A^c)}$$
@@ -227,14 +227,14 @@ Odds {: #odds}
     The *log odds* is a particularly convenient way of working with odds, and is $\log P(A) - \log (1 - P(A))$.
     See the [:a-note: probability notes](probability.md#odds).
 
-Odds ratio {: #odds-ratio}
+Odds ratio
     The ratio of the odds of two different outcomes.
 
     $$\operatorname{OR}(A, B) = \frac{\Odds(A)}{\Odds{B}}$$
 
     See the [:a-note: probability notes](probability.md#odds).
 
-Overfitting {: overfitting}
+Overfitting
     When a model learns too much from its training data, so it cannot do an effective job of predicting future unseen data.
 
     Introduced in [:a-video: Overfitting](../content/week9/index.md#overfitting).
@@ -276,8 +276,8 @@ Residual
 
     Introduced in [:a-video: Single Regression](../content/week8/index.md#single-regression).
 
-Sample
-    *n.* A subset of the population, for which we have observations.
+Sample : n.
+    A subset of the population, for which we have observations.
 
     Discussed in more detail in [:material-video: Sampling](../content/week4/index.md#sampling).
 
