@@ -21,7 +21,9 @@ class VideoDirective(Directive):
         'slide-auth': directives.unchanged,
         'length': directives.unchanged,
         'name': directives.path,
+        'amara': directives.path,
     }
+    has_content = True
 
     def run(self):
         result = []
@@ -66,6 +68,16 @@ class VideoDirective(Directive):
             sc += sid
             scc += sc
             result.append(scc)
+
+        if self.content:
+            rcc = nodes.container("", type="tabbed", new_group=False, selected=False, classes=["tabbed-container"])
+            rl = nodes.rubric("Resources and Links", "Resources and Links", classes=["tabbed-label"])
+            rcc += rl
+            rc = nodes.container("", is_div=True, classes=["tabbed-content", "resources"])
+            self.state.nested_parse(self.content, self.content_offset, rc)
+
+            rcc += rc
+            result.append(rcc)
 
         if name:
             tfile = _vid_root / f'{name}.slides.txt'

@@ -9,10 +9,12 @@ Welcome to class!
 
 ```{video}
 :id: 3b861253-5e5a-4e65-b0cd-ad73014839ea
-:length: 7m8s
+:length: 7m12s
 :slide-id: "495979F9A431DDB0%2173563"
 :slide-auth: "AHTYqnlO5AKjbwU"
 :name: 0 - Welcome
+
+* [Edit subtitles on Amara](https://amara.org/en/videos/02wbnOQnXRUF/info/https3b861253-5e5a-4e65-b0cd-ad73014839eamp4mediatargettypevideopodcast/)
 ```
 
 ## Course Design
