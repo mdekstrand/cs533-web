@@ -1,5 +1,13 @@
-@import url("https://unpkg.com/typeface-lato@1.1.13/index.css");
+@import url("https://unpkg.com/@fontsource/lato@4.5.0/index.css");
+@import url("https://unpkg.com/@fontsource/source-code-pro@4.5.0/index.css");
 
 :root {
     --pst-font-family-base: Lato, sans-serif;
+    --jp-ui-font-family: Lato, sans-serif !important;
+    --pst-font-family-monospace: "Source Code Pro", monospace;
+    --jp-code-font-family: "Source Code Pro", monospace !important;
+}
+
+.bd-content code {
+    font-size: inherit !important;
 }

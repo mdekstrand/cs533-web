@@ -1,5 +1,4 @@
 # Remotely Using Onyx
-{% import 'video.md' as media %}
 
 If you want to use Jupyter notebooks on Onyx nodes, there are a few extra steps you need to do.
 There is a video at the end of this page walking through the process.
