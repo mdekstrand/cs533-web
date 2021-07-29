@@ -9,7 +9,7 @@ own work and the work of others.
 
 ```{admonition} Draft Content
 :class: warning
-This syllabus is currently a work-in-progress while I prepare for Fall 2021.
+This syllabus is mostly final, but is subject to minor revisions before the first day of class.
 ```
 
 ## Learning Outcomes
@@ -61,7 +61,7 @@ I may occasionally reply to a question in an evening or on the weekend, but do n
 
 ## Resources and Readings
 
-The [Resources page](../resources/) on the course web site has a more complete list of resources that I will update throughout the semester.
+The [Resources page](resources/index.md) on the course web site has a more complete list of resources that I will update throughout the semester.
 
 ### Textbook
 
@@ -109,8 +109,8 @@ content delivery is asynchronous through the following resources:
 -   Other readings linked from the lecture notes and course web page
 
 Each week has approximately 75–90 minutes of video material, plus some reading.  There will be a
-short quiz in each Thursday's class as an initial check on your understanding of the material. Weeks
-with exams will have lower video and reading loads.
+short quiz before each Thursday's class as an initial check on your understanding of the material.
+Weeks with exams will have lower video and reading loads.
 
 Our in-person class time will be for discussing the course material and topics, additional
 mini-lectures to supplement your understanding of the course, and team-based exercises to practice
@@ -128,13 +128,14 @@ the class:
 
 Your final grade will be computed from the course components as follows:
 
-| Category      | %   |
-| ------------- | :-: |
-| Participation | 5%  |
-| Quizzes       | 10% |
-| Assignments   | 50% |
-| Exams         | 20% |
-| Final         | 15% |
+| Category           | %   |
+| ------------------ | :-: |
+| In-Class Work      | 10% |
+| Individual Quizzes | 10% |
+| Team Quizzes       | 10% |
+| Assignments        | 40% |
+| Exams              | 20% |
+| Final              | 10% |
 
 The standard 70/80/90 scale determines the *minimum* grade you will receive (that is, if you have 80
 total course points, you will receive at least a B-).
@@ -149,10 +150,12 @@ class's needs and role in the graduate curriculum.  You will be working with a g
 throughout the semester helping each other practice the material, discuss and apply it to small
 exercises and examples, and identify places where you need and want to learn more.
 
-On **Thursdays**, our class will look like a “normal” team-based learning class — a quiz (the
+On **Thursdays**, our class will look like a “normal” team-based learning class — a team quiz (the
 *Readiness Assessment Process*), supplementary content discussion as needed, and an application
-exercise.  The readiness assessment process consists of two parts: an individual quiz, followed by
-re-taking the quiz as a team to discuss and improve your answers.
+exercise.  The TBL readiness assessment process normally consists of two parts: an individual quiz,
+followed by re-taking the quiz as a team to discuss and improve your answers.  In this class, we
+will be implementing that with an online individual quiz due before class and an in-person team
+quiz (see [Quizzes](#quizzes)).
 
 **Tuesdays** will be more varied.  The first Tuesday will be the class introduction and overview,
 and our exams will be on Tuesdays.  On weeks when an assignment is due (see the
@@ -160,12 +163,30 @@ and our exams will be on Tuesdays.  On weeks when an assignment is due (see the
 assignment.  Other Tuesdays will be for more extended discussion and application exercises depending
 on where we are in the semester.
 
+In-class work will contribute to your grade.
+
+One final note on classes: taking care of our health, individually and as a class, is top priority.
+While I aim for every class to be a meaningful, can't-miss learning experience, I also want us to
+have a general expectation that if we're ill, we stay home, both to recover ourselves and to protect
+our colleagues' health.  I've designed the grading policies to help with this (see
+[Coronavirus](#coronavirus)), but if we need to further adjust to accommodate the semester's health
+demands, we will.  If you need to miss class, I encourage you to phone in and have a teammate put
+you on speakerphone during your team's activities, if you are feeling well enough; this will allow
+you to contribute to the team quiz and work.
+
 ### Quizzes
 
-There will be a short weekly quiz in Canvas, due Wednesday night, on the readings and videos.  The
-lowest 5 quizzes will be dropped. I will clearly indicate in each week's module page and in the quiz
-which of the readings and videos are required before the quiz. The purpose of these quizzes is to
-help make sure you are prepared for Tuesday's activity.
+There is a short weekly **individual quiz** in Canvas, due before class on Thursday (at 8AM, so I
+can look at results before class), on the readings and videos.  The purpose of these quizzes is to
+help make sure you are prepared for applying the material, and to give both you and I early and
+frequent checks on your understanding.
+
+In class on Thursdays, we will take the **team quiz**, which will usually be the same or very
+similar as the individual quiz.  This is an opportunity to refine your understanding of the material
+and collaboratively fill in gaps you may have missed.  Individual and team quizzes are weighted
+equally in your final grade.
+
+For both individual and team quizzes, only the 10 highest scores will contribute to your grade.
 
 ### Assignments
 
@@ -181,7 +202,7 @@ The first assignment (A0) is a warm-up assignment to make sure that you can inst
 run Python notebooks. You must complete this assignment individually.
 
 The other assignments (A1–7) are full assignments doing data science with Python. You may do up to
-**4** of these assignments with a partner, and must complete 3 individually. You may choose which
+**3** of these assignments with a partner, and must complete 4 individually. You may choose which
 assignments you solo and which are a group effort. When doing an assignment with a partner, submit
 one copy for both of you, and indicate your partner's name in the Blackboard submission comments.
 
@@ -195,6 +216,9 @@ There will be a makeup exam available the last week of class. If you turn in the
 grade on it will **replace** your lowest normal exam grade.
 
 ## Course Policies
+
+Our work within this structure is governed by the following policies, in addition to applicable
+university policies and regulations and general principles of academic and scholarly integrity.
 
 ### Web Site and Announcements
 
@@ -212,9 +236,9 @@ For the assignments, you have a budget of 4 late days to use throughout the seme
 discretion. Each late day extends an assignment deadline by 24 hours with no penalty; late days are
 indivisible, so submitting an assignment 12 hours late requires an entire late day. You may use up
 to 3 late days on a single assignment.[^1]  When submitting an assignment using a late day, state
-with your submission the number of days you are using.  I appreciate it if you notify me (via a
-Piazza private message) prior to the deadline that you are planning to submit late, but do not
-require you to do so.
+with your submission the number of days you are using.  I appreciate it if you notify the TA and I
+(via a Piazza private message) prior to the deadline that you are planning to submit late, but do
+not require you to do so.
 
 [^1]: The purpose of this rule is so that we can discuss assignment solutions on Thursday after they
 are due.
@@ -234,7 +258,7 @@ respect the legal and moral rights of others with respect to their work; as a st
 required to abide by the Boise State University Student Code of Conduct. While I aim to allow you to
 make reasonable use of resources, cheating (including copying code, using unauthorized resources
 during tests, etc.) is not ok. If you are found to be cheating, the penalty may range from an F on
-the assignment to an F on the course.
+the assignment to an F on the course and will generally be reported to the university.
 
 ### Conduct
 
@@ -256,30 +280,36 @@ for you.
 
 ## Coronavirus
 
-While we are partly back to “normal”, this semester is difficult, with an unknown and dangerous set
-of risks hanging over us and massive disruption in our work, study, and outside lives. I have
-designed the content, assessment plan, and policies of this class to try to be as flexible and
-accommodating of the various pressures and difficulties as possible while providing our intended
-learning outcomes. If there are things that are not working, or challenge arise that affect how you
-can engage with the class, please let me know — I want to make this work for you.
+While we are partly back to “normal”, this semester is difficult, with an unknown set of risks
+hanging over us and massive disruption in our work, study, and outside lives. I have designed the
+content, assessment plan, and policies of this class to try to be as flexible and accommodating of
+the various pressures and difficulties as possible while providing our intended learning outcomes.
+If there are things that are not working, or challenges arise that affect how you can engage with
+the class, please let me know — I want to make this work for you.
 
-One specific risk, obviously, is that one of you (or I) contract COVID-19 during the semester.  I
-hope this does not happen to any of us, but I have attempted to account for this risk by setting the
-design parameter that you should be able to miss two full weeks of the semester (or perhaps even
-three) with minimal impact on learning outcomes and grades, possibly with the need to do some
-catch-up work. The following policies are specifically designed to accomodate this:
+One specific risk is that one of you (or I) contract COVID-19 or another serious illness during the
+semester.  I hope this does not happen to any of us, but I have attempted to account for this risk
+by setting the design parameter that you should be able to miss two full weeks of the semester (or
+perhaps even three) with minimal impact on learning outcomes and grades, possibly with the need to
+do some catch-up work. The following policies are specifically designed to accommodate this:
 
 - Asynchronous content delivery through video lectures and readings, so you can watch them at your
   convenience and catch up with course content later.
 - Dropping the lowest assignment score, so you can miss an entire assignment window with no effect
   on grade.  If you need to do this, I encourage you to still do the missed assignment for your own
   study purposes, but you can do that on a timetable that works with your schedule and health needs.
-- Grading class participation on 10 out of 15 weeks.
+- Grading in-class work and quizzes on 10 out of 15 weeks.
 - A makeup exam to replace your lowest midterm grade, so you can miss a midterm and compensate with
   the makeup.
 
 If you need to miss more than 2–3 weeks of class due to illness, it is likely that you will need to
 take an incomplete on the course. I am happy to work with you on this if it becomes necessary.
+
+While COVID-19 is the direct impetus for much of this design, these class features are not limited
+to that specific illness.  I want us to take care of our own and each others' health, which may
+include staying home from class, and while doing so will result in missed practice and discussion
+(and the design of in-class activities is not amenable to recording), I am designing the grading
+policies to avoid formal penalties for taking care of yourself.
 
 **Communication** will be the key to making this semester work. I welcome your feedback in general,
 and particularly around things that are or are not working for the course structure, both generally
