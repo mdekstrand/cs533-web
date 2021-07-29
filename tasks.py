@@ -4,7 +4,6 @@ from pathlib import Path
 import tarfile
 import shutil
 import re
-from livereload import Server
 
 from invoke import task
 
@@ -33,6 +32,8 @@ def build(c, rebuild=False, builder='dirhtml'):
 
 @task
 def serve(c, full_site=False, port=8000):
+    from livereload import Server
+
     def rebuild():
         _msg('building and copying site')
         build(c)
