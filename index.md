@@ -22,3 +22,12 @@ Points of interest include:
 
 I ask that you direct **all course questions** through Piazza, even if the question is just to me.
 This will help me ensure that I do not miss any questions or concerns.
+
+## Site Feedback
+
+There are several ways to provide feedback on this course content and site itself:
+
+- For students, comment in Piazza
+- Use the GitHub menu at the top of the site and “open issue” or “suggest edit”
+- Make a comment on the page. Note that these comments are all public and are stored in GitHub Issues.
+  I recommend using comments primarily for tips for your subsequent readers.

@@ -35,7 +35,11 @@ execute:
 html:
   use_issues_button: true
   use_repository_button: true
+  use_edit_page_button: true
   favicon: logo.png
+  comments:
+    utterances:
+      repo: mdekstrand/cs533-web
 
 launch_buttons:
   binderhub_url: ''
