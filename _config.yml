@@ -48,6 +48,7 @@ sphinx:
   local_extensions:
     admonitions: extensions
     media: extensions
+    cleanups: extensions
   config:
     primary_domain: res
     mathjax_config:
