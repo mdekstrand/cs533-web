@@ -64,7 +64,7 @@ If you want to get started early, some things you can do:
 - [Install the software](../../resources/software.md)
 - [Begin Week 1](../week1/index.md)
 - Start reading the textbooks
-- [Review the previous course offering](https://cs533.ekstrandom.net/F20/) for an idea of what's coming
+- [Review the Fall 2020 site](https://cs533.ekstrandom.net/F20/) for an idea of what's coming
 
 ## Feedback
 
