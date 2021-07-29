@@ -31,3 +31,6 @@ parts:
   - file: resources/tutorials/index
     sections:
     - glob: resources/tutorials/*
+- caption: Site Details
+  chapters:
+  - file: copyright
