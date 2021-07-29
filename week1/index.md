@@ -1,5 +1,8 @@
 # Week 1 — Questions
 
+:::{module} week1
+:::
+
 :::{draft}
 This content is still in draft state and has not yet been finalized.
 Do not depend on it as the final requirements for this week.
@@ -186,7 +189,7 @@ This video introduces NumPy `ndarray`, the fundamental numeric array data struct
 
 ```{video}
 :id: 88a81f19-1fb6-4a6b-bd7a-ac1f01760afb
-:lenght: 13m20s
+:length: 13m20s
 :slide-id: 495979F9A431DDB0%2172967
 :slide-auth: AMuE85znE-djS3E
 :name: 1-9 - Scientific Python
