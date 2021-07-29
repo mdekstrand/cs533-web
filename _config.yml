@@ -29,6 +29,7 @@ parse:
     mquiz: 🚩
 
 execute:
+  execute_notebooks: 'off'
   exclude_patterns:
   - assignments/*/*.ipynb
   - resources/tutorials/*.ipynb
