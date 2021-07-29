@@ -7,6 +7,7 @@ name = "pypi"
 jupyter-book = "==0.11.*"
 mdit-py-plugins = "<0.2.7"
 srt = "*"
+invoke = "*"
 
 [dev-packages]
 XlsxWriter = "~=1.3"

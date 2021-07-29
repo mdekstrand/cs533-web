@@ -1,7 +1,8 @@
 # to-update redirects
-/   /F20    302
+/   /F21    302
 /current/*  /F21/:splat 302
 
+# old redirects
 /content/*  /F20/content/:splat 302
 /assignments/*  /F20/assignments/:splat 302
 /resources/*    /F20/resources/:splat   302

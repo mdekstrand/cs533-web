@@ -27,14 +27,6 @@ jobs:
       with:
         node-version: '14'
 
-    - name: 💰 Cache package caches
-      uses: actions/cache@v2
-      with:
-        path: |
-          ~/.npm
-          ~/.cache/pip
-        key: pkg-cache-cache
-
     - name: 📦 Install pipenv packages
       run: |
         python -m pip install pipenv
@@ -50,18 +42,18 @@ jobs:
     - name: 📐 Install Python dependencies
       run: |
         pipenv install --deploy
-    
-    - name: 📐 Install Node dependencies
-      run: |
-        npm ci
 
     - name: 🛠 Build site
       run: |
-        npm run build
-    
+        pipenv run invoke build-site
+
+    - name: 🥅 Install Netlify
+      run: |
+        npm i -g netlify-cli
+
     - name: 📢 Publish
       run: |
-        netlify deploy --dir=full-site --prod
+        netlify deploy --dir=_build/site --prod
       env:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
