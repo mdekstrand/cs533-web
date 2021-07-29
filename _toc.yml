@@ -6,26 +6,28 @@ parts:
   - file: syllabus
   - file: schedule
   - file: glossary
-- caption: Course Materials
+- caption: Content
   chapters:
-  - file: content/index
+  - file: week0/index
+  - file: week1/index
     sections:
-    - file: content/week0/index
-    - file: content/week1/index
-      sections:
-      - file: content/week1/DemoNotebook
-      - file: content/week1/1-7-types-operations
-  - file: resources/index
-    sections:
-    - file: resources/software
-    - file: resources/onyx
-    - file: resources/notebook-checklist
-    - file: resources/problems
-    - file: resources/probability
-    - file: resources/git-resources
-    - file: resources/tutorials/index
-      sections:
-      - glob: resources/tutorials/*
+    - file: week1/DemoNotebook
+    - file: week1/1-7-types-operations
+- caption: Assignments
+  chapters:
   - file: assignments/index
+    title: Rubric
+  - file: assignments/A0/index
+- caption: Resources
+  chapters:
+  - file: resources/index
+    title: Overview
+  - file: resources/software
+  - file: resources/onyx
+  - file: resources/notebook-checklist
+  - file: resources/problems
+  - file: resources/probability
+  - file: resources/git-resources
+  - file: resources/tutorials/index
     sections:
-    - file: assignments/A0/index
+    - glob: resources/tutorials/*

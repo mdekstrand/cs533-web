@@ -9,7 +9,8 @@
 - Assignment 6 (due **November 21**)
 - Assignment 7 (due **December 12**)
 
-## General Rubric {: #rubric}
+(asn-rubric)=
+## General Rubric
 
 Unless otherwise specified, assignment components will be graded on the following rubric:
 
@@ -28,5 +29,6 @@ Solid Start (65%)
 Did Something (30%)
 :    The solution began an attempt, but is either insufficiently complete to assess correctness or is on entirely the wrong track.
 
-I may assign partial points between rubric anchors as a particular assignment merits.
-For example, an assignment component that meets *Right Idea*, but where the flaws are relatively minor, may receive 85–90% of the component's points instead of only 80%.
+The TA and I may assign partial points between rubric anchors as a particular assignment merits. For
+example, an assignment component that meets *Right Idea*, but where the flaws are relatively minor,
+may receive 85–90% of the component's points instead of only 80%.
