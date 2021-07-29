@@ -43,6 +43,10 @@ jobs:
       run: |
         pipenv install --deploy
 
+    - name: 🌿 Prepare Git branch
+      run: |
+        git branch archive origin/archive
+
     - name: 🛠 Build site
       run: |
         pipenv run invoke build-site
