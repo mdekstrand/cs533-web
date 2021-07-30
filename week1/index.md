@@ -1,11 +1,5 @@
 # Week 1 — Questions
 
-:::{draft}
-This content is still in draft state and has not yet been finalized.
-Do not depend on it as the final requirements for this week.
-I may also be re-recording some of the videos.
-:::
-
 The key learning outcomes for this week are:
 
 - Ask and refine questions that can be answered with data
@@ -38,8 +32,8 @@ This video will be re-recorded before class.
 :::
 
 ```{video} introduction
-:id: 7e74123e-dcfc-4964-bb50-ac1c01281061
-:length: 15m39s
+:id: 52f6698f-a7dd-4943-86eb-ad7501790760
+:length: 12m34s
 :slide-id: 495979F9A431DDB0%2173705
 :slide-auth: AP_wALvN9RZhibw
 :name: 1-1 - Introduction
@@ -51,7 +45,7 @@ In this video, I introduce *questions* in their broader context of using data to
 I also introduce the idea of **operationalization**, which will be a key concept throughout the class.
 
 ```{video}
-:id: fc08fd53-5dac-4c95-ad25-ac1c0128133d
+:id: 1b19dc1f-fee8-4505-9294-ad7501796f97
 :length: 10m35s
 :slide-id: 495979F9A431DDB0%2172944
 :slide-auth: AFZ_21-M4BmFQyE
@@ -67,12 +61,21 @@ I also introduce the idea of **operationalization**, which will be a key concept
 We make our {term}`operationalizations <Operationalization>` better by questioning them.  What do they capture?  Who or what do they prioritize?
 
 ```{video}
-:id: 5e304f06-a2fc-4611-8be1-ac1c0116145e
+:id: 564e8ea0-13c3-4722-aeca-ad7501798e69
 :length: 8m54s
 :slide-id: "495979F9A431DDB0%2172946"
 :slide-auth: ADgXZwd15GxB2yo
 :name: 1-3 - Questioning Questions
 ```
+
+:::{note}
+In this video, I talk about asking what it takes to *improve* a metric.  It would be more
+precise to ask what would *change* a metric; whether increasing or decreasing a metric is
+an improvement depends on the metric and application context.  The metric itself does not
+improve or get worse without that context.
+
+When I re-record this video for a future revision, I'll change my language.
+:::
 
 ## {{mclass}} Tuesday Class
 
@@ -110,7 +113,7 @@ It also shows you how to prepare a notebook to submit as an assignment.
 :length: 9m30s
 :alt-id: dbd531fb-904f-4b2f-b0a3-ad75015afd4c
 :alt-title: Onyx Video
-:name: 1-6 - Our First Python
+:name: 1-4 - Our First Python
 ```
 
 ### Resources
@@ -141,7 +144,7 @@ This video introduces fundamental Python data types and operations, along with v
 ```{video}
 :id: 76daa00b-e512-4b20-9f63-ad75015afb57
 :length: 19m17s
-:name: 1-7 - Data Types and Operations
+:name: 1-5 - Data Types and Operations
 ```
 
 ### Resources
@@ -149,7 +152,7 @@ This video introduces fundamental Python data types and operations, along with v
 - [Slide deck notebook](1-7-types-operations)
 - [Python tutorial](https://docs.python.org/3/tutorial/index.html)
 - Textbook 2.3, 3.1
-- Coming soon: notebooks on Python features
+- Tutorial notebook [Fun with Numbers](../resources/tutorials/FunWithNumbers.ipynb)
 
 ## {{mvideo}} Control Structures
 
@@ -160,19 +163,19 @@ This video introduces Python control structures and code layout.
 :length: 6m56s
 :slide-id: 495979F9A431DDB0%2172965
 :slide-auth: ABwaNR_XOZeDHwo
-:name: 1-8 - Control Structures
+:name: 1-6 - Control Structures
 ```
 
 ## {{mvideo}} Scientific Python
 
-This video introduces NumPy `ndarray`, the fundamental numeric array data structure for scientific computing.
+This video introduces NumPy {py:class}`numpy.ndarray`, the fundamental numeric array data structure for scientific computing.
 
 ```{video}
 :id: bb427c78-988a-4d4a-b671-ad75015afbf6
 :length: 13m20s
 :slide-id: 495979F9A431DDB0%2172967
 :slide-auth: AMuE85znE-djS3E
-:name: 1-9 - Scientific Python
+:name: 1-7 - Scientific Python
 ```
 
 ### Resources
