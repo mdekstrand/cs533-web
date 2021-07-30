@@ -2,16 +2,43 @@
 Sphinx extension to implement video support
 """
 
-from logging import warn
+import warnings
+from typing import NamedTuple
+import re
 from pathlib import Path
-from sphinx.application import Sphinx
 from docutils import nodes
-from docutils.parsers.rst import Directive
 from docutils.parsers.rst import directives
+from sphinx.application import Sphinx
+from sphinx.util.docutils import SphinxDirective
+from sphinx.roles import XRefRole
+from sphinx.transforms import SphinxTransform
+from sphinx.util.nodes import make_id, make_refnode
 from sphinx.domains import Domain, ObjType
 import srt
 
 _vid_root = Path('videos')
+_vl_re = re.compile(r'(\d+)m(\d+)s')
+
+
+class Video(NamedTuple):
+    id: str
+    key: str
+    docname: str
+    module: str
+    name: str
+    length: str
+
+    EMOJI = '🎥'
+
+    def label(self):
+        return f'{self.EMOJI} {self.name}'
+
+    def vid_length(self):
+        if self.length:
+            m = _vl_re.match(self.length)
+            mins = float(m.group(1))
+            secs = float(m.group(2))
+            return mins * 60 + secs
 
 
 def rst_video_tab(video_id, length=None, title='Video'):
@@ -47,7 +74,76 @@ def rst_slide_tab(slide_id, slide_auth):
     return scc
 
 
-class VideoDirective(Directive):
+class ModuleDirective(SphinxDirective):
+    required_arguments = 1
+    optional_arguments = 0
+    has_content = False
+
+    def run(self):
+        name = self.arguments[0].strip()
+        self.env.ref_context['res:module'] = name
+        pending = nodes.pending(ModTocTransform, {'module': name})
+        self.state.document.note_pending(pending, 500)
+        return [pending]
+
+
+class ModTocTransform(SphinxTransform):
+    def apply(self, **kwargs):
+        mod = self.startnode.details['module']
+        box = nodes.container('', is_div=True, classes=['module-content'])
+
+        table = nodes.table(classes=['colwidths-auto'])
+        tg = nodes.tgroup(cols=2)
+        tg += nodes.colspec(colwidth=1)
+        tg += nodes.colspec(colwidth=0)
+        table += tg
+        head = nodes.thead()
+        hrow = nodes.row()
+        head += hrow
+        hrow += nodes.entry('', nodes.strong('', 'Element'))
+        hrow += nodes.entry('', nodes.strong('', 'Length'))
+        tg += head
+
+        tb = nodes.tbody()
+        tg += tb
+
+        tot_vid = 0.0
+
+        for obj in self.env.domaindata['res']['objects']:
+            if obj.module != mod:
+                continue
+
+            if hasattr(obj, 'vid_length'):
+                vl = obj.vid_length()
+                if vl:
+                    tot_vid += vl
+
+            row = nodes.row()
+
+            l_cell = nodes.entry()
+            ref = nodes.reference('', '', internal=True)
+            ref['refid'] = obj.id
+            ref += nodes.inline('', obj.label())
+            l_cell += nodes.paragraph('', '', ref)
+            row += l_cell
+
+            len_cell = nodes.entry()
+            if hasattr(obj, 'length'):
+                len_cell += nodes.inline('', obj.length)
+            row += len_cell
+            tb += row
+
+        box += table
+
+        summary = nodes.paragraph()
+        summary += nodes.inline('', 'Total video: %dh%.0fm' % (int(tot_vid / 3600), tot_vid % 3600 / 60))
+        box += summary
+
+        parent = self.startnode.parent
+        parent.replace(self.startnode, box)
+
+
+class VideoDirective(SphinxDirective):
     option_spec = {
         'id': directives.unchanged,
         'slide-id': directives.unchanged,
@@ -58,28 +154,46 @@ class VideoDirective(Directive):
         'alt-title': directives.unchanged,
     }
     has_content = True
+    required_arguments = 0
+    optional_arguments = 1
 
     def run(self):
         result = []
 
+        modname = self.env.ref_context.get('res:module')
         name = self.options.get('name', None)
         video_id = self.options.get('id', None)
         length = self.options.get('length', None)
+        if self.arguments:
+            key = self.arguments[0].strip()
+        else:
+            key = name
+        fullkey = f'{modname}:{key}' if modname else key
+        target = video_id if video_id else fullkey
 
-        # tgt = nodes.target(text=name)
-        # result.append(tgt)
+        tgt_node = nodes.target('', '', ids=[target])
+        self.set_source_info(tgt_node)
+        result.append(tgt_node)
+        vid_obj = Video(video_id, fullkey, self.env.docname, modname, name, length)
+        objects = self.env.domaindata['res'].setdefault('objects', [])
+        objects.append(vid_obj)
+
+        box = nodes.container('', classes=["resource", "video"])
+        result.append(box)
 
         if video_id:
-            result.append(rst_video_tab(video_id, length))
+            box += rst_video_tab(video_id, length)
+        else:
+            warnings.warn('no video ID specified')
 
         slide_id = self.options.get('slide-id', None)
         if slide_id:
             slide_auth = self.options['slide-auth']
-            result.append(rst_slide_tab(slide_id, slide_auth))
+            box += rst_slide_tab(slide_id, slide_auth)
 
         alt_id = self.options.get('alt-id', None)
         if alt_id:
-            result.append(rst_video_tab(alt_id, title=self.options['alt-title']))
+            box += rst_video_tab(alt_id, title=self.options['alt-title'])
 
         if self.content:
             rcc = nodes.container("", type="tabbed", new_group=False, selected=False,
@@ -90,7 +204,7 @@ class VideoDirective(Directive):
             self.state.nested_parse(self.content, self.content_offset, rc)
 
             rcc += rc
-            result.append(rcc)
+            box += rcc
 
         if name:
             tfile = _vid_root / f'{name}.slides.txt'
@@ -99,7 +213,7 @@ class VideoDirective(Directive):
                 hid = nodes.container('', is_div=True, classes=['slides', 'text', 'hidden'])
                 tn = nodes.Text(text)
                 hid += tn
-                result.append(hid)
+                box += hid
 
             sffile = _vid_root / f'{name}.srt'
             if sffile.exists():
@@ -110,9 +224,24 @@ class VideoDirective(Directive):
                     tn = nodes.Text(sub.content)
                     kids += nodes.list_item('', tn)
                 hid += kids
-                result.append(hid)
+                box += hid
 
         return result
+
+
+# class VideoRole(XRefRole):
+    # pass
+    # def process_link(self, env, refnode, has_explicit_title: bool, title: str, target: str):
+    #     tgt = self.env.domaindata['res'].get(target, None)
+    #     if tgt:
+    #         print(target, tgt)
+    #         target = tgt.id
+    #         if not has_explicit_title:
+    #             title = tgt.name
+    #     else:
+    #         warnings.warn(f'resource {target} not found')
+
+    #     return title, target
 
 
 class CourseDomain(Domain):
@@ -122,9 +251,36 @@ class CourseDomain(Domain):
     object_types = {
         'video': ObjType('video', 'video')
     }
+    directives = {
+        'module': ModuleDirective,
+        'video': VideoDirective,
+    }
+    roles = {
+        'video': XRefRole()
+    }
+
+    def resolve_xref(self, env, fromdocname, builder, type, target, node, contnode):
+        objects = env.domaindata['res'].get('objects', [])
+
+        tgt = None
+        for candidate in objects:
+            if candidate.key == target:
+                tgt = candidate
+
+        if not tgt:
+            return None
+
+        label = tgt.name
+        prefix = getattr(tgt, 'EMOJI', None)
+        if prefix:
+            label = prefix + ' ' + label
+        content = nodes.inline('', label)
+
+        return make_refnode(builder, fromdocname, tgt.docname, tgt.id, content, tgt.name)
 
 
 def setup(app: Sphinx):
     app.add_domain(CourseDomain)
-    app.add_directive('video', VideoDirective)
+
+    # app.add_directive('video', VideoDirective)
     # app.add_role('video', AnyXRefRole(innernodeclass=nodes.inline))

@@ -19,6 +19,7 @@ parse:
     - linkify
     - substitution
   myst_substitutions:
+    moverview: 🧐
     mcal: 📅
     mvideo: 🎥
     mbook: 📖

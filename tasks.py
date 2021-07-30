@@ -31,12 +31,12 @@ def build(c, rebuild=False, builder='dirhtml'):
 
 
 @task
-def serve(c, full_site=False, port=8000):
+def serve(c, full_site=False, port=8000, rebuild=False):
     from livereload import Server
 
     def rebuild():
         _msg('building and copying site')
-        build(c)
+        build(c, rebuild=rebuild)
         if full_site:
             build_site(c)
 

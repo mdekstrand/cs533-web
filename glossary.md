@@ -8,7 +8,7 @@ This page catalogs many of the important ones, with pointers to the resources in
 Ablation study
     A study in which we turn off different components of a complex model to see how much each one contributes to the overall model's performance.
 
-    Introduced in [{{mvideo}} Inference and Albation](week11/index.md#ablation).
+    % Introduced in {video}`week11:ablation`.
 
 Aggregate
     A function that computes a single value from a series (or matrix) of values.

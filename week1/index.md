@@ -1,8 +1,5 @@
 # Week 1 — Questions
 
-:::{module} week1
-:::
-
 :::{draft}
 This content is still in draft state and has not yet been finalized.
 Do not depend on it as the final requirements for this week.
@@ -20,7 +17,12 @@ This week uses chapters 1–3 from the textbook.  If you already know Python, th
 
 This week's videos are available as a [Panopto playlist](https://boisestate.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=fe0a0a3c-4b1a-40cc-93ae-ac1c0130d704).
 
-## {{mcal}} Week Deadlines
+## {{moverview}} Overview
+
+:::{module} week1
+:::
+
+## {{mcal}} Deadlines
 
 This week has the following deadlines:
 
@@ -36,7 +38,7 @@ This video introduces the course and our learning outcomes for the term.
 This video will be re-recorded before class.
 :::
 
-```{video}
+```{video} introduction
 :id: 7e74123e-dcfc-4964-bb50-ac1c01281061
 :length: 15m39s
 :slide-id: 495979F9A431DDB0%2172940
@@ -162,6 +164,7 @@ This video introduces fundamental Python data types and operations, along with v
 ```{video}
 :id: f272cf44-6287-4126-b702-ac1f0004728a
 :length: 19m17s
+:name: 1-7 - Data Types and Operations
 ```
 
 ### Resources
