@@ -15,11 +15,10 @@ The key learning outcomes for this week are:
 
 This week uses chapters 1–3 from the textbook.  If you already know Python, that should mostly be review.
 
-This week's videos are available as a [Panopto playlist](https://boisestate.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=fe0a0a3c-4b1a-40cc-93ae-ac1c0130d704).
-
-## {{moverview}} Overview
+## {{moverview}} Content Overview
 
 :::{module} week1
+:playlist: https://boisestate.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=fe0a0a3c-4b1a-40cc-93ae-ac1c0130d704
 :::
 
 ## {{mcal}} Deadlines
@@ -86,18 +85,6 @@ On Tuesday, we will:
 ## {{mtask}} Pre-Class Inventory
 
 Fill out the pre-class skill inventory and team matching by **11:59 pm on Tuesday**. 
-
-## {{mvideo}} About Me
-
-In this video, I talk about about my background, teaching, and research, as well as the structure of publishing computer science research and my professional involvement with different parts of that.
-
-```{video}
-:id: 2fd1e220-d72c-4e8c-a2b5-ac1c01474d38
-:length: 6m51s
-:slide-id: 495979F9A431DDB0%2172945
-:slide-auth: AB_5xK88mUyI0Vc
-:name: 1-4 - About Me
-```
 
 ## {{mtask}} Install Software
 

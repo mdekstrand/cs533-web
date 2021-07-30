@@ -18,6 +18,7 @@ import srt
 
 _vid_root = Path('videos')
 _vl_re = re.compile(r'(\d+)m(\d+)s')
+_pfx_re = re.compile('^(\d+-\d+\s+-\s+)?(.*)')
 
 
 class Video(NamedTuple):
@@ -30,8 +31,13 @@ class Video(NamedTuple):
 
     EMOJI = '🎥'
 
+    @property
+    def short_name(self):
+        trunc = _pfx_re.match(self.name)
+        return trunc.group(2)
+
     def label(self):
-        return f'{self.EMOJI} {self.name}'
+        return f'{self.EMOJI} {self.short_name}'
 
     def vid_length(self):
         if self.length:
@@ -78,11 +84,17 @@ class ModuleDirective(SphinxDirective):
     required_arguments = 1
     optional_arguments = 0
     has_content = False
+    option_spec = {
+        'playlist': directives.path
+    }
 
     def run(self):
         name = self.arguments[0].strip()
         self.env.ref_context['res:module'] = name
-        pending = nodes.pending(ModTocTransform, {'module': name})
+        pending = nodes.pending(ModTocTransform, {
+            'module': name,
+            'playlist': self.options.get('playlist')
+        })
         self.state.document.note_pending(pending, 500)
         return [pending]
 
@@ -136,7 +148,19 @@ class ModTocTransform(SphinxTransform):
         box += table
 
         summary = nodes.paragraph()
-        summary += nodes.inline('', 'Total video: %dh%.0fm' % (int(tot_vid / 3600), tot_vid % 3600 / 60))
+        summary += nodes.inline('', 'This week has ')
+        summary += nodes.strong('', '%dh%.0fm' % (int(tot_vid / 3600), tot_vid % 3600 / 60))
+        summary += nodes.inline('', ' of video.')
+
+        playlist = self.startnode.details.get('playlist', None)
+        if playlist:
+            summary += nodes.inline('', " This week's videos are available as a ")
+            plref = nodes.reference('', '', classes=['panopto'])
+            plref['refuri'] = playlist
+            plref += nodes.inline('', 'Panopto playlist')
+            summary += plref
+            summary += nodes.inline('', ".")
+
         box += summary
 
         parent = self.startnode.parent
@@ -229,21 +253,6 @@ class VideoDirective(SphinxDirective):
         return result
 
 
-# class VideoRole(XRefRole):
-    # pass
-    # def process_link(self, env, refnode, has_explicit_title: bool, title: str, target: str):
-    #     tgt = self.env.domaindata['res'].get(target, None)
-    #     if tgt:
-    #         print(target, tgt)
-    #         target = tgt.id
-    #         if not has_explicit_title:
-    #             title = tgt.name
-    #     else:
-    #         warnings.warn(f'resource {target} not found')
-
-    #     return title, target
-
-
 class CourseDomain(Domain):
     name = 'res'
     label = 'Course'
@@ -270,10 +279,7 @@ class CourseDomain(Domain):
         if not tgt:
             return None
 
-        label = tgt.name
-        prefix = getattr(tgt, 'EMOJI', None)
-        if prefix:
-            label = prefix + ' ' + label
+        label = tgt.label()
         content = nodes.inline('', label)
 
         return make_refnode(builder, fromdocname, tgt.docname, tgt.id, content, tgt.name)
