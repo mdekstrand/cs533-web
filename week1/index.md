@@ -7,7 +7,8 @@ The key learning outcomes for this week are:
 - Write and run basic Python code in a Jupyter notebook
 - Begin to think about the complexity of meaningful questions
 
-This week uses chapters 1–3 from the textbook.  If you already know Python, that should mostly be review.
+This week draws from chapters 1–4 from *Python for Data Analysis* and chapters 1-2 of *Think Like a
+Data Scientist*.  If you already know Python, that should mostly be review.
 
 ## {{moverview}} Content Overview
 
@@ -77,6 +78,10 @@ improve or get worse without that context.
 When I re-record this video for a future revision, I'll change my language.
 :::
 
+## {{mbook}} Textbook Chapters - Questions
+
+The first videos of this class go with chapters 1 and 2 of *Think Like a Data Scientist*.
+
 ## {{mclass}} Tuesday Class
 
 On Tuesday, we will:
@@ -87,7 +92,7 @@ On Tuesday, we will:
 
 ## {{mtask}} Pre-Class Inventory
 
-Fill out the pre-class skill inventory and team matching by **11:59 pm on Tuesday**. 
+Fill out the [pre-class skill inventory and survey](https://forms.gle/mNgETf37Sr2RqdTd7) by **11:59 pm on Tuesday**.
 
 ## {{mtask}} Install Software
 
@@ -130,12 +135,13 @@ In class on Thursday, we will:
 - Debug software installations
 - Activity to dive deeper into defining problems and questions
 
-## {{mbook}} Textbook Chapters
+## {{mbook}} Textbook Chapters - Python
 
-The Python material we are working on this week is a subset of the material in chapters **1–3** of the [textbook](../../resources/index.md#books).
-I don't expect to you get through all 3 chapters thoroughly this week, and we will be introducing more Python features as we need them throughout
-the semester.
-I will note specific chapters and sections relevant to videos in their _Resources_ subsections.
+The Python material we are working on this week is a subset of the material in chapters **1–4** of
+the [textbook](../../resources/index.md#books). I don't expect to you get through all 3 chapters
+thoroughly this week, and we will be introducing more Python features as we need them throughout the
+semester. I will note specific chapters and sections relevant to videos in their _Resources_
+subsections.
 
 ## {{mvideo}} Data Types and Control Flow
 
