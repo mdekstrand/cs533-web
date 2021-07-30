@@ -27,6 +27,7 @@ parse:
     massignment: 📩
     mtask: ✅
     mquiz: 🚩
+    mdownload: 🌠
 
 execute:
   execute_notebooks: 'off'

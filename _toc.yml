@@ -13,6 +13,7 @@ parts:
     sections:
     - file: week1/DemoNotebook
     - file: week1/1-7-types-operations
+  - file: week2/index
 - caption: Assignments
   chapters:
   - file: assignments/index
