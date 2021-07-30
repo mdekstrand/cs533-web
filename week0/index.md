@@ -44,10 +44,9 @@ Two key documents for the semester:
 
 You will need to plan your time in order to succeed in this class.
 
-- There are 7 real assignments (A1–7), each designed to take an 80th-percentile student
-  approximately 8–10 hours over 2 weeks. They may take you more or less time, depending on how
-  quickly the material and requirements click for you.  Assignments will come at a steady pace,
-  though — there is no big end-of-term project.
+- There are 7 real assignments (A1–7), each intended to take approximately 8–10 hours over 2 weeks.
+  They may take you more or less time, depending on how quickly the material and requirements click
+  for you.  Assignments will come at a steady pace, though — there is no big end-of-term project.
 - Each week has approximately 75–90 minutes of video content, plus readings.  To help you plan, I
   provide the length of each video and most of the readings (reading lengths denoted in words).
 - You may need to spend some additional time studying and practicing material, although our in-class

@@ -5,8 +5,9 @@ Welcome to CS 533, *Introduction to Data Science*, for Fall 2021.
 This web site is the central information point for the class, where I will be distributing the course materials, including lecture videos.
 
 :::{warning}
-This web site is still in draft mode, and no content (including syllabus and policies) should be taken as final until
-this notice is removed.
+This web site is still in draft mode, and it shouldn't be taken as final until this notice is removed.
+I'm still putting the finishing touches on some of the policies and details, but the structure is pretty
+solid, and both the Week 0 prep/welcome and Week 1's content are ready for you.
 
 I encourage you to browse the site, and to review [last year's
 site](https://cs533.ekstrandom.net/F20/), but you are responsible for ensuring that you are working
