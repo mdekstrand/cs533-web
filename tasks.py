@@ -83,3 +83,21 @@ def build_site(c):
 def clean(c):
     _msg('removing build directory')
     shutil.rmtree(BUILD_DIR)
+
+
+@task
+def extract_slides(c, dir):
+    out_dir = Path('videos')
+    dir = Path(dir)
+    import pptx
+    for file in dir.glob("*.pptx"):
+        print('reading', file.name)
+        name = file.stem
+        out_file = out_dir / f'{name}.slides.txt'
+        ppt = pptx.Presentation(file)
+        with open(out_file, 'w', encoding='utf8') as otf:
+            for slide in ppt.slides:
+                for shape in slide.shapes:
+                    text = getattr(shape, 'text', None)
+                    if text:
+                        print(text, file=otf)

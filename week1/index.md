@@ -40,8 +40,8 @@ This video will be re-recorded before class.
 ```{video} introduction
 :id: 7e74123e-dcfc-4964-bb50-ac1c01281061
 :length: 15m39s
-:slide-id: 495979F9A431DDB0%2172940
-:slide-auth: "%21ANCZZ6K7N8BKP1g"
+:slide-id: 495979F9A431DDB0%2173705
+:slide-auth: AP_wALvN9RZhibw
 :name: 1-1 - Introduction
 ```
 
@@ -90,16 +90,6 @@ Fill out the pre-class skill inventory and team matching by **11:59 pm on Tuesda
 
 Make sure you have [installed the course software](../../resources/software.md) so you can complete the assignment.
 
-## {{mvideo}} Content Structure
-
-```{video}
-:id: b476ba75-0f14-4925-8731-ac1e016779a4
-:length: 6m59s
-:slide-id: 495979F9A431DDB0%2172942
-:slide-auth: ADw27TNDgucpUdc
-:name: 1-5 - Content Structure
-```
-
 ## {{mquiz}} Week 1 Quiz
 
 The Week 1 individual quiz (in Canvas) is due at **8am Thursday**.
@@ -116,9 +106,9 @@ This video shows you how to start Jupyter, create a notebook, and run Python cod
 It also shows you how to prepare a notebook to submit as an assignment.
 
 ```{video}
-:id: 1ce12205-8a6c-451e-af11-ac1e000e8e49
+:id: e87e6ac9-4313-4943-87b1-ad75015b95bb
 :length: 9m30s
-:alt-id: 8e280072-b2c3-4cb3-a629-ac210160137f
+:alt-id: dbd531fb-904f-4b2f-b0a3-ad75015afd4c
 :alt-title: Onyx Video
 :name: 1-6 - Our First Python
 ```
@@ -149,7 +139,7 @@ I will note specific chapters and sections relevant to videos in their _Resource
 This video introduces fundamental Python data types and operations, along with variables and basic control flow.
 
 ```{video}
-:id: f272cf44-6287-4126-b702-ac1f0004728a
+:id: 76daa00b-e512-4b20-9f63-ad75015afb57
 :length: 19m17s
 :name: 1-7 - Data Types and Operations
 ```
@@ -166,7 +156,7 @@ This video introduces fundamental Python data types and operations, along with v
 This video introduces Python control structures and code layout.
 
 ```{video}
-:id: aada724e-872c-4585-b620-ac1f0177ddfb
+:id: fb58d0e3-0e42-41ee-b5a6-ad75015afcbf
 :length: 6m56s
 :slide-id: 495979F9A431DDB0%2172965
 :slide-auth: ABwaNR_XOZeDHwo
@@ -178,7 +168,7 @@ This video introduces Python control structures and code layout.
 This video introduces NumPy `ndarray`, the fundamental numeric array data structure for scientific computing.
 
 ```{video}
-:id: 88a81f19-1fb6-4a6b-bd7a-ac1f01760afb
+:id: bb427c78-988a-4d4a-b671-ad75015afbf6
 :length: 13m20s
 :slide-id: 495979F9A431DDB0%2172967
 :slide-auth: AMuE85znE-djS3E

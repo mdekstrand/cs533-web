@@ -22,23 +22,28 @@ Identify weaknesses in a data analysis and assess their impact on the correctnes
 Assess ethical implications of an analysis in terms of both classical human subject research ethics and contemporary concerns such as fairness and bias.
 Understand the space of data science techniques and applications, and relate future learning to this framework.
 Course Components
-Videos and readings – this is the content delivery
-Zoom meetings – Q&A, discussion, and exercises
-Exercises and practice (ungraded)
+Videos and readings – this is the primary content delivery
+Web site is your guide!
+In-class meetings – application, discussion, exercises
+Quiz before class on Thursday
 Assignments
-Exams (delivered online)
+Exams
 2 midterm + final
 Getting Help
+In-class from peers and instructor
 Course forum on Piazza – encouraged!
-Office hours – by appointment
-Google Calendar appointment slots, link online
+Office hours
+Remote office hours available by appointment
 Please use Piazza for course inquiries
+Use the Internet
+Documentation and resources
+Public Q&A sites (within reason)
 Wrapping Up
-This is going to be a different semester
+This class is designed to:
+Provide flexibility in learning
+Use each modality to its best advantage
 
-Learning through videos and reading
-
-Discussion and support on Zoom
+to achieve our learning outcomes.
 
 Let’s learn!
 We’re in the Internet!
