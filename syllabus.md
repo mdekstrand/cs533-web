@@ -1,6 +1,7 @@
 ---
 stylesheet: stylesheets/syllabus.css
 ---
+
 # Syllabus
 
 The purpose of this course is for students to learn how to engage in the scientific process using
@@ -58,6 +59,39 @@ Office Hours
 
 I generally respond to course questions during normal hours (9a–5p M–F).
 I may occasionally reply to a question in an evening or on the weekend, but do not plan on it.
+
+## COVID-19 syllabus notice
+
+:::{note}
+This section is a required syllabus notice provided by Boise State University.  For information about the plans and accommodations for COVID that I have designed into this specific class, see [Coronavirus](#coronavirus).
+:::
+
+Many Boise State classes have resumed face-to-face meetings in the midst of a global pandemic and a recent local surge of infections. Our goal is to have a successful academic year while keeping our students, faculty, and local community healthy and safe. Public health requirements are in place to achieve that goal, the primary mechanism for which includes the mandatory use of facial coverings that protect all of us. 
+
+We have taken health precautions on campus so that you can have the option of a face-to-face course. However, there is still inherent risk associated with face-to-face courses during a pandemic because of proximity to others and length of potential exposure to the virus. Therefore, as members of this learning community, it is imperative that we all engage in behaviors that protect the overall public health. 
+
+You have enrolled in a face-to-face course, and this format offers a number of benefits that appeal to many students. In order to preserve your access to this face-to-face option you are required to 
+
+1. sit in the same seat all semester (for purposes of contact tracing) and 
+2. wear facial coverings in all face-to-face learning environments. You must keep your mouth and nose covered at all times throughout class — facial coverings cannot be pulled up or down. **As a health precaution, eating and drinking are NOT permitted in the classroom.**
+
+By enrolling in an in-person course, you agree to comply with Boise State’s rules and precautions which include, but are not limited to, facial coverings, frequent hand washing, hand sanitizing, and sitting in the same seat all semester. Failing to comply with these rules and precautions is a violation of Boise State’s [Student Code of Conduct][conduct] and will subject you to university sanctions and discipline.
+
+Seating assignment will be based on learning teams, and will be effective the second day of class after learning teams are formed.
+
+**University policy states that I am not allowed to begin/continue with instruction unless and until everyone present has a facial covering in place.**
+
+This course is designed to be accessible to all students. A very small percentage of people cannot wear facial coverings for reasons related to medical conditions or disabilities. If this is your experience, please contact the Educational Access Center to document your condition so that we may determine the best accommodation for you. Until an accommodation is in place, you will need to participate remotely. If you need to read lips or facial expressions to understand what people are saying, please let the Educational Access Center and me know via email. 
+
+If you are unwilling to wear a facial covering, you cannot participate in person. If this is the case, please dismiss yourself and either inquire whether you may participate in the class fully remotely, or contact the Registrar's Office (208-426-4249) to pursue your learning experience in a different remote or online section. Should you refuse to cover your mouth and nose and also refuse to leave the classroom, I have been directed to dismiss the class and you will be reported to and contacted by the Dean of Students Office.
+
+### Mutual Guidelines for Safe Learning Environments
+
+While these public health measures are essential to protecting our individual and communal health, they also complicate how we engage in teaching and learning. The following guidelines should ease our comfort and communication with one another:
+
+- In the classroom, we must wear a facial covering that covers our mouth and nose at all times. If you or I let our facial coverings slip, we will politely remind one another to secure our masks. 
+- Facial coverings muffle voices. I will use the classroom microphone to amplify my voice through my mask. In addition, I will repeat your questions and summarize comments to ensure we all can follow any discussion.
+
 
 ## Resources and Readings
 
@@ -255,10 +289,12 @@ able to take the exam when scheduled.
 
 As both a scientist and a student, you are expected to do your own work, attribute sources, and
 respect the legal and moral rights of others with respect to their work; as a student, you are also
-required to abide by the Boise State University Student Code of Conduct. While I aim to allow you to
+required to abide by the Boise State University [Student Code of Conduct][conduct]. While I aim to allow you to
 make reasonable use of resources, cheating (including copying code, using unauthorized resources
 during tests, etc.) is not ok. If you are found to be cheating, the penalty may range from an F on
 the assignment to an F on the course and will generally be reported to the university.
+
+[conduct]: https://www.boisestate.edu/deanofstudents/student-conduct/
 
 ### Conduct
 
