@@ -19,7 +19,7 @@ Points of interest include:
 *  The [syllabus](syllabus)
 *  Canvas (for grades and submitting assignments)
 *  Piazza (for Q&A and announcements)
-*  [Week 0](content/week0/index.md) — start here!
+*  [Week 0](week0/index.md) — start here!
 
 I ask that you direct **all course questions** through Piazza, even if the question is just to me.
 This will help me ensure that I do not miss any questions or concerns.
