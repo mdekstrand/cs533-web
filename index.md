@@ -18,7 +18,7 @@ Points of interest include:
 
 *  The [syllabus](syllabus)
 *  Canvas (for grades and submitting assignments)
-*  Piazza (for Q&A and announcements)
+*  [Piazza](https://piazza.com/boisestate/fall2021/cs533001/home) (for Q&A and announcements)
 *  [Week 0](week0/index.md) — start here!
 
 I ask that you direct **all course questions** through Piazza, even if the question is just to me.
