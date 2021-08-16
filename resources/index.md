@@ -26,6 +26,7 @@ I use [Visual Studio Code](https://code.visualstudio.com/), which has very good 
 -   [Pandas](http://pandas.pydata.org/pandas-docs/stable/)
 -   [Seaborn](/seaborn)
 -   [Scikit-Learn](https://scikit-learn.org/stable/user_guide.html)
+-   [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php)
 
 ## Visualization
 
