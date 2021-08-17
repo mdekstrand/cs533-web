@@ -45,7 +45,7 @@ This video will be re-recorded before class.
 In this video, I introduce *questions* in their broader context of using data to advance goals. 
 I also introduce the idea of **operationalization**, which will be a key concept throughout the class.
 
-```{video}
+```{video} asking-questions
 :id: 1b19dc1f-fee8-4505-9294-ad7501796f97
 :length: 10m35s
 :slide-id: 495979F9A431DDB0%2172944
@@ -61,7 +61,7 @@ I also introduce the idea of **operationalization**, which will be a key concept
 
 We make our {term}`operationalizations <Operationalization>` better by questioning them.  What do they capture?  Who or what do they prioritize?
 
-```{video}
+```{video} questioning-questions
 :id: 564e8ea0-13c3-4722-aeca-ad7501798e69
 :length: 8m54s
 :slide-id: "495979F9A431DDB0%2172946"

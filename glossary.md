@@ -8,13 +8,13 @@ This page catalogs many of the important ones, with pointers to the resources in
 Ablation study
     A study in which we turn off different components of a complex model to see how much each one contributes to the overall model's performance.
 
-    % Introduced in {video}`week11:ablation`.
+    Introduced in {video}`week11:ablation`.
 
 Aggregate
     A function that computes a single value from a series (or matrix) of values.
     Often used to compute a *statistic*.
 
-    Introduced in [{{mvideo}} Groups and Aggregates](../content/week2/index.md#group-agg).
+    Introduced in {video}`week2:group-aggregate`.
 
 Bayesianism
     A school of thought for statistical inference and the interpretation of probability that is concerned with using probability to quantify *uncertainty* or *coherent states of belief*.
@@ -29,12 +29,12 @@ Bayes' Theorem
 
     Statisticians of all schools of thought make use of Bayes' theorem — all it does is relate $P(A|B)$ to $P(B|A)$, allowing us to (with additional information) reverse a conditional probability.
 
-    Introduced in [{{mvideo}} Joint and Conditional Probability](../content/week4/index.md#joint-cond).
+    Introduced in {video}`week4:joint-conditional`.
 
 Bootstrap
     A technique for estimating sampling distributions by repeatedly resampling the available sample with replacement.
 
-    Introduced in [{{mvideo}} The Bootstrap](../content/week4/index.md#bootstrap).
+    Introduced in {video}`week4:bootstrap`.
 
 Central limit theorem
     The theorem that describes the sampling distribution of the sample mean.
@@ -48,12 +48,12 @@ Conditional Probability
     The conditional probability $P(B|A)$ (read “the probability of $B$ given $A$”) is the probability of $B$, given that we know $A$ occurred.
     We can also discuss conditional expectation $\mathrm{E}[X|A]$, the expected value of $X$ for those occurrences where $A$ occurred.
 
-    Introduced in [{{mvideo}} Joint and Conditional Probability](../content/week4/index.md#joint-cond).
+    Introduced in {video}`week4:joint-conditional`.
 
 Confidence Interval
     An interval used to estimate the precision of an estimate.
     A 95% confidence interval is an interval computed from a procedure (including both taking a sample and computing a statistic from that sample) that, when repeated, will return an interval containing the true parameter value 95% of the time.
-    Discussed in [{{mvideo}} Confidence](../content/week4/index.md#confidence), [Having confidence in confidence intervals](https://medium.com/@EpiEllie/having-confidence-in-confidence-intervals-8f881712d837), and [Handbook section 1.3.5.2](https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm).
+    Discussed in {video}`week4:confidence`, [Having confidence in confidence intervals](https://medium.com/@EpiEllie/having-confidence-in-confidence-intervals-8f881712d837), and [Handbook section 1.3.5.2](https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm).
 
     A confidence interval is **not** a probabilistic statement about either the population mean $\mu$ or the sample mean $\bar{x}$.
 
@@ -79,7 +79,7 @@ Degrees of Freedom
 Elementary Event
     In probability theory, an individual distinct outcome of a process we are modeling as random.
 
-    Introduced in [{{mvideo}} Probability](../content/week4/index.md#probability).
+    Introduced in {video}`week4:probability` and [Notes on Probability](resources/probability.md).
 
 Embedding
     As a noun, a vector-space representation of a data point or instance.
@@ -111,7 +111,7 @@ Event
     In probability theory, an outcome that for which we want to estimate the probability.
     Formally, given a set $E$ of elementary outcomes, an event is a set $A \subseteq E$, and the set of possible events $\mathcal{F}$ forms a *sigma field*.
 
-    Introduced in [{{mvideo}} Probability](../content/week4/index.md#probability).
+    Introduced in {video}`week4:probability` and [Notes on Probability](resources/probability.md).
 
 Estimand
     An unknown quantity that we try to estimate.  See *Estimator*.
@@ -127,10 +127,12 @@ Estimator
     The sample mean $\bar{x}$, as an abstract concept, is an estimator of the population mean, also as an abstract concept.
     Any *particular* sample mean we compute, such as $\bar{x} = 3.2$, is an *estimate* of the population mean *for that sample*.
 
-    Introduced in [{{mvideo}} Inference Introduction](../content/week4/index.md#introduction).
+    Introduced in {video}`week4:introduction`.
 
 Expected value
     The mean of a random variable $X$: $\E[X] = \sum x P(x)$ or $\E[X] = \int x p(x) dx$.
+
+    Discussed in {video}`week4:continuous` and [Notes on Probability](resources/probability.md).
 
 Frequentism
     A school of thought for statistical inference and the interpretation of probability that is concerned with probabilities as descriptions of the long-run behavior of a random process: how frequent would various outcomes be if the process were repeated infinitely many times?
@@ -146,7 +148,7 @@ Joint Probability
     Related to the conditional and marginal probabilities by $P(A, B) = P(A|B) P(B)$.
     Symmetric ($P(A, B) = P(B, A)$).
 
-    Introduced in [{{mvideo}} Joint and Conditional Probability](../content/week4/index.md#joint-cond).
+    Introduced in {video}`week4:joint-conditional` and [Notes on Probability](resources/probability.md).
 
 L₁ Norm
     A measure of the magnitude of a vector, sometimes called the *Manhattan distance*.  It is the sum of the absolute values of the elements in the vector:
@@ -165,7 +167,7 @@ Leakage
 Linear model
     A model of the form $\hat{y} = \beta_0 + \sum_i \beta_i x_i$: it is the sum of scalar products.
 
-    Linear models are introduced in [:c-week: Week 8](../content/week8/index.md).
+    Linear models are introduced in {module}`week8`.
 
 Logistic function
     A *sigmoid* function that maps unbounded real values to the range $(0,1)$:
@@ -174,7 +176,7 @@ Logistic function
 
     The logistic function is the invert of the logit function.
 
-    Logistic regressions are introduced in [:c-week: Week 10](../content/week10/index.md).
+    Logistic regressions are introduced in {module}`week10`.
 
 Logit function
     The inverse of the logistic function:
@@ -191,7 +193,7 @@ Marginal Probability
     The probability of a single event, or distribution of a single dimension, $P(A)$.
     Primarily used when we are talking about the probability of events (or expectation of variables) along one dimension of a *product space*, such as the suit or number of a card from a deck of playing cards.
 
-    Described in [{{mvideo}} Joint and Conditional Probability](../content/week4/index.md#joint-cond).
+    Described in {video}`week4:joint-conditional` and [Notes on Probability](resources/probability.md).
 
 Matrix
     A two-dimensional array of numbers.
@@ -209,14 +211,13 @@ Objective Function
     A function describing a model's performance that is used as the goal for learning its parameters.
     This can be a **loss function** (where the goal is to minimize it) or a **utility function** (which should be maximized).
 
-    Defined in [{{mvideo}} Building and Evaluating Models](../content/week11/index.md#intro), and introduced in
-    [{{mvideo}} Optimizing Loss](../content/week9/index.md#optimizing-loss).
+    Defined in {video}:`week11:building-models`, and introduced in {video}`week9:optimizing-loss`.
 
 Operationalization
     The mapping of a goal or question to a specific, measurable quantity (or measurement procedure).
     When we operationalize a question, we translate it into the precise computations and measurements we will use to attempt to answer it.
 
-    Introduced in [{{mvideo}} Asking Questions](../content/week1/index.md#asking).
+    Introduced in {video}:`week1:asking-questions`.
 
 Odds
     An alternative way of framing probability, as the ratio of the likelihood for or against an event:
@@ -224,25 +225,25 @@ Odds
     $$\Odds(A) = \frac{P(A)}{P(A^c)}$$
 
     The *log odds* is a particularly convenient way of working with odds, and is $\log P(A) - \log (1 - P(A))$.
-    See the [:a-note: probability notes](probability.md#odds).
+    See the [probability notes](resources/probability.md#odds).
 
 Odds ratio
     The ratio of the odds of two different outcomes.
 
     $$\operatorname{OR}(A, B) = \frac{\Odds(A)}{\Odds{B}}$$
 
-    See the [:a-note: probability notes](probability.md#odds).
+    See the [probability notes](resources/probability.md#odds).
 
 Overfitting
     When a model learns too much from its training data, so it cannot do an effective job of predicting future unseen data.
 
-    Introduced in [{{mvideo}} Overfitting](../content/week9/index.md#overfitting).
+    Introduced in {video}`week9:overfitting`.
 
 Parameter
     In *inferential statistics*: a “true” value in the population, such as the mean flipper length of Chinstrap penguins.
     The goal of inferential statistics is often to estimate parameters, because we typically do not have direct access to them.
 
-    Introduced in [{{mvideo}} Sampling](../content/week4/index.md#sampling).
+    Introduced in {video}`week4:sampling`.
 
     In *model fitting*: a variable in a statistical or machine learning model whose value is learned from the data.
     Contrast *hyper-parameter*, a variable that controls the model or the model-fitting process but is not learned from the data.
@@ -251,34 +252,34 @@ Population
     The complete set of entities we want to study.  This is not only all entities that *do* exist, but under some philosophies, all entities that *could* exist.
     For example, the set of all possible adult Chinstrap penguins would be the population.
 
-    Discussed in more detail in [{{mvideo}} Sampling](../content/week4/index.md#sampling).
+    Discussed in more detail in {video}`week4:sampling`.
 
 P-value
     In hypothesis testing, the probability that the null hypothesis ($H_0$) would produce a value as large as the observed value.
     Typically the null hypothesis is an appropriate formalization of “nothing interesting”, so the *p*-value is the probability of seeing an effect as large as the one observed if there is no true effect to observe.
 
-    Discussed in [{{mvideo}} Testing Hypotheses](../content/week4/index.md#hypotest)
+    Discussed in {video}`week4:hypotest`.
 
 Regression
     A modeling or prediction problem where we try to estimate or predict a continuous variable $Y$.
 
-    This is the focus of [:c-week: Week 8](../content/week8/index.md).
+    This is the focus of {module}`week8`.
 
 Regularization
     A penalty term added to a loss function, typically penalizing large values.  Used to encourage sparsity or to require coefficients to be supported by larger quantiies of data.
 
-    Introduced in [:a-video Regularization](../../pages/content/week11/index.md#regularization).
+    Introduced in {video}`week11:regularization`.
 
 Residual
     The error in estimating a variable with a model.  For a model fitting an estimator $\hat{Y}$ for a variable $Y$, the residuals are $\epsilon_i = y - \hat{y}$.
     This is reflected in the full linear model: $y_i = \beta_0 + \sum_j \beta_j x_{ij} + \epsilon_i$.
 
-    Introduced in [{{mvideo}} Single Regression](../content/week8/index.md#single-regression).
+    Introduced in {video}`week8:single-regression`.
 
 Sample : n.
     A subset of the population, for which we have observations.
 
-    Discussed in more detail in [{{mvideo}} Sampling](../content/week4/index.md#sampling).
+    Discussed in more detail in {video}`week4:sampling`.
 
 Sample Size
     The number of items in the sample.  Often denoted $n$.
@@ -291,7 +292,7 @@ Statistic
     A value computed from a set of observations.
     For example, the sample mean $\bar{x} = n^{-1} \sum_i x_i$ is a statistic of a sample $X = \langle x_i, \dots, x_n \rangle$.
     
-    Discussed in [{{mvideo}} Inference Intro](../content/week4/index.md#introduction).
+    Discussed in {video}`week4:introduction`.
 
 Standard deviation
     A measure of the spread of a random variable.  It is the square root of the mean squared deviation from the mean:
@@ -305,7 +306,7 @@ Standard deviation
 Standard error
     The standard deviation of the *sampling distribution* of a statistic.  The standard error of the mean (Pandas function `.sem`) is $s/\sqrt{n}$.
 
-    Discussed in [{{mvideo}} Confidence](../content/week4/index.md#confidence).
+    Discussed in {video}`week4:confidence`.
 
 *t*-test
     A statistical test for means of normally-distributed data.  T-tests come in three varieties:
@@ -314,7 +315,7 @@ Standard error
     2. Two-sample independent *t*-test that tests whether the means of two independent samples are the same.  $H_0: \mu_1 = \mu_2$
     3. Paired *t*-test that tests, for a sample of paired observations, whether the mean difference between observations for each sample is zero (the measurements are, on average, the same).  $H_0: \mu_{x_{i1} - x_{i2}} = 0$
 
-    Discussed in [{{mvideo}} Testing Hypotheses](../content/week4/index.md#hypotest), [{{mvideo}} T-tests](../conte/../content/week5/index.md#ttest), and associated readings.
+    Discussed in {video}`week4:hypotest`, {video}`week5:t-test`, and associated readings.
 
 Variance
     A measure of the spread of a random variable (which may be observable quantities in the population).

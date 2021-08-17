@@ -219,9 +219,10 @@ class VideoDirective(SphinxDirective):
         name = self.options.get('name', None)
         video_id = self.options.get('id', None)
         length = self.options.get('length', None)
+        key = None
         if self.arguments:
             key = self.arguments[0].strip()
-        else:
+        if not key:
             key = name
         fullkey = f'{modname}:{key}' if modname else key
         target = video_id if video_id else fullkey
@@ -304,7 +305,6 @@ class CourseDomain(Domain):
         objects = env.domaindata['res'].get('objects', [])
 
         tgt = None
-        print('resolving', target)
         for candidate in objects:
             if candidate.key == target:
                 tgt = candidate
