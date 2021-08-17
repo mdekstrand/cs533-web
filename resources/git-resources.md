@@ -51,7 +51,7 @@ Lines starting with `#` are comments.
 
 ### Personal `.gitignore`
 
-If you want to create a personal gitignore file, do the following:
+If you want to create a personal ignore file that applies to all your projects, do the following:
 
 -   Put your ignore rules in `~/.gitignore` (a file called `.gitignore` in your home directory)
 -   Modify `~/.gitconfig` to include the following lines:
