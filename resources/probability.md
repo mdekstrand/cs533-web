@@ -76,68 +76,68 @@ We use set operations to combine events (for these examples, we consider $E$ to 
     ![Highlighting A\B](../images/playing-cards-amb.png)
     :::
 
-With these definitions, we can now define the *event space*: $\F$ is the set of all possible events (subsets of $E$).
+With these definitions, we can now define the *event space*: $\Field$ is the set of all possible events (subsets of $E$).
 This is a set of sets.
 It does not necessarily contain *every* subset of $E$, but it has the following properties:
 
-- $E \in \F$.
-- If $A \in \F$, then its complement $A^c \in \F$. We say $\F$ is *closed under complement*.
-    - Since $E \in \F$ and $E^c = \emptyset$, $\emptyset \in \F$.
-- If $A_1, A_2, \dots, A_n \in \F$, then their union $\bigcup_i A_i \in \F$.  This applies also to unions of *countably many* sets.  We say $\F$ is closed under *countable unions*.
+- $E \in \Field$.
+- If $A \in \Field$, then its complement $A^c \in \Field$. We say $\Field$ is *closed under complement*.
+    - Since $E \in \Field$ and $E^c = \emptyset$, $\emptyset \in \Field$.
+- If $A_1, A_2, \dots, A_n \in \Field$, then their union $\bigcup_i A_i \in \Field$.  This applies also to unions of *countably many* sets.  We say $\Field$ is closed under *countable unions*.
 
-$\F$ is called a **sigma algebra** (or *sigma field*).
-For a finite set $E$, we usually use $\F = \mathcal{P}(E)$, the *power set* of $E$.
+$\Field$ is called a **sigma algebra** (or *sigma field*).
+For a finite set $E$, we usually use $\Field = \mathcal{P}(E)$, the *power set* of $E$.
 This means that every possible subset of $E$ (and therefore every conceivable set of elementary events) is an event.
 
 Here are some additional properties of sigma algebras (these are listed separately from the previous properties because those are the *definition* of a sigma algebra and these are *consequences* — we can prove them from the definitions and axioms):
 
-- If $A, B \in \F$, $A \cap B \in \F$
+- If $A, B \in \Field$, $A \cap B \in \Field$
 
 ## Probability
 
 Now that we have a sigma algebra, we can define the concept of **probability**.
-A probability distribution (or *measure*) $P$ over a sigma algebra $\F$ obeys the following (Kolmogorov's axioms):
+A probability distribution (or *measure*) $\P$ over a sigma algebra $\Field$ is a function that obeys the following (Kolmogorov's axioms):
 
-- $P(E) = 1$ — the probability of something happening is 1.
-- $P(A) \ge 0$ — **non-negativity**: probabilities are not negative.
-- If $A_1, A_2, \dots, A_n$ are (countably many) *disjoint* events in $\F$, then $P(\bigcup_i A_i) = \sum_i P(A_i)$ (**countable additivity**).
+- $\P[E] = 1$ — the probability of something happening is 1.
+- $\P[A] \ge 0$ — **non-negativity**: probabilities are not negative.
+- If $A_1, A_2, \dots, A_n$ are (countably many) *disjoint* events in $\Field$, then $\P[\bigcup_i A_i] = \sum_i \P[A_i]$ (**countable additivity**).
 
 A collection of disjoint sets is also called **mutually exclusive**.  What it means is that for any $A_i, A_j$ in the collection, $A_i \cap A_j = \emptyset$ — the two events cannot both happen simultaneously.
 
-We a field of events equipped with a probability measure $(E, \F, P)$ a **probability space**.
+We a field of events equipped with a probability measure $(E, \Field, \P)$ a **probability space**.
 
 Some additional facts about probability:
 
-- $P(A) \le 1$ (combined with non-negativity, we have $0 \le P(A) \le 1$)
-- $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
-- $P(A^c) = 1 - P(A)$
-- $P(A \setminus B) = P(A) - P(A \cap B)$
-- If $A \subseteq B$, then $P(A) \le P(B)$
+- $\P[A] \le 1$ (combined with non-negativity, we have $0 \le \P[A] \le 1$)
+- $\P[A \cup B] = \P[A] + \P[B] - \P[A \cap B]$
+- $\P[A^c] = 1 - \P[A]$
+- $\P[A \setminus B] = \P[A] - \P[A \cap B]$
+- If $A \subseteq B$, then $\P[A] \le \P[B]$
 
 ```{warning}
-We have to be careful with $P(A \cup B)$ — a common mistake is to attempt to compute it as $P(A) + P(B)$.  However, this erroneously counts elements in the intersection $A \cap B$ twice.
-With the examples from before, where $A$ is 2s and $B$ is red cards, the red 2s are included in both $P(A)$ (since they are 2s) and $P(B)$ (since they are red).  Subtracting the joint probability $P(A \cap B)$ corrects for the double-counting and produces the correct result.  If $A$ and $B$ are disjoint (they can never happen at the same time), then $P(A \cap B) = 0$, and we can see that the probability follows the rules for countable additivity.
+We have to be careful with $\P[A \cup B]$ — a common mistake is to attempt to compute it as $\P[A] + \P[B]$.  However, this erroneously counts elements in the intersection $A \cap B$ twice.
+With the examples from before, where $A$ is 2s and $B$ is red cards, the red 2s are included in both $\P[A]$ (since they are 2s) and $\P[B]$ (since they are red).  Subtracting the joint probability $\P[A \cap B]$ corrects for the double-counting and produces the correct result.  If $A$ and $B$ are disjoint (they can never happen at the same time), then $\P[A \cap B] = 0$, and we can see that the probability follows the rules for countable additivity.
 ```
 
 ## Joint and Conditional Probability
 
-We define the **joint probability** $P(A, B) = P(A \cap B)$: the probability of both $A$ and $B$ happening in the same observation.
-This is sometimes also written $P(A; B)$, and commas and semicolons are sometimes mixed.  This is usually to separate different *kinds* of events in the probability statement.
+We define the **joint probability** $\P[A, B] = \P[A \cap B]$: the probability of both $A$ and $B$ happening in the same observation.
+This is sometimes also written $\P[A; B]$, and commas and semicolons are sometimes mixed.  This is usually to separate different *kinds* of events in the probability statement.
 
-The **conditional probability** $P(B|A)$, read “the probability of $B$ given $A$”, is the probability of $B$ *conditioned on* the knowledge that $A$ has happened.
+The **conditional probability** $\P[B|A]$, read “the probability of $B$ given $A$”, is the probability of $B$ *conditioned on* the knowledge that $A$ has happened.
 
 Conditional and joint probabilities decompose as follows:
 
-- $P(A,B) = P(A|B) P(B)$
-- $P(A,B) = P(B|A) P(A)$
+- $\P[A,B] = \P[A|B] \P[B]$
+- $\P[A,B] = \P[B|A] \P[A]$
 
 From this we can derive **Bayes' theorem**:
 
-$$P(B|A) = \frac{P(A|B) P(B)}{P(A)}$$
+$$\P[B|A] = \frac{\P[A|B] \P[B]}{\P[A]}$$
 
 We can **marginalize** a **joint distribution** by summing. If $\mathcal{B} = {B_1, B_2, \dots, B_n}$ is a collection of mutually exclusive events that span $E$, then:
 
-$$P(A) = \sum_{B \in \mathcal{B}} P(A, B)$$
+$$\P[A] = \sum_{B \in \mathcal{B}} \P[A, B]$$
 
 We call $\mathcal{B}$ a *partition* of $E$.
 By “span $E$”, we mean that for any $e \in E$, there is some $B_i \in \mathcal{B}$ such that $e \in B_i$.
@@ -147,9 +147,9 @@ By “span $E$”, we mean that for any $e \in E$, there is some $B_i \in \mathc
 Two events are **independent** if knowing the outcome of one tells you nothing about the probability of the other.
 The following are true if and only if $A$ and $B$ are independent:
 
-- $P(A|B) = P(A)$
-- $P(B|A) = P(B)$
-- $P(A, B) = P(A) P(B)$
+- $\P[A|B] = \P[A]$
+- $\P[B|A] = \P[B]$
+- $\P[A, B] = \P[A] \P[B]$
 
 ## Continuous Probability & Random Variables
 
@@ -159,7 +159,7 @@ The probability that an observation is *exactly* any particular value $x \in \ma
 Instead, we define a sigma field where events are *intervals*:
 
 - $E = \mathbb{R}$
-- $\F$ is the set of **intervals**, their complements, and their countable unions.  It contains infinitesimally small intervals, but not singletons.
+- $\Field$ is the set of **intervals**, their complements, and their countable unions.  It contains infinitesimally small intervals, but not singletons.
 
 This is not the only way to define probabilities over continuous event spaces, but it is the common way of defining probabilities over real values.
 This particular sigma-field is called the [*Borel sigma algebra*](https://mathworld.wolfram.com/BorelSigma-Algebra.html), and we will denote it $(\mathbb{R}, \mathcal{B})$.
@@ -168,15 +168,15 @@ We often talk about continuous distributions as the distribution of a **random v
 A random variable is a variable that takes on random values.
 We can (often) *observe* or *sample* a random variable.
 
-We define continuous probabilities in terms of a **distribution function** $F$:
+We define continuous probabilities in terms of a **distribution function** $F_X$:
 
-$$F(x) = P(X \le x)$$
+$$F_X(x) = \P[X < x]$$
 
 This is also called the *continuous distribution function* (CDF).
 
 We can use it to compute the probability for any interval:
 
-$$P(x_1 < X \le x_2) = F(x_2) - F(x_1)$$
+$$\P[x_1 \le X < x_2] = F_X(x_2) - F_X(x_1)$$
 
 This probability is called the **probability mass** on a particular interval.
 
@@ -204,7 +204,7 @@ The **expected value** of a random variable $X$, $\E[X]$, is its *mean*.
 It is computed as the weighted sum over the possible values of $x$, where the weight for each value is its probability (or density).
 For discrete $X$ with probability measure $P$, we have:
 
-$$\E[X] = \sum_{x \in X} x P(x)$$
+$$\E[X] = \sum_{x \in X} x \P[x]$$
 
 If $X$ is continuous and has probability density $p$, we have:
 
@@ -213,7 +213,7 @@ $$\E[X] = \int x p(x) dx$$
 ```{note}
 If we use the technical definition of a random variable, then we denote:
 
-$$\E_P[f_X] = \int f_X(e) P(e) de$$
+$$\E_P[f_X] = \int f_X(e) \P[e] de$$
 ```
 
 We can also talk about the **conditional expectation** $\E[X | A]$, the expected value of $X$ given that we know event $A$ happened.
@@ -261,18 +261,18 @@ $$\IND_A(x) = \begin{cases}
 
 Then the **expected value** of this function is the same as the probability of $A$:
 
-$$\E[\IND_A(X)] = \P(A)$$
+$$\E[\IND_A(X)] = \P[A]$$
 
 ## Odds
 
 Another way of computing probability is to compute with **odds**: the ratio of probabilities for or against an event.
 This is given by:
 
-$$\Odds(A) = \frac{P(A)}{P(A^c)} = \frac{P(A)}{1 - P(A)}$$
+$$\Odds(A) = \frac{\P[A]}{\P[A^c]} = \frac{\P[A]}{1 - \P[A]}$$
 
 The **log odds** are often computationally convenient, and are the basis of logistic regression:
 
-$$\log \Odds(a) = \log P(A) - \log (1 - P(A))$$
+$$\log \Odds(a) = \log \P[A] - \log (1 - \P[A])$$
 
 The {term}`logit function` converts probabilities to log-odds.
 

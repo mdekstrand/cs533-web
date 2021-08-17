@@ -59,8 +59,8 @@ sphinx:
       TeX:
         Macros:
           E: "\\mathrm{E}"
-          F: "\\mathcal{F}"
-          P: "P"
+          Field: "\\mathcal{F}"
+          P: "\\mathrm{P}"
           Cov: "\\mathrm{Cov}"
           Var: "\\mathrm{Var}"
           log: "\\operatorname{log}"
