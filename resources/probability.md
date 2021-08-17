@@ -2,7 +2,7 @@
 
 This document summarizes key concepts in probability theory.
 
-The concepts in this note are introduced in [Week 4](../content/week4/index.md).
+The concepts in this note are introduced in [Week 4](../week4/index.md).
 
 ## Set Concepts and Notation
 
