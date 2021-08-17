@@ -274,7 +274,7 @@ The **log odds** are often computationally convenient, and are the basis of logi
 
 $$\log \Odds(a) = \log P(A) - \log (1 - P(A))$$
 
-The [*logit* function](glossary.md#logit) converts probabilities to log-odds.
+The {term}`logit function` converts probabilities to log-odds.
 
 We can also compute an **odds ratio** of two outcomes:
 
