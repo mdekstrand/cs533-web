@@ -290,5 +290,6 @@ If you want to dive more deeply into probability theory, Michael Betancourt's ca
 
 For a book:
 
-- [Introduction to Probability](https://www.dartmouth.edu/~chance/teaching_aids/books_articles/probability_book/amsbook.mac.pdf) by Grinstead and Snell
-- [An Introduction to Probability and Simulation](https://bookdown.org/kevin_davisross/probbook/) - a hands-on online book using Python simulations
+- [<cite class=free>Introduction to Probability<cite>](https://chance.dartmouth.edu/teaching_aids/books_articles/probability_book/amsbook.mac.pdf) by Grinstead and Snell
+- [<cite class=free>An Introduction to Probability and Simulation</cite>](https://bookdown.org/kevin_davisross/probsim-book/) — a hands-on online book using Python simulations
+- <cite>A Probability Path</cite> by Sidney Resnick

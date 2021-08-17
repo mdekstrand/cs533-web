@@ -6,6 +6,11 @@ tr p:last-child, td p:last-child {
     display: none;
 }
 
+a.free::after, cite.free::after {
+    content: " 🆓";
+    font-style: normal;
+}
+
 .main-content a[href^="#"]::before {
     content: "§ "
 }

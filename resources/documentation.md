@@ -16,7 +16,7 @@ reference. This is a mix of material from others (most of it) and that I have wr
 ## Statistics
 
 - My [notes on probability](probability.md)
-- [NIST/SEMATECH e-Handbook of Statistical Methods](https://www.itl.nist.gov/div898/handbook/) (free online book from NIST)
+- [<cite class=free>NIST/SEMATECH e-Handbook of Statistical Methods</cite>](https://www.itl.nist.gov/div898/handbook/)
 
 ## Visualization
 
@@ -37,9 +37,8 @@ reference. This is a mix of material from others (most of it) and that I have wr
     - If you are an ACM member, through the ACM's [O'Reilly Learning Platform subscription](https://learning.acm.org/e-learning/oreilly)
       ([direct link](https://learning.oreilly.com/library/view/python-for-data/9781491957653/))
 
--   [<cite>NIST/SEMATECH e-Handbook of Statistical Methods</cite>](https://www.itl.nist.gov/div898/handbook/index.htm).
--   <cite>Think Like a Data Scientist</cite> by Brian Godsey (Manning, ISBN 978-1633430273). Supplementary textbook.
+-   <cite>Think Like a Data Scientist</cite> by Brian Godsey (Manning, ISBN 978-1633430273). Supplementary textbook, available for free through the O'Reilly Learning Platform.
 -   <cite>Learn Python the Hard Way</cite> by Zed Shaw. More thorough treatment of Python.
 -   <cite>Fluent Python</cite>. Learn advanced and idiomatic Python.
--   <cite>Data Feminism</cite> by Catherine D'Ignazio and Lauren F. Klein. Critical perspectives on data.
+-   <cite>Data Feminism</cite> (<a class=free href="https://data-feminism.mitpress.mit.edu/">online version</a>) by Catherine D'Ignazio and Lauren F. Klein. Critical perspectives on data.
 -   <cite>W.E.B. Du Bois's Data Portraits: Visualizing Black America</cite>, edited by Whitney Battle-Baptiste. Historical data visualizations.
