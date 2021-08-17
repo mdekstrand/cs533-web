@@ -21,6 +21,29 @@ _vl_re = re.compile(r'(\d+)m(\d+)s')
 _pfx_re = re.compile('^(\d+-\d+\s+-\s+)?(.*)')
 
 
+class Module(NamedTuple):
+    key: str
+    title: str
+    docname: str
+
+    EMOJI = '📅'
+
+    @property
+    def id(self):
+        return self.key
+
+    @property
+    def module(self):
+        return None
+
+    @property
+    def name(self):
+        return self.title
+
+    def label(self):
+        return f'{self.EMOJI} {self.title}'
+
+
 class Video(NamedTuple):
     id: str
     key: str
@@ -95,6 +118,14 @@ class ModuleDirective(SphinxDirective):
             'module': name,
             'playlist': self.options.get('playlist')
         })
+
+        top = self.state.document.children[0]
+        top['ids'].append(name)
+        title = top.children[0].astext()
+        mod_obj = Module(name, title, self.env.docname)
+        objects = self.env.domaindata['res'].setdefault('objects', [])
+        objects.append(mod_obj)
+
         self.state.document.note_pending(pending, 500)
         return [pending]
 
@@ -265,6 +296,7 @@ class CourseDomain(Domain):
         'video': VideoDirective,
     }
     roles = {
+        'module': XRefRole(),
         'video': XRefRole()
     }
 
@@ -272,9 +304,11 @@ class CourseDomain(Domain):
         objects = env.domaindata['res'].get('objects', [])
 
         tgt = None
+        print('resolving', target)
         for candidate in objects:
             if candidate.key == target:
                 tgt = candidate
+                break
 
         if not tgt:
             return None

@@ -3,6 +3,9 @@
 Hello, and welcome to CS 533!  This page isn't really a course week — it's a quick orientation so
 you can know what to expect in our class, and things to do if you want to start preparing ahead.
 
+:::{module} week0
+:::
+
 ## Welcome Video
 
 Welcome to class!
