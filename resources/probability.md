@@ -50,11 +50,31 @@ An event $A$ is a subset of $E$ ($A \subseteq E$).
 If elementary events are events, they are represented as *singletons*: $A = \{H\}$ means “coin is heads”.
 $E$, the set of all elementary events, is the event “something happened”.
 
-We use set operations to combine events (for these examples, we consider $E$ to be a deck of 52 standard playing cards; $A$ is “2” and $B$ is “red card”):
+[cards]: https://en.wikipedia.org/wiki/Standard_52-card_deck
 
-- $A \cap B$ is the event “both $A$ and $B$ happened”; for our example, the conjunction is “red 2”.
-- $A \cup B$ is the event “either $A$ or $B$ (or both) happened”; for our example, the disjunction is “2 or red” — any 2, or any red card.
-- $A \setminus B$ is the event “$A$ happened but not $B$”. If $B \subseteq A$, then $A \setminus B = \emptyset$; for our example, the difference is “black 2”, because it is the set of 2s that are not red.
+We use set operations to combine events (for these examples, we consider $E$ to be a deck of 52 [standard playing cards][cards]; $A$ is “2” and $B$ is “red card”):
+
+:::{dropdown} Illustration
+![Cards, A, and B](../images/playing-cards.png)
+:::
+
+-   $A \cap B$ is the event “both $A$ and $B$ happened”; for our example, the conjunction is “red 2”, of which there are 2 (2♥, 2♦).
+
+    :::{dropdown} Illustration of $A \cap B$
+    ![Highlighting A∩B](../images/playing-cards-aib.png)
+    :::
+
+-   $A \cup B$ is the event “either $A$ or $B$ (or both) happened”; for our example, the disjunction is “2 or red” — any 2, or any red card; this set has size 28: the 26 red cards (13 of each red suit), plus the two black 2s.
+
+    :::{dropdown} Illustration of $A \cup B$
+    ![Highlighting A∪B](../images/playing-cards-aub.png)
+    :::
+
+-   $A \setminus B$ is the event “$A$ happened but not $B$”. If $B \subseteq A$, then $A \setminus B = \emptyset$; for our example, the difference is “black 2”, because it is the set of 2s that are not red.
+
+    :::{dropdown} Illustration of $A \setminus B$
+    ![Highlighting A\B](../images/playing-cards-amb.png)
+    :::
 
 With these definitions, we can now define the *event space*: $\F$ is the set of all possible events (subsets of $E$).
 This is a set of sets.
@@ -67,7 +87,7 @@ It does not necessarily contain *every* subset of $E$, but it has the following 
 
 $\F$ is called a **sigma algebra** (or *sigma field*).
 For a finite set $E$, we usually use $\F = \mathcal{P}(E)$, the *power set* of $E$.
-This means that every possible subset of $E$ is an event.
+This means that every possible subset of $E$ (and therefore every conceivable set of elementary events) is an event.
 
 Here are some additional properties of sigma algebras (these are listed separately from the previous properties because those are the *definition* of a sigma algebra and these are *consequences* — we can prove them from the definitions and axioms):
 

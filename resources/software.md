@@ -1,4 +1,4 @@
-# Software Installation
+# Software and Installation
 
 Most of the software you will need is available through Anaconda, a distribution of scientific
 software for Python (and R). It is the easiest way to install Python with the packages we need. The
@@ -7,15 +7,29 @@ one additional piece of software we will need is Git.
 We are using **Python 3.8** (or newer — Python 3.9 is fine) in this class.  Older versions of Python
 may work, but I will be testing my example code and instructions with Python 3.8.
 
-If you are looking for a text editor for editing Python scripts, I recommend [Visual Studio
-Code][VSC]. It also has support for Jupyter notebooks.
-
 !!! tip Department Computers
 
     If you want to use the department's computer lab for your work, see the [Onyx setup instructions](#onyx) as well
     as the instructions for [remotely using Onyx](onyx.md).
 
 [VSC]: http://code.visualstudio.com/
+
+## Required Software
+
+Our primary software is:
+
+-  [Anaconda Python](https://www.anaconda.com/distribution/) (install this in your Onyx home directory for use there)
+
+To complete assignments on department computers, you also need:
+
+-  An SSH client (MobaXterm for Windows, `ssh` on Mac or Linux)
+-  The [Boise State VPN](https://bsuvpn-offcampus.boisestate.edu/) for convenient access to Onyx nodes
+
+For building more advanced workflows, there are many text editors you can use.
+I use [Visual Studio Code][VSC], which has very good [remote editing support](https://code.visualstudio.com/docs/remote/remote-overview)
+and also directly supports Jupyter notebooks (although I do not use this feature much).
+
+The rest of this document walks through some details.
 
 ## About Conda
 

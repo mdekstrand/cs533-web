@@ -21,13 +21,12 @@ parts:
   - file: assignments/A0/index
 - caption: Resources
   chapters:
-  - file: resources/index
-    title: Overview
   - file: resources/software
-  - file: resources/onyx
+  - file: resources/documentation.md
+  - file: resources/datasets.md
   - file: resources/notebook-checklist
   - file: resources/problems
-  - file: resources/probability
+  - file: resources/onyx
   - file: resources/git-resources
   - file: resources/tutorials/index
     sections:
