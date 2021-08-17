@@ -11,8 +11,10 @@ If you have never used Git before, you need to configure your user identity.  Ru
 
 ## Git Interfaces
 
+- Visual Studio Code has pretty good built-in Git support
 - [Tower](https://www.git-tower.com/) (avialable free with Student Pack)
 - [GitKraken](https://www.gitkraken.com/) (available free with Student Pack)
+- You'll probably need to learn at least a little command-line git at some point
 
 ## Example `.gitignore`
 
