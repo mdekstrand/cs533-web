@@ -21,6 +21,11 @@ This week's material uses chapters 5 and 10 of the textbook.
 
 The videos are also available as a [Panopto playlist](https://boisestate.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=e65324ca-97ca-4585-b1b3-ac24004be07e).
 
+## {{moverview}} Content Overview
+
+:::{module} week2
+:::
+
 ## :material-video: Describing Data {: data-length="6m27s"}
 
 This video introduces the week's topic: describing data and data sets.
