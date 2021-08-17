@@ -13,7 +13,7 @@ These notebooks are on basic Python data manipulation:
 5. [Building Data](BuildingData.ipynb) — building up arrays and data series
 6. [Indexing](Indexing.ipynb)
 7. [Missing Data](MissingData.ipynb)
-8. [Tricks with Boolean Series](./BooleanSeries.ipynb)
+8. [Tricks with Boolean Series](BooleanSeries.ipynb)
 
 ## Visualization
 
@@ -41,9 +41,9 @@ These notebooks are on basic Python data manipulation:
 
 These are more advanced examples of data manipulation and collection:
 
-1.  [MovieLens Time Series](./MLTimeSeries.ipynb)
+1.  [MovieLens Time Series](MLTimeSeries.ipynb)
 2.  [Sessionization](Sessions.ipynb) (demonstrates some more advanced aggregation and time-based operations)
-3.  [Fetching CHI Papers](./FetchCHIPapers.ipynb) creates the `chi-papers.csv` file from Internet sources
+3.  [Fetching CHI Papers](FetchCHIPapers.ipynb) creates the `chi-papers.csv` file from Internet sources
 
 ## Workflow Example
 
