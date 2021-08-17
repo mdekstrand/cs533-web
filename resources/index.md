@@ -44,7 +44,7 @@ Quick links to some of the data we use in this class:
 - [HETREC Movie Data](https://grouplens.org/datasets/hetrec-2011/)
 - [World Bank Indicators](https://data.worldbank.org/)
 - US Census
-- [CHI Papers](https://cs533.ekstrandom.net/resources/tutorials/fetchchipapers/)
+- [CHI Papers](tutorials/FetchCHIPapers.ipynb)
 
 ## Infrastructure Help
 

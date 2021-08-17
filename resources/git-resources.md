@@ -14,7 +14,7 @@ If you have never used Git before, you need to configure your user identity.  Ru
 - [Tower](https://www.git-tower.com/) (avialable free with Student Pack)
 - [GitKraken](https://www.gitkraken.com/) (available free with Student Pack)
 
-## Example .gitignore
+## Example `.gitignore`
 
 This is a good starting point for a `.gitignore` file for Python data science projects.
 Put its contents in a file called `.gitignore` in your repository.
