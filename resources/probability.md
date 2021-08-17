@@ -272,7 +272,7 @@ $$\Odds(A) = \frac{P(A)}{P(A^c)} = \frac{P(A)}{1 - P(A)}$$
 
 The **log odds** are often computationally convenient, and are the basis of logistic regression:
 
-$$\log \Odds(a) = \log P(A) \log (1 - P(A))$$
+$$\log \Odds(a) = \log P(A) - \log (1 - P(A))$$
 
 The [*logit* function](glossary.md#logit) converts probabilities to log-odds.
 
