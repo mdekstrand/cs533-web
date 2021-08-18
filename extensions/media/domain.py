@@ -13,15 +13,18 @@ from sphinx.util.nodes import make_id, make_refnode
 
 from .module import ModuleDirective
 from .video import VideoDirective
+from .reading import ReadingDirective
 
 
 EMOJI_DEFS = {
     'module': '📅',
-    'video': '🎥'
+    'video': '🎥',
+    'reading': '📃',
 }
 
 _vl_re = re.compile(r'(\d+)m(\d+)s')
-_pfx_re = re.compile('^(\d+-\d+\s+-\s+)?(.*)')
+_rd_re = re.compile(r'(\d+)\s*words')
+_pfx_re = re.compile(r'^(\d+-\d+\s+-\s+)?(.*)')
 
 
 @dataclass
@@ -46,6 +49,17 @@ class MediaObject:
 
 
 @dataclass
+class Reading(MediaObject):
+    length: str = None
+
+    def read_length(self):
+        if self.length:
+            m = _rd_re.match(self.length)
+            words = int(m.group(1))
+            return words
+
+
+@dataclass
 class Video(MediaObject):
     length: str = None
 
@@ -62,16 +76,19 @@ class CourseDomain(Domain):
     label = 'Course'
 
     object_types = {
-        'video': ObjType('video', 'video'),
         'module': ObjType('module', 'module'),
+        'video': ObjType('video', 'video'),
+        'reading': ObjType('reading', 'reading'),
     }
     directives = {
         'module': ModuleDirective,
+        'reading': ReadingDirective,
         'video': VideoDirective,
     }
     roles = {
         'module': XRefRole(),
-        'video': XRefRole()
+        'reading': XRefRole(),
+        'video': XRefRole(),
     }
 
     def _dom_objects(self):
@@ -80,6 +97,14 @@ class CourseDomain(Domain):
     def note_module(self, key, title):
         docname = self.env.docname
         mod = MediaObject(key, title, 'module', docname, key)
+        self._dom_objects().append(mod)
+
+    def note_reading(self, key, title, length):
+        modname = self.env.ref_context.get('res:module')
+        fullkey = f'{modname}:{key}' if modname else key
+        docname = self.env.docname
+
+        mod = Reading(fullkey, title, 'reading', docname, key, modname, length)
         self._dom_objects().append(mod)
 
     def note_video(self, key, id, name, length):

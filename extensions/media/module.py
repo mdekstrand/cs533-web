@@ -56,6 +56,7 @@ class ModTocTransform(SphinxTransform):
         tg += tb
 
         tot_vid = 0.0
+        tot_words = 0
 
         for obj in self.env.domaindata['res']['objects']:
             if obj.module != mod:
@@ -66,11 +67,16 @@ class ModTocTransform(SphinxTransform):
                 if vl:
                     tot_vid += vl
 
+            if hasattr(obj, 'read_length'):
+                rl = obj.read_length()
+                if rl:
+                    tot_words += rl
+
             row = nodes.row()
 
             l_cell = nodes.entry()
             ref = nodes.reference('', '', internal=True)
-            ref['refid'] = obj.name
+            ref['refid'] = obj.anchor
             ref += nodes.inline('', obj.display_title)
             l_cell += nodes.paragraph('', '', ref)
             row += l_cell
@@ -86,7 +92,9 @@ class ModTocTransform(SphinxTransform):
         summary = nodes.paragraph()
         summary += nodes.inline('', 'This week has ')
         summary += nodes.strong('', '%dh%.0fm' % (int(tot_vid / 3600), tot_vid % 3600 / 60))
-        summary += nodes.inline('', ' of video.')
+        summary += nodes.inline('', ' of video and ')
+        summary += nodes.strong('', '%d words' % (tot_words,))
+        summary += nodes.inline('', ' of assigned readings.')
 
         playlist = self.startnode.details.get('playlist', None)
         if playlist:

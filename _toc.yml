@@ -13,7 +13,11 @@ parts:
     sections:
     - file: week1/DemoNotebook
     - file: week1/1-7-types-operations
-  # - file: week2/index
+  - file: week2/index
+    sections:
+    - file: week2/2-2-PandasBasics.ipynb
+    - file: week2/2-4-AggregatesAndGroups.ipynb
+    - file: week2/2-6-DescribingDistributions.ipynb
 - caption: Assignments
   chapters:
   - file: assignments/index
