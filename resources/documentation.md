@@ -4,7 +4,21 @@ This page collects various documentation and readings. Many of these, or portion
 linked to from content in individual weeks, but they are re-linked here for your convenient
 reference. This is a mix of material from others (most of it) and that I have written.
 
+## Course Textbooks
+
+-   <cite>Python for Data Analysis</cite>, 2nd Edition by Wes McKinney (O’Reilly, ISBN 978-1491957660). Primary textbook.
+
+    You can read this book for free in two ways:
+
+    - [Through the Boise State Library](https://boisestate.on.worldcat.org/oclc/1005140249)
+    - If you are an ACM member, through the ACM's [O'Reilly Learning Platform subscription](https://learning.acm.org/e-learning/oreilly)
+      ([direct link](https://learning.oreilly.com/library/view/python-for-data/9781491957653/))
+
+-   <cite>Think Like a Data Scientist</cite> by Brian Godsey (Manning, ISBN 978-1633430273). Supplementary textbook, available for free through the O'Reilly Learning Platform.
+
 ## Software Documentation
+
+Quick links to software documentation:
 
 -   [Python](https://docs.python.org/3/)
 -   [Pandas](http://pandas.pydata.org/pandas-docs/stable/)
@@ -14,6 +28,8 @@ reference. This is a mix of material from others (most of it) and that I have wr
 -   [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php)
 
 ## Statistics
+
+More reading on probability and statistics:
 
 - My [notes on probability](probability.md)
 - [<cite class=free>NIST/SEMATECH e-Handbook of Statistical Methods</cite>](https://www.itl.nist.gov/div898/handbook/)
@@ -25,20 +41,25 @@ reference. This is a mix of material from others (most of it) and that I have wr
 - [Matplotlib gallery](https://matplotlib.org/gallery.html)
 - [Plotnine gallery](https://plotnine.readthedocs.io/en/stable/gallery.html)
 - [My plot utilities](https://md.ekstrandom.net/blog/2020/09/plots) (for preparing papers with `plotnine`)
+- [<cite>W.E.B. Du Bois's Data Portraits: Visualizing Black America</cite>](https://boisestate.on.worldcat.org/v2/oclc/1023487386), edited by Whitney Battle-Baptiste. Historical data visualizations.
 
+## Python
 
-## Books
+Further resources for the Python programming language:
 
--   <cite>Python for Data Analysis</cite>, 2nd Edition by Wes McKinney (O’Reilly, ISBN 978-1491957660). Primary textbook.
-
-    You can read this book for free in two ways:
-
-    - [Through the Boise State Library](https://boisestate.on.worldcat.org/oclc/1005140249)
-    - If you are an ACM member, through the ACM's [O'Reilly Learning Platform subscription](https://learning.acm.org/e-learning/oreilly)
-      ([direct link](https://learning.oreilly.com/library/view/python-for-data/9781491957653/))
-
--   <cite>Think Like a Data Scientist</cite> by Brian Godsey (Manning, ISBN 978-1633430273). Supplementary textbook, available for free through the O'Reilly Learning Platform.
 -   <cite>Learn Python the Hard Way</cite> by Zed Shaw. More thorough treatment of Python.
 -   <cite>Fluent Python</cite>. Learn advanced and idiomatic Python.
+
+## Writing
+
+Writing is a part of this class, but will play a particularly important role in your graduate career.
+Hopefully these resources are helpful:
+
+-   [<cite>Style: Lessons in Clarity and Grace</cite>](https://boisestate.on.worldcat.org/v2/oclc/919068263) — one of the best books I know to help you improve your writing.
+
+## Diving Deeper
+
+These resources will help you explore further some thing we touch on in this class:
+
+-   [<cite>W.E.B. Du Bois's Data Portraits: Visualizing Black America</cite>](https://boisestate.on.worldcat.org/v2/oclc/1023487386), edited by Whitney Battle-Baptiste. Historical data visualizations.
 -   <cite>Data Feminism</cite> (<a class=free href="https://data-feminism.mitpress.mit.edu/">online version</a>) by Catherine D'Ignazio and Lauren F. Klein. Critical perspectives on data.
--   <cite>W.E.B. Du Bois's Data Portraits: Visualizing Black America</cite>, edited by Whitney Battle-Baptiste. Historical data visualizations.

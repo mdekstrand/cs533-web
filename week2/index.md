@@ -175,7 +175,7 @@ This video talks more about how data is encoded, and what we need to document ab
 
 :::{video}
 :id: d8673453-458b-4c03-baf9-ac270026d187
-:lenght: 8m57s
+:length: 8m57s
 :slide-id: 495979F9A431DDB0%2172987
 :slide-auth: APm1GElna_P6o40
 :name: 2-8 - Codings and Encodings
