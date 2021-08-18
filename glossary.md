@@ -255,7 +255,8 @@ Population
     Discussed in more detail in {video}`week4:sampling`.
 
 P-value
-    In hypothesis testing, the probability that the null hypothesis ($H_0$) would produce a value as large as the observed value.
+    In hypothesis testing, the probability that the null hypothesis ($H_0$) would produce a value as large as the observed value; if the observed statistic is $x$ and $X$ is a random variable representing the sampling and analysis process, this is $\P[X > x | H_0 \text{ is true}]$.
+
     Typically the null hypothesis is an appropriate formalization of “nothing interesting”, so the *p*-value is the probability of seeing an effect as large as the one observed if there is no true effect to observe.
 
     Discussed in {video}`week4:hypotest`.
@@ -266,7 +267,7 @@ Regression
     This is the focus of {module}`week8`.
 
 Regularization
-    A penalty term added to a loss function, typically penalizing large values.  Used to encourage sparsity or to require coefficients to be supported by larger quantiies of data.
+    A penalty term added to a loss function, typically penalizing large values.  Used to encourage sparsity or to require coefficients to be supported by larger quantities of data.
 
     Introduced in {video}`week11:regularization`.
 
