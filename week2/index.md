@@ -114,7 +114,7 @@ We aren't getting to everything in those chapters though.
 
 In this video, we discuss how compute aggregate statistics in Pandas.
 
-:::{video}
+:::{video} group-aggregate
 :id: 9307fa0c-b4e2-4900-b1a3-ac270026d232
 :length: 14m12s
 :slide-id: 495979F9A431DDB0!72980
@@ -131,7 +131,7 @@ In this video, we discuss how compute aggregate statistics in Pandas.
 
 In this video, we discuss descriptive statistics for numeric variables.
 
-:::{video}
+:::{video} descriptive-statistics
 :id: d91cd2fc-a7f6-4610-a6d0-ac270026d1b7
 :length: 16m32s
 :slide-id: 495979F9A431DDB0%2172978

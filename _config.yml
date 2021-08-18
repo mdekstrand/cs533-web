@@ -74,6 +74,7 @@ sphinx:
       python: [https://docs.python.org/3, null]
       numpy: [https://numpy.org/doc/stable/, null]
       scipy: [https://docs.scipy.org/doc/scipy/reference/, null]
+      pandas: [https://pandas.pydata.org/docs/, null]
       seaborn: [https://seaborn.pydata.org/, null]
       matplotlib: [https://matplotlib.org/, null]
       sklearn: [https://scikit-learn.org/stable/, null]

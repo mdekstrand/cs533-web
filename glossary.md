@@ -16,6 +16,10 @@ Aggregate
 
     Introduced in {video}`week2:group-aggregate`.
 
+Arithmetic mean
+    The most common type of {term}`mean`, computed from a sequence of observations as $\bar{x} = \frac{1}{n} \sum_i x_i$.
+    When using the term “mean” without an additional qualifier, this is the type of mean we mean.
+
 Bayesianism
     A school of thought for statistical inference and the interpretation of probability that is concerned with using probability to quantify *uncertainty* or *coherent states of belief*.
     In statistical inference, this results in methods that quantify knowledge with probability distributions, and update those distributions based on the results of an experiment or data analysis.
@@ -125,12 +129,12 @@ Estimator
     A computation (or computed value) that we use to try to estimate an unknown value.
     Formally, an *estimator* is a computation to produce an *estimate* of an *estimand*.
     The sample mean $\bar{x}$, as an abstract concept, is an estimator of the population mean, also as an abstract concept.
-    Any *particular* sample mean we compute, such as $\bar{x} = 3.2$, is an *estimate* of the population mean *for that sample*.
+    Any *particular* sample mean we compute, such as $\bar{x} = 3.2$, is an *estimate* of the population mean (estimand) *for that sample*.
 
     Introduced in {video}`week4:introduction`.
 
 Expected value
-    The mean of a random variable $X$: $\E[X] = \sum x P(x)$ or $\E[X] = \int x p(x) dx$.
+    The mean of a {term}`random variable` $X$: $\E[X] = \sum x P(x)$ or $\E[X] = \int x p(x) dx$.
 
     Discussed in {video}`week4:continuous` and [Notes on Probability](resources/probability.md).
 
@@ -138,15 +142,24 @@ Frequentism
     A school of thought for statistical inference and the interpretation of probability that is concerned with probabilities as descriptions of the long-run behavior of a random process: how frequent would various outcomes be if the process were repeated infinitely many times?
     In statistical inference, this results in methods that are characterized by their behavior if a sampling procedure or experiment were repeated, such as confidence intervals (defined in terms of the behavior of calculating them over multiple samples) and *p*-values (the probability that a random sample would produce a statistic at least as large as the observed statistic if the sampling procedure were repeated).
 
+Geometric mean
+    A measure of central tendency where sums are replaced by products. It is less sensitive to large outliers than the {term}`arithmetic mean` (the usual kind of mean).  It is computed by:
+
+    $$\sqrt[n]{\prod_i x_i}$$
+
+    Or alternatively (so long as $\forall i. x_i \ne 0$):
+
+    $$e^{\frac{1}{n}\sum_i \operatorname{log}(x_i)}$$
+
 Hyperparameter
     A value that controls a model's training or prediction behavior that is **not** learned from the data.
     Examples include learning rates, iteration counts, and regularization terms.
 
 Joint Probability
-    The joint probability $P(A, B)$ is the probability of both $A$ and $B$ occurring (in terms of underlying events, it's the probability that the elementary event $\zeta$ is in both $A$ and $B$).
-    Equivalent to $P(A \cap B)$.
-    Related to the conditional and marginal probabilities by $P(A, B) = P(A|B) P(B)$.
-    Symmetric ($P(A, B) = P(B, A)$).
+    The joint probability $\P[A, B]$ is the probability of both $A$ and $B$ occurring (in terms of underlying events, it's the probability that the elementary event $\zeta$ is in both $A$ and $B$).
+    Equivalent to $\P[A \cap B]$.
+    Related to the conditional and marginal probabilities by $\P[A, B] = \P[A|B] \P[B]$.
+    Symmetric ($\P[A, B] = \P[B, A]$).
 
     Introduced in {video}`week4:joint-conditional` and [Notes on Probability](resources/probability.md).
 
@@ -207,11 +220,20 @@ Matrix decomposition
 
     where $P \in \Reals^{m \times k}$ and $Q \in \Reals^{n \times k}$ are orthogonal, and $\Sigma \in \Reals^{k \times k}$ is diagonal.
 
+Mean
+    A measure of central tendency; the expected value of a random variable.  Without any further specifier, such as geometric or harmonic, the mean is taken to refer to the *arithmetic mean*.  The sample mean $\bar{x}$ is computed as:
+
+    $$\bar{x} = \frac{1}{n} \sum_i x_i$$
+
+    The mean of a vector or data series can be computed with {py:func}`numpy.mean` or {py:meth}`pandas.Series.mean`.
+
+    Introduced in {video}`week2:descriptive-statistics`.
+
 Objective Function
     A function describing a model's performance that is used as the goal for learning its parameters.
     This can be a **loss function** (where the goal is to minimize it) or a **utility function** (which should be maximized).
 
-    Defined in {video}:`week11:building-models`, and introduced in {video}`week9:optimizing-loss`.
+    Defined in {video}`week11:building-models`, and introduced in {video}`week9:optimizing-loss`.
 
 Operationalization
     The mapping of a goal or question to a specific, measurable quantity (or measurement procedure).
@@ -222,9 +244,9 @@ Operationalization
 Odds
     An alternative way of framing probability, as the ratio of the likelihood for or against an event:
 
-    $$\Odds(A) = \frac{P(A)}{P(A^c)}$$
+    $$\Odds(A) = \frac{\P[A]}{\P[A^c]}$$
 
-    The *log odds* is a particularly convenient way of working with odds, and is $\log P(A) - \log (1 - P(A))$.
+    The *log odds* is a particularly convenient way of working with odds, and is $\log \P[A] - \log (1 - \P[A])$.
     See the [{{mnote}} probability notes](resources/probability.md#odds).
 
 Odds ratio
@@ -261,6 +283,16 @@ P-value
 
     Discussed in {video}`week4:hypotest`.
 
+Random variable
+    A variable that takes on random values, usually as the result of a random process or because we are using randomness and probability to model uncertainty about the variable's actual value in any particular case.  For our purposes, random variables may be discrete (integer-valued) or continuous (real-valued), but are always numeric.  We denote random variables with capital letters ($X$).  A single sample is an observation of a random variable.
+
+    The probability distribution of a continous random variable is defined by a distribution function $F_X(x) = \P[X < x]$.
+    Two common operations on a random variable are to take its {term}`expected value` or compute its {term}`variance`.
+
+    Formally, a random variable is a function $f_X: E \to \Reals$, where $E$ is the set of {term}`elementary events <elementary event>` from a probability space $(E, \Field, \P)$, and $F_X(x) = \P[F_X(e) < x]$.  For the purposes of this class, we will not need this distinction.
+
+    Discussed in [Notes on Probability](resources/probability.md).
+
 Regression
     A modeling or prediction problem where we try to estimate or predict a continuous variable $Y$.
 
@@ -282,7 +314,7 @@ Sample : n.
 
     Discussed in more detail in {video}`week4:sampling`.
 
-Sample Size
+Sample size
     The number of items in the sample.  Often denoted $n$.
 
 Sampling distribution
@@ -296,7 +328,7 @@ Statistic
     Discussed in {video}`week4:introduction`.
 
 Standard deviation
-    A measure of the spread of a random variable.  It is the square root of the mean squared deviation from the mean:
+    A measure of the spread of a {term}`random variable`.  It is the square root of the mean squared deviation from the mean:
 
     $$\sigma_X = \sqrt{\frac{\sum_i (x_i - \bar{x})^2}{n}}$$
 
@@ -304,8 +336,17 @@ Standard deviation
 
     $$s = \sqrt{\frac{\sum_i (x_i - \bar{x})^2}{n - 1}}$$
 
+    The standard deviation is the square root of the {term}`variance`.
+
+    Standard deviations can be computed with:
+
+    - {py:meth}`pandas.Series.std` (computes sample $s$, pass `ddof=0` to compute population $\sigma$)
+    - {py:func}`numpy.std` (computes population $\sigma$, pass `ddof=1` to compute sample $s$)
+
+    Introduced in {video}`week2:descriptive-statistics`.
+
 Standard error
-    The standard deviation of the *sampling distribution* of a statistic.  The standard error of the mean (Pandas function `.sem`) is $s/\sqrt{n}$.
+    The standard deviation of the *sampling distribution* of a statistic.  The standard error of the mean (Pandas method {py:meth}`pandas.Series.sem`) is $s/\sqrt{n}$.
 
     Discussed in {video}`week4:confidence`.
 
@@ -323,7 +364,12 @@ Variance
 
     $$\Var(X) = \E[(X - \E[X])^2]$$
 
-    Variance is the square of the standard deviation, and is sometimes written $\sigma^2$.
+    Variance is the square of the {term}`standard deviation`, and is sometimes written $\sigma^2$.
+
+    Variance can be computed with:
+
+    - {py:meth}`pandas.Series.var` (computes sample variance, pass `ddof=0` to compute population variance)
+    - {py:func}`numpy.var` (computes population variance, pass `ddof=1` to compute sample variance)
 
 Vector
     A sequence or array of numbers; $\mathbf{x} = [x_1, x_2, \dots, x_n]$ is an $n$-dimensional vector.
