@@ -217,7 +217,7 @@ Operationalization
     The mapping of a goal or question to a specific, measurable quantity (or measurement procedure).
     When we operationalize a question, we translate it into the precise computations and measurements we will use to attempt to answer it.
 
-    Introduced in {video}:`week1:asking-questions`.
+    Introduced in {video}`week1:asking-questions`.
 
 Odds
     An alternative way of framing probability, as the ratio of the likelihood for or against an event:
