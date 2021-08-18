@@ -24,7 +24,8 @@ parse:
     mvideo: 🎥
     mbook: 📖
     mclass: 👨‍🏫
-    mnotebook: 📝
+    mnotebook: 📓
+    mnote: 📝
     massignment: 📩
     mtask: ✅
     mquiz: 🚩

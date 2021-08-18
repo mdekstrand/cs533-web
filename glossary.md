@@ -225,14 +225,14 @@ Odds
     $$\Odds(A) = \frac{P(A)}{P(A^c)}$$
 
     The *log odds* is a particularly convenient way of working with odds, and is $\log P(A) - \log (1 - P(A))$.
-    See the [probability notes](resources/probability.md#odds).
+    See the [{{mnote}} probability notes](resources/probability.md#odds).
 
 Odds ratio
     The ratio of the odds of two different outcomes.
 
     $$\operatorname{OR}(A, B) = \frac{\Odds(A)}{\Odds{B}}$$
 
-    See the [probability notes](resources/probability.md#odds).
+    See the [{{Mnote}} probability notes](resources/probability.md#odds).
 
 Overfitting
     When a model learns too much from its training data, so it cannot do an effective job of predicting future unseen data.

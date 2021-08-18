@@ -29,6 +29,8 @@ parts:
   - file: resources/onyx
   - file: resources/git-resources
   - file: resources/tutorials/index
+    sections:
+    - glob: resources/tutorials/*.ipynb
 - caption: Site Details
   chapters:
   - file: copyright
