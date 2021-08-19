@@ -188,6 +188,7 @@ This video talks more about how data is encoded, and what we need to document ab
 ## {{mnotebook}} Tutorial Notebooks
 
 The [tutorial notebooks](../../resources/tutorials/index.md) contain more info on the Python code, including more systematic overviews of the different Python and Pandas features.
+I recommend you particularly pay attention to the [Python and Data](python-and-data) tutorials.
 
 **We will not get to all Pandas features you might need in videos.**
 These notebooks, the <cite>Python for Data Analysis</cite> textbook, and the [Pandas User Guide](https://pandas.pydata.org/pandas-docs/stable/user_guide/index.html) all provide additional information on Pandas, NumPy, and SciPy.

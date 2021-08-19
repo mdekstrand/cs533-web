@@ -2,6 +2,7 @@
 
 This is a collection of notebooks with tips and consolidated references for the various Python and Pandas topics that we are discussing.
 
+(python-and-data)=
 ## Python and Data
 
 These notebooks are on basic Python data manipulation:
