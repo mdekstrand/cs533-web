@@ -2,7 +2,7 @@
 
 This is the web site for Boise State University's CS 533, Introduction to Data Science.
 It is an open educational resource; unless otherwise specified, material is released under
-[CC-BY-SA 4.0][].  See [copyright.md](copyright.md) for more details on the licensing.
+[CC-BY-SA][].  See [copyright.md](copyright.md) for more details on the licensing.
 
 [CC-BY-SA]: http://creativecommons.org/licenses/by-sa/4.0/
 
