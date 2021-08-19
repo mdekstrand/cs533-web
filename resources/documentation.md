@@ -8,13 +8,9 @@ reference. This is a mix of material from others (most of it) and that I have wr
 
 -   <cite>Python for Data Analysis</cite>, 2nd Edition by Wes McKinney (O’Reilly, ISBN 978-1491957660). Primary textbook.
 
-    You can read this book for free in two ways:
+    You can read this book for free [through the Boise State Library](https://boisestate.on.worldcat.org/oclc/1005140249).
 
-    - [Through the Boise State Library](https://boisestate.on.worldcat.org/oclc/1005140249)
-    - If you are an ACM member, through the ACM's [O'Reilly Learning Platform subscription](https://learning.acm.org/e-learning/oreilly)
-      ([direct link](https://learning.oreilly.com/library/view/python-for-data/9781491957653/))
-
--   <cite>Think Like a Data Scientist</cite> by Brian Godsey (Manning, ISBN 978-1633430273). Supplementary textbook, available for free through the O'Reilly Learning Platform.
+-   <cite>Think Like a Data Scientist</cite> by Brian Godsey (Manning, ISBN 978-1633430273). Supplementary textbook.
 
 ## Software Documentation
 

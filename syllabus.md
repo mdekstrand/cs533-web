@@ -105,12 +105,6 @@ Our primary textbooks are:
 
 > <cite>Think Like a Data Scientist</cite> by Brian Godsey (Manning, ISBN 978-1633430273)
 
-Both of these books are available at no cost to ACM members (including ACM student members) through
-the ACM's [O'Reilly Learning Platform subscription](https://learning.acm.org/e-learning/oreilly). An
-[ACM student membership](https://www.acm.org/membership/membership-options) costs $19/year, and
-members have access to these books as well as the rest of the O'Reilly Learning Platform, including
-most books published by O'Reilly, No Starch, Manning, and several other technical publishers.
-
 If you want a more thorough treatment of the core Python language traditional book format, I recommend:
 
 > <cite>Learn Python the Hard Way</cite> by Zed Shaw
