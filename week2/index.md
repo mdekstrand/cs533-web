@@ -107,7 +107,7 @@ Read [Datasheets for Datasets](https://arxiv.org/abs/1803.09010) by Timnit Gebru
 
 ## {{mbook}} Textbook Chapters
 
-This week's material uses chapters 5 and 10 of the textbook.
+This week's material uses chapters 5 and 10 of <cite>Python for Data Analysis</cite>.
 We aren't getting to everything in those chapters though.
 
 ## {{mvideo}} Groups and Aggregates
