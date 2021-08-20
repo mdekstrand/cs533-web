@@ -1,7 +1,21 @@
 title: CS 533 Fall 2021
 author: Michael D. Ekstrand
 copyright: '2021'
-# logo: logo.png
+logo: logo.png
+
+exclude_patterns:
+- week4/*
+- week5/*
+- week6/*
+- week7/*
+- week8/*
+- week9/*
+- week10/*
+- week11/*
+- week12/*
+- week13/*
+- week14/*
+- week15/*
 
 # bibtex_bibfiles:
   # - references.bib
