@@ -26,7 +26,7 @@ I do **not** recommend that you use Plotly for this course.  While it is very go
 its support for static graphics to render in printable documents is rather new.
 :::
 
-[Seaborn]: /seaborn/
+[Seaborn]: https://seaborn.pydata.org/
 [Matplotlib]: https://matplotlib.org/
 [plotnine]: https://plotnine.readthedocs.io/en/stable/
 [plotly]: https://plotly.com/python/plotly-fundamentals/
