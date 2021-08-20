@@ -100,6 +100,8 @@ The Week 1 individual quiz (in Canvas) is due at **8am Thursday**.
 It is only over material prior to this point.
 
 You will have **30 minutes** from when you start the quiz to complete it.
+These quizzes are never going to be terribly long; this one is particularly designed to be pretty easy, as an
+initial quick check and to give you experience with the quiz process.
 
 :::{tip}
 I recommend watching the remaining videos before class Thursday as well, but they will not
