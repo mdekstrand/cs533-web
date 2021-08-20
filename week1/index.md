@@ -99,6 +99,8 @@ Make sure you have [installed the course software](../../resources/software.md) 
 The Week 1 individual quiz (in Canvas) is due at **8am Thursday**.
 It is only over material prior to this point.
 
+You will have **30 minutes** from when you start the quiz to complete it.
+
 :::{tip}
 I recommend watching the remaining videos before class Thursday as well, but they will not
 be tested over in the quiz.
