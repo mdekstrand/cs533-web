@@ -7,8 +7,8 @@ The key learning outcomes for this week are:
 - Write and run basic Python code in a Jupyter notebook
 - Begin to think about the complexity of meaningful questions
 
-This week draws from chapters 1–4 from *Python for Data Analysis* and chapters 1-2 of *Think Like a
-Data Scientist*.  If you already know Python, the Python parts should mostly be review.
+This week draws from chapters 1–4 from {book}`p4da` and chapters 1-2 of {book}`tlds`.
+If you already know Python, the Python parts should mostly be review.
 
 ## {{moverview}} Content Overview
 

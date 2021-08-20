@@ -13,12 +13,16 @@ The learning outcomes for this week are:
 - To describe how data was collected.
 - To reason about limitations of the collection of data.
 
-This week's material uses chapters 5 and 10 of <cite>Python for Data Analysis</cite>.
+This week's material uses chapters 5 and 10 of {book}`p4da`.
 
 ## {{moverview}} Content Overview
 
 :::{module} week2
 :::
+
+## {{mcal}} Deadlines
+
+- Week 2 quiz at **8am on Thursday**
 
 ## {{mvideo}} Describing Data
 
@@ -107,7 +111,7 @@ Read [Datasheets for Datasets](https://arxiv.org/abs/1803.09010) by Timnit Gebru
 
 ## {{mbook}} Textbook Chapters
 
-This week's material uses chapters 5 and 10 of <cite>Python for Data Analysis</cite>.
+This week's material uses chapters 5 and 10 of {book}`p4da`.
 We aren't getting to everything in those chapters though.
 
 ## {{mvideo}} Groups and Aggregates
@@ -191,7 +195,7 @@ The [tutorial notebooks](../../resources/tutorials/index.md) contain more info o
 I recommend you particularly pay attention to the [Python and Data](python-and-data) tutorials.
 
 **We will not get to all Pandas features you might need in videos.**
-These notebooks, the <cite>Python for Data Analysis</cite> textbook, and the [Pandas User Guide](https://pandas.pydata.org/pandas-docs/stable/user_guide/index.html) all provide additional information on Pandas, NumPy, and SciPy.
+These notebooks, the {book}`p4da` textbook, and the [Pandas User Guide](https://pandas.pydata.org/pandas-docs/stable/user_guide/index.html) all provide additional information on Pandas, NumPy, and SciPy.
 
 ## {{mtask}} Practice
 

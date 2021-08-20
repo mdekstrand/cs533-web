@@ -14,12 +14,18 @@ from sphinx.util.nodes import make_id, make_refnode
 from .module import ModuleDirective
 from .video import VideoDirective
 from .reading import ReadingDirective
+from .book import BookDirective
 
 
 EMOJI_DEFS = {
     'module': '📅',
     'video': '🎥',
     'reading': '📃',
+    'book': '📖'
+}
+
+XREF_TYPE_OVERRIDES = {
+    'book': nodes.title_reference
 }
 
 _vl_re = re.compile(r'(\d+)m(\d+)s')
@@ -79,16 +85,19 @@ class CourseDomain(Domain):
         'module': ObjType('module', 'module'),
         'video': ObjType('video', 'video'),
         'reading': ObjType('reading', 'reading'),
+        'book': ObjType('book', 'book')
     }
     directives = {
         'module': ModuleDirective,
         'reading': ReadingDirective,
         'video': VideoDirective,
+        'book': BookDirective,
     }
     roles = {
         'module': XRefRole(),
         'reading': XRefRole(),
         'video': XRefRole(),
+        'book': XRefRole(),
     }
 
     def _dom_objects(self):
@@ -122,6 +131,13 @@ class CourseDomain(Domain):
 
         self._dom_objects().append(mod)
 
+    def note_object(self, type, key, title, anchor=None):
+        docname = self.env.docname
+        if not anchor:
+            anchor = key
+        mod = MediaObject(key, title, type, docname, anchor)
+        self._dom_objects().append(mod)
+
     def resolve_xref(self, env, fromdocname, builder, type, target, node, contnode):
         objects = self._dom_objects()
 
@@ -135,6 +151,7 @@ class CourseDomain(Domain):
             return None
 
         label = tgt.display_title
-        content = nodes.inline('', label)
+        cnode = XREF_TYPE_OVERRIDES.get(tgt.type, nodes.inline)
+        content = cnode('', label)
 
         return make_refnode(builder, fromdocname, tgt.docname, tgt.anchor, content, tgt.name)

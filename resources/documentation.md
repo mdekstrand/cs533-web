@@ -6,11 +6,22 @@ reference. This is a mix of material from others (most of it) and that I have wr
 
 ## Course Textbooks
 
--   <cite>Python for Data Analysis</cite>, 2nd Edition by Wes McKinney (O’Reilly, ISBN 978-1491957660). Primary textbook.
+-   :::{book} p4da
+    :title: Python for Data Analysis
+    :edition: 2nd Edition
+    :author: Wes McKinney
+    :publisher: O'Reilly
+    :isbn: 978-1491957660
 
     You can read this book for free [through the Boise State Library](https://boisestate.on.worldcat.org/oclc/1005140249).
+    :::
 
--   <cite>Think Like a Data Scientist</cite> by Brian Godsey (Manning, ISBN 978-1633430273). Supplementary textbook.
+-   :::{book} tlds
+    :title: Think Like a Data Scientist
+    :author: Brian Godsey
+    :publisher: Manning
+    :isbn: 978-1633430273
+    :::
 
 ## Software Documentation
 

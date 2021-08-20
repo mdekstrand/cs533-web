@@ -254,7 +254,7 @@ Odds ratio
 
     $$\operatorname{OR}(A, B) = \frac{\Odds(A)}{\Odds{B}}$$
 
-    See the [{{Mnote}} probability notes](resources/probability.md#odds).
+    See the [{{mnote}} probability notes](resources/probability.md#odds).
 
 Overfitting
     When a model learns too much from its training data, so it cannot do an effective job of predicting future unseen data.
