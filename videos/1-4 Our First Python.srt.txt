@@ -1,0 +1,340 @@
+1
+00:00:04,490 --> 00:00:09,040
+In this video, I'm going to show you how to start up the Jupiter environment that we're going
+
+2
+00:00:09,040 --> 00:00:13,550
+to be using for our Python program and write some of our first Python code.
+
+3
+00:00:13,550 --> 00:00:18,110
+Also up to the steps needed to turn a notebook into a PDAF.
+
+4
+00:00:18,110 --> 00:00:23,930
+You can submit on blackboard for one of the assignments. So I've already installed Anaconda.
+
+5
+00:00:23,930 --> 00:00:32,500
+You can find the instructions for that on the course Web site. On Windows, when we've installed in a condo, we get.
+
+6
+00:00:32,500 --> 00:00:40,630
+A new kind of prompt available in the START menu, so I can going to start the anaconda power shall prompt.
+
+7
+00:00:40,630 --> 00:00:44,010
+And this starts up a power shell command line.
+
+8
+00:00:44,010 --> 00:00:51,790
+That has Anaconda activated the process for doing this on Linux or on Windows is slightly different, although excuse me,
+
+9
+00:00:51,790 --> 00:01:00,160
+on Linux or on Mac is slightly different, although you can also start the prompt from the Anaconda navigator.
+
+10
+00:01:00,160 --> 00:01:09,490
+I will show you in another video how to activate Anaconda when we have it installed on Onyx, which will also apply to other Linux systems.
+
+11
+00:01:09,490 --> 00:01:18,610
+So I'm in my anaconda, prompted to my home directory. I'm going to go to the directory I've created for working on C.S. 533.
+
+12
+00:01:18,610 --> 00:01:27,610
+So I'm going to c.D into documents. Yes, 533 assignments, and here I'm going to start the Jupiter environment with Jupiter notebook.
+
+13
+00:01:27,610 --> 00:01:33,880
+So we're gonna be doing our work in what we call notebooks. They're a part of Jupiter. We can start this at the command line with Jupiter notebook.
+
+14
+00:01:33,880 --> 00:01:39,070
+And it's going to start up the Jupiter system and open it up in our Web browser.
+
+15
+00:01:39,070 --> 00:01:45,100
+The Web browser is the interface that we use to interface with Jupiter and interact with notebooks.
+
+16
+00:01:45,100 --> 00:01:50,650
+So if I had some notebook files in here, they would be listed in the notebook list and we could open them.
+
+17
+00:01:50,650 --> 00:01:55,900
+So in the assignment, you'll download the starter notebook. Save it in the directory you're working in.
+
+18
+00:01:55,900 --> 00:02:00,860
+When you run Jupiter notebook, it will appear. But right now, I'm one to create a new notebook.
+
+19
+00:02:00,860 --> 00:02:08,560
+I'm going to create a new Python three notebook because Python three is what we're using in this class.
+
+20
+00:02:08,560 --> 00:02:20,640
+And it's a new notebook and it's untitled. So I'm going to given a name here.
+
+21
+00:02:20,640 --> 00:02:24,640
+I'm just going to call it demo notebook because it's the notebook that I'm using to demonstrate.
+
+22
+00:02:24,640 --> 00:02:32,650
+If I go back to our notebook list, we now see it and its demo notebook that I pay NDB the I pay NDB file as the source filed for the notebook.
+
+23
+00:02:32,650 --> 00:02:39,130
+You're going to be submitting those as one of the things you submit in your assignment. So now a notebook is made up of cells.
+
+24
+00:02:39,130 --> 00:02:46,110
+And right now we have one cell here. So I want to put some code in it.
+
+25
+00:02:46,110 --> 00:02:52,530
+I'm just going to write the string hello, world. The string isn't close in case, and it's enclosed in double quotes.
+
+26
+00:02:52,530 --> 00:03:01,480
+And I am going to hit shift enter. And that run shift enter runs the cell that we're currently in.
+
+27
+00:03:01,480 --> 00:03:09,970
+And now it's labeled in one. It's the first cell that we ran. And it has an output out, one that says, hello, world.
+
+28
+00:03:09,970 --> 00:03:19,960
+When you run a cell and the last line of the cells and expression that has some value, what Jupiter will do is it will show you that value.
+
+29
+00:03:19,960 --> 00:03:24,700
+So because the last and only line of the cell is the string value.
+
+30
+00:03:24,700 --> 00:03:28,540
+Hello, world. It shows me the value. Hello, world.
+
+31
+00:03:28,540 --> 00:03:37,500
+If I put in a value a number five, it will show me the number five.
+
+32
+00:03:37,500 --> 00:03:41,820
+It only prints the value of the last line, but it lets us very quickly just see an object.
+
+33
+00:03:41,820 --> 00:03:48,990
+We don't even need to worry about print statements. If we do want to create output, we can.
+
+34
+00:03:48,990 --> 00:03:53,310
+Called print, and it will print the output for the way Python would usually print it.
+
+35
+00:03:53,310 --> 00:03:59,370
+It shows up as a as as text. Jupiter is going to show the output of our program here.
+
+36
+00:03:59,370 --> 00:04:05,640
+It's formatted a little differently because its output. It's not just showing the results of an expression.
+
+37
+00:04:05,640 --> 00:04:10,170
+These code cells are not the only cells that we can have in a notebook.
+
+38
+00:04:10,170 --> 00:04:16,530
+So I'm going to insert a new cell above the above this one.
+
+39
+00:04:16,530 --> 00:04:21,030
+And I am going to change its type to markdown.
+
+40
+00:04:21,030 --> 00:04:34,090
+And in a markdown cell, we don't write python code, but we write text.
+
+41
+00:04:34,090 --> 00:04:39,790
+So I wrote the text, this is the demonstration node to show notebook to show you how to run Python code.
+
+42
+00:04:39,790 --> 00:04:44,170
+And if I run this notebook, it just renders it as text.
+
+43
+00:04:44,170 --> 00:04:48,430
+Now I can edit it. I'm going to double click to edit it again.
+
+44
+00:04:48,430 --> 00:04:54,930
+This supports all markdown features so we can give this notebook a heading.
+
+45
+00:04:54,930 --> 00:05:01,560
+We always want to begin our notebook with a level one heading, which is done with a single hash that gives the title of the notebooks,
+
+46
+00:05:01,560 --> 00:05:07,030
+that then when we convert it to another format, we're gonna have the title right there.
+
+47
+00:05:07,030 --> 00:05:17,540
+Markdown sells. Support a variety of formatting features.
+
+48
+00:05:17,540 --> 00:05:25,040
+Such as bold and I tell Lex.
+
+49
+00:05:25,040 --> 00:05:37,060
+Also, Bullethead Leth. Lists and numbered.
+
+50
+00:05:37,060 --> 00:05:47,080
+Blasts. I'm going to stick another cell in here, why I use the menu.
+
+51
+00:05:47,080 --> 00:05:52,930
+I can also hit the A key and it will add a new cell above and M changes it to mark down.
+
+52
+00:05:52,930 --> 00:05:57,130
+There's keys that will that will let us navigate the notebook quickly.
+
+53
+00:05:57,130 --> 00:06:00,070
+Also, the notebook is what we call modal.
+
+54
+00:06:00,070 --> 00:06:08,860
+If the if the interface has two modes, if the cell is surrounded in green, I'm editing the contents of this cell.
+
+55
+00:06:08,860 --> 00:06:22,300
+We can also show Mathen that. Tickle expressions like Y equals X plus B, you put them in dollar signs and they're going to be rendered.
+
+56
+00:06:22,300 --> 00:06:30,960
+I'm going to shift enter again. And now the math is showing up like math.
+
+57
+00:06:30,960 --> 00:06:37,410
+When it's blue, when the cell is highlighted in blue, we're not editing the contents of the cell, but rather we are moving around cells.
+
+58
+00:06:37,410 --> 00:06:43,560
+So the up and down arrows, keys like a will add a cell instead of typing a in the cell.
+
+59
+00:06:43,560 --> 00:06:51,690
+Once we're on a cell, we can hit enter to edit the cell and escape to change back to the mode where we navigate cells.
+
+60
+00:06:51,690 --> 00:06:59,940
+So now we have this notebook control as saves the notebook. Jupiter has its own set of menus so we can do a variety of things like again, save.
+
+61
+00:06:59,940 --> 00:07:04,920
+Save the notebook with a new name. We can make a copy of The Notebook.
+
+62
+00:07:04,920 --> 00:07:09,510
+We can also we're going to go submit the notebook in order to give you feedback.
+
+63
+00:07:09,510 --> 00:07:18,000
+I want a PDAF of your notebook so that I can use blackboards, PDAF markup tools to give you feedback on your assignments.
+
+64
+00:07:18,000 --> 00:07:27,810
+So. Jupiter has the direct ability to create a PDAF, but unfortunately requires an entire low tech installation.
+
+65
+00:07:27,810 --> 00:07:32,160
+An additional software on top of that in order to go from a notebook to a PDAF.
+
+66
+00:07:32,160 --> 00:07:36,450
+So what instead we're going to do is we're going to go into the notebooks print preview.
+
+67
+00:07:36,450 --> 00:07:40,560
+So I clicked file on the notebook interface. I go to print preview.
+
+68
+00:07:40,560 --> 00:07:44,340
+This shows a trimmed down version of The Notebook that's not interactive.
+
+69
+00:07:44,340 --> 00:07:51,200
+It doesn't have any in the interface. And now we can print this version of The Notebook.
+
+70
+00:07:51,200 --> 00:07:56,820
+And we can print your browser is going to let you save as a PDAF when you go to print.
+
+71
+00:07:56,820 --> 00:08:06,320
+So we're just going to use that save as PDAF. I'm going to go put it in my assignment's directory.
+
+72
+00:08:06,320 --> 00:08:10,660
+Demo not booked up PDAF. Close this window.
+
+73
+00:08:10,660 --> 00:08:14,050
+Now, if I go to that directory, I'm going to see both my IP and B file.
+
+74
+00:08:14,050 --> 00:08:18,850
+That's the actual notebook file itself and the PDA file I just exported.
+
+75
+00:08:18,850 --> 00:08:23,650
+I can look at the contents of that PDA file and it looks like we expected.
+
+76
+00:08:23,650 --> 00:08:29,200
+We see the notebook title at the top where he wrote that level one heading.
+
+77
+00:08:29,200 --> 00:08:33,370
+We see all of our output when you're submitting an assignment.
+
+78
+00:08:33,370 --> 00:08:39,610
+What I want you to submit is both the IP JMB file and the notebook file.
+
+79
+00:08:39,610 --> 00:08:47,830
+So now. So when we're done with a notebook, then we go what it was file menu and we close and halt.
+
+80
+00:08:47,830 --> 00:08:56,500
+And this closes the notebook tab. But it also shuts down the python instance that's running in the background to let us run the code in the notebook.
+
+81
+00:08:56,500 --> 00:09:03,430
+If you don't close a halt, you're going to wind up with a bunch of python instances kicking around that you may not want.
+
+82
+00:09:03,430 --> 00:09:10,120
+We're gonna see more features of Jupiter as we go through the class, including things to manage the python processes that are running.
+
+83
+00:09:10,120 --> 00:09:14,410
+But now you've seen the first steps to how you can open Jupiter.
+
+84
+00:09:14,410 --> 00:09:22,090
+You can create a notebook. You've seen notebook cells and you've seen how we can take this notebook and create output.
+
+85
+00:09:22,090 --> 00:09:30,600
+You're going to submit when you submit the results of an assignment.
+
