@@ -1,0 +1,520 @@
+1
+00:00:04,870 --> 00:00:12,190
+This video, I'm going to introduce some of the fundamental structures and principles of doing scientific computing in Python.
+
+2
+00:00:12,190 --> 00:00:18,070
+Since the last couple of videos, I've briefly introduced Python's core structures and core data types.
+
+3
+00:00:18,070 --> 00:00:23,390
+But a lot of our work is going to be working with an additional set of structures,
+
+4
+00:00:23,390 --> 00:00:28,060
+a set of libraries known as scientific python or as the pie data stack.
+
+5
+00:00:28,060 --> 00:00:35,500
+So learning outcomes of this video are to understand limitations of core python data types for data science to know.
+
+6
+00:00:35,500 --> 00:00:41,440
+Three key rate data types particularly. Are we focusing primarily on the number high end the array?
+
+7
+00:00:41,440 --> 00:00:48,450
+Also briefly introduce serious and data frame. We're going to see a lot more about those next week and the.
+
+8
+00:00:48,450 --> 00:00:56,390
+To be able to perform basic vectorized operations. So in Python, we can write a list of numbers like this.
+
+9
+00:00:56,390 --> 00:01:01,040
+So numbers equals I'm using the list syntax that we talked about in the earlier video.
+
+10
+00:01:01,040 --> 00:01:07,630
+And I've got four numbers in here that I'm storing in this list and the variable numbers.
+
+11
+00:01:07,630 --> 00:01:11,260
+Now. This seems like a perfectly natural thing to do.
+
+12
+00:01:11,260 --> 00:01:17,860
+But remember, we said I said in the previous video that everything in Python is an object.
+
+13
+00:01:17,860 --> 00:01:24,220
+So this isn't just a list of numbers. If we wrote this in Java or C, we would have an array of numbers where system array.
+
+14
+00:01:24,220 --> 00:01:31,180
+And it's the stores, the numbers, one after the other. But in Python, that's not how it works because everything is an object.
+
+15
+00:01:31,180 --> 00:01:34,960
+What our list stores is, it stores pointers to numbers.
+
+16
+00:01:34,960 --> 00:01:50,480
+So we've got a list. And it's got a pointer to O point three and a pointer to nine point two, et cetera.
+
+17
+00:01:50,480 --> 00:01:58,510
+So what we store is the list itself has these pointers, which are eight bytes each.
+
+18
+00:01:58,510 --> 00:02:02,650
+And it has the. Numbers themselves.
+
+19
+00:02:02,650 --> 00:02:08,730
+A flooding point. A double precision flooding point number takes eight bites. But the numbers aren't just numbers, they're objects.
+
+20
+00:02:08,730 --> 00:02:12,870
+And every python object has at least 16 bites.
+
+21
+00:02:12,870 --> 00:02:17,610
+This is all on a 64 bit system, has at least 16 bytes of header information.
+
+22
+00:02:17,610 --> 00:02:24,060
+And so this whole list of numbers takes 144 bytes because we've the list has a header.
+
+23
+00:02:24,060 --> 00:02:28,830
+It has pointers. The pointers are the objects that have headers in addition to the data.
+
+24
+00:02:28,830 --> 00:02:36,300
+Also, the elements of a list can be different types. So when you go over the list, there's no guarantee that everything is a number.
+
+25
+00:02:36,300 --> 00:02:42,510
+So if we if we want to sum our numbers, there is a python function called some that will double do a sum.
+
+26
+00:02:42,510 --> 00:02:47,550
+But it's basically doing this. So we'll initialize a variable called total.
+
+27
+00:02:47,550 --> 00:02:51,400
+Well, then loop over all of our numbers and we'll add each one to the total.
+
+28
+00:02:51,400 --> 00:02:57,360
+And that's gonna make the total equal the total of the numbers. This works, it works just fine.
+
+29
+00:02:57,360 --> 00:03:02,310
+And for a list of four numbers, it's completely fine. But Python.
+
+30
+00:03:02,310 --> 00:03:07,770
+There's a couple of issues here. One python is Python. The language itself is rather slow.
+
+31
+00:03:07,770 --> 00:03:11,280
+It's quite convenient, but it's slow and it's slow for two reasons.
+
+32
+00:03:11,280 --> 00:03:17,790
+One is that it is interpreted the python code is compiled to an internal data structure,
+
+33
+00:03:17,790 --> 00:03:24,090
+but then there's C code that runs in a loop interpreting that data structure.
+
+34
+00:03:24,090 --> 00:03:32,310
+It's also dynamically typed. So remember, I said there's the the values and the numbers are in the list can have different types.
+
+35
+00:03:32,310 --> 00:03:38,070
+We wrote a set of numbers there. But Python isn't guaranteed that they're all numbers.
+
+36
+00:03:38,070 --> 00:03:41,040
+And so rather than saying, okay, I have a number, I'm going to keep adding it.
+
+37
+00:03:41,040 --> 00:03:45,810
+What it says is I have a thing and I'm going to try to add it to the thing I already have.
+
+38
+00:03:45,810 --> 00:03:50,130
+And it has to go look up how to do that, and it does that every time for each number.
+
+39
+00:03:50,130 --> 00:03:58,900
+This is all very slow. Also, since it's pointers, if you've taken the computer architecture class.
+
+40
+00:03:58,900 --> 00:04:06,610
+That may ring a few alarm bells for you because rather than just having an array of numbers which will be loaded into our cash very quickly accessed,
+
+41
+00:04:06,610 --> 00:04:12,280
+we have an array of pointers and each pointer has to go off and look up the number in memory.
+
+42
+00:04:12,280 --> 00:04:16,970
+And those numbers might be stored next to each other, but they might be stored all over the heap.
+
+43
+00:04:16,970 --> 00:04:25,390
+We're gonna have cash misses which make these slow process even slower so we can write code like this and it works fine,
+
+44
+00:04:25,390 --> 00:04:31,510
+but it's not an efficient way to do computation. And as we get to larger and larger data sets, you get a few hundred.
+
+45
+00:04:31,510 --> 00:04:37,780
+You got a few thousand numbers. You're gonna be fine. When you've got a million numbers, when you have a hundred million or a billion numbers.
+
+46
+00:04:37,780 --> 00:04:47,500
+Then things start to really get slow. So none PI is a python package that provides efficient data types for doing numeric computation.
+
+47
+00:04:47,500 --> 00:04:55,720
+And NUM Pi underlies almost all of the rest of the scientific python and data science and machine learning for Python software.
+
+48
+00:04:55,720 --> 00:05:00,430
+It has a data type called an NDA array. There's a variety of different ways you can create one,
+
+49
+00:05:00,430 --> 00:05:06,170
+but here we're going to just create one using the array constructor and then we're going to pass it our list.
+
+50
+00:05:06,170 --> 00:05:14,890
+So we're creating the list in this case. We are going to see later many ways to load arrays without having to go through a list.
+
+51
+00:05:14,890 --> 00:05:19,210
+I'm just doing this here so I can demonstrate how the array works.
+
+52
+00:05:19,210 --> 00:05:24,940
+But all the elements are of the same type in an array and they're also stored directly in the array.
+
+53
+00:05:24,940 --> 00:05:28,480
+So this ENDI array, it's the stores, the floats, one right after each other.
+
+54
+00:05:28,480 --> 00:05:35,140
+Eight bytes each. And so we don't have the indirection, three pointers. We don't have all of the overhead of storing all of these different objects.
+
+55
+00:05:35,140 --> 00:05:41,170
+It's just storing the numbers, one right after each other. You can have an Endi array of objects and that's going to store the pointers.
+
+56
+00:05:41,170 --> 00:05:46,900
+And that's useful in a few cases, especially for treating strings consistently with numbers.
+
+57
+00:05:46,900 --> 00:05:55,280
+But it really shines when we're dealing with arrays of numbers for various scientific computing applications.
+
+58
+00:05:55,280 --> 00:06:01,880
+So if you want to sum our numbers, we can use the num pi some function and it it's much shorter.
+
+59
+00:06:01,880 --> 00:06:08,340
+A little python has a some function, as I mentioned, that we could have used, but also it's implemented in a compiled language.
+
+60
+00:06:08,340 --> 00:06:14,660
+And when you have a num high array that's storing numbers, whether the integers,
+
+61
+00:06:14,660 --> 00:06:20,840
+whether they're floating point numbers, it's stored internally in a format that's compatible with C or Fortran.
+
+62
+00:06:20,840 --> 00:06:25,570
+And so a lot of num pi. Functions.
+
+63
+00:06:25,570 --> 00:06:29,650
+What they're doing is they're passing the array to see code or Fortran code or
+
+64
+00:06:29,650 --> 00:06:36,520
+C++ code that has a comp. loop that works on that data type and is able to very,
+
+65
+00:06:36,520 --> 00:06:42,070
+very efficiently sum up those numbers. We don't have a cast mate cash issues from the indirection.
+
+66
+00:06:42,070 --> 00:06:45,640
+We don't have the overhead of Python's interpreted code.
+
+67
+00:06:45,640 --> 00:06:52,810
+We don't have the overhead of having to deal with the the elements of the array might be of different types.
+
+68
+00:06:52,810 --> 00:06:59,650
+They're all the same type. We can work over them in in a loop, in comp.
+
+69
+00:06:59,650 --> 00:07:05,350
+Machine code. So in general, don't loop. You can loop over a number high end the array.
+
+70
+00:07:05,350 --> 00:07:09,370
+It's iterable just like a list. But in general, you don't want to do that.
+
+71
+00:07:09,370 --> 00:07:14,380
+You want to set up your code so that num pi can do the looping for you.
+
+72
+00:07:14,380 --> 00:07:24,970
+And effectively what we wind up using Python as is a scripting language to tell the underlying C, C++ and Fortran code.
+
+73
+00:07:24,970 --> 00:07:26,500
+What to do.
+
+74
+00:07:26,500 --> 00:07:38,240
+And the fact that Python is a slow language doesn't matter very much because the vast majority of our processing time won't be spent in Python.
+
+75
+00:07:38,240 --> 00:07:43,190
+So I thought none pile. So has a feature called Vector Ization.
+
+76
+00:07:43,190 --> 00:07:47,750
+There are a lot of operations that operate on an entire array at a time.
+
+77
+00:07:47,750 --> 00:07:52,580
+So if I get it, I can create another array. The Linn's base function here.
+
+78
+00:07:52,580 --> 00:08:01,180
+It. The land space function here.
+
+79
+00:08:01,180 --> 00:08:06,370
+It creates an array of four values that are evenly spaced from zero to one inclusive.
+
+80
+00:08:06,370 --> 00:08:11,170
+And then the plus operator here, remember, plus between two numbers is going to add it between two strings.
+
+81
+00:08:11,170 --> 00:08:18,460
+It's going to concatenate them plus between two arrays requires them to be of compatible shapes.
+
+82
+00:08:18,460 --> 00:08:24,970
+And it adds the the corresponding elements of the arrays to each other and returns a new array.
+
+83
+00:08:24,970 --> 00:08:29,500
+So what if we have a bunch of number one array of numbers and we have another array of numbers?
+
+84
+00:08:29,500 --> 00:08:39,460
+We want to add them together. We just add the two arrays and it does that addition again in a loop written in C or Fortran.
+
+85
+00:08:39,460 --> 00:08:41,740
+And it does it very, very quickly.
+
+86
+00:08:41,740 --> 00:08:49,540
+You can also add an integer or an integer or a floating point, single number to an array, and it'll add it to every element of the array.
+
+87
+00:08:49,540 --> 00:08:55,120
+But this is the key point to be able to make scientific computing with Python fast.
+
+88
+00:08:55,120 --> 00:09:04,090
+We setup our code and throughout. We're gonna be trying to set it up so that we use vectorized nation as much as possible.
+
+89
+00:09:04,090 --> 00:09:11,270
+And we vectorized over as much data at a time as possible so we can allow the optimized loops and in num pi,
+
+90
+00:09:11,270 --> 00:09:21,400
+in Pandas and Sai Pi and psychic learn to do the work and to put as much of the work as possible into those compile loops.
+
+91
+00:09:21,400 --> 00:09:28,390
+So we're not spending a lot of time in slow python code. Each array has three key things.
+
+92
+00:09:28,390 --> 00:09:33,740
+It has a data type called a D type, and that says what kind of elements are in the array?
+
+93
+00:09:33,740 --> 00:09:39,710
+PI has data types for your standard integers of various sizes.
+
+94
+00:09:39,710 --> 00:09:44,870
+Single and double precision floating point numbers. It also has D types for working with.
+
+95
+00:09:44,870 --> 00:09:50,080
+Date. Date. Times. Strings and then storing arrays.
+
+96
+00:09:50,080 --> 00:09:53,000
+That's where pointers to arbitrary python objects.
+
+97
+00:09:53,000 --> 00:09:59,720
+The data type or the array also has a shape which is a tuple of integers that says how big the array is.
+
+98
+00:09:59,720 --> 00:10:04,700
+The array may be multidimensional. So Endi array stands for N Dimensional Array.
+
+99
+00:10:04,700 --> 00:10:15,580
+And it can be one, two, three, four, whatever dimensional. So if we have a 100 by 50 matrix, it's stored in a in a number PI in the array of shape.
+
+100
+00:10:15,580 --> 00:10:19,730
+One hundred, comma 50. And then there's the data. It's stealth.
+
+101
+00:10:19,730 --> 00:10:26,420
+That's the elements of the array. The data points themselves that are stored in the array.
+
+102
+00:10:26,420 --> 00:10:33,170
+So then pandas, which we're going to see next week, builds on top of a raise with two new data types,
+
+103
+00:10:33,170 --> 00:10:38,960
+a series is an array with an associated index that allows us to look up.
+
+104
+00:10:38,960 --> 00:10:48,260
+So an ENDI array, like a python list is indexed using numbers starting from zero zero one, two, three, four, five.
+
+105
+00:10:48,260 --> 00:10:55,850
+But sometimes for a lot of times we're gonna have some other natural index. If you've taken databases, it's equivalent to the primary key.
+
+106
+00:10:55,850 --> 00:11:00,150
+So a series is an array with an associated index that might be other numbers.
+
+107
+00:11:00,150 --> 00:11:04,580
+That might be strings. But some other way of accessing the points.
+
+108
+00:11:04,580 --> 00:11:12,470
+It also has an efficient representations that you can have a series that's indexed zero through and minus one where N is the length of the series.
+
+109
+00:11:12,470 --> 00:11:18,800
+And it does not take up a lot of space to do that. And then a data frame is a table where each column is a series.
+
+110
+00:11:18,800 --> 00:11:25,760
+And they all share the same index. And we're gonna see those a lot because we load in a set of data points that's gonna be in a data frame.
+
+111
+00:11:25,760 --> 00:11:30,110
+Now, an assignment zero, you're going to briefly see both of these data structures.
+
+112
+00:11:30,110 --> 00:11:35,930
+I walk you through everything you have to do with them in assignment zero. And we're going to introduce them a lot more.
+
+113
+00:11:35,930 --> 00:11:39,560
+Woomera's talking about how to describe data next week.
+
+114
+00:11:39,560 --> 00:11:47,920
+But. Endi Arae, the number higher radiata structure is the fundamental core that all of these others are built on.
+
+115
+00:11:47,920 --> 00:11:55,740
+The series augments it with an index. The data frame collects multiple series together with column names like a spreadsheet table.
+
+116
+00:11:55,740 --> 00:12:00,950
+So we're still going to sometimes use Python native lists and loops.
+
+117
+00:12:00,950 --> 00:12:05,360
+Oftentimes, it's going to be because for some reason, we need a list of arrays or data frames.
+
+118
+00:12:05,360 --> 00:12:07,310
+Also, if we need to loop, if we have, say,
+
+119
+00:12:07,310 --> 00:12:15,950
+20 input files that we need to put together to to to be our data set or we got different groups of data, we're going to loop over those.
+
+120
+00:12:15,950 --> 00:12:20,390
+But the big thing we avoid doing is looping over individual data points.
+
+121
+00:12:20,390 --> 00:12:24,450
+We load in a few hundred thousand records. They're going to be in a data frame.
+
+122
+00:12:24,450 --> 00:12:33,470
+We don't loop over the rows of a data frame. If we can avoid it, because there's almost always a more efficient way to do that computation,
+
+123
+00:12:33,470 --> 00:12:41,000
+that pushes a lot of it into the C and C++ code and Fortran code that underlies NUM, Pi, pandas, et cetera.
+
+124
+00:12:41,000 --> 00:12:46,070
+So wrap up num pi provides efficient to ray data structures that are more memory compact's.
+
+125
+00:12:46,070 --> 00:12:50,690
+They don't take up nearly as much space and they're also much more efficient to compute over.
+
+126
+00:12:50,690 --> 00:12:54,320
+These are going to be the backbone of our data processing throughout the rest of the class.
+
+127
+00:12:54,320 --> 00:13:04,250
+And we want to prefer vectorized operations that perform these loops in native comp. machine code whenever possible for a little bit of practice.
+
+128
+00:13:04,250 --> 00:13:09,320
+I encourage you to take the example code from this from these slides and go and try them
+
+129
+00:13:09,320 --> 00:13:13,880
+in a notebook so you can get a little more practice creating notebooks and running code.
+
+130
+00:13:13,880 --> 00:13:20,967
+I will see you in class.
+
