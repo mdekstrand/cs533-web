@@ -1,7 +1,7 @@
 title: CS 533 Fall 2021
 author: Michael D. Ekstrand
 copyright: '2021'
-logo: logo.png
+# logo: logo.png
 
 exclude_patterns:
 - README.md
