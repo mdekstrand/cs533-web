@@ -20,6 +20,11 @@ a.free::after, cite.free::after {
     position: relative;
 }
 
+.video .aux-links {
+    text-align: right;
+    font-style: italic;
+}
+
 .video-container.video-embed {
     padding-top: 56.25%;
     margin-bottom: 24px;

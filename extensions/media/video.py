@@ -13,7 +13,7 @@ import srt
 _vid_root = Path('videos')
 
 
-def rst_video_tab(video_id, length=None, title='Video'):
+def rst_video_tab(video_id, length=None, title='Video', amara=None):
     vcc = nodes.container("", type="tabbed", new_group=False, selected=False, classes=["tabbed-container", "video"])
     if length:
         title += f" ({length})"
@@ -28,6 +28,15 @@ def rst_video_tab(video_id, length=None, title='Video'):
     """.strip(), format='html')
     vc += vid
     vcc += vc
+
+    if amara:
+        vl = nodes.paragraph("", classes=['aux-links'])
+        amr = nodes.reference('', '', classes=['amara'], internal=False)
+        amr['refuri'] = amara
+        amr += nodes.inline('', 'Edit subtitles on Amara')
+        vl += amr
+        vc += vl
+
     return vcc
 
 
@@ -53,8 +62,10 @@ class VideoDirective(SphinxDirective):
         'slide-auth': directives.unchanged,
         'length': directives.unchanged,
         'name': directives.path,
+        'amara': directives.path,
         'alt-id': directives.unchanged,
         'alt-title': directives.unchanged,
+        'alt-amara': directives.path,
     }
     has_content = True
     required_arguments = 0
@@ -83,7 +94,7 @@ class VideoDirective(SphinxDirective):
         result.append(box)
 
         if video_id:
-            box += rst_video_tab(video_id, length)
+            box += rst_video_tab(video_id, length, amara=self.options.get('amara', None))
         else:
             warnings.warn('no video ID specified')
 
@@ -94,7 +105,7 @@ class VideoDirective(SphinxDirective):
 
         alt_id = self.options.get('alt-id', None)
         if alt_id:
-            box += rst_video_tab(alt_id, title=self.options['alt-title'])
+            box += rst_video_tab(alt_id, title=self.options['alt-title'], amara=self.options.get('alt-amara', None))
 
         if self.content:
             rcc = nodes.container("", type="tabbed", new_group=False, selected=False,

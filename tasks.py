@@ -6,6 +6,7 @@ import shutil
 import re
 
 from invoke import task
+import requests
 
 BRANCH = 'archive'
 CURRENT = 'F21'
@@ -14,12 +15,27 @@ FULL_DIR = BUILD_DIR / 'site'
 CUR_DIR = BUILD_DIR / 'dirhtml'
 CUR_DEPLOY_DIR = FULL_DIR / CURRENT
 
+INVENTORY_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRYResrBniEP6Ponj_it8hJ7n9fO2P-_Xojq3JnVnIqn3QDUbCr-_x9CxSj4veUfg9-3OpNBFRL9Y34/pub?gid=0&single=true&output=csv'
+
 
 def _msg(fmt, *args):
     print(fmt % args, file=sys.stderr)
 
 
 @task
+def fetch_inventory(c, skip_if_exists=False):
+    out = BUILD_DIR / 'inventory.csv'
+    if skip_if_exists and out.exists():
+        _msg('inventory already fetched')
+        return
+
+    _msg('downloading inventory CSV')
+    res = requests.get(INVENTORY_CSV)
+    _msg('saving to %s', out)
+    out.write_bytes(res.text.encode('utf8'))
+
+
+@task(pre=[fetch_inventory])
 def build(c, rebuild=False, builder='dirhtml'):
     """
     Build the current site.

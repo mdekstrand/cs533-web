@@ -16,8 +16,7 @@ Welcome to class!
 :slide-id: "495979F9A431DDB0%2173563"
 :slide-auth: "AHTYqnlO5AKjbwU"
 :name: 0 - Welcome
-
-* [Edit subtitles on Amara](https://amara.org/en/videos/02wbnOQnXRUF/info/https3b861253-5e5a-4e65-b0cd-ad73014839eamp4mediatargettypevideopodcast/)
+:amara: https://amara.org/en/videos/02wbnOQnXRUF/info/https3b861253-5e5a-4e65-b0cd-ad73014839eamp4mediatargettypevideopodcast/
 ```
 
 ## Course Design
