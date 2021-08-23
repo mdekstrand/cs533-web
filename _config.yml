@@ -4,6 +4,7 @@ copyright: '2021'
 logo: logo.png
 
 exclude_patterns:
+- README.md
 - week4/*
 - week5/*
 - week6/*
