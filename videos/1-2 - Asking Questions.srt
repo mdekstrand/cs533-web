@@ -1,0 +1,412 @@
+1
+00:00:04,190 --> 00:00:09,250
+So this video, we're want to talk about asking questions.
+
+2
+00:00:09,250 --> 00:00:16,020
+What makes a good question? How does a question relate to the broader context of what we're trying to do in this class?
+
+3
+00:00:16,020 --> 00:00:21,130
+The learning outcomes for this video are few to understand what makes a good question.
+
+4
+00:00:21,130 --> 00:00:26,470
+Understand how it relates to goals and analysis and start to think about data for a question.
+
+5
+00:00:26,470 --> 00:00:35,790
+We're also going to introduce a key term operationalization that is going to come up throughout the rest of the class.
+
+6
+00:00:35,790 --> 00:00:44,400
+To set the stage, I want to review our definition of data science that I introduced in the class introduction video that we're learning
+
+7
+00:00:44,400 --> 00:00:52,500
+about how to use data to provide quantitative insights on questions of scientific business or social interest.
+
+8
+00:00:52,500 --> 00:01:00,120
+But in order to do that effectively, we need to be able to write good questions, refine those questions,
+
+9
+00:01:00,120 --> 00:01:11,370
+connect them both to the data we might be able to use to shed these quantitative insights and to the goals,
+
+10
+00:01:11,370 --> 00:01:17,870
+the business purposes or scientific purposes for which we're asking the questions in the first place.
+
+11
+00:01:17,870 --> 00:01:23,060
+So I want to work through this with you with an example.
+
+12
+00:01:23,060 --> 00:01:28,010
+So suppose in the Boys State Computer Science Department, we have our introductory classes.
+
+13
+00:01:28,010 --> 00:01:32,750
+Yes. One twenty one to twenty one. Three twenty one. Suppose we make some change to see.
+
+14
+00:01:32,750 --> 00:01:40,030
+Yes. Twenty one. Like we change the way we do the assignments. And we want to assess whether this new change improved.
+
+15
+00:01:40,030 --> 00:01:46,070
+C. S 121. So we have a business purpose here of we're making a change to one of our courses.
+
+16
+00:01:46,070 --> 00:01:50,540
+And we want to see if that change is improving the course in some way.
+
+17
+00:01:50,540 --> 00:01:56,580
+But in order to do that, we need to identify a number of things, such as what does it mean to improve C.
+
+18
+00:01:56,580 --> 00:02:04,510
+S one twenty one? What data could we use to try to inform this assessment of whether we improved?
+
+19
+00:02:04,510 --> 00:02:11,390
+Yes, 121. And what could we do with that data to measure improvement?
+
+20
+00:02:11,390 --> 00:02:17,540
+And. So this process is called operationalization.
+
+21
+00:02:17,540 --> 00:02:27,620
+We have a goal. Assess whether we improved 121. That, in turn is in service of the broader goal of delivering a high quality undergraduate education.
+
+22
+00:02:27,620 --> 00:02:34,760
+Then we've refined through intermediate questions. I'm going to show some of those in a bit to determine a specific measurement to take.
+
+23
+00:02:34,760 --> 00:02:39,470
+And at the end of the day, if we are fully operationalize the goal or a question,
+
+24
+00:02:39,470 --> 00:02:45,860
+we know precisely what data we're going to collect or has been collected and how what measurement
+
+25
+00:02:45,860 --> 00:02:51,140
+or measurements we're going to compute over that data in order to try to answer our question,
+
+26
+00:02:51,140 --> 00:02:55,940
+we use the term in a couple of senses. First, operationalize can be a verb.
+
+27
+00:02:55,940 --> 00:03:03,290
+It's the process of doing this operationalization. Then, as a tense of the verb operationalization is also a noun.
+
+28
+00:03:03,290 --> 00:03:05,330
+And it's the result of this process.
+
+29
+00:03:05,330 --> 00:03:15,500
+So the specific measurement and analysis that we're going to do over specific data can be called an operationalization of the question.
+
+30
+00:03:15,500 --> 00:03:19,760
+So we have our goal of assessing whether some change improves.
+
+31
+00:03:19,760 --> 00:03:24,290
+Yes, 121. We can ask an intermediate question.
+
+32
+00:03:24,290 --> 00:03:29,900
+OK, so what does it mean to improve it? Well, students are better prepared to go excel in the workplace.
+
+33
+00:03:29,900 --> 00:03:36,650
+Well, it's a while until this is the freshman class. It's a while until the students are going out and the job market.
+
+34
+00:03:36,650 --> 00:03:42,950
+Or we have for information on how well equipped they were. So can we ask a shorter term question?
+
+35
+00:03:42,950 --> 00:03:50,030
+That's going to help us get to that. Are students better prepared for the next class?
+
+36
+00:03:50,030 --> 00:03:57,100
+And we call this intermediate question a proxy.
+
+37
+00:03:57,100 --> 00:04:05,560
+So if our goal is better, prepare them for doing their work, they're doing the work we're training them for the proxy can be.
+
+38
+00:04:05,560 --> 00:04:09,280
+Well, are they better prepared for the next class?
+
+39
+00:04:09,280 --> 00:04:21,010
+So questions don't have one level and there's a there's a path here between goal our goal, improve education, deliver a high quality education,
+
+40
+00:04:21,010 --> 00:04:30,160
+the subgoal of assess whether this change that was intended to improve the educational effectiveness of our introductory
+
+41
+00:04:30,160 --> 00:04:38,620
+programing class actually did so to get all the way down to the data that we can use in order to try to measure it.
+
+42
+00:04:38,620 --> 00:04:43,300
+We can also have multiple levels of questions, as we've already seen well.
+
+43
+00:04:43,300 --> 00:04:47,170
+Are they prepared for for their work? Well, we can't. That's a long timeframe.
+
+44
+00:04:47,170 --> 00:04:53,650
+It's difficult to measure that on the timeframe we need in order to iterate on the on class structures.
+
+45
+00:04:53,650 --> 00:04:58,180
+So we use this that we step down one level. We use this proxy.
+
+46
+00:04:58,180 --> 00:05:01,630
+Are they better prepared for the next class?
+
+47
+00:05:01,630 --> 00:05:11,320
+So if we want to think about the quality of our questions, like we need a way to assess whether a question is good.
+
+48
+00:05:11,320 --> 00:05:14,210
+And there's a couple of ways we do that. One is looking upward.
+
+49
+00:05:14,210 --> 00:05:21,910
+So the question should advance the goal and we should be able to look at the goal and look at the question and say yes.
+
+50
+00:05:21,910 --> 00:05:26,950
+Answering this question does move us forward in this goal.
+
+51
+00:05:26,950 --> 00:05:30,760
+No one question is going to be the complete answer to our goal.
+
+52
+00:05:30,760 --> 00:05:35,710
+But our students, better prepared for the next class, moves us one step closer.
+
+53
+00:05:35,710 --> 00:05:40,300
+We can say yes, if we if students are better prepared for the next class,
+
+54
+00:05:40,300 --> 00:05:46,360
+that is probably evidence that we have improved the effectiveness of the introductory class.
+
+55
+00:05:46,360 --> 00:05:52,660
+Also, though, carrying out the analysis should answer the question.
+
+56
+00:05:52,660 --> 00:05:58,540
+We want to work our questions down to the point where we have a question that's specific.
+
+57
+00:05:58,540 --> 00:06:07,240
+We we can it's clear that the question will advance either the top level goal or a higher level question that in turn advances the goal.
+
+58
+00:06:07,240 --> 00:06:11,110
+But also it's specific enough that we can look at a data analysis plan.
+
+59
+00:06:11,110 --> 00:06:17,140
+Here's the data we're going to use. Here's the measurements we're going to take. Here's the analysis we're going to perform and we can say, yes,
+
+60
+00:06:17,140 --> 00:06:24,220
+doing this data analysis plan will answer this question or at least answer the question in a useful sense.
+
+61
+00:06:24,220 --> 00:06:31,240
+And so if we can make those connections that we can see, doing the analysis will answer the question, answer the question.
+
+62
+00:06:31,240 --> 00:06:35,350
+Answering the question will advance the goal. Then we have a connection.
+
+63
+00:06:35,350 --> 00:06:41,620
+We have a connectedness between the analysis and the data that we can actually do.
+
+64
+00:06:41,620 --> 00:06:48,720
+And. The question or the goal that we're trying to advance through this data analysis.
+
+65
+00:06:48,720 --> 00:06:57,030
+So a fully operationalized question is going to be specific and it's going to be answerable and with the available data.
+
+66
+00:06:57,030 --> 00:07:01,080
+Now, there are lots of useful questions that we can't answer with available data.
+
+67
+00:07:01,080 --> 00:07:11,080
+That does not mean they're bad or we should ignore them. They're incredibly useful for contextualizing the limits of a data analysis that we do.
+
+68
+00:07:11,080 --> 00:07:14,290
+We have a data analysis. It can answer one question that will advance the goal.
+
+69
+00:07:14,290 --> 00:07:18,760
+There are three other questions related to the goal that cannot be answered by our analysis.
+
+70
+00:07:18,760 --> 00:07:23,080
+Well, that's useful in our report to talk about the limitations. Well, we can answer this question.
+
+71
+00:07:23,080 --> 00:07:27,880
+We can't answer these others. Maybe we can think about how to how to answer those others questions.
+
+72
+00:07:27,880 --> 00:07:31,130
+But when we're trying to get down to a question that we can answer with data.
+
+73
+00:07:31,130 --> 00:07:39,370
+And remember, we're talking about data sciences, quantitative insights into these questions.
+
+74
+00:07:39,370 --> 00:07:45,580
+We want to see, can we actually answer the question with data? And can we match the analysis plan to the question to the goal.
+
+75
+00:07:45,580 --> 00:07:53,830
+So to go back to our example of trying to measure the effectiveness of improving one twenty one, are students better prepared for the next class?
+
+76
+00:07:53,830 --> 00:07:57,870
+Well, we can make that more specific. Are they more likely to pass?
+
+77
+00:07:57,870 --> 00:08:01,960
+Yes. To twenty one. Now we have a very specific question.
+
+78
+00:08:01,960 --> 00:08:07,930
+We can answer it with the student grades from six to twenty one. We can look at students who took our class.
+
+79
+00:08:07,930 --> 00:08:11,950
+Our new C. S one twenty one and took our old C as one.
+
+80
+00:08:11,950 --> 00:08:15,940
+And we can compare the pass rates. Now there are many caveats.
+
+81
+00:08:15,940 --> 00:08:21,640
+There are a lot of challenges to doing this properly. It can only measure one piece of what's going on.
+
+82
+00:08:21,640 --> 00:08:25,300
+But it's a specific question that we can answer with data.
+
+83
+00:08:25,300 --> 00:08:33,280
+Our students in the new version of our intro class more or less likely to pass the next class,
+
+84
+00:08:33,280 --> 00:08:37,090
+will get to talk more about this question in the next video.
+
+85
+00:08:37,090 --> 00:08:43,270
+Now, to get to this kind of a question, I've given you the example and work through it here.
+
+86
+00:08:43,270 --> 00:08:51,310
+In practice, you're going to need to work with your boss, your client, your advisor, other stakeholders,
+
+87
+00:08:51,310 --> 00:08:58,560
+whoever is going to be acting on the results of your data analysis, which may be yourself.
+
+88
+00:08:58,560 --> 00:09:05,190
+To get to these operation, to get to these fully operationalized questions, they're going to have goals.
+
+89
+00:09:05,190 --> 00:09:11,130
+They may have some some high level questions, they may have some specific questions that can't map to the data.
+
+90
+00:09:11,130 --> 00:09:17,370
+One of the key ways to be able to do this refinement is through clarifying questions such as.
+
+91
+00:09:17,370 --> 00:09:21,240
+So if if the department chair came to you and said,
+
+92
+00:09:21,240 --> 00:09:28,350
+I would like you to help me measure the effect of this improvement to see us one twenty one, well, then we can ask questions.
+
+93
+00:09:28,350 --> 00:09:34,520
+What do we mean by improve? What would be evidence that we did improve?
+
+94
+00:09:34,520 --> 00:09:39,500
+Six one twenty one. And so we're gonna have practice in the synchronous time.
+
+95
+00:09:39,500 --> 00:09:44,360
+That's one of the things we're gonna do this week in thinking about clarifying questions.
+
+96
+00:09:44,360 --> 00:09:48,050
+But these clarifying questions that you can ask to your client.
+
+97
+00:09:48,050 --> 00:09:52,310
+We're going to use the term client generally for whoever is you're doing the data
+
+98
+00:09:52,310 --> 00:09:57,670
+analysis for to figure out what they actually want and what you can do with the data.
+
+99
+00:09:57,670 --> 00:10:05,360
+That's going to advance their goals. So to wrap up, there are multiple layers to translate between our high level goals,
+
+100
+00:10:05,360 --> 00:10:11,030
+deliver a high quality undergraduate education and what we can actually do with data
+
+101
+00:10:11,030 --> 00:10:16,850
+measure whether this change increased students ability to pass the next class.
+
+102
+00:10:16,850 --> 00:10:26,570
+Questions bridge this gap and we can have multiple layers of questions in order to get from high level goal to something we can do with data.
+
+103
+00:10:26,570 --> 00:10:35,933
+You're gonna be doing this a lot through the rest of the semester.
+

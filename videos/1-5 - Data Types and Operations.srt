@@ -1,0 +1,744 @@
+1
+00:00:04,390 --> 00:00:09,910
+This video, we're going to talk about data types and operations in Python to get you started,
+
+2
+00:00:09,910 --> 00:00:13,320
+more on being able to write some of your own Python code,
+
+3
+00:00:13,320 --> 00:00:18,430
+are learning outcomes for this video or for you to understand basic python data types of operations,
+
+4
+00:00:18,430 --> 00:00:24,880
+to be able to work with python variables, storing objects in them, to write some simple python code,
+
+5
+00:00:24,880 --> 00:00:31,210
+to do arithmetic and perform basic operations with lists and dictionaries. Also, this slide deck is a notebook.
+
+6
+00:00:31,210 --> 00:00:38,200
+And so rather than the little embedded slides widget like we have for a lot of the videos, for this one, there will be a link to the notebooks.
+
+7
+00:00:38,200 --> 00:00:40,810
+You can download it and run the code yourself.
+
+8
+00:00:40,810 --> 00:00:46,480
+There's also going to be more resources linked in the class notes that I'll talk about briefly at the end of this video.
+
+9
+00:00:46,480 --> 00:00:51,760
+Python supports couple primary types of numbers. First, we can write integers just by writing the number.
+
+10
+00:00:51,760 --> 00:00:56,860
+There's no decimal point in there. And if we run, that is just a it's a python line.
+
+11
+00:00:56,860 --> 00:01:02,590
+So a python line is called a statement. A statement can have something like an F or something like that.
+
+12
+00:01:02,590 --> 00:01:10,990
+Or it can just be what we call an expression. And an expression is a set of operations that results in a value.
+
+13
+00:01:10,990 --> 00:01:16,420
+And so a number just writing the number itself is an expression. So we can we can write an integer.
+
+14
+00:01:16,420 --> 00:01:21,340
+We can write a floating point number with a decimal point. These are stored in floating point format.
+
+15
+00:01:21,340 --> 00:01:27,250
+There are a couple of nuances about that. We'll talk about when we talk more in detail about different types of data.
+
+16
+00:01:27,250 --> 00:01:30,490
+We can also use scientific notation with the E notations,
+
+17
+00:01:30,490 --> 00:01:41,840
+the six point O to each of the twenty three Avogadro's number a mole and we write E twenty three and that means times ten to twenty third power.
+
+18
+00:01:41,840 --> 00:01:53,000
+So we can also do arithmetic on these numbers, so the usual arithmetic operations, addition, subtraction, etc., they work as we would expect.
+
+19
+00:01:53,000 --> 00:01:54,570
+They were just like they do.
+
+20
+00:01:54,570 --> 00:02:00,770
+And when you're writing them in math, when they work in other programing languages, we can add five in to order of operation disrespected.
+
+21
+00:02:00,770 --> 00:02:04,820
+So three times six at plus two.
+
+22
+00:02:04,820 --> 00:02:13,250
+We can also then use parentheses to change the groupings so we can add two and three before multiplying by six.
+
+23
+00:02:13,250 --> 00:02:17,300
+It works like you would expect from almost any other programing language.
+
+24
+00:02:17,300 --> 00:02:23,420
+No surprises here if you're familiar with Java or Perl or something else.
+
+25
+00:02:23,420 --> 00:02:25,850
+Those are our basic arithmetic operations.
+
+26
+00:02:25,850 --> 00:02:32,480
+If we want to raise something to a power, the star star operator is what Python uses to raise something to a power.
+
+27
+00:02:32,480 --> 00:02:35,990
+So two to the fifth power is two star star five.
+
+28
+00:02:35,990 --> 00:02:43,610
+We can also get a number of other mathematical operations from two different python modules math and num pi num.
+
+29
+00:02:43,610 --> 00:02:48,230
+Pi has duplicates of most of the math ones, so I usually just work with num pi.
+
+30
+00:02:48,230 --> 00:02:56,240
+You have to import a module before you can use its function. So I'm going to import the num pi module here and I want to give it a shorter alias enpi.
+
+31
+00:02:56,240 --> 00:03:01,670
+This is very common in Jupiter notebook's that we that we import num pi S&P so then
+
+32
+00:03:01,670 --> 00:03:09,020
+we can just write n.p. dot log to compute the natural logarithm of the number twenty.
+
+33
+00:03:09,020 --> 00:03:12,320
+We can also store values in variables.
+
+34
+00:03:12,320 --> 00:03:20,810
+Let's just give them a name so X equals seven stores, the value seven in the variable X, there is no declaration necessary, unlike an JARBOE.
+
+35
+00:03:20,810 --> 00:03:24,230
+Just assign the value to a variable. Then we can use it.
+
+36
+00:03:24,230 --> 00:03:31,130
+So X is plus five is going to return a 12 because X currently stores the value seven.
+
+37
+00:03:31,130 --> 00:03:35,670
+Now if we change the variable, so we say X equals two.
+
+38
+00:03:35,670 --> 00:03:43,510
+OK. It's changed the variable. Python. So the variables are all stored in a commons memory space.
+
+39
+00:03:43,510 --> 00:03:47,650
+And the Jupiter notebook runs the cells in the order we ran them.
+
+40
+00:03:47,650 --> 00:03:59,150
+And it shows us here that number. But in in. Is the order in which that cell was run nine, 10, 11, if we so we've changed the value of of X here.
+
+41
+00:03:59,150 --> 00:04:05,240
+If we go back up and rerun this cell, it's going to use the new value of X.
+
+42
+00:04:05,240 --> 00:04:11,720
+This is important to keep in mind, and it's an easy way to get your notebook very confused if you've been running cells out of order.
+
+43
+00:04:11,720 --> 00:04:17,750
+When we're developing a notebook we're working on, a data analysis will often run things out of order, try things out.
+
+44
+00:04:17,750 --> 00:04:28,520
+But it's important to keep things clear and consistent in your notebook so that if you were to rerun the notebook from top to bottom,
+
+45
+00:04:28,520 --> 00:04:33,050
+it runs and produces the correct results. You can do experiments, but before you go,
+
+46
+00:04:33,050 --> 00:04:44,150
+say to submit your notebook to me in an assignment or before you go to to submit it to your client or use it for your final analysis.
+
+47
+00:04:44,150 --> 00:04:46,880
+Make sure that if you rerun it from top to bottom,
+
+48
+00:04:46,880 --> 00:04:51,410
+you get the right results so that you can be confident that you're actually computing the results you want.
+
+49
+00:04:51,410 --> 00:04:56,840
+And there's not something that's just an artifact of the order in which you happened to run the cells.
+
+50
+00:04:56,840 --> 00:05:02,900
+So we've seen numbers do seem variables that we can also write strings.
+
+51
+00:05:02,900 --> 00:05:06,500
+We can put them in quotes. Python takes both double and single quotes.
+
+52
+00:05:06,500 --> 00:05:10,660
+There's no difference between them. The backslash is an escape character.
+
+53
+00:05:10,660 --> 00:05:20,740
+So if we want to have double quotes and a double coded string, we can we can do that with by by prefixing them with a backslash.
+
+54
+00:05:20,740 --> 00:05:25,870
+We can one of the fundamental string operations is to contaminate two strings, and if you have strings,
+
+55
+00:05:25,870 --> 00:05:32,130
+the plus operator, it's the same operator we use for additions and with numbers, it can cat Nates the two strings.
+
+56
+00:05:32,130 --> 00:05:37,120
+So hello. Plus world is Hello World. There's a bunch of other operations.
+
+57
+00:05:37,120 --> 00:05:41,080
+For example, split separates a string into a list by default.
+
+58
+00:05:41,080 --> 00:05:45,550
+If you don't tell it how to split it, it uses whitespace. So this is going to split the string.
+
+59
+00:05:45,550 --> 00:05:49,330
+Hello Space World into a list of two items.
+
+60
+00:05:49,330 --> 00:05:57,710
+Hello and world. So Python is strict about types, every object, every value has a type.
+
+61
+00:05:57,710 --> 00:06:07,640
+And it won't auto convert them. So if you've programed in Perl or JavaScript or P HP and you take a string and a number and you can cabinet them,
+
+62
+00:06:07,640 --> 00:06:11,630
+it tries to convert the number to a string. Python won't do that.
+
+63
+00:06:11,630 --> 00:06:19,670
+So if we do this, we try to add a number to a string. It's going to give us a type error and a type error and tells us what's going on.
+
+64
+00:06:19,670 --> 00:06:24,890
+One of the skills you're going to need to develop in this class is the ability to read error messages.
+
+65
+00:06:24,890 --> 00:06:30,830
+And this error message tells us a cup, a few important things. It tells us that the error is a type error.
+
+66
+00:06:30,830 --> 00:06:36,100
+Other errors you're going to see are value errors, index errors, key errors, et cetera.
+
+67
+00:06:36,100 --> 00:06:42,570
+But this is telling us a type error, which means that we're trying to do something with the wrong type of data.
+
+68
+00:06:42,570 --> 00:06:46,470
+It then tells us two other things. It gives us this trace back of the code.
+
+69
+00:06:46,470 --> 00:06:53,730
+So it shows us where in the code it went wrong. The only thing we're doing here, we're not calling in many library functions or anything like that.
+
+70
+00:06:53,730 --> 00:07:01,620
+We're just trying to add a string in a number. We have our line of code. So it's showing us that it happened on line one, Maroon plus five,
+
+71
+00:07:01,620 --> 00:07:07,890
+and then it tells us a little bit more about the error can only concatenate stir, not end to stir.
+
+72
+00:07:07,890 --> 00:07:12,720
+So what this is telling us is that and Cat Nation only works on strings.
+
+73
+00:07:12,720 --> 00:07:18,670
+You can't concatenate things that aren't strings to a string.
+
+74
+00:07:18,670 --> 00:07:21,890
+And what we have here, we have a string and we have a number.
+
+75
+00:07:21,890 --> 00:07:33,170
+So if we want to if we want to to put five at the end of our our string, we can convert it with the Sturr function.
+
+76
+00:07:33,170 --> 00:07:40,580
+So Sturr is a function that takes an object and returns a string representation of that object intended for human consumption.
+
+77
+00:07:40,580 --> 00:07:48,580
+So if we do this, then we get our strength, then that will concatenate correctly and we get the string Maroon five.
+
+78
+00:07:48,580 --> 00:07:55,480
+So we've now seen three different kinds of operations that we can perform on python values.
+
+79
+00:07:55,480 --> 00:08:03,400
+We've seen an operator like Plasty Duck, the binary operators that go between their two operands so we can say six plus seven.
+
+80
+00:08:03,400 --> 00:08:10,600
+There's quite a few of these operators. We've seen a function which in this case, the function comes from a module.
+
+81
+00:08:10,600 --> 00:08:15,010
+So ENPI dialog and a function takes a value in return some other values.
+
+82
+00:08:15,010 --> 00:08:21,370
+We can compute the natural log of 10. And we've seen a method which is a function that's attached to an object.
+
+83
+00:08:21,370 --> 00:08:24,820
+So speed up. So the log function isn't attached to any particular object.
+
+84
+00:08:24,820 --> 00:08:28,990
+It's just a function hanging around. But the method. Hello.
+
+85
+00:08:28,990 --> 00:08:36,630
+So split is going to work on the hello world. String and.
+
+86
+00:08:36,630 --> 00:08:48,290
+And split it. So we've seen a method. If you're familiar with Java, they're like methods in Java and they operate on a particular.
+
+87
+00:08:48,290 --> 00:08:55,590
+They operate on a particular object. The Java equivalent of a python function would be a static method.
+
+88
+00:08:55,590 --> 00:09:02,240
+We've seen these three different kinds of operations in this class. We're going to learn how to write functions.
+
+89
+00:09:02,240 --> 00:09:07,880
+Eventually, we're going to learn how to write our own methods. But we aren't going to need that for the vast majority of this class.
+
+90
+00:09:07,880 --> 00:09:14,150
+You can also define how operators work on custom, on custom data types in Python.
+
+91
+00:09:14,150 --> 00:09:19,310
+We're not going to do that. It's learning to do that is outside the scope of this class.
+
+92
+00:09:19,310 --> 00:09:25,520
+But it is how some of the libraries that we're gonna be using work on the inside.
+
+93
+00:09:25,520 --> 00:09:29,570
+So we've got these different kinds of operations. There's a few other things that we can do.
+
+94
+00:09:29,570 --> 00:09:35,840
+So a few other data types you can work with. So now that split method, it returns a list.
+
+95
+00:09:35,840 --> 00:09:41,780
+Hello, World. And in Python, we write lists with square brackets and commas separating the values and we can write them.
+
+96
+00:09:41,780 --> 00:09:46,870
+So I can make a list that consists of these three values. Martin Cross and Grip's.
+
+97
+00:09:46,870 --> 00:09:50,530
+I can also save a list of variables. Now I have the variable Rowdy three.
+
+98
+00:09:50,530 --> 00:09:55,420
+That contains a list of these three names. We can then, though, add to the list.
+
+99
+00:09:55,420 --> 00:10:03,400
+So if too rowdy three that append Vogul. And we're going to now have a list that contains Martin Cross scripts and vocal.
+
+100
+00:10:03,400 --> 00:10:09,790
+Now, notice that in this code I did Rowdy three at a pen and then I just wrote Rowdy three.
+
+101
+00:10:09,790 --> 00:10:21,480
+That's because if you remember from the previous video. Jupiter shows the value of the last expression in your cell.
+
+102
+00:10:21,480 --> 00:10:24,960
+Rowdy three A doesn't return anything. The list append method.
+
+103
+00:10:24,960 --> 00:10:29,250
+Add something to the end of a list and actually it modifies that particular list.
+
+104
+00:10:29,250 --> 00:10:36,130
+We don't have a new list here. It modified our list object and and stuck Voegele at the end of it.
+
+105
+00:10:36,130 --> 00:10:37,890
+And it doesn't return anything.
+
+106
+00:10:37,890 --> 00:10:45,600
+So instead, what we're gonna do, what I often like to do when I do an operation like this is then at the end of the cell,
+
+107
+00:10:45,600 --> 00:10:51,150
+I just put the variable that I've been modifying so that it'll then show me what's currently in the variable.
+
+108
+00:10:51,150 --> 00:11:02,190
+So we can see that after we appended Voegele to the list stored in the variable Rowdy three, that list now consists of four items.
+
+109
+00:11:02,190 --> 00:11:09,010
+And yet the list now consists of four items and includes our new entry at the end.
+
+110
+00:11:09,010 --> 00:11:13,960
+So lists are indexed, starting with zero so rowdy, three of zero gives us Martin.
+
+111
+00:11:13,960 --> 00:11:21,820
+We can index backwards from the end, rowdy three negative one gives us voegele a slice, takes multiple elements from a list.
+
+112
+00:11:21,820 --> 00:11:27,610
+So rowdy three one Colen three gives us element the element that one and two.
+
+113
+00:11:27,610 --> 00:11:31,630
+What it does is it gives you it starts at the first index of the slice and gives
+
+114
+00:11:31,630 --> 00:11:36,940
+you all of the elements up to but not including the last element to the slice.
+
+115
+00:11:36,940 --> 00:11:42,130
+So. Zero is the first item, one is the second item.
+
+116
+00:11:42,130 --> 00:11:46,120
+So it's giving us items one and two and then three is one past the end.
+
+117
+00:11:46,120 --> 00:11:52,810
+These kinds of half open intervals. We call this a half open interval because it includes the left side and not the right side.
+
+118
+00:11:52,810 --> 00:12:01,510
+They're very, very common when we're using zero based indexing in a data structure because it's a very convenient way to express a range.
+
+119
+00:12:01,510 --> 00:12:08,240
+Also, the length of the range is. The end, minus the beginning, three, minus one.
+
+120
+00:12:08,240 --> 00:12:17,920
+It's going to give us a list of length to. One more thing we can do here is the land function.
+
+121
+00:12:17,920 --> 00:12:23,740
+Is a standard python function that will give you the length of anything that has a length like a list.
+
+122
+00:12:23,740 --> 00:12:29,680
+A number of other data structures have links. Most data structures that can contain other data structures will have a length.
+
+123
+00:12:29,680 --> 00:12:34,210
+It will also work on a string. But the length of rowdy three is currently four.
+
+124
+00:12:34,210 --> 00:12:41,950
+So we can also loop over a list. So this list, this loop here is going to loop for each person in the list.
+
+125
+00:12:41,950 --> 00:12:45,960
+Stored and rowdy three. It's going to print the person. So we get our four people.
+
+126
+00:12:45,960 --> 00:12:52,530
+Martin Cross scripts and vocal. What if we want to know the position of each item in the list as we go through the loop?
+
+127
+00:12:52,530 --> 00:13:02,910
+The enumerate function wraps a list and returns the list, but also the position in the list as we go through the loop.
+
+128
+00:13:02,910 --> 00:13:07,530
+And then this string here, this. That's prefixed with an F. We call this an F string.
+
+129
+00:13:07,530 --> 00:13:10,290
+And when you put a F right before the opening quote of a string,
+
+130
+00:13:10,290 --> 00:13:15,810
+you can then use squiggly braces and variable names to include variable values in the string.
+
+131
+00:13:15,810 --> 00:13:21,000
+It's one of the ways that Python lets you easily build up strings that contain additional data.
+
+132
+00:13:21,000 --> 00:13:25,740
+And so we're going to we're going to run this loop.
+
+133
+00:13:25,740 --> 00:13:31,500
+And now we see each. Each person is now prefixed with their member number.
+
+134
+00:13:31,500 --> 00:13:35,490
+And it's starting from zero because as we saw before, Python always starts from zero.
+
+135
+00:13:35,490 --> 00:13:43,700
+So the first one is members zero. And this enumerate function is just giving us the positions along with each item.
+
+136
+00:13:43,700 --> 00:13:50,670
+Python for loops operate over what what it calls iterable, something that iterable just feeds an object that you can use in a for loop.
+
+137
+00:13:50,670 --> 00:13:55,770
+Lists are iterable, but if you want to loop over a sequence of numbers like you might in Java.
+
+138
+00:13:55,770 --> 00:14:00,780
+So you want to go from zero one and two, you use a range.
+
+139
+00:14:00,780 --> 00:14:09,750
+So this is going to print zero one and two, because, again, the python does not include upper bounds of ranges and slices by default.
+
+140
+00:14:09,750 --> 00:14:16,950
+So we're going to go zero, one and two. So a tuple is another container.
+
+141
+00:14:16,950 --> 00:14:21,990
+It's like a list, except its size can't be changed. It's used for representing things like pairs.
+
+142
+00:14:21,990 --> 00:14:28,470
+So I'm going to create a variable called coords and I'm going to store the tuple three five in it coords.
+
+143
+00:14:28,470 --> 00:14:34,020
+Sub-Zero, then, is the first element of the tuple three chords.
+
+144
+00:14:34,020 --> 00:14:46,170
+One is five. If we did the Len of this tuple, we would we would get would get to a tuple can be unpacked by unpacking the tuple we take it.
+
+145
+00:14:46,170 --> 00:14:55,500
+So this tuple has two elements and we can say X, comma, Y to unpack the tuple into two different variables and then X is going to be three.
+
+146
+00:14:55,500 --> 00:15:03,300
+So the parentheses with the comma packs the tuple and assigning it to variable separated with a comma unpacks the tuple.
+
+147
+00:15:03,300 --> 00:15:11,670
+The tuple size has to match. So if we say X, Y, Z of coords and try to run that, it's going to tell us not enough values to unpack.
+
+148
+00:15:11,670 --> 00:15:18,790
+It expects three values X, Y and Z. But coords only has two values.
+
+149
+00:15:18,790 --> 00:15:25,960
+A dictionary is another data structure that maps, keys, often strings, but not always you can.
+
+150
+00:15:25,960 --> 00:15:34,600
+You can use numbers, tuples, any data structure that can't be changed, you can use as the key for a string or for a dictionary.
+
+151
+00:15:34,600 --> 00:15:38,710
+And so we're going to map some different animals to what they eat here. We created a variable.
+
+152
+00:15:38,710 --> 00:15:44,590
+Assigning to a variable doesn't return a value, so there's nothing to print here.
+
+153
+00:15:44,590 --> 00:15:49,690
+And then we can look up a value by its key. So we say Dietze of rabbit equals plants.
+
+154
+00:15:49,690 --> 00:15:57,550
+And that gives there like lists, except we can look them up by any key we want instead of having to look them up by a position.
+
+155
+00:15:57,550 --> 00:16:02,150
+So everything in Python is an object which has a type. We saw this when we saw the type error.
+
+156
+00:16:02,150 --> 00:16:06,320
+We try to to try to add the number five to the string maroon.
+
+157
+00:16:06,320 --> 00:16:11,950
+The Sipes we've seen in this video are integers, strings, lists, tuples and dictionaries.
+
+158
+00:16:11,950 --> 00:16:13,570
+There's a lot more to do with these.
+
+159
+00:16:13,570 --> 00:16:21,100
+I refer to you to the readings and also we're going to be introducing a various features of them as we go throughout the class.
+
+160
+00:16:21,100 --> 00:16:27,100
+Now, another thing that's important to understand is that in Python variables, store references to objects.
+
+161
+00:16:27,100 --> 00:16:31,210
+This is how Java works as well. But this matters, particularly for mutable objects.
+
+162
+00:16:31,210 --> 00:16:42,100
+So we have our list. Rowdy three. Now, if we assign the list to another variable, rowdy five and then we add Amanda and we print routing.
+
+163
+00:16:42,100 --> 00:16:47,980
+We show the result of rowdy five. OK. We have our list. Now we've added Amanda to the end of it.
+
+164
+00:16:47,980 --> 00:16:52,660
+The rowdy five and rowdy three variables are references to the same list objects.
+
+165
+00:16:52,660 --> 00:16:59,110
+We only look at Rowdy three. It's now going to show five elements, including Amanda.
+
+166
+00:16:59,110 --> 00:17:05,050
+Because when we assign the variable, it doesn't make a copy of the list.
+
+167
+00:17:05,050 --> 00:17:09,140
+All it does is it creates another variable that also refers to the list, too.
+
+168
+00:17:09,140 --> 00:17:15,220
+We modify this list, object and append modifies the object, what we call in place.
+
+169
+00:17:15,220 --> 00:17:21,050
+That means it modifies the object itself. It does not return a new object.
+
+170
+00:17:21,050 --> 00:17:30,200
+It the object changes and any variable that's referring to that object gets the change of this in-place
+
+171
+00:17:30,200 --> 00:17:34,700
+distinction is going to be important throughout the semester because some of the libraries we use,
+
+172
+00:17:34,700 --> 00:17:46,350
+they they offer options to whether you want to modify something in place or whether you want to return a new object that has the new data.
+
+173
+00:17:46,350 --> 00:17:50,010
+So there's a variety of ways. Resources to learn Python.
+
+174
+00:17:50,010 --> 00:17:57,270
+I'm going to be making some videos, but we're not going to have time in the videos to go into every piece of python you might need.
+
+175
+00:17:57,270 --> 00:18:04,300
+The tech chapters two, and I'm going to be writing some resources, chapters two and three in the text book are going to.
+
+176
+00:18:04,300 --> 00:18:10,380
+They talk about basic python operations and data structures. There's the Python tutorial that I'm providing you a link to.
+
+177
+00:18:10,380 --> 00:18:16,920
+That's a relatively comprehensive tutorial from the Python developers about the key Python language features.
+
+178
+00:18:16,920 --> 00:18:22,740
+If you really want to dove in depth, there's a book, Learn Python the Hard Way, which is quite comprehensive.
+
+179
+00:18:22,740 --> 00:18:30,510
+I'm also going to be providing in the resources section of the class site some additional notebook's that walk
+
+180
+00:18:30,510 --> 00:18:36,600
+through and demonstrate different Python features and give you information about the different operations.
+
+181
+00:18:36,600 --> 00:18:42,240
+For example, I'm planning on one such notebook that goes over a bunch of different things you
+
+182
+00:18:42,240 --> 00:18:48,540
+can do with lists more than I've had a chance to get into in in this video.
+
+183
+00:18:48,540 --> 00:18:55,680
+So to wrap up, Python supports many different data types. Everything's that object and variable store references to objects.
+
+184
+00:18:55,680 --> 00:19:03,180
+If you do an operation that modifies an object, all variables that refer to the same object are going to get are going to see the change.
+
+185
+00:19:03,180 --> 00:19:07,920
+You can perform a number of standard arithmetic operations on python variables.
+
+186
+00:19:07,920 --> 00:19:17,333
+And there's many, many more operations that we're going to be seeing as we go throughout the semester.
+
