@@ -126,5 +126,8 @@ class VideoDirective(SphinxDirective):
                     kids += nodes.list_item('', tn)
                 hid += kids
                 box += hid
+            else:
+                w = self.state.reporter.warning(f'Video file {name}.srt does not exist')
+                result.append(w)
 
         return result

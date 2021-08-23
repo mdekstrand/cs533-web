@@ -147,13 +147,9 @@ In this video, I discuss how to design a chart from your questions, goals, and d
 :name: 3-6 - Charts from the Ground Up
 :::
 
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2172995', 'AEjOrH8X_6gmPOk') }}
-
 ### Resources
 
-- [Supporting notebook](3-6 - Charts from the Ground Up.ipynb)
+- [Supporting notebook](3-6-ChartsFromTheGroundUp.ipynb)
 
 ## {{mtask}} Plots in the Wild
 

@@ -18,6 +18,9 @@ parts:
     - file: week2/2-2-PandasBasics.ipynb
     - file: week2/2-4-AggregatesAndGroups.ipynb
     - file: week2/2-6-DescribingDistributions.ipynb
+  - file: week3/index
+    sections:
+    - file: week3/3-6-ChartsFromTheGroundUp.ipynb
 - caption: Assignments
   chapters:
   - file: assignments/index
