@@ -79,7 +79,7 @@ When I re-record this video for a future revision, I'll change my language.
 
 ## {{mbook}} Textbook Chapters - Questions
 
-The first videos of this class go with chapters 1 and 2 of *Think Like a Data Scientist*.
+The first videos of this class go with chapters 1 and 2 of {book}`tlds`.
 
 ## {{mclass}} Tuesday Class
 
