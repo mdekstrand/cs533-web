@@ -32,6 +32,7 @@ def fetch_inventory(c, skip_if_exists=False):
     _msg('downloading inventory CSV')
     res = requests.get(INVENTORY_CSV)
     _msg('saving to %s', out)
+    BUILD_DIR.mkdir(exist_ok=True)
     out.write_bytes(res.text.encode('utf8'))
 
 
