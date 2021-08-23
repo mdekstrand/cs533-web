@@ -34,7 +34,7 @@ def build(c, rebuild=False, builder='dirhtml'):
 def serve(c, full_site=False, port=8000, rebuild=False):
     from livereload import Server
 
-    def rebuild():
+    def do_rebuild():
         _msg('building and copying site')
         build(c, rebuild=rebuild)
         if full_site:
@@ -45,10 +45,10 @@ def serve(c, full_site=False, port=8000, rebuild=False):
     def ignore(p):
         return _ignore_re.match(p)
 
-    rebuild()
+    do_rebuild()
     srv_root = FULL_DIR if full_site else CUR_DIR
     server = Server()
-    server.watch('.', rebuild, ignore=ignore)
+    server.watch('.', do_rebuild, ignore=ignore)
     server.serve(port=port, root=srv_root)
 
 
