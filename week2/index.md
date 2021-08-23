@@ -1,4 +1,4 @@
-# Week 2 — Description
+# 🚧 Week 2 — Description
 
 :::{draft}
 This content is still in draft state and has not yet been finalized.
