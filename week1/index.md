@@ -34,7 +34,7 @@ This video introduces the course and our learning outcomes for the term.
 :slide-id: 495979F9A431DDB0%2173705
 :slide-auth: AP_wALvN9RZhibw
 :name: 1-1 - Introduction
-:amara: https://amara.org/en/videos/RexP2ZyVNfU3/info/https52f6698f-a7dd-4943-86eb-ad7501790760-fc4269eb-1399-4a33-9140-ad8c0105606bmp4invocationid08872c6d-6303-ec11-a9e9-0a1a827ad0ec/)
+:amara: https://amara.org/en/videos/RexP2ZyVNfU3/info/https52f6698f-a7dd-4943-86eb-ad7501790760-fc4269eb-1399-4a33-9140-ad8c0105606bmp4invocationid08872c6d-6303-ec11-a9e9-0a1a827ad0ec/
 :::
 
 ## {{mvideo}} Asking Questions
