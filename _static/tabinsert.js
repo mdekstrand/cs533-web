@@ -1,5 +1,5 @@
 function setupTabStuff() {
-  console.log('setting stuff up');
+  console.log('setting up slide tabs');
   $('.tabbed-set').each(function() {
     let elt = $('.tabbed-content.slides', this)[0];
     if (!elt) return;
@@ -26,4 +26,14 @@ function setupTabStuff() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', setupTabStuff);
+function adjustLinks() {
+  console.log('adjusting links');
+  $('a.external').attr('target', '_blank')
+}
+
+function adjustContent() {
+  adjustLinks();
+  setupTabStuff();
+}
+
+document.addEventListener('DOMContentLoaded', adjustContent);
