@@ -6,7 +6,7 @@ Following is a tentative schedule.  Topics may shift a little bit depending on h
 | :--: | :---: | ----------------------------------- | :----: |
 | 1    | 8/23  | [Asking Questions][W1]              | [A0][] |
 | 2    | 8/30  | [Variables and Data][W2]            |        |
-| 3    | 9/6   | [Visualizing and Presenting][W3]    | A1     |
+| 3    | 9/6   | [Visualizing and Presenting][W3]    | [A1][] |
 | 4    | 9/13  | [Probability and Inference][W4]     |        |
 | 5    | 9/20  | [Filling In][W5]                    | A2     |
 | 6    | 9/27  | [Two Variables][W6]                 | E1     |
