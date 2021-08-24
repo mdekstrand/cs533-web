@@ -173,6 +173,10 @@ This video introdues the concept of _distributions_, and how we can see the shap
 
 - Olteanu, Alexandra and Castillo, Carlos and Diaz, Fernando and Kiciman, Emre, Social Data: Biases, Methodological Pitfalls, and Ethical Boundaries (December 20, 2016). <cite>Frontiers in Big Data</cite> 2:13. doi: [10.3389/fdata.2019.00013](https://dx.doi.org/10.3389/fdata.2019.00013), Available at SSRN: <http://dx.doi.org/10.2139/ssrn.2886526>
 
+## {{mquiz}} Week 2 Quiz
+
+The Week 2 quiz will be over the material **above** this point.
+
 ## {{mvideo}} Codings and Encodings
 
 This video talks more about how data is encoded, and what we need to document about that.
