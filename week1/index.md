@@ -1,4 +1,4 @@
-# Week 1 — Questions
+# Week 1 — Questions (8/23–27)
 
 The key learning outcomes for this week are:
 

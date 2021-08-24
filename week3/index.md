@@ -1,4 +1,4 @@
-# 🚧 Week 3 — Presentation
+# 🚧 Week 3 — Presentation (9/6–10)
 
 :::{draft}
 This content is still in draft state and has not yet been finalized.
