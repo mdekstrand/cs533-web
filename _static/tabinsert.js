@@ -28,6 +28,7 @@ function setupTabStuff() {
 
 function adjustLinks() {
   console.log('adjusting links');
+  $('a.external').attr('rel', 'noopener')
   $('a.external').attr('target', '_blank')
 }
 
