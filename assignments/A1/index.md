@@ -3,7 +3,7 @@
 This assignment is to give you experience with exploratory analysis and describing a data set.
 
 It is due on **Sunday, September 12, 2020** at the end of the day (11:59 PM).
-Submit your `.ipynb` and PDF files to Blackboard.
+Submit your `.ipynb` and PDF files to Canvas.
 
 :::{tip}
 I recommend reading through the whole assignment before beginning. I begin this assignment
