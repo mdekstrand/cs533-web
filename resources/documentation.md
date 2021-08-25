@@ -21,6 +21,8 @@ reference. This is a mix of material from others (most of it) and that I have wr
     :author: Brian Godsey
     :publisher: Manning
     :isbn: 978-1633430273
+
+    You can read this book for free [through the Boise State Library](https://boisestate.on.worldcat.org/v2/oclc/984515080).
     :::
 
 ## Software Documentation
