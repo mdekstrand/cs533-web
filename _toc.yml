@@ -26,6 +26,7 @@ parts:
   - file: assignments/index
     title: Rubric
   - file: assignments/A0/index
+  - file: assignments/A1/index
 - caption: Resources
   chapters:
   - file: resources/software

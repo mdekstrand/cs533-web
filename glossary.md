@@ -80,6 +80,10 @@ Degrees of Freedom
 
     $$s = \sqrt{\frac{\sum_i (x_i - \bar{x})^2}{n - 1}}$$
 
+Disaggregation
+    When we take something that is usually aggregated over the total population (e.g. the completion rate for students at a school) and
+    instead aggregate it over subsets of the population (e.g. computing a completion rate for each racial group).
+
 Elementary Event
     In probability theory, an individual distinct outcome of a process we are modeling as random.
 

@@ -1,14 +1,19 @@
 # Assignment 1
 
-:::{draft}
-This is a draft of the first real assignment.  It's provided so you can see what to expect, but
-the requirements are not final until this notice is removed.
-:::
-
 This assignment is to give you experience with exploratory analysis and describing a data set.
 
 It is due on **Sunday, September 12, 2020** at the end of the day (11:59 PM).
 Submit your `.ipynb` and PDF files to Blackboard.
+
+:::{tip}
+I recommend reading through the whole assignment before beginning. I begin this assignment
+with a discussion of the goal, and some discussion of the specific variables you will need to use to
+address that goal, and then have the specific requirements for the assignment.
+
+In writing requirements, I often write such that the first sentence of a paragraph or requirement is
+the high-level idea of that requirement, and the subsequent sentences (and possibly additional paragraphs or
+bullet points) dive in to the details of what is expected for that requirement.
+:::
 
 ## Learning Outcomes
 
@@ -131,7 +136,7 @@ The [Building Data](../../resources/tutorials/BuildingData.ipynb) notebook provi
 
 ## Assignment Requirements
 
-Submit a Jupyter notebook that describes the following (grade percentages are in parentheses):
+Submit a Jupyter notebook that describes the following (grade percentages and estimated times are in parentheses):
 
 1.  A basic structural description of the data set (10%):
     -   How many schools and variables?
@@ -144,11 +149,14 @@ Submit a Jupyter notebook that describes the following (grade percentages are in
     -   What is the mean?  Is the distribution skewed?
 
 3.  The distribution of the admission rate, both numerically and graphically (15%).
-    After describing its distribution, compute the admissions category (open, low-selectivity, or high-selectivity).
+    After describing the distribution of the continuous admission rate, compute the admissions category (open, low-selectivity, or high-selectivity).
     Do **not** hard-code the median — compute the median, and use the computed value (stored in a Python variable) to bucketize the admission rates.
+    Show the distribution of admissions category (how many schools are in each category?).
 
-4.  The break down of completion rate by race, by the school characteristics described in “Question”, and by one additional school characteristic you select (30%).
-    Give a justification for your choice of characteristic — why do you think it might be interesting?
+4.  The break down (sometimes called a {term}`disaggregation`) of completion rate by race, by the school
+    characteristics described in “Question”, and by one additional school characteristic you select
+    (30%). Give a justification for your choice of characteristic — why do you think it might be
+    interesting?
 
     You need to show these breakdowns both numerically and graphically.
     Box plots are useful for this, as are bar charts.
@@ -164,15 +172,16 @@ Submit a Jupyter notebook that describes the following (grade percentages are in
     :::{tip}
     Race is recorded as multiple variables per school, but it is difficult to directly pass data in this form to one of the plotting routines.
     The {py:meth}`pandas.DataFrame.melt` method is really useful for this — it can take the various race completion rate columns and pivot them into *long* format, where there's a column for the variable name and another for the value.
-    You can then *recode* the name variable, and then you can e.g. use the name variable for an axis in your chart, or group by it!
+    You can then {py:meth}`pandas.Series.recode` the name variable, and then you can e.g. use the name variable for an axis in your chart, or group by it!
     :::
 
 5.  The answers to 5 questions of your choice from sections 3.1, 3.2, and 3.3 of *Datasheets for
     Datasets*, based on the documentation for the college scorecard data (20%). Questions should
-    come from at least 2 different sections.
+    come from at least 2 different sections of the paper.
 
 6.  Write 2 paragraphs reflecting on what you learned about this data, higher education, and data science through this assignment (10%).
 
+Submit the final assignment (both `.ipynb` and `.pdf` files) to Canvas.
 
 ## Extra Credit
 
@@ -191,3 +200,19 @@ The [Notebook Checklist](../../resources/notebook-checklist.md) will help you co
 notebook. This assignment is graded using the [general rubric](asn-rubric), and the difference
 between *Basically Correct* (95%) and *Exemplary* (100%) is primarily in the quality and clarity of your
 presentation.
+
+
+## Time Estimate
+
+I've tried to estimate about how long I expect each of the components of the assignment to take.
+These numbers are aimed to target about the 80th %ile of how long it would take the students in this
+class, but I admit it's just my best guess. My hope is that it helps you calibrate your work and
+expectations.  If you have feedback on how accurate these estimates are, I encourage you to include
+that in your reflection in your notebook.
+
+1. Load data and structural description: 1 hour
+2. Distribution of completion rate: 30 minutes
+3. Distribution and discretization of admission rate: 1 hour
+4. Completion rate breakdown: 2 hours
+5. Datasheets answers: 1–2 hours
+6. Cleaning up presentation & writing reflection: 1 hour
