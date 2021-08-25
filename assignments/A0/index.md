@@ -1,11 +1,5 @@
 # Assignment 0
 
-```{admonition} Draft
-:class: warning
-
-This assignment is still in draft state.
-```
-
 The first assignment is to make sure that you can successfully run code and submit results.
 
 It is due **August 29, 2021** at midnight.
