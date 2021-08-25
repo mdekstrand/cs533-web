@@ -17,6 +17,7 @@ exclude_patterns:
 - week13/*
 - week14/*
 - week15/*
+- assignments/A0/A0-Solution.ipynb
 
 # bibtex_bibfiles:
   # - references.bib

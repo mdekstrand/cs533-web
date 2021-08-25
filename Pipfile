@@ -18,6 +18,8 @@ docopt = ">= 0.6"
 notebook = "*"
 livereload = "==2.*"
 flake8 = "*"
+pandas = "*"
+seaborn = "*"
 
 [requires]
 python_version = "3.8"
