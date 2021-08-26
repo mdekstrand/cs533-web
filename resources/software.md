@@ -110,7 +110,7 @@ Log out and log back in to Onyx and Conda will be active.
 Install the base packages:
 
     conda install pandas scipy scikit-learn notebook ipython \
-            seaborn statsmodels plotnine
+            seaborn statsmodels
 
 Onyx already has Git installed.
 
