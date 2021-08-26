@@ -1,9 +1,4 @@
-# 🚧 Week 2 — Description (8/30–9/3)
-
-:::{draft}
-This content is still in draft state and has not yet been finalized.
-Do not depend on it as the final requirements for this week.
-:::
+# Week 2 — Description (8/30–9/3)
 
 The learning outcomes for this week are:
 
