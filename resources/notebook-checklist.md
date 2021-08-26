@@ -42,3 +42,7 @@ The [Data Visualization Checklist](https://depictdatastudio.com/checklist/) is u
 
 -   Are observations and conclusions substantiated by data and/or sound argument?
 -   Are goals and observations made clear, both for the document and for individual pieces of analysis?
+
+## Post-Export
+
+-   Are plots correctly displayed in the resulting PDF?  See [common problems](prob-mangled-pdf) for solutions.

@@ -126,6 +126,12 @@ It also shows you how to prepare a notebook to submit as an assignment.
 :alt-amara: https://amara.org/en/videos/7pm0dwa8XK45/info/httpsdbd531fb-904f-4b2f-b0a3-ad75015afd4c-7ee12dfe-0986-47af-b8df-ad8c011dfdd5mp4invocationid242d7851-6e03-ec11-a9e9-0a1a827ad0ec/
 :::
 
+:::{note}
+I have seen cases where the instructions to export to a PDF do not work correctly in Firefox; they result in a mangled
+PDF file that does not correctly display charts.  If you encounter this problem, I have documented some fixes over in
+the [common problems](prob-mangled-pdf) page.
+:::
+
 ### Resources
 
 - [Notebook](DemoNotebook.ipynb)
