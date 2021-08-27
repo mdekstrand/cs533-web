@@ -1,0 +1,396 @@
+1
+00:00:04,630 --> 00:00:08,850
+This video I'm going to talk with you about how to describe distribution,
+
+2
+00:00:08,850 --> 00:00:17,950
+so I said one of the learning outcomes with this week is that we can describe the distribution of a variable both numerically and graphically.
+
+3
+00:00:17,950 --> 00:00:23,860
+And we saw some of that in the descriptive statistics in the previous video.
+
+4
+00:00:23,860 --> 00:00:30,100
+We're going to go deeper into that in this video. So we want to be able to learning outcomes for for this particular video or to be able to provide
+
+5
+00:00:30,100 --> 00:00:35,110
+numerical descriptions of the distribution and visualize the distribution of a variable.
+
+6
+00:00:35,110 --> 00:00:41,260
+So the question when we ask, how is a variable distributed? There's a few questions that we want to.
+
+7
+00:00:41,260 --> 00:00:45,880
+A few things we want to break that down into four specific questions.
+
+8
+00:00:45,880 --> 00:00:49,570
+First, what is the average value mean or medium, whichever is appropriate?
+
+9
+00:00:49,570 --> 00:00:53,850
+How spread out is the data? This these two things really give us a lot.
+
+10
+00:00:53,850 --> 00:00:57,340
+Where is the data? How spread out is it? Tell us a lot about it.
+
+11
+00:00:57,340 --> 00:01:02,830
+But then we want to look at is it skewed? Does it do values tend high?
+
+12
+00:01:02,830 --> 00:01:08,140
+Or do they tend low with respect to that that average value?
+
+13
+00:01:08,140 --> 00:01:13,420
+And then what does the data actually look like visually?
+
+14
+00:01:13,420 --> 00:01:18,130
+So the numeric descriptions, the previous videos, descriptive statistics give us quite a few.
+
+15
+00:01:18,130 --> 00:01:22,180
+The described method gives us a quick way to generate several of them.
+
+16
+00:01:22,180 --> 00:01:31,420
+So I generated a ten thousand random numbers. And they've got a mean and a median, both of about five.
+
+17
+00:01:31,420 --> 00:01:34,990
+They're spread out. Excuse me, a standard deviation about one.
+
+18
+00:01:34,990 --> 00:01:43,600
+So these numbers visualized or we can visualize them in what we call a histogram and a histogram shows how common different values are.
+
+19
+00:01:43,600 --> 00:01:49,990
+The x axis are the values themselves. And the Y axis is how frequent that value is.
+
+20
+00:01:49,990 --> 00:01:57,760
+It can be either account, the number of values, the number of observations that are about that value, or it can be relative.
+
+21
+00:01:57,760 --> 00:02:02,590
+The percent or fraction of observations. This is account one. We can see it goes up to twelve.
+
+22
+00:02:02,590 --> 00:02:09,790
+The Y axis goes up to twelve hundred. When we had a continuous variable, the number of Binz control the division points.
+
+23
+00:02:09,790 --> 00:02:14,740
+So I said Binz equals twenty five. That divides the variable into twenty five.
+
+24
+00:02:14,740 --> 00:02:21,760
+The range of the of the variable as we've observed it in the twenty five bins of equal width.
+
+25
+00:02:21,760 --> 00:02:27,580
+And so for each bean it's showing how many values fall into that bean.
+
+26
+00:02:27,580 --> 00:02:32,800
+So the largest bit is just over twelve hundred centered right at five.
+
+27
+00:02:32,800 --> 00:02:36,800
+This data is also symmetrical. There's no skew to it.
+
+28
+00:02:36,800 --> 00:02:42,400
+There's a little bit of variation in the size stapes, the two sides, just the way things fall into the bins.
+
+29
+00:02:42,400 --> 00:02:50,320
+But there's no significant skew. It's evenly distributed around the mean, the mean and the median are equal reflecting that.
+
+30
+00:02:50,320 --> 00:02:54,610
+This this function, the highest function comes from the library matplotlib.
+
+31
+00:02:54,610 --> 00:03:00,940
+So the import for that is import matplotlib, that pie plot. The typical name for that is PLDT.
+
+32
+00:03:00,940 --> 00:03:09,610
+And that gives us functions to do. Plotting matplotlib is one of the fundamental plotting libraries for Python.
+
+33
+00:03:09,610 --> 00:03:17,960
+A lot of other plotting libraries such as Seabourne, Plot Nine, et cetera, are built on top of matplotlib.
+
+34
+00:03:17,960 --> 00:03:23,240
+So if we want to look at some real data, we can look at the average rating for movies.
+
+35
+00:03:23,240 --> 00:03:27,470
+So remember, we have this movie data set. We've computed each movies average rating.
+
+36
+00:03:27,470 --> 00:03:36,180
+Well, how are those average? How are those average ratings distributed? So, I mean, is three point seven the median is three point one five.
+
+37
+00:03:36,180 --> 00:03:43,430
+The there's a little bit of a what we call a left skew and the left skew this the direction and the skew is how far out.
+
+38
+00:03:43,430 --> 00:03:51,200
+The longer tail goes. So left skew means we have a longer tail on the left and the data is more bunched up on the right.
+
+39
+00:03:51,200 --> 00:03:55,610
+We have a longer tail on the left of the histogram. We can see that. That gives us a slight left skew.
+
+40
+00:03:55,610 --> 00:04:00,500
+The mean is slightly less than the median. That's also an indicator of left skew.
+
+41
+00:04:00,500 --> 00:04:04,910
+But it's not very skewed. The mean and the median are pretty close in this case.
+
+42
+00:04:04,910 --> 00:04:09,350
+We can also look at the movie rating count. So this is the distribution. So we have a variable.
+
+43
+00:04:09,350 --> 00:04:14,360
+So for each movie, we've got these two variables, its average rating and and the number of people who rated it.
+
+44
+00:04:14,360 --> 00:04:21,530
+And so we can look at the distribution of the movie rating count. This distribution is very, very heavily skewed.
+
+45
+00:04:21,530 --> 00:04:30,080
+A very strong right skew. The mean is much greater than the median for twenty three versus six.
+
+46
+00:04:30,080 --> 00:04:34,880
+Morreau, most this means most movies are going to have far fewer ratings in the mean and it's hard to
+
+47
+00:04:34,880 --> 00:04:40,160
+like the histogram shows us that it's skewed and shows us this huge spike at the small values.
+
+48
+00:04:40,160 --> 00:04:44,030
+But it's hard to really see what's happening with the distribution here.
+
+49
+00:04:44,030 --> 00:04:49,350
+So an alternate way that we can plot the distribution is.
+
+50
+00:04:49,350 --> 00:04:54,380
+So here's the word histogram. It just means the tabulation of how frequent each value is.
+
+51
+00:04:54,380 --> 00:04:59,010
+So we can compute the frequency of each value.
+
+52
+00:04:59,010 --> 00:05:04,960
+And the panda's method value counts. Does that. And so what we can what it computes.
+
+53
+00:05:04,960 --> 00:05:13,110
+It's a serious. Where the index is the values of the original series. And the value is the number of times that value appeared.
+
+54
+00:05:13,110 --> 00:05:20,670
+And so if we do that, we can then make a scatterplot and a scatterplot is where we plot some value on the X versus some value on the Y.
+
+55
+00:05:20,670 --> 00:05:27,390
+And the index, the index is an array. So our x axis and the scatterplot is the index, which is the actual values themselves.
+
+56
+00:05:27,390 --> 00:05:35,820
+And the Y index is the value of the earth in the array, which is how many times that value appeared in the original array.
+
+57
+00:05:35,820 --> 00:05:40,860
+And we're then we're going to do something. We're going to rescale it using what we call a log scale.
+
+58
+00:05:40,860 --> 00:05:47,340
+So you'll notice the Y, the X and the Y axes tend to the zero, tend to the one, tend to the to tend to the three.
+
+59
+00:05:47,340 --> 00:05:50,370
+Rather than being evenly spaced, they're evenly spaced.
+
+60
+00:05:50,370 --> 00:05:56,640
+The logarithms are evenly spaced and effectively since we're using ten base ten logarithms here.
+
+61
+00:05:56,640 --> 00:06:05,520
+What this does is it shows us, rather than the values themselves, that shows us the order of magnitude of each of the values.
+
+62
+00:06:05,520 --> 00:06:10,890
+And so. We can see one tend to the zero is the mode.
+
+63
+00:06:10,890 --> 00:06:22,260
+It's the most frequent one, that's the top point. And also we can see that the first part of the the first part of it is a lot, almost a line.
+
+64
+00:06:22,260 --> 00:06:26,700
+And when we have a line, we have a plot like this where the x axis is the number of ratings,
+
+65
+00:06:26,700 --> 00:06:32,760
+the y axis excuse me, the X axis is our value in the Y axis is how frequent that value is.
+
+66
+00:06:32,760 --> 00:06:38,190
+In this case, how many movies have that many ratings? And it's on a logarithmic.
+
+67
+00:06:38,190 --> 00:06:49,510
+It's on a log log scale. We when we see a line on a log log scale in this chart that indicates that what we're looking at is
+
+68
+00:06:49,510 --> 00:06:55,510
+a what's called a power law distribution or something that's close to a power law distribution.
+
+69
+00:06:55,510 --> 00:07:03,100
+And this is a common distribution that arises when we're talking about the popularity of various results of human activity.
+
+70
+00:07:03,100 --> 00:07:10,000
+It shows up in how frequently different words are used. It shows up in a lot of different human activity contexts.
+
+71
+00:07:10,000 --> 00:07:16,200
+If you look at, say, a social network. And you look at the popularity of different accounts.
+
+72
+00:07:16,200 --> 00:07:21,990
+You have accounts like Lady Gaga and beyond, say, have very, very popular Twitter accounts.
+
+73
+00:07:21,990 --> 00:07:26,040
+I have a moderately popular but much less popular Twitter account.
+
+74
+00:07:26,040 --> 00:07:30,720
+And a lot of people are down around 100 or 200 followers.
+
+75
+00:07:30,720 --> 00:07:38,010
+It's very common for the debt, for distributions of that kind of activity to fall to look like this.
+
+76
+00:07:38,010 --> 00:07:43,650
+And this kind of a chart where we have the scatterplot of X and Y axes is a good way
+
+77
+00:07:43,650 --> 00:07:47,360
+to see it and a good way to get a handle on what the state is actually looking like.
+
+78
+00:07:47,360 --> 00:07:54,890
+And we have this strong power law skew. So one of the artifacts of this I'm replanting our mean ratings here, except with more beans,
+
+79
+00:07:54,890 --> 00:07:59,720
+50 beans, instead of the default 10, we can we see the same basic shape.
+
+80
+00:07:59,720 --> 00:08:08,450
+We also see that a few values are much, much more common. Those values are one, two, three, four, five, two point five, three point five.
+
+81
+00:08:08,450 --> 00:08:13,670
+And the reason this is so these are exact rating values. Three point five is an exact.
+
+82
+00:08:13,670 --> 00:08:18,620
+You can rate it will be three point five. You can't rate a movie. Three point seven eight.
+
+83
+00:08:18,620 --> 00:08:25,340
+And so what the reason is. Look at how many movies have one rating.
+
+84
+00:08:25,340 --> 00:08:31,820
+Or two ratings. And if a movie only has one rating, it's mean rating is going to be the rating.
+
+85
+00:08:31,820 --> 00:08:42,740
+And so we're going to get a lot of movies since the most since this one rating is by far the most common popularity level of a movie.
+
+86
+00:08:42,740 --> 00:08:50,090
+We're gonna have a lot of movies. Where they're mean is exactly one of the possible rating values like three.
+
+87
+00:08:50,090 --> 00:08:55,520
+And so we see these spikes here in the distribution when we look at it in a more fine grained way,
+
+88
+00:08:55,520 --> 00:09:00,020
+just because there are so many movies that don't have very many ratings.
+
+89
+00:09:00,020 --> 00:09:07,760
+So we've seen numerical distributions, whether they're continuous, whether they're integer or other kinds of account data.
+
+90
+00:09:07,760 --> 00:09:13,430
+We've seen continuous distributions for a categorical distribution or go to as what's called a bar chart.
+
+91
+00:09:13,430 --> 00:09:17,240
+And so I'm again using value counts here to count the number of penguins.
+
+92
+00:09:17,240 --> 00:09:22,460
+So from the earlier video, the penguin dataset count the number of penguins of each species.
+
+93
+00:09:22,460 --> 00:09:31,580
+And then I'm plotting a bar chart that's showing us the the number of penguins that have each each species.
+
+94
+00:09:31,580 --> 00:09:35,150
+And we can see that the Adelie penguin is the most common here.
+
+95
+00:09:35,150 --> 00:09:44,330
+But the bar chart is going to be a really simple way to to view the distribution of a categorical variable.
+
+96
+00:09:44,330 --> 00:09:49,440
+Seabourne, which is an additional library we're going to see later, provides really convenient ways to do this.
+
+97
+00:09:49,440 --> 00:09:57,740
+But here I'm showing you the map, the raw matplotlib code, so that you can see how does the chart actually get generated?
+
+98
+00:09:57,740 --> 00:10:03,020
+It gets generated by counting, doing the value count, counting how many times each species appears.
+
+99
+00:10:03,020 --> 00:10:16,559
+And then we plot a bar chart whose x axis is the species and y axis is the number of times that species appears in the data set.
+

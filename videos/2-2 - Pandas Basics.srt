@@ -1,0 +1,312 @@
+1
+00:00:03,860 --> 00:00:14,120
+This video I'm going to introduce loading a data file into pandas and actually starting to see what the shape and the structure of the data is.
+
+2
+00:00:14,120 --> 00:00:22,140
+So a lot of the data files that we're going to the learning outcomes of this video are for you to be able to import Python libraries,
+
+3
+00:00:22,140 --> 00:00:27,170
+little data file on the pandas, examine the size and data types of a data frame,
+
+4
+00:00:27,170 --> 00:00:30,950
+and understand the relationship, particularly between a data frame and a series.
+
+5
+00:00:30,950 --> 00:00:37,060
+And we're going to start introducing the concept of an index. Going to see a lot more about that in a later video.
+
+6
+00:00:37,060 --> 00:00:41,530
+So most useful Python Modu functions are in modules.
+
+7
+00:00:41,530 --> 00:00:46,480
+There are some functions that are just built in, but most of the time we're going to need functions in various modules.
+
+8
+00:00:46,480 --> 00:00:50,500
+And before we can use a module, we have to import it.
+
+9
+00:00:50,500 --> 00:00:58,830
+So some of the standard imports, basically every one of our notebooks is going to have imports at the top.
+
+10
+00:00:58,830 --> 00:01:03,460
+Not to import, not umpired pandas. We've got our basic scientific computing facilities.
+
+11
+00:01:03,460 --> 00:01:16,810
+And common practice is to import these with aliases, NDP and PD, so that we can reach refer to them later by shorter names.
+
+12
+00:01:16,810 --> 00:01:19,750
+A lot of the files we've been working with, particularly early on,
+
+13
+00:01:19,750 --> 00:01:28,850
+are distributed in a format called comma separated value and comma separated value file is.
+
+14
+00:01:28,850 --> 00:01:32,960
+It's consists of one line per record and the values are separated by commas.
+
+15
+00:01:32,960 --> 00:01:39,080
+That's where it gets its name. So you've got a comma between the different values.
+
+16
+00:01:39,080 --> 00:01:44,000
+Also, sometimes in this case it does. The file will have a header.
+
+17
+00:01:44,000 --> 00:01:49,940
+So the first row is the names of the columns. It doesn't always have a header, but often it does.
+
+18
+00:01:49,940 --> 00:01:58,010
+And it's very convenient when it does. So Pan does lets us read a CSB file through a function called Read CSP.
+
+19
+00:01:58,010 --> 00:02:02,570
+And so we call reads ESV and we give it the Amelle twenty five M slash movies.
+
+20
+00:02:02,570 --> 00:02:11,960
+That CSB file, which is from the data set that I have you download in the information for the week.
+
+21
+00:02:11,960 --> 00:02:20,400
+We get the. We get. A data frame, and as the convention that I showed you in video last week, I,
+
+22
+00:02:20,400 --> 00:02:27,590
+I then put just right the variables right, the variable I saves it ends that we can immediately see at Pynt Jupiter.
+
+23
+00:02:27,590 --> 00:02:35,370
+Format's a panda's data frame nicely and it shows us the first five rows.
+
+24
+00:02:35,370 --> 00:02:43,410
+Shows us the first five rows, the last five rows. We've got an ellipsis in the middle indicating that there's a lead of data.
+
+25
+00:02:43,410 --> 00:02:49,650
+It also tells us how big it is. So sixty two thousand rows, three columns.
+
+26
+00:02:49,650 --> 00:02:54,000
+So they immediately get one of the questions I said, do we want to know is how much data we have.
+
+27
+00:02:54,000 --> 00:03:01,180
+Right here. We already have that answer. We've got. Sixty two thousand rows and three columns.
+
+28
+00:03:01,180 --> 00:03:10,750
+So another way we can look at the data frame is we can use the info method and the info method will print out information about the data frame.
+
+29
+00:03:10,750 --> 00:03:18,690
+And particularly we're going to see. The it tells us what the index is.
+
+30
+00:03:18,690 --> 00:03:25,670
+We have a range index, it tells us the information about the different columns.
+
+31
+00:03:25,670 --> 00:03:33,910
+And so we've said that we have a range index from a range index goes from.
+
+32
+00:03:33,910 --> 00:03:37,390
+Zero to sixty two thousand.
+
+33
+00:03:37,390 --> 00:03:44,020
+So we've got zero to sixty two thousand four hundred and twenty two for sixty two thousand four hundred and twenty three entries,
+
+34
+00:03:44,020 --> 00:03:47,710
+a range index just means we're looking up the data. Bye bye.
+
+35
+00:03:47,710 --> 00:03:56,560
+Index zero three minus one. We have three columns. One of them movie I.D. is an inch sixty 64 and the other two are object.
+
+36
+00:03:56,560 --> 00:04:02,770
+These store strings objects is how so Panda's data types to store a string.
+
+37
+00:04:02,770 --> 00:04:08,410
+It can't just store the string directly in the column number. The the num pi arrays we talked about last week.
+
+38
+00:04:08,410 --> 00:04:13,600
+They store data compactly, but strings it has to store a pointer to the string.
+
+39
+00:04:13,600 --> 00:04:18,260
+And so PANDAS uses that array of extorts pointers to objects that can be any object.
+
+40
+00:04:18,260 --> 00:04:20,700
+We happen to know their strengths in this case.
+
+41
+00:04:20,700 --> 00:04:25,750
+And we have, as I said, sixty two thousand four hundred and twenty three rows answers to our initial question.
+
+42
+00:04:25,750 --> 00:04:30,820
+How much data do we have? Sixty two thousand four hundred twenty three rows each with three columns.
+
+43
+00:04:30,820 --> 00:04:34,540
+And we also have. We have. And what kinds of data do we have?
+
+44
+00:04:34,540 --> 00:04:39,400
+We have a movie idea that's an integer and we have title and genres that are strings.
+
+45
+00:04:39,400 --> 00:04:48,160
+What is the data about? The data is about movies and each row is a movie and the data sheets for data, streets for data sets.
+
+46
+00:04:48,160 --> 00:04:57,760
+Paper talks about these as terms of these are instances and they represent speech in each row is an instance and it represents something.
+
+47
+00:04:57,760 --> 00:05:04,070
+So in this case, the row is information about a movie and it represents a movie.
+
+48
+00:05:04,070 --> 00:05:08,810
+So each column of the data frame is a series.
+
+49
+00:05:08,810 --> 00:05:13,520
+As we mentioned last week, a series is an array that has an index associated with it.
+
+50
+00:05:13,520 --> 00:05:21,650
+We get a column by accessing the data frame like a dictionary. You can treat a data frame basically as a dictionary that contains columns.
+
+51
+00:05:21,650 --> 00:05:27,530
+And so we can get the movie, we can we can get the title column out of the movies data frame.
+
+52
+00:05:27,530 --> 00:05:34,970
+And it shows us the titles, the bottom. It says this series has a name title length sixty two thousand four hundred twenty three.
+
+53
+00:05:34,970 --> 00:05:40,430
+It's indexed from zero to sixty two thousand four hundred twenty two. And it has a D type of object.
+
+54
+00:05:40,430 --> 00:05:46,160
+We're going to learn a lot more about indexes in another video. But a series, as I said, is an array with an index.
+
+55
+00:05:46,160 --> 00:05:51,710
+All columns, the data frame share the same index. That's an important link between the different columns.
+
+56
+00:05:51,710 --> 00:05:58,210
+There enter data from. So let's load another frame up the ratings frame.
+
+57
+00:05:58,210 --> 00:06:02,860
+We can look down at its info. It has four columns.
+
+58
+00:06:02,860 --> 00:06:06,970
+It has twenty five million instances. This is why this is called the movie lens.
+
+59
+00:06:06,970 --> 00:06:10,660
+Twenty five million data set. It contains twenty five million ratings.
+
+60
+00:06:10,660 --> 00:06:14,660
+Just over twenty five million. Twenty five million. Ninety four.
+
+61
+00:06:14,660 --> 00:06:24,860
+And each row contains a user I.D. that's an integer and 60 for a movie I.D. that's also an integer, a rating that's a floating point value float 64,
+
+62
+00:06:24,860 --> 00:06:32,660
+which is double precision floating point and a timestamp, which is which is also an integer of type and 64.
+
+63
+00:06:32,660 --> 00:06:38,750
+The whole thing's a six hundred and twenty three megabytes of memory. Remember, there's not a plus here.
+
+64
+00:06:38,750 --> 00:06:47,780
+If you remember, the movies had a plus after that. That's because by default, it just measures the memory taken up by the panda's data frame itself.
+
+65
+00:06:47,780 --> 00:06:52,040
+If a column has an object type, it does not measure the size of the objects.
+
+66
+00:06:52,040 --> 00:06:59,390
+So for movies, that was an underestimate because we have all these strings. It was not measuring how much memory is taken up by the strings.
+
+67
+00:06:59,390 --> 00:07:03,980
+But here we don't have any strings. We don't have any other object types. It's just insane floats.
+
+68
+00:07:03,980 --> 00:07:11,700
+So it can tell us directly. This data frames take seven hundred and sixty two point nine megabytes.
+
+69
+00:07:11,700 --> 00:07:17,480
+So data can also refer to other data. So ratings are instances.
+
+70
+00:07:17,480 --> 00:07:26,190
+This rating file we just loaded. Ratings are instances themselves. But but each connects a user to a movie.
+
+71
+00:07:26,190 --> 00:07:32,490
+So we have the rating. But it also references to other kinds of entities or objects, users and movies.
+
+72
+00:07:32,490 --> 00:07:37,890
+The rating doesn't just exist on its own, but it's provided by a user for a movie.
+
+73
+00:07:37,890 --> 00:07:44,640
+Is work a lot like foreign keys and relational databases? We're going to see later how to do a merge so that we can actually, say,
+
+74
+00:07:44,640 --> 00:07:55,200
+link ratings to the to the the movie information that they're associated with.
+
+75
+00:07:55,200 --> 00:08:00,960
+So to wrap up a data frame consists of columns. Each column is a series, an array with an index.
+
+76
+00:08:00,960 --> 00:08:06,660
+We can quickly find out how many rows, how many there are, and that in a data frame.
+
+77
+00:08:06,660 --> 00:08:11,760
+The instances of the data, we can find out what columns there are, what data types those columns.
+
+78
+00:08:11,760 --> 00:08:26,500
+Have we talking later this week about more things we can do with that and also more about understanding what the data being stored in these types is.
+

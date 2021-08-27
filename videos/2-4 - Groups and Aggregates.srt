@@ -1,0 +1,532 @@
+1
+00:00:04,660 --> 00:00:10,330
+This video, I'm going to show you how to do grouping and aggregate operations and pandas sort of learning
+
+2
+00:00:10,330 --> 00:00:15,130
+outcomes are few to be able to compute an aggregate aggregate values from a panda series,
+
+3
+00:00:15,130 --> 00:00:21,610
+compute grouped aggregate values from a PANDAS data frame, and also be able to order a data frame,
+
+4
+00:00:21,610 --> 00:00:25,570
+pick the larger the rows with the largest values for some series.
+
+5
+00:00:25,570 --> 00:00:32,490
+And then finally join two pandas data frames to get context for the results that we just computed in the first part.
+
+6
+00:00:32,490 --> 00:00:38,700
+So we have a data frame, so this is the movie lends data that we used and some of the earlier videos.
+
+7
+00:00:38,700 --> 00:00:48,030
+So we have the data frame and we've got this ratings table that has the user I.D., movie, I.D. rating and timestamp columns.
+
+8
+00:00:48,030 --> 00:00:53,020
+It's twenty five million rose by four columns. So an aggregate.
+
+9
+00:00:53,020 --> 00:00:59,380
+If we want to ask the question, what does the mean rating? So all of the rating values users has ever given.
+
+10
+00:00:59,380 --> 00:01:05,590
+What's the mean value? And this is this is the code we would use to do this.
+
+11
+00:01:05,590 --> 00:01:11,810
+And there's a few pieces. There's. So we're using this data frame.
+
+12
+00:01:11,810 --> 00:01:26,140
+There's a few pieces. We're using this data frame. There's a few pieces.
+
+13
+00:01:26,140 --> 00:01:32,480
+We're using this data frame. And we're we're then selecting a column.
+
+14
+00:01:32,480 --> 00:01:49,900
+Remember, this is the court. This is how we select a column. And then the result of that operation, this whole operation here is a series.
+
+15
+00:01:49,900 --> 00:01:58,030
+And so then we call the mean method on the series and we get the mean we get the mean rating.
+
+16
+00:01:58,030 --> 00:02:04,630
+Think a little bit about the previous video to think a moment about what the conceptual problem here is, the common operation.
+
+17
+00:02:04,630 --> 00:02:09,430
+But there is a little conceptual problem with it in terms of what it actually means.
+
+18
+00:02:09,430 --> 00:02:14,050
+There's a variety of different aggregate functions that we have in pandas.
+
+19
+00:02:14,050 --> 00:02:18,490
+We've got mean median mode. We've got the minimum and the maximum.
+
+20
+00:02:18,490 --> 00:02:22,840
+You can some you can count. You can compute standard deviation and variance.
+
+21
+00:02:22,840 --> 00:02:26,770
+There is there are several others as well.
+
+22
+00:02:26,770 --> 00:02:30,400
+These are all methods on a PANDAS series. If you have a series, this is a method.
+
+23
+00:02:30,400 --> 00:02:37,900
+You've got the serious object dot. And then this function parentheses to call it, and you're going to compute that aggregate statistics.
+
+24
+00:02:37,900 --> 00:02:51,680
+So let's see these in action. So I'm going to compute the mean rating and we get three point five.
+
+25
+00:02:51,680 --> 00:02:59,110
+I can compute the sum. There's an alternate form. All of these are also available as functions in the num pi module.
+
+26
+00:02:59,110 --> 00:03:04,460
+That ticker, an array and a series is a kind of array for some of the functions.
+
+27
+00:03:04,460 --> 00:03:12,680
+There are slight differences between the panda's versions and the num pi versions, but mean and some are the same.
+
+28
+00:03:12,680 --> 00:03:19,820
+So if we want to get the size of a series, there's a couple of different ways so we can ask the series for its size or do a line on it.
+
+29
+00:03:19,820 --> 00:03:25,550
+Those are the same operation and they will give us the total length of the series, including missing values.
+
+30
+00:03:25,550 --> 00:03:29,340
+If we've got a series that has missing values and we haven't seen missing values yet,
+
+31
+00:03:29,340 --> 00:03:34,700
+but they're going to come up later and we want to count how many values we actually have.
+
+32
+00:03:34,700 --> 00:03:40,570
+That's what the series count does count. Method does. So we can see those.
+
+33
+00:03:40,570 --> 00:03:51,070
+The size, the land, those are the same. Also, we can get a series is an array and a raise in the number PI world have a shape we can get shape,
+
+34
+00:03:51,070 --> 00:03:56,350
+which is the same as the size except as a tuple, because arrays can have more than one dimension.
+
+35
+00:03:56,350 --> 00:04:01,960
+This weird syntax here where we have a number with a comma after it inside parentheses.
+
+36
+00:04:01,960 --> 00:04:06,760
+That's the python syntax for a tuple consisting of exactly one value.
+
+37
+00:04:06,760 --> 00:04:11,170
+It's a little bit of a weird syntax, but it comes up in a few places. But that's what that means.
+
+38
+00:04:11,170 --> 00:04:21,310
+It's a tuple with exactly one value. Then we can count the number of ratings and since we don't have any missing ratings, it returns the same number.
+
+39
+00:04:21,310 --> 00:04:32,030
+So. Another thing we can do that. That's a form of an aggregate is to get a Quantrell and the quanti all takes a parameter that is the fraction.
+
+40
+00:04:32,030 --> 00:04:37,550
+And what it does is, is this the parameter as a fraction? We want to find the value.
+
+41
+00:04:37,550 --> 00:04:43,960
+If we sorted the if we sort of the series from low smallest to largest.
+
+42
+00:04:43,960 --> 00:04:50,960
+And we went that fraction along it, so point five would be the middle. The median value, we're gonna see median in the next video.
+
+43
+00:04:50,960 --> 00:04:56,270
+What's the value that's there? So we can go we can see those run.
+
+44
+00:04:56,270 --> 00:05:05,560
+The median rating is three point five. If we ask for the Quanti or point two, we're going to get the.
+
+45
+00:05:05,560 --> 00:05:09,590
+We're going to if we ask for quanti or point two, we get 3.0.
+
+46
+00:05:09,590 --> 00:05:16,500
+And what this means, it's it's point to the way across 80 percent of the ratings are 3.0 or higher.
+
+47
+00:05:16,500 --> 00:05:22,410
+On a five star scale. So think a little bit about why that might be.
+
+48
+00:05:22,410 --> 00:05:26,340
+We've seen so far aggregates that work over a single serious evalu to take the series.
+
+49
+00:05:26,340 --> 00:05:33,030
+We get one value, but sometimes we want to be able to group and compute aggregates per group.
+
+50
+00:05:33,030 --> 00:05:36,780
+So remember this. This data frame has movie.
+
+51
+00:05:36,780 --> 00:05:44,930
+The ratings are for movies. And they're provided by users, so maybe we want to get rather than just the mean overall rating.
+
+52
+00:05:44,930 --> 00:05:50,180
+Maybe you won't want to do is we want to find the average number of ratings per movie.
+
+53
+00:05:50,180 --> 00:05:55,700
+This would give us a measure of popularity. We could say, well, the movie that's rated the most frequently is the most popular.
+
+54
+00:05:55,700 --> 00:06:02,450
+We could also look at the average rating per movie. And so we can do this with the group by.
+
+55
+00:06:02,450 --> 00:06:10,020
+So group by. Returns an object that allows us to perform grouped operations on a data frame.
+
+56
+00:06:10,020 --> 00:06:17,460
+And so we give it the column name that we want to group by. In this case, movie I.D., we can group by more than one column at a time.
+
+57
+00:06:17,460 --> 00:06:25,130
+We're only doing one for now. Then we can we can do the.
+
+58
+00:06:25,130 --> 00:06:30,670
+We then in this group are we're going to say we only want to work on one column.
+
+59
+00:06:30,670 --> 00:06:35,850
+And otherwise, it's going to count the ratings and the time stamps and back, so they're going to be the same count.
+
+60
+00:06:35,850 --> 00:06:40,050
+So we're gonna say we're gonna to group by movie idea. They're going to say within each group.
+
+61
+00:06:40,050 --> 00:06:45,770
+We only want to work with the rating. And then we want to do is we want to count it all of the aggregate values.
+
+62
+00:06:45,770 --> 00:06:52,460
+The functions that we've seen before work on a per group basis as well. And.
+
+63
+00:06:52,460 --> 00:06:59,090
+Do note, though, that we are grouping by grouping the whole data frame by movie I.D. before we select the column.
+
+64
+00:06:59,090 --> 00:07:01,730
+If we did it the other way around, we were okay, select red and well,
+
+65
+00:07:01,730 --> 00:07:05,600
+now we don't have a movie idea to group by because we've pulled the rating out of the movie.
+
+66
+00:07:05,600 --> 00:07:11,420
+This order is important. So we group by movie I.D. That's another column in the frame and we use the rating column.
+
+67
+00:07:11,420 --> 00:07:22,520
+So let's see this in action. So we want to count the number of ratings per movie and what it gives us is a series whose index?
+
+68
+00:07:22,520 --> 00:07:29,910
+Is the movie I.D.? And whose value is the number of movies for that movie?
+
+69
+00:07:29,910 --> 00:07:33,990
+We haven't really seen indexes yet. We haven't really worked with them much yet.
+
+70
+00:07:33,990 --> 00:07:39,240
+But that's what it's doing here. We're indexing the data front. It's resulting in a series that's indexed.
+
+71
+00:07:39,240 --> 00:07:47,610
+And this is the thing. Serious ads on top of a normal non pie array is that we have this index that tells us, oh, this is for movie one.
+
+72
+00:07:47,610 --> 00:07:52,530
+This is for movie two thousand two hundred nine thousand one hundred and seventy one.
+
+73
+00:07:52,530 --> 00:07:56,580
+We can also compute multiple aggregates at the same time.
+
+74
+00:07:56,580 --> 00:08:10,920
+So the the AG, there's an AG function that allows you to to specify movies, to aggregate functions, to call you, specify them by name.
+
+75
+00:08:10,920 --> 00:08:17,610
+So here I'm doing the group by that we did before. And then I'm AG.
+
+76
+00:08:17,610 --> 00:08:21,290
+Calling AG to say I want to aggregate the values values this column.
+
+77
+00:08:21,290 --> 00:08:27,020
+But I'm giving it a list of two different aggregation functions, mean and count.
+
+78
+00:08:27,020 --> 00:08:39,120
+And when I run this, I get a data frame. That's indexed by movie I.D., but then it has two columns and the columns are named after the function,
+
+79
+00:08:39,120 --> 00:08:42,690
+so have a mean function that's the result of mean and account function.
+
+80
+00:08:42,690 --> 00:08:50,160
+That's the result of count. And because I know that I did this on the rating column, I know these are the mean and the count to the ratings.
+
+81
+00:08:50,160 --> 00:08:54,810
+So we can see that movie I.D. has a mean rating of three point eighty nine and.
+
+82
+00:08:54,810 --> 00:09:02,250
+And the number of ratings is fifty seven thousand three hundred and nine.
+
+83
+00:09:02,250 --> 00:09:09,280
+So sometimes you want to sort out data. So sort values will resource an entire data frame.
+
+84
+00:09:09,280 --> 00:09:13,120
+And by a specific column, you get a column numbers.
+
+85
+00:09:13,120 --> 00:09:17,980
+We could resource this whole data frame by by, say, the number of ratings.
+
+86
+00:09:17,980 --> 00:09:22,120
+Sometimes we also want to just get the largest or small. Sometimes the reason we want to sort.
+
+87
+00:09:22,120 --> 00:09:28,330
+Is I want I'd want to know the five movies with the most ratings.
+
+88
+00:09:28,330 --> 00:09:32,520
+In which case, we don't necessarily need to sort the entire thing. And largest. And then smallest.
+
+89
+00:09:32,520 --> 00:09:39,670
+Let us just get the rose with the with the end largest or smallest values for a particular column.
+
+90
+00:09:39,670 --> 00:09:42,980
+So if I go over and do this.
+
+91
+00:09:42,980 --> 00:09:51,020
+So I want to get the 10 movies with the most ratings I can call and largest and tell it, I want 10 and I want to do it by count.
+
+92
+00:09:51,020 --> 00:09:57,380
+And it gives me the 10 movies with the with the most ratings sorted in decreasing order of count.
+
+93
+00:09:57,380 --> 00:10:07,410
+And we see movie ads. Three hundred and fifty six gives has eighty one thousand movies with a mean a 4.0 five.
+
+94
+00:10:07,410 --> 00:10:13,260
+But this doesn't tell us what movie that is. What we can do.
+
+95
+00:10:13,260 --> 00:10:18,510
+Remember, we have this movie is table two that gives us the movie titles. We can join the tables together.
+
+96
+00:10:18,510 --> 00:10:26,580
+And the simplest way to join is to join on a common index. There's a set index method that lets you set a column is the index.
+
+97
+00:10:26,580 --> 00:10:32,120
+You can also specify columns to join by. We're going to see more of this later, particularly.
+
+98
+00:10:32,120 --> 00:10:37,110
+I'm going to make a note book that walks you through the different indexing operations.
+
+99
+00:10:37,110 --> 00:10:41,830
+And you can also read about them in more detail in the text book.
+
+100
+00:10:41,830 --> 00:10:47,160
+But. If we want to see, so I'm going to say.
+
+101
+00:10:47,160 --> 00:10:54,460
+So I'm going to take our movie's frame that as a movie column and I'm going to join it with movie stats and movie stats.
+
+102
+00:10:54,460 --> 00:11:00,550
+Remember, it's the result of our aggregate its index. Is the movie I.D. and so on when to call?
+
+103
+00:11:00,550 --> 00:11:07,540
+I'm going to tell it. I want to join movies on movie stats and I'm going to tell it on movie I.D. movies doesn't have a useful index.
+
+104
+00:11:07,540 --> 00:11:15,490
+Its index is just the positions. But on whereas when I use the on keyword in join what it does.
+
+105
+00:11:15,490 --> 00:11:19,350
+Is it. It tells it to join the left feet.
+
+106
+00:11:19,350 --> 00:11:26,490
+The left table movies, to use that color movie ideas column and join it with the index in the other table.
+
+107
+00:11:26,490 --> 00:11:34,740
+So movie starts has an index and it expects the movie idea, column and movies to match up with the index in movie stats.
+
+108
+00:11:34,740 --> 00:11:40,880
+And so the resulting frame. Has our title in our genre does.
+
+109
+00:11:40,880 --> 00:11:45,350
+And then it has the mean and the count for each of these movies.
+
+110
+00:11:45,350 --> 00:11:55,790
+So now if I say and largest of this movie info frame, I see that the most frequently rated movie with 81000 movie ratings is Forrest Gump.
+
+111
+00:11:55,790 --> 00:12:00,470
+So another thing you can do is so the movie level rating statistics to be computed, this count.
+
+112
+00:12:00,470 --> 00:12:02,690
+This mean those are just more variables.
+
+113
+00:12:02,690 --> 00:12:10,280
+Remember, in the earlier we talked about, we can make some of the variables you might observe are actually aggregates from other things.
+
+114
+00:12:10,280 --> 00:12:17,480
+Well, these are just more variables. So now we have sweet. So if we have an observation of a movie, it has an I.D., it has a title.
+
+115
+00:12:17,480 --> 00:12:21,830
+It has on Rose. And it has the number of people who've rated it in the mean rating.
+
+116
+00:12:21,830 --> 00:12:30,950
+These also can be aggregated. So in the downloads for this video, you're going to find the notebook that I was just using for practice.
+
+117
+00:12:30,950 --> 00:12:35,840
+What I'd like you to do is to go in and compute the mean number of ratings per movie.
+
+118
+00:12:35,840 --> 00:12:38,210
+Maybe use some additional exploration as well.
+
+119
+00:12:38,210 --> 00:12:46,940
+But that's going to let you start to see how we can build from these aggregates into into additional structures.
+
+120
+00:12:46,940 --> 00:12:52,130
+And also emphasize that. A data frame is just a data frame.
+
+121
+00:12:52,130 --> 00:12:58,940
+Mike, we give it meaning in terms of observations. But the fact that a data frame resulted from an aggregate doesn't make it special in any way.
+
+122
+00:12:58,940 --> 00:13:03,250
+We can aggregate the results of of of an aggregate because it's just another data frame.
+
+123
+00:13:03,250 --> 00:13:10,160
+Everything's a data frame or a series and pandas. So to wrap up aggregates, combine a series or array into a single value.
+
+124
+00:13:10,160 --> 00:13:14,330
+That's what it means to aggregate. We can do this over an entire series.
+
+125
+00:13:14,330 --> 00:13:17,060
+We can also do this on a group by group basis.
+
+126
+00:13:17,060 --> 00:13:27,260
+If we have another column that provides us with grouping information so we can compute the average Beacon computer Mean Asama or whatever per group,
+
+127
+00:13:27,260 --> 00:13:34,050
+you might have this like if you have if you have records of financial transactions, you might want to compute.
+
+128
+00:13:34,050 --> 00:13:38,570
+Well, what was what was our total profit in each month.
+
+129
+00:13:38,570 --> 00:13:41,570
+So you could group by year, maybe as you grew by month,
+
+130
+00:13:41,570 --> 00:13:50,420
+maybe group by year and month and take a some of the of the profit margin on each of your transactions.
+
+131
+00:13:50,420 --> 00:13:58,160
+And then finally join Combine's frames, we can start to put two frames together in order to get context for values.
+
+132
+00:13:58,160 --> 00:14:00,290
+We're going to see a lot of other uses for join later.
+
+133
+00:14:00,290 --> 00:14:11,824
+But this that's in this context that lets us get context for understanding what's going on in a value.
+

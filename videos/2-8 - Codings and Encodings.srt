@@ -1,0 +1,328 @@
+1
+00:00:04,910 --> 00:00:11,330
+This video I'm going to talk with you about coding and coding data learning outcomes are to recognize when a variable might
+
+2
+00:00:11,330 --> 00:00:17,130
+need a code book or a dictionary to give it more explanation to understand the difference between a variable in its encoding,
+
+3
+00:00:17,130 --> 00:00:23,480
+the transforming and coding to another. We start to think about what we're going to need in order to do that.
+
+4
+00:00:23,480 --> 00:00:27,860
+So the data we've been talking about needs to be encode. It needs to be stored somehow.
+
+5
+00:00:27,860 --> 00:00:34,700
+So the variables we talked about in the earlier video, we actually have to record those values in some way.
+
+6
+00:00:34,700 --> 00:00:42,680
+It's important to recognize that the encoding and the value that we're encoding and the value that is encoded in that coding are not the same.
+
+7
+00:00:42,680 --> 00:00:46,300
+We could have the number twenty seven and we can write it in multiple different way.
+
+8
+00:00:46,300 --> 00:00:50,870
+This is warm up example. We could write the digits to seven.
+
+9
+00:00:50,870 --> 00:01:00,380
+We can write out the word 27. We could write it out and hexadecimal zero x one B. The value is twenty seven, but we have different ways of writing it.
+
+10
+00:01:00,380 --> 00:01:05,060
+So to encode numeric data, we can encode it as a binary integer.
+
+11
+00:01:05,060 --> 00:01:12,770
+And in these, each of these I'm showing the hexes, decimal values of the bytes used to encode it.
+
+12
+00:01:12,770 --> 00:01:17,510
+So we can encoded as a binary integer, we could encode it as a floating point.
+
+13
+00:01:17,510 --> 00:01:22,880
+Binary number. Looks very different, doesn't it?
+
+14
+00:01:22,880 --> 00:01:28,370
+We could encode it as a decimal number. Those are the codes for the ASCII codes for the digits.
+
+15
+00:01:28,370 --> 00:01:31,880
+Two and seven, when we save the CSB file, it's stored as text.
+
+16
+00:01:31,880 --> 00:01:35,790
+So it's storing the decimal digits. There's another format called binary code,
+
+17
+00:01:35,790 --> 00:01:43,070
+a decimal that's used on some mainframes and other systems for efficiently storing the actual decimal values.
+
+18
+00:01:43,070 --> 00:01:47,480
+Encodings can also be Lawsie. A floating point, for example, loses precision.
+
+19
+00:01:47,480 --> 00:01:53,870
+And we can encode we can record things as integers and it truncates whatever decimal part they may have had.
+
+20
+00:01:53,870 --> 00:01:59,690
+So this is just for encoding numbers. We've had these four ways of encoding, but that's the syntactic encoding of.
+
+21
+00:01:59,690 --> 00:02:07,170
+OK. This is stored as decimal characters. This is stored as a 32 bit integer is not enough to interpret it.
+
+22
+00:02:07,170 --> 00:02:11,630
+No, because we need to know how it was measured. We need to know what the units are.
+
+23
+00:02:11,630 --> 00:02:15,100
+Is this millimeters ft.
+
+24
+00:02:15,100 --> 00:02:24,670
+Crocodiles may have been transformed somehow some data sets, they center the values or they take the logarithm of their values.
+
+25
+00:02:24,670 --> 00:02:32,650
+We also need to know if there are any sensible values because it's not uncommon to get a data set where it's numbers.
+
+26
+00:02:32,650 --> 00:02:37,240
+But then there's a special value that you use to indicate, say, unknown data.
+
+27
+00:02:37,240 --> 00:02:47,090
+So we might have. We might have. The number of classes a student took in a day, one, two, seven, whatever.
+
+28
+00:02:47,090 --> 00:02:58,290
+And if we don't know, we record ninety nine. Data recordings today tend to actually just exclude the value.
+
+29
+00:02:58,290 --> 00:03:01,020
+But there's lots of historical data out there,
+
+30
+00:03:01,020 --> 00:03:08,250
+lots of historical data processing systems that use specific values to to indicate things such as unknown.
+
+31
+00:03:08,250 --> 00:03:17,310
+We need to know if any of those values are in the data. When we have categorical data, we need to know how the data is, what we call coded.
+
+32
+00:03:17,310 --> 00:03:21,420
+So the categorical data. There's a few different values the variable can take on.
+
+33
+00:03:21,420 --> 00:03:27,120
+We call these codes or levels of the categorical variable. We need to know what they are.
+
+34
+00:03:27,120 --> 00:03:32,730
+We also need to know how they're stored. Are they stored numeric or string some data sets?
+
+35
+00:03:32,730 --> 00:03:37,710
+We have a string like our penguins. We just wrote down the string. But some maybe there'll be numbers zero.
+
+36
+00:03:37,710 --> 00:03:42,420
+One, two, three, four. And when you when you the code book to tell us what those numbers are.
+
+37
+00:03:42,420 --> 00:03:51,930
+In any case, we know how the data was recorded. But we didn't know what they are. We also need to know how they're defined the.
+
+38
+00:03:51,930 --> 00:03:56,550
+What does a particular value for this categorical variable mean?
+
+39
+00:03:56,550 --> 00:03:57,750
+We need to know.
+
+40
+00:03:57,750 --> 00:04:05,010
+It's useful to know what rules were to use to decide which code to apply for some things that might be fairly straightforward and obvious,
+
+41
+00:04:05,010 --> 00:04:15,930
+but for others it might not be. Also, there's a made a question around coding categorical data about who decided the definitions and how
+
+42
+00:04:15,930 --> 00:04:22,170
+were the how was this set of codes decided upon and given the definitions that they were given.
+
+43
+00:04:22,170 --> 00:04:28,620
+One example of this is in census data.
+
+44
+00:04:28,620 --> 00:04:35,190
+The Category four rate, the way race is collected, that's changed throughout the history of the United States.
+
+45
+00:04:35,190 --> 00:04:43,440
+The set of categories, whether you have to pick one or whether it's a check, all that apply, etc., that changed throughout the throughout the course.
+
+46
+00:04:43,440 --> 00:04:55,430
+And it becomes a very political process about how do you define what how it is that we record race when we are collecting census data.
+
+47
+00:04:55,430 --> 00:05:05,370
+That then has strong effects for how we understand. The representation and distribution of race in the country, so few examples.
+
+48
+00:05:05,370 --> 00:05:11,310
+So the penguin data set we looked at. The species is a categorical variable and it's written down.
+
+49
+00:05:11,310 --> 00:05:17,040
+It just with the name of the species, Adelie chinstrap or Gentoo in the Rorty.
+
+50
+00:05:17,040 --> 00:05:21,060
+There's a raw version of the data that has the full biological species name.
+
+51
+00:05:21,060 --> 00:05:33,990
+These come for biological taxonomy. There's another data set that is used for some things that is credit information for German loan applicants.
+
+52
+00:05:33,990 --> 00:05:40,080
+And it has various variables. One of its variables is the status of the applicants checking account.
+
+53
+00:05:40,080 --> 00:05:45,990
+And it has the codes a11 for overdrawn a twelve for between zero and hundred deutschmarks,
+
+54
+00:05:45,990 --> 00:05:53,250
+a A13 for either at least 200 deutschmarks, or they've had their salary to positive for a year.
+
+55
+00:05:53,250 --> 00:05:58,020
+And then A14 means no checking account. And so we've got these categorical codes.
+
+56
+00:05:58,020 --> 00:06:03,090
+We have the if you see a 12 in the data, you do not know what it means without looking at the code book.
+
+57
+00:06:03,090 --> 00:06:11,880
+Even if it does look obvious, it's good to look at the code book category, but then we actually go to record categorical data.
+
+58
+00:06:11,880 --> 00:06:18,510
+A lot of times, especially in the raw data, that we're get the data files that we load, it's going to be directly stored as a string or an integer.
+
+59
+00:06:18,510 --> 00:06:25,010
+We're gonna have a column for the categorical variable and it has the value in there, but.
+
+60
+00:06:25,010 --> 00:06:34,240
+For computational purposes, we're often going to need to encode it differently because you can't compute on A13 a couple different encodings there.
+
+61
+00:06:34,240 --> 00:06:39,100
+One is one hot encoding where each different coder level gets a variable.
+
+62
+00:06:39,100 --> 00:06:43,750
+A logical variable, but we encode it with an integer zero or one.
+
+63
+00:06:43,750 --> 00:06:48,660
+And so for the German credit, we're going to have a eleven, twelve, thirteen, fourteen.
+
+64
+00:06:48,660 --> 00:06:56,650
+There are all different variables we could for the penguins. We would have three variables, one for each species, and exactly one of them is one.
+
+65
+00:06:56,650 --> 00:07:02,380
+So when a deli penguin would have one, the Adelie variable and zero in a chinstrap and Gentoo.
+
+66
+00:07:02,380 --> 00:07:11,110
+Another option is what's called dummy coding, which is very, very similar, except one of the codes doesn't get a variable.
+
+67
+00:07:11,110 --> 00:07:16,410
+So it all zeroes in the variables for the categorical variable.
+
+68
+00:07:16,410 --> 00:07:20,910
+I mean, it's the admitted one and a one at any of them means that one.
+
+69
+00:07:20,910 --> 00:07:26,190
+Why we need that is going to. It's going to come up when we start talking about linear modeling.
+
+70
+00:07:26,190 --> 00:07:33,150
+But it's a very common statistical way of encoding a variable. The variables that we use for this are called indicator variables.
+
+71
+00:07:33,150 --> 00:07:41,820
+So if we're transforming our penguins into either one hot or dummy code variables, we say that we have an indicator variable for chinstrap.
+
+72
+00:07:41,820 --> 00:07:46,410
+And it's one if the if the penguin is a chinstrap and zero if it is not.
+
+73
+00:07:46,410 --> 00:07:53,520
+So data has to be coded and encoded in order for us to process and analyze that, we actually have to store it somehow.
+
+74
+00:07:53,520 --> 00:07:58,560
+And the process of coding affects are the data that we have when we go when we do an analysis.
+
+75
+00:07:58,560 --> 00:08:12,580
+When we do an inference. The way that the data was coded affects how we view and how we understand the things that the data are actually about.
+
+76
+00:08:12,580 --> 00:08:16,060
+Sometimes this is relatively straightforward. The penguin species,
+
+77
+00:08:16,060 --> 00:08:24,190
+although the way the penguins got divided into their various species and got those species names is is a historical social process.
+
+78
+00:08:24,190 --> 00:08:33,310
+But with other things that are very that are have very contested social definitions, such as how do you indicate race?
+
+79
+00:08:33,310 --> 00:08:39,340
+It becomes a very strong lens that affects how we understand the underlying
+
+80
+00:08:39,340 --> 00:08:43,930
+reality that the data is supposed to represent and that the representation,
+
+81
+00:08:43,930 --> 00:08:44,920
+the coding, the codebook,
+
+82
+00:08:44,920 --> 00:08:57,170
+the definitions that need to be documented thoroughly in order for us to properly understand the data that we're working with.
+

@@ -4,6 +4,8 @@ from pathlib import Path
 import tarfile
 import shutil
 import re
+from xml.etree import ElementTree as et
+from io import BytesIO
 
 from invoke import task
 import requests
@@ -118,3 +120,26 @@ def extract_slides(c, dir):
                     text = getattr(shape, 'text', None)
                     if text:
                         print(text, file=otf)
+
+
+@task
+def get_videos(c, folder):
+    url = f'https://boisestate.hosted.panopto.com/Panopto/Podcast/Podcast.ashx?courseid={folder}&type=mp4'
+    id_re = re.compile(r'https://.*/Syndication/([a-z0-9-]+)\.mp4')
+    vidroot = Path('videos')
+    res = requests.get(url)
+    rss = et.parse(BytesIO(res.content))
+    chan = rss.find('channel')
+
+    for item in chan.findall('item'):
+        title = item.find('title').text
+        guid = item.find('guid').text.strip()
+        m = id_re.match(guid)
+        id = m.group(1)
+        _msg('found video %s with id %s', title, id)
+
+        srturi = f'https://boisestate.hosted.panopto.com/Panopto/Pages/Transcription/GenerateSRT.ashx?id={id}&language=0'
+        srt = requests.get(srturi)
+        _msg('downloaded subtitles, saving')
+        file = vidroot / f'{title}.srt'
+        file.write_bytes(srt.text.encode('utf8'))

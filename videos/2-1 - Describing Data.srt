@@ -1,0 +1,224 @@
+1
+00:00:03,670 --> 00:00:12,850
+Welcome back. It's the beginning of the material for week two in which we're going to be talking about describing data.
+
+2
+00:00:12,850 --> 00:00:16,630
+And so the learning outcomes for this week are for you to be able to actually loaded data,
+
+3
+00:00:16,630 --> 00:00:21,400
+file independence and describe its basic structural characteristics.
+
+4
+00:00:21,400 --> 00:00:25,810
+How big is the data file? For example, what data types are it?
+
+5
+00:00:25,810 --> 00:00:33,610
+We want to be able to identify the type of a variable and descriptive statistics that are appropriate to that variable.
+
+6
+00:00:33,610 --> 00:00:36,910
+We also want to be able to describe the distribution of a variable,
+
+7
+00:00:36,910 --> 00:00:46,270
+to describe how data was collected and to start to reason about the limitations of that collection process and of the representation of data.
+
+8
+00:00:46,270 --> 00:00:54,870
+So before we get into describing data, I want to talk a little bit what is the data that we're talking about?
+
+9
+00:00:54,870 --> 00:01:04,000
+Let's start just with a definition from Oxford Dictionary. That data, facts or statistics collected together for reference or analysis.
+
+10
+00:01:04,000 --> 00:01:07,690
+That's a good enough definition for what we're going to be talking about.
+
+11
+00:01:07,690 --> 00:01:16,810
+So we have it's some data points, some facts of some kind or another that have been that have been assembled or collected together.
+
+12
+00:01:16,810 --> 00:01:27,520
+So. Where data comes from. In the broader scheme of what we're trying to do is there's a lot of ways to think about it.
+
+13
+00:01:27,520 --> 00:01:32,270
+There's a lot of philosophical questions about what data is and where it comes from.
+
+14
+00:01:32,270 --> 00:01:41,090
+But for our purpose, we can think about it in terms of there is some.
+
+15
+00:01:41,090 --> 00:01:43,850
+There's something that we want to learn about.
+
+16
+00:01:43,850 --> 00:01:49,490
+It might be objects themselves or entities that maybe want to learn something about people or animals or something.
+
+17
+00:01:49,490 --> 00:01:55,040
+It might be a process like a social process or a natural process that we want to learn about.
+
+18
+00:01:55,040 --> 00:02:01,510
+But that that thing, that conceptual thing results in some kind of a phenomena.
+
+19
+00:02:01,510 --> 00:02:06,530
+Either a naturally occurring phenomena that we can observe or an experiment.
+
+20
+00:02:06,530 --> 00:02:12,110
+And I want to make that we can use to to observe and elucidate what it is that we're looking at.
+
+21
+00:02:12,110 --> 00:02:15,800
+I want to make this distinction here between the thing and what we can observe,
+
+22
+00:02:15,800 --> 00:02:24,260
+because it might be that our observations are a layer removed from the thing that we're trying to study.
+
+23
+00:02:24,260 --> 00:02:34,470
+For example. It's impossible to observe anything about somewhat directly observe anything about someone's internal mental state.
+
+24
+00:02:34,470 --> 00:02:42,810
+But we can make observations of what they do or of what they tell us about what they're thinking and.
+
+25
+00:02:42,810 --> 00:02:51,030
+Those observations really valuable, but it's important to maintain the distinction that what we observe, if someone tells us they are feeling happy.
+
+26
+00:02:51,030 --> 00:02:57,960
+That observation is just that. They told us they are feeling happy. It's not directly the underlying mental state.
+
+27
+00:02:57,960 --> 00:03:08,820
+We have some phenomenon or experiment that then produces raw data that direct what was observed or what was measured as a result of this process.
+
+28
+00:03:08,820 --> 00:03:26,380
+The raw data is then transformed, cleaned up, documented and labeled to produce a data set that is basically ready to use for some purpose.
+
+29
+00:03:26,380 --> 00:03:31,660
+We then use that data set to make inferences or analysis or whatever else we're going to do,
+
+30
+00:03:31,660 --> 00:03:41,290
+which hopefully then give us answers to what it is that we're trying to study, at least partial answers, at least some answers.
+
+31
+00:03:41,290 --> 00:03:46,570
+But we have these multiple steps here. We have the thing we could observe. We had the observations themselves.
+
+32
+00:03:46,570 --> 00:03:55,180
+We then have the collection and organization and preparation of the observations into something that's usable
+
+33
+00:03:55,180 --> 00:04:02,620
+for an inference task or a prediction task or whatever is that we're trying to do with our data science tool.
+
+34
+00:04:02,620 --> 00:04:10,240
+One way to summarize it is that the data is the messy pile. The data set is when it's cleaned up and it's ready for us to actually be able to use it.
+
+35
+00:04:10,240 --> 00:04:17,230
+So there's a lot of. There's a number of definitions of a data set. One of the readings that I've assigned goes over some of those definitions.
+
+36
+00:04:17,230 --> 00:04:24,760
+But the common themes that are widely used across the definitions is that it's data that's collected or curated for a purpose.
+
+37
+00:04:24,760 --> 00:04:31,570
+It's mostly ready to use and it's documented for that purpose or for that task.
+
+38
+00:04:31,570 --> 00:04:37,720
+That doesn't mean it's the only purpose or task that it can be used for.
+
+39
+00:04:37,720 --> 00:04:42,010
+But it usually it was created or assembled for some particular purpose or task.
+
+40
+00:04:42,010 --> 00:04:49,310
+It's documented in the context of that. So when we get some data.
+
+41
+00:04:49,310 --> 00:04:58,340
+Whether it's raw data, whether it is a processed and ready, ready to use data set, there's a few things that we need to know.
+
+42
+00:04:58,340 --> 00:05:04,820
+One is we need to know how much data we have, how many records are there, how many columns, how big is the file?
+
+43
+00:05:04,820 --> 00:05:09,590
+What kinds of data do we have? We're going to talk a lot more about we're going to talk more about a number of these.
+
+44
+00:05:09,590 --> 00:05:13,400
+What is the data about? What are the things, the entities, the objects that the data is about?
+
+45
+00:05:13,400 --> 00:05:18,520
+How was it collected? How was it recorded?
+
+46
+00:05:18,520 --> 00:05:22,690
+The biopsy, the data might there might be bias in the selection process.
+
+47
+00:05:22,690 --> 00:05:27,250
+The recording process, et cetera, for the for the data.
+
+48
+00:05:27,250 --> 00:05:33,940
+We want to know what what is it that we do know about the process that it will be called the data generating process.
+
+49
+00:05:33,940 --> 00:05:39,040
+And the data generating process is the combination of the underlying phenomenon,
+
+50
+00:05:39,040 --> 00:05:45,190
+the observation method can ism and actually recording his observations into data.
+
+51
+00:05:45,190 --> 00:05:49,900
+The reading, as I said, the readings that we have for this week discuss this more.
+
+52
+00:05:49,900 --> 00:05:57,670
+So to wrap up datasets arise from curating or collecting data often result from some observations for a particular purpose.
+
+53
+00:05:57,670 --> 00:06:03,220
+There are layers between the thing that we actually want to study in the data that we have available.
+
+54
+00:06:03,220 --> 00:06:06,510
+And this week we're going to be leveraging the reading.
+
+55
+00:06:06,510 --> 00:06:14,650
+So the first week, it was primarily the videos that the textbook and the Python tutorials to supplement and get you more of an on ramp this week.
+
+56
+00:06:14,650 --> 00:06:27,467
+The readings are a fairly fundamental piece of what it is that we're going to be discussing and working on.
+

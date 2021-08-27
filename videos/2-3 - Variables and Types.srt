@@ -1,0 +1,616 @@
+1
+00:00:04,860 --> 00:00:09,660
+This video, I want to talk with you about variables and observations and type,
+
+2
+00:00:09,660 --> 00:00:17,870
+so in the previous video we saw how to load a data file in the pandas, how to see how many rows we have, what python types of data.
+
+3
+00:00:17,870 --> 00:00:21,470
+But this video, we're going to go from the python types, the conceptual types,
+
+4
+00:00:21,470 --> 00:00:30,560
+and start to talk about what kinds of data we collect and we store in these pandas data frames.
+
+5
+00:00:30,560 --> 00:00:34,580
+So the learning outcomes for this video are to know the relationship between pandas
+
+6
+00:00:34,580 --> 00:00:41,150
+structures and statistical variables and to identify the type of a statistical variable.
+
+7
+00:00:41,150 --> 00:00:49,630
+So you've referred back to our data pipeline. We have things that produce Farnam observable phenomena that produce raw data.
+
+8
+00:00:49,630 --> 00:00:54,540
+Robbs ovations that we then process into a data set.
+
+9
+00:00:54,540 --> 00:01:01,800
+So the core idea when we have something that's going to be a data set that's processed, ready to use for a task.
+
+10
+00:01:01,800 --> 00:01:07,980
+Well, we usually have is a table of observations. Each row is one observation.
+
+11
+00:01:07,980 --> 00:01:14,040
+The data sheets of reading calls this an instance. Sometimes this is called a sample.
+
+12
+00:01:14,040 --> 00:01:19,500
+And this is an observation of the values of one or more variables pertaining to a single object.
+
+13
+00:01:19,500 --> 00:01:24,900
+So I'm showing here three rows from a data set. The Palmer penguin's data set.
+
+14
+00:01:24,900 --> 00:01:32,310
+That's measurements of penguins in Antarctica. And so each one has several different variables.
+
+15
+00:01:32,310 --> 00:01:33,910
+Each row represents.
+
+16
+00:01:33,910 --> 00:01:41,730
+So the first row represents, we observed and Adelie penguin on Torgersen Island with a bill length of thirty nine point one millimeters,
+
+17
+00:01:41,730 --> 00:01:50,520
+depth of eighteen point seven, et cetera. We store this as a pandas data frame, reach variable as a column.
+
+18
+00:01:50,520 --> 00:01:56,010
+But but the variables have their own conceptual properties that we're going to start talking about here.
+
+19
+00:01:56,010 --> 00:02:03,260
+So for each penguin we have it species, there are three different species of penguin that are observed in this dataset island.
+
+20
+00:02:03,260 --> 00:02:05,610
+There are three different islands on which they're measured.
+
+21
+00:02:05,610 --> 00:02:15,180
+We have measurements of the Penguins bill its length and depth, the length of its flipper, the body mass of the penguin and then the penguin sex.
+
+22
+00:02:15,180 --> 00:02:21,090
+Each data point, each observation is about one penguin. And we have these different observations.
+
+23
+00:02:21,090 --> 00:02:28,980
+We also have that the documentation which you can the you'll find a link to online and the slides,
+
+24
+00:02:28,980 --> 00:02:32,970
+the documentation tells us things like the build length.
+
+25
+00:02:32,970 --> 00:02:38,910
+That's the length of the bill in millimeters. The penguin body mass is in grams.
+
+26
+00:02:38,910 --> 00:02:42,840
+And when we have a data set, it's important to document.
+
+27
+00:02:42,840 --> 00:02:52,420
+And we have data whether it's organized and curated and processed into a dataset or it's the Robbs ovations.
+
+28
+00:02:52,420 --> 00:02:57,610
+We need to have the first order of things that we need to know besides how much data we have.
+
+29
+00:02:57,610 --> 00:03:02,890
+OK, what are the columns? But things like what are the units we can't properly interpret?
+
+30
+00:03:02,890 --> 00:03:08,740
+The bill length bill length of thirty nine. Thirty nine what? It's probably not thirty nine feet.
+
+31
+00:03:08,740 --> 00:03:19,240
+That would be a very large penguin. But with that we when we're producing a data we need to document all of these things and we're consuming data.
+
+32
+00:03:19,240 --> 00:03:27,650
+We need to find the answers to all of these things. So the variables we have can take on a variety of different types,
+
+33
+00:03:27,650 --> 00:03:34,580
+and the first type I want to talk about is a continuous variable and a continuous variable can take on any value pop.
+
+34
+00:03:34,580 --> 00:03:39,200
+There might be a range that limits the range of values that the variable can take on.
+
+35
+00:03:39,200 --> 00:03:42,830
+Mathematically, continuous variables correspond to real numbers.
+
+36
+00:03:42,830 --> 00:03:49,970
+And the key idea here that really what makes it continuous is for any two values, we could have a value between them.
+
+37
+00:03:49,970 --> 00:03:58,040
+So if we have two penguins, let's say one has a has a flipper length of a 40 millimeters and another has a flipper length of forty five.
+
+38
+00:03:58,040 --> 00:04:02,300
+We could have a penguin with a flipper length of forty two millimeters.
+
+39
+00:04:02,300 --> 00:04:08,240
+And no matter how close together they are, we could conceivably have a penguin with a flipper length that's in between them.
+
+40
+00:04:08,240 --> 00:04:12,960
+That's what makes it continuous. And now.
+
+41
+00:04:12,960 --> 00:04:19,170
+Observations are often desk critize, so even if we have something continuous like the penguins flipper length,
+
+42
+00:04:19,170 --> 00:04:29,190
+often our observations will be discrete and noisy because we don't have infinitely precise rulers with which to measure penguin flippers.
+
+43
+00:04:29,190 --> 00:04:35,420
+But what makes it continuous is conceptual. Lee. It's a continuous variable.
+
+44
+00:04:35,420 --> 00:04:41,750
+Even if our actual measurements of it might be disk critize, typically it's stored as a float.
+
+45
+00:04:41,750 --> 00:04:48,410
+Occasionally it'll be stored as an. If we only measure to integer private precision, we might store it as an ant instead of a float.
+
+46
+00:04:48,410 --> 00:04:53,300
+It is important to note, though, that floating point storage is also it is imprecise.
+
+47
+00:04:53,300 --> 00:05:00,360
+It's fine for the vast majority of what we're doing because like if you're taking any kind of a physical or natural measurement.
+
+48
+00:05:00,360 --> 00:05:03,300
+The measurement instrument is going to have some imprecision in it.
+
+49
+00:05:03,300 --> 00:05:11,880
+The imprecision of storing and a floating point number is far less than the imprecision of most physical instruments.
+
+50
+00:05:11,880 --> 00:05:19,290
+Unless you're doing something like high energy physics and a particle accelerator, most of us aren't doing that here.
+
+51
+00:05:19,290 --> 00:05:26,310
+So for most for most of our purposes, for measuring safe physical quantities, we don't need to worry about the floating point imprecision.
+
+52
+00:05:26,310 --> 00:05:34,410
+The one except the exception is for storing money. A discrete variable, on the other hand, takes on two distinct values.
+
+53
+00:05:34,410 --> 00:05:43,910
+And most of our variables are basically going to fall into the category of continuous real number or discrete almost everything else.
+
+54
+00:05:43,910 --> 00:05:48,940
+And it can have we can have values that have no intermediates and.
+
+55
+00:05:48,940 --> 00:05:55,930
+If I have four eggs, five eggs, I mean, I could take crack and egg and have half the contents.
+
+56
+00:05:55,930 --> 00:06:01,210
+But I'm talking about distinct eggs. I have four or five eggs.
+
+57
+00:06:01,210 --> 00:06:07,000
+Descript variables might not have an order. There's many different types of discrete variables.
+
+58
+00:06:07,000 --> 00:06:11,100
+And I'm going to walk through some of those in these remaining slides.
+
+59
+00:06:11,100 --> 00:06:17,200
+So the first is an integer and integers are discrete and they're typically things like count counting.
+
+60
+00:06:17,200 --> 00:06:24,590
+Something is our canonical example of an integer. They have an order for it is less than five.
+
+61
+00:06:24,590 --> 00:06:32,400
+But. They but you can't have a value in the middle.
+
+62
+00:06:32,400 --> 00:06:37,140
+So, for example, the number of penguins measured the size of something is usually an integer.
+
+63
+00:06:37,140 --> 00:06:47,910
+We often treat an integer continuously. So, for example, the American Veterinary Medical Association computed that for households that own cats.
+
+64
+00:06:47,910 --> 00:06:54,920
+The average number of cats per household is one point eight. Now, you can't actually have point eight of a cat.
+
+65
+00:06:54,920 --> 00:07:00,980
+So in terms of the individual, if you were going to take observations and observe how many cats are in each household,
+
+66
+00:07:00,980 --> 00:07:06,350
+the number of cats would be an integer. You can't.
+
+67
+00:07:06,350 --> 00:07:08,420
+You can't have point eight cats.
+
+68
+00:07:08,420 --> 00:07:16,640
+But we then can treat it as a continuous value so we can talk about the average number of cats per household and that's meaningful to talk about.
+
+69
+00:07:16,640 --> 00:07:21,590
+Even though nobody actually has one point eight cats, integers are usually stored.
+
+70
+00:07:21,590 --> 00:07:27,410
+And sometimes as floats, particularly in.
+
+71
+00:07:27,410 --> 00:07:33,740
+If you have missing values, pandas can't represent missing values for in an integer type.
+
+72
+00:07:33,740 --> 00:07:39,670
+But so it will store those enties floats if it finds any missing values.
+
+73
+00:07:39,670 --> 00:07:47,560
+Categorical variable takes on one of a fixed set of unordered values and.
+
+74
+00:07:47,560 --> 00:07:51,850
+We can compare them for a quality, but that's about all we can do.
+
+75
+00:07:51,850 --> 00:07:57,800
+There's no order, so we can't sort out. We can't do arithmetic.
+
+76
+00:07:57,800 --> 00:08:04,360
+We can't sort for convenience. Like if we have our paint. The penguin species is one example of a categorical variable.
+
+77
+00:08:04,360 --> 00:08:09,490
+We can sort by species in alphabetical order. But that's just convention.
+
+78
+00:08:09,490 --> 00:08:16,500
+The convention of the English alphabet. It's not intrinsic to the meaning of the different of the different penguin species.
+
+79
+00:08:16,500 --> 00:08:20,710
+Said to Athalie is not less than chinstrap is not less than Gentoo.
+
+80
+00:08:20,710 --> 00:08:30,520
+They just happened to come in a particular order in the alphabet. Another example is the user in the movie lends data we saw in the previous video.
+
+81
+00:08:30,520 --> 00:08:34,120
+The user I.D. column is an integer, but that's not a count.
+
+82
+00:08:34,120 --> 00:08:38,830
+It's a user, right? It's an identifier. It's a kind of actually a categorical variable.
+
+83
+00:08:38,830 --> 00:08:47,770
+Which user in the system are we talking about? They're each assigned a numeric identifier for computational convenience.
+
+84
+00:08:47,770 --> 00:08:55,200
+But if we have users. Seventy five and users three hundred and forty two asking what is user seventy
+
+85
+00:08:55,200 --> 00:08:59,320
+five plus user three hundred forty two is a completely meaningless question.
+
+86
+00:08:59,320 --> 00:09:09,680
+They're categorical variables. There is no error, arithmetic or comparison operations that we can do between them.
+
+87
+00:09:09,680 --> 00:09:13,540
+Categorical variables are stored. They can be stored as strings. They can be stored as integers.
+
+88
+00:09:13,540 --> 00:09:18,530
+PAND is also as a category type. That's useful for storing categorical variables.
+
+89
+00:09:18,530 --> 00:09:25,970
+A boolean or a logical variable is a special case of a categorical that can either be just has the two values true and false.
+
+90
+00:09:25,970 --> 00:09:32,030
+Usually it's stored as an int or a bull. And the bull is just a special case type event.
+
+91
+00:09:32,030 --> 00:09:37,950
+The convention typically is that one is true and zero is false.
+
+92
+00:09:37,950 --> 00:09:44,430
+And then ordinal values there, like categorical, they take on a fix one of a fixed set of values.
+
+93
+00:09:44,430 --> 00:09:54,290
+But those values are ordered. This is the key difference between an ordinary and a categorical and so we can order, we can compare for any quality.
+
+94
+00:09:54,290 --> 00:10:00,800
+A few examples of these are classic rates. A is A better grade than B.
+
+95
+00:10:00,800 --> 00:10:04,040
+There in this order. But you can't directly do math on them.
+
+96
+00:10:04,040 --> 00:10:07,700
+A minus B, we can assign numbers to them to try to do math.
+
+97
+00:10:07,700 --> 00:10:12,320
+But but they're just in an order, not an order. A Likert scale.
+
+98
+00:10:12,320 --> 00:10:21,770
+If you've taken a survey that asks you to strongly disagree, to strongly agree with something that is ordinal.
+
+99
+00:10:21,770 --> 00:10:29,100
+Also a movie rating, like if you if you go and you rate a movie, if you read a product, five stars, four stars on Netflix.
+
+100
+00:10:29,100 --> 00:10:35,300
+What you're using a number, but it's ordinal in the sense that.
+
+101
+00:10:35,300 --> 00:10:42,020
+We know that with you, if you like something four stars, you're saying you like it more than you like a three star thing.
+
+102
+00:10:42,020 --> 00:10:47,330
+But we don't know if you are a five star and a four star and a three star.
+
+103
+00:10:47,330 --> 00:10:54,530
+Is the five star movie just as much better than the fourth star as the four star is than the three star?
+
+104
+00:10:54,530 --> 00:10:58,430
+Or does it just tell us which order they're in intrinsically?
+
+105
+00:10:58,430 --> 00:11:02,540
+All it tells us is the order that you put these movies in.
+
+106
+00:11:02,540 --> 00:11:09,560
+But sometimes we do arithmetic anyway, like Amazon computes the average rating for a product.
+
+107
+00:11:09,560 --> 00:11:13,670
+Even though ratings are ordinal. Or you have a GPA.
+
+108
+00:11:13,670 --> 00:11:23,390
+That's computing the average of your ordinal grades. They're stored as insur floats or strings with an externally defined order wave.
+
+109
+00:11:23,390 --> 00:11:27,560
+If we have us if we haven't a no variable started and stored in a string,
+
+110
+00:11:27,560 --> 00:11:31,730
+we have to have something that tells us what order of those values actually go in.
+
+111
+00:11:31,730 --> 00:11:39,160
+Also, the panda's category type has an ordered modes. You can tell it, this is a categorical variable and it is ordered.
+
+112
+00:11:39,160 --> 00:11:45,280
+There's other types of data we're going to encounter time. We usually are going to treat is continuous.
+
+113
+00:11:45,280 --> 00:11:47,410
+Like it might be stored as written out as a date.
+
+114
+00:11:47,410 --> 00:11:52,870
+But if we're actually going to work with time, we're probably going to convert it into a continuous variable.
+
+115
+00:11:52,870 --> 00:12:01,510
+Common common encodings for that are either a number of seconds or a number of years, sometimes a number of milliseconds.
+
+116
+00:12:01,510 --> 00:12:06,880
+Text is categorical ish, but we're usually can convert it into categorical or account variables.
+
+117
+00:12:06,880 --> 00:12:14,650
+We'll talk more about that later. We actually get to processing. Text images are stored as matrices of insur real's.
+
+118
+00:12:14,650 --> 00:12:20,890
+We may also extract features from them that become other kinds of variables. Money is often stored as an interim float,
+
+119
+00:12:20,890 --> 00:12:25,180
+but we have to be careful because the imprecision of floating point numbers can
+
+120
+00:12:25,180 --> 00:12:29,570
+cause a problem when we're using money for the purposes of causing finding,
+
+121
+00:12:29,570 --> 00:12:34,560
+of creating financial transactions for the kinds of things we might be doing with money here in this class.
+
+122
+00:12:34,560 --> 00:12:40,240
+It's not going to be a problem. Nobody loses money if you have a little imprecision in computing.
+
+123
+00:12:40,240 --> 00:12:46,050
+The average price of of a ton of potatoes,
+
+124
+00:12:46,050 --> 00:12:50,950
+it really becomes a problem when you feed that back in to an into actual financial
+
+125
+00:12:50,950 --> 00:12:56,740
+transaction systems because it is impossible to precisely represent 10 cents.
+
+126
+00:12:56,740 --> 00:13:01,780
+It's just a hair under or over 10 cents. When you store it in a floating point value.
+
+127
+00:13:01,780 --> 00:13:04,150
+So the other thing I want to highlight here, though,
+
+128
+00:13:04,150 --> 00:13:14,050
+is that knowing the python were no higher Panda's data type of variable is not sufficient to know its type in a statistical sense.
+
+129
+00:13:14,050 --> 00:13:18,370
+Suppose we have a variable that's that's an in 64. Well, what's in that?
+
+130
+00:13:18,370 --> 00:13:22,930
+Is it a categorical variable like our movie and user I.D. and movie lens?
+
+131
+00:13:22,930 --> 00:13:30,790
+Is it a continuous variable that happens to be measured with integer precision in the penguins data set when you download it?
+
+132
+00:13:30,790 --> 00:13:34,360
+The body mass is integers because they were just measuring to the whole Graham.
+
+133
+00:13:34,360 --> 00:13:41,110
+They didn't measure fractional grams. But as conceptually mass really is is a continuous value.
+
+134
+00:13:41,110 --> 00:13:45,450
+It's just we don't have our measurements aren't that precise.
+
+135
+00:13:45,450 --> 00:13:51,220
+Is it ordinal or is it is it zeros and ones that are representing the logical variable?
+
+136
+00:13:51,220 --> 00:13:54,940
+I said before integers is missing values also lotas float.
+
+137
+00:13:54,940 --> 00:14:02,350
+So there's a we can look at the data, we can look at the data types, we can look at that itself to try to start to get a sense of what it does.
+
+138
+00:14:02,350 --> 00:14:10,410
+But knowing that is not sufficient to know what type of data we're dealing with for the purposes of handling it properly.
+
+139
+00:14:10,410 --> 00:14:17,500
+I want to talk to us a little bit about entities or instances that I introduced in last time and that are talked about in the reading.
+
+140
+00:14:17,500 --> 00:14:23,920
+So we want to be clear when we have a we have a data frame, a data, a data table.
+
+141
+00:14:23,920 --> 00:14:30,880
+What are the things being observed in this set of observations? But what's being observed if you've taken the database's class?
+
+142
+00:14:30,880 --> 00:14:35,710
+We called these entities. But sometimes this is pretty straightforward.
+
+143
+00:14:35,710 --> 00:14:39,820
+For example, this penguin dataset. Each row represents the measurements of one penguin.
+
+144
+00:14:39,820 --> 00:14:43,480
+But sometimes they're complex and linked, such as the rating data table.
+
+145
+00:14:43,480 --> 00:14:48,580
+Each instance is a rating. But that's a rating about movies.
+
+146
+00:14:48,580 --> 00:14:57,720
+And we can also derive things such as. We could count the number of ratings for each movie, and that could be a variable for a movie.
+
+147
+00:14:57,720 --> 00:15:02,370
+We could do this aggregation. We're going to see how to do aggregations in a little bit.
+
+148
+00:15:02,370 --> 00:15:10,620
+That gives us a new variable number of ratings. That becomes a variable for observations of movies.
+
+149
+00:15:10,620 --> 00:15:11,220
+So wrap up,
+
+150
+00:15:11,220 --> 00:15:19,410
+there are many different kinds of variables broadly divided into continuous and discrete with several specific types of discrete variables.
+
+151
+00:15:19,410 --> 00:15:23,820
+These conceptual variable types do not map one to one dependance data types.
+
+152
+00:15:23,820 --> 00:15:30,270
+You need more information in order to know how to properly interpret and work with a variable.
+
+153
+00:15:30,270 --> 00:15:33,990
+So the data source that you're working with needs to be documented.
+
+154
+00:15:33,990 --> 00:15:46,934
+And if you're creating a data source, you need to document what all of the columns mean and how they're being encoded and stored.
+

@@ -13,7 +13,8 @@ class ModuleDirective(SphinxDirective):
     optional_arguments = 0
     has_content = False
     option_spec = {
-        'playlist': directives.path
+        'playlist': directives.path,
+        'folder': directives.path,
     }
 
     def run(self):
@@ -96,12 +97,21 @@ class ModTocTransform(SphinxTransform):
         summary += nodes.strong('', '%d words' % (tot_words,))
         summary += nodes.inline('', ' of assigned readings.')
 
+        folder = self.startnode.details.get('folder', None)
         playlist = self.startnode.details.get('playlist', None)
+
         if playlist:
             summary += nodes.inline('', " This week's videos are available as a ")
             plref = nodes.reference('', '', classes=['panopto'])
             plref['refuri'] = playlist
             plref += nodes.inline('', 'Panopto playlist')
+            summary += plref
+            summary += nodes.inline('', ".")
+        elif folder:
+            summary += nodes.inline('', " This week's videos are available in a ")
+            plref = nodes.reference('', '', classes=['panopto'])
+            plref['refuri'] = f'https://boisestate.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22{folder}%22'
+            plref += nodes.inline('', 'Panopto folder')
             summary += plref
             summary += nodes.inline('', ".")
 

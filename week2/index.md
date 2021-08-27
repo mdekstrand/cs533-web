@@ -13,6 +13,7 @@ This week's material uses chapters 5 and 10 of {book}`p4da`.
 ## {{moverview}} Content Overview
 
 :::{module} week2
+:folder: 054cd8f5-5bbc-4050-b792-ad9000ef9fca
 :::
 
 ## {{mcal}} Deadlines
@@ -25,7 +26,7 @@ This video introduces the week's topic: describing data and data sets.
 We discuss the pipeline by which phenomena become a data set.
 
 :::{video}
-:id: 53e2a763-0208-45ab-bfbf-ac240049618e
+:id: b0f572b6-cc0c-41ec-adee-ad9000efd57c
 :length: 6m27s
 :slide-id: 495979F9A431DDB0%2172971
 :slide-auth: AGb5_joj5Xdvfk0
@@ -68,7 +69,7 @@ In this video, I introduce Pandas and the Pandas `DataFrame` data structure.
 We see how to load a CSV file and inspect the resulting data frame.
 
 :::{video}
-:id: 3280df0e-dccd-4042-9edb-ac24004b64cf
+:id: d6054cf9-e3dc-4f1e-8d4e-ad9000efd604
 :length: 8m26s
 :name: 2-2 - Pandas Basics
 :::
@@ -83,7 +84,7 @@ We see how to load a CSV file and inspect the resulting data frame.
 In this video, we learn the different types of data (_variables_) that we will encounter.
 
 :::{video}
-:id: 592e8114-9269-4ccc-bad4-ac24004c2a06
+:id: afc96ff2-0043-4387-af9b-ad9000efd6b0
 :length: 15m56s
 :slide-id: 495979F9A431DDB0%2172975
 :slide-auth: AEdM3U338m0PRso
@@ -114,7 +115,7 @@ We aren't getting to everything in those chapters though.
 In this video, we discuss how compute aggregate statistics in Pandas.
 
 :::{video} group-aggregate
-:id: 9307fa0c-b4e2-4900-b1a3-ac270026d232
+:id: 4c5b7bbb-dc57-4484-b160-ad9000efd740
 :length: 14m12s
 :slide-id: 495979F9A431DDB0!72980
 :slide-auth: APZCbpVCLFI74-U
@@ -131,7 +132,7 @@ In this video, we discuss how compute aggregate statistics in Pandas.
 In this video, we discuss descriptive statistics for numeric variables.
 
 :::{video} descriptive-statistics
-:id: d91cd2fc-a7f6-4610-a6d0-ac270026d1b7
+:id: fd7d2c53-752b-4844-9919-ad9000efd7f2
 :length: 16m32s
 :slide-id: 495979F9A431DDB0%2172978
 :slide-auth: AF4pIDEqeSJMSR8
@@ -143,7 +144,7 @@ In this video, we discuss descriptive statistics for numeric variables.
 This video introdues the concept of _distributions_, and how we can see the shape and layout of our data.
 
 :::{video}
-:id: 3064cb1d-8fea-46c7-b863-ac270024fd1b
+:id: 5b6fb252-cd60-478b-aaf7-ad9000efd8b9
 :length: 10m17s
 :slide-id: 495979F9A431DDB0%2172985
 :slide-auth: AFKFlxWtifklVVE
@@ -157,7 +158,7 @@ This video introdues the concept of _distributions_, and how we can see the shap
 ## {{mvideo}} Data Sources and Bias
 
 :::{video}
-:id: cd0f028e-970a-498c-8bbf-ac270026d15b
+:id: 824f231f-7cda-42a5-917c-ad9000efd981
 :length: 8m46s
 :slide-id: 495979F9A431DDB0%2172983
 :slide-auth: AAJ1g0hwAUBmF1c
@@ -177,7 +178,7 @@ The Week 2 quiz will be over the material **above** this point.
 This video talks more about how data is encoded, and what we need to document about that.
 
 :::{video}
-:id: d8673453-458b-4c03-baf9-ac270026d187
+:id: 9c3e036c-fc72-446f-8b20-ad9000efda2e
 :length: 8m57s
 :slide-id: 495979F9A431DDB0%2172987
 :slide-auth: APm1GElna_P6o40
