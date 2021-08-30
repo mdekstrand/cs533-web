@@ -204,4 +204,4 @@ This video introduces NumPy {py:class}`numpy.ndarray`, the fundamental numeric a
 
 ## {{massignment}} Assignment 0
 
-Complete and submit [Assignment 0](../../assignments/A0/index.md) by **midnight on Sunday, August 30**.
+Complete and submit [Assignment 0](../../assignments/A0/index.md) by **midnight on Sunday, August 29**.
