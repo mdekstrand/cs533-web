@@ -68,7 +68,9 @@ Hopefully these resources are helpful:
 
 ## Diving Deeper
 
-These resources will help you explore further some thing we touch on in this class:
+These resources will help you explore further some thing we touch on in this class, or to further expand your knowledge:
 
 -   [<cite>W.E.B. Du Bois's Data Portraits: Visualizing Black America</cite>](https://boisestate.on.worldcat.org/v2/oclc/1023487386), edited by Whitney Battle-Baptiste. Historical data visualizations.
 -   <cite>Data Feminism</cite> (<a class=free href="https://data-feminism.mitpress.mit.edu/">online version</a>) by Catherine D'Ignazio and Lauren F. Klein. Critical perspectives on data.
+-   Olteanu, Alexandra and Castillo, Carlos and Diaz, Fernando and Kiciman, Emre, Social Data: Biases, Methodological Pitfalls, and Ethical Boundaries (December 20, 2016). Frontiers in Big Data 2:13. doi: 10.3389/fdata.2019.00013, Available at SSRN: http://dx.doi.org/10.2139/ssrn.2886526
+-   <cite>Counterfactuals and Causal Inference</cite>, 2nd Edition, by Stephen L. Morgan and Christopher Winship.
