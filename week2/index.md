@@ -97,7 +97,7 @@ In this video, we learn the different types of data (_variables_) that we will e
 
 ## {{mdoc}} Datasheets for Datasets
 
-:::{reading}
+:::{reading} datasheets
 :url: https://arxiv.org/abs/1803.09010
 :title: Datasheets for Datasets
 :length: 4100 words

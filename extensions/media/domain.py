@@ -9,7 +9,7 @@ from docutils import nodes
 from sphinx.application import Sphinx
 from sphinx.roles import XRefRole
 from sphinx.domains import Domain, ObjType
-from sphinx.util.nodes import make_id, make_refnode
+from sphinx.util.nodes import make_id, make_refnode, _make_id
 
 from .module import ModuleDirective
 from .video import VideoDirective
@@ -139,13 +139,8 @@ class CourseDomain(Domain):
         self._dom_objects().append(mod)
 
     def resolve_xref(self, env, fromdocname, builder, type, target, node, contnode):
-        objects = self._dom_objects()
-
-        tgt = None
-        for candidate in objects:
-            if candidate.name == target:
-                tgt = candidate
-                break
+        print(f'searching for {type} {target} referenced from {fromdocname}')
+        tgt = self._find_target(target, type)
 
         if not tgt:
             return None
@@ -155,3 +150,14 @@ class CourseDomain(Domain):
         content = cnode('', label)
 
         return make_refnode(builder, fromdocname, tgt.docname, tgt.anchor, content, tgt.name)
+
+    def _find_target(self, target, type):
+        tgt = self._find_key(target)
+        if tgt is None:
+            tgt = self._find_key(_make_id(f'{type}-{target}'))
+        return tgt
+
+    def _find_key(self, target):
+        for candidate in self._dom_objects():
+            if candidate.name == target:
+                return candidate

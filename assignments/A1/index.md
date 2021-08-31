@@ -175,11 +175,10 @@ Submit a Jupyter notebook that describes the following (grade percentages and es
     You can then {py:meth}`pandas.Series.recode` the name variable, and then you can e.g. use the name variable for an axis in your chart, or group by it!
     :::
 
-5.  The answers to 5 questions of your choice from sections 3.1, 3.2, and 3.3 of *Datasheets for
-    Datasets*, based on the documentation for the college scorecard data (20%). Questions should
-    come from at least 2 different sections of the paper.
+5.  The answers to 5 questions of your choice from sections 3.1, 3.2, and 3.3 of {reading}`week2:datasheets`, based on the documentation for the college scorecard data (20%).
+    Questions should come from at least 2 different sections of the paper.
 
-6.  Write 2 paragraphs reflecting on what you learned about this data, higher education, and data science through this assignment (10%).
+7.  Write 2 paragraphs reflecting on what you learned about this data, higher education, and data science through this assignment (10%).
 
 Submit the final assignment (both `.ipynb` and `.pdf` files) to Canvas.
 
