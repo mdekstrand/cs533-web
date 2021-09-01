@@ -1,8 +1,9 @@
-# 🚧 Week 3 — Presentation (9/6–10)
+# Week 3 — Presentation (9/6–10)
 
-:::{draft}
-This content is still in draft state and has not yet been finalized.
-Do not depend on it as the final requirements for this week.
+:::{note}
+This content is ready for you to watch and read, and everything is final with one exception:
+I am going to re-record {video}`week3:charts-ground-up` before the weekend.  The new video will
+probably be a little shorter, but will contain some additional material.
 :::
 
 These are the learning outcomes for this week:
@@ -45,9 +46,9 @@ its support for static graphics to render in printable documents is rather new.
 ## {{mvideo}} Presentation Goals and Audiences
 
 :::{video}
-:id: dc85b8a5-7e18-41f2-9b26-ac2a0188d445
-:slide-id:
-:slide-auth:
+:id: cb6d0907-59fa-4a15-96b9-ad9601830ba0
+:slide-id: 495979F9A431DDB0%2173737
+:slide-auth: ALZ3EwW8-lyv3jE
 :length: 9m55s
 :name: 3-1 - Goals and Audiences
 :::
@@ -67,9 +68,9 @@ Read [Statistical Data Presentation](https://www.ncbi.nlm.nih.gov/pmc/articles/P
 This video introduces basic principles of statistical graphics.
 
 :::{video}
-:id: c598b6dd-ed79-4546-9973-ac2b000e42a7
-:slide-id:
-:slide-auth:
+:id: f87fc754-ecbd-4970-ad3b-ad9601830c4f
+:slide-id: 495979F9A431DDB0%2173740
+:slide-auth: AJRz3rErjz_tmt8
 :length: 14m15s
 :name: 3-2 - Statistical Graphics
 :::
@@ -80,9 +81,9 @@ This video goes over the core Pandas data selection and manipulation operations.
 It is primarily a tour guide — the technical content is in the notebooks.
 
 :::{video}
-:id: d11f8f0d-491e-4d6f-b705-ac2b0029c35c
-:slide-id:
-:slide-auth:
+:id: 7ee3707b-0e2d-4a18-8de1-ad9601830ce7
+:slide-id: 495979F9A431DDB0%2173739
+:slide-auth: ABw3xd9psf1k5Y8
 :length: 9m18s
 :name: 3-3 - Manipulating Data
 :::
@@ -109,9 +110,9 @@ In this video, I discuss several common types of charts for statistical graphics
 It complements the “Statistical Data Presentation” reading.
 
 :::{video}
-:id: 902b507a-1683-4335-9be5-ac2b002d7995
-:slide-id: 495979F9A431DDB0%2172994
-:slide-auth: ABJfm2NS_eYRmjc
+:id: 9077db8e-b57d-4825-a472-ad9601830d80
+:slide-id: 495979F9A431DDB0%2173738
+:slide-auth: AGlTa7w8X6LcIkM
 :length: 13m30s
 :name: 3-4 - Types of Charts
 :::
@@ -129,9 +130,9 @@ It complements the “Statistical Data Presentation” reading.
 We talked about the notion of “relative” differences, but what are they?
 
 :::{video}
-:id: 37e62ec4-1718-43a9-bf82-ac2e00263855
-:slide-id: 495979F9A431DDB0%2173004
-:slide-auth: ALSTQJtKdMDNs1Y
+:id: 457472b2-1bb3-455b-9dd4-ad9601830e8b
+:slide-id: 495979F9A431DDB0%2173741
+:slide-auth: AHCb6UrENZqsRi0
 :length: 6m50s
 :name: 3-5 - Metrics and Differences
 :::
@@ -146,8 +147,8 @@ In this video, I discuss how to design a chart from your questions, goals, and d
 
 :::{video} charts-ground-up
 :id: af1afc4c-0dee-4c1c-af34-ac2e00263882
-:slide-id:
-:slide-auth:
+:slide-id: 495979F9A431DDB0%2173742
+:slide-auth: ANGH7yWhHchpLB4
 :length: 24m54s
 :name: 3-6 - Charts from the Ground Up
 :::
@@ -180,9 +181,9 @@ What makes a good notebook?
 In this video we talk about that!
 
 :::{video}
-:id: 1bcb5b41-d2ca-4bbd-8c28-ac2e002638b6
-:slide-id:
-:slide-auth:
+:id: 80e425d4-f295-4f1b-b73a-ad9601830f06
+:slide-id: 495979F9A431DDB0%2173736
+:slide-auth: APudMYTIAHl2Ao8
 :length: 16m50s
 :name: 3-7 - Organizing Notebooks
 :::
