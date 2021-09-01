@@ -38,6 +38,7 @@ its support for static graphics to render in printable documents is rather new.
 
 ## {{mcal}} Deadlines
 
+- [Finding a plot](#plots-in-the-wild) before class on Thursday
 - Week 3 quiz at **8am on Thursday**
 - [Assignment 1](../assigments/A1/index.md) at **midnight on Sunday**
 
@@ -76,9 +77,7 @@ This video introduces basic principles of statistical graphics.
 ## {{mvideo}} Manipulating Data
 
 This video goes over the core Pandas data selection and manipulation operations.
-Arguably it should have been last week, but we'll do it this week!
-
-The video is primarily a tour guide — the technical content is in the notebooks.
+It is primarily a tour guide — the technical content is in the notebooks.
 
 :::{video}
 :id: d11f8f0d-491e-4d6f-b705-ac2b0029c35c
@@ -93,6 +92,17 @@ The video is primarily a tour guide — the technical content is in the notebook
 - [Selection Notebook](../../resources/tutorials/Selection.ipynb)
 - [Reshaping Notebook](../../resources/tutorials/Reshaping.ipynb)
 
+## {{mnotebook}} Missing Data
+
+:::{reading}
+:url: ../resources/tutorials/MissingData.html
+:length: 3850 words
+:::
+
+Read the [{{mnotebook}} Missing Data](../resources/tutorials/MissingData.ipynb) tutorial notebook.
+I encourage you to read relevant tutorial notebooks throughout the semester, and link to them when
+appropriate; I am making this one specifically an assigned reading.
+
 ## {{mvideo}} Types of Charts
 
 In this video, I discuss several common types of charts for statistical graphics, and how to choose an appropriate one.
@@ -100,15 +110,11 @@ It complements the “Statistical Data Presentation” reading.
 
 :::{video}
 :id: 902b507a-1683-4335-9be5-ac2b002d7995
-:slide-id:
-:slide-auth:
+:slide-id: 495979F9A431DDB0%2172994
+:slide-auth: ABJfm2NS_eYRmjc
 :length: 13m30s
 :name: 3-4 - Types of Charts
 :::
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2172994', 'ABJfm2NS_eYRmjc')}}
 
 ### Resources
 
@@ -124,22 +130,21 @@ We talked about the notion of “relative” differences, but what are they?
 
 :::{video}
 :id: 37e62ec4-1718-43a9-bf82-ac2e00263855
-:slide-id:
-:slide-auth:
+:slide-id: 495979F9A431DDB0%2173004
+:slide-auth: ALSTQJtKdMDNs1Y
 :length: 6m50s
 :name: 3-5 - Metrics and Differences
 :::
 
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173004', 'ALSTQJtKdMDNs1Y') }}
-
-
 ## {{mvideo}} Charts from the Ground Up
+
+:::{note}
+I am going to re-record this video, but it's here for as you get going.
+:::
 
 In this video, I discuss how to design a chart from your questions, goals, and data.
 
-:::{video}
+:::{video} charts-ground-up
 :id: af1afc4c-0dee-4c1c-af34-ac2e00263882
 :slide-id:
 :slide-auth:
@@ -153,10 +158,16 @@ In this video, I discuss how to design a chart from your questions, goals, and d
 
 ## {{mtask}} Plots in the Wild
 
-Find a data presentation (plot, table, etc.) in a recent online publication, and create a post on Piazza (in the 'discuss' category) with a link, a copy of the image, and 3 observations about things it does well and/or needs to correct or improve.
-This can be from a journal paper, a newspaper article, a blog post, or another source the class can all access.
+In preparation for Thursday's class, find a data presentation (plot, table, etc.) in a recent online
+publication, and share it with your team through a post on Piazza (in the 'discuss' category) with a
+link, a copy of the image. This can be from a journal paper, a newspaper article, a blog post, or
+another source the class can all access.
 
+In class we will discuss these plots!
+
+:::{tip}
 Don't spend more than 30 minutes on this assignment.
+:::
 
 ## {{mnotebook}} Finishing Touches
 
@@ -184,6 +195,12 @@ In this video we talk about that!
 ## {{mdoc}} Notebook Formatting Checklist
 
 The [notebook checklist](../../resources/notebook-checklist.md) will help you make sure your notebooks are well-organized.
+
+## {{mquiz}} Week 3 Quiz
+
+The Week 3 quiz will be over all of the assigned material for this week, and is in Canvas.
+
+The sections below this are for your further study and practice.
 
 ## {{mbook}} Textbook
 
