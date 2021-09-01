@@ -96,6 +96,7 @@ It is primarily a tour guide — the technical content is in the notebooks.
 ## {{mnotebook}} Missing Data
 
 :::{reading}
+:title: Missing Data
 :url: ../resources/tutorials/MissingData.html
 :length: 3850 words
 :::
