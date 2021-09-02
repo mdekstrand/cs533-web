@@ -1,11 +1,5 @@
 # Week 3 — Presentation (9/6–10)
 
-:::{note}
-This content is ready for you to watch and read, and everything is final with one exception:
-I am going to re-record {video}`week3:charts-ground-up` before the weekend.  The new video will
-probably be a little shorter, but will contain some additional material.
-:::
-
 These are the learning outcomes for this week:
 
 * Create plots for data
@@ -35,6 +29,7 @@ its support for static graphics to render in printable documents is rather new.
 ## {{moverview}} Content Overview
 
 :::{module} week3
+:folder: 72054bfc-c064-4b87-aa01-ad960182a9e7
 :::
 
 ## {{mcal}} Deadlines
@@ -140,23 +135,21 @@ We talked about the notion of “relative” differences, but what are they?
 
 ## {{mvideo}} Charts from the Ground Up
 
-:::{note}
-I am going to re-record this video, but it's here for as you get going.
-:::
-
 In this video, I discuss how to design a chart from your questions, goals, and data.
 
 :::{video} charts-ground-up
-:id: af1afc4c-0dee-4c1c-af34-ac2e00263882
+:id: bb921f27-23a5-4103-afff-ad970182fbb2
 :slide-id: 495979F9A431DDB0%2173742
 :slide-auth: ANGH7yWhHchpLB4
-:length: 24m54s
+:length: 22m14s
 :name: 3-6 - Charts from the Ground Up
 :::
 
 ### Resources
 
-- [Supporting notebook](3-6-ChartsFromTheGroundUp.ipynb)
+- [Supporting notebook](3-6-ChartsFromTheGroundUp.ipynb) — code for most of the charts (using Seaborn)
+- [Book data statistics notebook](https://nbviewer.jupyter.org/github/BoiseState/bookdata-tools/blob/master/LinkageStats.ipynb) — code for the stacked bar charts (using raw Matplotlib)
+- My book experiments have many facet examples — see [DataSummary](https://nbviewer.jupyter.org/github/BoiseState/book-author-gender/blob/master/DataSummary.ipynb) and [ProfileDataPrep](https://nbviewer.jupyter.org/github/BoiseState/book-author-gender/blob/master/ProfileDataPrep.ipynb).
 
 ## {{mtask}} Plots in the Wild
 
