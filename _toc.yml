@@ -21,6 +21,7 @@ parts:
   - file: week3/index
     sections:
     - file: week3/3-6-ChartsFromTheGroundUp.ipynb
+  - file: week4/index
 - caption: Assignments
   chapters:
   - file: assignments/index

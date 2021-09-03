@@ -57,7 +57,7 @@ Conditional Probability
 Confidence Interval
     An interval used to estimate the precision of an estimate.
     A 95% confidence interval is an interval computed from a procedure (including both taking a sample and computing a statistic from that sample) that, when repeated, will return an interval containing the true parameter value 95% of the time.
-    Discussed in {video}`week4:confidence`, [Having confidence in confidence intervals](https://medium.com/@EpiEllie/having-confidence-in-confidence-intervals-8f881712d837), and [Handbook section 1.3.5.2](https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm).
+    Discussed in {video}`week4:confidence`, {reading}`week4:confidence-in-confidence`, and [Handbook section 1.3.5.2](https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm).
 
     A confidence interval is **not** a probabilistic statement about either the population mean $\mu$ or the sample mean $\bar{x}$.
 
@@ -154,6 +154,13 @@ Geometric mean
     Or alternatively (so long as $\forall i. x_i \ne 0$):
 
     $$e^{\frac{1}{n}\sum_i \operatorname{log}(x_i)}$$
+
+HARKing
+    “Hypothesizing After Results are Known”, a statistical error where we formulate our hypotheses to test *after* looking
+    at the data.  A {term}`null hypothesis significance test` computes the probability
+    $P(t' \ge t | H_0 \text{ is true})$; if we have already looked at the data, what we are computing is
+    $P(t' \ge t | H_0 \text{ is true}, H_0 \text{ looks false})$.
+    See {video}`week4:hypotest`.
 
 Hyperparameter
     A value that controls a model's training or prediction behavior that is **not** learned from the data.
@@ -280,7 +287,11 @@ Population
 
     Discussed in more detail in {video}`week4:sampling`.
 
-P-value
+$p$-hacking
+    Computing hypothesis tests of multiple things in hopes that one of them will be statistically significant.
+    See [XKCD #882: Significant](https://xkcd.com/882/) and [Week 4](p-hacking-cartoon).
+
+$p$-value
     In hypothesis testing, the probability that the null hypothesis ($H_0$) would produce a value as large as the observed value; if the observed statistic is $x$ and $X$ is a random variable representing the sampling and analysis process, this is $\P[X > x | H_0 \text{ is true}]$.
 
     Typically the null hypothesis is an appropriate formalization of “nothing interesting”, so the *p*-value is the probability of seeing an effect as large as the one observed if there is no true effect to observe.

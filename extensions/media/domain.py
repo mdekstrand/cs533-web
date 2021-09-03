@@ -103,10 +103,17 @@ class CourseDomain(Domain):
     def _dom_objects(self):
         return self.env.domaindata['res'].setdefault('objects', [])
 
-    def note_module(self, key, title):
+    def note_module(self, key, title, *, reset=True):
         docname = self.env.docname
+
+        objs = self._dom_objects()
+
+        if reset:
+            objs = [o for o in objs if o.module != key]
+            self.env.domaindata['res']['objects'] = objs
+
         mod = MediaObject(key, title, 'module', docname, key)
-        self._dom_objects().append(mod)
+        objs.append(mod)
 
     def note_reading(self, key, title, length):
         modname = self.env.ref_context.get('res:module')

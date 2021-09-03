@@ -30,7 +30,7 @@ class ModuleDirective(SphinxDirective):
         title = top.children[0].astext()
 
         dom = self.env.get_domain('res')
-        dom.note_module(name, title)
+        dom.note_module(name, title, reset=True)
 
         self.state.document.note_pending(pending, 500)
         return [pending]
