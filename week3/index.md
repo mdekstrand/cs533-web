@@ -21,6 +21,28 @@ I do **not** recommend that you use Plotly for this course.  While it is very go
 its support for static graphics to render in printable documents is rather new.
 :::
 
+:::{admonition} Seaborn upgrades
+:class: note
+
+Seaborn is undergoing some changes in its syntax.  In the old syntax, we pass the `x` and `y`
+parameters as positional paremeters to a plotting function:
+
+```
+sns.lineplot('time', 'price', data=stocks)
+```
+
+In the new syntax, which will be required in a future Seaborn release, we use named parameters
+for everything:
+
+```
+sns.lineplot(data=stocks, x='time', y='price')
+```
+
+All new material going forward will use the new syntax, but it takes time to update all of the
+slides and videos.  You may see the old syntax.  It still works, but it issues a warning to let
+you know the future syntax is changing.
+:::
+
 [Seaborn]: https://seaborn.pydata.org/
 [Matplotlib]: https://matplotlib.org/
 [plotnine]: https://plotnine.readthedocs.io/en/stable/
