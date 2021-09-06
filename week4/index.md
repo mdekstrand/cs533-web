@@ -1,8 +1,8 @@
 # 🚧 Week 4 — Inference (9/13–17) 🚧
 
 :::{draft}
-This content is still in draft state and has not yet been finalized.
-Do not depend on it as the final requirements for this week.
+This content is still in draft state and has not yet been finalized, but it's pretty close.
+Just working through a few last checks & debugs.
 :::
 
 These are the learning outcomes for the week:
