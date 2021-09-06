@@ -1,6 +1,7 @@
 # Notes on Probability
 
 This document summarizes key concepts in probability theory.
+It is intended to be a concise reference for what we will be using, not a thorough tutorial exposition.
 
 The concepts in this note are introduced in [Week 4](../week4/index.md).
 
@@ -25,7 +26,7 @@ There are, broadly speaking, three kinds of sets in terms of their cardinality:
 
 We also talk about discrete and continuous sets:
 
-- A **continuous** set $A$ with an order $<$ is a set where we can always find an element to fit between any two other elements: for any $a, b \in A$ such that $a < b$, there is a $c \in A$ such that $a < c < b$.
+- A **continuous** set $A$ with an ordering $<$ is a set where we can always find an element to fit between any two other elements: for any $a, b \in A$ such that $a < b$, there is a $c \in A$ such that $a < c < b$.
 - A **discrete** set is a set that is not continuous: there are irreducible gaps between elements.
 
 All finite sets are discrete.

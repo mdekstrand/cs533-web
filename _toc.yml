@@ -34,6 +34,7 @@ parts:
   - file: resources/documentation.md
   - file: resources/datasets.md
   - file: resources/notebook-checklist
+  - file: resources/probability
   - file: resources/problems
   - file: resources/onyx
   - file: resources/git-resources
