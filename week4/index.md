@@ -1,4 +1,9 @@
-# Week 4 — Inference (9/13–17)
+# 🚧 Week 4 — Inference (9/13–17) 🚧
+
+:::{draft}
+This content is still in draft state and has not yet been finalized.
+Do not depend on it as the final requirements for this week.
+:::
 
 These are the learning outcomes for the week:
 
