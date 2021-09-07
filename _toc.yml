@@ -28,6 +28,8 @@ parts:
   - file: assignments/index
     title: Rubric
   - file: assignments/A0/index
+    sections:
+    - file: assignments/A0/A0-Notebook.ipynb
   - file: assignments/A1/index
 - caption: Resources
   chapters:

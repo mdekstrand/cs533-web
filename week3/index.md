@@ -70,6 +70,13 @@ you know the future syntax is changing.
 :name: 3-1 - Goals and Audiences
 :::
 
+## {{mnotebook}} Data and Notebook
+
+These resources are used throughout many of the videos in this class:
+
+- [Movie Scores notebook](../resources/tutorials/CriticScores.ipynb)
+- The [HETREC data](https://grouplens.org/datasets/hetrec-2011/)
+
 ## {{mdoc}} Statistical Data Presentation
 
 :::{reading}

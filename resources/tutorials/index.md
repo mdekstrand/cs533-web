@@ -19,7 +19,8 @@ These notebooks are on basic Python data manipulation:
 ## Visualization
 
 1. [Drawing Charts](Charting.ipynb)
-2. [Chart Finishing Touches](ChartFinishingTouches.ipynb)
+2. [Movie Score Charting Examples](CriticScores.ipynb) — example charts used in several videos in {module}`week3`
+3. [Chart Finishing Touches](ChartFinishingTouches.ipynb)
 
 ## Statistical Analysis
 
