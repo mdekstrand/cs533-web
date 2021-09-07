@@ -61,7 +61,7 @@ This video describes how to use Q-Q plots to compare data against a distribution
 :length: 14m51s
 :slide-id: 495979F9A431DDB0%2173033
 :slide-auth: fAPweDd4ZnAHFL6E
-:name: 4-9 - Testing Hypotheses
+:name: 5-2 - Testing Hypotheses
 :::
 
 ### Resources
@@ -85,7 +85,7 @@ It also introduces {term}`degrees of freedom`.
 :length: 12m24s
 :slide-id: 495979F9A431DDB0%2173195
 :slide-auth: APaucCdchKCkwZk
-:name: 5-2 - T-tests
+:name: 5-3 - T-tests
 :::
 
 ## {{mquiz}} Week 5 Quiz
@@ -110,7 +110,7 @@ This video discusses common Python errors and how to read errors.
 :length: 7m28s
 :slide-id: 495979F9A431DDB0%2173199
 :slide-auth: AKtFQ6RgMhVAQk4
-:name: 5-3 - Python Errors
+:name: 5-4 - Python Errors
 :::
 
 ## {{mvideo}} Python Libraries
@@ -120,7 +120,7 @@ This video discusses common Python errors and how to read errors.
 :length: 3m43s
 :slide-id: 495979F9A431DDB0%2173202
 :slide-auth: AGJDocG2Hv-tifk
-:name: 5-4 - Python Libraries
+:name: 5-5 - Python Libraries
 :::
 
 ## {{mvideo}} Epistemology
@@ -132,7 +132,7 @@ In this video, I talk about how the quantitative data science methods we are lea
 :length: 25m44s
 :slide-id: 495979F9A431DDB0%2172947
 :slide-auth: AJXLT9KELkhPfOQ
-:name: 5-5 - Epistemology
+:name: 5-6 - Epistemology
 :::
 
 ## {{mvideo}} Learning More
@@ -143,7 +143,7 @@ of giving you ideas for how you can continue learning beyond this class.
 :::{video}
 :id: 1e85c17a-bd99-4cd5-861a-ac3c00438ee2
 :length: 5m10s
-:name: 5-6 - Learning More
+:name: 5-7 - Learning More
 :::
 
 ## {{mtask}} Practice
