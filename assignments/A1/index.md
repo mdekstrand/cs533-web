@@ -18,7 +18,7 @@ bullet points) dive in to the details of what is expected for that requirement.
 ## Revision Log
 
 -   **Sep. 7, 2021** - corrected mention of nonexistence Pandas function “recode”, and clarified the hint.
-    Clarified the hint about consulting the [📓 Building Data notebook](../../resources/tutorials/BuildingDat.ipynb)
+    Clarified the hint about consulting the [📓 Building Data notebook](../../resources/tutorials/BuildingData.ipynb)
     for working with admissions policies.
     No requirements changes.
 
