@@ -1,0 +1,268 @@
+1
+00:00:04,650 --> 00:00:05,470
+Hello, in this video,
+
+2
+00:00:05,470 --> 00:00:14,610
+I want to talk with you just a little bit about statistics that we can measure and how we want to think about differences between them.
+
+3
+00:00:14,610 --> 00:00:21,220
+In the previous video or an earlier video, I talked about how bar charts emphasized relative differences.
+
+4
+00:00:21,220 --> 00:00:24,450
+So in this one, I'm going to talk just a little bit about what that means.
+
+5
+00:00:24,450 --> 00:00:30,040
+So are learning outcomes for this video to review a little bit of the statistics or the metrics that we've been talking about,
+
+6
+00:00:30,040 --> 00:00:37,990
+to talk for you to be able to compute absolute and relative differences and to interpret a relative difference between two quantities.
+
+7
+00:00:37,990 --> 00:00:43,870
+So as we've talked about, we can compute various statistics over our data means median mode success rates.
+
+8
+00:00:43,870 --> 00:00:46,720
+We can compute percentiles, counts many.
+
+9
+00:00:46,720 --> 00:00:57,530
+Basically, any statistic you can think of for that, you can compute over a of a set of numbers we can use as some kind of a statistic or a metric.
+
+10
+00:00:57,530 --> 00:01:04,210
+And this often serves as the metric for analysis or evaluation. Try to evaluate a program or tried to evaluate a technology.
+
+11
+00:01:04,210 --> 00:01:08,920
+We have some metric that is measuring its effectiveness.
+
+12
+00:01:08,920 --> 00:01:15,310
+And we want to see whether it's improved or changed somehow.
+
+13
+00:01:15,310 --> 00:01:19,090
+So when we compare to values, though, with a few different ways to do it.
+
+14
+00:01:19,090 --> 00:01:24,040
+So let's take a couple the population estimate in 2018 of Boise in Salt Lake City.
+
+15
+00:01:24,040 --> 00:01:27,230
+And there's two ways that we few different ways that we can compare it.
+
+16
+00:01:27,230 --> 00:01:33,460
+Two of them are the absolute difference. Boise has twenty eight thousand more people than Salt Lake City.
+
+17
+00:01:33,460 --> 00:01:42,180
+The other is the relative difference. Boise has fourteen point five percent or fourteen percent more people than Salt Lake City.
+
+18
+00:01:42,180 --> 00:01:49,020
+So the absolute value is the difference between two values is actually the absolute value of the difference between two values.
+
+19
+00:01:49,020 --> 00:01:54,750
+We can also talk about a science difference or a real difference where we don't have the absolute value if we need the direction on the difference.
+
+20
+00:01:54,750 --> 00:02:01,440
+That becomes useful. But what we're talking about here is the actual difference in the underlying units.
+
+21
+00:02:01,440 --> 00:02:11,940
+So in our example case, number of people. And but the another way we can do it is to talk about the relative difference.
+
+22
+00:02:11,940 --> 00:02:18,960
+So this is the it's the difference normalized by.
+
+23
+00:02:18,960 --> 00:02:22,440
+The reference quantity, and we have to be clear on which ones,
+
+24
+00:02:22,440 --> 00:02:29,700
+the reference quantity and the reference quantity is the one we're starting from whom we're computing the relative difference.
+
+25
+00:02:29,700 --> 00:02:39,990
+So, for example, 50 is 25 percent, more than 40 because you take 25 percent of fortius 10 add add that and you get 50.
+
+26
+00:02:39,990 --> 00:02:46,410
+But 40 is 20 percent is only 20 percent less than 50 because you take 50.
+
+27
+00:02:46,410 --> 00:02:50,670
+10 is 20 percent a 50, whereas it's 25 percent of 40.
+
+28
+00:02:50,670 --> 00:02:56,750
+You subtract it. And you get and you get 40.
+
+29
+00:02:56,750 --> 00:03:01,010
+So this different this order difference is really, really important.
+
+30
+00:03:01,010 --> 00:03:09,480
+So for the 50, what we've got is we have 50 minus 40, over 40.
+
+31
+00:03:09,480 --> 00:03:20,010
+That's this one. And we have for the minus 50, over 50, negative 10, over 50.
+
+32
+00:03:20,010 --> 00:03:25,080
+That's 20 percent. Ten over 40 is 25 percent.
+
+33
+00:03:25,080 --> 00:03:33,330
+So we need to be really, really careful about the order, another way we can compares with the ratio, we just divide one quantity by the other.
+
+34
+00:03:33,330 --> 00:03:40,470
+So this is when we say slike this year's sales of 20 million are twice as much as last year's 10 million.
+
+35
+00:03:40,470 --> 00:03:47,010
+This is an apt. It's an absolute change of one of 10 million and it's a relative change of one hundred percent.
+
+36
+00:03:47,010 --> 00:03:51,030
+Twenty million is twice as much as one is 10 million.
+
+37
+00:03:51,030 --> 00:03:54,090
+And it is one hundred percent higher than 10 million.
+
+38
+00:03:54,090 --> 00:03:59,940
+Now, one thing to think about, if I say this year's returns are two times larger than last year's.
+
+39
+00:03:59,940 --> 00:04:03,750
+What does that mean? Does it mean it's two times?
+
+40
+00:04:03,750 --> 00:04:08,100
+Does it mean it's 200 percent more, which would be three times?
+
+41
+00:04:08,100 --> 00:04:13,350
+Is it clear? I would submit that this way of framing it is ambiguous.
+
+42
+00:04:13,350 --> 00:04:20,400
+And so we should avoid it. The appropriate comparison really depends on context and problem.
+
+43
+00:04:20,400 --> 00:04:25,320
+There's not a hard and fast rule when you need one or another.
+
+44
+00:04:25,320 --> 00:04:31,740
+Relative comparisons are quite common because they they can be compared across a variety of contexts.
+
+45
+00:04:31,740 --> 00:04:36,570
+But we still also need to pay attention to the underlying absolute difference in what
+
+46
+00:04:36,570 --> 00:04:41,190
+the act what this what the change being made in this relative change actually is.
+
+47
+00:04:41,190 --> 00:04:43,850
+One example of a high profile relative change.
+
+48
+00:04:43,850 --> 00:04:53,940
+If the Netflix prize, which was a run by Netflix a number of years ago, they paid a million dollars to the team that was able to beat It's The Beat,
+
+49
+00:04:53,940 --> 00:04:58,740
+their internal movie recommender on the metric that they chose by 10 percent.
+
+50
+00:04:58,740 --> 00:05:06,120
+They wanted a 10 percent improvement. And this metric it was. Lower is better, so they wanted you to.
+
+51
+00:05:06,120 --> 00:05:10,380
+They wanted to decrease in the metric by 10 percent.
+
+52
+00:05:10,380 --> 00:05:17,340
+We can also talk about a difference between differences, because if we compute a difference, that difference itself is just another value.
+
+53
+00:05:17,340 --> 00:05:22,290
+So we could say ten sales grew 10 percent more this year than last year.
+
+54
+00:05:22,290 --> 00:05:32,200
+So if we define growth as the one year sales minus the other year sales, then we can look at the growth of this year.
+
+55
+00:05:32,200 --> 00:05:37,000
+And the growth of last year and we can compute the difference and difference.
+
+56
+00:05:37,000 --> 00:05:44,080
+And so we can have a 10 percent increase in growth. Difference in difference has come up a lot in various contexts.
+
+57
+00:05:44,080 --> 00:05:50,020
+And so it's important to be able to reason about those as well. And again, be clear both in writing and understanding.
+
+58
+00:05:50,020 --> 00:05:58,120
+So we don't want we don't want to. Visual comparison bar charts emphasized relative difference because the height of the bar is right there.
+
+59
+00:05:58,120 --> 00:06:04,120
+And the eye very naturally compares the difference between bars to the height of the bar itself.
+
+60
+00:06:04,120 --> 00:06:10,840
+Point plots emphasize absolute difference because you don't have the reference point of the size of the bar.
+
+61
+00:06:10,840 --> 00:06:17,170
+They're both of them. Make it pretty clear to see the also compare the differences.
+
+62
+00:06:17,170 --> 00:06:23,590
+See how different the differences are. Those are of evident both in bar charts and point plots.
+
+63
+00:06:23,590 --> 00:06:28,690
+So to wrap up, there are three primary ways to compute statistics, absolute relative and ratio.
+
+64
+00:06:28,690 --> 00:06:32,470
+You need to be very clear and unambiguous when you're writing the results of a
+
+65
+00:06:32,470 --> 00:06:36,370
+comparison and also when you're trying to understand what others have written.
+
+66
+00:06:36,370 --> 00:06:39,340
+Seek to accurately understand it. And if you're providing feeB,
+
+67
+00:06:39,340 --> 00:06:50,900
+if you're in a context where you're providing feedback and it's not clear that clarity is something you want to ask for revision.
+
