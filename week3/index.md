@@ -107,8 +107,8 @@ It is primarily a tour guide — the technical content is in the notebooks.
 
 ### Resources
 
-- [Selection Notebook](../../resources/tutorials/Selection.ipynb)
-- [Reshaping Notebook](../../resources/tutorials/Reshaping.ipynb)
+- [Selection Notebook](../resources/tutorials/Selection.ipynb)
+- [Reshaping Notebook](../resources/tutorials/Reshaping.ipynb)
 
 ## {{mnotebook}} Missing Data
 
@@ -137,7 +137,7 @@ It complements the “Statistical Data Presentation” reading.
 
 ### Resources
 
-- [Notebook](../../resources/tutorials/Charting.ipynb)
+- [Notebook](../resources/tutorials/Charting.ipynb)
 - [Seaborn gallery](/seaborn/examples/index.html)
 - [Seaborn tutorial](/seaborn/tutorial.html) — organized topically, **very good resource**
 - [Matplotlib gallery](https://matplotlib.org/gallery.html)
@@ -188,7 +188,7 @@ Don't spend more than 30 minutes on this assignment.
 
 ## {{mnotebook}} Finishing Touches
 
-The [Finishing Touches](../../resources/tutorials/ChartFinishingTouches.ipynb) notebook describes how to apply some finishing touches to your plots and save them to files.
+The [Finishing Touches](../resources/tutorials/ChartFinishingTouches.ipynb) notebook describes how to apply some finishing touches to your plots and save them to files.
 
 ## {{mvideo}} Organizing and Formatting Notebooks
 
@@ -211,7 +211,7 @@ In this video we talk about that!
 
 ## {{mdoc}} Notebook Formatting Checklist
 
-The [notebook checklist](../../resources/notebook-checklist.md) will help you make sure your notebooks are well-organized.
+The [notebook checklist](../resources/notebook-checklist.md) will help you make sure your notebooks are well-organized.
 
 ## {{mquiz}} Week 3 Quiz
 
