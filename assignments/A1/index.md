@@ -15,6 +15,13 @@ the high-level idea of that requirement, and the subsequent sentences (and possi
 bullet points) dive in to the details of what is expected for that requirement.
 :::
 
+## Revision Log
+
+-   **Sep. 7, 2021** - corrected mention of nonexistence Pandas function “recode”, and clarified the hint.
+    Clarified the hint about consulting the [📓 Building Data notebook](../../resources/tutorials/BuildingDat.ipynb)
+    for working with admissions policies.
+    No requirements changes.
+
 ## Learning Outcomes
 
 This assignment is designed to develop and assess your ability to:
@@ -132,6 +139,7 @@ If you have taken a database class, note that the definitions of selectivity her
 :class: tip
 
 The [Building Data](../../resources/tutorials/BuildingData.ipynb) notebook provides useful hints for this part of the assignment.
+In particular, pay attention to the “Building Up” subsection.
 :::
 
 ## Assignment Requirements
@@ -172,7 +180,13 @@ Submit a Jupyter notebook that describes the following (grade percentages and es
     :::{tip}
     Race is recorded as multiple variables per school, but it is difficult to directly pass data in this form to one of the plotting routines.
     The {py:meth}`pandas.DataFrame.melt` method is really useful for this — it can take the various race completion rate columns and pivot them into *long* format, where there's a column for the variable name and another for the value.
-    You can then {py:meth}`pandas.Series.recode` the name variable, and then you can e.g. use the name variable for an axis in your chart, or group by it!
+    You can then “recode” the name variable to change the names used for its levels, and then you can e.g. use the name variable for an axis in your chart, or group by it!
+
+    There at least three good ways to recode such a variable:
+
+    -   Convert it to a categorical data type, and use {py:meth}`pandas.Series.cat.rename_categories`.
+    -   Treat it as a string, and use {py:meth}`pandas.Series.str.replace` to adjust the strings to be more readable values with a regular expression.
+    -   Create a new series with the desired values (see the [📓 Building Data notebook](../../resources/tutorials/BuildingData.ipynb))
     :::
 
 5.  The answers to 5 questions of your choice from sections 3.1, 3.2, and 3.3 of {reading}`week2:datasheets`, based on the documentation for the college scorecard data (20%).
