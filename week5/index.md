@@ -1,134 +1,171 @@
-# Week 5 — Filling In
-{% import 'video.md' as media %}
+# 🚧 Week 5 — Filling In (Sep. 13–17) 🚧
 
-!!! warning "Draft content"
+:::{draft}
+This content is still in draft state and has not yet been finalized.
+:::
 
-    This content is still in draft state and has not yet been finalized.
-    Do not depend on it as the final requirements for this week.
-
-This week is primarily for **practice** and **solidifying concepts**.
+This week introduces one new statistical concept — the {term}`hypothesis test` — and is otherwise about **practice** and **solidifying concepts**.
 I'm also going to take a step back and give some more context to some of the things we're talking about.
 
-[TOC]
+Our learning outcomes are:
 
-This week's videos are also in a [Panopto playlist](https://boisestate.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=c8e7bd6c-cb7b-43b4-ac97-ac3c0051c38e).
+- Compute and interpret hypothesis test
+- Avoid {term}`p-hacking` and {term}`HARKing`
+- Understand how to read and interpret Python errors
+- Understand how the quantitative techniques we are learning in this class fit in a broader landscape of epistemologies
 
-## :material-clipboard-list: Week 5 Quiz
+## {{moverview}} Content Overview
 
-The Week 5 quiz is about material **through the end of Week 4**.
-Nothing from this week will be on it, except that things here may clarify some of last week's material for you.
+:::{module} week5
+:::
 
-## :material-notebook: Assignment 1 Solution
+## {{mcal}} Deadlines
 
-I will post the Assignment 1 solution to Piazza (sorry, I'm not posting it to the entire Internet).
+- Week 5 Quiz is due on **Thursday** at 8AM.
+- [Assignment 2](../assignments/A2/index.md) is due on **Sunday, Sep. 26** at 11:59 PM.
 
-## :material-file-document: Glossary Updates
+## {{mnotebook}} Assignment 1 Solution
 
-I have extensively updated the [course glossary](../../resources/glossary.md).
+I will post the Assignment 1 solution to Canvas (sorry, I'm not posting it to the entire Internet).
+
+## {{mdoc}} Course Glossary
+
+If you haven't yet, I highly recommend consulting the [course glossary](../../resources/glossary.md).
 Please post on Piazza if you have suggested additions!
 
-## :material-notebook: Writing Functions
+## {{mnotebook}} Writing Functions
 
 I've used Python *functions* in a few of my example notebooks.
 [The function notebook](../../resources/tutorials/Functions.ipynb) talks more about them, how to write them, and how to use them.
 
-## :material-video: Comparing Distributions {: #qqplot data-length="5m6s"}
+## {{mvideo}} Comparing Distributions
 
 This video describes how to use Q-Q plots to compare data against a distribution.
 
-=== "Video"
-
-    {{ media.video('7ea91346-6e57-48d2-86fc-ac3c0041be0a') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173197', 'ANF7mADxGho6ZDs') }}
+:::{video}
+:id: 7ea91346-6e57-48d2-86fc-ac3c0041be0a
+:length: 5m6s
+:slide-id: 495979F9A431DDB0%2173197
+:slide-auth: ANF7mADxGho6ZDs
+:name: 5-1 - Comparing distributions
+:::
 
 ### Resources
 
 - [NIST Handbook on quantile-quantile plots](https://www.itl.nist.gov/div898/handbook/eda/section3/qqplot.htm)
 
-## :material-video: T-tests {: #ttest data-length="12m24s"}
+## {{mvideo}} Testing Hypotheses
+
+:::{video} hypotest
+:id: b8f249ac-9101-4336-89e8-ac3600436c5a
+:length: 14m51s
+:slide-id: 495979F9A431DDB0%2173033
+:slide-auth: fAPweDd4ZnAHFL6E
+:name: 4-9 - Testing Hypotheses
+:::
+
+### Resources
+
+- [Statistical test selection flowchart](http://timdraws.net/files/StatisticalTestFinder.pdf)
+
+(p-hacking-cartoon)=
+## 💥 Cartoon
+
+Read [XKCD #882: Significant](https://xkcd.com/882/).
+
+This is called **_p_-hacking**: running tests until we find one that is significant.
+
+## {{mvideo}} T-tests
 
 This video discusses the *t*-test in more detail, and the different kinds of *t*-tests that we can run.
-It also introduces **degrees of freedom**.
+It also introduces {term}`degrees of freedom`.
 
-=== "Video"
+:::{video} t-test
+:id: 49c92951-3a9a-4534-ae1a-ac3c0041be38
+:length: 12m24s
+:slide-id: 495979F9A431DDB0%2173195
+:slide-auth: APaucCdchKCkwZk
+:name: 5-2 - T-tests
+:::
 
-    {{ media.video('49c92951-3a9a-4534-ae1a-ac3c0041be38') }}
+## {{mquiz}} Week 5 Quiz
 
-=== "Slides"
+The Week 5 quiz is about material **through this point**.
+The subsequent videos are to help you better understand and contextualize material.
 
-    {{ media.slides('495979F9A431DDB0%2173195', 'APaucCdchKCkwZk') }}
+## {{mnotebook}} One Sample Notebook
 
-## :material-video: Python Errors {: #debug data-length="7m28s"}
-
-This video discusses common Python errors and how to read errors.
-
-=== "Video"
-
-    {{ media.video('e6dd1cb3-4659-4d91-ae16-ac3c0041bda5') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173199', 'AKtFQ6RgMhVAQk4') }}
-
-## :material-video: Python Libraries {: data-length="3m43s"}
-
-=== "Video"
-
-    {{ media.video('9dc67550-0754-42e7-95eb-ac3c0041bddb') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173202', 'AGJDocG2Hv-tifk') }}
+The [One Sample notebook](../../resources/tutorials/OneSample.ipynb) demonstrates how to compute a one-sample *t*-test, and draw a Q-Q plot to compare a distribution with normal.
 
 ### Resources
 
 - [NIST Handbook on quantitative meaures](https://www.itl.nist.gov/div898/handbook/eda/section3/eda35.htm) (has info on 1-sample and 2-sample *t*-tests)
 
-## :material-notebook: One Sample Notebook
+## {{mvideo}} Python Errors
 
-The [One Sample notebook](../../resources/tutorials/OneSample.ipynb) demonstrates how to compute a one-sample *t*-test, and draw a Q-Q plot to compare a distribution with normal.
+This video discusses common Python errors and how to read errors.
 
-## :material-video: Epistemology {: data-length="25m44s"}
+:::{video}
+:id: e6dd1cb3-4659-4d91-ae16-ac3c0041bda5
+:length: 7m28s
+:slide-id: 495979F9A431DDB0%2173199
+:slide-auth: AKtFQ6RgMhVAQk4
+:name: 5-3 - Python Errors
+:::
+
+## {{mvideo}} Python Libraries
+
+:::{video}
+:id: 9dc67550-0754-42e7-95eb-ac3c0041bddb
+:length: 3m43s
+:slide-id: 495979F9A431DDB0%2173202
+:slide-auth: AGJDocG2Hv-tifk
+:name: 5-4 - Python Libraries
+:::
+
+## {{mvideo}} Epistemology
 
 In this video, I talk about how the quantitative data science methods we are learning fit into a broader picture of source of knowledge.
 
-=== "Video"
+:::{video}
+:id: 8477f2e8-ed2e-4c23-a489-ac3c0041d182
+:length: 25m44s
+:slide-id: 495979F9A431DDB0%2172947
+:slide-auth: AJXLT9KELkhPfOQ
+:name: 5-5 - Epistemology
+:::
 
-    {{ media.video('8477f2e8-ed2e-4c23-a489-ac3c0041d182') }}
+## {{mvideo}} Learning More
 
-=== "Slides"
+In this video I talk about how I go about expanding my own data science knowledge and techniques, with the goal
+of giving you ideas for how you can continue learning beyond this class.
 
-    {{ media.slides('495979F9A431DDB0%2172947', 'AJXLT9KELkhPfOQ') }}
+:::{video}
+:id: 1e85c17a-bd99-4cd5-861a-ac3c00438ee2
+:length: 5m10s
+:name: 5-6 - Learning More
+:::
 
-## :material-video: Learning More {: data-length="5m10s"}
+## {{mtask}} Practice
 
-=== "Video"
-
-    {{ media.video('1e85c17a-bd99-4cd5-861a-ac3c00438ee2') }}
-
-## :fontawesome-solid-tasks: Practice
-
-There are a few things you can do to keep practing the material:
+There are a few things you can do to keep practicing the material:
 
 -   The [HETREC data](https://grouplens.org/datasets/hetrec-2011/) contains two data sets besides the movie data: Delicious bookmarks and Last.FM listening records.
     Download this data set and apply some of our exploratory techniques to it.
 -   Download the SBA data from Week 4's activity and describe the distributions of more of the variables.
 -   Apply the inference techniques from Week 4 to statistically test the differences you observed in [Assignment 1](../../assignments/A1/index.md).
 
-## :material-notebook: More Examples
+## {{mnotebook}} More Examples
 
 Some more examples from my own work (these are *not* all cleaned up to our checklist standards):
 
 - [Data summary from book gender paper](DataSummary.ipynb) - shows a number of descriptive things, including a stacked area chart.
 - [Linkage statistics from book data](https://github.com/BoiseState/bookdata-tools/blob/master/LinkageStats.ipynb) - shows some matploblib things, and computing data linking statistics.
 
-## :material-notebook: Tutorials
+## {{mnotebook}} Tutorials
 
 The [indexing notebook](../../resources/tutorials/Indexing.ipynb) is now up!
 
-## :material-inbox: Assignment 2
+## {{massignment}} Assignment 2
 
-[Assignment 2](../../assignments/A2/index.md) is due on **September 27**.
+[Assignment 2](../assignments/A2/index.md) is due on **September 26**.

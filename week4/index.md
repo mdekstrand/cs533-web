@@ -11,8 +11,6 @@ These are the learning outcomes for the week:
 - Interpret and write conditional probabilities for events
 - Understand the key relationships between discrete and continuous probability
 - Compute and interpret a confidence interval
-- Compute and interpret hypothesis test
-- Avoid {term}`p-hacking` and {term}`HARKing`
 
 ## {{moverview}} Content Overview
 
@@ -162,27 +160,6 @@ Read [Having confidence in confidence intervals](https://medium.com/@EpiEllie/ha
 :slide-auth: fAOXsegoiRiZze-I
 :name: 4-8 - The Bootstrap
 :::
-
-## {{mvideo}} Testing Hypotheses
-
-:::{video} hypotest
-:id: b8f249ac-9101-4336-89e8-ac3600436c5a
-:length: 14m51s
-:slide-id: 495979F9A431DDB0%2173033
-:slide-auth: fAPweDd4ZnAHFL6E
-:name: 4-9 - Testing Hypotheses
-:::
-
-### Resources
-
-- [Statistical test selection flowchart](http://timdraws.net/files/StatisticalTestFinder.pdf)
-
-(p-hacking-cartoon)=
-## 💥 Cartoon
-
-Read [XKCD #882: Significant](https://xkcd.com/882/).
-
-This is called **_p_-hacking**: running tests until we find one that is significant.
 
 ## {{mquiz}} Week 4 Quiz
 
