@@ -2,7 +2,7 @@
 
 Quick links to some of the data we use in this class:
 
-- [Palmer Penguins](https://github.com/allisonhorst/palmerpenguins) ([local CSV version](../content/penguins.csv))
+- [Palmer Penguins](https://github.com/allisonhorst/palmerpenguins) ({download}`local CSV version <../week2/penguins.csv>`)
 - [HETREC Movie Data](https://grouplens.org/datasets/hetrec-2011/)
 - [MovieLens data sets](https://grouplens.org/datasets/movielens/)
 - [World Bank Indicators](https://data.worldbank.org/)

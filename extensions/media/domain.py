@@ -146,7 +146,7 @@ class CourseDomain(Domain):
         self._dom_objects().append(mod)
 
     def resolve_xref(self, env, fromdocname, builder, type, target, node, contnode):
-        self.state.reporter.debug(f'searching for {type} {target} referenced from {fromdocname}')
+        # env.reporter.debug(f'searching for {type} {target} referenced from {fromdocname}')
         tgt = self._find_target(target, type)
 
         if not tgt:
