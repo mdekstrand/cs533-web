@@ -145,7 +145,7 @@ It complements the “Statistical Data Presentation” reading.
 ### Resources
 
 - [Notebook](../resources/tutorials/Charting.ipynb)
-- [Seaborn gallery]([/seaborn/examples/index.html](https://seaborn.pydata.org/examples/index.html))
+- [Seaborn gallery](https://seaborn.pydata.org/examples/index.html)
 - [Seaborn tutorial](https://seaborn.pydata.org/tutorial.html) — organized topically, **very good resource**
 - [Matplotlib gallery](https://matplotlib.org/gallery.html)
 - [Plotnine gallery](https://plotnine.readthedocs.io/en/stable/gallery.html)
