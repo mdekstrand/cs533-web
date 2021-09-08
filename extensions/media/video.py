@@ -71,11 +71,26 @@ class VideoDirective(SphinxDirective):
     required_arguments = 0
     optional_arguments = 1
 
+    def _get_video(self):
+        name = self.options.get('name', None)
+        if name:
+            dom = self.env.get_domain('res')
+            return dom.lookup_video(name)
+
+    def _get_param(self, name, inv_name):
+        res = self.options.get(name, None)
+        if not res:
+            vid = self._get_video()
+            if vid:
+                res = vid[inv_name]
+
+        return res
+
     def run(self):
         result = []
 
         name = self.options.get('name', None)
-        video_id = self.options.get('id', None)
+        video_id = self._get_param('id', 'Panopto ID')
         length = self.options.get('length', None)
         key = None
         if self.arguments:
@@ -98,9 +113,9 @@ class VideoDirective(SphinxDirective):
         else:
             warnings.warn('no video ID specified')
 
-        slide_id = self.options.get('slide-id', None)
+        slide_id = self._get_param('slide-id', 'Slide ID')
         if slide_id:
-            slide_auth = self.options['slide-auth']
+            slide_auth = self._get_param('slide-auth', 'Slide Auth')
             box += rst_slide_tab(slide_id, slide_auth)
 
         alt_id = self.options.get('alt-id', None)

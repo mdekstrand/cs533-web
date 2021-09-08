@@ -2,7 +2,9 @@
 Sphinx extension to implement video support
 """
 
+from pathlib import Path
 import re
+import csv
 from dataclasses import dataclass
 
 from docutils import nodes
@@ -100,8 +102,23 @@ class CourseDomain(Domain):
         'book': XRefRole(),
     }
 
+    _vid_inventory = None
+
     def _dom_objects(self):
         return self.env.domaindata['res'].setdefault('objects', [])
+
+    def lookup_video(self, name):
+        if self._vid_inventory is None:
+            path = Path('_build/inventory.csv')
+            if path.exists():
+                with path.open('r') as f:
+                    self._vid_inventory = list(csv.DictReader(f))
+            else:
+                self._vid_inventory = []
+
+        for vid in self._vid_inventory:
+            if vid['Title'] == name:
+                return vid
 
     def note_module(self, key, title, *, reset=True):
         docname = self.env.docname

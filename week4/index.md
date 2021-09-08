@@ -29,10 +29,7 @@ proceeding to Week 6.
 ## {{mvideo}} Introduction
 
 :::{video}
-:id: f04f8c08-04c0-4ac9-a17d-ac33002dc385
 :length: 10m36s
-:slide-id: 495979F9A431DDB0%2173011
-:slide-auth: fAHMCzDSGDskVEXM
 :name: 4-1 - Inference Intro
 :::
 
@@ -40,10 +37,7 @@ proceeding to Week 6.
 ## {{mvideo}} Probability
 
 :::{video} probability
-:id: db887c4d-b242-4f59-b418-ac33002dc3b9
 :length: 13m46s
-:slide-id: 495979F9A431DDB0%2173013
-:slide-auth: fAOl1L4WxuyHymCo
 :name: 4-2 - Probability
 :::
 
@@ -51,10 +45,7 @@ proceeding to Week 6.
 ## {{mvideo}} Joint and Conditional Probability
 
 :::{video} joint-conditional
-:id: 1cf9fe9f-3d68-442f-a4b1-ac330038e5b2
 :length: 11m50s
-:slide-id: 495979F9A431DDB0%2173015
-:slide-auth: fAFz6X3aaC0ZLhZI
 :name: 4-3 - Joint and Conditional
 :::
 
@@ -62,10 +53,7 @@ proceeding to Week 6.
 ## {{mvideo}} Continuous Probability
 
 :::{video}
-:id: 3a9e1f25-e324-4939-a0ba-ac330026530e
-:length: 11m56s
-:slide-id: 495979F9A431DDB0%2173017
-:slide-auth: fAN8SCvQbSm_K8dQ
+:length: 11m48s
 :name: 4-4 - Continuous Probability
 :::
 
@@ -105,10 +93,7 @@ possible events or observations, and cancelling the $n$.
 ## {{mvideo}} {{mnotebook}} Distributions
 
 :::{video}
-:id: 17e7f5ea-a53f-4a1a-bb45-ac3600436c11
 :length: 9m24s
-:slide-id: 495979F9A431DDB0%2173025
-:slide-auth: fAAYQ0zXcvwJjizw
 :name: 4-5 - Distributions
 :::
 
@@ -120,10 +105,7 @@ possible events or observations, and cancelling the $n$.
 ## {{mvideo}} Sampling and the Data Generation Process
 
 :::{video} sampling
-:id: 3f70c0d7-c356-416e-a30e-ac360043f6e5
 :length: 17m53s
-:slide-id: 495979F9A431DDB0%2173027
-:slide-auth: fAEYcilW0NufzD8w
 :name: 4-6 - Sampling and the DGP
 :::
 
@@ -134,10 +116,7 @@ possible events or observations, and cancelling the $n$.
 ## {{mvideo}} Confidence
 
 :::{video} confidence
-:id: 73d0ce00-5ad3-4377-b8c4-ac3600436c31
 :length: 13m6s
-:slide-id: 495979F9A431DDB0%2173029
-:slide-auth: fAKuXoEDVB7bgX9g
 :name: 4-7 - Confidence
 :::
 
@@ -154,10 +133,7 @@ Read [Having confidence in confidence intervals](https://medium.com/@EpiEllie/ha
 ## {{mvideo}} The Bootstrap
 
 :::{video} bootstrap
-:id: df525810-e4df-4977-afee-ac3600436c8c
 :length: 7m26s
-:slide-id: 495979F9A431DDB0%2173031
-:slide-auth: fAOXsegoiRiZze-I
 :name: 4-8 - The Bootstrap
 :::
 
