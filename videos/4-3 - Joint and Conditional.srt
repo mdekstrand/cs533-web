@@ -1,0 +1,424 @@
+1
+00:00:04,400 --> 00:00:09,500
+So, again, in this video, I want to introduce joint conditional and marginal probability.
+
+2
+00:00:09,500 --> 00:00:15,910
+The previous video we talked about probability in general, particularly the probability of one event at a time.
+
+3
+00:00:15,910 --> 00:00:20,740
+We're going to start talking about probabilities of that.
+
+4
+00:00:20,740 --> 00:00:22,450
+Would that involve more than one event?
+
+5
+00:00:22,450 --> 00:00:30,490
+So are learning outcomes understand the definitions and of the relationship between joint conditional marginal probability?
+
+6
+00:00:30,490 --> 00:00:35,440
+We're going to introduce Bayes Theorem. I want you to be able to apply it to invert the probability.
+
+7
+00:00:35,440 --> 00:00:43,900
+And also then we're going to introduce the concept of what it means for two events to be independent.
+
+8
+00:00:43,900 --> 00:00:52,120
+So to start out, joint probability is the probability of both A and B occurring simultaneously.
+
+9
+00:00:52,120 --> 00:00:58,220
+And we write it with A and B in columns. And so and it's the same as the and.
+
+10
+00:00:58,220 --> 00:01:02,590
+So remember, from the previous video, the set Intersect Operator means.
+
+11
+00:01:02,590 --> 00:01:12,130
+And so we just write P of A Khabab B, that's the joint probability of A and B occurring at the same time.
+
+12
+00:01:12,130 --> 00:01:16,090
+Sometimes this is written with a semicolon instead of a comma.
+
+13
+00:01:16,090 --> 00:01:25,330
+That's mean. The same thing. And sometimes you use both because your your events, they fall naturally into different groups.
+
+14
+00:01:25,330 --> 00:01:29,350
+And so you use commas to separate individual events and use a semicolon to separate the groups.
+
+15
+00:01:29,350 --> 00:01:34,180
+Not going to see it super often, but if you see a semicolon, that means the same thing as a comma.
+
+16
+00:01:34,180 --> 00:01:40,350
+It's a joint probability, but it.
+
+17
+00:01:40,350 --> 00:01:43,350
+It's just used to provide some clarity and grouping.
+
+18
+00:01:43,350 --> 00:01:56,600
+So, for example, if I roll, if I roll to die, two dice and the problem, the probability that the first one is four and the second one is five.
+
+19
+00:01:56,600 --> 00:01:59,890
+That's a joint probability. I could roll.
+
+20
+00:01:59,890 --> 00:02:06,970
+I could just compute the probability of the first one, and that's doesn't it. Second, I have no impact on it, but this joint probability is due.
+
+21
+00:02:06,970 --> 00:02:13,570
+One is for. And if two is five. Probability of that is one thirty sixth.
+
+22
+00:02:13,570 --> 00:02:18,720
+This is not the same as rolling a four and a five. Because there is an order here.
+
+23
+00:02:18,720 --> 00:02:27,810
+If I if the first dice diez five in the second Dice's four dayas for this event didn't happen because we are talking about this order.
+
+24
+00:02:27,810 --> 00:02:33,660
+If we want a four and a five, I'm going to let you think about what the probability of that would be.
+
+25
+00:02:33,660 --> 00:02:37,560
+So we can start to think about two dimensional spaces. Probability spaces.
+
+26
+00:02:37,560 --> 00:02:45,960
+In the last video we saw one dimensional probability where we can think about the role of a single die.
+
+27
+00:02:45,960 --> 00:02:58,530
+So I rolled a four. We can also think about drawing a single card from a shuffled deck.
+
+28
+00:02:58,530 --> 00:03:07,230
+Where I can draw an ace. Now, a key difference here, if I want to start thinking about two, I can roll two dice.
+
+29
+00:03:07,230 --> 00:03:10,160
+I get a one and a five. And they have nothing to do with each other.
+
+30
+00:03:10,160 --> 00:03:16,470
+Or I can roll one die and I get a five, I can roll it again and I get another five.
+
+31
+00:03:16,470 --> 00:03:22,980
+But if I draw another card from my deck. I can't draw another ace.
+
+32
+00:03:22,980 --> 00:03:30,890
+So for the dice, the each. Each one had the same probability, the probability of rolling a one and one on day one.
+
+33
+00:03:30,890 --> 00:03:42,560
+And the five. On day two is one out of 36. But if I have the probability of drawing.
+
+34
+00:03:42,560 --> 00:03:48,900
+A jack of hearts on my next draw is different because I've already drawn an ace of spades.
+
+35
+00:03:48,900 --> 00:03:54,310
+It's going to be one over 50 two. Excuse me, one over fifty one instead of one over fifty three.
+
+36
+00:03:54,310 --> 00:04:04,070
+drawCard knitted native diamonds. Further, the probability of drawing a diamond now is different from the probability of drawing a club.
+
+37
+00:04:04,070 --> 00:04:11,660
+Because I've drawn one diamond and I haven't drawn any clubs. So if I want to say the probability of clubs, there's still 13 left in the deck.
+
+38
+00:04:11,660 --> 00:04:18,070
+But there's only 12 diamonds left. So. The the the cards they change.
+
+39
+00:04:18,070 --> 00:04:25,850
+Well, since I'm not putting the cards back between draws, the cards change as much as I progressed through.
+
+40
+00:04:25,850 --> 00:04:33,560
+And there's a relationship between one sample and another. So the conditional probability P of be given a.
+
+41
+00:04:33,560 --> 00:04:38,720
+That's how we read. That is the probability that B happened. Given that we know A happen.
+
+42
+00:04:38,720 --> 00:04:43,280
+So when our dice five roll one die for.
+
+43
+00:04:43,280 --> 00:04:47,420
+That tells you absolutely nothing about what the second die is going to be. It can be a two.
+
+44
+00:04:47,420 --> 00:05:02,400
+It can be whatever. But if I shuffle my cards. And I draw a card, and that's eight of hearts.
+
+45
+00:05:02,400 --> 00:05:12,870
+That changes what the next probability is the probability of of a heart, the first time was 13, over 52.
+
+46
+00:05:12,870 --> 00:05:18,840
+But the probability of a heart the second time is twelve over fifty one because a heart is gone and a card is gone.
+
+47
+00:05:18,840 --> 00:05:24,990
+The probability of a spade the next time is thirteen over fifty one because I have a heart.
+
+48
+00:05:24,990 --> 00:05:29,340
+I haven't taken any spades but I have taken a card so close in 13. Over 52 to 13.
+
+49
+00:05:29,340 --> 00:05:33,000
+Over fifty one. Next card it turns out, is actually a heart.
+
+50
+00:05:33,000 --> 00:05:39,210
+But we have knowing the first card tells us something about what the next card is going to be.
+
+51
+00:05:39,210 --> 00:05:48,590
+And we call this a conditional probability. We can decompose joint probabilities into conditional probabilities.
+
+52
+00:05:48,590 --> 00:05:54,860
+So the probability of A and B is the probability of A given B.
+
+53
+00:05:54,860 --> 00:06:01,730
+Times the probability of B. And likewise, we can it also works the other way around.
+
+54
+00:06:01,730 --> 00:06:07,310
+It's been given eight times the probability of a. We can use this to breakdown a joint probability into a conditional.
+
+55
+00:06:07,310 --> 00:06:15,290
+We sometimes call this a factor, joint probability, but it starts to establish relationships.
+
+56
+00:06:15,290 --> 00:06:23,180
+The probability of drawing an eight of hearts, followed by a three of hearts is the same as that is the probability of drawing an eight of hearts,
+
+57
+00:06:23,180 --> 00:06:28,250
+followed by the times, the probability of drawing a three of hearts.
+
+58
+00:06:28,250 --> 00:06:32,860
+Given that, I have already drawn an eight of hearts.
+
+59
+00:06:32,860 --> 00:06:38,740
+We can also talk about the marginal probabilities of the marginal probability is the probability of a single event.
+
+60
+00:06:38,740 --> 00:06:48,400
+And if we know the joint distribution, we can compute the probability by doing what's called marginalizing the joint distribution.
+
+61
+00:06:48,400 --> 00:06:54,910
+So if we we can think of a card probabilities also as a joint probability.
+
+62
+00:06:54,910 --> 00:06:59,890
+So the three of hearts is the joint probability of a three and of a heart.
+
+63
+00:06:59,890 --> 00:07:05,020
+And so we can say, well, the probability of a three.
+
+64
+00:07:05,020 --> 00:07:10,510
+We can compute that with the sum over our suits of the probability of us three.
+
+65
+00:07:10,510 --> 00:07:16,930
+And that of or six. And that suit. And this computes this will be called this marginal probability.
+
+66
+00:07:16,930 --> 00:07:22,630
+The reason it's called a marginal probability is because if we draw out a table of the joint distribution.
+
+67
+00:07:22,630 --> 00:07:31,150
+So in the rose, we have the first the first value or event set of the set of possible events in the first case,
+
+68
+00:07:31,150 --> 00:07:33,520
+the set of possible events in the second case.
+
+69
+00:07:33,520 --> 00:07:42,130
+And this this hat, this requires us to have events where we have a set, I say a set of mutually exclusive events that span each.
+
+70
+00:07:42,130 --> 00:07:47,140
+So we need to be able to have events that cover everything. And they need to be mutually exclusive.
+
+71
+00:07:47,140 --> 00:07:53,300
+In order for this sum to work. But the second to die will be one of these six value.
+
+72
+00:07:53,300 --> 00:08:01,590
+Will be one of these six values. So. We can we have the values of each individual pair.
+
+73
+00:08:01,590 --> 00:08:07,320
+So the value of one being a six and two being a five is one over thirty six.
+
+74
+00:08:07,320 --> 00:08:13,580
+And then the margin. So if we sum this row.
+
+75
+00:08:13,580 --> 00:08:18,410
+We get one over six, which is the probability of the first die being a two.
+
+76
+00:08:18,410 --> 00:08:27,230
+And that's why it's called the marginal probabilities. It's what happens if we if we compute the margin of this table of the joint probabilities.
+
+77
+00:08:27,230 --> 00:08:34,660
+And I want to get to independents. I've talked about how the DICER Independent ruling one tells us nothing about the second.
+
+78
+00:08:34,660 --> 00:08:41,410
+So formally, two events are independent. If no one tells you nothing about another, the other.
+
+79
+00:08:41,410 --> 00:08:48,190
+So the probability of A given B, so the probability of rolling a set of five on my second day,
+
+80
+00:08:48,190 --> 00:08:53,350
+given that I wrote a two in the first, is the same thing as just rolling a five.
+
+81
+00:08:53,350 --> 00:09:07,100
+And so B tells us knowing B happened tells us nothing about A equivalently goes the other way probability knowing A happened tells us nothing about B.
+
+82
+00:09:07,100 --> 00:09:15,470
+And if two events are independent, then that are joint probability is the product of their marginal probabilities.
+
+83
+00:09:15,470 --> 00:09:24,020
+I can take A if A and B are independent, then the probability of A and B is the probability of A times the probability of B.
+
+84
+00:09:24,020 --> 00:09:31,280
+I'm going to let you as an exercise to get more familiarity with these with these distributions.
+
+85
+00:09:31,280 --> 00:09:37,820
+Prove that they are or with these definitions is to prove that these two definitions are equivalent.
+
+86
+00:09:37,820 --> 00:09:42,020
+So now then finally, I want to introduce something called Bayes Theorem.
+
+87
+00:09:42,020 --> 00:09:52,570
+So conditional probabilities have a direction. The probability of being given A and A given B are not the same thing.
+
+88
+00:09:52,570 --> 00:09:58,370
+But. We can they are related.
+
+89
+00:09:58,370 --> 00:10:06,730
+So. The probability of a penguin having a flipper length of 217 millimeters,
+
+90
+00:10:06,730 --> 00:10:11,710
+given that it's a Gentoo penguin, is not the same thing as the probability of that.
+
+91
+00:10:11,710 --> 00:10:16,090
+It is a Gentoo penguin. Given that it has a flipper length of 270 millimeters.
+
+92
+00:10:16,090 --> 00:10:19,240
+But if we know the probability of flipper length,
+
+93
+00:10:19,240 --> 00:10:27,400
+given that it's a Gentoo and we know the probability that it's the marginal probability that it's a Gentoo and that it has that flipper length,
+
+94
+00:10:27,400 --> 00:10:33,130
+then we can compute the probability that it's a Gentoo. Given the flipper length.
+
+95
+00:10:33,130 --> 00:10:39,800
+So if a. Gentoo. B.
+
+96
+00:10:39,800 --> 00:10:48,180
+Flip. Of, I'll say approximately to 17 millimeters.
+
+97
+00:10:48,180 --> 00:10:54,470
+We can read if we know one, we can add the marginals, we can reverse it and get the other.
+
+98
+00:10:54,470 --> 00:10:59,210
+This becomes very useful for a lot of kinds of probabilistic inference.
+
+99
+00:10:59,210 --> 00:11:07,030
+So to wrap up. Joint probability is the simultaneous is the probability of multiple events happening simultaneously.
+
+100
+00:11:07,030 --> 00:11:09,940
+These can be multiple overlapping descriptions of the same thing.
+
+101
+00:11:09,940 --> 00:11:14,140
+For example, the probability that my card is a three and the probability that it's a heart.
+
+102
+00:11:14,140 --> 00:11:18,940
+They can also be probabilities that relates to individual dimensions of a multidimensional space,
+
+103
+00:11:18,940 --> 00:11:25,660
+like the probability for different die or the probability of of different cards in a sequence.
+
+104
+00:11:25,660 --> 00:11:33,580
+Conditional probability describes the probability of an event condition and that other information we may have and these things,
+
+105
+00:11:33,580 --> 00:11:38,890
+these probabilistic building blocks. There's a building blocks for more reasoning.
+
+106
+00:11:38,890 --> 00:11:50,809
+We're going to use them quite a bit as we start to reason and as we start to describe other things throughout the cement's.
+

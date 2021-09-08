@@ -1,0 +1,376 @@
+1
+00:00:04,820 --> 00:00:09,710
+In this video, I'm going to introduce this week's topic of probability and inference.
+
+2
+00:00:09,710 --> 00:00:15,830
+So we're learning outcomes. This we could understand probability notation to be able to express formulas using probability.
+
+3
+00:00:15,830 --> 00:00:19,280
+Understand the difference to an estimation and testing and to be able to compute
+
+4
+00:00:19,280 --> 00:00:24,590
+confidence intervals and other estimates of precision and significance of an effect.
+
+5
+00:00:24,590 --> 00:00:31,610
+So to review just a little bit, we've talked about the concept of a statistic, a measurement that we take from a collection of data,
+
+6
+00:00:31,610 --> 00:00:35,570
+for example, and the Penguins dataset, which we're going to be using a lot this week.
+
+7
+00:00:35,570 --> 00:00:41,820
+The Gentoo penguins have an average weight of five thousand seventy grams of mean weight.
+
+8
+00:00:41,820 --> 00:00:50,370
+So but we have the question of we're trying to see how averaged how heavy on average are adult Gentoo penguins?
+
+9
+00:00:50,370 --> 00:00:56,280
+One of the things we want to know is how precise is this estimate of five thousand seventy six?
+
+10
+00:00:56,280 --> 00:01:01,860
+Is this likely to be close to the the actual average way far off?
+
+11
+00:01:01,860 --> 00:01:07,050
+How can we measure how precise this estimate is? We can also start to look at comparisons.
+
+12
+00:01:07,050 --> 00:01:12,930
+The Gentoo penguins in our data have longer flippers than the chinstrap penguins.
+
+13
+00:01:12,930 --> 00:01:18,510
+But does this mean Gentoo penguins have longer flippers than chinstrap penguins usually?
+
+14
+00:01:18,510 --> 00:01:22,560
+Or do we randomly get some long flipper Gentoo penguins and some short flipper.
+
+15
+00:01:22,560 --> 00:01:31,740
+Chinstrap penguins? And our data doesn't actually tell us anything about the relative flipper length of chinstrap and Gentoo penguins.
+
+16
+00:01:31,740 --> 00:01:36,990
+So what we're going to be developed, one of the things we're going to be developing this week is some tools to be able
+
+17
+00:01:36,990 --> 00:01:43,140
+to start to answer some of these kinds of questions and go from this statistic,
+
+18
+00:01:43,140 --> 00:01:44,220
+we call it. We have some data.
+
+19
+00:01:44,220 --> 00:01:56,290
+We compute a statistic over it to being able to say things about the underlying constructs from which the data are collected in this case.
+
+20
+00:01:56,290 --> 00:02:01,830
+The body size characteristics of different species of penguin.
+
+21
+00:02:01,830 --> 00:02:10,930
+So inference is learning about data to be able to go from the data that we have and learn things about
+
+22
+00:02:10,930 --> 00:02:18,780
+its structure to learn the values of different parameters that describe its underlying existence.
+
+23
+00:02:18,780 --> 00:02:20,610
+And so there's a couple of thing.
+
+24
+00:02:20,610 --> 00:02:26,400
+There's a variety of things you can do it this, too, things are going to be doing is estimating the value of a parameter.
+
+25
+00:02:26,400 --> 00:02:33,180
+So if there's an underlying parameter, which is the average length of a Gentoo penguin slipper,
+
+26
+00:02:33,180 --> 00:02:39,390
+can we estimate the value of that parameter by observing penguins in the wild?
+
+27
+00:02:39,390 --> 00:02:45,560
+And then the testing, the data support for a hypothesis, maybe the hypothesis that.
+
+28
+00:02:45,560 --> 00:02:59,700
+Gentoo penguins have longer flippers than chinstrap penguins. To define a term, though, an estimate is an estimated value of some underlying quantity.
+
+29
+00:02:59,700 --> 00:03:08,650
+Often we talk about a point estimate. So if we take our penguins and we compute the mean of our penguins flipper lengths.
+
+30
+00:03:08,650 --> 00:03:12,340
+That gives us a point estimate for the mean flipper length.
+
+31
+00:03:12,340 --> 00:03:22,240
+But often we'll have a confidence interval or something similar that describes how precise and how confident we are in this estimate.
+
+32
+00:03:22,240 --> 00:03:30,130
+And estimates [INAUDIBLE] is a procedure which is the metric and the mechanism that we're gonna use for applying that metric,
+
+33
+00:03:30,130 --> 00:03:36,520
+for computing an estimate and an s demand is a thing we're trying to estimate.
+
+34
+00:03:36,520 --> 00:03:41,590
+So an estimate. So we have an estimate. And that's the estimate of an S demand.
+
+35
+00:03:41,590 --> 00:03:45,880
+And if we're using a statistic from a sample to estimate a parameter.
+
+36
+00:03:45,880 --> 00:03:52,600
+So we're where we have our penguins and we compute the mean mass of our Gentoo penguins.
+
+37
+00:03:52,600 --> 00:04:02,400
+And we say, well, we're gonna use that to estimate. The typical mass of a Gentoo penguin.
+
+38
+00:04:02,400 --> 00:04:13,310
+Then with the typical mass as a parameter and the parameter or the statistic in this case is the estimate and the parameter is the estimate.
+
+39
+00:04:13,310 --> 00:04:17,750
+The value of this statistic is the estimate, the process of computing.
+
+40
+00:04:17,750 --> 00:04:24,800
+The statistic itself as an object like meet the mean of five point of five thousand seventy six is the estimate.
+
+41
+00:04:24,800 --> 00:04:32,080
+The mean as a concept is the estimate here. And the parameter in this case is the estimate and.
+
+42
+00:04:32,080 --> 00:04:37,600
+So, in effect, size is the size of the difference between two groups or treatments.
+
+43
+00:04:37,600 --> 00:04:51,610
+A lot of the things that a lot of the basic principles of statistical tests and statistical analysis come from the idea of controlled experiments.
+
+44
+00:04:51,610 --> 00:05:01,090
+So if in a controlled experiment, if if we had a bunch of penguins, I'm not going to try to draw penguins.
+
+45
+00:05:01,090 --> 00:05:05,060
+But I'll say penguins. Still a bunch of penguins.
+
+46
+00:05:05,060 --> 00:05:13,550
+And we want to see if penguins who eat one kind of fish have better growth.
+
+47
+00:05:13,550 --> 00:05:17,330
+Maybe we have baby penguins, baby penguins who have won access to one kind of food.
+
+48
+00:05:17,330 --> 00:05:23,330
+Have better growth than access to another. So we'll take our penguins randomly split them into two groups.
+
+49
+00:05:23,330 --> 00:05:31,970
+We'll have food. One. We'll have food to.
+
+50
+00:05:31,970 --> 00:05:49,520
+And then we will measure growth. And then we want to compare.
+
+51
+00:05:49,520 --> 00:05:55,050
+The growth of these two of penguins that are given the two different kinds of food.
+
+52
+00:05:55,050 --> 00:06:03,670
+There's much more sophisticated experimental designs. But the effect size is how much more or less the food one penguins grew.
+
+53
+00:06:03,670 --> 00:06:06,980
+And the food to penguins because we want to see it.
+
+54
+00:06:06,980 --> 00:06:13,830
+We can see, OK. Did they grow more? But the effect size as well. How big is that growth?
+
+55
+00:06:13,830 --> 00:06:19,900
+And. Even when we're not actually performing a controlled experiment like this,
+
+56
+00:06:19,900 --> 00:06:24,790
+a randomized controlled trial, we're using the statistical tools and other contexts.
+
+57
+00:06:24,790 --> 00:06:34,120
+This is the this is the underlying theoretical construct in which they're easiest to understand.
+
+58
+00:06:34,120 --> 00:06:43,270
+And we're going to understand a lot of them in other contexts in terms of.
+
+59
+00:06:43,270 --> 00:06:46,900
+This kind of a treatment setup, maybe we just have two groups like this.
+
+60
+00:06:46,900 --> 00:06:51,790
+This penguin is a June Gentoo and this penguin is a chinstrap.
+
+61
+00:06:51,790 --> 00:06:57,130
+We can't assign those conditions. We can't take a bunch of penguins and say, OK, this half, we're going to make them Gentoo.
+
+62
+00:06:57,130 --> 00:07:04,960
+In this half, we're going to make them chinstrap. We're gonna use the same math to compare, say, the flipper size of the chinstrap and the Gentoo.
+
+63
+00:07:04,960 --> 00:07:16,180
+But this is the kind of experimental construct in which it's which a lot of these kinds of all of these statistical techniques arise.
+
+64
+00:07:16,180 --> 00:07:23,440
+So a little bit about my perspective. So, I mean, we all come to these topics with our prospect, with our own perspectives.
+
+65
+00:07:23,440 --> 00:07:32,890
+I'm going to provide access. I'm going to provide links to know a couple of articles about my that have informed my perspective.
+
+66
+00:07:32,890 --> 00:07:43,030
+These are not required reading. And you're not going to be tested on those articles. But one is that there are few bright line rules.
+
+67
+00:07:43,030 --> 00:07:47,980
+So it's not as simple as we computer test p less than two point zero five.
+
+68
+00:07:47,980 --> 00:07:55,020
+Great. We know he found an effect instead. Multiple pieces of evidence.
+
+69
+00:07:55,020 --> 00:08:03,510
+The statistical significance from a test in one experiment. The confidence interval, the precision of the estimate in another context.
+
+70
+00:08:03,510 --> 00:08:10,170
+Together increase our confidence in the.
+
+71
+00:08:10,170 --> 00:08:17,130
+In what we're understanding from the data. No one experiment or analysis is the end of the story.
+
+72
+00:08:17,130 --> 00:08:21,020
+I'm going to be teaching you how to do all of the classical statistical well, not all.
+
+73
+00:08:21,020 --> 00:08:24,690
+I'm going to be teaching you how to do some of the classical statistical techniques,
+
+74
+00:08:24,690 --> 00:08:29,640
+like how to do a test and compute its p value, how to compute P values in other ways.
+
+75
+00:08:29,640 --> 00:08:33,510
+But there is not.
+
+76
+00:08:33,510 --> 00:08:41,680
+These individual pieces on their own are evidence that we used to paint a bigger picture and gain car, increasing confidence in our results.
+
+77
+00:08:41,680 --> 00:08:47,350
+Second is that probability is meaningful, even without a specific random process to discuss.
+
+78
+00:08:47,350 --> 00:08:51,270
+So some take the approach that we can only.
+
+79
+00:08:51,270 --> 00:08:59,970
+That the problem, the mathematics of probability, only apply when we're talking about actual random processes and the outcomes of random processes.
+
+80
+00:08:59,970 --> 00:09:06,880
+I do not take that approach. I take an approach in which probability can also quantify degrees of belief.
+
+81
+00:09:06,880 --> 00:09:18,310
+And so we can talk about the probability. We can talk about probabilities of actual parameters, not just the values that arise from them.
+
+82
+00:09:18,310 --> 00:09:23,560
+But I'll probably make some more sense later. Also effect size.
+
+83
+00:09:23,560 --> 00:09:33,060
+It estimates in the seat the. Precision of our estimates are often more important and more useful than hypothesis tests.
+
+84
+00:09:33,060 --> 00:09:38,530
+We're gonna do hypothesis tests, but in many cases.
+
+85
+00:09:38,530 --> 00:09:44,800
+The questions we ask are better answered by estimates, by estimates.
+
+86
+00:09:44,800 --> 00:09:50,640
+These are not universally held perspectives and I'm going to be teaching you tools.
+
+87
+00:09:50,640 --> 00:09:55,500
+Regardless of my perspective, but I just wanted to be upfront with some of the perspective that I bring to the
+
+88
+00:09:55,500 --> 00:10:00,960
+table and how I think about this material and it's informed how I present it.
+
+89
+00:10:00,960 --> 00:10:05,280
+And the choice of the which material I've chosen to present to you.
+
+90
+00:10:05,280 --> 00:10:06,330
+So to wrap up,
+
+91
+00:10:06,330 --> 00:10:15,090
+we're going to go move beyond just computing and comparing statistics to actually be able to start reasoning about the magnitude of the differences.
+
+92
+00:10:15,090 --> 00:10:20,070
+We see the significance of those differences if they are for lack of a better term,
+
+93
+00:10:20,070 --> 00:10:25,320
+real or if just they're just artifacts of the data and the data collection process.
+
+94
+00:10:25,320 --> 00:10:36,064
+The foundations of this are going to be probability theory, which I'm going to get into in the next video.
+

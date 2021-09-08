@@ -1,0 +1,344 @@
+1
+00:00:04,500 --> 00:00:13,570
+Hello, in this video, I want to talk about the concept of distribute, particularly named distributions, we introduced the fundamentals of probability.
+
+2
+00:00:13,570 --> 00:00:17,590
+We've gotten the continuous variables and random variables.
+
+3
+00:00:17,590 --> 00:00:23,770
+I want to talk about what it means when we talk about something, say, having the normal distribution.
+
+4
+00:00:23,770 --> 00:00:28,690
+And so our learning outcomes for this video were to understand the idea of a distribution,
+
+5
+00:00:28,690 --> 00:00:32,500
+to be able to identify parameters and statistics of a distribution.
+
+6
+00:00:32,500 --> 00:00:42,100
+The notebook and the linked reading have the linked material, has more information, more information on these distributions, many more distributions.
+
+7
+00:00:42,100 --> 00:00:47,320
+So I encourage you to spend some time exploring that particular distribution.
+
+8
+00:00:47,320 --> 00:00:51,670
+Families are one place where Wikipedia is a rather fantastic resource.
+
+9
+00:00:51,670 --> 00:01:01,480
+I've included a link to Wikipedia's list of probability distributions, which is organized by by distribution type.
+
+10
+00:01:01,480 --> 00:01:10,990
+And it each of the pages provides rather mathematically dense but useful detail on how the distribution is defined.
+
+11
+00:01:10,990 --> 00:01:14,810
+Some of its key properties and relationships to other distributions.
+
+12
+00:01:14,810 --> 00:01:23,070
+So but to get started, this idea of working me, focusing on distributions of numeric variables.
+
+13
+00:01:23,070 --> 00:01:29,650
+These can be both discrete and continuous. So discrete. We might have a distribution of accounts.
+
+14
+00:01:29,650 --> 00:01:32,640
+It can also be categorical so long as we encode them as a numbers.
+
+15
+00:01:32,640 --> 00:01:39,580
+So we may encode a a success or failure outcome as zero for failure and one for success.
+
+16
+00:01:39,580 --> 00:01:43,930
+Speaking of which, the banali distribution does exactly like it does exactly that.
+
+17
+00:01:43,930 --> 00:01:51,340
+If we have binary outcomes. Success and failure, which we code as one and zero respectively by convention.
+
+18
+00:01:51,340 --> 00:02:00,480
+And we have a parameter, the success probability. Then we have we can then also compute some statistics of this distribution.
+
+19
+00:02:00,480 --> 00:02:09,370
+Its mean, which is since the outcomes are just zero and one, it would be the fraction in the long run, run it infinitely many times.
+
+20
+00:02:09,370 --> 00:02:15,910
+What fraction would you expect to be successes? And then it'll also have a mode, which is the value that's going to occur more often.
+
+21
+00:02:15,910 --> 00:02:21,240
+For example, when Theta is point three, the mode is failure.
+
+22
+00:02:21,240 --> 00:02:26,820
+There are a few things we want to do to characterize the distribution. So we have its parameters.
+
+23
+00:02:26,820 --> 00:02:32,280
+So in the Bernoulli distribution, the parameter was the success probability. There are other parameters as well,
+
+24
+00:02:32,280 --> 00:02:36,780
+and some of the parameters come in particular types such as location and location
+
+25
+00:02:36,780 --> 00:02:46,320
+is a parameter that controls where on the x axis the distribution is located.
+
+26
+00:02:46,320 --> 00:02:54,300
+Sometimes it is the mean, but not always. The key thing is that the location parameter controls where on the x axis.
+
+27
+00:02:54,300 --> 00:03:00,900
+So it slides it back and forth in the x axis, some distribution. It's also going to change the shape somewhat as it slides.
+
+28
+00:03:00,900 --> 00:03:09,030
+But the location parameter controls where on the x axis it is the scale parameter controls,
+
+29
+00:03:09,030 --> 00:03:14,310
+how far, how wide it is, how far out it spreads out its density.
+
+30
+00:03:14,310 --> 00:03:20,820
+Some distributions called location scale distributions are controlled by location and scale parameters.
+
+31
+00:03:20,820 --> 00:03:26,160
+And the shape of the distribution doesn't change it at all, doesn't changes all at all as you move it around,
+
+32
+00:03:26,160 --> 00:03:30,450
+the location just shifts the same curve back and forth on the x axis.
+
+33
+00:03:30,450 --> 00:03:35,940
+And the the scale just spreads it out or contracts it on the x axis.
+
+34
+00:03:35,940 --> 00:03:41,160
+And so if you if you do a simple way of plotting it, the curve is gonna be exactly the same.
+
+35
+00:03:41,160 --> 00:03:46,050
+The X axis is just going to be shifted and smushed or spread out underneath the curve.
+
+36
+00:03:46,050 --> 00:03:49,800
+And then a shape parameter controls the shape of the distribution.
+
+37
+00:03:49,800 --> 00:03:53,640
+So this distribution, which is a normal distribution, doesn't have a shape parameter,
+
+38
+00:03:53,640 --> 00:04:03,990
+but there's a skewed normal which adds a shape parameter to let you get shapes like this.
+
+39
+00:04:03,990 --> 00:04:12,030
+And in it, that shape parameter allows you to shift between the normal, the traditional normal and this skewed normal.
+
+40
+00:04:12,030 --> 00:04:17,820
+And so there's other types of parameters as well. But three common kinds of these location, scale and shape parameters,
+
+41
+00:04:17,820 --> 00:04:25,740
+locations where scale is how wide and then shape is what it's actually shaped like there.
+
+42
+00:04:25,740 --> 00:04:29,160
+We then to characterize the distribution,
+
+43
+00:04:29,160 --> 00:04:37,980
+we have a density or a mass function that use probability density or probability mass function that uses these parameters to assign probability,
+
+44
+00:04:37,980 --> 00:04:45,720
+mass or density to different values. We then have what's called the support, which is the range of values the distribution is defined over.
+
+45
+00:04:45,720 --> 00:04:50,670
+Not all distributions are defined over the same range.
+
+46
+00:04:50,670 --> 00:04:54,960
+And there's often we want to it's useful to think about the underlying random process.
+
+47
+00:04:54,960 --> 00:05:00,510
+Most distributions are described as the result of a particular random process.
+
+48
+00:05:00,510 --> 00:05:04,350
+It does not mean those processes are the only things they're useful for describing,
+
+49
+00:05:04,350 --> 00:05:10,530
+but it's mathematically the distribution arises from analyzing that particular process.
+
+50
+00:05:10,530 --> 00:05:13,680
+We then can compute some statistics of a distribution.
+
+51
+00:05:13,680 --> 00:05:19,650
+It's mean the expected value of a very of a random variable with that distribution is one of them.
+
+52
+00:05:19,650 --> 00:05:27,660
+It's also called the first moment of the distribution. Then we can compute the standard deviation or variance.
+
+53
+00:05:27,660 --> 00:05:30,120
+For some distributions, for example, normal, though,
+
+54
+00:05:30,120 --> 00:05:37,950
+it has location and scale parameters that are the mean and standard deviation, the variance is called the second central moment.
+
+55
+00:05:37,950 --> 00:05:51,980
+We can also compute other things, such as the median or the fiftieth percentile of the distribution in other and quintiles.
+
+56
+00:05:51,980 --> 00:05:56,090
+So the binomial distribution is we take that Bernoulli and we stretch.
+
+57
+00:05:56,090 --> 00:06:03,470
+We do it multiple times. The binomial distribution is it has the parameters and which is the number of trials.
+
+58
+00:06:03,470 --> 00:06:10,190
+The number of Bernoulli trials we're going to run. And Theta is the success probability of each individual trial.
+
+59
+00:06:10,190 --> 00:06:20,000
+The trials are assumed to be independent and the burn the binomial distribution describes the distribution of how many successes.
+
+60
+00:06:20,000 --> 00:06:24,560
+We'll see if we run that many trials with that success probability.
+
+61
+00:06:24,560 --> 00:06:32,630
+It's mass function is. The probability of success times the number of successes.
+
+62
+00:06:32,630 --> 00:06:41,210
+The probability of failure times the number of failures and then multiplied by end, choose why and choose why.
+
+63
+00:06:41,210 --> 00:06:53,540
+Is the number of possible ways to arrange why failures out of any successes so.
+
+64
+00:06:53,540 --> 00:07:06,080
+So that's a probability mass function I show here. Also, the DI a graph of it's you can see where how the mass is distributed for N equals 10.
+
+65
+00:07:06,080 --> 00:07:10,250
+And Theta equals zero point three.
+
+66
+00:07:10,250 --> 00:07:16,090
+So you can see three. That's the mode, and that's also the mean and the median.
+
+67
+00:07:16,090 --> 00:07:21,760
+Three. If we flip awaited coin, that comes up heads 30 percent of the time.
+
+68
+00:07:21,760 --> 00:07:26,060
+Ten times three will be the most common number of heads.
+
+69
+00:07:26,060 --> 00:07:30,670
+But there's quite a bit of spread. We're going to see a lot of twos and a lot of fours as well.
+
+70
+00:07:30,670 --> 00:07:34,760
+And we'll see some runs with zero heads. We're not going to it's.
+
+71
+00:07:34,760 --> 00:07:41,480
+There is going to be very, very few runs that wind up having 10 heads with a coin with that bias.
+
+72
+00:07:41,480 --> 00:07:48,410
+The normal or the Gaussian distribution that I just showed you has mean and look, has its scale parameter or excuse me,
+
+73
+00:07:48,410 --> 00:07:54,210
+its location parameter is the means at scale parameter is the standard deviation.
+
+74
+00:07:54,210 --> 00:08:01,530
+When the mean is zero and the standard deviation is one, we call this a standard normal.
+
+75
+00:08:01,530 --> 00:08:14,920
+And the stand I'm showing here, the standard normal with both the probability density function and the the distribution function, the CTF.
+
+76
+00:08:14,920 --> 00:08:18,960
+So you can see how those relate to each other of align them vertically.
+
+77
+00:08:18,960 --> 00:08:23,410
+The code to generate all of these plots is in their notebooks. You can see how I did them.
+
+78
+00:08:23,410 --> 00:08:29,970
+You will see we see here that the cumulative probability goes from zero to one.
+
+79
+00:08:29,970 --> 00:08:36,960
+Cumulative probability always does that. The density, the bell curve goes out to zero on both sides.
+
+80
+00:08:36,960 --> 00:08:43,150
+The density is concentrated in a particular window. And the.
+
+81
+00:08:43,150 --> 00:08:46,620
+And it's a density. So it goes up to whatever that the maximum density is.
+
+82
+00:08:46,620 --> 00:08:58,500
+If we if we contracted that, if if we decreased the scale, the density would increase, the maximum density would increase.
+
+83
+00:08:58,500 --> 00:09:04,950
+So to wrap up, random variables are often described where probability distributions, which are in turn governed by parameters.
+
+84
+00:09:04,950 --> 00:09:07,980
+There's quite a few different standard probability distributions.
+
+85
+00:09:07,980 --> 00:09:13,920
+I encourage you to spend some time with the notebook and the linked resources to learn more about different distributions.
+
+86
+00:09:13,920 --> 00:09:23,943
+And we're going to be introducing more as they come up for various things throughout the rest of the class.
+

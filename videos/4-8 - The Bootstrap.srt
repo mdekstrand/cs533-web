@@ -1,0 +1,260 @@
+1
+00:00:04,640 --> 00:00:07,180
+This video, we're going to talk about the bootstrap,
+
+2
+00:00:07,180 --> 00:00:12,800
+a technique for understanding properties of sampling distributions and we can't take a bunch of samples.
+
+3
+00:00:12,800 --> 00:00:16,880
+Our goals for this video are to be able to approximate the sampling distribution,
+
+4
+00:00:16,880 --> 00:00:21,620
+using the bootstrap and compute a bootstrapped confidence interval for a statistic.
+
+5
+00:00:21,620 --> 00:00:27,440
+So let's go back to our penguins. We've got a population of penguins. We sample of penguins.
+
+6
+00:00:27,440 --> 00:00:33,530
+The sampling that we compute a statistic over the sample. We repeat this a bunch of times.
+
+7
+00:00:33,530 --> 00:00:38,310
+And doing so gives us the sampling distribution of the statistic.
+
+8
+00:00:38,310 --> 00:00:45,840
+So the sampling distribution for the means really well understood, normal with particular parameters.
+
+9
+00:00:45,840 --> 00:00:53,190
+Estimating this depends on the accuracy of of the standard of the sample standard deviation, usually pretty good.
+
+10
+00:00:53,190 --> 00:01:00,150
+It's a parametric mach estimate. So it's estimating in terms of distribution with parameters.
+
+11
+00:01:00,150 --> 00:01:07,380
+Other statistics have other distributions. And we may not know cleanly what all of them are or they might be quite complex.
+
+12
+00:01:07,380 --> 00:01:12,570
+So or we may violate the assumptions of a statistical method.
+
+13
+00:01:12,570 --> 00:01:21,150
+So using the the the standard 95 percent confidence interval for the mean is not to going to get you too far off.
+
+14
+00:01:21,150 --> 00:01:24,720
+But what if you want to compute a confidence interval for a median or you want
+
+15
+00:01:24,720 --> 00:01:29,640
+to compute the confidence interval of a new statistic that you developed?
+
+16
+00:01:29,640 --> 00:01:36,420
+So you can do a lot of difficult probability, theoretic calculus.
+
+17
+00:01:36,420 --> 00:01:41,730
+But what you're trying to get at is what's gonna happen if we take many samples and compute the sampling distribution.
+
+18
+00:01:41,730 --> 00:01:52,620
+But if we do that, it's very expensive. Going and measuring 50 penguins and computing their mean flipper length a thousand times costs a lot of money.
+
+19
+00:01:52,620 --> 00:01:58,250
+So. We can cheat, kind of.
+
+20
+00:01:58,250 --> 00:02:08,580
+We can sample from our sample. And re sampling from the sample allows us to approximate the sampling distribution.
+
+21
+00:02:08,580 --> 00:02:16,470
+So if we have a sample, we can construct a new sample by sampling from the original with the key thing here is with replacement.
+
+22
+00:02:16,470 --> 00:02:25,200
+So just because we picked X to our new sample, X one is X two from the old sample, doesn't mean we can't reuse X two.
+
+23
+00:02:25,200 --> 00:02:34,530
+The idea is that if the sample is drawn evenly and representatively from the distribution, the population distribution,
+
+24
+00:02:34,530 --> 00:02:42,630
+then the relative frequencies of different items in the sample reflects the relative frequencies of of approximately those values in the population.
+
+25
+00:02:42,630 --> 00:02:48,700
+And so if we sample from this, if we. Sample each data point from the sample.
+
+26
+00:02:48,700 --> 00:02:54,520
+The whole sample, then that's comparable to sampling it from the whole distribution.
+
+27
+00:02:54,520 --> 00:03:01,370
+So we do that multiple times to get an entire new sample, we want to have the same length as the old sample.
+
+28
+00:03:01,370 --> 00:03:09,440
+We compute from the statistics, from our new sample. Then we do this a bunch of times, a thousand times, 10000 times.
+
+29
+00:03:09,440 --> 00:03:13,340
+And the distribution of this statistic from doing the boot.
+
+30
+00:03:13,340 --> 00:03:23,030
+This and this technique is called the bootstrap. The distribution of the statistic from the bootstrap approximates the sampling distribution.
+
+31
+00:03:23,030 --> 00:03:28,670
+It's not perfect because there's stuff in the population that might not have made it into the sample,
+
+32
+00:03:28,670 --> 00:03:39,260
+but it's going to approximate the sampling distribution well enough to use it to start to estimate confidence and other properties of sampling.
+
+33
+00:03:39,260 --> 00:03:44,750
+The statistic. So to bootstrap a confidence interval, one way we can do it.
+
+34
+00:03:44,750 --> 00:03:49,760
+This is called the percentile method. Is to compute the mean of a bunch of samples.
+
+35
+00:03:49,760 --> 00:03:55,700
+So the mean we're computing a mean and this I'm doing all this with no high.
+
+36
+00:03:55,700 --> 00:04:01,260
+So if X is our sample. This can be a panda series.
+
+37
+00:04:01,260 --> 00:04:10,540
+The choice, the choice random number generator method is going to draw a sample of size N.
+
+38
+00:04:10,540 --> 00:04:15,940
+And the num pi choice function by default samples with replacements.
+
+39
+00:04:15,940 --> 00:04:26,170
+We're going to draw a sample of size N where N is the same length as as the Xs so and equals one of X.
+
+40
+00:04:26,170 --> 00:04:33,740
+S. We're going to do this ten thousand times, this is Arby.
+
+41
+00:04:33,740 --> 00:04:42,290
+And then we can compute. The two point five percentile and the ninety seven point five percentile to get
+
+42
+00:04:42,290 --> 00:04:47,960
+a window of where is 95 percent of the probability mass in this distribution.
+
+43
+00:04:47,960 --> 00:04:54,440
+And so we do this with our penguins and we get with one of our species of penguins and we get a confidence interval.
+
+44
+00:04:54,440 --> 00:05:00,890
+When you ask seabourne cap plot to plot the mean of the values grouped by category.
+
+45
+00:05:00,890 --> 00:05:08,830
+The error bars it gives you or the confidence bars it gives you are done using a 95 percent bootstrapped confidence interval like this.
+
+46
+00:05:08,830 --> 00:05:20,700
+It's the bootstrap itself is very simple. Its power is that we can replace mean with basically any statistic.
+
+47
+00:05:20,700 --> 00:05:28,740
+And we use Rie's sampling from the sample in order to estimate the sampling distribution.
+
+48
+00:05:28,740 --> 00:05:33,180
+Also, this syntax I'm using here. This square brackets is how we make a list.
+
+49
+00:05:33,180 --> 00:05:36,870
+Remember this syntax where we have an expression.
+
+50
+00:05:36,870 --> 00:05:44,250
+And then we have for I in range or I n anything that's iterable is what's called a list comprehension.
+
+51
+00:05:44,250 --> 00:05:49,680
+It's a very convenient way to build up a list from a loop. This is a place where we do use a loop.
+
+52
+00:05:49,680 --> 00:05:56,460
+It might be possible to vectorized the bootstrap. Doing so is difficult.
+
+53
+00:05:56,460 --> 00:06:03,360
+And also, so long as we vectorized each individual bootstrap vectorized in the bootstrap process
+
+54
+00:06:03,360 --> 00:06:07,800
+itself isn't as important because the bulk of the computation is within the iterations.
+
+55
+00:06:07,800 --> 00:06:15,160
+So we're gonna go ahead, do a for loop over our bootstrap intervals and then the bootstrapped the actual.
+
+56
+00:06:15,160 --> 00:06:20,590
+Bootstrapping itself. What we do within each bootstrap iteration.
+
+57
+00:06:20,590 --> 00:06:28,570
+That's thoroughly vectorized. So this gives. But doing this process, this boot means this is a distribution of the boot means.
+
+58
+00:06:28,570 --> 00:06:37,360
+And it shows that we've got the sample mean and it shows it matches up with those Quantico's that we just saw in the previous slide.
+
+59
+00:06:37,360 --> 00:06:46,000
+So we can estimate the sampling distribution for any statistic and we can estimate arbitrary properties of the sampling distribution,
+
+60
+00:06:46,000 --> 00:06:54,280
+which notes Quantrill's wants to know its variance. Lots of different things we can do with the sampling distribution by doing the bootstrap.
+
+61
+00:06:54,280 --> 00:06:55,900
+It's not a perfect method,
+
+62
+00:06:55,900 --> 00:07:06,100
+but it's a remarkably powerful method that allows us to do quite a few different things to understand the sampling behavior of our statistics.
+
+63
+00:07:06,100 --> 00:07:10,720
+To wrap up the sampling distribution requires taking multiple sample to the sampling.
+
+64
+00:07:10,720 --> 00:07:14,650
+Distribution is about what happens. We take a lot of samples from the population.
+
+65
+00:07:14,650 --> 00:07:26,078
+We can simulate this by re sampling the sample itself using a technique called the bootstrap.
+

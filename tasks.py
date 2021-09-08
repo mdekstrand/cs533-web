@@ -7,7 +7,7 @@ import re
 from xml.etree import ElementTree as et
 from io import BytesIO
 
-from invoke import task
+from invoke import task, call
 import requests
 
 BRANCH = 'archive'
@@ -38,7 +38,7 @@ def fetch_inventory(c, skip_if_exists=False):
     out.write_bytes(res.text.encode('utf8'))
 
 
-@task(pre=[fetch_inventory])
+@task(pre=[call(fetch_inventory, skip_if_exists=True)])
 def build(c, rebuild=False, builder='dirhtml'):
     """
     Build the current site.

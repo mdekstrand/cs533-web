@@ -1,0 +1,476 @@
+1
+00:00:04,720 --> 00:00:12,280
+This video, we're going to start to getting to actually being able to augment our statistic with come
+
+2
+00:00:12,280 --> 00:00:18,130
+up with a measure of the confidence we have with regards to how it relates to the mean.
+
+3
+00:00:18,130 --> 00:00:21,970
+These are going to be extremely subtle to interpret correctly,
+
+4
+00:00:21,970 --> 00:00:33,130
+but they do get us towards being able to say things more robustly about the relationship of our estimate,
+
+5
+00:00:33,130 --> 00:00:36,790
+the statistic and the parameter that we're trying to estimate.
+
+6
+00:00:36,790 --> 00:00:41,800
+So our goals with for this lecture are for you to be able computer confidence interval for the mean,
+
+7
+00:00:41,800 --> 00:00:50,190
+using the standard error and correctly interpret a confidence interval. So let's return to our sample of the populations.
+
+8
+00:00:50,190 --> 00:00:54,870
+We've got our penguins and and we've got we're sampling our penguins and we're computing a statistic.
+
+9
+00:00:54,870 --> 00:00:59,670
+One question we can ask is, how does the statistic relate to the underlying parameter?
+
+10
+00:00:59,670 --> 00:01:05,940
+So this is important to be able to do inferences that can compute the mean flipper length of chinstrap penguins.
+
+11
+00:01:05,940 --> 00:01:09,780
+But how does that relate to the main flipper length of chinstrap penguins?
+
+12
+00:01:09,780 --> 00:01:12,720
+Well, the chinstrap penguins in the world world,
+
+13
+00:01:12,720 --> 00:01:23,800
+so classical frequenters statistics does this by thinking about what would happen if we repeated the experiment multiple times.
+
+14
+00:01:23,800 --> 00:01:30,640
+So let's say you want to measure penguins and I'm a penguin measuring robot.
+
+15
+00:01:30,640 --> 00:01:35,500
+And you tell me to go man, to go collect a measure that the flipper thinks and 50 penguins.
+
+16
+00:01:35,500 --> 00:01:41,880
+And you tell me to do that a hundred a hundred times each time taking a different random sample of penguins.
+
+17
+00:01:41,880 --> 00:01:46,770
+This allows us to the.
+
+18
+00:01:46,770 --> 00:01:51,870
+The mean flipper lengths I come back to you with are going to have a distribution.
+
+19
+00:01:51,870 --> 00:01:59,630
+So we have the flipper lengths, have a distribution. We go and we've you go have your your penguin measuring robot.
+
+20
+00:01:59,630 --> 00:02:07,070
+Go sample 50 penguins could measure the flipper lengths and give you the mean hundred times.
+
+21
+00:02:07,070 --> 00:02:13,310
+That also was going to have a distribution and we call this the sampling distribution of the statistic,
+
+22
+00:02:13,310 --> 00:02:18,860
+because it's what happens when we compute the sample, the statistic of our sample.
+
+23
+00:02:18,860 --> 00:02:20,900
+And we do it repeatedly.
+
+24
+00:02:20,900 --> 00:02:30,800
+And so this chart shows us the blue line, which you kind of can't see very well, because it's right up with the orange line is getting at the.
+
+25
+00:02:30,800 --> 00:02:34,490
+There you can see they're slightly different. The blue line is the true population.
+
+26
+00:02:34,490 --> 00:02:38,420
+So here are my samples are being drawn from a random number generator that I've configured.
+
+27
+00:02:38,420 --> 00:02:44,410
+So I know the population distribution. Precisely. We have the sample.
+
+28
+00:02:44,410 --> 00:02:51,100
+The sample is the orange histograms and there's an orange density estimate on top of them, so.
+
+29
+00:02:51,100 --> 00:03:03,220
+That's the sample itself. That's the distribution of values in my sample. And this is this is with 50 a sample size of 50, this green distribution.
+
+30
+00:03:03,220 --> 00:03:07,060
+That is the sampling distribution of the sample mean.
+
+31
+00:03:07,060 --> 00:03:15,680
+And so if I were to take one hundred of these orange samples or a thousand of these orange samples.
+
+32
+00:03:15,680 --> 00:03:19,940
+The green curve is the distribution, the means of those samples.
+
+33
+00:03:19,940 --> 00:03:25,740
+What have. So, yeah, as I said, we take a sample, we compute the experiment,
+
+34
+00:03:25,740 --> 00:03:34,200
+and we think about what the distribution is of the statistic from compute, from repeatedly doing this experiment.
+
+35
+00:03:34,200 --> 00:03:42,540
+So the sampling distribution of the sample mean. So we take a sample of size N and we compute the sample mean X bar.
+
+36
+00:03:42,540 --> 00:03:50,760
+This the sampling distribution is normal and it has a mean of the population mean.
+
+37
+00:03:50,760 --> 00:03:59,910
+And a standard deviation. Of the population, standard deviation divided by the square root of the sample size.
+
+38
+00:03:59,910 --> 00:04:07,320
+So. And also, for this to be true, X does not need to be normal.
+
+39
+00:04:07,320 --> 00:04:10,250
+And this is starting to get at what I mentioned in the previous video about the
+
+40
+00:04:10,250 --> 00:04:14,810
+precision and the accuracy of our estimate does not depend on the population size.
+
+41
+00:04:14,810 --> 00:04:24,330
+So. If the population has a standard deviation of one and we take sample sizes of size one hundred.
+
+42
+00:04:24,330 --> 00:04:31,210
+Then there's the means from those samples is going are going to be normally distributed with standard deviation.
+
+43
+00:04:31,210 --> 00:04:36,820
+One tenth, regardless of how big the population is.
+
+44
+00:04:36,820 --> 00:04:46,870
+The only variable to compute how far our our sample mean is likely to be the only things we need to compute.
+
+45
+00:04:46,870 --> 00:04:51,340
+How far our sample mean is likely to be from the true mean.
+
+46
+00:04:51,340 --> 00:04:57,130
+Are this this standard deviation of the population and the size of the sample?
+
+47
+00:04:57,130 --> 00:05:03,510
+We don't actually need the size of the population.
+
+48
+00:05:03,510 --> 00:05:13,800
+So but we don't have the population mean and the population standard deviation to be able to use that distribution directly.
+
+49
+00:05:13,800 --> 00:05:22,440
+But what we do compute is a confidence interval. And so while the sampling distribution lets us say things about the distribution
+
+50
+00:05:22,440 --> 00:05:28,020
+of the sampling mean and what happens if I compute a thousand of those means?
+
+51
+00:05:28,020 --> 00:05:32,580
+The confidence interval is also something that we understand in terms of what were to happen
+
+52
+00:05:32,580 --> 00:05:38,730
+wouldn't if we did it in infinitely many or sufficiently close to infinitely many times.
+
+53
+00:05:38,730 --> 00:05:44,010
+And so you compute a confidence dance interval with this statistic.
+
+54
+00:05:44,010 --> 00:05:49,830
+And this piece here asks over the square root of N is the standard error.
+
+55
+00:05:49,830 --> 00:05:53,670
+So. And our distribution here,
+
+56
+00:05:53,670 --> 00:06:04,140
+we have the standard deviation over the square root of N and that is that's really the error that what that's doing is it's bounding the error.
+
+57
+00:06:04,140 --> 00:06:09,450
+We're going to have and trying to estimate the mean or it's not bounding.
+
+58
+00:06:09,450 --> 00:06:18,230
+It's characterizing the error. We're going to how we expect to have when we're using the sample, mean to estimate the true mean.
+
+59
+00:06:18,230 --> 00:06:28,690
+So we call an estimate of that statistic using the sample standard deviation, we call this the standard error.
+
+60
+00:06:28,690 --> 00:06:37,960
+And the standard error is approximately the sample standard deviation of the sampling distribution,
+
+61
+00:06:37,960 --> 00:06:48,100
+one point nine six comes from the definition of it comes from the normal distribution in a standard normal.
+
+62
+00:06:48,100 --> 00:06:52,460
+Ninety five percent of the probability Nasse is between plus and minus one point nine six.
+
+63
+00:06:52,460 --> 00:07:00,830
+But if we computer confidence interval in this way. So we. So if we say X bar, the mean plus or minus one point nine, six times the standard error.
+
+64
+00:07:00,830 --> 00:07:07,180
+That gives us an interval upper and lower bounds. So for our chinstrap penguins, we have a mean of one in nine five point eight.
+
+65
+00:07:07,180 --> 00:07:15,950
+Two, we have a standard deviation sample size. And we can computer standard error so that we can say that that was a standard error.
+
+66
+00:07:15,950 --> 00:07:17,800
+And the confidence interval,
+
+67
+00:07:17,800 --> 00:07:26,060
+so we can say our chinstrap penguin confidence interval is one point nine five point eight two plus or minus one point six nine.
+
+68
+00:07:26,060 --> 00:07:33,290
+And what the confidence interval means is it's the result of a procedure that we can perform.
+
+69
+00:07:33,290 --> 00:07:35,540
+And remember our little penguin measuring robot?
+
+70
+00:07:35,540 --> 00:07:45,300
+Well, if we had the penguin measuring robot returned the confidence interval instead of the the mean itself.
+
+71
+00:07:45,300 --> 00:07:56,170
+And we have it go measure confident, we have it go measure penguins, sample penguins and measure them a thousand times.
+
+72
+00:07:56,170 --> 00:08:00,640
+Nine hundred and fifty of the confidence intervals that it gives us approximately.
+
+73
+00:08:00,640 --> 00:08:03,390
+This is all probabilistic, so it might be a little more, a little less,
+
+74
+00:08:03,390 --> 00:08:14,050
+but approximately ninety five percent of the confidence intervals that it gives us contain the true mean flipper length for a chinstrap penguin.
+
+75
+00:08:14,050 --> 00:08:20,140
+That's what the confidence interval means. And so the width of this interval is an estimate of our precision.
+
+76
+00:08:20,140 --> 00:08:27,060
+It's really important to understand a couple of things. It's really important to understand a couple of things.
+
+77
+00:08:27,060 --> 00:08:35,990
+One, the it is not we are not 95 percent confident the mean Lise's in the interval.
+
+78
+00:08:35,990 --> 00:08:41,280
+Then it is not that the mean lies within the interval with probability point nine five.
+
+79
+00:08:41,280 --> 00:08:46,800
+That would be another thing related thing called a baozi incredible interval.
+
+80
+00:08:46,800 --> 00:08:53,830
+It also isn't precisely a statement about X Bar itself. What the confidence interval means is.
+
+81
+00:08:53,830 --> 00:09:06,370
+It's an interval generated from a using a procedure that ninety five percent of the time will include the mean with the true mean within the interval.
+
+82
+00:09:06,370 --> 00:09:10,600
+So a brief aside, I mentioned the population standard deviation,
+
+83
+00:09:10,600 --> 00:09:15,400
+which we usually don't know because we don't have the population and the sample standard deviation,
+
+84
+00:09:15,400 --> 00:09:21,820
+and there's actually a slight difference in how we compute them in the samples that we're computing, the standard deviation from a sample.
+
+85
+00:09:21,820 --> 00:09:25,660
+We divide by N minus one instead of N.
+
+86
+00:09:25,660 --> 00:09:34,840
+And this is the key reason for this is that the samples to the standard sample standard deviation has what we call N minus one degrees of freedom.
+
+87
+00:09:34,840 --> 00:09:39,990
+Because we've already computed X bar. This is an intermediate statistic.
+
+88
+00:09:39,990 --> 00:09:46,170
+That we've already computed.
+
+89
+00:09:46,170 --> 00:09:58,760
+Given X bar and X one through N minus one, you can solve for X and only and minus one of the of the sample values are allowed to vary.
+
+90
+00:09:58,760 --> 00:10:06,980
+And still have the same X bar. And so because we have this is called degrees of freedom, because we have N minus one degrees of freedom.
+
+91
+00:10:06,980 --> 00:10:11,350
+We. We can.
+
+92
+00:10:11,350 --> 00:10:15,760
+We have to divide back and minus one. No, they think of it since X Bar is computed from the X's.
+
+93
+00:10:15,760 --> 00:10:21,280
+The Xs are not independent of X Bar in the population.
+
+94
+00:10:21,280 --> 00:10:26,770
+The the the the instances are independent of each other, given the mean.
+
+95
+00:10:26,770 --> 00:10:32,830
+But in this in the sample they aren't because we could given we can compute the last one.
+
+96
+00:10:32,830 --> 00:10:40,600
+If we had the mean and we have the first ten minus one. So we can start to compare values based on confidence intervals.
+
+97
+00:10:40,600 --> 00:10:45,790
+So I computed here the confidence intervals for the flipper lengths for our three types of penguins.
+
+98
+00:10:45,790 --> 00:10:52,540
+And there's no overlap in the confidence intervals. This is evidence that the flipper that the penguins have different flipper lengths.
+
+99
+00:10:52,540 --> 00:10:59,470
+If they had the same if they tended to have the same flipper length, then of the confidence interval would probably overlap.
+
+100
+00:10:59,470 --> 00:11:03,220
+We're gonna see later methods for directly comparing two means.
+
+101
+00:11:03,220 --> 00:11:06,570
+But we can start by using the confidence interval to see. OK.
+
+102
+00:11:06,570 --> 00:11:11,050
+Do they overlap? And the confidence interval also allows us to estimate if it's different.
+
+103
+00:11:11,050 --> 00:11:14,710
+If it if it's far away from a value. If we've.
+
+104
+00:11:14,710 --> 00:11:22,480
+If. The confidence interval, the low or high end of it, is pretty far from zero.
+
+105
+00:11:22,480 --> 00:11:26,380
+Then a reasonably far from zero, then zeroes. Probably not.
+
+106
+00:11:26,380 --> 00:11:34,280
+I mean. So but as I said, we have to be really, really careful about how we interpret confidence intervals.
+
+107
+00:11:34,280 --> 00:11:40,520
+We take us. The procedure is take a sample of size n compute the statistic infinitely many times.
+
+108
+00:11:40,520 --> 00:11:46,090
+Ninety five percent. In this case, the statistic is the upper and lower bounds of the confidence interval.
+
+109
+00:11:46,090 --> 00:11:50,470
+Ninety five percent of the time, the Trumaine will be in this interval.
+
+110
+00:11:50,470 --> 00:11:56,470
+Ninety five percent of the time this procedure will return an interval that contains the true mean.
+
+111
+00:11:56,470 --> 00:12:01,290
+We could also have other confidence interval, such as a ninety nine percent one.
+
+112
+00:12:01,290 --> 00:12:11,590
+But as I said, the confidence interval is not where we're 95 percent sure that parameter is.
+
+113
+00:12:11,590 --> 00:12:21,250
+We also have a couple of outstanding issues with the confidence interval.
+
+114
+00:12:21,250 --> 00:12:28,150
+So to wrap up, taking a sample and computing a statistic is a random process that results in a sampling distribution.
+
+115
+00:12:28,150 --> 00:12:32,200
+And this is the sampling distribution is the probability distribution from the process.
+
+116
+00:12:32,200 --> 00:12:39,910
+Take a sample and computer statistic. We can use this to try to start estimating the precision of our of our estimates.
+
+117
+00:12:39,910 --> 00:12:45,450
+So we have the X bar, which is Selke. This is my estimate for the main.
+
+118
+00:12:45,450 --> 00:12:50,210
+Mina, the penguins I saw were gonna use that as the estimate for the mean of penguins.
+
+119
+00:12:50,210 --> 00:13:06,970
+But we can use knowledge of the sampling process to develop techniques that let us not only estimate but estimate how far off our estimate is.
+

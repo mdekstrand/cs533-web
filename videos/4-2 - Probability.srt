@@ -1,0 +1,516 @@
+1
+00:00:04,490 --> 00:00:10,690
+Also in this video, I went to talk with you about the basic principles of probability to lay a foundation for some
+
+2
+00:00:10,690 --> 00:00:14,950
+of the reasoning we're going to need to do this week and throughout the rest of the semester.
+
+3
+00:00:14,950 --> 00:00:19,330
+So we're learning outcomes for this video are for you to know the fundamentals, set operations.
+
+4
+00:00:19,330 --> 00:00:24,250
+We're going to use sets to discuss logical events that become the basis of probability
+
+5
+00:00:24,250 --> 00:00:28,690
+and to know the fundamental public concepts of probability theory for single events.
+
+6
+00:00:28,690 --> 00:00:32,500
+So to introduce a set, a set is an unordered collection of distinct elements.
+
+7
+00:00:32,500 --> 00:00:38,590
+There's no duplicates in it. So if A were to somehow be twice in a collection, it's not a set.
+
+8
+00:00:38,590 --> 00:00:43,420
+And also the elements have no intrinsic order. We can impose an order for Elst from elsewhere.
+
+9
+00:00:43,420 --> 00:00:48,710
+But if we have a set, there's no intrinsic order to the elements in it by default.
+
+10
+00:00:48,710 --> 00:00:55,850
+We then in a few relationships around sets, if we can say that an element A is a member of a set.
+
+11
+00:00:55,850 --> 00:01:02,330
+We can say that one set is a subset of or another. We can also compute the size or the cardinality of a set.
+
+12
+00:01:02,330 --> 00:01:06,830
+Now, sets can be infinite. That is, they can contain infinitely many elements.
+
+13
+00:01:06,830 --> 00:01:10,370
+There are also multiple types or sizes of infinity.
+
+14
+00:01:10,370 --> 00:01:15,290
+The smallest infinity is what we call countable infinity.
+
+15
+00:01:15,290 --> 00:01:20,130
+And the countable infinity is the cardinality of the set of natural numbers.
+
+16
+00:01:20,130 --> 00:01:24,590
+So zero one or one, two, three, four or five on forever.
+
+17
+00:01:24,590 --> 00:01:28,130
+There are accountably, many such numbers. That's the smallest infinity.
+
+18
+00:01:28,130 --> 00:01:33,170
+There are larger infinities. The details of that aren't going to be superimportant. They're going to come up once or twice.
+
+19
+00:01:33,170 --> 00:01:37,790
+But this is not an advanced. We're not going to dove deep. But I.
+
+20
+00:01:37,790 --> 00:01:43,220
+I might need the word accountably occasionally. We then have several operations onsets.
+
+21
+00:01:43,220 --> 00:01:47,150
+So A Union B is the number is the set of items.
+
+22
+00:01:47,150 --> 00:01:51,290
+That's an either A or B or both. It can be a both. Can be an either of them.
+
+23
+00:01:51,290 --> 00:01:56,480
+The intersection is the items that are in both of the sets. And then we have the set difference.
+
+24
+00:01:56,480 --> 00:02:00,770
+The items that are in A but not in B Union, an intersection are both symmetrical.
+
+25
+00:02:00,770 --> 00:02:04,880
+You can swap the the sets around. Difference is not symmetrical.
+
+26
+00:02:04,880 --> 00:02:06,610
+And then we have the complement.
+
+27
+00:02:06,610 --> 00:02:17,140
+If A is a subset of some larger set, some universe than the set of all items, not in a universe minus A is a complement.
+
+28
+00:02:17,140 --> 00:02:23,410
+Now, with these sets, we can then start to talk about what we call events.
+
+29
+00:02:23,410 --> 00:02:27,100
+So probability is the probability theory.
+
+30
+00:02:27,100 --> 00:02:35,920
+We talk about the probability of events. And so we have a set of elementary events and these are the distinct individual outcomes.
+
+31
+00:02:35,920 --> 00:02:41,710
+For example, if we flip a coin, are elementary events are heads and tails.
+
+32
+00:02:41,710 --> 00:02:48,080
+If we roll a six sided die or elementary events are one, two, three, four, five, six.
+
+33
+00:02:48,080 --> 00:02:56,090
+But then an event is a set that is a subset of our set of elementary events and the elementary events themselves.
+
+34
+00:02:56,090 --> 00:03:01,970
+We don't treat those as events. We make Singleton sets. So we just have the set that just contains H.
+
+35
+00:03:01,970 --> 00:03:10,130
+And that's going to be the coin is heads. But this way we can talk about events that are combinations of others,
+
+36
+00:03:10,130 --> 00:03:15,740
+such as E itself, the set of all the elementary events that mean something happened.
+
+37
+00:03:15,740 --> 00:03:18,770
+It doesn't matter what happened, just something happened.
+
+38
+00:03:18,770 --> 00:03:28,160
+And the also we can talk about, for example, two four six is the event if we're have our dice, two four six,
+
+39
+00:03:28,160 --> 00:03:35,620
+the SEC containing those three dicer die rolls is the event road even number because the hole at the elementary events.
+
+40
+00:03:35,620 --> 00:03:41,000
+So the individual rolls. One, two, three, four, five, six. There are three of them that are even two, four and six.
+
+41
+00:03:41,000 --> 00:03:45,500
+And so we can say the set of those three is the event rolled even number.
+
+42
+00:03:45,500 --> 00:03:51,560
+So we think about events. We're going to talk about events in terms of these sets.
+
+43
+00:03:51,560 --> 00:03:56,180
+And you set notation to talk about the combinations of events.
+
+44
+00:03:56,180 --> 00:04:03,550
+This is going to build up the basis of our probability theory. So then set operations described logical events.
+
+45
+00:04:03,550 --> 00:04:09,050
+So A, Intersect B means both A and B happened at the same time.
+
+46
+00:04:09,050 --> 00:04:13,640
+We have a A as a set of elementary events where some property is true,
+
+47
+00:04:13,640 --> 00:04:21,110
+say even B is a set where some other property is true, say divisible by three, A Intersect.
+
+48
+00:04:21,110 --> 00:04:24,740
+B is the set or both properties are true. This set may be empty.
+
+49
+00:04:24,740 --> 00:04:30,200
+But in this case, even in divisible by three is gonna be a six.
+
+50
+00:04:30,200 --> 00:04:40,850
+A Union B is either a C, so intersection is equivalent to logical and a union B is either A or B happened or both.
+
+51
+00:04:40,850 --> 00:04:45,350
+If it's possible for them to both have it at the same time, it might be that both happen, but at least one of them happened.
+
+52
+00:04:45,350 --> 00:04:56,990
+This is logical. Or we can also we also have A happened, but not B, so if A is even and B is divisible by three A but not B would be three.
+
+53
+00:04:56,990 --> 00:05:04,950
+Excuse me, A, but not B would be two and four because two and four of the even numbers that are not divisible by three.
+
+54
+00:05:04,950 --> 00:05:12,800
+As I said, these are equivalent to the logical operators, so A and B, A or B and then A and not B.
+
+55
+00:05:12,800 --> 00:05:17,630
+So we have these these individual outcomes, the elementary events.
+
+56
+00:05:17,630 --> 00:05:22,370
+We have the events themselves that are subsets of it. We then decide this D.
+
+57
+00:05:22,370 --> 00:05:27,510
+Define a set F. That is going to be the set of all possible events.
+
+58
+00:05:27,510 --> 00:05:35,960
+These are subsets of E! So this is a set of stats. And this set has to has an important property.
+
+59
+00:05:35,960 --> 00:05:41,780
+It's closed under. So first E is in it. So E is is an F.
+
+60
+00:05:41,780 --> 00:05:47,650
+And it is closed under complement and countable unions. So if.
+
+61
+00:05:47,650 --> 00:05:52,830
+If set A is in this field F. Then its complement is as well.
+
+62
+00:05:52,830 --> 00:06:05,440
+So E minus A is in it. The way we think of that, if a as say, even if even as an event, while odd, is an event to.
+
+63
+00:06:05,440 --> 00:06:12,350
+Also, if we have. Solemn events, then their union is also an event.
+
+64
+00:06:12,350 --> 00:06:18,500
+So if and also if if it is infinite, then this is count what accountable union?
+
+65
+00:06:18,500 --> 00:06:24,170
+Any count? Any any collection of counterplay many events. Their union is an event.
+
+66
+00:06:24,170 --> 00:06:28,390
+The details of that ring will save for a probability theory course.
+
+67
+00:06:28,390 --> 00:06:38,440
+But to be complete, there it is. We call this this field f a sigma field or a sigma algebra.
+
+68
+00:06:38,440 --> 00:06:44,500
+But. But F, is this the setup?
+
+69
+00:06:44,500 --> 00:06:55,000
+This collection of events? So we the in The Incredibles, you have the guy, the father, he comes home and the kids waiting there and.
+
+70
+00:06:55,000 --> 00:06:59,110
+What are you waiting for? I know something amazing, I guess. Well, something amazing.
+
+71
+00:06:59,110 --> 00:07:05,210
+It is an event that set off all elementary events that are amazing for whatever amazing means.
+
+72
+00:07:05,210 --> 00:07:10,400
+But then that also means that something not amazing, maybe something boring is also an event.
+
+73
+00:07:10,400 --> 00:07:21,550
+So you get this compliment thing. Like if. If, if. The set of all monetary events with some property say amazing is an event.
+
+74
+00:07:21,550 --> 00:07:25,760
+Well, the set of all of them that don't have that property also is.
+
+75
+00:07:25,760 --> 00:07:32,540
+So if we have our six sided die, we have the elementary events of the three or the six different values.
+
+76
+00:07:32,540 --> 00:07:40,370
+All of the singletons are events. They're all in our field and also all subsets of e wind up being events.
+
+77
+00:07:40,370 --> 00:07:51,860
+This we call this the powers. The power set is the set of all subsets. So there's any subset of E is an event.
+
+78
+00:07:51,860 --> 00:08:00,470
+And if you have it, so long as our set of elementary events is discrete and finite, all of the subsets are going to be events.
+
+79
+00:08:00,470 --> 00:08:06,260
+So let's I want to show you quick a theorem that we can prove already with the values that we have so far.
+
+80
+00:08:06,260 --> 00:08:13,180
+So if we have two events, a one and a two. The axioms told us it's usually the definition of a sigma field.
+
+81
+00:08:13,180 --> 00:08:16,390
+Told us that their union is an event,
+
+82
+00:08:16,390 --> 00:08:24,170
+but also their intersection is an event because the intersection can be turned into a compliment of a union of compliments by the Morgens laws.
+
+83
+00:08:24,170 --> 00:08:28,930
+If you've taken the logic class, you might remember those.
+
+84
+00:08:28,930 --> 00:08:37,660
+The compliments are in the hour in the field by club because the field has all the compliments in it.
+
+85
+00:08:37,660 --> 00:08:43,090
+The union of Compliments, therefore, is also in the field since it's in the field, its complement.
+
+86
+00:08:43,090 --> 00:08:51,480
+The intersection is in the field. So from the axioms we have, we can prove that the intersection is is an event.
+
+87
+00:08:51,480 --> 00:08:58,530
+So with these fields, we can now define probability and a probability is a measure of we call it actually a measure.
+
+88
+00:08:58,530 --> 00:09:05,070
+So it's a probability measure. But it's a measure of how likely the different events are.
+
+89
+00:09:05,070 --> 00:09:10,860
+So a probability distribution. It's a function over this field F and it obeys a few rules.
+
+90
+00:09:10,860 --> 00:09:17,070
+The probability of E the set of all elementary events is one. Basically, if we got something happening.
+
+91
+00:09:17,070 --> 00:09:22,350
+Well, the probability of something happening again, observe something happening is one.
+
+92
+00:09:22,350 --> 00:09:27,570
+Also, probabilities are not negative. All probabilities are at least zero.
+
+93
+00:09:27,570 --> 00:09:33,960
+And then if we have a disjoint sets or disjoint events.
+
+94
+00:09:33,960 --> 00:09:39,270
+So two events are disjoint. If they're mutually exclusive, they can't both happen at the same time.
+
+95
+00:09:39,270 --> 00:09:47,460
+Their intersection is empty. If we have to decide if we have disjoint events, then the probability of their union.
+
+96
+00:09:47,460 --> 00:09:52,770
+So if A and B are disjoint, the probability of A or B happening is the probability of A plus.
+
+97
+00:09:52,770 --> 00:09:57,510
+The probability of B. So for disjoint events, events, that cannot happen.
+
+98
+00:09:57,510 --> 00:10:06,970
+At the same time, we sum up their individual property probabilities to get the probability of any of them happening.
+
+99
+00:10:06,970 --> 00:10:14,080
+So if we're going to apply this to our DI, the problem, if we have all our singletons sets set containing just the value one,
+
+100
+00:10:14,080 --> 00:10:18,920
+two, three, four, five, six, the probability of each of these is one sixth.
+
+101
+00:10:18,920 --> 00:10:25,180
+The Dyas is fair. All values are equally likely. So the probability of even we're going to stay.
+
+102
+00:10:25,180 --> 00:10:32,890
+Even the set of even dice is one half because three of the six equally likely values one, two, three, four, five, six are even.
+
+103
+00:10:32,890 --> 00:10:37,240
+So we have when all the values are equally likely, we can count up to par.
+
+104
+00:10:37,240 --> 00:10:44,320
+The number of possibilities where our action, where our property happens, divided by the total number of possibilities.
+
+105
+00:10:44,320 --> 00:10:50,190
+And that gives us the probability. If they're not all equally likely, then things quickly get more subtle.
+
+106
+00:10:50,190 --> 00:10:55,540
+One consequence of this, another theorem that we can prove is that probabilities are not greater than one.
+
+107
+00:10:55,540 --> 00:11:01,920
+So. And I'm going to let you study the proof here in the slides, Off-line.
+
+108
+00:11:01,920 --> 00:11:08,760
+But we can prove from those axioms that probabilities are not greater than one.
+
+109
+00:11:08,760 --> 00:11:14,520
+And so this gives us a few different facts about probability. Probabilities are in the range zero to one.
+
+110
+00:11:14,520 --> 00:11:18,330
+If we have the union of two probability of two events there,
+
+111
+00:11:18,330 --> 00:11:28,590
+the probability of the union is the sum of the individual probabilities, minus the probability of A and B.
+
+112
+00:11:28,590 --> 00:11:35,320
+I'm going to let you think about why this is true. And we can talk about it in the discussion.
+
+113
+00:11:35,320 --> 00:11:41,330
+This also gives us that the probability of. A or B?
+
+114
+00:11:41,330 --> 00:11:46,430
+Is less than or equal to the probability of a plus the probability of B.
+
+115
+00:11:46,430 --> 00:11:52,430
+You can see that because the probabilities are at least zero, then P of A plus P, a,
+
+116
+00:11:52,430 --> 00:12:03,290
+B plus P of A or B or minus P of A and B is going to be no more than P of A plus people P plus P of beef.
+
+117
+00:12:03,290 --> 00:12:08,150
+The probability of a compliment is one minus the probability of the original thing.
+
+118
+00:12:08,150 --> 00:12:16,580
+We can compute the probability of of a difference. And we can also have an inequality relationship for subsets of fey as a subset of B.
+
+119
+00:12:16,580 --> 00:12:24,990
+It's probability is no greater than the probability of B. So what does probability mean so far, I've given you these rules.
+
+120
+00:12:24,990 --> 00:12:31,390
+It's just a function from sets of values. It turns out this is a surprisingly deep philosophical question,
+
+121
+00:12:31,390 --> 00:12:38,740
+but the depth of the philosophical question doesn't have to stop us from using it basically in two broad views,
+
+122
+00:12:38,740 --> 00:12:45,700
+which for our purposes are not going to conflict that much are that it's the expected or long run outcome of a random process.
+
+123
+00:12:45,700 --> 00:12:55,390
+And so. Probability of a Diab being one six means if we go, we roll six, the dice six hundred times.
+
+124
+00:12:55,390 --> 00:13:03,980
+We expect about a hundred of those to be one. It also can describe a degree of belief or expectation.
+
+125
+00:13:03,980 --> 00:13:13,600
+So that then that is a more subjective view on it that connects to the probability is is
+
+126
+00:13:13,600 --> 00:13:21,160
+describing what I know about what's going to happen when I roll the dice to wrap up,
+
+127
+00:13:21,160 --> 00:13:26,740
+though, we can use we can use sets to describe events or outcomes in their logical combinations.
+
+128
+00:13:26,740 --> 00:13:35,110
+We can then use probability to quantify the likelihood of different events and probabilities, follow a number of rules with rich emergent properties.
+
+129
+00:13:35,110 --> 00:13:46,328
+We're going to see more notions of probability and things we can do with it in the subsequent videos.
+

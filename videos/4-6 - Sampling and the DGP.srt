@@ -1,0 +1,656 @@
+1
+00:00:04,700 --> 00:00:09,090
+This video I want to talk with you about sampling and the data generation process,
+
+2
+00:00:09,090 --> 00:00:14,000
+we've talked about probability and that's going to give us the foundations to be able
+
+3
+00:00:14,000 --> 00:00:19,340
+to start reasoning about the process of sampling and how we get the data that we have.
+
+4
+00:00:19,340 --> 00:00:24,470
+So our learning outcomes are to understand the relationship between a sample and a population we've mentioned.
+
+5
+00:00:24,470 --> 00:00:28,130
+I've mentioned that before, but we're going to get into it a little bit more on this video,
+
+6
+00:00:28,130 --> 00:00:32,690
+identify when we can make an inference about a population and when it's just something that we can say
+
+7
+00:00:32,690 --> 00:00:38,810
+about the data and determine whether the data is likely to be independent and identically distributed.
+
+8
+00:00:38,810 --> 00:00:49,700
+I'm going to introduce that concept today. So the inferential logic of statistics is based on sampling and samples.
+
+9
+00:00:49,700 --> 00:00:55,100
+A lot of many of our statistical techniques are designed based on analysis of
+
+10
+00:00:55,100 --> 00:01:01,730
+what happens if you apply them repeatedly with certain randomization structure.
+
+11
+00:01:01,730 --> 00:01:08,090
+That randomization structure comes in our sampling to select which data we're going to be analyzing.
+
+12
+00:01:08,090 --> 00:01:12,200
+We can sample from a couple of different things. We can sample from a distribution.
+
+13
+00:01:12,200 --> 00:01:20,360
+So we've introduced distributions. I can sample from a normal distribution and I'll get a bunch of values that will be normally distributed.
+
+14
+00:01:20,360 --> 00:01:26,720
+That's really useful for doing simulation studies and for probing how our statistical techniques work.
+
+15
+00:01:26,720 --> 00:01:32,270
+We can also sample from a population and if we want to understand something about a population,
+
+16
+00:01:32,270 --> 00:01:40,220
+we can sample from it with with a sampling strategy that's going to ensure that we have representative sample.
+
+17
+00:01:40,220 --> 00:01:47,100
+So if we think about the penguin data set we've been working with a little bit and we're going to see more this week.
+
+18
+00:01:47,100 --> 00:01:57,030
+If we have the population of penguins and they have some flipper length mew fouls, we've got our penguins, they have a flipper length.
+
+19
+00:01:57,030 --> 00:02:01,890
+And it's important. This is this is this is the population of penguins that exist.
+
+20
+00:02:01,890 --> 00:02:06,450
+And really, it's the population of hypothetical penguins that could exist.
+
+21
+00:02:06,450 --> 00:02:13,310
+But we have this population of penguins. We then take a sample of the penguins.
+
+22
+00:02:13,310 --> 00:02:17,120
+So we have it, but there's a bunch of Gentoo penguins out there or chinstrap penguins.
+
+23
+00:02:17,120 --> 00:02:22,040
+We take a sample of penguins and then we compute a statistic from the sample.
+
+24
+00:02:22,040 --> 00:02:29,690
+And there's one key thing we need to know about the sample is whether it is representative.
+
+25
+00:02:29,690 --> 00:02:37,310
+And by that, we mean that. Studying the sample is going to teach us about the population.
+
+26
+00:02:37,310 --> 00:02:43,190
+There's not parts of the population that are systematically excluded from the sample.
+
+27
+00:02:43,190 --> 00:02:51,110
+There's not parts that are disproportionately more likely to appear in a way that we can't control for, etc.
+
+28
+00:02:51,110 --> 00:02:55,160
+What we want is that the populace, looking at the sample,
+
+29
+00:02:55,160 --> 00:03:01,940
+gives us things that look gives us results that look like the population scaled down to our sample size.
+
+30
+00:03:01,940 --> 00:03:05,740
+Particularly for like, if we're going to infer the mean flipper length,
+
+31
+00:03:05,740 --> 00:03:12,560
+then we want the sample to have the same distribution of flipper lengths as the population.
+
+32
+00:03:12,560 --> 00:03:21,200
+If there was something that caused longer flipper penguins to be easier for us to pass in our sample, then it would not be representative.
+
+33
+00:03:21,200 --> 00:03:29,360
+With respect to studying flipper length, depending on our philosophy of statistics and of science,
+
+34
+00:03:29,360 --> 00:03:38,360
+we may consider that the penguins themselves are instantiations of a distribution governed by some ideal penguin.
+
+35
+00:03:38,360 --> 00:03:46,260
+In which case we're trying to understand the properties of Penguin Enis.
+
+36
+00:03:46,260 --> 00:03:48,450
+Platonic ideal penguin.
+
+37
+00:03:48,450 --> 00:03:56,760
+Not just the population of penguins that happen to exist on Earth, but for the purposes of the vast majority of what we're doing.
+
+38
+00:03:56,760 --> 00:04:03,180
+Whether or not the ideal penguin is a thing that's that exists and or is reasonable to talk about won't much matter.
+
+39
+00:04:03,180 --> 00:04:11,520
+But it sometimes might come up as a conceptual entity. So representative sampling mean a couple of things for a sample.
+
+40
+00:04:11,520 --> 00:04:16,200
+We need to be representative of the population, particularly with respect to the parameters of interest.
+
+41
+00:04:16,200 --> 00:04:23,970
+It doesn't necessarily have to be representative in every possible way, so long as it's representative for the things we're inferring.
+
+42
+00:04:23,970 --> 00:04:32,280
+But if it's not representative in some way, identifiable way, that usually should give us pause about the quality of our sample.
+
+43
+00:04:32,280 --> 00:04:42,330
+It also used to be large enough to allow us to properly and for the do rigorous inference of the parameters that we're interested in.
+
+44
+00:04:42,330 --> 00:04:51,000
+One crucial thing to note is that the size of the sample does not depend on the sample size or excuse me, on the population size.
+
+45
+00:04:51,000 --> 00:04:58,550
+Once we start seeing the tools for quantifying the precision of an estimate based on sampling theory.
+
+46
+00:04:58,550 --> 00:05:05,460
+The size of the population is not going to be a variable in the precision of our estimate.
+
+47
+00:05:05,460 --> 00:05:10,710
+This is a common. This is a common misunderstanding of sampling.
+
+48
+00:05:10,710 --> 00:05:14,790
+You'll see it comes up poor sometimes, particularly around political polling.
+
+49
+00:05:14,790 --> 00:05:23,080
+Raising the question of, well, how is a poor 15 hundred people represented to get accurate representation of of.
+
+50
+00:05:23,080 --> 00:05:33,370
+US with the opinion of the U.S. populace. But the accuracy, so long as they're sampling strategy, is good.
+
+51
+00:05:33,370 --> 00:05:40,470
+The accuracy and the precision of the estimate does not depend on the sample size so long as your sample is big.
+
+52
+00:05:40,470 --> 00:05:46,600
+So does not depend on the population size, so long as your sample is big enough.
+
+53
+00:05:46,600 --> 00:05:53,340
+So also, better data is often better than more data.
+
+54
+00:05:53,340 --> 00:05:57,510
+Historically, a lot of that has because it takes time to get data.
+
+55
+00:05:57,510 --> 00:06:03,200
+It takes time to run experiments. It's expensive. There's a lot of statistical inference.
+
+56
+00:06:03,200 --> 00:06:08,490
+It's concerned with how do we make efficient use of modestly sized samples.
+
+57
+00:06:08,490 --> 00:06:16,170
+This is one of the areas where. Data science diverges a little bit from classical statistics.
+
+58
+00:06:16,170 --> 00:06:22,900
+I don't want to say that they're different, though. What we. The tools of statistics are the building blocks for it.
+
+59
+00:06:22,900 --> 00:06:28,060
+And it's statistician's that really are leading the way in figuring out what we actually need to do here.
+
+60
+00:06:28,060 --> 00:06:38,080
+But we have such vast quantities of data. What how we have to handle it changes because we're no longer dealing with relatively small samples.
+
+61
+00:06:38,080 --> 00:06:41,890
+Uniform sampling is an easy if you can actually do a uniform sample.
+
+62
+00:06:41,890 --> 00:06:48,790
+It's a good way to do a representative sample for a lot of purposes. All population members are equally likely actually achieving.
+
+63
+00:06:48,790 --> 00:06:54,010
+This is not as easy as it sounds, but uniform sampling has a lot of nice properties.
+
+64
+00:06:54,010 --> 00:06:59,950
+The resulting statistical analysis is relatively straightforward as the analysis go.
+
+65
+00:06:59,950 --> 00:07:07,330
+But one one downside of uniform sampling, if you have a large population, is that your uniform?
+
+66
+00:07:07,330 --> 00:07:15,500
+There might be subgroups and there might be subgroups of interest that just never show up in your sample.
+
+67
+00:07:15,500 --> 00:07:20,180
+And so you need if you want to make sure that those subgroups are reflected,
+
+68
+00:07:20,180 --> 00:07:24,920
+especially if you're looking at at the subgroups, the preference within subgroups.
+
+69
+00:07:24,920 --> 00:07:31,700
+So if you read the details, say a say a Pew Research survey or poll.
+
+70
+00:07:31,700 --> 00:07:35,240
+You'll have they'll have their high order results and they'll break them down by a bunch of subgroups.
+
+71
+00:07:35,240 --> 00:07:41,900
+You have to make sure that your samples. The samples from each of the subgroups are representative in addition to the whole.
+
+72
+00:07:41,900 --> 00:07:47,510
+So additional strategies are stratified sampling, which can make sure that different groups are represented.
+
+73
+00:07:47,510 --> 00:07:54,560
+So you have you might sample a fixed number.
+
+74
+00:07:54,560 --> 00:08:00,170
+You might make sure that you sample and people from each state to make sure you can.
+
+75
+00:08:00,170 --> 00:08:05,330
+You have data and relatively comparable data on each state. You may over samples.
+
+76
+00:08:05,330 --> 00:08:10,400
+You may have your first order sample and then go get more samples from a smaller community to
+
+77
+00:08:10,400 --> 00:08:14,880
+make sure you have enough data to do robust inferences about their particular preferences.
+
+78
+00:08:14,880 --> 00:08:18,260
+And either these strategy areas you have to re sample or reweight.
+
+79
+00:08:18,260 --> 00:08:24,050
+You have to somehow correct. To be able to do inference from the whole sample.
+
+80
+00:08:24,050 --> 00:08:31,330
+But that certainly doable over sampling does not mean that.
+
+81
+00:08:31,330 --> 00:08:37,750
+The results, the conclusions from the overall sample are biased towards the over the over sampled groups opinion,
+
+82
+00:08:37,750 --> 00:08:43,150
+because you're going to correct for that when you do the top level, the top level analysis.
+
+83
+00:08:43,150 --> 00:08:44,370
+This is another thing I see.
+
+84
+00:08:44,370 --> 00:08:54,700
+I come up with with Ill-founded complaints on political polling is using the fact that a poll oversampled to discredit its top
+
+85
+00:08:54,700 --> 00:09:02,740
+level conclusions without investigating whether they corrected for the oversampling when they were computing those conclusions.
+
+86
+00:09:02,740 --> 00:09:09,880
+But if we go back to our penguins, we have three species of penguins. And then we have a set of penguins from each species.
+
+87
+00:09:09,880 --> 00:09:14,560
+And a key question we want to think about here is what is the population?
+
+88
+00:09:14,560 --> 00:09:17,380
+And then there's other questions we want to be able to think about.
+
+89
+00:09:17,380 --> 00:09:23,740
+Can we answer the questions to answer the questions about the distribution of penguin species?
+
+90
+00:09:23,740 --> 00:09:28,640
+And can we answer any questions about typical measurements within a species?
+
+91
+00:09:28,640 --> 00:09:33,590
+So if we think about our penguins, there's two different ways the data can come to us.
+
+92
+00:09:33,590 --> 00:09:38,960
+The sampling strategies we could have the universe of all possible penguins.
+
+93
+00:09:38,960 --> 00:09:48,640
+And then we sample some penguins and we see, OK, what species? One, what species to take their measurements.
+
+94
+00:09:48,640 --> 00:09:53,970
+And then we put it in our analysis.
+
+95
+00:09:53,970 --> 00:10:00,990
+The other one is we have penguins and the penguins have different species and we sample from each species of penguin.
+
+96
+00:10:00,990 --> 00:10:11,470
+And then we go and we take their measurements, information and smuggled into our analysis and the.
+
+97
+00:10:11,470 --> 00:10:17,440
+The second one is probably what was happening with this data, because they have a particular place,
+
+98
+00:10:17,440 --> 00:10:21,040
+they're going and collecting the penguins, they're collecting them by a particular species.
+
+99
+00:10:21,040 --> 00:10:29,240
+I mean, this this this island or this beach on the island has a particular penguin that's going gonna be more common.
+
+100
+00:10:29,240 --> 00:10:35,290
+They're getting a global uniform sample of penguins is difficult.
+
+101
+00:10:35,290 --> 00:10:39,760
+And so if we think about it in terms of having we have samples from each species,
+
+102
+00:10:39,760 --> 00:10:44,440
+we have a sample of chinstrap, a sample of Idalia and a sample of Gentoo penguins.
+
+103
+00:10:44,440 --> 00:10:51,270
+Then we can infer about the.
+
+104
+00:10:51,270 --> 00:10:57,690
+Within the species distribution site, how is the flipper length of a chinstrap distributed this upper length of a deli?
+
+105
+00:10:57,690 --> 00:11:07,510
+How do those compare? But assuming that our samples are representative of the species of penguin,
+
+106
+00:11:07,510 --> 00:11:15,710
+but what we probably can't do with this data is say chinstrap or more adult common than Adelie or vice versa,
+
+107
+00:11:15,710 --> 00:11:20,680
+depending on which one is more common in the data set. The.
+
+108
+00:11:20,680 --> 00:11:29,950
+By understanding the sampling strategy. And here to make rigorous conclusions, we need to go spend time with the paper documenting the data.
+
+109
+00:11:29,950 --> 00:11:34,030
+But by thinking about an understanding the sampling strategy, we can start to get out,
+
+110
+00:11:34,030 --> 00:11:39,220
+what can we actually use to try to infer about the data and what's just a statistic or excuse me?
+
+111
+00:11:39,220 --> 00:11:43,720
+What can we use to try to infer about the population and what's just a statistic of the data?
+
+112
+00:11:43,720 --> 00:11:47,890
+We have like we have data on this many of penguins of each species.
+
+113
+00:11:47,890 --> 00:11:53,770
+But that doesn't mean that's how many penguins there are of each species.
+
+114
+00:11:53,770 --> 00:11:59,140
+So we need to think about that, what we call the data generating process or the DGP.
+
+115
+00:11:59,140 --> 00:12:06,040
+And this has this is around how everything that goes into how the data came to us.
+
+116
+00:12:06,040 --> 00:12:13,360
+And oftentimes what we're trying to do is infer parameters of the data generating process.
+
+117
+00:12:13,360 --> 00:12:19,930
+And so if we think about the movie data, people and movies exist, we could think about the process by which they come into existence.
+
+118
+00:12:19,930 --> 00:12:27,040
+We have to scope our investigation so we can say we assume people in the movies exist.
+
+119
+00:12:27,040 --> 00:12:30,820
+People find movies and watch them somehow. Netflix recommends more movies.
+
+120
+00:12:30,820 --> 00:12:38,710
+People maybe watch them. This feeds back into two with the but understanding the data generating process and identifying.
+
+121
+00:12:38,710 --> 00:12:43,350
+Oh, Netflix is recommender. Is in the loop on Netflix's data.
+
+122
+00:12:43,350 --> 00:12:51,550
+Lets us understand. Well, actually, when someone recommend read when someone decides to watch a movie.
+
+123
+00:12:51,550 --> 00:12:57,820
+That choice is not entirely what we call exoticness from outside the system.
+
+124
+00:12:57,820 --> 00:13:01,270
+It's affected by the system because it's in response to recommendations,
+
+125
+00:13:01,270 --> 00:13:10,430
+because we start to think about what is the debt data generating process that gives us a bunch of data about what movies people watch.
+
+126
+00:13:10,430 --> 00:13:24,610
+Reasoning about the data's generating process allows us to understand our sample strengths and weaknesses and capabilities and to.
+
+127
+00:13:24,610 --> 00:13:29,920
+And to find opportunities to do our inference and check where it may have gone wrong.
+
+128
+00:13:29,920 --> 00:13:35,470
+So I now want to introduce briefly this concept of independent and identically distributed.
+
+129
+00:13:35,470 --> 00:13:48,590
+A lot of. A lot of. A lot of statistical techniques required data to be either the data itself or the data after
+
+130
+00:13:48,590 --> 00:13:54,110
+some processing or the errors in the data to be independently and identically distributed.
+
+131
+00:13:54,110 --> 00:14:02,750
+And what this means is that the values do not affect one another in any way, and they're all drawn from the same distribution.
+
+132
+00:14:02,750 --> 00:14:10,640
+Particularly, we don't have changes in the mean or the variance as the distribution, as we say, move through time.
+
+133
+00:14:10,640 --> 00:14:13,970
+If we sample uniformly at random from a large population,
+
+134
+00:14:13,970 --> 00:14:19,820
+it's we can generally treat it as I.D. Each at each sample is independent of each other as well,
+
+135
+00:14:19,820 --> 00:14:26,030
+unless there is some some mechanism that causes them particularly to be linked.
+
+136
+00:14:26,030 --> 00:14:34,790
+If we have a small population and we're sampling a large fraction of it, then they're not necessarily independent because if you sample one,
+
+137
+00:14:34,790 --> 00:14:43,970
+you're not going to sample that again unless you're sampling with replacement as opposed to if you have a very large population,
+
+138
+00:14:43,970 --> 00:14:50,380
+you sample your you're not reducing the pool very much at all.
+
+139
+00:14:50,380 --> 00:14:57,280
+One last thing I want to mention, I'm not going to get into the details of it as an illustration for the power of thinking about
+
+140
+00:14:57,280 --> 00:15:03,550
+sampling and what it can let us do in our inference is a problem known as the German tank problem.
+
+141
+00:15:03,550 --> 00:15:15,460
+And this problem arose in the Second World War when the allied military forces were trying to estimate axis production capacity.
+
+142
+00:15:15,460 --> 00:15:25,280
+And so you capture a tank. And you find a serial number on it, and it's serial number would say two zero eight nine.
+
+143
+00:15:25,280 --> 00:15:35,500
+You want to know how many tanks have been produced? You want to know how many tanks have been produced?
+
+144
+00:15:35,500 --> 00:15:43,810
+And so. It turns out if the serial numbers are being assigned sequentially, which they were.
+
+145
+00:15:43,810 --> 00:15:47,860
+And you have observations of a bunch of, say, tanks,
+
+146
+00:15:47,860 --> 00:15:55,270
+you can applying sampling theory and the statistics that come about reasoning about how we get samples.
+
+147
+00:15:55,270 --> 00:15:59,680
+You can infer how many tanks probably exist.
+
+148
+00:15:59,680 --> 00:16:06,700
+Effectively, what you're doing is you're inferring the max. Oftentimes we infer for the mean, you can infer from many different statistics.
+
+149
+00:16:06,700 --> 00:16:10,630
+They figured out how to infer from the max based on a number of observations.
+
+150
+00:16:10,630 --> 00:16:19,330
+And the max of those observations to figure out how many tanks were likely produced after the war,
+
+151
+00:16:19,330 --> 00:16:27,730
+comparing the statistical analysis to the actual production records recovered from Nazi factories.
+
+152
+00:16:27,730 --> 00:16:33,400
+The statistical estimates were far closer to the actual production records than traditional intelligence
+
+153
+00:16:33,400 --> 00:16:41,120
+estimates that were using spies and surveillance to try to figure out how many tanks were being produced.
+
+154
+00:16:41,120 --> 00:16:49,160
+But the reasoning about the sampling process and pushing through the math of sampling allows us to
+
+155
+00:16:49,160 --> 00:16:55,070
+then be able to make probabilistic statements that can infer some relatively remarkable things,
+
+156
+00:16:55,070 --> 00:17:00,290
+such as the number of tanks produced based on the serial numbers that we've seen so far.
+
+157
+00:17:00,290 --> 00:17:07,160
+There are then countermeasures for that, such as randomizing your serial number so they don't show up in order and you have a much larger pool
+
+158
+00:17:07,160 --> 00:17:13,280
+of serial numbers and then you can't just use serial numbers to infer how many have been built.
+
+159
+00:17:13,280 --> 00:17:19,040
+So to wrap up, our data comes to us by some process. And classically, we think about this in terms of sampling.
+
+160
+00:17:19,040 --> 00:17:24,890
+How did we pick these items to analyze and then what would happen if we did that sample multiple times?
+
+161
+00:17:24,890 --> 00:17:29,510
+A lot of the properties of our statistical techniques are defined in terms of
+
+162
+00:17:29,510 --> 00:17:34,940
+what would happen if we ran the sample and computed the statistic many times.
+
+163
+00:17:34,940 --> 00:17:39,860
+And the data generating process is the mechanism by which our data comes into existence.
+
+164
+00:17:39,860 --> 00:17:53,690
+And we may model it in some way in order to be able to try to do inference about the human or physical processes that our data reflect.
+

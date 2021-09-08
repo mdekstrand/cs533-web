@@ -1,0 +1,412 @@
+1
+00:00:04,360 --> 00:00:07,960
+In this video, I'm going to introduce continuous probability.
+
+2
+00:00:07,960 --> 00:00:13,030
+So far, we've been talking about probability over discrete variables, dice rolls, et cetera,
+
+3
+00:00:13,030 --> 00:00:19,510
+but we're going to now talk about continuous probability and introduce the concept of a random variable.
+
+4
+00:00:19,510 --> 00:00:25,180
+Learning outcomes are for you to be able to compute an expected value and to understand why continuous events have
+
+5
+00:00:25,180 --> 00:00:32,540
+probability densities and the relationship between these densities and distribution functions and actual probabilities.
+
+6
+00:00:32,540 --> 00:00:39,860
+So if X is the value of a six sided Deyrolle, so we roll it, I has six sides,
+
+7
+00:00:39,860 --> 00:00:45,290
+X is the value one through six of that result, we call X a random variable.
+
+8
+00:00:45,290 --> 00:00:55,260
+It's a variable that has a random numeric value. Technically of random variable is actually a function from elementary events to real values,
+
+9
+00:00:55,260 --> 00:01:00,030
+but for our purposes that nuance is not generally going to be very important.
+
+10
+00:01:00,030 --> 00:01:06,090
+The expected value of the variable is the sum.
+
+11
+00:01:06,090 --> 00:01:11,700
+Of the different values it can take of the value.
+
+12
+00:01:11,700 --> 00:01:24,120
+Times the probability of that value. So it's one times the probability of a one and you add two times the probability of a two.
+
+13
+00:01:24,120 --> 00:01:29,730
+This is equivalent to the mean over many roles. If we roll the dice a thousand times, what would it mean?
+
+14
+00:01:29,730 --> 00:01:39,210
+Approximately B and also we can think of it in a gambling kind of a gambling or betting setting of the expected return from a roll,
+
+15
+00:01:39,210 --> 00:01:44,640
+the expectation in the meet. So the expectation is the mean over many points, but it's also in the mean of the random variable.
+
+16
+00:01:44,640 --> 00:01:48,420
+The random variable has a mean, even if we don't have any observations for it.
+
+17
+00:01:48,420 --> 00:01:51,660
+And the expected value is that mean. One way to see this,
+
+18
+00:01:51,660 --> 00:01:59,580
+if we've got a sequence of data points in our process is pick one of them uniformly at random probability one over N and we have it's value,
+
+19
+00:01:59,580 --> 00:02:05,640
+then we can compute. The expected value is the probability value times.
+
+20
+00:02:05,640 --> 00:02:11,880
+There is the sum value times, the probability of that. But this probability is one over N.
+
+21
+00:02:11,880 --> 00:02:17,400
+So when we pull that outside we get one over ten times the sum, which is exactly the sample mean.
+
+22
+00:02:17,400 --> 00:02:25,690
+That's the formula for the mean. So we can see the expectation and the mean are equivalent concepts here.
+
+23
+00:02:25,690 --> 00:02:30,070
+But that's a discrete variable, one through six. Rove is excited.
+
+24
+00:02:30,070 --> 00:02:36,970
+I don't happen to have a continuously value to die, but what's the probability that so we randomly pick agenda Penguin,
+
+25
+00:02:36,970 --> 00:02:41,200
+what's the probability that it's flipper length is two hundred seventeen. Mm.
+
+26
+00:02:41,200 --> 00:02:46,090
+It's a continuous variable, so two hundred and seventeen millimeters, there's very values on both sides of it.
+
+27
+00:02:46,090 --> 00:02:54,990
+What if it's 217 17? But we find a penguin and it's flipper length is to seventeen point one millimeters.
+
+28
+00:02:54,990 --> 00:03:05,310
+It's 217 plus 10 to the negative 10 mm, I don't have a ruler that precise, but the value these values are continuous values.
+
+29
+00:03:05,310 --> 00:03:09,780
+There's a value between 217 and 217, plus ten, the minus 10.
+
+30
+00:03:09,780 --> 00:03:17,280
+So the probability of any individual value of a continue of a truly continuously
+
+31
+00:03:17,280 --> 00:03:26,390
+valued random variable is zero because it's it's it's effectively never.
+
+32
+00:03:26,390 --> 00:03:34,670
+Going to be exactly this value might be pretty close, but it's but the probability of it being exactly that value is effectively zero.
+
+33
+00:03:34,670 --> 00:03:39,800
+So we need a different way to approach probability for continuous variables.
+
+34
+00:03:39,800 --> 00:03:47,150
+And the way we do this is that we assign probabilities not to individual values of the variable, but to intervals or ranges.
+
+35
+00:03:47,150 --> 00:03:53,210
+And so are elementary. Events are still real numbers. The penguin that we randomly picked has a flipper length.
+
+36
+00:03:53,210 --> 00:04:01,630
+Those are the elementary events. But we don't have the singletons. The singletons are not in our set of actual events we care about.
+
+37
+00:04:01,630 --> 00:04:09,170
+The events we care about are intervals, the sets of the set of intervals and their complements and their countable unions.
+
+38
+00:04:09,170 --> 00:04:14,840
+There's a lot of different sets in here. Any real value is in.
+
+39
+00:04:14,840 --> 00:04:20,240
+Actually, infinitely many of any real value we can pick is actually an infinitely many different events
+
+40
+00:04:20,240 --> 00:04:27,290
+because the intervals are all events and it contains infinitesimally small intervals.
+
+41
+00:04:27,290 --> 00:04:30,890
+And no matter how small an interval you pick, there's one smaller in there,
+
+42
+00:04:30,890 --> 00:04:37,880
+but it does not contain the individual singleton values and we assign probability to these intervals.
+
+43
+00:04:37,880 --> 00:04:41,180
+We do that through a thing called a distribution function.
+
+44
+00:04:41,180 --> 00:04:47,780
+And so the distribution function F is the probability that the random variable takes on a value
+
+45
+00:04:47,780 --> 00:04:56,410
+less than or so F of X is the probability that the random variable takes on a value less than X.
+
+46
+00:04:56,410 --> 00:05:05,740
+And so at X equals zero, so this and this is sometimes called accumulative distribution function or a CDF C D,
+
+47
+00:05:05,740 --> 00:05:09,680
+I'm going to write that down for you, CDF.
+
+48
+00:05:09,680 --> 00:05:16,580
+Cumulative distribution function, so what X equals zero, it takes on the value, the probability that the random variable,
+
+49
+00:05:16,580 --> 00:05:26,000
+it has a value less than X, which for the first three curves, these are the CDs for different parameters of what's called the normal distribution.
+
+50
+00:05:26,000 --> 00:05:33,720
+It's the probability that it's less than that. We go up to one. X equals one, and the probability that it's less that is higher,
+
+51
+00:05:33,720 --> 00:05:43,350
+the cumulative distribution function is monotonic, non decreasing, and it has a maximum value.
+
+52
+00:05:43,350 --> 00:05:47,610
+The limit as X goes to infinity is one.
+
+53
+00:05:47,610 --> 00:05:55,200
+So the probability is excuse to infinity. The probability that's less than X is one.
+
+54
+00:05:55,200 --> 00:05:59,130
+And as X goes to negative infinity, the probability is zero.
+
+55
+00:05:59,130 --> 00:06:07,200
+But this this is the basis for establishing the probability of continuous values is we say,
+
+56
+00:06:07,200 --> 00:06:10,050
+well, what's the probability that it's less than some value?
+
+57
+00:06:10,050 --> 00:06:15,330
+And then if we have an interval, so we want to say X, the probability that X one is less than X,
+
+58
+00:06:15,330 --> 00:06:20,670
+which is less than X to what we can do is we can subtract these two probabilities.
+
+59
+00:06:20,670 --> 00:06:35,810
+So what we say is so. The what we have here is the events X is less than X two, and we have the event not.
+
+60
+00:06:35,810 --> 00:06:45,560
+Or X is less than X one compliment, X is not less than one, so it's greater than X one.
+
+61
+00:06:45,560 --> 00:06:51,740
+And we take the union of those two events excuse me, the intersection of those two events.
+
+62
+00:06:51,740 --> 00:07:01,100
+What's the probability that they both happen and we get that we need F of X to minus F of X one.
+
+63
+00:07:01,100 --> 00:07:08,990
+So we call the probability on an overall probability mass how much probability the mass is on this interval.
+
+64
+00:07:08,990 --> 00:07:14,480
+Also, when we have a discrete event, it's probability is also called a probability mass.
+
+65
+00:07:14,480 --> 00:07:21,560
+So if you have discrete variable, then the function of what the probability is of different values is called a probability mass function.
+
+66
+00:07:21,560 --> 00:07:31,880
+How much probability is on this discrete value? But we we can't have mass on discussing on individual discrete values of a continuous variable.
+
+67
+00:07:31,880 --> 00:07:39,050
+We can have probability mass on an interval and we can have a probability density on an individual value.
+
+68
+00:07:39,050 --> 00:07:41,180
+So a distribution is often defined.
+
+69
+00:07:41,180 --> 00:07:52,580
+So I've got us to the distributions of the probability of a of a variable having a particular value through the distribution function.
+
+70
+00:07:52,580 --> 00:07:57,470
+But the distribution function is often actually defined as the integral of a density
+
+71
+00:07:57,470 --> 00:08:02,300
+function in the density function is therefore the derivative of the distribution function.
+
+72
+00:08:02,300 --> 00:08:11,030
+We have a density functions that the distribution function is the integral from negative infinity to X of the density,
+
+73
+00:08:11,030 --> 00:08:15,440
+and that gives us the probability that it's less than or equal to X.
+
+74
+00:08:15,440 --> 00:08:23,450
+And the this is the graph of the density function and these are the densities for the same distribution functions you just saw.
+
+75
+00:08:23,450 --> 00:08:29,090
+So they go back down. They're not monotonic and they're showing how much density is at different values.
+
+76
+00:08:29,090 --> 00:08:36,510
+So X the purple one has the most density at X, the mean of the the mean of these three.
+
+77
+00:08:36,510 --> 00:08:47,040
+Is all the same, the expected values, the same, the distribution function at zero point five is the same, but the densities are different,
+
+78
+00:08:47,040 --> 00:08:56,240
+which means the purple one is more strongly concentrated around zero than the red one or the orange one.
+
+79
+00:08:56,240 --> 00:09:00,800
+Densities can exceed unlike probability, unlike probabilities,
+
+80
+00:09:00,800 --> 00:09:05,100
+a density can actually exceed one, they're not going to be negative, but they can exceed one.
+
+81
+00:09:05,100 --> 00:09:10,940
+You can have density. I've seen densities of 10 and some of my analyzes because the density is not a probability.
+
+82
+00:09:10,940 --> 00:09:19,830
+Instead, the density is the limit. As we see if we pick a point, the density at that point is the limit.
+
+83
+00:09:19,830 --> 00:09:28,110
+Of the so we we have a point here, so we've got our curve.
+
+84
+00:09:28,110 --> 00:09:36,360
+We've got a point, we have a window around it. Of wealth to Epsilon.
+
+85
+00:09:36,360 --> 00:09:46,350
+And it is the limit as that window gets smaller and smaller of the probability mass in that window divided by the width of the window,
+
+86
+00:09:46,350 --> 00:09:51,660
+the density because the density is the mass, divided by how much length the mass is spread over.
+
+87
+00:09:51,660 --> 00:10:00,150
+If you're going to compute the density of the weight of an object, you'd be the the weight over the amount of area.
+
+88
+00:10:00,150 --> 00:10:07,480
+We're dealing with one dimension here. So the limit as this window gets smaller and smaller of.
+
+89
+00:10:07,480 --> 00:10:14,560
+The mass divided by the width and because we're dividing by that width, the densities can exceed one.
+
+90
+00:10:14,560 --> 00:10:24,040
+You might remember this definition of that as the definition of the derivative from calculus that and that that's the relationship here.
+
+91
+00:10:24,040 --> 00:10:30,520
+The density is the derivative of the distribution function. The distribution function is the integral of the density.
+
+92
+00:10:30,520 --> 00:10:35,200
+We can also compute continuous expectation and continuous expectation is an integral.
+
+93
+00:10:35,200 --> 00:10:41,080
+So as the as the the expectation of a discrete variable was the sum of the values, timeliness,
+
+94
+00:10:41,080 --> 00:10:48,580
+the probabilities, the continuous expectation is just the integral of the values times their probabilities.
+
+95
+00:10:48,580 --> 00:10:53,350
+When we go from the script, from continuous, we have to go from segments to integrals. But the concept is the same.
+
+96
+00:10:53,350 --> 00:10:59,860
+It's still the mean. So to wrap up the probability of any individual value of a continuous variable is effectively zero.
+
+97
+00:10:59,860 --> 00:11:06,700
+It is zero. But so instead we use probability density, distribution functions and we assign probability mass,
+
+98
+00:11:06,700 --> 00:11:12,370
+not individual points of a continuous variable, but to intervals of it.
+
+99
+00:11:12,370 --> 00:11:18,220
+And the expectation also then that the expected value is the mean of a random variable.
+
+100
+00:11:18,220 --> 00:11:19,600
+Couple of things I haven't shown you.
+
+101
+00:11:19,600 --> 00:11:27,820
+We can also talk about conditional expectation, which is the expectation of the random variable, given some other information.
+
+102
+00:11:27,820 --> 00:11:34,510
+We're going to be building on this as we go forward. I'm also going to be posting some notebooks that work through computationally.
+
+103
+00:11:34,510 --> 00:11:48,208
+How do we actually start to compute and how do we count frequencies of events to start to estimate probability from data that we have?
+
