@@ -1,9 +1,4 @@
-# 🚧 Week 4 — Inference (9/13–17) 🚧
-
-:::{draft}
-This content is still in draft state and has not yet been finalized, but it's pretty close.
-Just working through a few last checks & debugs.
-:::
+# Week 4 — Inference (9/13–17)
 
 These are the learning outcomes for the week:
 
@@ -17,7 +12,7 @@ These are the learning outcomes for the week:
 ```{module} week4
 ```
 
-This week probably has the most total video of any week in the course, and also has some of the more
+This week is at the upper end for total video of any week in the course, and also has some of the
 trickier concepts.  The next week — Week 5 — is significantly lighter in terms of new material, and
 we'll take a step back to try to solidify the things we've learned so far in the class before
 proceeding to Week 6.
