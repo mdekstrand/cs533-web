@@ -10,6 +10,7 @@ These are the learning outcomes for the week:
 ## {{moverview}} Content Overview
 
 ```{module} week4
+:folder: 8a5c2081-e745-4084-ad98-ad9c018384ea
 ```
 
 This week is at the upper end for total video of any week in the course, and also has some of the

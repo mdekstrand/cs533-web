@@ -13,7 +13,7 @@ If you already know Python, the Python parts should mostly be review.
 ## {{moverview}} Content Overview
 
 :::{module} week1
-:playlist: https://boisestate.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=462597a6-abd8-4685-89a3-ad88013f7c35
+:folder: 1e48c469-9c8b-4a4b-bd18-ad75015aad5d
 :::
 
 ## {{mcal}} Deadlines

@@ -22,7 +22,8 @@ class ModuleDirective(SphinxDirective):
         self.env.ref_context['res:module'] = name
         pending = nodes.pending(ModTocTransform, {
             'module': name,
-            'playlist': self.options.get('playlist')
+            'playlist': self.options.get('playlist'),
+            'folder': self.options.get('folder'),
         })
 
         top = self.state.document.children[0]
@@ -109,10 +110,19 @@ class ModTocTransform(SphinxTransform):
             summary += nodes.inline('', ".")
         elif folder:
             summary += nodes.inline('', " This week's videos are available in a ")
+
             plref = nodes.reference('', '', classes=['panopto'])
             plref['refuri'] = f'https://boisestate.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22{folder}%22'
             plref += nodes.inline('', 'Panopto folder')
             summary += plref
+
+            summary += nodes.inline(' and as a ')
+
+            podref = nodes.reference('', '', classes=['panopto', 'podcast'])
+            podref['refuri'] = f'https://boisestate.hosted.panopto.com/Panopto/Podcast/Podcast.ashx?courseid={folder}&type=mp4'
+            podref += nodes.inline('podcast')
+            summary += podref
+
             summary += nodes.inline('', ".")
 
         box += summary
