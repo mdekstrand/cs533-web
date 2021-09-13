@@ -116,11 +116,11 @@ class ModTocTransform(SphinxTransform):
             plref += nodes.inline('', 'Panopto folder')
             summary += plref
 
-            summary += nodes.inline(' and as a ')
+            summary += nodes.inline('', ' and as a ')
 
             podref = nodes.reference('', '', classes=['panopto', 'podcast'])
             podref['refuri'] = f'https://boisestate.hosted.panopto.com/Panopto/Podcast/Podcast.ashx?courseid={folder}&type=mp4'
-            podref += nodes.inline('podcast')
+            podref += nodes.inline('', 'podcast')
             summary += podref
 
             summary += nodes.inline('', ".")
