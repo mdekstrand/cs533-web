@@ -92,7 +92,7 @@ This will use the same technique as we used in [Penguins](../../resources/tutori
 
 ## Reflection (5%)
 
-Write 2 paragraphs about what you have learned through this assignment.
+{{mtodo}} Write 2 paragraphs about what you have learned through this assignment.
 
 If you have comments on the accuracy of time estimates, I would also appreciate those.
 
