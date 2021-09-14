@@ -31,6 +31,7 @@ parts:
     sections:
     - file: assignments/A0/A0-Notebook.ipynb
   - file: assignments/A1/index
+  - file: assignments/A2/index
 - caption: Resources
   chapters:
   - file: resources/software
