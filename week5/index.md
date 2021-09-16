@@ -162,7 +162,7 @@ There are a few things you can do to keep practicing the material:
 
 Some more examples from my own work (these are *not* all cleaned up to our checklist standards):
 
-- [Data summary from book gender paper](DataSummary.ipynb) - shows a number of descriptive things, including a stacked area chart.
+- [Data summary from book gender paper](https://nbviewer.jupyter.org/github/BoiseState/book-author-gender/blob/master/DataSummary.ipynb) - shows a number of descriptive things, including a stacked area chart; it also uses Plotnine.
 - [Linkage statistics from book data](https://github.com/BoiseState/bookdata-tools/blob/master/LinkageStats.ipynb) - shows some matploblib things, and computing data linking statistics.
 
 ## {{mnotebook}} Tutorials
