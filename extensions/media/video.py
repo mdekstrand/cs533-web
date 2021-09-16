@@ -109,7 +109,7 @@ class VideoDirective(SphinxDirective):
         result.append(box)
 
         if video_id:
-            box += rst_video_tab(video_id, length, amara=self.options.get('amara', None))
+            box += rst_video_tab(video_id, length, amara=self._get_param('amara', 'Amara URL'))
         else:
             warnings.warn('no video ID specified')
 
