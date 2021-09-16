@@ -23,6 +23,7 @@ Our learning outcomes are:
 
 - Week 5 Quiz is due on **Thursday** at 8AM.
 - [Assignment 2](../assignments/A2/index.md) is due on **Sunday, Sep. 26** at 11:59 PM.
+- Midterm A is next week, on **Tuesday, Sep. 28**.
 
 ## {{mnotebook}} Assignment 1 Solution
 
@@ -32,6 +33,8 @@ I will post the Assignment 1 solution to Canvas (sorry, I'm not posting it to th
 
 If you haven't yet, I highly recommend consulting the [course glossary](../../resources/glossary.md).
 Please post on Piazza if you have suggested additions!
+
+The midterm is also likely to be useful in studying for the exam.
 
 ## {{mnotebook}} Writing Functions
 
