@@ -1,0 +1,436 @@
+1
+00:00:04,700 --> 00:00:10,460
+This video, I'm going to talk with you a little bit more about t tests. Give us some more ideas of what they do, how they work.
+
+2
+00:00:10,460 --> 00:00:14,960
+And also, when you need to use the different kinds and their python functions,
+
+3
+00:00:14,960 --> 00:00:22,500
+learning outcomes are for you to be able to select the appropriate form of t test for some data that you have.
+
+4
+00:00:22,500 --> 00:00:27,020
+And understand what the T test does. So if we have.
+
+5
+00:00:27,020 --> 00:00:36,080
+So we have some idea normal's so they're independent and identically distributed in their normal observations of a variable.
+
+6
+00:00:36,080 --> 00:00:42,200
+And we want to test the null hypothesis that the true mean is equal to some fixed value.
+
+7
+00:00:42,200 --> 00:00:47,660
+Often this is going to be we're going to see if it's equal to zero. But we can see if it's equal to any other particular value.
+
+8
+00:00:47,660 --> 00:00:55,190
+And so the null hypothesis is the day, the mean, the true mean of the population is equal to to our value, say zero.
+
+9
+00:00:55,190 --> 00:00:59,840
+And we want to see, does the data support or reject the null hypothesis.
+
+10
+00:00:59,840 --> 00:01:04,130
+So what we do is we calculate a test statistic called a T statistic,
+
+11
+00:01:04,130 --> 00:01:12,650
+which is the difference between the sample mean and the the target mean divided by the standard error.
+
+12
+00:01:12,650 --> 00:01:19,170
+And what this gives us is it gives us a normalized version of the difference in the difference and means that's
+
+13
+00:01:19,170 --> 00:01:31,320
+normalized by the natural variance from the sampling distribution that we would expect in the for computing the mean.
+
+14
+00:01:31,320 --> 00:01:39,570
+And the idea here is that if the MI so that the sampling, the standard error gives us the standard deviation of our sampling distribution.
+
+15
+00:01:39,570 --> 00:01:45,780
+Remember, the sampling distribution of the sample mean is normal with variance of the standard error.
+
+16
+00:01:45,780 --> 00:02:01,710
+And so we. If the meet the difference in means is small with respect to that width, that that error, then it's going to be.
+
+17
+00:02:01,710 --> 00:02:06,080
+Then the difference in means is probably due to sampling error. But if the difference is big,
+
+18
+00:02:06,080 --> 00:02:14,200
+then it's substantially less likely that that's due to the sampling and more likely that the mean the population doesn't actually equal our target,
+
+19
+00:02:14,200 --> 00:02:22,220
+such as zero. So what we do with this T statistic is we compute the probability that doing this a bunch of times.
+
+20
+00:02:22,220 --> 00:02:32,640
+So repetitions. We compute the probability that doing this a bunch of times is going to give T.
+
+21
+00:02:32,640 --> 00:02:42,380
+T statistics that are at least as large in their magnitude as the observed one that we have.
+
+22
+00:02:42,380 --> 00:02:48,260
+If the null hypothesis is true. This is a probability given age zero.
+
+23
+00:02:48,260 --> 00:02:52,430
+So we're trying to see what's the probability that we have a T with this size of absolute value.
+
+24
+00:02:52,430 --> 00:02:58,520
+This is called a two sided T test that the common ones we're just seeing, the magnitude of T is going to be this large.
+
+25
+00:02:58,520 --> 00:03:04,970
+If the means are actually equal, the code for this is to use the T test one sample function from Saipov.
+
+26
+00:03:04,970 --> 00:03:14,760
+What happens if we get this T statistic and it follows a distribution called a T distribution with N minus one degrees of freedom?
+
+27
+00:03:14,760 --> 00:03:25,600
+And so if the distribution and so we can look and we can see where does the T statistic, where does the observed T value fall in this distribution?
+
+28
+00:03:25,600 --> 00:03:34,660
+And it might be that, oh, there's a lot. So it's it's here. And if we consider it where, it would be on the left as well.
+
+29
+00:03:34,660 --> 00:03:40,440
+OK. There's a lot of probability mass outside those values.
+
+30
+00:03:40,440 --> 00:03:45,960
+So a value, this extreme value of this about point five under this particular distribution.
+
+31
+00:03:45,960 --> 00:03:50,190
+That's got to be common. Just do the sampling variation. That value is completely expected.
+
+32
+00:03:50,190 --> 00:03:56,860
+But if we go all the way out here to a T statistic of point of three point five.
+
+33
+00:03:56,860 --> 00:04:02,650
+There is not much probability mass outside the three point fives.
+
+34
+00:04:02,650 --> 00:04:11,110
+And that means that if the no hypothesis were true, seeing a T statistic of three point five would be very unlikely.
+
+35
+00:04:11,110 --> 00:04:16,150
+Which means that the data it's the data probably didn't come from the null hypothesis.
+
+36
+00:04:16,150 --> 00:04:20,620
+They probably came from something else. And so we would reject the null hypothesis.
+
+37
+00:04:20,620 --> 00:04:30,190
+But that's what happened with the tease, with the T test. You compute this T statistic from your data, which is this standardized difference in means.
+
+38
+00:04:30,190 --> 00:04:39,550
+And you compare that to the distribution, the t distribution gives us the distribution of T statistics under the null hypothesis,
+
+39
+00:04:39,550 --> 00:04:46,390
+which is that there is no difference in means. And as the degrees of freedom go to infinity, the T statistic approaches normal.
+
+40
+00:04:46,390 --> 00:04:51,890
+It's an adjusted normal, basically. So I want to talk just a moment about these degrees of freedom.
+
+41
+00:04:51,890 --> 00:04:57,410
+So the degrees of freedom are the number of ABB's observations in a series.
+
+42
+00:04:57,410 --> 00:05:07,170
+We have a series of observations we have and observations. How many of them can freely vary for the purposes of computing a statistic?
+
+43
+00:05:07,170 --> 00:05:11,460
+If we if we're just trying to if we're trying to compute the mean all of our values can change.
+
+44
+00:05:11,460 --> 00:05:14,280
+Change any value in our dataset. It's going to change the mean.
+
+45
+00:05:14,280 --> 00:05:21,720
+But if we have the mean, the sample mean and we're trying to compute the standard deviation.
+
+46
+00:05:21,720 --> 00:05:26,370
+Then we can't. Not all of them can vary.
+
+47
+00:05:26,370 --> 00:05:29,970
+Only out of end data points only and minus one can vary.
+
+48
+00:05:29,970 --> 00:05:37,920
+Because if we have X one directs event X squared minus one and we have the mean, we can compute the last value.
+
+49
+00:05:37,920 --> 00:05:44,940
+So for the purpose of the standard deviation, effectively, one way we can see it is that computing the intermediate statistic,
+
+50
+00:05:44,940 --> 00:05:49,230
+the mean we're gonna compute the standard deviation if we can, to compute this T statistic.
+
+51
+00:05:49,230 --> 00:05:54,190
+It uses up one degree of freedom. Can you fix it?
+
+52
+00:05:54,190 --> 00:05:58,600
+Only N minus one of our samples can vary, and so that lead.
+
+53
+00:05:58,600 --> 00:06:05,740
+So we have N minus one degrees of freedom or computing standard error, which then goes into the T statistic.
+
+54
+00:06:05,740 --> 00:06:09,790
+So for the the one sample t test, the degrees of freedom and minus one,
+
+55
+00:06:09,790 --> 00:06:15,550
+we use that to compute the T distribution, we see where the C which T distribution we're going to use.
+
+56
+00:06:15,550 --> 00:06:25,510
+We see where our value lies on it. The two sample T test it take so that one simple T test test is my saying is the mean of my source population.
+
+57
+00:06:25,510 --> 00:06:33,250
+My sample came from equal to some fixed value. The two sample team test asks, I have two samples.
+
+58
+00:06:33,250 --> 00:06:40,710
+Did they come from a population with the same mean? So let's say we have the we have the Adelie penguins and the Gentoo penguins.
+
+59
+00:06:40,710 --> 00:06:48,910
+We have the mean flipper length of these two samples of penguins. And we want to see, do they come from the same man or they come from?
+
+60
+00:06:48,910 --> 00:06:53,010
+Does the population of Adelie penguins and Gentoo penguins probably have the same mean?
+
+61
+00:06:53,010 --> 00:06:58,050
+Or does it probably have different means that this depends on the samples being independent?
+
+62
+00:06:58,050 --> 00:07:03,540
+No relationship between data points in each sample data point is in one of the two categories.
+
+63
+00:07:03,540 --> 00:07:07,680
+If you have relationships, then we're going to see the paired T test.
+
+64
+00:07:07,680 --> 00:07:11,310
+But this makes sense of how a penguin is either in a deli or a Gentoo.
+
+65
+00:07:11,310 --> 00:07:17,130
+So we're gonna use the the independent, the independent T test.
+
+66
+00:07:17,130 --> 00:07:26,940
+The null hypothesis is mbewe one equals mbewe to the means of the two populations that are represented by these two samples are the same.
+
+67
+00:07:26,940 --> 00:07:37,740
+And our T statistic is we subtract the means and then we divide by a combination of their standard deviations and sample sizes.
+
+68
+00:07:37,740 --> 00:07:43,500
+This is the degrees of freedom for this are significantly more complicated if we
+
+69
+00:07:43,500 --> 00:07:49,830
+allow the two populations to have the two samples to have different variances.
+
+70
+00:07:49,830 --> 00:07:54,750
+Are we allowed? Excuse me? We assume the two part. We allow the two populations of different variances.
+
+71
+00:07:54,750 --> 00:08:00,150
+If we assume they have the same variance, we get a much simpler version of the two sample T test.
+
+72
+00:08:00,150 --> 00:08:05,730
+But in general, they might have different variances. If this is the T statistic, the degrees of freedom are relatively complicated.
+
+73
+00:08:05,730 --> 00:08:11,850
+I don't recommend actually calculating this yourself. We have tea test functions that are going to help us calculate the T test.
+
+74
+00:08:11,850 --> 00:08:19,620
+This just gives you an idea of what those are doing so that you can better understand when you run a T test what's actually happening.
+
+75
+00:08:19,620 --> 00:08:24,180
+So we do our Adelie penguins, we get a T statistic of minus five point seven eight.
+
+76
+00:08:24,180 --> 00:08:32,130
+We can plot that on our on our T distribution. We get a P value of six point oh five times 10 to the negative eight.
+
+77
+00:08:32,130 --> 00:08:37,390
+This data would be very, very shocking to find if.
+
+78
+00:08:37,390 --> 00:08:48,610
+A deli and Gentoo penguins had the same flipper like. So we reject the null a paired t test is when we have two measurements from the same samples.
+
+79
+00:08:48,610 --> 00:08:51,880
+So each data point appear, rather we have two measurements,
+
+80
+00:08:51,880 --> 00:08:59,800
+but rather than having a measurement from one sample on a measurement from another sample like the penguins, what we have is they're paired.
+
+81
+00:08:59,800 --> 00:09:07,360
+So each measurement in one group hat is paired with a measurement and the other, for example, we've got two tests in this class.
+
+82
+00:09:07,360 --> 00:09:14,500
+Your score on test one in your score on test two would be paired sample of paired observations.
+
+83
+00:09:14,500 --> 00:09:23,410
+And what we do then is we compute the difference between these observations, say your test to score minus your test one score.
+
+84
+00:09:23,410 --> 00:09:28,600
+And that gives us one sample and we compare them that mean to zero.
+
+85
+00:09:28,600 --> 00:09:39,100
+So apparently test is a one sample T test that the mean difference is not with the null hypothesis that the mean difference is equal to zero.
+
+86
+00:09:39,100 --> 00:09:48,210
+And this is really useful for testing if there is a difference. When you take the same student and you give them two tests, you take the same.
+
+87
+00:09:48,210 --> 00:09:52,820
+The same patient and you give them two treatments, one week one and one week two.
+
+88
+00:09:52,820 --> 00:10:04,030
+This is a way of testing if there's a difference between the two observations of the two treatments on the same patient or the same research subject.
+
+89
+00:10:04,030 --> 00:10:11,810
+You're going to use this in assignment to to compare ratings from two different sources.
+
+90
+00:10:11,810 --> 00:10:21,070
+For the same movies. So to run these tests, the one if you have one sample and you want to test it, mean use the one sample T test.
+
+91
+00:10:21,070 --> 00:10:28,630
+If you have paired measurements. So you've got the movies and you have the all critics score and you have the top critics star.
+
+92
+00:10:28,630 --> 00:10:34,020
+Those are two measurements for the same movie. And you want to see if they're different than you use a paired T test.
+
+93
+00:10:34,020 --> 00:10:40,120
+Saipov gives you a paired T test function. But you can also compute the differences and use the one sample T test.
+
+94
+00:10:40,120 --> 00:10:46,180
+You can test two independent sample. So.
+
+95
+00:10:46,180 --> 00:10:54,040
+The four, if you see the four, two independent samples, you use the two sample T test the independent tests.
+
+96
+00:10:54,040 --> 00:11:03,910
+So sci fi calls this T test end by default. Both sigh pie and Stach models to independent two sample T test functions assume equal variance.
+
+97
+00:11:03,910 --> 00:11:07,810
+You can turn this off and say pi by setting equal var equal to false.
+
+98
+00:11:07,810 --> 00:11:16,180
+When you're calling the T test ion d function and it'll use the more sophisticated T statistic and the more sophisticated degrees of freedom.
+
+99
+00:11:16,180 --> 00:11:20,620
+So there are a lot of other tests. This is the usual practice for test.
+
+100
+00:11:20,620 --> 00:11:26,860
+A significant test. You compute a statistic and then you compare that statistic to a known distribution
+
+101
+00:11:26,860 --> 00:11:31,210
+that describes how it would be distributed under the null hypothesis.
+
+102
+00:11:31,210 --> 00:11:39,130
+In these cases, we compute a T statistic and the T distribution describes how that statistic is distributed when the null hypothesis is true.
+
+103
+00:11:39,130 --> 00:11:41,920
+We can also use these statistics then to bootstrap,
+
+104
+00:11:41,920 --> 00:11:49,610
+although sometimes we might we might not use the standardized Verd like the T statistic and we can directly bootstrap with the means.
+
+105
+00:11:49,610 --> 00:11:54,700
+To wrap up significance tests, compute the probability of a statistic under the null hypothesis.
+
+106
+00:11:54,700 --> 00:11:56,950
+Fundamentally under the hood. That's what they do.
+
+107
+00:11:56,950 --> 00:12:02,590
+The tricky parts are you need to have the statistic and you need to know its distribution under the null hypothesis.
+
+108
+00:12:02,590 --> 00:12:14,570
+The T test does this with the T statistic and with the standard I. Or with the T statistic, which is a standardized version of the vet of the.
+
+109
+00:12:14,570 --> 00:12:24,133
+The difference of the mean observed from the mean that you're trying to compare.
+

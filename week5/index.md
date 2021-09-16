@@ -17,6 +17,7 @@ Our learning outcomes are:
 ## {{moverview}} Content Overview
 
 :::{module} week5
+:folder: 2ecc3b3f-df3b-437c-a5d0-ad9c018388de
 :::
 
 ## {{mcal}} Deadlines
@@ -46,11 +47,8 @@ I've used Python *functions* in a few of my example notebooks.
 This video describes how to use Q-Q plots to compare data against a distribution.
 
 :::{video}
-:id: 7ea91346-6e57-48d2-86fc-ac3c0041be0a
 :length: 5m6s
-:slide-id: 495979F9A431DDB0%2173197
-:slide-auth: ANF7mADxGho6ZDs
-:name: 5-1 - Comparing distributions
+:name: 5-1 - Comparing Distributions
 :::
 
 ### Resources
@@ -60,10 +58,7 @@ This video describes how to use Q-Q plots to compare data against a distribution
 ## {{mvideo}} Testing Hypotheses
 
 :::{video} hypotest
-:id: b8f249ac-9101-4336-89e8-ac3600436c5a
 :length: 14m51s
-:slide-id: 495979F9A431DDB0%2173033
-:slide-auth: fAPweDd4ZnAHFL6E
 :name: 5-2 - Testing Hypotheses
 :::
 
@@ -84,11 +79,17 @@ This video discusses the *t*-test in more detail, and the different kinds of *t*
 It also introduces {term}`degrees of freedom`.
 
 :::{video} t-test
-:id: 49c92951-3a9a-4534-ae1a-ac3c0041be38
 :length: 12m24s
-:slide-id: 495979F9A431DDB0%2173195
-:slide-auth: APaucCdchKCkwZk
 :name: 5-3 - T-tests
+:::
+
+## {{mvideo}} Epistemology
+
+In this video, I talk about how the quantitative data science methods we are learning fit into a broader picture of source of knowledge.
+
+:::{video}
+:length: 25m44s
+:name: 5-4 - Epistemology
 :::
 
 ## {{mquiz}} Week 5 Quiz
@@ -109,33 +110,15 @@ The [One Sample notebook](../../resources/tutorials/OneSample.ipynb) demonstrate
 This video discusses common Python errors and how to read errors.
 
 :::{video}
-:id: e6dd1cb3-4659-4d91-ae16-ac3c0041bda5
 :length: 7m28s
-:slide-id: 495979F9A431DDB0%2173199
-:slide-auth: AKtFQ6RgMhVAQk4
-:name: 5-4 - Python Errors
+:name: 5-5 - Python Errors
 :::
 
 ## {{mvideo}} Python Libraries
 
 :::{video}
-:id: 9dc67550-0754-42e7-95eb-ac3c0041bddb
 :length: 3m43s
-:slide-id: 495979F9A431DDB0%2173202
-:slide-auth: AGJDocG2Hv-tifk
-:name: 5-5 - Python Libraries
-:::
-
-## {{mvideo}} Epistemology
-
-In this video, I talk about how the quantitative data science methods we are learning fit into a broader picture of source of knowledge.
-
-:::{video}
-:id: 8477f2e8-ed2e-4c23-a489-ac3c0041d182
-:length: 25m44s
-:slide-id: 495979F9A431DDB0%2172947
-:slide-auth: AJXLT9KELkhPfOQ
-:name: 5-6 - Epistemology
+:name: 5-6 - Python Libraries
 :::
 
 ## {{mvideo}} Learning More
@@ -144,7 +127,6 @@ In this video I talk about how I go about expanding my own data science knowledg
 of giving you ideas for how you can continue learning beyond this class.
 
 :::{video}
-:id: 1e85c17a-bd99-4cd5-861a-ac3c00438ee2
 :length: 5m10s
 :name: 5-7 - Learning More
 :::

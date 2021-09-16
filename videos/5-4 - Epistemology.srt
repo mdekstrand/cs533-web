@@ -1,0 +1,980 @@
+1
+00:00:04,510 --> 00:00:13,300
+Hello again, this video. I want to talk to you about ways of knowing what's called epistemology in our learning outcomes for this video,
+
+2
+00:00:13,300 --> 00:00:21,370
+for us to understand different sources of knowledge and identify saw sources of knowledge that are appropriate to a question,
+
+3
+00:00:21,370 --> 00:00:26,620
+because the way that we're going about work in this class, we said at the very beginning,
+
+4
+00:00:26,620 --> 00:00:37,180
+data science is the practice of using data to gain quantitative insight in the questions of social, scientific or business interest.
+
+5
+00:00:37,180 --> 00:00:41,800
+It is not the only way to obtain knowledge is not the only source of knowledge.
+
+6
+00:00:41,800 --> 00:00:49,870
+And so I want us in this video to think a little bit about some of these other sources of knowledge and how they relate to each other.
+
+7
+00:00:49,870 --> 00:00:57,690
+So some types of knowledge we can can encounter are quantitative knowledge that we've been working on in this class.
+
+8
+00:00:57,690 --> 00:01:04,780
+I'm going to work on for the rest of the class. And that's around numbers and quantities, qualitative knowledge,
+
+9
+00:01:04,780 --> 00:01:10,510
+which looks at the actual content and we aren't doing quantitative count like we aren't counting things.
+
+10
+00:01:10,510 --> 00:01:21,520
+We are computing statistics. We're looking at say what taxed or what videos or what images actually say analytical or knowledge or proofs.
+
+11
+00:01:21,520 --> 00:01:27,400
+These are these are mathematical derivations.
+
+12
+00:01:27,400 --> 00:01:32,740
+There's no there's no data in them that's driving them.
+
+13
+00:01:32,740 --> 00:01:39,550
+For example, the fact that the T statistic is distributed under the T distribution, under the null hypothesis.
+
+14
+00:01:39,550 --> 00:01:44,830
+That's mathematically proven. We didn't do a bunch of simulations or experiments to figure that out.
+
+15
+00:01:44,830 --> 00:01:50,500
+There's theory building to put together knowledge from a variety of sources and from a variety
+
+16
+00:01:50,500 --> 00:01:58,360
+of experiments or studies or investigations into a coherent theory of how a subject works.
+
+17
+00:01:58,360 --> 00:02:06,820
+And then there's critical knowledge that pokes at and investigates the structure, particularly the power structures.
+
+18
+00:02:06,820 --> 00:02:13,600
+But the structure of how something how a process for producing knowledge or how a thing we're studying is put
+
+19
+00:02:13,600 --> 00:02:22,510
+together and what how it got to where it is and what impact that may have on the results that we get from it.
+
+20
+00:02:22,510 --> 00:02:28,990
+One thing that's important to note is both quantitative and qualitative forms of knowledge are empirical.
+
+21
+00:02:28,990 --> 00:02:34,090
+They're getting from the data to the conclusions or to the insights that we have on
+
+22
+00:02:34,090 --> 00:02:42,700
+the question of quantitative methods do not have a monopoly on being data driven.
+
+23
+00:02:42,700 --> 00:02:44,860
+No one form of knowledge is the best.
+
+24
+00:02:44,860 --> 00:02:53,560
+And we often need multiple forms of knowledge together to gain a full understanding of something that we're trying to study.
+
+25
+00:02:53,560 --> 00:03:00,520
+So a quantitative measure methods are the things that we've been doing this semester, numeric methods and estimates.
+
+26
+00:03:00,520 --> 00:03:05,290
+We could ask how many of us there are, if something, what fraction and have some property.
+
+27
+00:03:05,290 --> 00:03:11,020
+We can try to predict numeric outcomes, lots of different things we can do with numbers.
+
+28
+00:03:11,020 --> 00:03:15,790
+And there's various sub methods. For example, observational studies.
+
+29
+00:03:15,790 --> 00:03:19,540
+They look at what we can see. We have data that we've collected.
+
+30
+00:03:19,540 --> 00:03:21,370
+Either we've gone and collected it in the field.
+
+31
+00:03:21,370 --> 00:03:29,530
+We have it from a dataset and we can see we've observed some process and we can look for correlations,
+
+32
+00:03:29,530 --> 00:03:36,450
+we can look for connections, and we can try to gain insight based on what we can observe in the world.
+
+33
+00:03:36,450 --> 00:03:42,780
+Experimental studies look at what happens when we intervene, when we act, when we change something.
+
+34
+00:03:42,780 --> 00:03:54,090
+How does what we're studying respond to it? So the observational studies can be so we look at our penguins and we can see their flipper lengths.
+
+35
+00:03:54,090 --> 00:03:58,620
+We can see their body masses. Experimental studies can let us get at.
+
+36
+00:03:58,620 --> 00:04:05,520
+Well, what happens when we give some penguins one diet and then other penguins another diet to understand it,
+
+37
+00:04:05,520 --> 00:04:11,300
+to isolate the impact of diet on, say, penguin growth?
+
+38
+00:04:11,300 --> 00:04:15,690
+And a simulation study looks at what happens in synthetic environments,
+
+39
+00:04:15,690 --> 00:04:23,640
+and these allow us to run a lot more analysis and studies than we can in an experiment because we don't have to collect data.
+
+40
+00:04:23,640 --> 00:04:31,770
+We don't have to use experimental resources in order to to create and observe changes.
+
+41
+00:04:31,770 --> 00:04:34,650
+We can just turn read a bunch of random numbers.
+
+42
+00:04:34,650 --> 00:04:45,480
+According to some structured process, and these are really good for understanding, particularly what have our made her methods.
+
+43
+00:04:45,480 --> 00:04:53,640
+So. If we have a method for studying what would happen in an experiment, we can simulate a bunch of different experiments,
+
+44
+00:04:53,640 --> 00:05:00,930
+maybe with different outcomes to see what our method would do when we got to control the experimental results because we made them up.
+
+45
+00:05:00,930 --> 00:05:05,850
+This is a really powerful tool for studying the statistical properties themselves.
+
+46
+00:05:05,850 --> 00:05:09,750
+And one of the things, especially those of you who are in the data science P.
+
+47
+00:05:09,750 --> 00:05:14,550
+D program, but also as you get deeper in your data science knowledge,
+
+48
+00:05:14,550 --> 00:05:20,040
+that's something that's going to be be very important for you to be able to go to to level up
+
+49
+00:05:20,040 --> 00:05:25,890
+from using the methods that we were developing and that we're learning to study phenomenon.
+
+50
+00:05:25,890 --> 00:05:34,410
+We're going to use we're gonna use our linear models to study something about penguins, maybe to being able to study the methods themselves.
+
+51
+00:05:34,410 --> 00:05:44,280
+Can what can we say about how a linear model works or about how a T test works or or the bootstrap simulation studies are really useful for that.
+
+52
+00:05:44,280 --> 00:05:48,420
+But these quantitative methods, they can ask some really useful.
+
+53
+00:05:48,420 --> 00:05:53,400
+They can address some really useful questions. We can see how often something happens.
+
+54
+00:05:53,400 --> 00:05:57,840
+We can see when it happens. How likely is it when X happens?
+
+55
+00:05:57,840 --> 00:06:04,870
+How likely is it for Y to happen? We can get these kinds of how often, how many, how likely kinds of questions.
+
+56
+00:06:04,870 --> 00:06:09,450
+What's hard to answer is why does X happen or when X happens?
+
+57
+00:06:09,450 --> 00:06:13,110
+What do those situations actually look like?
+
+58
+00:06:13,110 --> 00:06:18,920
+So an example, I'm going to talk a little bit more about it as we go through the slide, but we're trying to understand.
+
+59
+00:06:18,920 --> 00:06:24,540
+So we've got we've got a large company with a number of locations, B, where a supermarket chain.
+
+60
+00:06:24,540 --> 00:06:34,680
+And we want to understand employee retention. We can look at, say, how often employees leave or say, leave within their first year.
+
+61
+00:06:34,680 --> 00:06:42,300
+We can ask. When some particular change happened to the store, change happens in personnel policies.
+
+62
+00:06:42,300 --> 00:06:46,290
+How likely are employees to leave or if one employee leaves?
+
+63
+00:06:46,290 --> 00:06:54,300
+Are there more that are likely to follow? But, well, we don't really what the numbers can't give us is for any given employee leaving.
+
+64
+00:06:54,300 --> 00:07:03,540
+What was the situation? Why did they leave? It also doesn't give us insight into what new phenomenon should we look for.
+
+65
+00:07:03,540 --> 00:07:08,610
+The numbers can't tell us on their own and the quantitative methods can't tell us on their own.
+
+66
+00:07:08,610 --> 00:07:14,190
+What questions to even ask of the data. So this gets us to qualitative methods.
+
+67
+00:07:14,190 --> 00:07:18,900
+And qualitative methods are about interpretation and analysis.
+
+68
+00:07:18,900 --> 00:07:25,200
+And it lets us look at questions like why did someone do X quantitative?
+
+69
+00:07:25,200 --> 00:07:29,550
+Lets us ask how often it happened. Qualitative. Let's start to get at.
+
+70
+00:07:29,550 --> 00:07:33,630
+Why did they do it? Why did it happen? Or what do people want?
+
+71
+00:07:33,630 --> 00:07:40,170
+And the key thing about qualitative methods is that they engage directly with some kind of source material,
+
+72
+00:07:40,170 --> 00:07:44,670
+written text images, interviews and interview transcripts.
+
+73
+00:07:44,670 --> 00:07:47,580
+But you've got some source material, often textual.
+
+74
+00:07:47,580 --> 00:07:54,290
+But sometimes it's visual, sometimes it's video, and you're engaging directly with it and interpreting it.
+
+75
+00:07:54,290 --> 00:07:59,090
+Humans ever. You can't import pandas that qualitative, that's not a thing.
+
+76
+00:07:59,090 --> 00:08:07,190
+There's a very human process of engaging with the material in order to derive knowledge.
+
+77
+00:08:07,190 --> 00:08:12,110
+One quick note is that surveys where they get data from humans are not on their own qualitative.
+
+78
+00:08:12,110 --> 00:08:17,780
+If you ask someone a Likert Stiles survey strongly disagree to strongly agree and a bunch of questions.
+
+79
+00:08:17,780 --> 00:08:23,720
+You're getting quantitative data. If you have open free form text and you start to go analyze what they said.
+
+80
+00:08:23,720 --> 00:08:26,400
+That's qualitative data.
+
+81
+00:08:26,400 --> 00:08:35,370
+So in our example problem, if we want to understand employee concerns and opportunities to improve how our organization is treating employees,
+
+82
+00:08:35,370 --> 00:08:40,260
+we could go do some structured interviews and a semi structured interview.
+
+83
+00:08:40,260 --> 00:08:46,560
+Is it interview where you have a plan going into it, but it's not a rigorous answer.
+
+84
+00:08:46,560 --> 00:08:51,030
+These questions in a row and we're done kind of plan. You have goals for the interview.
+
+85
+00:08:51,030 --> 00:08:53,550
+You have key questions thought of in advance.
+
+86
+00:08:53,550 --> 00:09:00,870
+But the conversation, an interview can also go in the directions that seem natural as the interviewer is leading through it.
+
+87
+00:09:00,870 --> 00:09:05,100
+And the resulting data is you've got all of these interviews with employees. You.
+
+88
+00:09:05,100 --> 00:09:08,280
+You're probably going to transcribe them because we're doing the analysis as often a
+
+89
+00:09:08,280 --> 00:09:14,190
+lot easier to work with the transcribed text rather than the actual than the audio.
+
+90
+00:09:14,190 --> 00:09:19,740
+But you don't. It's expensive. And if you're going to sit down and have a half hour interview with each employee, that takes a long time.
+
+91
+00:09:19,740 --> 00:09:22,050
+You don't have time to interview them all.
+
+92
+00:09:22,050 --> 00:09:27,450
+One key thing, when we're doing quantitative methods or goals, statistical representations that the statistics we computer,
+
+93
+00:09:27,450 --> 00:09:34,440
+accurate estimates of the underlying parameters, the goal and qualitative analysis is not statistical representation.
+
+94
+00:09:34,440 --> 00:09:38,740
+The goal is to make sure that the different.
+
+95
+00:09:38,740 --> 00:09:48,310
+Subgroups and sex and characteristics and dynamics that you might try to be look, be able to find in the data are all represented at least once.
+
+96
+00:09:48,310 --> 00:09:51,280
+We're not going to be getting statistical counts out of this.
+
+97
+00:09:51,280 --> 00:09:57,640
+And so the statistical representation is just not the right way to frame thinking about qualitative responses.
+
+98
+00:09:57,640 --> 00:10:01,720
+So one particular method, there's many methods for qualitative analysis.
+
+99
+00:10:01,720 --> 00:10:09,580
+You can spend. I have spent my research career of 10 plus years now getting very good at a lot of quantitative methods.
+
+100
+00:10:09,580 --> 00:10:15,430
+You can spend that much time and then the entire rest of your career getting very good at qualitative methods.
+
+101
+00:10:15,430 --> 00:10:22,120
+There is skill just as much as the quantitative methods. There are no easier really to do them well.
+
+102
+00:10:22,120 --> 00:10:26,040
+But one particular qualitative method is called grounded theory,
+
+103
+00:10:26,040 --> 00:10:34,180
+and the idea of grounded theory is to start from the text itself and build up to ideas and figure out what themes are in the text
+
+104
+00:10:34,180 --> 00:10:43,970
+and how they connect to each other in a way that is as close to the text as possible and is derived from the text as possible.
+
+105
+00:10:43,970 --> 00:10:51,670
+And to get the ideas and the concepts from the text rather than from your preconceived ideas going into it of what should be in the text.
+
+106
+00:10:51,670 --> 00:10:56,710
+So what you do when you're doing grounded theory, if you're going to do grounded theory on these interviews,
+
+107
+00:10:56,710 --> 00:11:03,770
+is that you would break them into distinct statements or observations and then you would group these observations together into themes.
+
+108
+00:11:03,770 --> 00:11:08,220
+So you would take an observation. And if it's like an existing theme that you have, you would add it.
+
+109
+00:11:08,220 --> 00:11:12,610
+And if it's not like any any of the existing themes, you would start a new theme taking observations.
+
+110
+00:11:12,610 --> 00:11:16,180
+See, is this like any of the five kinds of things I've seen so far? Yes.
+
+111
+00:11:16,180 --> 00:11:21,250
+Put it in the pile. Like actually physically moving things around the piles is useful for this.
+
+112
+00:11:21,250 --> 00:11:27,850
+And if not, we're going to start a new one. So you have this this matching thing going on.
+
+113
+00:11:27,850 --> 00:11:31,480
+And then as you're going through the process, or once you get to the end of the process, you may merge.
+
+114
+00:11:31,480 --> 00:11:34,290
+Themes may say, oh, these things were really they were seeming separate.
+
+115
+00:11:34,290 --> 00:11:40,270
+I am coding, but they really do seem like they're together or maybe they're subthemes of another theme.
+
+116
+00:11:40,270 --> 00:11:48,910
+Now, in statistics, we have this notion of, OK, we have a statistically significant sample or a statistically significant results.
+
+117
+00:11:48,910 --> 00:11:53,770
+We know if we found it, we can talk about our sample size and things with this kind of a method.
+
+118
+00:11:53,770 --> 00:12:02,320
+What you use as your stopping condition is what's called saturation. And here, like stopping early to get statistical significance, not valid.
+
+119
+00:12:02,320 --> 00:12:12,040
+Saturation is. And the idea of saturation is that more data does not reveal more concepts.
+
+120
+00:12:12,040 --> 00:12:23,020
+So you've grouped your things together. You found 12 themes and doing this grounded theory process with another trend.
+
+121
+00:12:23,020 --> 00:12:28,550
+Another few interviews does not generate any new themes.
+
+122
+00:12:28,550 --> 00:12:35,390
+And this, if you're doing the process, if you got confidence in the process, then what this means is that you've hit conceptual saturation.
+
+123
+00:12:35,390 --> 00:12:40,610
+You have identified the themes that are coming from your data. More data isn't adding new themes.
+
+124
+00:12:40,610 --> 00:12:44,330
+So we have the themes. Our goal here is to extract themes. Now we have them.
+
+125
+00:12:44,330 --> 00:12:48,860
+The outcome of this process is our themes with illustrative quotations.
+
+126
+00:12:48,860 --> 00:12:54,470
+So we've put these observations in cities into the additional into the different themes and these observations themselves,
+
+127
+00:12:54,470 --> 00:12:59,140
+the things that our our interviewees, our employees said.
+
+128
+00:12:59,140 --> 00:13:04,520
+Those are quotations that illustrate the dynamic going on in that theme.
+
+129
+00:13:04,520 --> 00:13:10,910
+As I said before, qualitative methods are empirical. The conclusions are grounded in and supported by data.
+
+130
+00:13:10,910 --> 00:13:19,610
+The data is just analyzed differently. To get to those conclusions. Qualitative is very useful for demonstrating the existence of a phenomenon.
+
+131
+00:13:19,610 --> 00:13:26,770
+People do this because people say they they give or there's this reason why people leave.
+
+132
+00:13:26,770 --> 00:13:31,760
+Yes, we have at least one who said that was the reason they leaved in our in our data set.
+
+133
+00:13:31,760 --> 00:13:37,790
+And they can also help us elucidate the mechanisms for phenomenon because they allow us to dove much more deeply into each
+
+134
+00:13:37,790 --> 00:13:48,410
+specific example to understand what were the factors that caused this employee to leave or that causes them to continue to stay.
+
+135
+00:13:48,410 --> 00:13:53,150
+And the data is is what's called sometimes thick but low in quantity.
+
+136
+00:13:53,150 --> 00:13:57,080
+We don't have very many of these interviews. Relatively speaking, we might have 10 or 20.
+
+137
+00:13:57,080 --> 00:14:05,600
+We might even have 50. But we're not going to have the hundreds of data points we might have from a survey or from some other quantitative method.
+
+138
+00:14:05,600 --> 00:14:07,430
+But each of those individual data points,
+
+139
+00:14:07,430 --> 00:14:15,440
+an interview with a with an employee is much richer and gives us much more detail on it, on individual samples.
+
+140
+00:14:15,440 --> 00:14:19,280
+You can also mix methods, what's called mixed methods, research.
+
+141
+00:14:19,280 --> 00:14:24,100
+There's a variety of ways that you can combine quantitative and qualitative methods together.
+
+142
+00:14:24,100 --> 00:14:27,190
+I'm going to talk briefly about two.
+
+143
+00:14:27,190 --> 00:14:38,940
+One is where you do a qualitative study first so you can do a qualitative study with a small group to identify what concerns people have.
+
+144
+00:14:38,940 --> 00:14:45,390
+You may do some interviews with employees to understand some of their concerns around workplace safety or workplace environment.
+
+145
+00:14:45,390 --> 00:14:51,480
+And then you can follow that up with a quantitative study to see how widely held these different
+
+146
+00:14:51,480 --> 00:14:56,760
+concerns that came up in your qualitative study or qualitative demonstrates existence.
+
+147
+00:14:56,760 --> 00:15:01,590
+Quantitative measures, prevalence. Another one you can do as quantitative first.
+
+148
+00:15:01,590 --> 00:15:07,280
+You could do a quantitative analysis to identify the stores with low employee retention.
+
+149
+00:15:07,280 --> 00:15:13,370
+That's something quantitative analysis can do well. And then a qualitative analysis can help you understand why.
+
+150
+00:15:13,370 --> 00:15:17,420
+So go to some of those stores, interview some of the employees,
+
+151
+00:15:17,420 --> 00:15:24,530
+interview some of the managers and understand what's happening at the stores that have low employee retention.
+
+152
+00:15:24,530 --> 00:15:32,690
+These are just two ways that we can use qualitative methods and quantitative methods together, either to have the qualitative methods,
+
+153
+00:15:32,690 --> 00:15:40,490
+generate the hypotheses that we're going to go test quantitatively and measure the prevalence of quantitatively
+
+154
+00:15:40,490 --> 00:15:51,200
+or to better understand the dynamics and the nuances of what's happening in an effect that we see quantitatively.
+
+155
+00:15:51,200 --> 00:15:56,860
+So 30. What is 30 mean?
+
+156
+00:15:56,860 --> 00:16:01,840
+Numbers on their own don't mean anything. We have to have context to interpret this meaning.
+
+157
+00:16:01,840 --> 00:16:05,560
+Thirty is the typical size of this class. This fall, we only have twenty three.
+
+158
+00:16:05,560 --> 00:16:09,580
+But the typical size, this class is 30. OK, that give me a little more meaning.
+
+159
+00:16:09,580 --> 00:16:12,580
+At least know what we're talking about now in our department.
+
+160
+00:16:12,580 --> 00:16:17,830
+That's large for an art, for a graduate class, but it's about average for the department's classes overall.
+
+161
+00:16:17,830 --> 00:16:22,600
+OK. That helps. Gives me context to understand that we're looking at a large graduate class.
+
+162
+00:16:22,600 --> 00:16:28,840
+Why do we care about graduate classes as well? Class size affects teacher student engagement.
+
+163
+00:16:28,840 --> 00:16:32,740
+So this gives us. There's many other reasons why we might care about class size.
+
+164
+00:16:32,740 --> 00:16:37,360
+But it's easier to individually engage with students when the class size is relatively small.
+
+165
+00:16:37,360 --> 00:16:41,830
+That gives us more context for understanding why we even care about this value.
+
+166
+00:16:41,830 --> 00:16:47,140
+So we need context to interpret quantities and identify quantities of interest.
+
+167
+00:16:47,140 --> 00:16:53,140
+Qualitative methods can give us a lot of that context and a really, really rich way.
+
+168
+00:16:53,140 --> 00:16:58,660
+Now I want to talk briefly about analytical methods. Analytical methods are dealing with mathematical proofs and derivations.
+
+169
+00:16:58,660 --> 00:17:04,270
+As I said, they're usually quantitative, but they're not empirical. We're not looking at what data is telling us.
+
+170
+00:17:04,270 --> 00:17:12,570
+We're looking at the intrinsic fundamental properties of computation of method, etc. They're always true, given their assumptions that they.
+
+171
+00:17:12,570 --> 00:17:19,840
+If we have a proof that given some assumptions X follows, that's not something that depends on the condition.
+
+172
+00:17:19,840 --> 00:17:25,480
+When the assumptions hold, assuming that the proof is correct, it holds it may be probabilistic.
+
+173
+00:17:25,480 --> 00:17:31,270
+The proof we have may be something about how often something happens, like confidence intervals.
+
+174
+00:17:31,270 --> 00:17:36,070
+Confidence intervals don't always contain the mean. But we have a probability.
+
+175
+00:17:36,070 --> 00:17:42,780
+We have a proof about how often they do contain the mean.
+
+176
+00:17:42,780 --> 00:17:52,890
+Then another method is I want to bring up to you a little bit is critical methods, including what's called critical theory.
+
+177
+00:17:52,890 --> 00:17:58,980
+And the key idea of these methods is to analyze and explicate the power structures that
+
+178
+00:17:58,980 --> 00:18:03,420
+are at play and the thing that we're studying or in our process of studying in itself.
+
+179
+00:18:03,420 --> 00:18:10,350
+Who has power in a given situation? What are the effects of that power and that distribution of power?
+
+180
+00:18:10,350 --> 00:18:17,880
+Can also ask, how does perspective and the power or lack thereof that comes with it affect the questions and the can we equip.
+
+181
+00:18:17,880 --> 00:18:23,640
+The questions we ask and the conclusions that we come to from those?
+
+182
+00:18:23,640 --> 00:18:33,030
+For example, if we're trying to understand employee retention, the fact that it's employer or the employer's agent talking to the employee,
+
+183
+00:18:33,030 --> 00:18:38,790
+that creates a power dynamic that can affect the employees response to the survey if they think
+
+184
+00:18:38,790 --> 00:18:43,140
+things they say might be might affect their employment or the terms of their employment,
+
+185
+00:18:43,140 --> 00:18:50,100
+that might affect what they say. But that power dynamic can, in a very direct way, affect the data.
+
+186
+00:18:50,100 --> 00:18:58,860
+The results that we get out of it. So one way that one application for thinking about power is to look at who is making the decisions.
+
+187
+00:18:58,860 --> 00:19:00,570
+This looks at the overall process itself.
+
+188
+00:19:00,570 --> 00:19:07,290
+What we're doing this study to understand employee retention and what is causing low employee retention or what's caused it,
+
+189
+00:19:07,290 --> 00:19:14,190
+what's what's making our employees want to stay with the organization. But.
+
+190
+00:19:14,190 --> 00:19:20,280
+Credit one thing. Critical methods are going to get at is. Who is making the study about the decisions about the study?
+
+191
+00:19:20,280 --> 00:19:24,570
+Who's deciding what questions to ask in our survey or or our interviews?
+
+192
+00:19:24,570 --> 00:19:31,370
+Who is deciding who to talk to in this? And who's going to be deciding what to do with the results?
+
+193
+00:19:31,370 --> 00:19:38,370
+Because. If it is a collection of employees that are deciding what to do with the results,
+
+194
+00:19:38,370 --> 00:19:43,230
+that's very different than efforts, organization management that's deciding what to do with the results.
+
+195
+00:19:43,230 --> 00:19:50,160
+One thing also that's important to note is asking employees and questions about retention,
+
+196
+00:19:50,160 --> 00:19:54,540
+even very, very good, even if it's done very, very good faith.
+
+197
+00:19:54,540 --> 00:20:03,640
+We want to make the organization a good place to work. For going to ask our employees what.
+
+198
+00:20:03,640 --> 00:20:08,130
+What they see going on. How they think about their their work.
+
+199
+00:20:08,130 --> 00:20:13,110
+Asking the poor ye employees on its own is not sharing power in the way that critical methods.
+
+200
+00:20:13,110 --> 00:20:18,700
+Think about who has power and how it's distributed.
+
+201
+00:20:18,700 --> 00:20:25,140
+So then I want to talk then a little bit about theory, not in the critical theory sense, but in the theory building sense,
+
+202
+00:20:25,140 --> 00:20:35,110
+some dictionary defines theory as a plausible or scientifically acceptable general principle or body of principles offered to explain phenomena.
+
+203
+00:20:35,110 --> 00:20:43,790
+It's a it's a kahir is a framework. That links together our findings from a lot of different studies, from a lot of different experiments,
+
+204
+00:20:43,790 --> 00:20:56,600
+from different sources of knowledge into a coherent explanation or way of thinking about a phenomenon or a set of problems and theory drives analysis.
+
+205
+00:20:56,600 --> 00:21:03,590
+Because if we're doing good data science, if we're doing good quantitative analysis, our questions aren't just made up.
+
+206
+00:21:03,590 --> 00:21:09,590
+They come from a reason we have from theory why that's a relevant question to ask.
+
+207
+00:21:09,590 --> 00:21:15,820
+And theory in turn, comes from all of these sources because data.
+
+208
+00:21:15,820 --> 00:21:23,320
+And analytical and query and critical inquiry, they refine their confirm and confirm and sometimes they reject theories.
+
+209
+00:21:23,320 --> 00:21:29,260
+The process by which that happens is long and complicated and is the the subject of study
+
+210
+00:21:29,260 --> 00:21:34,750
+of both the philosophy of science and the discipline called science and technology studies.
+
+211
+00:21:34,750 --> 00:21:41,970
+But. Feary and our defriended are different modes of inquiry, have this.
+
+212
+00:21:41,970 --> 00:21:48,780
+This interactive relationship. That we have a theory that tells us things to go look for, we go look for them.
+
+213
+00:21:48,780 --> 00:21:55,560
+Those in turn come back and help us refine our general understanding of how the thing we're studying works.
+
+214
+00:21:55,560 --> 00:22:00,410
+Lastly, I want to say a little bit about our science and technology studies concept.
+
+215
+00:22:00,410 --> 00:22:08,640
+So often said that knowledge is socially constructed and it becomes relevant, particularly when we start thinking about as relevant in general,
+
+216
+00:22:08,640 --> 00:22:15,510
+being to try to understand how our tools work and their limitations and their possibilities.
+
+217
+00:22:15,510 --> 00:22:18,900
+It also becomes very important to start to think about the social ramifications
+
+218
+00:22:18,900 --> 00:22:23,910
+of data science and the ramifications of social structures on data science.
+
+219
+00:22:23,910 --> 00:22:32,350
+But what this means is that knowledge comes through processes and those processes are social.
+
+220
+00:22:32,350 --> 00:22:40,060
+Social construction does not mean that knowledge is fake or made up or unreliable or like, oh, it's socially constructed so we can dismiss it.
+
+221
+00:22:40,060 --> 00:22:48,130
+No, that's not what it means. All it means is that what we know about the world we know is through social processes.
+
+222
+00:22:48,130 --> 00:22:53,920
+Because you're in this class learning how to do data analysis.
+
+223
+00:22:53,920 --> 00:23:02,350
+I am teaching you a particular way of approaching data, a particular way of applying statistical tests and interpreting the results.
+
+224
+00:23:02,350 --> 00:23:06,610
+That is a social process. We're having these dialogs and conversations about it.
+
+225
+00:23:06,610 --> 00:23:13,200
+I learned these through a social process. I subject when we go and we publish papers.
+
+226
+00:23:13,200 --> 00:23:19,500
+We subject them to a peer review process. This is a social process, our peers look at it and assess it.
+
+227
+00:23:19,500 --> 00:23:33,420
+And as a as a community. We come to our notion, sometimes agreed upon, sometimes contested, about what kinds of questions we should ask,
+
+228
+00:23:33,420 --> 00:23:38,510
+how we should go about answering them, how do we know if what we've found is true?
+
+229
+00:23:38,510 --> 00:23:48,240
+Well, with our tools for doing that may be very reliable in the sense that they produce knowledge that's useful for for predicting future behavior,
+
+230
+00:23:48,240 --> 00:23:53,460
+for understanding what's going on around us.
+
+231
+00:23:53,460 --> 00:23:58,680
+There's still there's social processes and they were developed socially and
+
+232
+00:23:58,680 --> 00:24:04,410
+they therefore have the various biases and limitations of a social process.
+
+233
+00:24:04,410 --> 00:24:12,140
+And understanding that I find helps me.
+
+234
+00:24:12,140 --> 00:24:17,660
+Respect science and statistics and the quantitative methods we're studying.
+
+235
+00:24:17,660 --> 00:24:27,780
+More. Because rather than putting them on a pedestal that they can never achieve of, they are the ultimate, for example.
+
+236
+00:24:27,780 --> 00:24:31,350
+They are the ultimate source of knowledge. Some who basically go there were like,
+
+237
+00:24:31,350 --> 00:24:36,990
+if we can't show it with a randomized controlled trial and a statistic and a statistical test, not going to believe it.
+
+238
+00:24:36,990 --> 00:24:44,430
+And it puts them in what they can actually do. They can generate a lot of quantitative insight that can help us understand the world better.
+
+239
+00:24:44,430 --> 00:24:48,510
+We have processes that we think are probably pretty good.
+
+240
+00:24:48,510 --> 00:24:59,550
+Understanding the social nature of these processes is a useful tool for us to be able to think about how to make them better.
+
+241
+00:24:59,550 --> 00:25:11,170
+And so it's it's it's important to recognize this the social nature of our methods, but not to let that paralyze us.
+
+242
+00:25:11,170 --> 00:25:15,690
+And they said not to let that dismiss them. It doesn't mean we're not finding useful knowledge.
+
+243
+00:25:15,690 --> 00:25:20,190
+It just means there's social processes that got us to where we are today.
+
+244
+00:25:20,190 --> 00:25:25,230
+So to wrap up quantitative measurements and analysis are not the only or the best way to produce knowledge.
+
+245
+00:25:25,230 --> 00:25:44,033
+There is no best way to produce knowledge. Multiple sources of knowledge together give multiple sources of knowledge together.
+

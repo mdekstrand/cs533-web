@@ -1,0 +1,208 @@
+1
+00:00:04,460 --> 00:00:16,070
+Hi, no slides this time. Want to talk to you for just a few minutes about where to learn more, so we've introduced a number of Python things.
+
+2
+00:00:16,070 --> 00:00:19,730
+We're going to see more python things. We've introduced some basic inferential techniques.
+
+3
+00:00:19,730 --> 00:00:24,110
+We're going to see more inferential techniques. We're going to see more techniques of other kinds.
+
+4
+00:00:24,110 --> 00:00:32,650
+But this class, I'm not certainly not able to cover everything you're going to ever need to know.
+
+5
+00:00:32,650 --> 00:00:38,530
+You're not going to cover everything you're ever going to need to know and a master's degree or an APHC.
+
+6
+00:00:38,530 --> 00:00:44,950
+So where do you go to learn more? One immediate thing is to take more classes for many of you.
+
+7
+00:00:44,950 --> 00:00:50,110
+This is your first class in a data science oriented master's or HD program.
+
+8
+00:00:50,110 --> 00:00:52,480
+You're going to take, say, the machine learning class in the spring.
+
+9
+00:00:52,480 --> 00:00:56,770
+You're going to take maybe natural language processing, maybe recommender systems.
+
+10
+00:00:56,770 --> 00:01:00,620
+Maybe you're going to take one of the information retrieval classes or social network analysis.
+
+11
+00:01:00,620 --> 00:01:07,840
+The variety of classes you can go take classes in mathematics and statistics and econometrics and the econ department.
+
+12
+00:01:07,840 --> 00:01:12,280
+You can go look for econometrics. There's a variety of classes that you can take that can help fill in some knowledge.
+
+13
+00:01:12,280 --> 00:01:19,090
+But beyond that, there's a lot you can do to study and learn more.
+
+14
+00:01:19,090 --> 00:01:22,380
+There's lots of books I'm referencing some in this class.
+
+15
+00:01:22,380 --> 00:01:32,680
+I'm going to be adding links to more as we go through the class further and get get to more techniques that are worth pointing you to a book for.
+
+16
+00:01:32,680 --> 00:01:39,730
+But also, some of the things that I do is, for one, I read a lot, particularly when I'm reading a lot of papers.
+
+17
+00:01:39,730 --> 00:01:45,310
+I read a lot of things on the Internet. And I pay attention to the statistical methods.
+
+18
+00:01:45,310 --> 00:01:53,020
+So I'm very active on Twitter, for example, and I follow a number of people who tweet about statistical methodology.
+
+19
+00:01:53,020 --> 00:01:58,960
+Some of them are very advanced and sophisticated statisticians, and I pay attention to what they have to say.
+
+20
+00:01:58,960 --> 00:02:07,090
+What are they saying about statistical methods? Oftentimes I need a lot more background to fully understand the argument that they're weighing in on.
+
+21
+00:02:07,090 --> 00:02:14,340
+But I'll see if it seems relevant to anything I'm working on and maybe go and get some of that background.
+
+22
+00:02:14,340 --> 00:02:19,080
+And so that's one sources is seeking out.
+
+23
+00:02:19,080 --> 00:02:27,660
+Blogs, social media feeds, etc, from people who are regularly posting information about statistical techniques or data science techniques.
+
+24
+00:02:27,660 --> 00:02:34,540
+You have to be careful. There's a lot of bad information out there. But there's a lot of quite good.
+
+25
+00:02:34,540 --> 00:02:42,970
+There's a lot of quite good and well-informed statisticians and data scientists who are posting things that you might want to pay attention to.
+
+26
+00:02:42,970 --> 00:02:49,420
+And some of them are also very, very funny. I also, as I'm reading research papers, I pay attention to their method.
+
+27
+00:02:49,420 --> 00:02:51,520
+Sometimes it's just to better understand the methods.
+
+28
+00:02:51,520 --> 00:02:57,670
+Sometimes a paper was going to have an interesting method that might be useful for me to add and adapt to my own research.
+
+29
+00:02:57,670 --> 00:03:01,290
+I also reflect on my processes as I'm working on a project.
+
+30
+00:03:01,290 --> 00:03:04,360
+They ask what's working, what's not? Where are the holes?
+
+31
+00:03:04,360 --> 00:03:11,380
+Whereas this project at the edge of my knowledge and I really need to understand something else to push it forward.
+
+32
+00:03:11,380 --> 00:03:15,850
+I pay attention when I'm at conferences to what methods do people seem to be applying?
+
+33
+00:03:15,850 --> 00:03:19,030
+What methods do I maybe need to add to my tool box?
+
+34
+00:03:19,030 --> 00:03:26,500
+Because people are getting a lot of value out of them and doing the kinds of research that I try to do.
+
+35
+00:03:26,500 --> 00:03:34,870
+I also spend time trying to understand my tools, reading the documentation for things like pandas and num pi, trying things out.
+
+36
+00:03:34,870 --> 00:03:41,500
+Oftentimes I'll spin up a notebook just to try something out, to see how it works and how it works in my data.
+
+37
+00:03:41,500 --> 00:03:47,910
+Looking at examples, I'm pretty opinionated in my programing, so there's a lot of examples I don't like,
+
+38
+00:03:47,910 --> 00:03:51,700
+but but looking at examples and trying to understand how other people did things and
+
+39
+00:03:51,700 --> 00:03:56,680
+why they did them that way and seeing what I can incorporate into my own process.
+
+40
+00:03:56,680 --> 00:04:02,470
+But a lot of it is practice. And also, I think as I'm working.
+
+41
+00:04:02,470 --> 00:04:06,070
+Is there a better way I can do this? Is there a way I can do this more efficiently?
+
+42
+00:04:06,070 --> 00:04:10,450
+Sometimes I don't care. Like, OK, that was fast enough. But paying attention to and reflecting on.
+
+43
+00:04:10,450 --> 00:04:13,270
+OK, how about how is this working? How am I actually doing?
+
+44
+00:04:13,270 --> 00:04:19,570
+This computation really goes a long ways towards identifying the places where I might need to go level up my skills.
+
+45
+00:04:19,570 --> 00:04:27,970
+So at the end of the day, what I do to keep learning more of this material is I pay attention to the work, both my work and the work of others.
+
+46
+00:04:27,970 --> 00:04:33,550
+Pay attention to the details. How are we getting these results?
+
+47
+00:04:33,550 --> 00:04:40,780
+What assumptions is this making? Are those assumptions valid? Can I apply this method in another technique, in another context?
+
+48
+00:04:40,780 --> 00:04:44,980
+It's question of all of that asking myself and then reflecting my own practice.
+
+49
+00:04:44,980 --> 00:04:48,640
+And as I'm working on a project. What am I happy about and how this project worked out?
+
+50
+00:04:48,640 --> 00:04:50,500
+What am I dissatisfied with?
+
+51
+00:04:50,500 --> 00:04:58,570
+What do I need to go learn in order to address the point of the project that this dissatisfied me and continually learn more things?
+
+52
+00:04:58,570 --> 00:05:10,433
+Spend time thinking, try the mountain new projects and building up my skills incrementally over time.
+

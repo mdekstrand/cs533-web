@@ -1,0 +1,544 @@
+1
+00:00:04,660 --> 00:00:08,320
+This video, I want to talk with you now about testing hypotheses.
+
+2
+00:00:08,320 --> 00:00:16,720
+So we've talked about estimating values and computing the precision of an estimate by looking at the width of a confidence interval.
+
+3
+00:00:16,720 --> 00:00:24,010
+We've seen how to do that, both param metrically using the standard error for the mean and also doing it with the bootstrap.
+
+4
+00:00:24,010 --> 00:00:32,620
+In this video, we're going to talk about no and alternative hypotheses to test for hypotheses and bootstrapping P values.
+
+5
+00:00:32,620 --> 00:00:38,800
+So if we had the question, do pet Gentoo penguins have longer flippers than chinstrap penguins?
+
+6
+00:00:38,800 --> 00:00:45,610
+We can what we can do to try to assess this question is measured the difference in average flipper length.
+
+7
+00:00:45,610 --> 00:00:47,590
+And then we can ask.
+
+8
+00:00:47,590 --> 00:00:55,350
+Suppose they didn't have different length that Jeonju penguins and chinstrap penguins are the same in terms of their flipper length.
+
+9
+00:00:55,350 --> 00:01:02,470
+How likely would I be to find this big of a difference in flipper length?
+
+10
+00:01:02,470 --> 00:01:08,860
+Under those conditions, this probability, we call that the null hypothesis.
+
+11
+00:01:08,860 --> 00:01:13,570
+For most statistical tests, the null hypothesis is everything's the same.
+
+12
+00:01:13,570 --> 00:01:24,300
+There's no actual difference. And this probability that we see this big of a difference, given that there's no difference, is called a P value.
+
+13
+00:01:24,300 --> 00:01:28,920
+So. We're doing the test. We define two hypotheses.
+
+14
+00:01:28,920 --> 00:01:36,930
+The null hypothesis in this case that the mean flipper account or the mean flipper length for a Gentoo is the same as for a chinstrap.
+
+15
+00:01:36,930 --> 00:01:42,930
+And the alternative hypothesis, they aren't. And then we use we can use in this case,
+
+16
+00:01:42,930 --> 00:01:53,250
+we can use what's called a two sample t test that computes the probability that our that we see this big of a difference in our sample means,
+
+17
+00:01:53,250 --> 00:01:58,020
+given that there is no difference. H0 The true means are the same.
+
+18
+00:01:58,020 --> 00:02:04,620
+If P is low, a common threshold is point zero five. Then we read say that the data reject that.
+
+19
+00:02:04,620 --> 00:02:13,920
+We reject the null hypothesis. If it's if P is large, then we say the data could not reject the null hypothesis.
+
+20
+00:02:13,920 --> 00:02:19,980
+This bias is our discovery procedure into towards not claiming things.
+
+21
+00:02:19,980 --> 00:02:28,660
+But we. We. We say here, if it's small, that we reject the null.
+
+22
+00:02:28,660 --> 00:02:32,830
+So there's many different tests, each with their own H zero H.
+
+23
+00:02:32,830 --> 00:02:35,200
+Not that the null hypothesis.
+
+24
+00:02:35,200 --> 00:02:43,150
+The one sample T test is the null hypothesis is that the mean is zero, or we can set it to mean as any other particular constant.
+
+25
+00:02:43,150 --> 00:02:50,140
+The two sample T test asks. So we've got sample two different samples and we have their sample means.
+
+26
+00:02:50,140 --> 00:02:59,110
+The null hypothesis is that the means are the same. The paired t test, we have, again, two measurements, but in the two sample T tests,
+
+27
+00:02:59,110 --> 00:03:03,760
+we have measurements from one sample of measurements from another sample in the paired T test.
+
+28
+00:03:03,760 --> 00:03:12,100
+We have one sample and we take two measurements for each for each element in the sample.
+
+29
+00:03:12,100 --> 00:03:18,690
+And this can be one way this comes up is in what we call between subjects or within subjects experiment.
+
+30
+00:03:18,690 --> 00:03:33,460
+So when it between subjects experiment you. Take say, if you're trying to test a the effectiveness of a computer interface or your.
+
+31
+00:03:33,460 --> 00:03:39,220
+You're trying to test whether the new widget you stuck on your Web site is improving sales.
+
+32
+00:03:39,220 --> 00:03:42,760
+You have a sample of your users, half of them. You have used the new widget.
+
+33
+00:03:42,760 --> 00:03:49,010
+Half of them, you have used the old widget. You compute the sales and then used you test.
+
+34
+00:03:49,010 --> 00:03:53,500
+It's between subjects, but you have different subjects in each condition or within subjects.
+
+35
+00:03:53,500 --> 00:03:58,400
+Experiment. The subjects are in both conditions.
+
+36
+00:03:58,400 --> 00:04:10,060
+So if you have two different, maybe you have two different widgets for two different boxes for how you want to finish checking out.
+
+37
+00:04:10,060 --> 00:04:16,730
+A shopping cart. And you're doing a study in a lab and you have you want everybody to try both.
+
+38
+00:04:16,730 --> 00:04:23,450
+And you have them. So you have everybody. Put the shopping experience with one interface.
+
+39
+00:04:23,450 --> 00:04:27,320
+Complete it with another. You measure maybe the speed, maybe the error rate.
+
+40
+00:04:27,320 --> 00:04:29,480
+When you do this, you do what's called counterbalancing.
+
+41
+00:04:29,480 --> 00:04:34,760
+You have half of them, have them in one order and half of them in the other in case there's an order or learning effect.
+
+42
+00:04:34,760 --> 00:04:40,160
+But the idea here is that for each user, you have their speed with one interface in their speed with another interface.
+
+43
+00:04:40,160 --> 00:04:44,630
+So they're paired in that case. You do the paired t test.
+
+44
+00:04:44,630 --> 00:04:49,610
+And what you're tactically want to test is your testing. It's it's a one sample t test.
+
+45
+00:04:49,610 --> 00:04:59,660
+The test, if the me if the mean of the difference between two measurements for the same person, the same idea when the sample is zero.
+
+46
+00:04:59,660 --> 00:05:04,430
+If it's zero then they came from the same. Then there's no actual difference.
+
+47
+00:05:04,430 --> 00:05:11,210
+So that's our that's our null hypothesis. ANOVA extends it beyond one level.
+
+48
+00:05:11,210 --> 00:05:16,430
+So to one sample, two sample pairs. What if we have.
+
+49
+00:05:16,430 --> 00:05:21,590
+Five samples. Then we use Enova. What if we have?
+
+50
+00:05:21,590 --> 00:05:27,020
+Five measurements. Then we use what's called repeated measures, Enova. But the H.
+
+51
+00:05:27,020 --> 00:05:31,650
+The null hypothesis for Enova is that all means are equal.
+
+52
+00:05:31,650 --> 00:05:38,460
+So each of these tests, though, they make assumptions and they're often quite strong, the T test makes them assumptions about the data.
+
+53
+00:05:38,460 --> 00:05:42,480
+It's relatively robust to violations of its normality assumptions.
+
+54
+00:05:42,480 --> 00:05:46,290
+Independence is a killer in any of these tests.
+
+55
+00:05:46,290 --> 00:05:53,110
+And this is why you have to use the paired t test when you have paired data because the samples are not independent.
+
+56
+00:05:53,110 --> 00:06:00,130
+If I do, I if I am particularly slow at using of doing a kind of task,
+
+57
+00:06:00,130 --> 00:06:06,850
+then even if the new interface makes me faster at it than the old interface, I will.
+
+58
+00:06:06,850 --> 00:06:11,320
+My speeds will be lower than they would someone else.
+
+59
+00:06:11,320 --> 00:06:16,750
+And so by pairing it controls for that, because it's just looking at the difference between the speed.
+
+60
+00:06:16,750 --> 00:06:21,460
+How much did it speed me up? How much did it speed up?
+
+61
+00:06:21,460 --> 00:06:28,870
+Enova also depends on quite a few assumptions getting into the details of a nova are beyond the scope of what we have time to get to,
+
+62
+00:06:28,870 --> 00:06:35,800
+particularly this week. But we can also bootstrap a P value in.
+
+63
+00:06:35,800 --> 00:06:42,040
+The idea here is that we have some statistic. I'm going to call it T. But I might be the mean.
+
+64
+00:06:42,040 --> 00:06:47,560
+It might be some kind of a normalized statistic. It might be whatever statistic we're trying to compute and what we do.
+
+65
+00:06:47,560 --> 00:06:55,780
+So the goal of the bootstrap lots is resample. But the goal here is to simulate the distribution of the statistic under the null hypothesis.
+
+66
+00:06:55,780 --> 00:06:59,320
+So we transform the data to follow the null hypothesis in some way.
+
+67
+00:06:59,320 --> 00:07:04,780
+We bootstrap the transform data and we compute a statistic from each bootstrap sample.
+
+68
+00:07:04,780 --> 00:07:12,080
+And then we look at what's the probability that this bootstrapped statistic exceeds.
+
+69
+00:07:12,080 --> 00:07:21,140
+Or is at least as large as our sample statistic. The tricky part of doing this is properly sampling from the null hypothesis.
+
+70
+00:07:21,140 --> 00:07:28,550
+And this you're gonna have to figure out for each bootstrap that you want to do. But if we're going to test if we're gonna do the two sample test.
+
+71
+00:07:28,550 --> 00:07:34,790
+So the T-test, the the H not is that this means are the same.
+
+72
+00:07:34,790 --> 00:07:43,580
+We can also think about a somewhat richer no hypothesis that chinstrap it Gentoo instant's strap Flipper's have the same distribution.
+
+73
+00:07:43,580 --> 00:07:52,340
+But here we're only going to measure the mean. So the no bootstrap, though not since the null hypothesis is they have the same distribution.
+
+74
+00:07:52,340 --> 00:07:54,910
+What I can do is I can pool all the measurements.
+
+75
+00:07:54,910 --> 00:08:01,070
+So it is going to take all of the Gentoo chinstrap, penguin flipper length, stick them all together in one big list.
+
+76
+00:08:01,070 --> 00:08:08,300
+And then I'm going to. Because if if there's no difference in flipper length between a Gentoo, an entrenched chinstrap,
+
+77
+00:08:08,300 --> 00:08:12,680
+then if I'm sampling of flipper length, it shouldn't matter which penguin I'm sampling it from.
+
+78
+00:08:12,680 --> 00:08:21,290
+So. We compute our bootstrap samples, one that's the length of our chinstraps sample ones that that's the length of our Gentoo sample.
+
+79
+00:08:21,290 --> 00:08:29,480
+And we compute the P value. That's the fraction of the bootstrap runs where the magnitude, the difference exceeds our observed difference.
+
+80
+00:08:29,480 --> 00:08:36,870
+And so if our observed value is if the observed value we have and the difference is common, then the penguins are probably not that different.
+
+81
+00:08:36,870 --> 00:08:45,780
+But if it's very difficult to boots, if it's very rare for this bootstrap procedure to give us the value we saw,
+
+82
+00:08:45,780 --> 00:08:51,750
+then that's evidence that there's a difference in the flipper lengths of the penguins.
+
+83
+00:08:51,750 --> 00:09:01,810
+The notebook I'm going to give you to go with this video shows the code for how to actually do the bootstrap of the P value in addition to the T test.
+
+84
+00:09:01,810 --> 00:09:08,950
+Another issue we run into is when we have multiple usually we don't just run one test in a paper or another report.
+
+85
+00:09:08,950 --> 00:09:18,430
+We have many if we call the. So the threshold we use, we compare this p value, the probability of seeing this, of seeing a result that's extreme.
+
+86
+00:09:18,430 --> 00:09:21,510
+If the null hypothesis is true.
+
+87
+00:09:21,510 --> 00:09:28,650
+We compare that to what we called the significance level alpha, which is our threshold for saying, and probably it's more likely to be true.
+
+88
+00:09:28,650 --> 00:09:36,420
+So if we have Alpha is O point five, then if we run 20 tests.
+
+89
+00:09:36,420 --> 00:09:44,470
+That. And the null hypothesis is true and all of them.
+
+90
+00:09:44,470 --> 00:09:50,020
+We will probably find one that sticks statistically significant. If we run 100, we'll probably find five.
+
+91
+00:09:50,020 --> 00:09:57,490
+And so you get what's called a false discovery. There are ways to correct for this the bond ferrone correction is a conservative but
+
+92
+00:09:57,490 --> 00:10:02,410
+sound correction that scales down our significance level by the number of tests we run.
+
+93
+00:10:02,410 --> 00:10:05,710
+Not not just the ones that are reported in the paper.
+
+94
+00:10:05,710 --> 00:10:16,330
+And there's other corrections that work in various situations to be able to correct for these multiple comparisons is the Benjamina family,
+
+95
+00:10:16,330 --> 00:10:19,360
+the Benjamina Horsburgh, which works if all of our tests are independent.
+
+96
+00:10:19,360 --> 00:10:28,900
+There's another variant that works that can deal with non independence between dependency relationships, between our different tests.
+
+97
+00:10:28,900 --> 00:10:36,130
+So, for example, if we if we compare all pairs of penguin species, chinstrap to Gentoo,
+
+98
+00:10:36,130 --> 00:10:41,620
+chinstrap to a deli Chinh strapped to their skewes, you just accidentally chinstrap to a deli.
+
+99
+00:10:41,620 --> 00:10:49,200
+Adelita Gentoo. Those aren't all independent. But one thing we need to think about is what the results are for.
+
+100
+00:10:49,200 --> 00:10:53,040
+If this is our threshold and we're saying, OK, P less than point zero five,
+
+101
+00:10:53,040 --> 00:10:57,960
+we found something and that's our evidence, then we need to be scaling and most of the time.
+
+102
+00:10:57,960 --> 00:11:05,670
+But as I said back in the first video this week, my perspective on this topic is multi evidentiary.
+
+103
+00:11:05,670 --> 00:11:10,210
+A P value is not a conclusive judgment that we found something.
+
+104
+00:11:10,210 --> 00:11:17,200
+A P-value is one piece of evidence that this is worth continuing to look at and in support of of the results that we're finding.
+
+105
+00:11:17,200 --> 00:11:26,260
+It's if the P value is high. So the results we're seeing are completely consistent with the null hypothesis.
+
+106
+00:11:26,260 --> 00:11:34,930
+Then that means we probably haven't found something. But if it's low, there's a bunch of other reasons why why we might have seen what we've seen.
+
+107
+00:11:34,930 --> 00:11:42,770
+We should have some skepticism. It's one piece of evidence among many of the uncorrected p value is still evidence we have.
+
+108
+00:11:42,770 --> 00:11:47,920
+So depending on how we treat it in the process of drawing our conclusions.
+
+109
+00:11:47,920 --> 00:11:53,460
+So a few pitfalls, the P values of the multiple comparison ones.
+
+110
+00:11:53,460 --> 00:11:59,500
+There's also the issue of what we're doing, experiments on the same data set over and over.
+
+111
+00:11:59,500 --> 00:12:02,890
+Should we be correcting for all of the P values ever run on that data set?
+
+112
+00:12:02,890 --> 00:12:11,580
+They're also designed for prospective experiments. So the mathematics around P values, also the mathematics around confidence intervals, et cetera.
+
+113
+00:12:11,580 --> 00:12:17,250
+They came out of this sampling theory where we're thinking about things prospectively.
+
+114
+00:12:17,250 --> 00:12:22,080
+So I'm going to go and I'm going to take a sample and computer statistic and I want to know what the distribution of that is.
+
+115
+00:12:22,080 --> 00:12:28,140
+But in data science, we're often in retrospect, if we have an existing data set,
+
+116
+00:12:28,140 --> 00:12:33,240
+even if we're gonna sample from it, we're often looking at the whole data set before we do our sampling.
+
+117
+00:12:33,240 --> 00:12:37,260
+That doesn't mean they're not useful. The statistic, they're really, really P-value.
+
+118
+00:12:37,260 --> 00:12:42,520
+We can still compute it. It's still a piece of evidence. It's just not.
+
+119
+00:12:42,520 --> 00:12:51,550
+The judge's final sentence also full validity for what he values telling us requires us to plan the whole analysis before we look at the data.
+
+120
+00:12:51,550 --> 00:13:00,370
+The P-value computes the probability of our statistic being this large, given the null hypothesis, is true.
+
+121
+00:13:00,370 --> 00:13:04,750
+But when we look at our data, first we do an exploratory analysis. We plot some charts.
+
+122
+00:13:04,750 --> 00:13:08,980
+I say, oh, this looks like a relationship. This looks like looks like these means are different.
+
+123
+00:13:08,980 --> 00:13:13,810
+And then we go to our hub. Then we go do a T test.
+
+124
+00:13:13,810 --> 00:13:16,660
+What we're actually computing is the probability of the statistic,
+
+125
+00:13:16,660 --> 00:13:29,370
+given that the null hypothesis is true and that the null hypothesis looks false because our choice of what to test is influenced by this information.
+
+126
+00:13:29,370 --> 00:13:37,290
+And so the p value is not measuring what the process that we actually use to drive it.
+
+127
+00:13:37,290 --> 00:13:45,540
+Also, the null hypothesis is usually not precisely true. Paying mean penguins might be slightly different, just not different enough to matter.
+
+128
+00:13:45,540 --> 00:13:49,770
+Again, I said this is not this does not mean we should not compute the P values.
+
+129
+00:13:49,770 --> 00:14:00,570
+This does not mean they're useless. This means they need to be. Taken as one piece of evidence in the context that the totality of the evidence
+
+130
+00:14:00,570 --> 00:14:06,660
+that we bring to understanding what it is that we're trying to understand,
+
+131
+00:14:06,660 --> 00:14:12,120
+statistics and actual application is a lot of reasoned judgment calls.
+
+132
+00:14:12,120 --> 00:14:16,090
+There's bad call there. There's there's many, many ways to do statistics poorly.
+
+133
+00:14:16,090 --> 00:14:23,180
+I have a book on my shelf called Statistics Done Wrong The Woefully Complete Guide.
+
+134
+00:14:23,180 --> 00:14:25,740
+The reason judgment's doesn't mean anything goes,
+
+135
+00:14:25,740 --> 00:14:31,920
+but it does mean that we need to there's not gonna be the bright line rule to say, yes, we found something.
+
+136
+00:14:31,920 --> 00:14:51,971
+We have our pieces of evidence who have our confidence intervals. We have our P values. We have the other things we compute from the bootstrap.
+

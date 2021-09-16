@@ -1,0 +1,172 @@
+1
+00:00:04,870 --> 00:00:12,280
+This video and one to interest. Introduce us to ways of comparing distributions visually so our outcomes are to be able to draw.
+
+2
+00:00:12,280 --> 00:00:17,650
+Q Q Plot to compare two distributions and assess fit with one of these plots.
+
+3
+00:00:17,650 --> 00:00:23,770
+So we get some data points, we can draw them with a histogram. We know how to do this and we can look at them.
+
+4
+00:00:23,770 --> 00:00:29,530
+And we want to if we want to ask, say, are these points normally distributed? That's hard to tell from the histogram.
+
+5
+00:00:29,530 --> 00:00:35,440
+These look like they're probably normal. If I could envision drawing a curve that looks approximately normal through those.
+
+6
+00:00:35,440 --> 00:00:39,760
+OK. But that's not a very good. That's not a very good test.
+
+7
+00:00:39,760 --> 00:00:48,490
+And it also. Particularly because with the beaning and also with random.
+
+8
+00:00:48,490 --> 00:00:54,820
+Little clusters here and there. It's difficult to accurately tell from a histogram of what we're looking at as normal,
+
+9
+00:00:54,820 --> 00:01:01,150
+but histograms are not the only ways we can show distributions if we want to compare to distributions.
+
+10
+00:01:01,150 --> 00:01:11,860
+We can use something called a Q cue plot and a Q Q plot gives us an easy way to compare whether the data are likely drawn from the same distribution.
+
+11
+00:01:11,860 --> 00:01:15,910
+So each point is each point corresponds to a data point.
+
+12
+00:01:15,910 --> 00:01:26,530
+But. On the on the x axis, we are showing that the quantity of corresponding to that point.
+
+13
+00:01:26,530 --> 00:01:34,330
+In the theoretical distribution, so the reference distribution, so the theoretical Quantrill's in this case might want to test for normality.
+
+14
+00:01:34,330 --> 00:01:42,340
+This is a standard normal distribution. So the first point in the data set, where would the first point be?
+
+15
+00:01:42,340 --> 00:01:47,740
+Probably be if I drew this at this many points from a normal distribution.
+
+16
+00:01:47,740 --> 00:01:55,330
+And the y axis is the the value in the actual data.
+
+17
+00:01:55,330 --> 00:02:01,990
+In this case, normalized or standardized have a mean of zero and a standard deviation of one.
+
+18
+00:02:01,990 --> 00:02:11,790
+But otherwise unchanged. And if the data come from the reference and reference distribution of the same distribution.
+
+19
+00:02:11,790 --> 00:02:19,230
+So we're using normal as our reference and the data are normal. Then we're going to see.
+
+20
+00:02:19,230 --> 00:02:25,470
+Fist straight line. That we see through the data points.
+
+21
+00:02:25,470 --> 00:02:32,220
+Because when we align up the data points and where we would expect them to be, what we would expect them to be if they were normal.
+
+22
+00:02:32,220 --> 00:02:37,980
+Those match the data, match what we would expect if this data were drawn from a normal distribution.
+
+23
+00:02:37,980 --> 00:02:44,540
+If we see some points over here doing this. And something like that.
+
+24
+00:02:44,540 --> 00:02:52,040
+Then that would indicate that we don't have a normal distribution and we see a few points here that are kind of off the line a little bit.
+
+25
+00:02:52,040 --> 00:02:59,030
+That's OK. Especially out of the tails. It's it's common to see a couple of points at each side that that aren't quite on the line.
+
+26
+00:02:59,030 --> 00:03:04,630
+But the fact that in the middle of the plot. That line is lining up.
+
+27
+00:03:04,630 --> 00:03:10,800
+That gives us confidence that what we're looking at is a normal distribution and.
+
+28
+00:03:10,800 --> 00:03:20,700
+This this plot design allows us to directly compare to distributions in a way that's much, much more precise than trying to eyeball a histogram.
+
+29
+00:03:20,700 --> 00:03:25,500
+The X coordinates can be values from the theoretical distribution, such as a normal. You can use this for any kind of distribution.
+
+30
+00:03:25,500 --> 00:03:31,560
+You can use it for an exponential a T, a wible pick your distribution.
+
+31
+00:03:31,560 --> 00:03:38,970
+And but they can also be from a second datasets. We have if we have two data sets and we want to see if they were drawn from the same distribution.
+
+32
+00:03:38,970 --> 00:03:49,160
+We can do that with a Q Q plot as well. So the plot one of these the stats that's models package provides the coocoo plot function and.
+
+33
+00:03:49,160 --> 00:03:54,710
+There's a couple of options. There's one, the line equals forty five options going to show a match line.
+
+34
+00:03:54,710 --> 00:04:01,910
+It's going to draw that red line that we saw. And there's another option that aligns the data to standardizes the data.
+
+35
+00:04:01,910 --> 00:04:10,460
+That drawing the 45 degree line, that straight line from corner to corner is going to be the line where a match that data match falls.
+
+36
+00:04:10,460 --> 00:04:15,420
+I'm writing a notebook, the one sample notebook in this week's material. It demonstrates how to draw.
+
+37
+00:04:15,420 --> 00:04:21,110
+Q Cube plot. And it also shows how to build your own Kyuki plot. So we use stats, models, Kyuki plot in there.
+
+38
+00:04:21,110 --> 00:04:30,140
+But then I also work through the pieces just using standard num pi a matplotlib features in order to get us to a cute, cute plot.
+
+39
+00:04:30,140 --> 00:04:34,850
+Hopefully that I hope make a little more sense, but most of the time I just draw the queue.
+
+40
+00:04:34,850 --> 00:04:38,990
+I use just use stats, models, Kyuki plot to get my Kyuki plots.
+
+41
+00:04:38,990 --> 00:04:46,010
+So to conclude Q Q plots, let us compare data between two to see compare data from two different distributions.
+
+42
+00:04:46,010 --> 00:04:56,540
+It might be observed data and a theoretical distribution, or it might be two different, two different samples of data points.
+
+43
+00:04:56,540 --> 00:05:06,100
+And on the Q Q plot, when the distributions match the data are in a straight line.
+

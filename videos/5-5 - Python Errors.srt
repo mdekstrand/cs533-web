@@ -1,0 +1,300 @@
+1
+00:00:04,790 --> 00:00:10,280
+Hello, and this video, I want to talk with you just a little bit about how to read and interpret Python error messages,
+
+2
+00:00:10,280 --> 00:00:14,670
+learning outcomes are to be able to read a Python error message and understand
+
+3
+00:00:14,670 --> 00:00:20,120
+common kinds of python errors and the things that tend to cause them so.
+
+4
+00:00:20,120 --> 00:00:24,920
+You get a Python exception, so Python reports errors typically through exceptions.
+
+5
+00:00:24,920 --> 00:00:29,570
+And so we write in a lot of code and it gives us an error. So how do we read this?
+
+6
+00:00:29,570 --> 00:00:36,350
+There's a few things we want to look at. First. It's going to tell us near the top.
+
+7
+00:00:36,350 --> 00:00:42,320
+The type of error. This is an attribute error. Then at the bottom, it tells us, again, the error type.
+
+8
+00:00:42,320 --> 00:00:49,010
+And it gives us a message that often tells it gives us more information about what precisely went wrong in this case.
+
+9
+00:00:49,010 --> 00:00:55,490
+It tells us the data frame object has no attribute DFA. So I ran this in a notebook or ratings as a data frame.
+
+10
+00:00:55,490 --> 00:00:59,540
+There is no attribute DFA and that to the attribute errors telling us that.
+
+11
+00:00:59,540 --> 00:01:04,010
+So starting at the bottom here. This is one of the most important things to look at.
+
+12
+00:01:04,010 --> 00:01:13,130
+This is going to tell you what went wrong. And understanding what went wrong is the first piece to being able to understand why your code broke.
+
+13
+00:01:13,130 --> 00:01:20,000
+But then the last piece we have is the traceback. And it's so it's code says traceback and it says most recent call last.
+
+14
+00:01:20,000 --> 00:01:26,240
+So this tells you where that error happened. And the most recent call it, as it says, is last.
+
+15
+00:01:26,240 --> 00:01:32,510
+So if we go from the bottom up, we're going to find this happened in the.
+
+16
+00:01:32,510 --> 00:01:37,610
+Pandas core generic code and get atter that's deep in pandas.
+
+17
+00:01:37,610 --> 00:01:45,050
+And then it happened in our code. Ratings that DFA a good place to start and understanding a stack trace is to look
+
+18
+00:01:45,050 --> 00:01:49,430
+for the last entry since that's the innermost one that's in code you wrote,
+
+19
+00:01:49,430 --> 00:01:53,900
+because that's where your that's where in your code the error happened.
+
+20
+00:01:53,900 --> 00:02:02,960
+But the stack trace lets us work back up to understand why we got the error that we did and will often give us insight into.
+
+21
+00:02:02,960 --> 00:02:07,400
+So data frame has no attribute DFA, but where did we try to access that actually?
+
+22
+00:02:07,400 --> 00:02:12,500
+Oh, we access that in our code for saying ratings that DFA and there's no such attributes.
+
+23
+00:02:12,500 --> 00:02:20,470
+That's giving us the error. Being able to read the error message gives us a lot of useful information about what went wrong and being able to read the
+
+24
+00:02:20,470 --> 00:02:29,210
+error message and think about what that means in terms of your code is a crucial skill to being able to debug your python.
+
+25
+00:02:29,210 --> 00:02:35,060
+So a few components here, as we've seen, there's the error type. There's the location of the code where it happened.
+
+26
+00:02:35,060 --> 00:02:37,910
+And then there's additional information to go with the error.
+
+27
+00:02:37,910 --> 00:02:45,590
+Not all error types and not all code that throws errors or a particular type is going to put very useful information in the type error in the message.
+
+28
+00:02:45,590 --> 00:02:52,790
+It really varies from error to error and from library to library. But a lot of them do put useful information into that error message.
+
+29
+00:02:52,790 --> 00:03:00,620
+Once you know how to interpret it, so common type you there's a number of types of errors that you're going to see rather commonly.
+
+30
+00:03:00,620 --> 00:03:05,390
+The first one is a name error and a name error means you're trying to use a variable that doesn't exist.
+
+31
+00:03:05,390 --> 00:03:09,710
+So it's several different kinds of errors for referencing things that don't exist.
+
+32
+00:03:09,710 --> 00:03:17,540
+A name errors. You just try use a variable X at X does not exist and attribute error means you're trying to use a class member,
+
+33
+00:03:17,540 --> 00:03:22,070
+a method or a field on a classman object that does not exist.
+
+34
+00:03:22,070 --> 00:03:27,290
+Python calls those attributes. So when we say DOT, we have already a data frame.
+
+35
+00:03:27,290 --> 00:03:33,260
+We say dot act. When we say dot mean, what we're doing is we're getting the attribute mean,
+
+36
+00:03:33,260 --> 00:03:39,290
+which happens to be a function because that's how Python implements methods. But attribute error means we're trying to access one of these methods.
+
+37
+00:03:39,290 --> 00:03:44,450
+It can be a method. It can be a data field. But it doesn't actually exist.
+
+38
+00:03:44,450 --> 00:03:49,290
+A key error happens when we try to look up a key either in a dictionary or in a panda's index.
+
+39
+00:03:49,290 --> 00:03:53,330
+So using dot lock key area will come up. And the key doesn't exist.
+
+40
+00:03:53,330 --> 00:04:00,980
+So sometimes this arises. One way this arises is when pandas when you're passing something to dot lock.
+
+41
+00:04:00,980 --> 00:04:08,090
+Or just to the square brackets on a data frame and PANDAS isn't correctly interpreting the type of object that you're giving it.
+
+42
+00:04:08,090 --> 00:04:11,410
+That that's one way that can be caused, that this can be caused.
+
+43
+00:04:11,410 --> 00:04:17,800
+But the key here means it can't find the thing it's looking for in something that's looked up by key.
+
+44
+00:04:17,800 --> 00:04:19,420
+Pendas indexes.
+
+45
+00:04:19,420 --> 00:04:27,550
+If you're if you're passing in or a list or an array of index values, all of them have to be in the index or you're going to get a clear it index.
+
+46
+00:04:27,550 --> 00:04:32,770
+Error happens when you're accessing item by position, zero through and minus one,
+
+47
+00:04:32,770 --> 00:04:39,790
+either in a list or with Pande as I lock or something else that that uses this kind of zero based indexing.
+
+48
+00:04:39,790 --> 00:04:44,040
+And the index is out of bounds. It could be an umpire rate as well.
+
+49
+00:04:44,040 --> 00:04:49,810
+Index. So these are all different kinds of doesn't exist. Name error means the variable doesn't exist.
+
+50
+00:04:49,810 --> 00:04:56,380
+Attribute error means the class member doesn't exist. Key error means the key in the dictionary or index doesn't exist.
+
+51
+00:04:56,380 --> 00:05:02,320
+An index error means you've given it a numeric position that's out of bounds.
+
+52
+00:05:02,320 --> 00:05:07,990
+A few other errors you're going to see are file not found error. That means you're trying to access a file that doesn't exist.
+
+53
+00:05:07,990 --> 00:05:12,390
+If this happens, when you're reading a file, that usually means the file doesn't exist.
+
+54
+00:05:12,390 --> 00:05:20,710
+File is not found. If you get this when writing a file, what that usually means is you're trying to write it to a directory that does not yet exist.
+
+55
+00:05:20,710 --> 00:05:26,740
+The file doesn't have to exist for you to write it, but the directory you're writing it into does.
+
+56
+00:05:26,740 --> 00:05:29,260
+OS error often happens when we're reading and writing a file,
+
+57
+00:05:29,260 --> 00:05:36,160
+and that happens when there are other errors in the process, either of opening the file or of actually reading its data.
+
+58
+00:05:36,160 --> 00:05:43,520
+One way you might see this is if you're trying to write to a file on windows that you already have open somewhere else.
+
+59
+00:05:43,520 --> 00:05:49,520
+So to read an error, you want to understand three things, you want to understand what kind of thing went wrong.
+
+60
+00:05:49,520 --> 00:05:53,430
+So look at the air type RBD. Have a namer. You have a key air-to-air file not found.
+
+61
+00:05:53,430 --> 00:05:58,820
+Are these are all different. These all have different causes. Then you want to see what specifically went wrong.
+
+62
+00:05:58,820 --> 00:06:04,780
+The error message might tell you for a file not found error, it will usually tell you what file was not found.
+
+63
+00:06:04,780 --> 00:06:09,070
+And then you want to ask where it went wrong from the stack trace.
+
+64
+00:06:09,070 --> 00:06:14,470
+The key thing here is to understand what went wrong in your code so you can fix it.
+
+65
+00:06:14,470 --> 00:06:22,000
+Understanding this can really help you learn as you understand not how do I fix the error, but why did the error occur?
+
+66
+00:06:22,000 --> 00:06:29,470
+Oftentimes that gives more insight into how the code in the libraries that we're using in Python itself actually work.
+
+67
+00:06:29,470 --> 00:06:33,850
+Copying errors into Google can help you find useful resources.
+
+68
+00:06:33,850 --> 00:06:38,870
+But it's often not a good strategy for solving the problem because.
+
+69
+00:06:38,870 --> 00:06:47,390
+Someone else may have encountered that error. And good resources will give you the kinds of things that are going to help you fix that kind of error.
+
+70
+00:06:47,390 --> 00:06:50,990
+But there's a good chance no one else has counted that exact error.
+
+71
+00:06:50,990 --> 00:06:55,100
+And the solution that worked for them might not be applicable in your context.
+
+72
+00:06:55,100 --> 00:07:05,420
+And so it's important when we get an error message to understand why it went wrong so we can understand how to fix it in our particular context.
+
+73
+00:07:05,420 --> 00:07:08,540
+So to conclude, Python errors are reported by exceptions.
+
+74
+00:07:08,540 --> 00:07:14,840
+When we get an exception, we get a stack trace that includes a lot of useful information about what exception happened, where in the code it occurred.
+
+75
+00:07:14,840 --> 00:07:28,367
+And learning to read these is going to help us better understand the system that we're using and be able to fix and debug our code.
+

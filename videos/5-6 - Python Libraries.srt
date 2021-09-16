@@ -1,0 +1,136 @@
+1
+00:00:04,220 --> 00:00:09,580
+In this video, I'm going to briefly talk to you about the relationships between some of the different Python libraries that
+
+2
+00:00:09,580 --> 00:00:15,640
+we've been using since learning outcome as to know the relationships between these key data science libraries.
+
+3
+00:00:15,640 --> 00:00:21,450
+So NUM Pi is the foundation of most of what we're doing. And it provides the array features it built.
+
+4
+00:00:21,450 --> 00:00:26,830
+It has the Endi array n dimensional array data structure that we use to represent vectors matrices.
+
+5
+00:00:26,830 --> 00:00:33,700
+You can also use it for Tensas, which are three dimensional. They have rows and rows, columns in depth.
+
+6
+00:00:33,700 --> 00:00:38,410
+You can there's many of manipulation functions to do.
+
+7
+00:00:38,410 --> 00:00:46,290
+Vector operations. Vector vector vector matrix vector scalar matrix matrix to reshape, manipulate data frames.
+
+8
+00:00:46,290 --> 00:00:53,020
+All of the data frames make arrays and matrices. It also has what's called a ray broadcasting support.
+
+9
+00:00:53,020 --> 00:00:58,740
+So you can multiply a matrix by a vector in that doesn't do a matrix vector multiply.
+
+10
+00:00:58,740 --> 00:01:07,060
+But it if the matrix is as tall as the excuse me at the vector is, as long as the matrix is tall, it'll apply at it.
+
+11
+00:01:07,060 --> 00:01:17,350
+It'll apply it down the columns and apply this the same vector to every row and num pi really is the backbone of vector ization.
+
+12
+00:01:17,350 --> 00:01:24,490
+And spending some time, the textbook talks a lot more about how to use num pis various factorization capabilities.
+
+13
+00:01:24,490 --> 00:01:30,280
+But it's the it gives us the victimization operations and it's the backbone then of the rest of the libraries.
+
+14
+00:01:30,280 --> 00:01:39,840
+So we put them together. Cyb High builds on top of num pi and adds additional scientific capabilities, some primitive statistical capabilities.
+
+15
+00:01:39,840 --> 00:01:46,690
+Pandas builds on top of num pi to give us the data structures that allow us to assign labels to columns and rows.
+
+16
+00:01:46,690 --> 00:01:52,330
+So we have our column names, we have a row names. A num pi matrix has to be homogenous.
+
+17
+00:01:52,330 --> 00:01:57,820
+Every element has to be the same type. Abandons data frame from each column can have a different type.
+
+18
+00:01:57,820 --> 00:02:00,730
+The columns have names. We can have a row indexes.
+
+19
+00:02:00,730 --> 00:02:06,850
+It also gives us some additional data types, such as it has a categorical data type that NUM Pi does not natively support.
+
+20
+00:02:06,850 --> 00:02:10,360
+It provides additional date time capabilities, stats, models,
+
+21
+00:02:10,360 --> 00:02:15,850
+builds on top of Pan doesn't PSI Pi to give much more sophisticated statistical modeling capabilities?
+
+22
+00:02:15,850 --> 00:02:22,540
+There's overlap. There's some functions that appear both num pi and PSI, Pi, num pi and pandas, CI pilots, stats, models.
+
+23
+00:02:22,540 --> 00:02:30,160
+But that's, that's models builds on all of these to give us relatively sophisticated statistical modeling capabilities.
+
+24
+00:02:30,160 --> 00:02:35,170
+If you're coming from our stats models is where you're gonna find a lot of the linear models,
+
+25
+00:02:35,170 --> 00:02:41,290
+a lot of the hypothesis tests and things that you might be looking at looking for from R, then I'm plotting.
+
+26
+00:02:41,290 --> 00:02:48,230
+Matplotlib is the low level plotting library that most other, particularly static plotting infrastructure.
+
+27
+00:02:48,230 --> 00:02:53,830
+A python is built. It works directly with num pi seabourne builds on top of matplotlib.
+
+28
+00:02:53,830 --> 00:03:00,730
+It also uses side pi and pandas and stats models to draw some of its more sophisticated plots, but it pulls all of it together.
+
+29
+00:03:00,730 --> 00:03:06,640
+I'll let you do some of your data visualization. So if you need basic array functions, you're gonna get those from num pi.
+
+30
+00:03:06,640 --> 00:03:10,750
+You need to do more advanced things with a raise and some basic statistical functions.
+
+31
+00:03:10,750 --> 00:03:14,200
+Then you're gonna reach for PSI, Pi, PSI, Pious signal processing.
+
+32
+00:03:14,200 --> 00:03:18,580
+It's got a whole bunch of different things and it also has sparse matrices, which you're going to see later.
+
+33
+00:03:18,580 --> 00:03:25,780
+And it has a whole bunch of statistical distributions if you need to work with label data and basically
+
+34
+00:03:25,780 --> 00:03:43,233
+any of our any of our observation data that we're gonna be pulling in for our work in this class,
+
