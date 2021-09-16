@@ -86,6 +86,8 @@ sphinx:
           OR: "\\operatorname{OR}"
           IND: "\\mathbb{I}"
           Reals: "\\mathbb{R}"
+      HTML-CSS:
+        fonts: ["TeX"]
     intersphinx_mapping:
       python: [https://docs.python.org/3, null]
       numpy: [https://numpy.org/doc/stable/, null]
