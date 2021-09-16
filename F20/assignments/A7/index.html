@@ -1,0 +1,1248 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://cs533.ekstrandom.net/F20/assignments/A7/">
+      
+      <link rel="icon" href="../../logo.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+    
+    
+      
+        <title>Assignment 7 - Intro to Data Science</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+<link href="../../stylesheets/print.css" rel="stylesheet" media="print">
+
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font-family:"Lato";--md-code-font-family:""}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    
+      
+
+
+    
+    
+
+    <meta name="robots" content="noindex,noarchive">
+
+
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#revision-log" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Intro to Data Science" class="md-header__button md-logo" aria-label="Intro to Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96-96 42.98-96 96 42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Intro to Data Science
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Assignment 7
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Course Info
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../syllabus/" class="md-tabs__link">
+      Syllabus
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../schedule/" class="md-tabs__link">
+      Schedule
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/" class="md-tabs__link">
+        Resources
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../content/" class="md-tabs__link">
+        Content
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Assignments
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Intro to Data Science" class="md-nav__button md-logo" aria-label="Intro to Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96-96 42.98-96 96 42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z"/></svg>
+
+    </a>
+    Intro to Data Science
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Course Info
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/" class="md-nav__link">
+        Syllabus
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schedule/" class="md-nav__link">
+        Schedule
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Resources
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/software/" class="md-nav__link">
+        Software Installation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/onyx/" class="md-nav__link">
+        Remotely Using Onyx
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/notebook-checklist/" class="md-nav__link">
+        Notebook Checklist
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/problems/" class="md-nav__link">
+        Common Problems
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/probability/" class="md-nav__link">
+        Notes on Probability
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/git-resources/" class="md-nav__link">
+        Git Resources
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/tutorials/" class="md-nav__link">
+        Tutorial Notebooks
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Content
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Content" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Content
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/" class="md-nav__link">
+        Course Content
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week1/" class="md-nav__link">
+        Week 1 — Question
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week2/" class="md-nav__link">
+        Week 2 — Description
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week3/" class="md-nav__link">
+        Week 3 — Presentation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week4/" class="md-nav__link">
+        Week 4 — Inference
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week5/" class="md-nav__link">
+        Week 5 — Filling In
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week6/" class="md-nav__link">
+        Week 6 — Two Variables
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week7/" class="md-nav__link">
+        Week 7 — Getting Data
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week8/" class="md-nav__link">
+        Week 8 — Regression
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week9/" class="md-nav__link">
+        Week 9 — Models & Prediction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week10/" class="md-nav__link">
+        Week 10 — Classification
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week11/" class="md-nav__link">
+        Week 11 — Evaluation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week12/" class="md-nav__link">
+        Week 12 — Text
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week13/" class="md-nav__link">
+        Week 13 — Unsupervised
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week14/" class="md-nav__link">
+        Week 14 — Workflow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week15/" class="md-nav__link">
+        Week 15 — What Next?
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      <label class="md-nav__link" for="__nav_6">
+        Assignments
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Assignments" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Assignments
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      <label class="md-nav__link" for="__nav_6_2">
+        Assignment 0
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Assignment 0" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Assignment 0
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A0/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A0/A0-Notebook/" class="md-nav__link">
+        CS 533 Assignment 0
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A0/A0-Solution.pdf" class="md-nav__link">
+        PDF
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A1/" class="md-nav__link">
+        Assignment 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A2/" class="md-nav__link">
+        Assignment 2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A3/" class="md-nav__link">
+        Assignment 3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A4/" class="md-nav__link">
+        Assignment 4
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A5/" class="md-nav__link">
+        Assignment 5
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A6/" class="md-nav__link">
+        Assignment 6
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Assignment 7
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Assignment 7
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#revision-log" class="md-nav__link">
+    Revision Log
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#online-accounts" class="md-nav__link">
+    Online Accounts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-access" class="md-nav__link">
+    Data Access
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#research-questions" class="md-nav__link">
+    Research Questions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repository-format" class="md-nav__link">
+    Repository Format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-submission" class="md-nav__link">
+    Final Submission
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#revision-log" class="md-nav__link">
+    Revision Log
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#online-accounts" class="md-nav__link">
+    Online Accounts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-access" class="md-nav__link">
+    Data Access
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#research-questions" class="md-nav__link">
+    Research Questions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repository-format" class="md-nav__link">
+    Repository Format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-submission" class="md-nav__link">
+    Final Submission
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+
+
+                
+                
+                <h1 id="assignment-7">Assignment 7</h1>
+<p>This assignment is designed for you to practice the things that we've put together this semester, along with extracting data directly from an online API and splitting a data pipeline into multiple stages with scripts acquiring and pre-processing data.</p>
+<p>It is due on <strong>December 13</strong> at the end of the day.</p>
+<p>For this assignment, you will submit a <strong>GitHub repository</strong> along with PDF(s) of your analyses.
+It is also an open-ended assignment in terms of research questions — I will guide you through obtaining data, but not through the analysis itself.</p>
+<p>In this assignment, you will:</p>
+<ol>
+<li>Integrate the MovieLens 25M data set with data from TMDB</li>
+<li>Carry out a basic descriptive analysis of your data and the variables you are preparing for use in your analysis</li>
+<li>Define and address 2 modest questions from this data</li>
+</ol>
+<p>Please read the <strong>entire assignment</strong> before beginning — the last section describes what you should have in a complete assignment submission.</p>
+<h2 id="revision-log">Revision Log</h2>
+<dl>
+<dt>December 9, 2020</dt>
+<dd><strong>Requirement change:</strong> clarified and relaxed the requirement for question complexity.</dd>
+<dt>December 5, 2020</dt>
+<dd>Added example for reducing memory use by picking data types in <code>read_csv</code></dd>
+</dl>
+<h2 id="online-accounts">Online Accounts</h2>
+<p>In order to complete this assignment, you will need accounts with two online services:</p>
+<ul>
+<li><a href="https://www.themoviedb.org/">TMDB</a> (The Movie DataBase), to obtain movie data.</li>
+<li><a href="https://github.org">GitHub</a>, to share a git repository.</li>
+</ul>
+<p>Once you have created your TMDb account, you need to create an application to obtain an API key.
+Go to “Edit Profile” (in the menu when you click your profile picture in the top right), select “API”, and click “Create”.
+You want to create a Developer application; on the following form, under Application Type, choose “Education”.
+If you don't want to give them your own address, you can use the department's address (1910 University Drive, Boise, ID 83725-7055).</p>
+<h2 id="data-access">Data Access</h2>
+<p>You are going to obtain data from at least two sources:</p>
+<ul>
+<li>The <a href="https://grouplens.org/datasets/movielens/25m/">MovieLens 25M data set</a> ­— this will take just over 1GB uncompressed.
+    It is a lot like the HETREC data we have been using, except it is in a consistent CSV format and there is a lot more of it.
+    It doesn't have all the fields from HETREC, though - it's just very basic metadata along with many user ratings.</li>
+<li>The TMDB API, for example the <a href="https://developers.themoviedb.org/3/movies/get-movie-details">Movie Details endpoint</a>.
+    This will allow you to fill in a lot more kinds of data, like we had in HETREC.</li>
+</ul>
+<p>The ML-25M data set includes a file <code>links.csv</code> that includes TMDB and IMDB identifiers for the movies in MovieLens.
+You can use this to integrate data between MovieLens and other data sources.</p>
+<p>The TMDB API is accessed through an HTTP REST API.
+The Python <a href="https://requests.readthedocs.io/en/master/user/quickstart/">Requests library</a> is a very good library for accessing data sources like this.</p>
+<p>If you have stored your API key in the variable <code>TMDB_KEY</code>, and you have a set of TMDB identifiers in the sequence <code>tmdb_ids</code> (this can be a list, or a Pandas series, or a NumPy array, or whatever), you can fetch their TMDB details with:</p>
+<div class="highlight"><pre><span></span><code><span class="n">tmdb_details</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">mid</span> <span class="ow">in</span> <span class="n">tmdb_ids</span><span class="p">:</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://api.themoviedb.org/3/movie/</span><span class="si">{</span><span class="n">mid</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                       <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;api_key&#39;</span><span class="p">:</span> <span class="n">TMDB_KEY</span><span class="p">})</span>
+    <span class="n">tmdb_details</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<span class="n">tmdb_details</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">tmdb_details</span><span class="p">)</span>
+</code></pre></div>
+<p>If you want to index by TMDB ID, you can use <code>tmdb_details.set_index('id')</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Progress Bar</p>
+<p>If you want a progress bar, you can import TDQM:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
+</code></pre></div>
+<p>And then use it in your loop:</p>
+<div class="highlight"><pre><span></span><code><span class="n">tmdb_details</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">mid</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">tmdb_ids</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://api.themoviedb.org/3/movie/</span><span class="si">{</span><span class="n">mid</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                       <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;api_key&#39;</span><span class="p">:</span> <span class="n">TMDB_KEY</span><span class="p">})</span>
+    <span class="n">tmdb_details</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<p>The <a href="https://developers.themoviedb.org/3/movies/get-movie-details">Movie Details endpoint documentation</a> describes the fields that you will find in these objects.
+TMDB also has several other endpoints you can query to obtain information about actors, directors, TV show episodes, etc.
+You may need to query more than just the movie details for your research questions!
+Browse their documentation to see more.
+All of the read-only movie data endpoints are called in the same way, they just change the URL (and possibly the parameters) that you need to query with <code>requests</code>.</p>
+<h3 id="data-scripts">Data Scripts</h3>
+<p>For this assignment, you need to create one (or more) Python <em>scripts</em> (see Week 14) that process the data and retrieve the TMDB data that you need.
+They should write the results of the data out to CSV or Parquet files, so the notebooks answering your questions can read pre-integrated data.</p>
+<p>I do not recommend that you fetch the TMDB data for <strong>all</strong> the movies, at least when you are first testing.
+Pick movies somehow, such as a random sample, or prioritizing more popular movies.
+Test your code with small numbers of movies (e.g 100), before running a run on the entire data set you are going to use.</p>
+<h3 id="saving-memory">Saving Memory</h3>
+<p>If you want to reduce the memory consumption of processing the rating data, you can use <code>dtype</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ml-25m/ratings.csv&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span>
+    <span class="s1">&#39;movieId&#39;</span><span class="p">:</span> <span class="s1">&#39;i4&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;userId&#39;</span><span class="p">:</span> <span class="s1">&#39;i4&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;rating&#39;</span><span class="p">:</span> <span class="s1">&#39;f4&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="s1">&#39;i4&#39;</span>
+<span class="p">})</span>
+</code></pre></div>
+<h2 id="research-questions">Research Questions</h2>
+<p>For this assignment, you need to specify and answer <strong>two</strong> concrete research questions of your own choosing from the available data.
+They can be any kind of analysis we have studied, including:</p>
+<ul>
+<li>Correlations</li>
+<li>Inference with regression models</li>
+<li>Predicting continuous or categorical outcomes</li>
+</ul>
+<p><strong>At least one</strong> question must involve using the MovieLens and TMDB data together.</p>
+<p>I encourage you to be modest in the scope you target for your research questions — simple, well-executed questions with good insights are better than complex questions that are poorly executed.
+For questions with outcome variables, each include at least two potential predictors for its outcome variable (e.g. trying two predictors in a regression, or a correlation analysis that compares the outcome with at least two different variables).
+Particularly interesting and well-defined questions with a single predictor are acceptable — if in doubt, raise your question by Piazza or in office hours to get feedback on its scope.
+Grading will be based primarily on the quality of the execution and presentation of the question, not on scope, so slightly under-scoped but well-executed questions will receive nearly full points.</p>
+<div class="admonition tip">
+<p class="admonition-title">Ideas</p>
+<p>TMDB provides quite a few data points you can use:</p>
+<ul>
+<li>Movie staff: actors, producers, directors, etc.</li>
+<li>Production locations</li>
+<li>Financial data (budget and revenue)</li>
+</ul>
+<p>And many more.</p>
+<p>For example, one potential research question you could ask is: does receiving many ratings in MovieLens predict whether a movie will be profitable?
+This question can be extended to: can the average of the ratings a movie receives in its first week on MovieLens predict its profitability?</p>
+<p>You are allowed to use this as one of your questions 🙂.
+Answering both of these question variants together is a fine scope for one question.</p>
+</div>
+<h2 id="repository-format">Repository Format</h2>
+<p>Your work needs to be in a Git repository, with the following pieces:</p>
+<ol>
+<li>A file called <code>README.md</code> that describes the repository: what are the scripts and notebooks, what do they do, and in what order do they need to be run.</li>
+<li>Your data processing script(s)</li>
+<li>Notebooks answering your research questions. Each question should be in its own notebook.</li>
+<li><code>.gitignore</code> file(s) that ignore your data files (ML data, outputs from data scripts, etc.)
+    See <a href="../../resources/git-resources/">Git Resources</a> for a start here.</li>
+</ol>
+<h3 id="notebook-requirements">Notebook Requirements</h3>
+<p>The notebooks should not do any data integration or preliminary data cleaning (dropping invalid records, clearing out invalid values, etc.).
+They may do <em>question-specific</em> data cleaning, and handling of missing data (as I have encouraged you to handle missing data as late in an analysis as possible).</p>
+<p>Each notebook should include a brief descriptive analysis of the variables it is studying.
+Describe the variables and their distributions, and any limitations their sources may have on your analysis.</p>
+<h2 id="final-submission">Final Submission</h2>
+<p>Your submission on Blackboard should include:</p>
+<ul>
+<li>A link to a <strong>private</strong> GitHub repository containing your code</li>
+<li>PDF exports of your two notebooks</li>
+</ul>
+<p>In addition, invite my GitHub account (<a href="https://github.com/mdekstrand">mdekstrand</a>) as a collaborator on your repository, so I can actually see it.
+I only need read access.
+You can invite me through the “Manage access” section of your repository settings.</p>
+<h3 id="rubric">Rubric</h3>
+<p>I will use the normal assignment rubric, with points assigned as follows:</p>
+<ul>
+<li>Repository construction and layout (15%)</li>
+<li>README (15%)</li>
+<li>Data processing (20%)</li>
+<li>Research Question 1 (25%)</li>
+<li>Research Question 2 (25%)</li>
+</ul>
+<p>If you successfully use a third source of data (in addition to MovieLens and TMDB), it will earn extra credit.
+Document this data in your README.
+(This needs to be a third distinct source — using additional TMDB endpoints doesn't count.)</p>
+                
+              
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../A6/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Assignment 6" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Assignment 6
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright ⓒ 2020 Michael D. Ekstrand. All rights reserved.
+No part of this site may be copied or redistributed without the
+written consent of the author.
+
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": {"provider": "mike"}}</script>
+    
+<!-- <script src="../../js/katex.mjs" type="module" async></script> -->
+<script src="../../js/frobnicate.js" async></script>
+
+    
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+      
+        <script src="../../js/math-config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

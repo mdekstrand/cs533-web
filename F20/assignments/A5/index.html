@@ -1,0 +1,1295 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://cs533.ekstrandom.net/F20/assignments/A5/">
+      
+      <link rel="icon" href="../../logo.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+    
+    
+      
+        <title>Assignment 5 - Intro to Data Science</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+<link href="../../stylesheets/print.css" rel="stylesheet" media="print">
+
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font-family:"Lato";--md-code-font-family:""}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    
+      
+
+
+    
+    
+
+    <meta name="robots" content="noindex,noarchive">
+
+
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#revision-log" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Intro to Data Science" class="md-header__button md-logo" aria-label="Intro to Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96-96 42.98-96 96 42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Intro to Data Science
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Assignment 5
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Course Info
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../syllabus/" class="md-tabs__link">
+      Syllabus
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../schedule/" class="md-tabs__link">
+      Schedule
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/" class="md-tabs__link">
+        Resources
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../content/" class="md-tabs__link">
+        Content
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Assignments
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Intro to Data Science" class="md-nav__button md-logo" aria-label="Intro to Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96-96 42.98-96 96 42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z"/></svg>
+
+    </a>
+    Intro to Data Science
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Course Info
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/" class="md-nav__link">
+        Syllabus
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schedule/" class="md-nav__link">
+        Schedule
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Resources
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/software/" class="md-nav__link">
+        Software Installation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/onyx/" class="md-nav__link">
+        Remotely Using Onyx
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/notebook-checklist/" class="md-nav__link">
+        Notebook Checklist
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/problems/" class="md-nav__link">
+        Common Problems
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/probability/" class="md-nav__link">
+        Notes on Probability
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/git-resources/" class="md-nav__link">
+        Git Resources
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/tutorials/" class="md-nav__link">
+        Tutorial Notebooks
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Content
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Content" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Content
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/" class="md-nav__link">
+        Course Content
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week1/" class="md-nav__link">
+        Week 1 — Question
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week2/" class="md-nav__link">
+        Week 2 — Description
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week3/" class="md-nav__link">
+        Week 3 — Presentation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week4/" class="md-nav__link">
+        Week 4 — Inference
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week5/" class="md-nav__link">
+        Week 5 — Filling In
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week6/" class="md-nav__link">
+        Week 6 — Two Variables
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week7/" class="md-nav__link">
+        Week 7 — Getting Data
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week8/" class="md-nav__link">
+        Week 8 — Regression
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week9/" class="md-nav__link">
+        Week 9 — Models & Prediction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week10/" class="md-nav__link">
+        Week 10 — Classification
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week11/" class="md-nav__link">
+        Week 11 — Evaluation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week12/" class="md-nav__link">
+        Week 12 — Text
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week13/" class="md-nav__link">
+        Week 13 — Unsupervised
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week14/" class="md-nav__link">
+        Week 14 — Workflow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../content/week15/" class="md-nav__link">
+        Week 15 — What Next?
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      <label class="md-nav__link" for="__nav_6">
+        Assignments
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Assignments" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Assignments
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      <label class="md-nav__link" for="__nav_6_2">
+        Assignment 0
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Assignment 0" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Assignment 0
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A0/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A0/A0-Notebook/" class="md-nav__link">
+        CS 533 Assignment 0
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A0/A0-Solution.pdf" class="md-nav__link">
+        PDF
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A1/" class="md-nav__link">
+        Assignment 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A2/" class="md-nav__link">
+        Assignment 2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A3/" class="md-nav__link">
+        Assignment 3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A4/" class="md-nav__link">
+        Assignment 4
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Assignment 5
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Assignment 5
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#revision-log" class="md-nav__link">
+    Revision Log
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context-and-data" class="md-nav__link">
+    Context and Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-engineering" class="md-nav__link">
+    Feature Engineering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#presenting-work" class="md-nav__link">
+    Presenting Work
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-prep-and-exploration-20" class="md-nav__link">
+    Data Prep and Exploration (20%)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subset-model-15" class="md-nav__link">
+    Subset Model (15%)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-model-20" class="md-nav__link">
+    Full Model (20%)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lasso-regression-15" class="md-nav__link">
+    Lasso Regression (15%)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticnet-10" class="md-nav__link">
+    ElasticNet (10%)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#random-forest-10" class="md-nav__link">
+    Random Forest (10%)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-summary-10" class="md-nav__link">
+    Final Summary (10%)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A6/" class="md-nav__link">
+        Assignment 6
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../A7/" class="md-nav__link">
+        Assignment 7
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#revision-log" class="md-nav__link">
+    Revision Log
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context-and-data" class="md-nav__link">
+    Context and Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-engineering" class="md-nav__link">
+    Feature Engineering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#presenting-work" class="md-nav__link">
+    Presenting Work
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-prep-and-exploration-20" class="md-nav__link">
+    Data Prep and Exploration (20%)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subset-model-15" class="md-nav__link">
+    Subset Model (15%)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-model-20" class="md-nav__link">
+    Full Model (20%)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lasso-regression-15" class="md-nav__link">
+    Lasso Regression (15%)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticnet-10" class="md-nav__link">
+    ElasticNet (10%)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#random-forest-10" class="md-nav__link">
+    Random Forest (10%)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-summary-10" class="md-nav__link">
+    Final Summary (10%)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+
+
+                
+                
+                <h1 id="assignment-5">Assignment 5</h1>
+<p>This assignment is designed to develop and assess your ability to build classifiers and reason about their effectiveness.</p>
+<p>It is due <strong>Wednesday, November 11 at 11:59 pm</strong>.
+Submit the PDF export of your notebook to Blackboard.</p>
+<p>Throughout your writeup, <strong>justify your decisions</strong> based on theoretical knowledge, the background reading, or what you observe in the data.</p>
+<h2 id="revision-log">Revision Log</h2>
+<dl>
+<dt>November 3, 2020</dt>
+<dd>Update note about term to reference <code>DateOffset</code> instead of <code>TimeDelta</code>.</dd>
+<dd>Added section about how to present your work.</dd>
+<dt>October 29, 2020</dt>
+<dd>Add additional metrics to Final Summary (neglected them in initial draft).</dd>
+</dl>
+<h2 id="context-and-data">Context and Data</h2>
+<p>For this assignment, you will work with a data set of loans issued to small businesses, provided by the U.S. Small Business Administration.
+We used a version of this data for an in-class activity earlier in the semester.</p>
+<p>For more details on the data and its history, read <a href="https://doi.org/10.1080/10691898.2018.1434342">“Should This Loan be Approved or Denied?” A Large Dataset with Class Assignment Guidelines</a> by Li, Mickel, and Taylor, published 2018 in the Journal of Statistics Education. The paper and data set are open-access under the Creative Commons Attribution license.</p>
+<p>I have based this assignment on their class exercise.
+You will be working with the full SBA National data set.
+I have attached the data file to the Blackboard assignment.</p>
+<p>Your goal in this assignment is to predict <strong>loan default</strong>: does the business fail to pay off their loan?
+This is recorded in the <code>MIS_Status</code> field, which is ‘PIF’ if the loan is paid in full and ‘CHGOFF’ if the borrower defaulted (the loan was charged off).
+THe Loan Documentation file contains more information about fields in the database; this is also in Table 1(a) in the paper, along with additional descriptions of some of the variables.</p>
+<p>The NAICS field indicates the industry sector of the business.
+The first two digits are the broad sector (and progressively more specific sectors are indicated by more digits).
+The <a href="https://www.census.gov/cgi-bin/sssd/naics/naicsrch?chart=2012">North American Industry Classification System</a> provides the meanings of the first 2 digits.</p>
+<h2 id="feature-engineering">Feature Engineering</h2>
+<p>This data set will require some cleaning and manipulation to have usable features.
+Some things you will likely need to do include:</p>
+<ul>
+<li>Convert the outcome variable into usable form for prediction.</li>
+<li>Convert other categorical variables into appropriate dummy or indicator variables.</li>
+<li>Bin some features. For example, the authors recommend looking at whether the term is at least 240 months to determine if a transaction is backed by real estate or not (longer-term loans are backed by real estate).</li>
+<li>Convert date fields into more usable form (Pandas date-time features let you parse them and convert them).  For example, you may want only the year, or you may want to identify whether a loan was due during the Great Recession.</li>
+<li>Compute interaction features or derived features.  For example, you may want to compute the fraction of the loan that was guaranteed by the SBA and use it as a feature.</li>
+</ul>
+<div class="admonition tip time">
+<p class="admonition-title">Tip</p>
+<p>If you convert the disbursment date to a Pandas datetime, and the term to a Pandas <code>DateOffset</code>, you can use them to get the loan end time. You might be able to do useful things with that and the dates of the Great Recession (Dec. 1, 2007 to June 30, 2009).</p>
+</div>
+<p>Some features are likely not useful, at least in their current form.
+You may want to design additional features based on your own exploration.</p>
+<h2 id="presenting-work">Presenting Work</h2>
+<p>I expect you will need to do quite a bit of experimentation with different features and models in order to complete this assignment.</p>
+<p>I do <strong>not</strong> want you to just present all of that in sequence in your final submission — it will be very difficult to read such a submission.</p>
+<p>What will be far more effective is to <em>summarize</em>, and to build your final model (and maybe 1–2 exemplary intermediate models).  Things that you should include in such a summary:</p>
+<ul>
+<li>A description of your feature engineering process. How did you design features? How did you assess them?</li>
+<li>A list of the features you are using, with a brief justification for each.  This can be a bullet list of the features with a short sentence about why it is a useful feature.</li>
+<li>A list of features that didn't work.  Again, can be a bullet list.</li>
+</ul>
+<p>This will make it significantly easier for me to see the key pieces of your result.</p>
+<p>There are, in general, two ways to get to this:</p>
+<ul>
+<li>Build a big exploratory notebook, then clean it up (after saving a backup copy!).</li>
+<li>Build a big exploratory notebook, then create a new notebook and copy over the pieces that worked into a coherent order.</li>
+</ul>
+<p>I do both, depending on the project and on how messy my exploratory notebook is.</p>
+<p>If you want to submit your exploratory notebook as a separate file, that's fine (encouraged, even!), but I need the PDF of your final cleaned one to grade.</p>
+<h2 id="data-prep-and-exploration-20">Data Prep and Exploration (20%)</h2>
+<ol>
+<li>Load the data and do your initial preparation.  How many observations and variables do you have?</li>
+<li>Select a 25% sample of the data for use in testing.</li>
+<li>Describe the distribution of the outcome variable.  What is the majority class?</li>
+<li>What is the accuracy, precision, and recall of the majority-class classifier on the test data?</li>
+<li>Identify some variables that, based on your understanding and reading (e.g. the source paper!) are likely to be useful for predicting default.  Describe them, your motivation, their distribution, and their relationship to outcomes (in the training data).  Do feature transformations you find useful here as well.  You may need to create interaction features, or do other feature transformations.</li>
+</ol>
+<h2 id="subset-model-15">Subset Model (15%)</h2>
+<p>Subset your training and test data to only include data from California, for business with NAICS codes starting with 53 (<a href="https://www.census.gov/cgi-bin/sssd/naics/naicsrch?chart_code=53&amp;search=2012%20NAICS%20Search">Real Estate and Rental and Leasing</a>).</p>
+<p>Build a logistic regression model using no more than 5 features to predict default on this subset.
+Likely useful features include whether it is a new business, a real estate transaction, the proportion guaranteed by SBA, and whether it was active during the recession.</p>
+<p>If you want to experiment with different features, create a <em>tuning set</em> that is a subset of the training set, and use it to evaluate the accuracy of your model with them.
+Test the final accuracy of <strong>one model</strong> on the test data using the accuracy metric.</p>
+<h2 id="full-model-20">Full Model (20%)</h2>
+<p>Extend your model from the subset data set (California/53) to the full data set.
+Do you need to add state &amp; industry terms?
+Do you need to use interaction terms?</p>
+<p>Use a tuning set to make these decisions.
+Test <strong>one model</strong> from this section on the test data.</p>
+<h2 id="lasso-regression-15">Lasso Regression (15%)</h2>
+<p>Use a lasso regression (<code>penalty='lasso'</code> in <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression"><code>LogisticRegression</code></a>) to train a model with many features and automatically select the most useful ones.
+Use either a tuning set or <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegressionCV.html#sklearn.linear_model.LogisticRegressionCV"><code>LogisticRegressionCV</code></a> to select a useful value for there regularization strength (<code>C</code>).</p>
+<p>Note that while lasso regression will automatically <em>select</em> features, it can only work with the features you give it — you still need to transform data into useful form for influencing the predictor.</p>
+<p>You might want to experiment with some more or different features on a tuning set!</p>
+<p>Test <strong>one</strong> model from this section on the test data.</p>
+<h2 id="elasticnet-10">ElasticNet (10%)</h2>
+<p>Extend from Lasso to ElasticNet (<code>penalty='elasticnet'</code>, you will also need <code>solver='saga'</code> and to pass a list of L1 ratios to <code>LogisticRegressionCV</code> if you use it).</p>
+<p>Again, test <strong>one</strong> model on the test data.</p>
+<h2 id="random-forest-10">Random Forest (10%)</h2>
+<p>Let's try one more classifier: a <strong>random forest</strong> (<a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier"><code>RandomForestClassifier</code></a>).
+Consider trying different hyperparameters, such as the number of estimators, with some tuning data.</p>
+<p>Test <strong>one</strong> random forest model on the test data.</p>
+<h2 id="final-summary-10">Final Summary (10%)</h2>
+<p>To wrap up, show the relative performance of your different models on the test data in a single chart (a bar chart or dot plot).
+Do so with the following metrics:</p>
+<ul>
+<li>Accuracy</li>
+<li>Precision</li>
+<li>Recall / Sensitivity</li>
+<li>Specificity</li>
+</ul>
+<p>Accuracy counts false positives and false negatives as equal errors, but in reality they do not have the same cost.
+Compute the <strong>cost</strong> of each classifier by assigning a cost of 5 to a false negative (classified as low-risk but defaulted), 1 to a false positive, and 0 to correct classifications.
+Show the cost of your different models in an appropriate chart.</p>
+<p>Finally, show overall the <em>false positive rate</em> for your different models.
+Then break down the false positive rate and the precision by business status, and show each model's FPR and precision for new and existing businesses separately (I recommend a bar charts with model on the X axis, FPR or precision on the y, and different bar colors for new and existing businesses).
+Does your model perform comparably well for new and existing businesses?</p>
+<p>Write 2-3 paragraphs about what you learn about your model performance and the usefulness of different features.</p>
+                
+              
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../A4/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Assignment 4" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Assignment 4
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../A6/" class="md-footer__link md-footer__link--next" aria-label="Next: Assignment 6" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Assignment 6
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright ⓒ 2020 Michael D. Ekstrand. All rights reserved.
+No part of this site may be copied or redistributed without the
+written consent of the author.
+
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": {"provider": "mike"}}</script>
+    
+<!-- <script src="../../js/katex.mjs" type="module" async></script> -->
+<script src="../../js/frobnicate.js" async></script>
+
+    
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+      
+        <script src="../../js/math-config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
