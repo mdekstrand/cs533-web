@@ -7,6 +7,11 @@ These are the learning outcomes for the week:
 - Understand the key relationships between discrete and continuous probability
 - Compute and interpret a confidence interval
 
+## Revision Log
+
+Thu, Sep. 16
+:   updated quiz to reflect changed release/deadline
+
 ## {{moverview}} Content Overview
 
 ```{module} week4
@@ -20,7 +25,7 @@ proceeding to Week 6.
 
 ## {{mcal}} Deadlines
 
-- Week 3 Quiz on **Thursday, Sep. 16** at 8AM
+- Week 3 Quiz on **Monday, Sep. 20** at 12PM
 
 ## {{mvideo}} Introduction
 
