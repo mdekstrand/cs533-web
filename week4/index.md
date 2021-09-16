@@ -135,7 +135,7 @@ Read [Having confidence in confidence intervals](https://medium.com/@EpiEllie/ha
 
 ## {{mquiz}} Week 4 Quiz
 
-The Week 4 quiz is on Blackboard, and is due at 8AM on Thursday.
+The Week 4 quiz is on Canvas, and is due at 12pm (noon) on Monday, Sep. 20.
 
 ## {{mnotebook}} Penguin Inference
 
