@@ -100,7 +100,7 @@ possible events or observations, and cancelling the $n$.
 
 ### Resources
 
-- The [Probability Distribution notebook](Distributions.ipynb)
+- The [Probability Distribution notebook](../resources/tutorials/Distributions.ipynb)
 - Wikipedia has a good [list of probability distributions](https://en.wikipedia.org/wiki/List_of_probability_distributions)
 
 ## {{mvideo}} Sampling and the Data Generation Process
@@ -112,7 +112,7 @@ possible events or observations, and cancelling the $n$.
 
 ### Resources
 
-- [Sampling notebook](SamplingDists.ipynb)
+- [Sampling notebook](../resources/tutorials/SamplingDists.ipynb)
 
 ## {{mvideo}} Confidence
 

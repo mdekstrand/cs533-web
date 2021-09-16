@@ -22,13 +22,15 @@ These notebooks are on basic Python data manipulation:
 2. [Movie Score Charting Examples](CriticScores.ipynb) — example charts used in several videos in {module}`week3`
 3. [Chart Finishing Touches](ChartFinishingTouches.ipynb)
 
-## Statistical Analysis
+## Probability and Statistics
 
 1.  [Penguin Inference](PenguinSamples.ipynb)
-2.  [One Sample T-test and Distribution Comparison](OneSample.ipynb)
-3.  [Correlation](Correlation.ipynb)
-4.  [Regressions](Regressions.ipynb) (goes with [Week 8](../../week8/index.md))
-5.  [Logistic Regression](LogitRegressionDemo.ipynb)
+2.  [Probability Distributions](Distributions.ipynb)
+3.  [Sampling Distributions](SamplingDistributions.ipynb)
+4.  [One Sample T-test and Distribution Comparison](OneSample.ipynb)
+5.  [Correlation](Correlation.ipynb)
+6.  [Regressions](Regressions.ipynb) (goes with [Week 8](../../week8/index.md))
+7.  [Logistic Regression](LogitRegressionDemo.ipynb)
 
 ## SciKit-Learn and ML Models
 
