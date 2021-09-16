@@ -53,7 +53,7 @@ class MediaObject:
     @property
     def display_title(self):
         icon = EMOJI_DEFS.get(self.type, None)
-        return f'{icon} {self.title}' if icon else self.title
+        return f'{icon}\u00A0{self.title}' if icon else self.title
 
 
 @dataclass
