@@ -167,7 +167,7 @@ Some more examples from my own work (these are *not* all cleaned up to our check
 
 ## {{mnotebook}} Tutorials
 
-The [indexing notebook](../../resources/tutorials/Indexing.ipynb) is now up!
+The [tutorial notebooks](tutorials) include many useful things, and have a couple of additions moved over from {module}`week4`.
 
 ## {{massignment}} Assignment 2
 

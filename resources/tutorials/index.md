@@ -1,3 +1,4 @@
+(tutorials)=
 # Tutorial Notebooks
 
 This is a collection of notebooks with tips and consolidated references for the various Python and Pandas topics that we are discussing.
@@ -24,9 +25,9 @@ These notebooks are on basic Python data manipulation:
 
 ## Probability and Statistics
 
-1.  [Penguin Inference](PenguinSamples.ipynb)
-2.  [Probability Distributions](Distributions.ipynb)
-3.  [Sampling Distributions](SamplingDistributions.ipynb)
+1.  [Penguin Inference](PenguinSamples.ipynb) (from {module}`week4`)
+2.  [Probability Distributions](Distributions.ipynb) (from {module}`week4`)
+3.  [Sampling Distributions](SamplingDists.ipynb) (from {module}`week4`)
 4.  [One Sample T-test and Distribution Comparison](OneSample.ipynb)
 5.  [Correlation](Correlation.ipynb)
 6.  [Regressions](Regressions.ipynb) (goes with [Week 8](../../week8/index.md))
