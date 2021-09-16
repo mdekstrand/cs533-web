@@ -1,8 +1,4 @@
-# 🚧 Week 5 — Filling In (9/20–24) 🚧
-
-:::{draft}
-This content is still in draft state and has not yet been finalized.
-:::
+# Week 5 — Filling In (9/20–24)
 
 This week introduces one new statistical concept — the {term}`hypothesis test` — and is otherwise about **practice** and **solidifying concepts**.
 I'm also going to take a step back and give some more context to some of the things we're talking about.
