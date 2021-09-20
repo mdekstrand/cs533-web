@@ -26,12 +26,13 @@ These notebooks are on basic Python data manipulation:
 ## Probability and Statistics
 
 1.  [Penguin Inference](PenguinSamples.ipynb) (from {module}`week4`)
-2.  [Probability Distributions](Distributions.ipynb) (from {module}`week4`)
-3.  [Sampling Distributions](SamplingDists.ipynb) (from {module}`week4`)
-4.  [One Sample T-test and Distribution Comparison](OneSample.ipynb)
-5.  [Correlation](Correlation.ipynb)
-6.  [Regressions](Regressions.ipynb) (goes with [Week 8](../../week8/index.md))
-7.  [Logistic Regression](LogitRegressionDemo.ipynb)
+2.  [Empirical Probabilities](EmpiricalProbabilities.ipynb) (demonstration of using boolean series to compute probabilities with empirical data)
+3.  [Probability Distributions](Distributions.ipynb) (from {module}`week4`)
+4.  [Sampling Distributions](SamplingDists.ipynb) (from {module}`week4`)
+5.  [One Sample T-test and Distribution Comparison](OneSample.ipynb)
+6.  [Correlation](Correlation.ipynb)
+7.  [Regressions](Regressions.ipynb) (goes with [Week 8](../../week8/index.md))
+8.  [Logistic Regression](LogitRegressionDemo.ipynb)
 
 ## SciKit-Learn and ML Models
 
