@@ -8,11 +8,6 @@ The purpose of this course is for students to learn how to engage in the scienti
 data-centric concepts and methods and to *think like a data scientist* by critically analyzing their
 own work and the work of others.
 
-```{admonition} Draft Content
-:class: warning
-This syllabus is mostly final, but is subject to minor revisions before the first day of class.
-```
-
 ## Learning Outcomes
 
 It is my goal that after completing this course successfully, you will be able to:
