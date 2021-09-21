@@ -2,6 +2,8 @@
 
 :::{draft}
 This content is still in draft state and has not yet been finalized.
+
+The quiz instructions, however **are** final.
 :::
 
 :::{alert}
@@ -28,8 +30,37 @@ Since we have the exam this week, the lecture load is significantly reduced.
 
 ## {{mquiz}} Midterm A
 
-The first midterm is at the end of the week.  It will be released at **5 PM Wednesday**, and due at 5PM on Saturday.
-It is written to take just over an hour.
+The first midterm is on Tuesday.  It is written to take about an hour, and covers material
+up through and including Week 5.
+
+### Format
+
+The exam is a written in-person exam.  It will contain a variety of questions to assess your ability
+to understand and apply concepts from the class.  Question formats include:
+
+- Multiple-choice
+- True/false
+- Matching
+- Fill-in-the-blank
+- Short answer
+
+I may ask you to do a range of things on the exam, including (but not limited to):
+
+- Define a concept
+- Compute a metric from a small quantity of data
+- Interpret a chart
+
+### Exam Rules
+
+- You may have **1 note sheet**, letter- or A4-sized, single-sided.  (For the final, you will be allowed a two-sided note sheet.)
+- You should not need a calculator, but may bring one if you wish.
+- You may answer in either pen or pencil.
+
+### Study Tips
+
+- Review the previous quizzes and assignments.
+- Review lecture slides to see where you are unclear on concepts and need to review.
+- Skim assigned readings, particularly the section headings to remind yourself what was in them.
 
 ## {{mvideo}} Introduction
 
@@ -68,9 +99,9 @@ This video discusses how to compute the *correlation coefficient* between two va
 :slide-auth: APP9pqAFcW76hH4
 :::
 
-!!! note "Error in Video"
-
-    In this video, I list the Pandas correlation function as `cor`. The correct name is `corr`.
+:::{warning}
+In this video, I list the Pandas correlation function as `cor`. The correct name is `corr`.
+:::
 
 ## {{mvideo}} Regression
 
@@ -83,7 +114,6 @@ This video discusses how to fit a line between two variables.
 :slide-id: 495979F9A431DDB0%2173213
 :slide-auth: ACfoXRGXZ54Fy7M
 :::
-
 
 ## {{mnotebook}} Correlation Notebook
 
