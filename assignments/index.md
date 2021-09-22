@@ -1,8 +1,8 @@
 # Assignments
 
 - [Assignment 0](./A0/index.md) (due **August 29**)
-- Assignment 1 (due **September 12**)
-- Assignment 2 (due **September 26**)
+- [Assignment 1](./A1/index.md) (due **September 12**)
+- [Assignment 2](./A2/index.md) (due **September 26**)
 - Assignment 3 (due **October 10**)
 - Assignment 4 (due **October 24**)
 - Assignment 5 (due **November 7**)
@@ -12,23 +12,23 @@
 (asn-rubric)=
 ## General Rubric
 
-Unless otherwise specified, assignment components will be graded on the following rubric:
+Assignment components are graded based on *levels of achievement*: how well did you achieve the requirements and learning outcomes for that piece of the assignment?
+This is in contrast to models where points are deducted for specific types of errors; the grader looks at the assignment component as a whole and identifies the level of achievement it demonstrates.
 
-Exemplary (100%)
+Exemplary (95–100%)
 :   Results are correct and clearly presented; charts are well-labeled and appropriate; explanatory text clearly and concisely tells the story with appropriate context and analysis; organization makes it easy to review.
 
-Basically Correct (95%)
+Basically Correct (85–95%)
 :    The analysis comes to correct (or defensible) results and conclusions, but the presentation is not easy to follow and/or portions are not clear or lack context or labels.
 
-Right Idea (80%)
+Right Idea (75–85%)
 :    The approach is appropriate, but the work has mistakes in code, analysis, or presentation that undermine the correctness of conclusions.
 
-Solid Start (65%)
+Solid Start (60–75%)
 :    The work makes a good start, but has fundamental conceptual problems in code, analysis, or presentation such that it will not produce legitimate results.
 
-Did Something (30%)
+Did Something (<60%)
 :    The solution began an attempt, but is either insufficiently complete to assess correctness or is on entirely the wrong track.
 
-The TA and I may assign partial points between rubric anchors as a particular assignment merits. For
-example, an assignment component that meets *Right Idea*, but where the flaws are relatively minor,
-may receive 85–90% of the component's points instead of only 80%.
+Precise numeric grades indicate how well you demonstrated that level of achievement; full achievement is at the top of the level's range.
+For example, 92% is “mostly basically correct; a couple sub-components are more at the Right Idea level”.
