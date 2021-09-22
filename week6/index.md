@@ -3,7 +3,7 @@
 :::{draft}
 This content is still in draft state and has not yet been finalized.
 
-The quiz instructions, however **are** final.
+The midterm instructions, however **are** final.
 :::
 
 :::{alert}
