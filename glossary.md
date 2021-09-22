@@ -365,6 +365,14 @@ Standard error
 
     Discussed in {video}`week4:confidence`.
 
+Standardization
+    Normalizing a variable to be in units of ``standard deviations from the mean'', instead of the original units.  This is done by
+    subtracting the mean and dividing by the standard deviation (in this formula, $\tilde{x}_i$ is the standardized value of observation $x_i$):
+
+    $$\tilde{x}_i = \frac{x_i - \bar{x}}{s}$$
+
+    Demonstrated in [One Sample notebook](resources/tutorials/OneSample.ipynb).
+
 *t*-test
     A statistical test for means of normally-distributed data.  T-tests come in three varieties:
 
