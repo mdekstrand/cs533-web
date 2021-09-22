@@ -1,5 +1,5 @@
 (tutorials)=
-# Tutorial Notebooks
+# Tutorials
 
 This is a collection of notebooks with tips and consolidated references for the various Python and Pandas topics that we are discussing.
 
