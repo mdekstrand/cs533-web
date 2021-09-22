@@ -61,6 +61,7 @@ I may ask you to do a range of things on the exam, including (but not limited to
 - Review the previous quizzes and assignments.
 - Review lecture slides to see where you are unclear on concepts and need to review.
 - Skim assigned readings, particularly the section headings to remind yourself what was in them.
+- Review the [course glossary](../glossary.md), keeping in mind that it does contain terms we haven't gotten to yet.
 
 ## {{mvideo}} Introduction
 
