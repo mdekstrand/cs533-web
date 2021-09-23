@@ -163,7 +163,7 @@ Submit a Jupyter notebook that describes the following (grade percentages and es
 
 4.  The break down (sometimes called a {term}`disaggregation`) of completion rate by race, by the school
     characteristics described in “Question”, and by one additional school characteristic you select
-    (30%). Give a justification for your choice of characteristic — why do you think it might be
+    (30%). Give a justification for your choice of additional characteristic — why do you think it might be
     interesting?
 
     You need to show these breakdowns both numerically and graphically.
