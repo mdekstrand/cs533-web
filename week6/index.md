@@ -1,13 +1,7 @@
-# 🚧 Week 6 — Two Variables (Sep. 27–Oct. 1) 🚧
-
-:::{draft}
-This content is still in draft state and has not yet been finalized.
-
-The midterm instructions, however **are** final.
-:::
+# Week 6 — Two Variables (Sep. 27–Oct. 1)
 
 :::{alert}
-The first midterm exam will be from 5PM Wednesday through 5PM Saturday.
+The first midterm exam is on Tuesday.
 :::
 
 This week's learning outcomes are:
@@ -132,7 +126,7 @@ This video introduces the idea of feature engineering
 :slide-auth: AMykG3CZK45_454
 :::
 
-## {{mquiz}} Week 6 Quiz — MAP
+## {{mquiz}} Week 6 Quiz
 
 The Week 6 quiz is due before class on Thursday as usual.
 
