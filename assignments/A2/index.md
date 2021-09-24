@@ -9,7 +9,8 @@ It is due **September 26, 2020** at the end of the day (11:59 PM). Submit your `
 ## Revision Log
 
 Sep. 24, 2021
-:   Corrected  “all-critic score” to “all-critic rating”.
+:   Corrected  “all-critic score” to “all-critic rating”.  If you used the score instead of the rating, but produce
+    correct results, this will be accepted.
 
 ## Data and Setup (25%)
 
