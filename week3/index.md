@@ -203,7 +203,7 @@ How should you organize your notebook?
 What makes a good notebook?
 In this video we talk about that!
 
-:::{video}
+:::{video} notebooks
 :id: 80e425d4-f295-4f1b-b73a-ad9601830f06
 :slide-id: 495979F9A431DDB0%2173736
 :slide-auth: APudMYTIAHl2Ao8
