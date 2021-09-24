@@ -6,6 +6,11 @@ data we have been using for examples in class.
 
 It is due **September 26, 2020** at the end of the day (11:59 PM). Submit your `.ipynb` and PDF files to Canvas.
 
+## Revision Log
+
+Sep. 24, 2021
+:   Corrected  “all-critic score” to “all-critic rating”.
+
 ## Data and Setup (25%)
 
 For this assignment, you will work with the [HETREC Movie data](https://grouplens.org/datasets/hetrec-2011/).
@@ -57,7 +62,7 @@ You can do all of this with vectorized operations. Start with a frame whose rows
 If you join or merge the movie genre table with your movie info or stats table on the movie ID, it will **duplicate** each movie for each genre it has.  Grouping by genres and aggregating will then compute your aggregate statistics, such as the mean, correctly.
 :::
 
-{{mtodo}} For each of the 20 genres, compute the mean and a 95% bootstrapped confidence interval for the mean all-critic score.
+{{mtodo}} For each of the 20 genres, compute the mean and a 95% bootstrapped confidence interval for the mean all-critic rating.
 Show the result in a table.  Does this look the same as the standard error CIs?
 
 :::{admonition} Group-Apply
