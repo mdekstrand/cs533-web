@@ -36,8 +36,6 @@ jobs:
       with:
         path: ~/.local/share/virtualenvs
         key: ${{ runner.os }}-pipenv-py38-${{ hashFiles('Pipfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-pipenv-py38-
 
     - name: 📐 Install Python dependencies
       run: |
