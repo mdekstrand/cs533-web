@@ -33,6 +33,7 @@ These notebooks are on basic Python data manipulation:
 6.  [Correlation](Correlation.ipynb)
 7.  [Regressions](Regressions.ipynb) (goes with [Week 8](../../week8/index.md))
 8.  [Logistic Regression](LogitRegressionDemo.ipynb)
+9.  [Sampling and Testing the Penguins](PenguinSamples.ipynb)
 
 ## SciKit-Learn and ML Models
 
