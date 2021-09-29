@@ -50,7 +50,8 @@ These are more advanced examples of data manipulation and collection:
 
 1.  [MovieLens Time Series](MLTimeSeries.ipynb)
 2.  [Sessionization](Sessions.ipynb) (demonstrates some more advanced aggregation and time-based operations)
-3.  [Fetching CHI Papers](FetchCHIPapers.ipynb) creates the `chi-papers.csv` file from Internet sources
+3.  [Using the Census](UsingTheCensus.ipynb) describes how to access census data.
+4.  [Fetching CHI Papers](FetchCHIPapers.ipynb) creates the `chi-papers.csv` file from Internet sources
 
 ## Workflow Example
 
