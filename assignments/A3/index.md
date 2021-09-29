@@ -50,12 +50,6 @@ You will also need to install the Python package for the Census API, and a packa
 
     pip install census us
 
-To load the health data, you will need the `openpyxl` module:
-
-    conda install openpyxl
-
-You won't need to use openpyxl directly, but Pandas uses it to read Excel files.
-
 #### Data Layout
 
 The census data comes in a variety of *files*. These files include:
@@ -107,7 +101,7 @@ This file has 6 sheets, one for each of 6 different disease families.
 :::{admonition} Reading GHDx Data
 :class: tip
 
-You can read these data files with:
+You can read these data files with {py:func}`pandas.read_excel`:
 
 ```python
 sheets = pd.read_excel('IHME_USA_COUNTY_INFECT_DIS_MORT_1980_2014_NATIONAL_Y2018M03D27.XLSX',
@@ -117,6 +111,12 @@ sheets = pd.read_excel('IHME_USA_COUNTY_INFECT_DIS_MORT_1980_2014_NATIONAL_Y2018
 The resulting `sheets` variable is a *dictionary* (remember those?) mapping sheet names (disease families) to data frames.
 The `sheet_name=None` option tells it to load all sheets, and `header=1` says to skip the first row and read the column headers from the second.
 `skipfooter=2` tells it to skip the last two rows as well.  Look at the files to see why!
+
+For this function to work, you will need the `openpyxl` module:
+
+    conda install openpyxl
+
+You won't need to use openpyxl directly, but Pandas uses it to read Excel files.
 
 Alternatively, you can open the data file in Excel or LibreOffice and export the parts you need to a CSV file.
 :::
