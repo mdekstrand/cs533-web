@@ -15,6 +15,11 @@ and you need to build a well-structured notebook that answers them.
 Read the entire assignment before you begin!
 :::
 
+## Revision Log
+
+Sep. 30, 2021
+:   Fixed lingering reference to 3 mortality rates.
+
 ## Concept
 
 **Central Question:** Are health outcomes correlated with poverty levels in a community?
@@ -169,7 +174,7 @@ Submit a notebook using the data above to do the following (all for year 2014 da
 
 1.  (20%) Describe, both numerically and graphically, the distribution of state poverty rates.
 2.  (30%) Show the relationship of poverty rates to mortality rates of two different disease families — Meningitis and Diarrheal deseases — using appropriate plots.
-3.  (20%) Quantify the relationship between poverty and each of the 3 mortality rates in (2) by computing correlation coefficients with bootstrapped confidence intervals for each disease.
+3.  (20%) Quantify the relationship between poverty and each of the 2 mortality rates in (2) by computing correlation coefficients with bootstrapped confidence intervals for each disease.
 4.  (20%) Repeat (2) and (3) for infant mortality.
 5.  (10%) Write 2–3 paragraphs about what you learn from these data.  Discuss also limitations that you see in the data and analysis!
 
