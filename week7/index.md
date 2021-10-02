@@ -1,8 +1,4 @@
-# 🚧 Week 7 — Getting Data (Oct. 4–8) 🚧
-
-:::{draft}
-This content is still in draft state and has not yet been finalized.
-:::
+# Week 7 — Getting Data (Oct. 4–8)
 
 This week has the following learning outcomes:
 
