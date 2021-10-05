@@ -91,6 +91,12 @@ In this video, we learn the different types of data (_variables_) that we will e
 :name: 2-3 - Variables and Types
 :::
 
+:::{note}
+In this video, I present categorical and ordinal variables as **fixed** and **finite**. While this describes any
+categorical and ordinal variables you are likely to encounter, this is not strictly speaking correct.  It is
+possible for a categorical or ordinal variable to be (countably) infinite.
+:::
+
 ### Resources
 
 * [Palmer Penguins data set](https://github.com/allisonhorst/palmerpenguins)
