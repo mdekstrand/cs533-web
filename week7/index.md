@@ -11,6 +11,7 @@ Pursued through the following activities:
 ## {{moverview}} Content Overview
 
 :::{module} week7
+:folder: 3e59e9f-4955-4cea-a709-adb8012572f7
 :::
 
 ## {{mcal}} Deadlines
@@ -25,7 +26,7 @@ What are we talking about this week?  I also discuss general principles that wil
 :::{video}
 :name: 7-1 - Introduction
 :id: c5e1e328-8fb8-42db-b899-ac48004725f9
-:lenght: 8m22s
+:length: 8m22s
 :slide-id: 495979F9A431DDB0%2173225
 :slide-auth: APts3vR7Lc59NkI
 :::
