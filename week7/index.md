@@ -24,8 +24,7 @@ Pursued through the following activities:
 What are we talking about this week?  I also discuss general principles that will drive the week's material.
 
 :::{video}
-:name: 7-1 - Introduction
-:id: c5e1e328-8fb8-42db-b899-ac48004725f9
+:name: 7-1 - Data
 :length: 8m22s
 :slide-id: 495979F9A431DDB0%2173225
 :slide-auth: APts3vR7Lc59NkI
@@ -37,7 +36,6 @@ Where do we go to find data?
 
 :::{video}
 :name: 7-2 - Finding Data
-:id: e56004cc-a323-471f-b182-ac480047f3a8
 :length: 7m25s
 :slide-id: 495979F9A431DDB0%2173227
 :slide-auth: AIXRrNdcFNGB7sE
@@ -54,8 +52,7 @@ Where do we go to find data?
 In this video I describe different formats in which you may find data.
 
 :::{video}
-:name: 7-2 - Data Formats
-:id: 172a79b7-8de8-48f2-b237-ac48004b69b4
+:name: 7-3 - Data Formats
 :length: 13m55s
 :slide-id: 495979F9A431DDB0%2173229
 :slide-auth: AL8FsyUoRQ7_NXs
@@ -70,8 +67,7 @@ In this video I describe different formats in which you may find data.
 This video talks about the key ideas of integrating multiple data sources.
 
 :::{video}
-:name: 7-3 - Integrating Data
-:id: 8520883b-46f8-42fb-a696-ac48004d5df9
+:name: 7-4 - Integrating Data
 :length: 11m40s
 :slide-id: 495979F9A431DDB0%2173230
 :slide-auth: AKZU3thNfrXQ1v0
@@ -82,8 +78,7 @@ This video talks about the key ideas of integrating multiple data sources.
 This video discusses how to deal with and clean up various data types.
 
 :::{video}
-:name: 7-4 - Values and Types
-:id: f67ebd51-6853-401e-9449-ac4a00035d3c
+:name: 7-5 - Values and Types
 :length: 8m15s
 :slide-id: 495979F9A431DDB0%2173233
 :slide-auth: AHyCBqpfJRcrq68
@@ -112,8 +107,7 @@ Read [Working with Text Data](https://pandas.pydata.org/pandas-docs/stable/user_
 This video provides a **very brief** overview of some of the ethical issues in data collection and use.
 
 :::{video}
-:name: 7-5 - Ethical Issues
-:id: d3f734cf-efb1-4902-a6c8-ac4a00035cdb
+:name: 7-6 - Ethics
 :length: 14m10s
 :slide-id: 495979F9A431DDB0%2173240
 :slide-auth: AHtpuXAGUcIYFNI
@@ -151,8 +145,7 @@ This video describes the data cleaning and integration in a real example from my
 I am providing it so you can see the principles in this week's material applied to an actual problem; details of this specific data set will not be on exams.
 
 :::{video}
-:name: 7-6 - A Real Example
-:id: 3ddd5f50-f4bf-4c27-94fb-ac4a0042ab0b
+:name: 7-7 - Real Example
 :length: 48m57s
 :slide-id: 495979F9A431DDB0%2173242
 :slide-auth: AF1TnxA02bYHuSA
@@ -169,8 +162,7 @@ I am providing it so you can see the principles in this week's material applied 
 This video talks about general principles for processing and integration workflows.
 
 :::{video}
-:name: 7-7 - Workflow Advice
-:id: 1461848f-643d-4112-9de1-ac4a00035cad
+:name: 7-8 - Workflow Advice
 :length: 5m24s
 :slide-id: 495979F9A431DDB0%2173241
 :slide-auth: AMRLqk4xIA_OSL0

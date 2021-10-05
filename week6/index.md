@@ -63,11 +63,8 @@ I may ask you to do a range of things on the exam, including (but not limited to
 This video introduces the week's topic.
 
 :::{video}
-:name: 6-1 - Introduction
-:id: 19cef7d4-1454-4287-b38a-ac41004ba89f
+:name: 6-1 - Two Variables Intro
 :length: 4m36s
-:slide-id: 495979F9A431DDB0%2173206
-:slide-auth: AJD3MdV51KonnCA
 :::
 
 ## {{mvideo}} Displaying Variables
@@ -77,11 +74,7 @@ This video discusses how to display related numeric variables.
 :::{video}
 :name: 6-2 - Displaying Variables
 :length: 3m45s
-:id: f9618c8a-ce7e-4086-a3da-ac41004ba872
-:slide-id: 495979F9A431DDB0%2173208
-:slide-auth: AJ4raVQvI1nq
 :::
-
 
 ## {{mvideo}} Correlation
 
@@ -90,9 +83,6 @@ This video discusses how to compute the *correlation coefficient* between two va
 :::{video}
 :name: 6-3 - Correlation
 :length: 11m12s
-:id: ada3b4f7-e1e0-4c67-a176-ac41004ba8eb
-:slide-id: 495979F9A431DDB0%2173210
-:slide-auth: APP9pqAFcW76hH4
 :::
 
 :::{warning}
@@ -106,9 +96,6 @@ This video discusses how to fit a line between two variables.
 :::{video}
 :name: 6-4 - Regression
 :length: 6m3s
-:id: 4c59f315-65e3-4746-a0e5-ac41004ba848
-:slide-id: 495979F9A431DDB0%2173213
-:slide-auth: ACfoXRGXZ54Fy7M
 :::
 
 ## {{mnotebook}} Correlation Notebook
@@ -122,9 +109,6 @@ This video introduces the idea of feature engineering
 :::{video}
 :name: 6-5 - Features
 :length: 4m20s
-:id: 979b3d05-879d-48b6-979c-ac41004bbb1f
-:slide-id: 495979F9A431DDB0%2173215
-:slide-auth: AMykG3CZK45_454
 :::
 
 ## {{mquiz}} Week 6 Quiz
