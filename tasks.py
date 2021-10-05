@@ -127,6 +127,7 @@ def get_videos(c, folder):
     url = f'https://boisestate.hosted.panopto.com/Panopto/Podcast/Podcast.ashx?courseid={folder}&type=mp4'
     id_re = re.compile(r'https://.*/Syndication/([a-z0-9-]+)\.mp4')
     vidroot = Path('videos')
+    _msg('fetching videos for folder %s', folder)
     res = requests.get(url)
     rss = et.parse(BytesIO(res.content))
     chan = rss.find('channel')
