@@ -15,6 +15,7 @@ Since we have the exam this week, the lecture load is significantly reduced.
 ## {{moverview}} Content Overview
 
 :::{module} week6
+:folder: 2265c95a-2338-4021-8276-adb801256fe9
 :::
 
 ## {{mcal}} Deadlines
