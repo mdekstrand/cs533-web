@@ -5,6 +5,7 @@ copyright: '2021'
 
 exclude_patterns:
 - .venv/*
+- node_modules/*
 - README.md
 - week9/*
 - week10/*
