@@ -49,7 +49,7 @@ jobs:
 
     - name: 🥅 Install Node modules
       run: |
-        npm i
+        npm ci
       env:
         NODE_ENV: development
 
