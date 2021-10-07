@@ -7,7 +7,6 @@ exclude_patterns:
 - .venv/*
 - node_modules/*
 - README.md
-- week9/*
 - week10/*
 - week11/*
 - week12/*
