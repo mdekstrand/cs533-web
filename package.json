@@ -1,0 +1,22 @@
+{
+  "name": "cs533-web",
+  "version": "1.0.0",
+  "description": "CS 533 web site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdekstrand/cs533-web.git"
+  },
+  "author": "Michael Ekstrand",
+  "license": "CC-BY-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/mdekstrand/cs533-web/issues"
+  },
+  "homepage": "https://cs533.ekstrandom.net",
+  "devDependencies": {
+    "netlify-cli": "^6.10.3"
+  }
+}
