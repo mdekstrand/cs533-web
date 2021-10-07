@@ -49,7 +49,11 @@ jobs:
 
     - name: 🥅 Install Node modules
       run: |
-        npm ci
+        if [ ! -d node_modules ]; then
+          npm ci
+        else
+          echo "modules already installed"
+        fi
       env:
         NODE_ENV: development
 
