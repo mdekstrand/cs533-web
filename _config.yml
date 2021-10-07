@@ -6,7 +6,6 @@ copyright: '2021'
 exclude_patterns:
 - .venv/*
 - README.md
-- week8/*
 - week9/*
 - week10/*
 - week11/*

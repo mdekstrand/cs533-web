@@ -1,139 +1,141 @@
-# Week 8 — Regression
-{% import 'video.md' as media %}
+# 🚧 Week 8 — Regression 🚧
 
-!!! warning "Draft content"
-
-    This content is still in draft state and has not yet been finalized.
-    Do not depend on it as the final requirements for this week.
+:::{draft}
+This content is still in draft state and has not yet been finalized.
+:::
 
 In this week, we are learning about linear regression with StatsModels.
 All the examples will use the StatsModels OLS (ordinary least squares) model, generally with the
 [formula interface](https://www.statsmodels.org/stable/generated/statsmodels.formula.api.ols.html#statsmodels.formula.api.ols).
 
-Activities:
+## {{moverview}} Content Overview
 
-[TOC]
+:::{module} week8
+:::
 
-## :a-video: Introducing Regression {: data-length="5m6s"}
+## {{mcal}} Deadlines
 
-=== "Video"
+- Week 8 Quiz **Thursday Oct. 14 at 8AM**
 
-    {{ media.video('ce6dd7fd-7632-4853-b165-ac4e011f9745') }}
+## {{mvideo}} Introducing Regression
 
-=== "Slides"
+:::{video}
+:id: ce6dd7fd-7632-4853-b165-ac4e011f9745
+:length: 5m6s
+:slide-id: 495979F9A431DDB0%2173250
+:slide-auth: AJyw9tJLQ2TII98
+:::
 
-    {{ media.slides('495979F9A431DDB0%2173250', 'AJyw9tJLQ2TII98') }}
+## {{mvideo}} Statistical Modeling
 
-## :a-video: Statistical Modeling {: data-length="8m6s"}
-
-=== "Video"
-
-    {{ media.video('a32df5bb-b919-439a-98fc-ac4e011f96f7') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173252', 'AFQ5ZkCaaa2Qn8Q') }}
+:::{video}
+:id: a32df5bb-b919-439a-98fc-ac4e011f96f7
+:length: 8m6s
+:slide-id: 495979F9A431DDB0%2173252
+:slide-auth: AFQ5ZkCaaa2Qn8Q
+:::
 
 ### Resources
 
-- Review the [Data Generating Process](../week4/index.md#sampling)
+- Review {video}`week4:sampling`
 - [What is statistical modeling?](https://help.xlstat.com/s/article/what-is-statistical-modeling?language=en_US)
 
-## :a-video: Single Regression {: data-length="10m14s"}
+## {{mvideo}} Single Regression
 
 In this video, I introduce single-variable regression.
 
-=== "Video"
+:::{video}
+:id: 6974f533-c84a-425f-85c6-ac4e011f97ae
+:length: 10m14s
+:slide-id: 495979F9A431DDB0%2173257
+:slide-auth: AOpDY3zSpDSX2zw
+:::
 
-    {{ media.video('6974f533-c84a-425f-85c6-ac4e011f97ae') }}
+:::{admonition} Slide Clarification
+:class: note
 
-=== "Slides"
+On slide 6, where I show the slope, intercept, and variance in a model, I have extended the plot to include 0 at the left end of the *x*-axis.
+This is to highlight the meaning of the intercept. It is important to note that the intercept is where the line **crosses zero**, not where it crosses the left Y-axis.
 
-    {{ media.slides('495979F9A431DDB0%2173257', 'AOpDY3zSpDSX2zw') }}
+Also, when discussing this slide, I am imprecise but make it sound like the unexplained variance is the remainder after *projecting* the data onto the line.
+It is the variance remaining after *subtracting* the line.
+A video in Week 9 provides more clarity on this relationship.
+:::
 
-!!! note "Slide Clarification"
+## {{mvideo}} Prediction and Inference
 
-    On slide 6, where I show the slope, intercept, and variance in a model, I have extended the plot to include 0 at the left end of the *x*-axis.
-    This is to highlight the meaning of the intercept. It is important to note that the intercept is where the line **crosses zero**, not where it crosses the left Y-axis.
+:::{video}
+:id: 79719da0-ac88-4bfc-acf7-ac4e011f9777
+:length: 8m33s
+:slide-id: 495979F9A431DDB0%2173259
+:slide-auth: ADukYiT1K4jLngk
+:::
 
-    Also, when discussing this slide, I am imprecise but make it sound like the unexplained variance is the remainder after *projecting* the data onto the line.
-    It is the variance remaining after *subtracting* the line.
-    I am preparing a video for Week 9 that will provide more clarity on this relationship.
+## {{mvideo}} Categorical Predictors
 
-## :a-video: Prediction and Inference {: data-length="8m33s"}
+:::{video}
+:id: dd8e3e53-8776-4c62-9d23-ac5100090a29
+:length: 3m41s
+:slide-id: 495979F9A431DDB0%2173270
+:slide-auth: AKJTXs7gpzSKE0Q
+:::
 
-=== "Video"
+## {{mvideo}} Testing Assumptions
 
-    {{ media.video('79719da0-ac88-4bfc-acf7-ac4e011f9777') }}
+:::{video}
+:id: 9b75d72f-d616-497f-afda-ac51000909ef
+:length: 9m46s
+:slide-id: 495979F9A431DDB0%2173266
+:slide-auth: APhGyKu3RTROISc
+:::
 
-=== "Slides"
+## {{mdoc}} Regression Model Assumptions
 
-    {{ media.slides('495979F9A431DDB0%2173259', 'ADukYiT1K4jLngk') }}
-
-## :a-quiz: Week 8 Quiz
-
-Complete the Week 8 quiz in Blackboard.
-
-## :a-video: Categorical Predictors {: data-length="3m41s"}
-
-=== "Video"
-
-    {{ media.video('dd8e3e53-8776-4c62-9d23-ac5100090a29') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173270', 'AKJTXs7gpzSKE0Q') }}
-
-## :a-video: Testing Assumptions {: data-length="9m46s"}
-
-=== "Video"
-
-    {{ media.video('9b75d72f-d616-497f-afda-ac51000909ef') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173266', 'APhGyKu3RTROISc') }}
-
-## :a-reading: Regression Model Assumptions {: data-length="964 words"}
+:::{reading}
+:title: Regression Model Assumptions
+:url: https://www.jmp.com/en_us/statistics-knowledge-portal/what-is-regression/simple-linear-regression-assumptions.html
+:length: 964 words
+:::
 
 Read [Regression Model Assumptions](https://www.jmp.com/en_us/statistics-knowledge-portal/what-is-regression/simple-linear-regression-assumptions.html) from JMP.
 
-## :a-video: Multiple Regression {: data-length="19m8s"}
+## {{mvideo}} Multiple Regression
 
-=== "Video"
+:::{video}
+:id: 20d644fc-c4ca-40de-a03f-ac510014254e
+:length: 19m8s
+:slide-id: 495979F9A431DDB0%2173268
+:slide-auth: ALxGFTYkfItgS8o
+:::
 
-    {{ media.video('20d644fc-c4ca-40de-a03f-ac510014254e') }}
+## {{mvideo}} Measuring Prediction Accuracy
 
-=== "Slides"
+:::{video}
+:id: 5ba717f5-1c46-4118-a89e-ac51001564cd
+:length: 9m12s
+:slide-id: 495979F9A431DDB0%2173272
+:slide-auth: AEe-Etx_iJxpOiw
+:::
 
-    {{ media.slides('495979F9A431DDB0%2173268', 'ALxGFTYkfItgS8o') }}
+## {{mvideo}} Instances and Sampling
 
-## :a-video: Measuring Prediction Accuracy {: data-length="9m12s"}
+:::{video}
+:id: ec19853e-2dfb-4774-b192-ac5100142bbb
+:length: 9m40s
+:slide-id: 495979F9A431DDB0%2173274
+:slide-auth: ADEFTal_QoMtTcQ
+:::
 
-=== "Video"
-
-    {{ media.video('5ba717f5-1c46-4118-a89e-ac51001564cd') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173272', 'AEe-Etx_iJxpOiw') }}
-
-## :a-video: Instances and Sampling {: data-length="9m40s"}
-
-=== "Video"
-
-    {{ media.video('ec19853e-2dfb-4774-b192-ac5100142bbb') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173274', 'ADEFTal_QoMtTcQ') }}
-
-## :a-notebook: Supporting Notebook
+## {{mnotebook}} Supporting Notebooks
 
 - [Regression notebook](../../resources/tutorials/Regressions.ipynb) with code supporting the Penguin examples
-- I have added the regression code to the [correlation notebook](../../resources/tutorials/Correlation.ipynb) to support the movie examples
+- The [correlation notebook](../../resources/tutorials/Correlation.ipynb) includes regression to support the movie examples
 
-## :a-reading: StatsModels Examples and User Guide
+## {{mquiz}} Week 8 Quiz
+
+Complete the Week 8 quiz in Canvas.
+
+## {{mdoc}} StatsModels Examples and User Guide
 
 The following StatsModels pages document its OLS model:
 
@@ -141,10 +143,16 @@ The following StatsModels pages document its OLS model:
 - [OLS Examples](https://www.statsmodels.org/stable/examples/notebooks/generated/ols.html)
 - [Linear Regression](https://www.statsmodels.org/stable/regression.html)
 
-## :a-reading: Bootstrapping Linear Regression {: data-length="1950 words"}
+## {{mdoc}} Bootstrapping Linear Regression
+
+:::{reading}
+:title: Bootstrapping for Linear Regression
+:length: 1950 words
+:url: https://www.textbook.ds100.org/ch/18/hyp_regression.html
+:::
 
 Read [Bootstrapping for Linear Regression](https://www.textbook.ds100.org/ch/18/hyp_regression.html).
 
-## :a-assignment: Assignment 4
+## {{massignment}} Assignment 4
 
-[Assignment 4](../../assignments/A4/index.md) is due **October 25, 2020**.
+[Assignment 4](../../assignments/A4/index.md) is due **October 24, 2020**.

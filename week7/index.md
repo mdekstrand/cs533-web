@@ -6,8 +6,6 @@ This week has the following learning outcomes:
 - Integrate data from multiple sources
 - Reason about bias and social effects of data
 
-Pursued through the following activities:
-
 ## {{moverview}} Content Overview
 
 :::{module} week7
