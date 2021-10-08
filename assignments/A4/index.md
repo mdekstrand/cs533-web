@@ -419,9 +419,9 @@ Write a couple of paragraphs about what you learned from this assignment.
 I'm providing here some estimates of how long I expect each part might take you.
 
 1. Warmup: 1 hour
-2. Linear Regression: 2 hours
-3. Nonlinear Data: 30 minutes
-4. Non-normal Covariates: 30 minutes
+2. Linear Regression: 2.5 hours
+3. Nonlinear Data: 1 hour
+4. Non-normal Covariates: 1 hour
 5. Multiple Regression: 1 hour
 6. Correlated Predictors: 2 hours
-7. Reflection: 1 hour
+7. Cleanup and Reflection: 1 hour
