@@ -2,25 +2,25 @@
 
 Following is a tentative schedule.  Topics may shift a little bit depending on how the semester goes.
 
-| Week | Start | Topic                               | Due    |
-| :--: | :---: | ----------------------------------- | :----: |
-| 1    | 8/23  | [Asking Questions][W1]              | [A0][] |
-| 2    | 8/30  | [Variables and Data][W2]            |        |
-| 3    | 9/6   | [Visualizing and Presenting][W3]    | [A1][] |
-| 4    | 9/13  | [Probability and Inference][W4]     |        |
-| 5    | 9/20  | [Filling In][W5]                    | A2     |
-| 6    | 9/27  | [Two Variables][W6]                 | E1     |
-| 7    | 10/4  | [Sourcing and Integrating Data][W7] | A3     |
-| 8    | 10/11 | [Regression][W8]                    |        |
-| 9    | 10/18 | [Modeling & Prediction][W9]         | A4     |
-| 10   | 10/25 | [Classification][W10]               |        |
-| 11   | 11/1  | [Evaluating Models][W11]            | A5     |
-| 12   | 11/8  | [Text][W12]                         | E2     |
-| 13   | 11/15 | [Unsupervised][W13]                 | A6     |
-| *Th* | 11/22 | *Thanksgiving*                      |        |
-| 14   | 11/29 | [Workflow][W14]                     |        |
-| 15   | 12/6  | [What's Next?][W15]                 | A7     |
-| F    | 12/13 | Finals week                         | Final  |
+| Week  | Start |                Topic                |  Due   |
+| :---: | :---: | ----------------------------------- | :----: |
+|   1   | 8/23  | [Asking Questions][W1]              | [A0][] |
+|   2   | 8/30  | [Variables and Data][W2]            |        |
+|   3   |  9/6  | [Visualizing and Presenting][W3]    | [A1][] |
+|   4   | 9/13  | [Probability and Inference][W4]     |        |
+|   5   | 9/20  | [Filling In][W5]                    | [A2][] |
+|   6   | 9/27  | [Two Variables][W6]                 |   E1   |
+|   7   | 10/4  | [Sourcing and Integrating Data][W7] | [A3][] |
+|   8   | 10/11 | [Regression][W8]                    |        |
+|   9   | 10/18 | [Modeling & Prediction][W9]         | [A4][] |
+|  10   | 10/25 | [Classification][W10]               |        |
+|  11   | 11/1  | [Evaluating Models][W11]            |   A5   |
+|  12   | 11/8  | [Text][W12]                         |   E2   |
+|  13   | 11/15 | [Unsupervised][W13]                 |   A6   |
+| *Th*  | 11/22 | *Thanksgiving*                      |        |
+|  14   | 11/29 | [Workflow][W14]                     |        |
+|  15   | 12/6  | [What's Next?][W15]                 |   A7   |
+|   F   | 12/13 | Finals week                         | Final  |
 
 Assignments are due at **midnight on Sunday** at the end of the week in which they are listed. For
 example, A0 is due at midnight, August 29, 2021.  Exams are in class on Tuesdays the weeks they are
