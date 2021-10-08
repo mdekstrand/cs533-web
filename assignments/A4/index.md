@@ -273,7 +273,7 @@ x & \sim \mathrm{Normal}(0, 1) \\
 y & = 10 + 5 e^x + \epsilon
 \end{align*}$$
 
-{{mtask}} Fit a linear model predicting $y$ with $x$. How well does the model fit? Do the assumptions hold?
+{{mtask}} Fit a linear model predicting $y$ with $x$. How well does the model fit? Do the assumptions seem to hold?
 
 {{mtask}} Draw a scatter plot of $x$ and $y$.
 
@@ -294,14 +294,14 @@ The NumPy function {py:func}`numpy.exp` computes $e^x$.
 {{mtask}} Generate 1000 data points with the model:
 
 $$\begin{align*}
-y & = 10 + 0.1x + \epsilon \\
+y & = 10 + 0.3x + \epsilon \\
 \epsilon & \sim \mathrm{Normal}(0, 1) \\
 x & \sim \mathrm{Gamma}(2, 1)
 \end{align*}$$
 
 - Plot the distributions of $X$ and $Y$
 - Fit a linear model predicting $y$ with $x$
-- How well does this model fit? Do the assumptions hold?
+- How well does this model fit? How much of the variance does it explain? Do the assumptions seem to hold?
 
 :::{ltip} Gamma Distributions
 
