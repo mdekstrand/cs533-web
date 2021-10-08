@@ -43,7 +43,7 @@ We're going to get data from 3 sources.
 ### Income — US Census
 
 We are going to get *income* data from the US Census Bureau.
-See [Using the Census](../../resources/tutorials/UsingTheCensus.ipynb) for an introdution to working with this data.
+See [Using the Census](../../resources/tutorials/UsingTheCensus.ipynb) for an introduction to working with this data.
 
 The in-class exercise on September 30 will give you practice with census data.
 
