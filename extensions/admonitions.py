@@ -4,7 +4,7 @@ Sphinx extension for custom admonitions.
 
 from sphinx.application import Sphinx
 from docutils import nodes
-from docutils.parsers.rst.directives.admonitions import BaseAdmonition
+from docutils.parsers.rst.directives.admonitions import BaseAdmonition, Admonition
 
 
 class Draft(BaseAdmonition):
@@ -22,5 +22,27 @@ class Draft(BaseAdmonition):
         return [node]
 
 
+class LTip(Admonition):
+
+    def run(self):
+        if 'classes' not in self.options:
+            self.options['classes'] = []
+        self.options['classes'].append('tip')
+
+        return super().run()
+
+
+class LNote(Admonition):
+
+    def run(self):
+        if 'classes' not in self.options:
+            self.options['classes'] = []
+        self.options['classes'].append('note')
+
+        return super().run()
+
+
 def setup(app: Sphinx):
     app.add_directive('draft', Draft)
+    app.add_directive('ltip', LTip)
+    app.add_directive('lnote', LTip)
