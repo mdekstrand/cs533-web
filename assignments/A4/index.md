@@ -215,7 +215,7 @@ It's instructive to also plot that!
 
 {{mtask}} Run 1000 iterations simulating these correlated variables to compute 1000 correlation coefficients (`xs.corr(zs)`).  Compute the mean and variance of these coefficients, and plot their distributions.  Does this match what we expect from the analytic results?  What happens when we compute correlations of 1000-element arrays in each iteration? What about 10000-element arrays?
 
-## Linear Regression (40%)
+## Linear Regression (35%)
 
 If we want to simulate a single-variable linear regression:
 
@@ -410,7 +410,7 @@ I didn't ask you to include 1 in your selected covariances - what happens if you
 a plot that only goes up to 0.999 or 0.9999?
 :::
 
-## Reflection (10%)
+## Reflection (5%)
 
 Write a couple of paragraphs about what you learned from this assignment.
 
