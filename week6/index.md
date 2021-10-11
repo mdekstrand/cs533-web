@@ -80,7 +80,7 @@ This video discusses how to display related numeric variables.
 
 This video discusses how to compute the *correlation coefficient* between two variables.
 
-:::{video}
+:::{video} correlation
 :name: 6-3 - Correlation
 :length: 11m12s
 :::

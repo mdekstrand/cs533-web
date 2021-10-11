@@ -1,9 +1,5 @@
 # Assignment 4
 
-:::{draft}
-I'm still finishing up this assignment.
-:::
-
 Assignment 4 has two purposes:
 
 - To give you more experience with linear regression
@@ -75,18 +71,7 @@ We can create a generator with {py:func}`np.random.default_rng <numpy.random.def
 rng = np.random.default_rng(20201014)
 ```
 
-:::{admonition} SeedBank
-:class: note dropdown
-
-If you wish to use SeedBank to manage your RNG seeds, you can do:
-
-```python
-seedbank.initialize(20201014)
-rng = seedbank.numpy_rng()
-```
-
 This will return a {py:class}`numpy.random.Generator`, just like {py:func}`numpy.random.default_rng`.
-:::
 
 In my class examples, I have been using the current date as my seed.
 If you do not specify a seed, it will pick a fresh one every time you start the program; for reproducibility, it is advised to pick a seed for any particular analysis.
@@ -101,6 +86,17 @@ using {py:meth}`standard_normal() <numpy.random.Generator.standard_normal>`:
 ```python
 xs = rng.standard_normal(100)
 ```
+
+:::{admonition} SeedBank
+:class: note dropdown
+
+If you wish to use SeedBank to manage your RNG seeds, you can do:
+
+```python
+seedbank.initialize(20201014)
+rng = seedbank.numpy_rng()
+```
+:::
 
 ## Warmup: Correlation (10%)
 
@@ -138,11 +134,12 @@ Now you need to modify the code to draw 1000 normals for `x` and 1000 normals fo
 Remember that the example above is drawing 100 normals for each variable.
 :::
 
-Remember the **covariance** of two variables is defined as:
+(a4-covariance)=
+Remember the **{term}`covariance`** of two variables is defined as:
 
 $$\Cov(X, Y) = \E[(X - \E[X]) (Y - \E[Y])] = \frac{1}{n} \sum_{i} (x_i - \bar{x}) (y_i - \bar{y})$$
 
-And the **correlation** is:
+And the **{term}`correlation`** is:
 
 $$r = \frac{\Cov(X, Y)}{\sigma_X \sigma_Y} = \frac{\Cov(X, Y)}{\sqrt{\Cov(X, X)} \sqrt{\Cov(Y, Y)}}$$
 
@@ -181,7 +178,7 @@ With that:
 
 $$\begin{align*}
 \Cov(X, Z) & = \E[(X - \E[X])(Z - \E[Z])] \\
-& = \E[X (X + Y)] \\
+& = \E[X (X + Y)] & \text{since $\E[X] = \E[Z] = 0$} \\
 & = \E[X^2 + XY] \\
 & = \E[X^2] + \E[X Y] \\
 & = \E[X^2] \\
@@ -190,14 +187,14 @@ $$\begin{align*}
 \end{align*}$$
 
 The correlation coefficient depends on $\Cov(X,Z) = 1$, $\Var(X) = 1$, and $\Var(Z)$.
-We can derive $\Var(Y)$ as follows:
+We can derive $\Var(Z))$ as follows:
 
 $$\begin{align*}
 \Var(Z) & = \E[(Z - \E[Z])^2] \\
-& = \E[Z^2] \\
+& = \E[Z^2] & \text{since $\E[Z] = 0$} \\
 & = \E[(X + Y)^2] \\
 & = \E[X^2 + 2 X Y + Y^2] \\
-& = \E[X^2] + 2 \E[X Y] + \E[Y^2] \\
+& = \E[X^2] + 2 \E[X Y] + \E[Y^2] & \text{by linearity of expectation} \\
 & = \Var(X) + \Var(Y) & \text{since both variables' means are 0} \\
 & = \sigma_X^2 + \sigma_{Y}^2 = 2
 \end{align*}$$
@@ -278,7 +275,7 @@ y & = 10 + 5 e^x + \epsilon
 {{mtask}} Draw a scatter plot of $x$ and $y$.
 
 :::{ltip} Drawing Normals
-You can draw from $\mathrm{Normal}(0, 5)$ either by using {py:meth}`normal() <numpy.random.Generator.normal>`
+You can draw from $\mathrm{Normal}(0, 5)$ either by using tbe {py:meth}`normal() <numpy.random.Generator.normal>`
 method of `Generator`, or by drawing an array of standard normals and multiplying it by 5.
 This is because the normal distribution is in the *scale-location family* of distributions.
 :::
@@ -301,7 +298,7 @@ x & \sim \mathrm{Gamma}(2, 1)
 
 - Plot the distributions of $X$ and $Y$
 - Fit a linear model predicting $y$ with $x$
-- How well does this model fit? How much of the variance does it explain? Do the assumptions seem to hold?
+- How well does this model fit? How much of the variance does it explain? Do the assumptions seem to hold?  Does the linear regression teem appropriate to the data?
 
 :::{ltip} Gamma Distributions
 

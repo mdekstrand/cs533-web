@@ -27,7 +27,7 @@ Bayesianism
     Not to be confused with {term}`Bayes' Theorem`, which is a fundamental building block of Bayesian inference but has many other uses as well.
 
 Bayes' Theorem
-    A theorem or identity in probability theory that allows us to reverse a conditional probability:
+    A theorem or identity in probability theory that allows us to reverse a {term}`conditional probability`:
 
     $$P(B|A) = \frac{P(A|B) P(B)}{P(A)}$$
 
@@ -52,7 +52,7 @@ Conditional Probability
     The conditional probability $P(B|A)$ (read “the probability of $B$ given $A$”) is the probability of $B$, given that we know $A$ occurred.
     We can also discuss conditional expectation $\mathrm{E}[X|A]$, the expected value of $X$ for those occurrences where $A$ occurred.
 
-    Introduced in {video}`week4:joint-conditional`.
+    Introduced in {video}`week4:joint-conditional` and discussed in [Notes on Probability](prob-conditional).
 
 Confidence Interval
     An interval used to estimate the precision of an estimate.
@@ -69,9 +69,18 @@ Correlation
 
     $$r = \frac{\sum(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum(x_i - \bar{x})^2}\sqrt{\sum(y_i - \bar{y})^2}}$$
 
-    This is equivalent to the **covariance** scaled by the standard deviations of the variables:
+    This is equivalent to the **{term}`covariance`** scaled by the {term}`standard deviations <standard deviation>` of the variables:
 
-    $$\mathrm{Cor}(X, Y) = \frac{\mathrm{Cov}(X, Y)}{\sigma_X \sigma_Y}$$
+    $$\Cor(X, Y) = \frac{\mathrm{Cov}(X, Y)}{\sigma_X \sigma_Y}$$
+    
+    Defined in {video}`week6:correlation` and [Notes on Probability](prob-variance). Used extensively in [Assignment 4](a4-covariance).
+
+Covariance
+    A non-normalized measure of the extent to which two variables change with each other:
+
+    $$\Cov(X, Y) = \E[(X - \E[X]) (Y - \E[Y])]$$
+
+    Defined in {video}`week6:correlation` and [Notes on Probability](prob-variance). Used extensively in [Assignment 4](a4-covariance).
 
 Degrees of Freedom
     The number of observations in a series that can independently vary to affect a calculation.
@@ -387,7 +396,7 @@ Variance
 
     $$\Var(X) = \E[(X - \E[X])^2]$$
 
-    Variance is the square of the {term}`standard deviation`, and is sometimes written $\sigma^2$.
+    Variance is the square of the {term}`standard deviation`, and is sometimes written $\sigma^2$.  It is also related to the {term}`covariance`: $\Var(X) = \Cov(X, X)$.
 
     Variance can be computed with:
 
@@ -401,6 +410,6 @@ Vectorization
     Writing a computation so that mathematical operations are done across entire arrays at a time, rather than looping over individual data points in Python code.
 
 Unbiased estimator
-    An estimator whose expected value is the population parameter.
+    An {term}`estimator` whose expected value is the population parameter.
 
 :::

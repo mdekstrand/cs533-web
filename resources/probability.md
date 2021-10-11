@@ -1,3 +1,4 @@
+(probability=)
 # Notes on Probability
 
 This document summarizes key concepts in probability theory.
@@ -120,6 +121,7 @@ We have to be careful with $\P[A \cup B]$ — a common mistake is to attempt to 
 With the examples from before, where $A$ is 2s and $B$ is red cards, the red 2s are included in both $\P[A]$ (since they are 2s) and $\P[B]$ (since they are red).  Subtracting the joint probability $\P[A \cap B]$ corrects for the double-counting and produces the correct result.  If $A$ and $B$ are disjoint (they can never happen at the same time), then $\P[A \cap B] = 0$, and we can see that the probability follows the rules for countable additivity.
 ```
 
+(prob-conditional)=
 ## Joint and Conditional Probability
 
 We define the **joint probability** $\P[A, B] = \P[A \cap B]$: the probability of both $A$ and $B$ happening in the same observation.
@@ -220,6 +222,7 @@ $$\E_P[f_X] = \int f_X(e) \P[e] de$$
 We can also talk about the **conditional expectation** $\E[X | A]$, the expected value of $X$ given that we know event $A$ happened.
 It is defined as $\E[X|A] = \int x p(x|A) dx$.
 
+(prob-variance)=
 ## Variance and Covariance
 
 The **variance** of a random variable $X$ is the expected value of its squared deviation from its mean:
