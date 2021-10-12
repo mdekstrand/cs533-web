@@ -38,6 +38,11 @@ for i in range(ITER_COUNT):
 You can use either Python lists or NumPy arrays for storing your results from repetitions.
 :::
 
+## Revision Log
+
+Oct. 21, 2021
+:   Clarified the [last task](a4-correlated) of the [warmup section](a4-warmup) to document it needs 100-, 1000-, and 10000-draw simulations.
+
 ## Simulation
 
 One common way to understand the behavior of statistical techniques is to use *simulation* (often called *Monte Carlo simulation*).
@@ -98,6 +103,7 @@ rng = seedbank.numpy_rng()
 ```
 :::
 
+(a4-warmup)=
 ## Warmup: Correlation (10%)
 
 If two variables are independent, their correlation should be zero, right?
@@ -210,7 +216,8 @@ You can compute the covariance with the {py:meth}`pandas.Series.cov` method.
 It's instructive to also plot that!
 :::
 
-{{mtask}} Run 1000 iterations simulating these correlated variables to compute 1000 correlation coefficients (`xs.corr(zs)`).  Compute the mean and variance of these coefficients, and plot their distributions.  Does this match what we expect from the analytic results?  What happens when we compute correlations of 1000-element arrays in each iteration? What about 10000-element arrays?
+(a4-correlated)=
+{{mtask}} Run 1000 iterations simulating these correlated variables to compute 1000 correlation coefficients (`xs.corr(zs)`), with 100 draws of each variable per iteration.  Compute the mean and variance of these coefficients, and plot their distributions.  Does this match what we expect from the analytic results?  What happens when we compute correlations of 1000 draws in each iteration? What about 10000 draws?
 
 ## Linear Regression (35%)
 
