@@ -27,6 +27,7 @@ parts:
   - file: week7/index
   - file: week8/index
   - file: week9/index
+  - file: week10/index
 - caption: Assignments
   chapters:
   - file: assignments/index

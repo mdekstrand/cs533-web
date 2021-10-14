@@ -1,64 +1,57 @@
-# Week 10 — Classification
-{% import 'video.md' as media %}
+# 🚧 Week 10 — Classification 🚧
 
-!!! warning "Draft content"
+:::{draft}
+This content is still in draft state and has not yet been finalized.
+:::
 
-    This content is still in draft state and has not yet been finalized.
-    Do not depend on it as the final requirements for this week.
+## {{moverview}} Content Overview
 
-Activities:
-
-[TOC]
-
-The videos are also available as a [Panopto playlist](https://boisestate.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=bb7da565-7bad-4b88-9560-ac5d00219ea1).
+:::{module} week10
+:::
 
 ## :a-video: What is Classification? {: data-length="6m39s"}
 
 In this video, I introduce the week and what classification is.
 
-=== "Video"
-
-    {{ media.video('5c480e36-8608-402c-a129-ac5d001ff796') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173290', 'AIrnE1IeJheWGMo') }}
+:::{video}
+:id: 5c480e36-8608-402c-a129-ac5d001ff796
+:length: 6m39s
+:slide-id: 495979F9A431DDB0%2173290
+:slide-auth: AIrnE1IeJheWGMo
+:::
 
 ## :a-video: Log-Odds and Logistics {: data-length="10m4s"}
 
 In this video, I introduce log-odds, along with the *logistic function* and its inverse, *logit*.
 
-=== "Video"
-
-    {{ media.video('5443ea85-5c44-4fda-9945-ac5d001ff832') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173292', 'ADvOZLcsA-Eof-M') }}
+:::{video}
+:id: 5443ea85-5c44-4fda-9945-ac5d001ff832
+:length: 10m4s
+:slide-id: 495979F9A431DDB0%2173292
+:slide-auth: ADvOZLcsA-Eof-M
+:::
 
 ## :a-video: Logistic Regression {: data-length="9m7s"}
 
 We're now ready for our first classification model: *logistic regression*.
 
-=== "Video"
-
-    {{ media.video('4e40bba2-840d-4c81-a9a3-ac5d001ff7bf') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173293', 'AMtiFgrMB1GajNQ') }}
+:::{video}
+:id: 4e40bba2-840d-4c81-a9a3-ac5d001ff7bf
+:length: 9m7s
+:slide-id: 495979F9A431DDB0%2173293
+:slide-auth: AMtiFgrMB1GajNQ
+:::
 
 ## :a-video: The Confusion Matrix {: data-length="11m50s"}
 
 The *confusion matrix* describes the outcomes of a classification model and is the basis for computing effectiveness metrics.
 
-=== "Video"
-
-    {{ media.video('da6ee201-03c8-4d93-9abe-ac5d001ff7f8') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173294', 'AP40RfAwO30CwLE') }}
+:::{video}
+:id: da6ee201-03c8-4d93-9abe-ac5d001ff7f8
+:length: 11m50s
+:slide-id: 495979F9A431DDB0%2173294
+:slide-auth: AP40RfAwO30CwLE
+:::
 
 ### Resources
 
@@ -90,25 +83,23 @@ This is **not** an assigned reading - it is here for your reference.
 
 This video describes the *log likelihood* that is the objective function used by logistic regression.
 
-=== "Video"
-
-    {{ media.video('1e548030-76ea-45e9-b543-ac5f0054f199') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173298', 'ADOpJqu9OvKINK4') }}
+:::{video}
+:id: 1e548030-76ea-45e9-b543-ac5f0054f199
+:length: 16m54s
+:slide-id: 495979F9A431DDB0%2173298
+:slide-auth: ADOpJqu9OvKINK4
+:::
 
 ## :a-video: Scikit-Learn {: data-length="6m42s"}
 
 This video introduces SciKit-Learn, and using it for a logistic regression.
 
-=== "Video"
-
-    {{ media.video('029a7a8d-a7fe-4474-a551-ac5f0054f129') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173300', 'AHK68fjvLEWn8GY') }}
+:::{video}
+:id: 029a7a8d-a7fe-4474-a551-ac5f0054f129
+:length: 6m42s
+:slide-id: 495979F9A431DDB0%2173300
+:slide-auth: AHK68fjvLEWn8GY
+:::
 
 ## :a-notebook: SciKit-Learn Logistic Regression
 
@@ -118,13 +109,12 @@ The [SciKit Logistic](./SciKitLogistic.ipynb) notebook demonstrates training and
 
 This video introduces the *receiver operating characteristic* (ROC) curve, and its use in evaluating classifiers and selecting tradeoffs.
 
-=== "Video"
-
-    {{ media.video('0a3a7981-c4cf-47a9-9236-ac5f0054f174') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173301', 'ABkYIOGgIpko-K4') }}
+:::{video}
+:id: 0a3a7981-c4cf-47a9-9236-ac5f0054f174
+:length: 7m25s
+:slide-id: 495979F9A431DDB0%2173301
+:slide-auth: ABkYIOGgIpko-K4
+:::
 
 ## :a-task: Practice
 
@@ -135,15 +125,20 @@ Delete the Adelie penguins first, so you have a binary classification problem.
 
 This video revisits sources of bias and discusses the assumptions underlying prediction.
 
-=== "Video"
-
-    {{ media.video('eb40dfed-7a3e-4c08-a7f8-ac5f005a7e34') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173303', 'AHZT9DGmNOxGZxM') }}
+:::{video}
+:id: eb40dfed-7a3e-4c08-a7f8-ac5f005a7e34
+:length: 22m
+:slide-id: 495979F9A431DDB0%2173303
+:slide-auth: AHZT9DGmNOxGZxM
+:::
 
 ## :a-reading: Prediction-Based Decisions {: data-length="3650 words"}
+
+:::{reading} pdb
+:title: Prediction-Based Decisions and Fairness: A Catalogue of Choices, Assumptions, and Definitions
+:url: https://arxiv.org/abs/1811.07867
+:length: 3650 words
+:::
 
 Read Sections 1 and 2 of the following paper:
 
@@ -165,4 +160,4 @@ This article probes in more detail the assumptions underlying classes of crimina
 
 ## :a-assignment: Assignment 5
 
-[Assignment 5](../../assignments/A5/index.md) is due **November 11, 2020**.
+[Assignment 5](../../assignments/A5/index.md) is due **November 7, 2020**.

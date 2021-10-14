@@ -30,7 +30,7 @@ XREF_TYPE_OVERRIDES = {
     'book': nodes.title_reference
 }
 
-_vl_re = re.compile(r'(\d+)m(\d+)s')
+_vl_re = re.compile(r'(\d+)m(?:(\d+)s)?')
 _rd_re = re.compile(r'(\d+)\s*words')
 _pfx_re = re.compile(r'^(\d+-\d+\s+-\s+)?(.*)')
 
@@ -75,7 +75,8 @@ class Video(MediaObject):
         if self.length:
             m = _vl_re.match(self.length)
             mins = float(m.group(1))
-            secs = float(m.group(2))
+            secs = m.group(2)
+            secs = float(secs) if secs else 0.0
             return mins * 60 + secs
 
 
