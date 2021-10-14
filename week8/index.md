@@ -154,10 +154,10 @@ The following StatsModels pages document its OLS model:
 :::{reading}
 :title: Bootstrapping for Linear Regression
 :length: 1950 words
-:url: https://www.textbook.ds100.org/ch/18/hyp_regression.html
+:url: https://olebo.github.io/textbook/ch/18/hyp_regression.html
 :::
 
-Read [Bootstrapping for Linear Regression](https://www.textbook.ds100.org/ch/18/hyp_regression.html).
+Read [Bootstrapping for Linear Regression](https://olebo.github.io/textbook/ch/18/hyp_regression.html).
 
 ## {{massignment}} Assignment 4
 
