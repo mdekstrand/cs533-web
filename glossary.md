@@ -171,6 +171,12 @@ HARKing
     $P(t' \ge t | H_0 \text{ is true}, H_0 \text{ looks false})$.
     See {video}`week4:hypotest`.
 
+Heteroskedasticity
+    Having unequal {term}`variance`.  The opposite of {term}`homoskedasticity`.
+
+Homoskedasticity
+    Having the same {term}`variance`.  The opposite of {term}`heteroskedasticity`.
+
 Hyperparameter
     A value that controls a model's training or prediction behavior that is **not** learned from the data.
     Examples include learning rates, iteration counts, and regularization terms.

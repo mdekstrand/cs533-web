@@ -64,7 +64,7 @@ A video in Week 9 provides more clarity on this relationship.
 
 ## {{mvideo}} Prediction and Inference
 
-:::{video}
+:::{video} pred-inf
 :name: 8-4 - Prediction and Inference
 :id: 79719da0-ac88-4bfc-acf7-ac4e011f9777
 :length: 8m33s
