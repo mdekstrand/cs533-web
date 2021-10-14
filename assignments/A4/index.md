@@ -40,7 +40,7 @@ You can use either Python lists or NumPy arrays for storing your results from re
 
 ## Revision Log
 
-Oct. 21, 2021
+Oct. 12, 2021
 :   Clarified the [last task](a4-correlated) of the [warmup section](a4-warmup) to document it needs 100-, 1000-, and 10000-draw simulations.
 
 ## Simulation
