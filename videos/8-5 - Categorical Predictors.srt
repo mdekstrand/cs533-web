@@ -1,0 +1,140 @@
+1
+00:00:05,120 --> 00:00:11,210
+This video, I want to talk about how to use categorical variables as predictors in our linear models,
+
+2
+00:00:11,210 --> 00:00:18,320
+learning outcomes are for you to be able to use a categorical predictor and understand what dummy coding is and why we use it.
+
+3
+00:00:18,320 --> 00:00:22,500
+Categorical variables, if you'll recall from earlier in the class or unordered discrete,
+
+4
+00:00:22,500 --> 00:00:27,650
+the variables that take on an unordered set of discrete values that are called levels.
+
+5
+00:00:27,650 --> 00:00:33,560
+And one of the things about these is we can't do arithmetic. You can't say like Gentoo Penguin Times three.
+
+6
+00:00:33,560 --> 00:00:36,110
+That's not a meaningful concept to talk about.
+
+7
+00:00:36,110 --> 00:00:44,510
+And even when we're using integers to encode our categorical variables, for example, a movie idee or just any kind of an I.D.,
+
+8
+00:00:44,510 --> 00:00:49,490
+we can't use those as model predictors because then they don't have numeric meaning.
+
+9
+00:00:49,490 --> 00:00:54,180
+It doesn't mean anything to multiply a movie idea by a coefficient.
+
+10
+00:00:54,180 --> 00:01:00,150
+And so we need another way to encode categorical variables if we're going to use them in our linear models.
+
+11
+00:01:00,150 --> 00:01:07,350
+And the solution is something called dummy coding. So what we do is we convert each level into a diff separate integer column.
+
+12
+00:01:07,350 --> 00:01:14,460
+So our penguin's dataset has three different penguin species, Adelie chinstrap and Gentoo.
+
+13
+00:01:14,460 --> 00:01:17,850
+And each of those becomes a column.
+
+14
+00:01:17,850 --> 00:01:26,460
+The pandas get dummy's function will get will convert Assiri a categorical series into a data frame of Dumi coded values.
+
+15
+00:01:26,460 --> 00:01:32,910
+And so this will give us the. So give us the dummy codings for the penguins.
+
+16
+00:01:32,910 --> 00:01:39,360
+And we have a we have one for each for each species.
+
+17
+00:01:39,360 --> 00:01:43,400
+This is also called one coding. Particularly when we're doing this, we have one for every level.
+
+18
+00:01:43,400 --> 00:01:47,790
+It's call we. It's one hot coding or dumi coding.
+
+19
+00:01:47,790 --> 00:01:54,180
+Another way that we can have a one where we have a one in the Adelie caller.
+
+20
+00:01:54,180 --> 00:02:01,910
+If that penguin is in a deli and we're gonna have a zero everywhere else because we only have one value of the categorical variable perone.
+
+21
+00:02:01,910 --> 00:02:08,420
+Often, though, we need to drop one of the categorical or one of the variables.
+
+22
+00:02:08,420 --> 00:02:13,580
+Typically the first one and we do this with the drop first option to get dummies.
+
+23
+00:02:13,580 --> 00:02:18,860
+And the Adelie column now, you'll see, is gone. We just have chinstrap and Gentoo.
+
+24
+00:02:18,860 --> 00:02:21,820
+And what how it's encoded is at a deli.
+
+25
+00:02:21,820 --> 00:02:31,640
+Penguin is all zeroes, but it chinstrap Penguin will have a one in the chinstrap column in a agentive will have a one in the Gentoo column.
+
+26
+00:02:31,640 --> 00:02:36,710
+This is going to be particularly useful for linear regression because if we have all of the levels,
+
+27
+00:02:36,710 --> 00:02:42,100
+we're going to have problems of fitting our linear regression models. If we just have we have all but one of them,
+
+28
+00:02:42,100 --> 00:02:47,930
+then effectively we're treating one of the levels as the default and the other levels are getting the code for what
+
+29
+00:02:47,930 --> 00:02:57,880
+happens when your when it's one of the other values instead of the first or the default value that you chose.
+
+30
+00:02:57,880 --> 00:03:05,110
+So the results of this are that the category of calls are encoded as numeric variables that we can then use in models.
+
+31
+00:03:05,110 --> 00:03:10,520
+We can multiply that, my coefficients, et cetera. We're going to see that in a model coming up.
+
+32
+00:03:10,520 --> 00:03:18,380
+Wrap up to use categorically in our linear models or other Neumar models, or we're going to need to do numeric computations on a categorical value.
+
+33
+00:03:18,380 --> 00:03:20,970
+We need to encode them numerically dummy coding.
+
+34
+00:03:20,970 --> 00:03:29,780
+Let's do this by converting each level into a zero one variable that indicates whether or not the observation has that value of the variable.
+
+35
+00:03:29,780 --> 00:03:41,067
+And often we drop one so that four end levels we have N minus one dummy variables and all zero is the.
+

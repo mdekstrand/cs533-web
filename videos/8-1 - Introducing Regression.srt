@@ -1,0 +1,196 @@
+1
+00:00:04,730 --> 00:00:11,000
+Hello. This week, we're going to talk more about regression. We introduced it when we started talking about two variables.
+
+2
+00:00:11,000 --> 00:00:15,810
+We'll be studying a lot more, how to use it and how to evaluate it. In this week's material,
+
+3
+00:00:15,810 --> 00:00:21,500
+so are learning outcomes are for you to be able to compute single and multivariable regressions to
+
+4
+00:00:21,500 --> 00:00:28,130
+test for violations of their assumptions and to assess the predictive accuracy of a regression model.
+
+5
+00:00:28,130 --> 00:00:34,070
+So if you'll remember, we have a dependent variable y called the outcome.
+
+6
+00:00:34,070 --> 00:00:39,710
+This case, if we're going to try to predict the Rotten Tomatoes audience rating with the critics rating,
+
+7
+00:00:39,710 --> 00:00:46,580
+the regression version of what you did in assignment to. We have our independent variables, X predictors.
+
+8
+00:00:46,580 --> 00:00:54,080
+In this case, the all critics rating, and our goal is to try to estimate compute an estimate which we call Y hat.
+
+9
+00:00:54,080 --> 00:00:58,920
+That'll be our standard notation for an estimate that tries to.
+
+10
+00:00:58,920 --> 00:01:03,770
+We try to estimate the audience rating using the critics rating.
+
+11
+00:01:03,770 --> 00:01:08,990
+And so we can learn a linear model, a line where we have an intercept. We have a slope.
+
+12
+00:01:08,990 --> 00:01:15,590
+And then we have some residuals. The goal is that we learn these parameters in order to minimize the least squares.
+
+13
+00:01:15,590 --> 00:01:19,940
+We're going to be talking more in subsequent videos about what precisely that means.
+
+14
+00:01:19,940 --> 00:01:23,450
+But this is the setup. We have this outcome and we want to try to predict it.
+
+15
+00:01:23,450 --> 00:01:31,040
+This is a very common setup and data science tasks. A lot of times what we're going to try to do is predict some outcome.
+
+16
+00:01:31,040 --> 00:01:34,490
+This is also a really common task in machine learning.
+
+17
+00:01:34,490 --> 00:01:38,660
+If you take the machine learning class in the spring, you'll be doing a lot of this.
+
+18
+00:01:38,660 --> 00:01:42,680
+So but talk about this. We're gonna be using the term model quite a bit.
+
+19
+00:01:42,680 --> 00:01:48,580
+What does that mean? Or model for our purposes? There's lots of different words in the model meetings, the word model.
+
+20
+00:01:48,580 --> 00:01:52,780
+It's a mathematical representation of the essential dynamics of a system of interest.
+
+21
+00:01:52,780 --> 00:01:57,890
+It's a simplification, but it captures the piece of the system that we're interested in measuring.
+
+22
+00:01:57,890 --> 00:02:06,770
+For example, if we. If critics are doing their job of assessing the quality of movie and in fact recommending effectively to audiences,
+
+23
+00:02:06,770 --> 00:02:11,870
+we would expect critic ratings to match audience or to map in some respect with audience ratings.
+
+24
+00:02:11,870 --> 00:02:16,880
+And so we can look at the relationship to model. It's a gross simplification.
+
+25
+00:02:16,880 --> 00:02:27,330
+We can look at the relationship to model. The pathways by which critic ratings and audience ratings might be related.
+
+26
+00:02:27,330 --> 00:02:36,450
+So there are several different purposes of modeling. One is to understand the relationships between our predictor and our outcome variables.
+
+27
+00:02:36,450 --> 00:02:44,460
+The model itself, these are correlational. They are not causal. You have to have great care when ascribing causality to what we learn.
+
+28
+00:02:44,460 --> 00:02:48,510
+But another purpose is to be able to predict future outcomes.
+
+29
+00:02:48,510 --> 00:02:53,370
+And this doesn't require the model to be causal or even to be what we call inferentially valid.
+
+30
+00:02:53,370 --> 00:02:59,670
+It just means there has to be a strong enough and reliable enough relationship that you can use it for the prediction.
+
+31
+00:02:59,670 --> 00:03:03,870
+You can also use it to estimate hypothetical other outcomes. You have to be careful with this.
+
+32
+00:03:03,870 --> 00:03:10,110
+But if you've got a model, you can use it to estimate, well, what would happen if the data were like this, but a little bit different.
+
+33
+00:03:10,110 --> 00:03:19,440
+And then you can also use them to estimate of the effect of something then you can correct for that effect in later analysis.
+
+34
+00:03:19,440 --> 00:03:24,960
+Regression is a type of modeling that predicts or estimates a continuous variable.
+
+35
+00:03:24,960 --> 00:03:31,190
+So you've got one or more. We have a continuous outcome variable and we have one or more.
+
+36
+00:03:31,190 --> 00:03:38,800
+We have one or more explanatory variables. Or features and that we're going to use them to predict that continuous outcome.
+
+37
+00:03:38,800 --> 00:03:43,610
+So a linear we're particularly focused here on linear models, so.
+
+38
+00:03:43,610 --> 00:03:51,820
+And because it's linear regression in a linear equation is a variable as an equation where you have a sum.
+
+39
+00:03:51,820 --> 00:03:57,510
+This whole thing is a sum of individual scalar multiplication. So X K times a constant.
+
+40
+00:03:57,510 --> 00:04:03,910
+X one times a constant. To be zero batur zero times one.
+
+41
+00:04:03,910 --> 00:04:08,590
+And so it's a linear model, is a linear equation, is the sum of these together multiples.
+
+42
+00:04:08,590 --> 00:04:12,940
+Linear models are incredibly capable. Useful for a wide range of things.
+
+43
+00:04:12,940 --> 00:04:18,040
+And also, we can transform many nonlinear problems into a linear problem.
+
+44
+00:04:18,040 --> 00:04:26,170
+Either transform our features and now the problem's linear, transform our outcomes and other problems, linear viotti of techniques for doing that.
+
+45
+00:04:26,170 --> 00:04:31,420
+So for a large range of problems, linear models are very good first thing to try.
+
+46
+00:04:31,420 --> 00:04:37,540
+And there's also a very good baseline comparison for more sophisticated models.
+
+47
+00:04:37,540 --> 00:04:45,580
+So we're gonna be learning this week about linear regression models were then later in later weeks, we're going to see linear classification models.
+
+48
+00:04:45,580 --> 00:04:54,790
+So to wrap up models, summarize data generating processes and let us predict future outcomes, given that we might not have observed yet.
+
+49
+00:04:54,790 --> 00:05:06,667
+And linear models are particularly simple but flexible class of models that we're going to be spending time with over the next weeks.
+

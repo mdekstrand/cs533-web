@@ -1,0 +1,364 @@
+1
+00:00:04,550 --> 00:00:10,060
+Hello. And this video, I want to talk about how to test the assumptions that we make in a linear model.
+
+2
+00:00:10,060 --> 00:00:16,060
+So we're going to review the linear assumptions. And I want you to be able to identify violations of these assumptions,
+
+3
+00:00:16,060 --> 00:00:23,050
+particularly with regards the assumptions about how variables are distribute residuals are distributed.
+
+4
+00:00:23,050 --> 00:00:28,330
+So to review the assumptions that a linear model makes are first, that it is linear.
+
+5
+00:00:28,330 --> 00:00:32,200
+The outcome of the outcome and the predictor have a linear relationship.
+
+6
+00:00:32,200 --> 00:00:36,400
+The next assumption is that we are our observations are independent of each other.
+
+7
+00:00:36,400 --> 00:00:43,120
+And then that the of the residuals are normally distributed and have equal variance.
+
+8
+00:00:43,120 --> 00:00:50,380
+We call equal variance. Homos get asked to study same variance across the range of fitted values.
+
+9
+00:00:50,380 --> 00:00:54,520
+A violation of the equal variance condition is called hetero US city.
+
+10
+00:00:54,520 --> 00:00:58,240
+Or we say that the residuals are hetero scholastic.
+
+11
+00:00:58,240 --> 00:01:03,490
+The last three of these are supposed to result in independent and identically distributed normal residuals.
+
+12
+00:01:03,490 --> 00:01:08,830
+So let's start with linearity. This is the fundamental assumption of a linear model.
+
+13
+00:01:08,830 --> 00:01:14,410
+We wouldn't run a linear model if we didn't think that there was a linear relationship to study.
+
+14
+00:01:14,410 --> 00:01:20,170
+And so if we want to check this what we are or see whether a linear model is even going to be reasonable to try.
+
+15
+00:01:20,170 --> 00:01:26,980
+What we can do is we can do a scatterplot with quite possibly the regression line to see that seems to fit.
+
+16
+00:01:26,980 --> 00:01:36,130
+And that looks vaguely linear ish. Independence is difficult to check.
+
+17
+00:01:36,130 --> 00:01:41,200
+It's a property of data collection. We don't have tests or plots to say this is independent.
+
+18
+00:01:41,200 --> 00:01:47,350
+There are ways certain violations of it will manifest when we go and we plot the results of training a linear model.
+
+19
+00:01:47,350 --> 00:01:50,410
+But common ways that it's violated or if we've got time series.
+
+20
+00:01:50,410 --> 00:01:57,250
+If you're collecting data over time, it's often what we call auto correlated, which means one day is correlated with the day before.
+
+21
+00:01:57,250 --> 00:02:01,300
+They're not independent.
+
+22
+00:02:01,300 --> 00:02:10,390
+If you've got data that comes in groups or comes from common environments, for example, if you've got data on patients from five different hospitals,
+
+23
+00:02:10,390 --> 00:02:19,420
+patients within a hospital are going to be correlated because that hospital has its own practice, its own doctors, et cetera.
+
+24
+00:02:19,420 --> 00:02:25,660
+Also, if you've got multiple measurements for repeated individuals, that is another example of non independence.
+
+25
+00:02:25,660 --> 00:02:32,410
+For example, this is what came up when we were working with the paired t test or its related bootstrap tests,
+
+26
+00:02:32,410 --> 00:02:39,100
+where you have two observations and there say you've got the midterms and the mid be from the same student.
+
+27
+00:02:39,100 --> 00:02:45,580
+They're not independent of each other because a student who's doing well in the class is probably going to do well in both midterms.
+
+28
+00:02:45,580 --> 00:02:52,160
+And that violates the independence, the independence. That that violates the independence of those two variables.
+
+29
+00:02:52,160 --> 00:02:55,840
+We have the student linked, but if we've got.
+
+30
+00:02:55,840 --> 00:03:01,840
+But the students just going to show up as one row in our list of observations that are trained and linear model from.
+
+31
+00:03:01,840 --> 00:03:10,180
+But if we have students showing up as multiple rows, for example, the ratings that a user gives to books or movies,
+
+32
+00:03:10,180 --> 00:03:16,270
+the ratings by the same user are not fully independent of each other.
+
+33
+00:03:16,270 --> 00:03:21,130
+The solutions to this are out of scope for this week for sure.
+
+34
+00:03:21,130 --> 00:03:27,460
+But they involve correlated error models, sometimes hierarchical models or mixed effects models to be able to deal with the
+
+35
+00:03:27,460 --> 00:03:37,410
+kinds of grouping dynamics that can cause some of the independents violations. But then the nor the errors are supposed to be normally distributed.
+
+36
+00:03:37,410 --> 00:03:41,490
+And so the way we do this is we do a Q Q plot of the residuals.
+
+37
+00:03:41,490 --> 00:03:45,600
+When you fit a linear model, the resulting object gives you access to the residuals.
+
+38
+00:03:45,600 --> 00:03:51,840
+This plot was generated by the notebook that I've linked to in the in the weeks content information.
+
+39
+00:03:51,840 --> 00:03:59,240
+So you can go see the code that I used to generate this residual plot from from a linear model fit.
+
+40
+00:03:59,240 --> 00:04:11,850
+But you get a Q Q plot of residuals. And this looks pretty good. We've got and the the values are pretty much tracking with the pretty straight line
+
+41
+00:04:11,850 --> 00:04:17,610
+right along there of a violation of normality means we still have a line that fits,
+
+42
+00:04:17,610 --> 00:04:27,210
+but our P values and our confidence intervals are gonna be unreliable. We have to be careful using the line for using the model for inference.
+
+43
+00:04:27,210 --> 00:04:37,830
+And it's not these these assumptions are not all or nothing. The data often aren't perfectly normal, but they're pretty close.
+
+44
+00:04:37,830 --> 00:04:43,230
+Also then the next one. The last one is the equal variance of errors or homeless get as density.
+
+45
+00:04:43,230 --> 00:04:45,470
+And so the residuals are supposed to have constant variance.
+
+46
+00:04:45,470 --> 00:04:53,250
+And the way we check this is we make a scatterplot where the Y axis are the predicted or fitted values.
+
+47
+00:04:53,250 --> 00:04:58,590
+So this is the results of our linear regression, linear regression.
+
+48
+00:04:58,590 --> 00:05:03,660
+And the that's the x axis, the y axis is the residuals, so this is our EP.
+
+49
+00:05:03,660 --> 00:05:11,650
+So this is our Y hats. And this is our epsilons.
+
+50
+00:05:11,650 --> 00:05:19,000
+And this lets us see if there are what we're looking for is no patterns, no visible patterns, particularly in the Y axis.
+
+51
+00:05:19,000 --> 00:05:23,470
+We might have patterns in the X axis just because there are.
+
+52
+00:05:23,470 --> 00:05:30,430
+If there's a categorical variable involved, then the predicted values, the fitted values are going to fall into some chunks.
+
+53
+00:05:30,430 --> 00:05:34,780
+But we don't want is any patterns in the Y axis in response to those.
+
+54
+00:05:34,780 --> 00:05:38,170
+This looks pretty much like noise. A couple of these have higher ones.
+
+55
+00:05:38,170 --> 00:05:42,580
+Another one has lower. But, you know, you expect an outlier or two here and there.
+
+56
+00:05:42,580 --> 00:05:48,340
+The main body of these is pretty much the same width all the way across.
+
+57
+00:05:48,340 --> 00:05:58,050
+There aren't bands or other patterns that look or we aren't seeing a particular shift, which isn't necessarily a violation of the variance thing.
+
+58
+00:05:58,050 --> 00:06:05,980
+What we want. We don't want to see angular shifts in our residuals either violation of this.
+
+59
+00:06:05,980 --> 00:06:10,870
+So if we see distinct patterns, what in this plot?
+
+60
+00:06:10,870 --> 00:06:19,960
+What that means is that the model is failing to capture a systemic effect because there is a systematic error when you predict low the variance.
+
+61
+00:06:19,960 --> 00:06:24,070
+The residuals do something different than when you predict high,
+
+62
+00:06:24,070 --> 00:06:31,120
+which indicates there's a important feature that's not being taking a taking care of in the model or taking a cap
+
+63
+00:06:31,120 --> 00:06:40,330
+taken account for in the model that is affecting the relationship of your prediction to the actual resulting value.
+
+64
+00:06:40,330 --> 00:06:47,470
+Remember, Epsilon is Y. So the the the error epsilon.
+
+65
+00:06:47,470 --> 00:06:54,020
+Equals Y. The actual value outcome, variable minus Y hat.
+
+66
+00:06:54,020 --> 00:07:01,970
+Our estimated outcome variable from the linear regression. So where we can see some violations of this.
+
+67
+00:07:01,970 --> 00:07:11,790
+So this. This variable or so these residuals from another linear model, they have just a little bit more curve.
+
+68
+00:07:11,790 --> 00:07:15,260
+To the residuals than we would like to see, they're pretty close to normal.
+
+69
+00:07:15,260 --> 00:07:20,030
+But there's a little more curve indicating that the tails aren't quite fitting, the normal distribution.
+
+70
+00:07:20,030 --> 00:07:26,750
+But also, if we look at the residual versus fitted plot, we see kind of this funnel shape.
+
+71
+00:07:26,750 --> 00:07:35,390
+So for high fitted values, the variance of the residuals is much higher than for low fat values.
+
+72
+00:07:35,390 --> 00:07:43,430
+And that's that looks like a larger change and variance than can be explained just by the occasional outlier.
+
+73
+00:07:43,430 --> 00:07:53,150
+So we're going to say that these residuals are exhibiting hetero sked activity and therefore we're not going to trust the model that these came from.
+
+74
+00:07:53,150 --> 00:07:56,210
+So what do you do if you're doing just doing prediction.
+
+75
+00:07:56,210 --> 00:08:05,840
+If your own goal is to predict an outcome, then it might not matter because these assumptions, violations, they're a problem for.
+
+76
+00:08:05,840 --> 00:08:09,980
+They're a problem for in France. Not necessarily for prediction.
+
+77
+00:08:09,980 --> 00:08:14,060
+You still want to check your prediction and also check the distribution of your prediction errors.
+
+78
+00:08:14,060 --> 00:08:21,720
+It might be that it's mostly doing a pretty good job. But when you get to some edge cases, it pretty egregiously fails you.
+
+79
+00:08:21,720 --> 00:08:25,250
+You might just not be able to make a linear model work.
+
+80
+00:08:25,250 --> 00:08:34,610
+You might need to add or remove or transform some of your predictors or possibly transform the outcome, like take a log, take a square root.
+
+81
+00:08:34,610 --> 00:08:40,520
+Do some more feature engineering in order to get features that are going to produce a better a better model.
+
+82
+00:08:40,520 --> 00:08:45,140
+You might need to go to some non parametric techniques, such as boot straps.
+
+83
+00:08:45,140 --> 00:08:49,070
+There's a thing called a non parametric regression that we're not going to have time to get to.
+
+84
+00:08:49,070 --> 00:08:52,880
+But you can go. You can go study that if it might be useful for your problem.
+
+85
+00:08:52,880 --> 00:08:59,750
+Sometimes hierarchical or mixed effects models are going to take care of some of the additional effects that are causing your assumption violations,
+
+86
+00:08:59,750 --> 00:09:03,620
+particularly independents. But they can help in some other cases as well.
+
+87
+00:09:03,620 --> 00:09:09,950
+So to wrap up linear models, make four key assumptions that are necessary for inferences from them to be valid.
+
+88
+00:09:09,950 --> 00:09:15,230
+These assumptions aren't all or nothing. There's not a binary. It is or it isn't.
+
+89
+00:09:15,230 --> 00:09:26,270
+It's a judgment call that comes in part from experience and careful study of whether it's a violation is too strong and then plotting the plotting,
+
+90
+00:09:26,270 --> 00:09:33,830
+the residuals, both plotting a coocoo plot. We can test their normality and plotting the residuals versus the predicted values.
+
+91
+00:09:33,830 --> 00:09:46,733
+Allow us to detect violations of some of these assumptions and check the validity of our inferences.
+

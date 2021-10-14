@@ -1,0 +1,388 @@
+1
+00:00:05,230 --> 00:00:09,740
+Oh, and this video, I'm going to talk more about how single regression actually works.
+
+2
+00:00:09,740 --> 00:00:16,400
+There's a notebook going with this sequence of videos that's going to include the regressions and is going to give you the codes.
+
+3
+00:00:16,400 --> 00:00:21,260
+You can actually see how to run them and how to set up the data in order to get them to work.
+
+4
+00:00:21,260 --> 00:00:26,180
+So our goal here is to be able to model a linear relationship between two variables,
+
+5
+00:00:26,180 --> 00:00:33,540
+estimate the parameters of this model and identify the assumptions that are needed for the model to be what we call inferentially valid.
+
+6
+00:00:33,540 --> 00:00:40,560
+So remember, we've got our dependent, variable, independent variables, we're trying to predict the outcome with the predictors.
+
+7
+00:00:40,560 --> 00:00:45,360
+And this is this is a univariate regressions. We're trying to predict our audience ratings.
+
+8
+00:00:45,360 --> 00:00:49,020
+They're all critic rating. This won't be the only example I show you today.
+
+9
+00:00:49,020 --> 00:00:56,700
+So when we do this with a regression model, we use what I'm using here, the stats models formula interface,
+
+10
+00:00:56,700 --> 00:01:05,860
+which lets me write a little a little formula here that says I want to predict the audience ratings.
+
+11
+00:01:05,860 --> 00:01:21,160
+This is the outcome. And then we've got this separator here and then I'm trying, so I'm trying to predict that outcome with predictors or features.
+
+12
+00:01:21,160 --> 00:01:24,710
+So that's how the that's how the code is set up there.
+
+13
+00:01:24,710 --> 00:01:30,350
+You've got fertility, that's our. And it means predict the stuff on the left hand side of the tildy with the stuff on the right.
+
+14
+00:01:30,350 --> 00:01:36,140
+Right now, there's just one variable, because as I said, this is univariate or single variable regression.
+
+15
+00:01:36,140 --> 00:01:42,380
+And this gives us an intercept.
+
+16
+00:01:42,380 --> 00:01:52,030
+Beta Sub-Zero is the intercept. It gives us a coefficient beta sub one.
+
+17
+00:01:52,030 --> 00:01:55,900
+For each of these coefficients, we get the coefficient itself.
+
+18
+00:01:55,900 --> 00:01:59,470
+So our point zero point one eight three eight.
+
+19
+00:01:59,470 --> 00:02:04,540
+The intercept, we can think of the intercept as a coefficient for a variable that's always one and actually internally.
+
+20
+00:02:04,540 --> 00:02:08,790
+That's what Stats Models does. It augments your data with one more variable. That's one.
+
+21
+00:02:08,790 --> 00:02:12,940
+And. And the intercept is the coefficient for that.
+
+22
+00:02:12,940 --> 00:02:18,820
+We also have a standard error of the coefficient and a confidence interval of the coefficient.
+
+23
+00:02:18,820 --> 00:02:28,600
+That is, it's just like the confidence intervals that we've had before. It's an estimate of of the precision of this this coefficient.
+
+24
+00:02:28,600 --> 00:02:33,220
+There's also a P value which tests the null hypothesis that the coefficient is zero.
+
+25
+00:02:33,220 --> 00:02:39,260
+We have a P value for the overall model. And we have a.
+
+26
+00:02:39,260 --> 00:02:44,840
+And R-squared, which as I said previously, this is the percent of the variance.
+
+27
+00:02:44,840 --> 00:02:51,370
+This is the fraction of the variance that's explained. So. Audience ratings have some variance.
+
+28
+00:02:51,370 --> 00:02:59,170
+Forty percent of that variance can be thirty nine point four percent of that variance can be explained with the top critic rating.
+
+29
+00:02:59,170 --> 00:03:04,930
+So if we take away the effect of the top critic rating effective, what this means is the residuals,
+
+30
+00:03:04,930 --> 00:03:09,790
+the reason, the variance of the residuals will be 60 percent of the variance of the original data.
+
+31
+00:03:09,790 --> 00:03:19,430
+Because we've explained 40 percent of the variance. So we we can draw our line here and here, I spread out the x axis.
+
+32
+00:03:19,430 --> 00:03:28,890
+We see it across the whole place, the whole the whole frame. So our intercept it or our intercept is right here.
+
+33
+00:03:28,890 --> 00:03:35,880
+Where the line crosses zero and that's two point two eight, and then we have a slope of 0.01 eight.
+
+34
+00:03:35,880 --> 00:03:43,430
+So if we look at the where it crosses 10. And.
+
+35
+00:03:43,430 --> 00:03:49,460
+So if we look at where it crosses 10 and we look at where it crosses the intercept,
+
+36
+00:03:49,460 --> 00:03:54,880
+there should be a difference of one point eight because it's going to be 10 times eight point one eight.
+
+37
+00:03:54,880 --> 00:04:00,100
+So that's the that's the the structure of this line. We have a slope and we have an intercept.
+
+38
+00:04:00,100 --> 00:04:09,000
+And then the variance of the data itself, the variance is.
+
+39
+00:04:09,000 --> 00:04:13,670
+The variance is based on this whole height.
+
+40
+00:04:13,670 --> 00:04:21,600
+So that's the variance of the data. But if you were to tilt your head until the data so that.
+
+41
+00:04:21,600 --> 00:04:26,430
+It's around this line. That's a smaller variance.
+
+42
+00:04:26,430 --> 00:04:33,330
+And so that's what the linear route and that's what we're saying when we were talking about the explained variance is that R squared,
+
+43
+00:04:33,330 --> 00:04:39,060
+the explained variance is the difference between the overall variance of the data and the variance.
+
+44
+00:04:39,060 --> 00:04:43,860
+After we have accounted for the effect that we're modeling, you can see that.
+
+45
+00:04:43,860 --> 00:04:51,570
+You can see that the variance is going to decrease if you if you look at it centered around this other line instead of just centered vertically.
+
+46
+00:04:51,570 --> 00:05:00,330
+So we get the model. As I said, two point two, eight plus point one eight times the the x axis value.
+
+47
+00:05:00,330 --> 00:05:06,390
+So the data generating process we're looking at here as the movie exists, critic gives it a rating, audience gives it a rating.
+
+48
+00:05:06,390 --> 00:05:12,720
+Audience is not. This is the Dagg should look Dagg.
+
+49
+00:05:12,720 --> 00:05:18,010
+Directed a cyclic graph, we don't deal with cyclic causality.
+
+50
+00:05:18,010 --> 00:05:22,420
+We've got the movie producers, critic ratings and producers, audience ratings.
+
+51
+00:05:22,420 --> 00:05:27,220
+There might be some slight causal pathway, like if people go watch more movies that are rated highly.
+
+52
+00:05:27,220 --> 00:05:33,910
+But what we're measuring is this correlation, though, between between critic rating and audience rating.
+
+53
+00:05:33,910 --> 00:05:38,500
+But this is the underlying DGP. We're not saying they cause audience ratings, but the relation.
+
+54
+00:05:38,500 --> 00:05:43,210
+But we don't have to have causality for it to be a useful predictor or for there to be a useful
+
+55
+00:05:43,210 --> 00:05:50,080
+and meaningful relationship when you want to take out other effects is complicated and subtle.
+
+56
+00:05:50,080 --> 00:05:54,790
+So to talk just a little bit about fitting these lines, we can almost basically always fit a line.
+
+57
+00:05:54,790 --> 00:05:57,520
+There's a couple of degenerate edge cases where it doesn't work.
+
+58
+00:05:57,520 --> 00:06:02,110
+But given two variables, you can fit a line through them and the resulting line is the least squares.
+
+59
+00:06:02,110 --> 00:06:06,850
+It's the best linear predictor under the measurement least squares of the resulting error.
+
+60
+00:06:06,850 --> 00:06:12,170
+And we can use it to make predictions if we want to do inference. We want to use the model to tell us.
+
+61
+00:06:12,170 --> 00:06:20,410
+Oh. An increase of critics' ratings by one star increases audience ratings by point one eight star.
+
+62
+00:06:20,410 --> 00:06:27,170
+That's a reliable effect. Then we need to understand the inferential assumptions of the linear regression model.
+
+63
+00:06:27,170 --> 00:06:33,310
+Therefore, it assumes that there is a linear relationship. It assumes that our observations are independent.
+
+64
+00:06:33,310 --> 00:06:39,250
+It assumes that the residuals are normally distributed. So after we and they have equal variance.
+
+65
+00:06:39,250 --> 00:06:47,020
+So effectively these last three, what it manifests says is after we've after we've we have our linear effect,
+
+66
+00:06:47,020 --> 00:06:53,230
+then the residuals should be independent and identically distributed from a normal distribution.
+
+67
+00:06:53,230 --> 00:06:58,900
+We can have tests for pieces of that later. So if we look, though, at the penguin data.
+
+68
+00:06:58,900 --> 00:07:04,570
+So if I'm going to try to predict a penguins body mass using the length of its flipper.
+
+69
+00:07:04,570 --> 00:07:09,740
+So we've got our penguin. He has some feet.
+
+70
+00:07:09,740 --> 00:07:14,630
+It has a flipper. It has a head and a little beak penguin kind of.
+
+71
+00:07:14,630 --> 00:07:21,280
+I'm not very good at drawing, but there is a penguin and we're trying to use its flipper length.
+
+72
+00:07:21,280 --> 00:07:31,990
+And we want to predict its mass. We can do that here and we're explaining 76 percent of the variance are square squared is point seven five nine.
+
+73
+00:07:31,990 --> 00:07:39,810
+And we have a. We had a coefficient of forty nine point six, eight or six nine.
+
+74
+00:07:39,810 --> 00:07:50,620
+What that means is. If a penguin has one millimeter longer flipper than it probably has fit almost 50 grams more mass.
+
+75
+00:07:50,620 --> 00:07:53,980
+When we run this code, stats models also warned us about a condition number.
+
+76
+00:07:53,980 --> 00:08:00,010
+The specific problem it's talking about, about multicore linearity is not a problem here because we only have one variable.
+
+77
+00:08:00,010 --> 00:08:04,270
+We can still make it go away, though. So right now, we're we're regressing our raw values.
+
+78
+00:08:04,270 --> 00:08:10,500
+We're regressing. And we we call this we regress against. We're regressing body mass.
+
+79
+00:08:10,500 --> 00:08:15,990
+Against the flipper length, that's just the way we talk about it.
+
+80
+00:08:15,990 --> 00:08:21,240
+But we're regressing. The body mass and Graham's its original units against the flipper lengthened millimeters,
+
+81
+00:08:21,240 --> 00:08:26,880
+which the resulting coefficient is interpretable in the original units.
+
+82
+00:08:26,880 --> 00:08:35,520
+So the resulting coefficient is grams per millimeter. But we can also rerun the model doing it normalized with what we call Z scores.
+
+83
+00:08:35,520 --> 00:08:41,060
+And a Z score is the value minus the mean.
+
+84
+00:08:41,060 --> 00:08:47,600
+And then divide it by the standard deviation. And these are called ze normalize or ze or standardized variables.
+
+85
+00:08:47,600 --> 00:08:55,070
+And the result is that they have a mean of one. So zie.
+
+86
+00:08:55,070 --> 00:09:00,000
+Z. I. Bar. Excuse me, not zii z.
+
+87
+00:09:00,000 --> 00:09:08,470
+BAA equals one. The standard deviation of Z is one.
+
+88
+00:09:08,470 --> 00:09:14,080
+Excuse me. Z bar is zero. There I mean of zero and a standard deviation of one.
+
+89
+00:09:14,080 --> 00:09:18,130
+And now the coefficients are in standard deviations. We have this coefficient of point eight seven.
+
+90
+00:09:18,130 --> 00:09:26,860
+And what that means is an increase in flipper length of one standard deviation results in an increase in body mass.
+
+91
+00:09:26,860 --> 00:09:34,720
+Of point eight seven standard deviations. Depending on your particular inferential needs,
+
+92
+00:09:34,720 --> 00:09:38,500
+regressing Z's standardized variables can be more interpretable because you're
+
+93
+00:09:38,500 --> 00:09:45,160
+talking about in terms of standard deviations rather than in terms of raw units.
+
+94
+00:09:45,160 --> 00:09:52,450
+So wrap up linear progression, linear linear regression predicts one variable with another using what we call a linear relationship,
+
+95
+00:09:52,450 --> 00:09:57,670
+a sum of scalar multiplications inference. Using this makes several key assumptions.
+
+96
+00:09:57,670 --> 00:10:04,390
+We'll be talking more about in a later video. And we can standardize variables that result in a model where the coefficients are in
+
+97
+00:10:04,390 --> 00:10:14,300
+units of standard deviation rather than in units of the underlying raw measurements.
+

@@ -1,0 +1,724 @@
+1
+00:00:04,570 --> 00:00:13,000
+Oh, and this video I'm going to introduce you to doing multiple linear regression where we have more than one predictor variable in our regression.
+
+2
+00:00:13,000 --> 00:00:20,530
+So the goal, learning outcomes are for you to be able to build models as two or more predictors and compare models using the adjusted our squared.
+
+3
+00:00:20,530 --> 00:00:28,060
+And I see we're also going to see some of the challenges that come about when we're trying to build multiple regression models.
+
+4
+00:00:28,060 --> 00:00:33,640
+So we have our base model that I'm using, the penguin model that I've used earlier in the week,
+
+5
+00:00:33,640 --> 00:00:37,870
+where I'm predicting the penguins masked by their flippers length.
+
+6
+00:00:37,870 --> 00:00:46,260
+And I'm using the normal. And this model, I'm using the normalized version, the scatterplot showing showing the raw flipper length and body mass.
+
+7
+00:00:46,260 --> 00:00:50,350
+But in my back in my linear model, I'm using the standardized version.
+
+8
+00:00:50,350 --> 00:00:55,980
+So this this coefficient is in units of standard deviations.
+
+9
+00:00:55,980 --> 00:01:03,900
+But. When we look at our assumption checks, we see a little bit more of a curve than we might like to see.
+
+10
+00:01:03,900 --> 00:01:08,370
+It's pretty much on the line. But we can see. We can see there's definitely a curve to it.
+
+11
+00:01:08,370 --> 00:01:13,940
+Also, when we look at our residual versus fitted plots.
+
+12
+00:01:13,940 --> 00:01:24,200
+It does seem that there is a decrease in the variance there and also it almost looks like these two blocks are rotated a little bit.
+
+13
+00:01:24,200 --> 00:01:32,130
+Like if we rotated this block on the left counterclockwise just a little, we would get better.
+
+14
+00:01:32,130 --> 00:01:39,210
+We'll get more equal variance, so it indicates you there's quite possibly something in here that we're not taking advantage
+
+15
+00:01:39,210 --> 00:01:45,240
+of when we're trying to do or we're trying to predict the body mass of a penguin.
+
+16
+00:01:45,240 --> 00:01:51,060
+So one way we can go looking at this is we can start to add more variables.
+
+17
+00:01:51,060 --> 00:01:55,830
+So what if we add species so we can ask you to do different?
+
+18
+00:01:55,830 --> 00:01:59,070
+So different species might have different different flipper lengths and different
+
+19
+00:01:59,070 --> 00:02:03,600
+species might have different relationships of their flipper linked to their body mass.
+
+20
+00:02:03,600 --> 00:02:08,490
+They've got shorter flippers for heavier bodies or longer flippers like the model fit remarkably well.
+
+21
+00:02:08,490 --> 00:02:20,670
+But there's still more work to do. So what we can do is we can do this by by regressing the mass against the flipper and the species with the plus.
+
+22
+00:02:20,670 --> 00:02:27,030
+The plus says regress against both of them. It's going to create a linear model where there's a term for Flipper and there's a term for species.
+
+23
+00:02:27,030 --> 00:02:31,770
+It's automatically going to dummy code the species for us when we use the Formula API.
+
+24
+00:02:31,770 --> 00:02:35,480
+So this is coming from the stats models, Formula API as off.
+
+25
+00:02:35,480 --> 00:02:44,820
+I imported it from stats models, that formula, that API. You can see that in the notebook where I've got the code that does all of this.
+
+26
+00:02:44,820 --> 00:02:49,890
+So it's going to dummy code the species. And so we're going to actually have to it it's going to drop one.
+
+27
+00:02:49,890 --> 00:02:54,870
+We're gonna actually have two species terms, one for chinstrap, one for Gentoo.
+
+28
+00:02:54,870 --> 00:03:05,790
+If they're both zeros, the default it is in Delhi. And so what we can interpret is that the intercept is the baseline, a mass.
+
+29
+00:03:05,790 --> 00:03:14,310
+And then the other two coefficients are the increase or decrease in baseline mass for each of these species.
+
+30
+00:03:14,310 --> 00:03:23,590
+So the chinstrap tend to be lighter than the dallies and the Gentoos tend to be heavier.
+
+31
+00:03:23,590 --> 00:03:28,610
+And then the flipper coefficient is capturing what's left over in the flipper length.
+
+32
+00:03:28,610 --> 00:03:36,640
+We're trying to predict mass by flipper length. Now, we can also see there's the adjusted R squared is no longer equal to the R squared.
+
+33
+00:03:36,640 --> 00:03:41,110
+So R squared only is great for one variable.
+
+34
+00:03:41,110 --> 00:03:46,720
+But it when we add variables are squared, just keeps going up.
+
+35
+00:03:46,720 --> 00:03:56,080
+Adjusted R squared compensates for that to allow us to get a more accurate estimation of the effect of the effectiveness of our overall model.
+
+36
+00:03:56,080 --> 00:03:58,930
+We also have this variable, the AIC.
+
+37
+00:03:58,930 --> 00:04:08,900
+This is the keiki information criterion and it allows us to compare models for the same predict or for the same outcome and a lower.
+
+38
+00:04:08,900 --> 00:04:13,700
+Is a better fit. So the lower the AIC for an outcome we're trying to predict with the same data.
+
+39
+00:04:13,700 --> 00:04:19,250
+Only works for models trained in the same data. The better a fit that we.
+
+40
+00:04:19,250 --> 00:04:25,010
+It's one way of assessing that the model is probably better, and it combines looking at the bottle's estimation power.
+
+41
+00:04:25,010 --> 00:04:31,690
+How much of the variance is it? Is it extracting with the earth the.
+
+42
+00:04:31,690 --> 00:04:40,180
+The degree to which the model can explain the data and it discounts it by model complexity, so it prefers models with fewer terms.
+
+43
+00:04:40,180 --> 00:04:47,110
+So if we compare that our previous model had an AIC of four eighty seven.
+
+44
+00:04:47,110 --> 00:04:56,230
+And this model has an AIC of four fifty five. So the AIC is it is indicating that this is a better fit for our data.
+
+45
+00:04:56,230 --> 00:05:02,080
+If we look at our residuals plot, if we look at a plot of this model and I'm going ahead and plotting three different lines,
+
+46
+00:05:02,080 --> 00:05:07,230
+one for each species, since that's the way we've broken it down, we can see the the they move the intercepts.
+
+47
+00:05:07,230 --> 00:05:14,440
+The slopes are the same. We haven't done anything to change slope. And the residuals versus fitted plot is looking a little bit better.
+
+48
+00:05:14,440 --> 00:05:20,290
+We've got a gap in the middle because species are going to cause.
+
+49
+00:05:20,290 --> 00:05:29,530
+So when we're since we have the breakdown of the categorical variable, it's going to predict a value, an average value,
+
+50
+00:05:29,530 --> 00:05:35,110
+say, around here for a dallies and then over here for Gentoos or Chinstraps because they're smaller.
+
+51
+00:05:35,110 --> 00:05:41,760
+And over here for Gentoos. And so it's going to cause things to cluster in the X axis.
+
+52
+00:05:41,760 --> 00:05:46,020
+What we want what we want to see is, is are things pretty independent, the y axis.
+
+53
+00:05:46,020 --> 00:05:52,830
+And, you know, they aren't really quite there. Also, it looks like these orange ones really might have a different slope.
+
+54
+00:05:52,830 --> 00:06:00,420
+So let's go look at interaction effects and interaction effects apply to products of variables.
+
+55
+00:06:00,420 --> 00:06:08,400
+And I've changed the plus here to a star to say I want flipper star species and what this does.
+
+56
+00:06:08,400 --> 00:06:13,440
+Since one of them's categorical is it allows the slope to adjust by category.
+
+57
+00:06:13,440 --> 00:06:22,470
+So what it expands to is we've got our intercept. We've got a more we've got a coefficient for chinstrap and a coefficient for Gentoo.
+
+58
+00:06:22,470 --> 00:06:26,010
+We've got a coefficient for Flipper. That's these first three things.
+
+59
+00:06:26,010 --> 00:06:33,750
+But then we have coefficients for an R actions of arms, of our dummy variables for the category and the flipper length.
+
+60
+00:06:33,750 --> 00:06:38,880
+So we've got another coefficient here that is. Chinstrap.
+
+61
+00:06:38,880 --> 00:06:43,590
+That is applied to Chinstrap Times Flipper, since chinstrap is categorical, what this is going to.
+
+62
+00:06:43,590 --> 00:06:48,780
+It is the dummy code for a categorical what this is going to do is it's going to add an
+
+63
+00:06:48,780 --> 00:06:53,940
+additional coefficient times flipper when it's a chinstrap and not when it's a Gentoo.
+
+64
+00:06:53,940 --> 00:07:00,730
+And likewise. Or in a deli. And likewise, this one's going to apply when you've got a Gentoo penguin.
+
+65
+00:07:00,730 --> 00:07:08,330
+If if you can also have an interaction between two numeric variables, in which case you're not going to have the expanded dummies.
+
+66
+00:07:08,330 --> 00:07:10,720
+But the numeric, the product.
+
+67
+00:07:10,720 --> 00:07:19,870
+One of the tricks was one of the nice things with dummy coding, since one means yes is that multiplying that by something basically becomes an if.
+
+68
+00:07:19,870 --> 00:07:25,840
+If yes, then you include the other variant values. Otherwise, zero.
+
+69
+00:07:25,840 --> 00:07:31,600
+Nice little trick, but it expands this expanded linear model.
+
+70
+00:07:31,600 --> 00:07:43,100
+And if we do this now, we can see that our slopes are changing and it is plotting a different slope for those Gentoo penguin's.
+
+71
+00:07:43,100 --> 00:07:46,580
+The residuals versus fit and plot is I think it's getting better,
+
+72
+00:07:46,580 --> 00:07:55,640
+but we still have it looks like it possibly not as much variance there in the middle.
+
+73
+00:07:55,640 --> 00:08:00,560
+Our AIC also went down just a little bit. Down to two 448.
+
+74
+00:08:00,560 --> 00:08:06,140
+Now, when we want to specify these effects are the main effect is the separate effects of the individual values,
+
+75
+00:08:06,140 --> 00:08:10,670
+the effect of species, the effect of flipper length. And we specify these.
+
+76
+00:08:10,670 --> 00:08:11,540
+We have our variables.
+
+77
+00:08:11,540 --> 00:08:18,320
+We put plus signs between them and the stats, models, formula, language, the interaction effect is the product of the variables.
+
+78
+00:08:18,320 --> 00:08:23,710
+And if we just want to specify the interaction effect, then we can use V1, Colon,
+
+79
+00:08:23,710 --> 00:08:29,600
+V2, and then to get the main and the interaction we can specify V1 Star V2.
+
+80
+00:08:29,600 --> 00:08:38,630
+And this expands to be one plus V two plus the interaction. So a lot of a lot of animals exhibit sexual dimorphism.
+
+81
+00:08:38,630 --> 00:08:45,590
+There is different difference in body sizes for different sexes of the animal.
+
+82
+00:08:45,590 --> 00:08:53,960
+And so what if we incorporate sex so we can say, well actually males might be larger or smaller,
+
+83
+00:08:53,960 --> 00:09:01,910
+male penguins might be larger or smaller than female penguins. And so what I'm going to do here is I'm going to add I'm going to do a larger model.
+
+84
+00:09:01,910 --> 00:09:05,990
+We're going have our flippers. We're gonna have species in our species,
+
+85
+00:09:05,990 --> 00:09:11,480
+star sex or species sex and the interaction to allow some species to have a larger
+
+86
+00:09:11,480 --> 00:09:15,950
+difference in body mass between male and female penguins and other species.
+
+87
+00:09:15,950 --> 00:09:19,910
+And then I'm also going to interact of flipper with species.
+
+88
+00:09:19,910 --> 00:09:24,580
+I'm not interacting Flipper with sex here. That we get a lot of variables blowing up.
+
+89
+00:09:24,580 --> 00:09:32,050
+And also my own testing, it didn't work very well. But. What what we see when we do this, we can look,
+
+90
+00:09:32,050 --> 00:09:40,990
+it's we get p values on these coefficients and we get standard errors and we see for both of the flipper intersect our interaction with species.
+
+91
+00:09:40,990 --> 00:09:47,920
+We've got a large P value and we have confidence interval that includes zero.
+
+92
+00:09:47,920 --> 00:09:55,480
+So this indicates that after we account for sex differences in penguin body mass.
+
+93
+00:09:55,480 --> 00:10:02,320
+There is no longer a difference in the slopes between the the different species of penguin.
+
+94
+00:10:02,320 --> 00:10:06,810
+We're relating the flipper length to the to the body mass.
+
+95
+00:10:06,810 --> 00:10:10,350
+Also, we're seeing our flipper coefficient go down quite a bit.
+
+96
+00:10:10,350 --> 00:10:20,040
+So we also see that a very high P value in a an almost non-existent coefficient of one of our species sex interactions.
+
+97
+00:10:20,040 --> 00:10:26,100
+If we were not using the Formula API, if we were building up all of our matrices ourselves, which is annoying.
+
+98
+00:10:26,100 --> 00:10:30,450
+I'll let you go look at the stats models, documentation to see how to do that.
+
+99
+00:10:30,450 --> 00:10:34,680
+We're gonna see a version of it later on when we're using another library to get rid of that.
+
+100
+00:10:34,680 --> 00:10:40,620
+But also, though the coefficient it's learning is basically is almost zero. So it's not really having a significant effect in our model.
+
+101
+00:10:40,620 --> 00:10:48,840
+And the complexity of getting rid of just that particular level interaction for our categorical variables is probably not worth it.
+
+102
+00:10:48,840 --> 00:10:53,520
+So we drop the we. But also, though, let's look at our AIC here.
+
+103
+00:10:53,520 --> 00:11:00,780
+I see here is down to two sixty nine. This is indicating a model that's doing a substantially better job of explaining the data.
+
+104
+00:11:00,780 --> 00:11:09,920
+And so. If we. But let's go ahead and drop the flipper species interactions, it's it's not significant.
+
+105
+00:11:09,920 --> 00:11:15,560
+And this is a way. This is one part of how we start to do feature selection. How do you figure out what features should be in your model?
+
+106
+00:11:15,560 --> 00:11:19,970
+Well, one way is you put a bunch of them in and then you drop ones that aren't significant.
+
+107
+00:11:19,970 --> 00:11:24,770
+And you also compare models with them without a particular feature using a metric such as
+
+108
+00:11:24,770 --> 00:11:29,090
+I see in order to pick the one that's gonna be doing the better job of fitting your data.
+
+109
+00:11:29,090 --> 00:11:35,660
+Those are both valid strategies. So we're gonna drop that interaction.
+
+110
+00:11:35,660 --> 00:11:42,350
+AIC went down slightly, adjusted our square to the same, and it's better than the ones we had it for the simple models at the very beginning.
+
+111
+00:11:42,350 --> 00:11:48,470
+We've got the slightly better AIC. This made we made a good decision to drop that particular interaction.
+
+112
+00:11:48,470 --> 00:11:54,350
+So now we have Flipper and then we have species, sex and these species sex interaction.
+
+113
+00:11:54,350 --> 00:11:57,170
+Now the interpretation of this, you have to be careful with interpreting.
+
+114
+00:11:57,170 --> 00:12:01,810
+And remember, for each of these categorical there's one that was picked as default.
+
+115
+00:12:01,810 --> 00:12:09,950
+In this case, it's the Adelie penguins and it's the female penguins. So all zeroes and are categorical means female Adelie penguins.
+
+116
+00:12:09,950 --> 00:12:23,060
+So what we can interpret here is that chinstraps tend to be larger than Adelies, as do, except that's not statistically significant.
+
+117
+00:12:23,060 --> 00:12:30,790
+We have to be careful that one's not really a meaningful effect. So Gentoos tend to be larger than a deli's.
+
+118
+00:12:30,790 --> 00:12:41,950
+Male penguins tend to be larger than female. And then we've got this not this significant chinstrap and male has a significant effect.
+
+119
+00:12:41,950 --> 00:12:53,140
+Gentoo and male does not. And what the way we should try to interpret this is that most of the chinstrap,
+
+120
+00:12:53,140 --> 00:13:01,900
+the difference between chinstraps and Adelies seems to be that male chinstraps.
+
+121
+00:13:01,900 --> 00:13:06,610
+Are smaller than male Adelies, but the female are more comparable.
+
+122
+00:13:06,610 --> 00:13:11,540
+And Gentoos in a deli's likely have the same mass dimorphism.
+
+123
+00:13:11,540 --> 00:13:17,860
+So the difference be in mass between a male and a female Gentoo penguin is this is
+
+124
+00:13:17,860 --> 00:13:22,240
+probably the same as the difference in mass between a male and a female Adelie penguins,
+
+125
+00:13:22,240 --> 00:13:26,920
+because the interaction coefficient is not significant.
+
+126
+00:13:26,920 --> 00:13:31,060
+So it takes some subtlety in order to correctly interpret these models.
+
+127
+00:13:31,060 --> 00:13:36,850
+But you can start to learn from the coefficients here. Now, let's go look at our assumption checks.
+
+128
+00:13:36,850 --> 00:13:43,000
+Now, these assumption checks look very, very good. We don't see that ability to rotate our residuals and fitted.
+
+129
+00:13:43,000 --> 00:13:46,990
+We kind of have everything's falling in about. There was some outliers.
+
+130
+00:13:46,990 --> 00:13:52,630
+We have a very, very nice straight fit there. And the long the Q Cube plot D assumption checks hold.
+
+131
+00:13:52,630 --> 00:13:59,710
+From what we can tell, it looks like we have a relatively good model for predicting a penguin's body mass.
+
+132
+00:13:59,710 --> 00:14:03,850
+Now another thing we have to be careful with are correlated predictors.
+
+133
+00:14:03,850 --> 00:14:11,860
+We have two or more predictive variables that are correlated with each other in addition to being correlated with the outcome variable.
+
+134
+00:14:11,860 --> 00:14:15,670
+And so this problem is called a multikulti charity.
+
+135
+00:14:15,670 --> 00:14:22,900
+We've got X when we're trying to predict Y using X one and X two and we're going to learn coefficients.
+
+136
+00:14:22,900 --> 00:14:32,620
+Beta one. Beta two. But we've got the correlation between them and there might be a few different things, we might have the X one causes X two.
+
+137
+00:14:32,620 --> 00:14:41,890
+It might be the X to causes X one. It might be that there's some third component that causes both of them.
+
+138
+00:14:41,890 --> 00:14:47,620
+But the question is, regardless of which way it is. There's a common effect here.
+
+139
+00:14:47,620 --> 00:14:54,310
+So there's a component of that is common to both X1 and X2.
+
+140
+00:14:54,310 --> 00:14:59,860
+And the problem is, which coefficient beta one or beta two should get this common effect.
+
+141
+00:14:59,860 --> 00:15:05,150
+And the ordinary leased squares does not have a way to make that decision.
+
+142
+00:15:05,150 --> 00:15:09,410
+It might split it. It might put it all on one is that the other coefficient is small.
+
+143
+00:15:09,410 --> 00:15:15,590
+It might put too much on one and then make it possibly even make the other coefficient negative to compensate.
+
+144
+00:15:15,590 --> 00:15:19,560
+We have multiple linearity. It's very difficult to interpret your coefficients.
+
+145
+00:15:19,560 --> 00:15:24,560
+You might have a fine predictive model, although it's generalizability might be hurt,
+
+146
+00:15:24,560 --> 00:15:29,180
+but it's going to be very difficult to interpret your coefficients when you have significant code.
+
+147
+00:15:29,180 --> 00:15:36,230
+You have substantial correlations between variables and it's a judgment call as to what substantial is because you may well not have zero.
+
+148
+00:15:36,230 --> 00:15:43,450
+But if you've got a correlation of point eight point nine, then you're probably going to have a problem.
+
+149
+00:15:43,450 --> 00:15:48,400
+The solution to this? There's a few solutions to this. One is to drop one of the variables.
+
+150
+00:15:48,400 --> 00:15:53,350
+Just pick the one that to better predictor and just use it since it's correlated with the other one.
+
+151
+00:15:53,350 --> 00:16:04,990
+Another way is you can try to pull out the common component into a separate variable and then remove its effect from X one and X two.
+
+152
+00:16:04,990 --> 00:16:09,190
+And then there's another technique called regularization we'll talk about in a week or two that can also help with that.
+
+153
+00:16:09,190 --> 00:16:14,770
+When your purpose is prediction, regularization, Hertz interpreted ability for inference.
+
+154
+00:16:14,770 --> 00:16:20,290
+So a pair plot. This is a seabourne pair plot. It's useful for detecting correlations.
+
+155
+00:16:20,290 --> 00:16:27,130
+So when you're doing the multiple linear regression, it's often useful to do a pair plot between all of your predictor variables.
+
+156
+00:16:27,130 --> 00:16:31,960
+And this is what one looks like. The X is sometimes called a scatterplot matrix.
+
+157
+00:16:31,960 --> 00:16:38,160
+The X's are also our roads and our columns are all variables.
+
+158
+00:16:38,160 --> 00:16:44,400
+And on the diagonals, we've got our distributions of these variables.
+
+159
+00:16:44,400 --> 00:16:52,350
+And then in the cells, we have a scatterplot. So this is the flipper length on the Y and the body mass on the G, on the X.
+
+160
+00:16:52,350 --> 00:16:54,480
+This is the transpose of that.
+
+161
+00:16:54,480 --> 00:17:02,160
+We can also look at a correlation matrix, which shows us numerically the correlation coefficients between pairs, multiple pairs of variables.
+
+162
+00:17:02,160 --> 00:17:06,660
+We have the diagonal. It's one because every variable is perfectly correlated with itself.
+
+163
+00:17:06,660 --> 00:17:11,640
+And we have a correlation of point five nine between body mass and bill length.
+
+164
+00:17:11,640 --> 00:17:14,790
+Point eight, seven between body mass and flipper length.
+
+165
+00:17:14,790 --> 00:17:23,730
+And so if you do this and you put your different you put your different predictors into a scatterplot matrix, you put them in the correlation matrix.
+
+166
+00:17:23,730 --> 00:17:31,450
+Then you can see which ones are. If you've got some correlations there that you need to potentially be careful of.
+
+167
+00:17:31,450 --> 00:17:39,970
+Now or selecting our models, I talked about how the adjusted R-squared and particularly the AIC discount complex models and prefer simple ones.
+
+168
+00:17:39,970 --> 00:17:41,660
+And there's a good principle for this.
+
+169
+00:17:41,660 --> 00:17:49,260
+So Ockham's Razor says that given two explanations, we should prefer the one that requires fewer assumptions, sometimes gets generalized.
+
+170
+00:17:49,260 --> 00:17:58,240
+So we should prefer simple explanations for things. So our application of this to modeling is that we should prefer simple models, fewer variables,
+
+171
+00:17:58,240 --> 00:18:03,700
+less weird functions on the variables, et cetera, and that features and complexity need to earn their keep.
+
+172
+00:18:03,700 --> 00:18:09,640
+They need to provide a better prediction or a better estimate of the outcome in order to be worth keeping around.
+
+173
+00:18:09,640 --> 00:18:20,130
+As I said, AIC encodes is the definition of the value so that you can if two models have the same ability to explain the data.
+
+174
+00:18:20,130 --> 00:18:26,000
+It's AIC is going to give a lower value to the one that has fewer features, fewer predictors in it.
+
+175
+00:18:26,000 --> 00:18:30,830
+To wrap up, linear models can be extended to multiple variables. There are entire class.
+
+176
+00:18:30,830 --> 00:18:36,860
+You can you can take an entire class just on multiple regression analysis.
+
+177
+00:18:36,860 --> 00:18:41,650
+So we're only having time to really get into just introduce.
+
+178
+00:18:41,650 --> 00:18:46,970
+You can start to use it. You can look separately at May. You can look at the separate or main effects.
+
+179
+00:18:46,970 --> 00:18:52,610
+And also interaction effects between different predictors. We want to prefer simple models, though.
+
+180
+00:18:52,610 --> 00:18:58,310
+Too much complexity. Our model is less likely to be valid.
+
+181
+00:18:58,310 --> 00:19:08,967
+Increases compute complexity and increases the complexity of interpreting it.
+

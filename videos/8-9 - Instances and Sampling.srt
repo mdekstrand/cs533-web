@@ -1,0 +1,368 @@
+1
+00:00:04,630 --> 00:00:09,520
+Oh, and this video, I want to talk about instances in about sampling's,
+
+2
+00:00:09,520 --> 00:00:16,510
+so learning how come to be able to identify the instances that's common term for the machine learning we've been calling them observations about.
+
+3
+00:00:16,510 --> 00:00:22,830
+So ready to determine the correct level, which the sample for bootstrap or test data and bootstrap code.
+
+4
+00:00:22,830 --> 00:00:31,060
+A confidence interval for linear regression. So. And machine learning contacts and data science contacts we often talk about.
+
+5
+00:00:31,060 --> 00:00:35,890
+We often call the individual rows of our data from the individual pieces of data.
+
+6
+00:00:35,890 --> 00:00:38,110
+We're going to learn from an instance.
+
+7
+00:00:38,110 --> 00:00:44,380
+So, for example, we've got our penguin data is one instance is an observation of a single thing, our penguin data.
+
+8
+00:00:44,380 --> 00:00:52,090
+Each of these rows represents one penguin, an instance of the penguin, and an instance has one or more variables and the variables go together.
+
+9
+00:00:52,090 --> 00:00:56,380
+So the first row is one penguin and we've got it species. We've got it's bill length.
+
+10
+00:00:56,380 --> 00:01:01,000
+We've got its body mass coral covariance and correlation measures.
+
+11
+00:01:01,000 --> 00:01:07,390
+The relationship between variables on a penguin by penguin or on an instance by instance basis.
+
+12
+00:01:07,390 --> 00:01:09,040
+So when we're sampling, for example,
+
+13
+00:01:09,040 --> 00:01:16,630
+for a goal is to bootstrap a confidence interval for the correlation between a penguin's flipper length and its body mass.
+
+14
+00:01:16,630 --> 00:01:23,380
+We just sample penguin instances and each instance is going to come with a flipper length and a body mass and maybe some other things,
+
+15
+00:01:23,380 --> 00:01:30,170
+because if we just sampled flipper lengths, then we would estimate the sampling distribution of flipper lengths.
+
+16
+00:01:30,170 --> 00:01:38,300
+But all we could do the same for body masses. But that loses the relationships between flipper links and body masses.
+
+17
+00:01:38,300 --> 00:01:42,580
+It samples them as if they were independent variables.
+
+18
+00:01:42,580 --> 00:01:49,420
+If we knew if we were trying to test things about the relationship, we need to keep the relationships.
+
+19
+00:01:49,420 --> 00:01:53,050
+So we need to keep each body mass with its corresponding flipper length.
+
+20
+00:01:53,050 --> 00:01:57,160
+And so we sample penguin instances. Each bootstrap sample will have enough of them.
+
+21
+00:01:57,160 --> 00:02:04,660
+We then say computer code, the correlation coefficient. And we compute the ninety five percent interval of this correlation coefficient.
+
+22
+00:02:04,660 --> 00:02:09,550
+So we can also bootstrap linear model parameters. We can bootstrap any statistics.
+
+23
+00:02:09,550 --> 00:02:13,690
+We could bootstrap the coefficient from a linear model. So we sample rows.
+
+24
+00:02:13,690 --> 00:02:19,090
+We fit a model to the sample, we extract the parameter. We can also do multiple statistics simultaneously.
+
+25
+00:02:19,090 --> 00:02:22,090
+You'll see that in the code I've posted online.
+
+26
+00:02:22,090 --> 00:02:30,850
+But for this one, I'm just gonna show you the code for sampling a single for for using it, for using bootstrapping to estimate a single coefficient.
+
+27
+00:02:30,850 --> 00:02:38,380
+In this case, we're going to estimate the flipper coefficient from the model that we developed in the multivariate regression video.
+
+28
+00:02:38,380 --> 00:02:45,310
+So I have a bootstrap rose function that takes a data frame and it takes a statistic.
+
+29
+00:02:45,310 --> 00:02:55,250
+And it it computes that statistic for our observations. And then computes our bootstrap samples that computes a sample and uses the data frame sample
+
+30
+00:02:55,250 --> 00:03:01,610
+method to create a sample with replacement passes that offset to the statistic function,
+
+31
+00:03:01,610 --> 00:03:08,960
+and it gives us that set. And then it does our usual thing. We're going to return the observed value and we're going to return our percentiles
+
+32
+00:03:08,960 --> 00:03:14,780
+for the bootstrap to get the confidence interval from the bootstrap distribution.
+
+33
+00:03:14,780 --> 00:03:18,830
+So we then going to write a function that given a data frame.
+
+34
+00:03:18,830 --> 00:03:26,540
+It will fit a model and return the flipper length. So we're going to we're gonna set up our model or our role as model.
+
+35
+00:03:26,540 --> 00:03:31,220
+We're gonna give it our formula. We're going to give it the data. And it's going to give us our model object.
+
+36
+00:03:31,220 --> 00:03:34,850
+Remember, stats models have a separate model and fit objects.
+
+37
+00:03:34,850 --> 00:03:43,220
+We're then going to call fit to get our our results object or are that contains the results of fitting this linear model.
+
+38
+00:03:43,220 --> 00:03:45,860
+And then it has a at attribute per rams.
+
+39
+00:03:45,860 --> 00:03:53,540
+And we ask, do we get the flipper parameter out of parameter brams the series, we're gonna get the flipper parameter out of it.
+
+40
+00:03:53,540 --> 00:04:05,670
+And that gives us. The parameter values, if we do this 10000 times, we're going to get we're going to get 10000 versions of this parameter.
+
+41
+00:04:05,670 --> 00:04:10,380
+And if we do this, we get our our coefficient of point three five nine.
+
+42
+00:04:10,380 --> 00:04:14,970
+And we get a confidence interval. Point to sixty eight point four, five, four.
+
+43
+00:04:14,970 --> 00:04:18,660
+And if you cross-reference with the results of just fitting the model once,
+
+44
+00:04:18,660 --> 00:04:23,220
+you'll find that that coefficient matches pretty closely because this model fits relatively well.
+
+45
+00:04:23,220 --> 00:04:30,450
+But this lets you bootstrap a coefficient in a way and get confidence intervals that don't make all of the assumptions that a confidence
+
+46
+00:04:30,450 --> 00:04:37,980
+interval in a normal linear regression makes gives you some more flexibility and shows the flexibility of being able to do a bootstrap.
+
+47
+00:04:37,980 --> 00:04:44,840
+But, you know, we're again, we're bootstrapping the rows, the instances in this case penguins from our data frame.
+
+48
+00:04:44,840 --> 00:04:51,870
+Now, we often we often are going to be computing relationships between variables of an instance.
+
+49
+00:04:51,870 --> 00:04:57,060
+We're doing that with the linear regression. We did that with the correlation coefficient. We did that with the paired t test.
+
+50
+00:04:57,060 --> 00:05:07,920
+Whenever we're trying to compare. Variables on an instance by instance basis, we're trying to compare heights to weights, for example.
+
+51
+00:05:07,920 --> 00:05:09,930
+And the variables, the two variables,
+
+52
+00:05:09,930 --> 00:05:18,620
+they come from the same instances keeping the instances together as the common roll or sampling supplies to bootstrapping confidence intervals,
+
+53
+00:05:18,620 --> 00:05:25,200
+as applies to creating test data. And so but there's two components to doing a bootstrap.
+
+54
+00:05:25,200 --> 00:05:30,780
+We talk some about this in our interactive time, but you have the statistic that you need to compute.
+
+55
+00:05:30,780 --> 00:05:34,180
+And you have the sampling strategy for doing your bootstrap.
+
+56
+00:05:34,180 --> 00:05:40,270
+Solving any bootstrapping problem really comes down to those two things, sort of bootstrap a confidence interval,
+
+57
+00:05:40,270 --> 00:05:44,710
+you're always going to sample instances for a singles variable statistic.
+
+58
+00:05:44,710 --> 00:05:50,800
+I mean, there's no difference between sampling instances and just sampling out of the column because except the columns faster,
+
+59
+00:05:50,800 --> 00:05:56,410
+because you're only getting one variable for it, per instance, anyway.
+
+60
+00:05:56,410 --> 00:06:01,990
+But as soon as you have two or more variables, you're doing a correlation coefficient. You're doing a difference between two variables.
+
+61
+00:06:01,990 --> 00:06:06,520
+You have to sample instances to keep the variables together so that you preserve the
+
+62
+00:06:06,520 --> 00:06:15,780
+relationship because we're trying to bootstrap something about the relationship, such as students tended to do better on tests two or.
+
+63
+00:06:15,780 --> 00:06:25,870
+Audience radio audiences tend to be more favorable towards movies than critics or there's a correlation between.
+
+64
+00:06:25,870 --> 00:06:30,280
+Flipper length and body body mass.
+
+65
+00:06:30,280 --> 00:06:39,820
+So the distinction, though, is when you're bootstrapping to get a p value, then you have to change it because P values require confidence intervals.
+
+66
+00:06:39,820 --> 00:06:45,640
+Just bootstrap, just sample instances. That's the rule for P values, though.
+
+67
+00:06:45,640 --> 00:06:53,620
+You need to sample from a simulation of the null hypothesis. So for example, H zero is two variables are uncorrelated.
+
+68
+00:06:53,620 --> 00:07:02,300
+So X one is no more related to Y one than it is to Y seven. And so then remember, I said.
+
+69
+00:07:02,300 --> 00:07:08,110
+When the reason we sample instances is because we need to keep the relationship preserved.
+
+70
+00:07:08,110 --> 00:07:15,700
+We can sample independently to destroy the relationship, and it's pretend there is no relationship, which is the null hypothesis.
+
+71
+00:07:15,700 --> 00:07:22,060
+So that allows us to simulate the null hypothesis by sampling from the flipper length
+
+72
+00:07:22,060 --> 00:07:28,210
+and the body mass independently rather than sampling on a penguin by penguin basis.
+
+73
+00:07:28,210 --> 00:07:32,710
+We pretend that there is no relationship. The null hypothesis.
+
+74
+00:07:32,710 --> 00:07:40,330
+And if we compute correlations between these resulting samples, what we're going to get is the distribution of correlation coefficients under the no
+
+75
+00:07:40,330 --> 00:07:47,020
+hypothesis that there's no relationship between the penguins flipper lengthen its body mass.
+
+76
+00:07:47,020 --> 00:07:54,730
+And so then we can we can see. Compare our observed our observed correlation.
+
+77
+00:07:54,730 --> 00:08:01,900
+We can compare p value. But we only do this independent sampling here because we're trying to sample from a normal hypothesis.
+
+78
+00:08:01,900 --> 00:08:09,310
+If we have one set of instances and we're trying to do a confidence interval or we're trying to do train test sampling for accuracy,
+
+79
+00:08:09,310 --> 00:08:16,090
+then we want to sample the instances. So sample instances in general.
+
+80
+00:08:16,090 --> 00:08:22,950
+The exceptions are. When you have a P-value or sometimes you're going to need a group level.
+
+81
+00:08:22,950 --> 00:08:30,020
+You're going to need a multi-level sampling of some kind when you have values that fall into coherent groups.
+
+82
+00:08:30,020 --> 00:08:34,250
+We haven't needed that yet. Also, we're talking.
+
+83
+00:08:34,250 --> 00:08:36,770
+We have one collection of the same instances.
+
+84
+00:08:36,770 --> 00:08:44,000
+If you do have independent things like you're trying to compare the flipper length between Gentoos and between and the deli's,
+
+85
+00:08:44,000 --> 00:08:51,470
+you're not trying to compare two variables on the same instances. You're trying to compare a variable on two different instances.
+
+86
+00:08:51,470 --> 00:08:56,060
+Then they are independent and you sample from this from them separately.
+
+87
+00:08:56,060 --> 00:09:02,450
+But think about what are you trying to compare here to variables on the same set of instances.
+
+88
+00:09:02,450 --> 00:09:08,210
+You're going to want to sample instances unless you're looking at a piece that you're looking for a P value.
+
+89
+00:09:08,210 --> 00:09:13,580
+So to wrap up. We've got data. It's ready for us to do modeling on it.
+
+90
+00:09:13,580 --> 00:09:18,290
+We usually think of it in terms of it's a set of instances that have different variables.
+
+91
+00:09:18,290 --> 00:09:23,390
+Most of our sampling procedures should generally sample instances and then practice.
+
+92
+00:09:23,390 --> 00:09:40,200
+I find confidence intervals are often more useful than P values any way.
+

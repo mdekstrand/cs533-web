@@ -1,0 +1,320 @@
+1
+00:00:04,510 --> 00:00:10,270
+Blow, the previous video introduced the idea of modeling, and in this video, we're going to talk more about it.
+
+2
+00:00:10,270 --> 00:00:15,490
+So the on the learning outcome is to understand the relationship of models to reality.
+
+3
+00:00:15,490 --> 00:00:25,300
+And here we're not talking about walking down runways, wearing various articles of fabric, created things that make ordinary people say,
+
+4
+00:00:25,300 --> 00:00:33,040
+how much do they have to pay you for you to put that on and pretend it was clothes or building ships and airplanes and various other things?
+
+5
+00:00:33,040 --> 00:00:36,310
+We're going be talking primarily about statistical models.
+
+6
+00:00:36,310 --> 00:00:43,180
+So as I said in the previous video, a model is a mathematical representation of the essential dynamics of a system of interest.
+
+7
+00:00:43,180 --> 00:00:45,670
+But we have ours. We have our.
+
+8
+00:00:45,670 --> 00:00:52,480
+If we think about our data pipeline and our data generating process, we have some things that are out there happening in the world.
+
+9
+00:00:52,480 --> 00:00:59,740
+These give rise to either some observable phenomenon or an experiment that we can run that will elucidate.
+
+10
+00:00:59,740 --> 00:01:06,070
+These are observable phenomenon. We then collect data from these that are going to be our raw data.
+
+11
+00:01:06,070 --> 00:01:09,910
+What are our observations either from the experiment or observations collected from
+
+12
+00:01:09,910 --> 00:01:14,470
+the phenomena that then we process into a data set that's useful for our task?
+
+13
+00:01:14,470 --> 00:01:25,270
+We have inferences and then finally we hopefully get some answers. But we can think about this top piece here as this is our data generating process.
+
+14
+00:01:25,270 --> 00:01:30,100
+The D. G. P. How did our raw data come into existence?
+
+15
+00:01:30,100 --> 00:01:35,550
+Things happened that were observable phenomena. We collected the data. How did that happen?
+
+16
+00:01:35,550 --> 00:01:40,690
+So in statistical modeling, we simplify the data generating process to be able to predict an outcome.
+
+17
+00:01:40,690 --> 00:01:43,750
+There's two, broadly speaking, two kinds of models that we can think about.
+
+18
+00:01:43,750 --> 00:01:51,490
+Correlational models, look at relationships between observables and so in our movie data.
+
+19
+00:01:51,490 --> 00:01:58,990
+If we want to keep using the movie data as an example, you've got critic.
+
+20
+00:01:58,990 --> 00:02:03,610
+And you've got the audience.
+
+21
+00:02:03,610 --> 00:02:12,340
+And we can look at correlation between what the critic thinks and what the audience thinks or what the critic thinks and how much.
+
+22
+00:02:12,340 --> 00:02:17,220
+Our. Box office revenue or our.
+
+23
+00:02:17,220 --> 00:02:21,810
+How many people are rating the movie? But it doesn't make a causal claim.
+
+24
+00:02:21,810 --> 00:02:26,250
+We don't have this causal claim that the critic rating causes the audience.
+
+25
+00:02:26,250 --> 00:02:32,490
+It's just that the critic rating and the audience are related. There may be a little causation, but we're not making a causal claim here.
+
+26
+00:02:32,490 --> 00:02:38,190
+A causal model models the DGP more deeply to estimate causality.
+
+27
+00:02:38,190 --> 00:02:43,800
+You have to be really careful with these. There's an entire field called called causal inference that it's looking at.
+
+28
+00:02:43,800 --> 00:02:49,860
+How do you rigorously do this when you can't run an experiment? The best way is when you can run an experiment, if you can run an experiment.
+
+29
+00:02:49,860 --> 00:02:54,360
+You can often get causality through what's called a randomized controlled trial.
+
+30
+00:02:54,360 --> 00:03:01,110
+If you're able to set up an experiment where you've got a group that a group that receives the treatment, you call it a treatment,
+
+31
+00:03:01,110 --> 00:03:07,070
+the treatment you want to test and a group that doesn't and they aren't all other way, all other ways equal.
+
+32
+00:03:07,070 --> 00:03:15,710
+Randomization is a good way to achieve that. Then you can conclude that your intervention or your treatment caused the outcome.
+
+33
+00:03:15,710 --> 00:03:25,240
+But. Randomized controlled trials. Are expensive and often oftentimes they're not very.
+
+34
+00:03:25,240 --> 00:03:30,400
+They're not even possible to run feasibly due to the nature of the phenomenon or
+
+35
+00:03:30,400 --> 00:03:37,690
+due to the do the nature of the phenomenon or due to the non replicability of it,
+
+36
+00:03:37,690 --> 00:03:50,200
+which is a part of the nature. So you can't it's difficult to do randomized controlled trials, say, of national or even state level health policies.
+
+37
+00:03:50,200 --> 00:03:57,070
+You can do some state level thing by comparing one state to another. But but if you've got like there's only one United States of America.
+
+38
+00:03:57,070 --> 00:04:05,650
+So you can't you can't say, well, what happens in the US with one policy and without one policy because or replicates of the United States.
+
+39
+00:04:05,650 --> 00:04:10,930
+Cause you don't really you can't duplicated or even more so the world.
+
+40
+00:04:10,930 --> 00:04:16,900
+But there are ways and there are two contexts and times in which you can infer causality from observables and causal inference.
+
+41
+00:04:16,900 --> 00:04:23,820
+Is the study of that. So the model necessarily simplifies the problem, we isolate the pieces we care about,
+
+42
+00:04:23,820 --> 00:04:31,260
+we might need to have some other pieces involved in order to to what we call control for other effects.
+
+43
+00:04:31,260 --> 00:04:38,680
+But. The simplified model, hopefully capture like the goal is not to completely represent the underlying reality.
+
+44
+00:04:38,680 --> 00:04:43,090
+The goal is to capture enough that we can predict or infer usefully.
+
+45
+00:04:43,090 --> 00:04:47,980
+And then we have the unpredicted value, which is what we call the residual or the error.
+
+46
+00:04:47,980 --> 00:04:52,870
+And so if we think about our movies. Movie. Movie. Example. The movie data.
+
+47
+00:04:52,870 --> 00:04:57,880
+And again, maybe we think about the genres. So a movie exists and it has some genres.
+
+48
+00:04:57,880 --> 00:05:01,870
+And it's in some genres. And we have a difference.
+
+49
+00:05:01,870 --> 00:05:07,970
+And it also gets reviews and. The genres might cause some of the reviewing behavior,
+
+50
+00:05:07,970 --> 00:05:13,670
+but they're probably both caused by the movie itself and the movie is a Western and the movie gets them reviews.
+
+51
+00:05:13,670 --> 00:05:17,000
+And so we can look at the correlation withdrawn under to see if there's a difference.
+
+52
+00:05:17,000 --> 00:05:22,760
+But that's not the same thing as claiming the genre causes the review difference.
+
+53
+00:05:22,760 --> 00:05:29,020
+What we need to go more deeply is to understand what causes the movie to be in a particular genre.
+
+54
+00:05:29,020 --> 00:05:32,500
+Now, when we're modeling, we're also going to be talking about what we call parameters.
+
+55
+00:05:32,500 --> 00:05:35,730
+And we've introduced parameters before in the statistical sense,
+
+56
+00:05:35,730 --> 00:05:41,410
+in modeling a model parameter is a numeric variable as a part of the model, in a linear model, they're going to be our coefficients.
+
+57
+00:05:41,410 --> 00:05:49,930
+We estimate these parameters from the data. And for example, in the before, we might estimate the mean credit rating for each genre.
+
+58
+00:05:49,930 --> 00:05:54,500
+We then have a little challenge of how do we handle multiple Shomrim membership's?
+
+59
+00:05:54,500 --> 00:05:59,240
+But if the model if the model captures the data generating process and it's an
+
+60
+00:05:59,240 --> 00:06:04,040
+accurate reflection of a simplified version of the data generating process,
+
+61
+00:06:04,040 --> 00:06:08,510
+then the model parameters will hopefully also correspond to underlying population parameters.
+
+62
+00:06:08,510 --> 00:06:14,990
+We don't necessarily get that guarantee, but the goal of a good model for inferential purposes is to get these correspondences
+
+63
+00:06:14,990 --> 00:06:20,180
+to underlying population parameters to describe how the mechanism works on the inside.
+
+64
+00:06:20,180 --> 00:06:28,040
+So for an example that adapted from Wikipedia. Children grow as they age and older children.
+
+65
+00:06:28,040 --> 00:06:32,420
+Therefore we're gonna. If one child is older than another, we expect it to probably be taller.
+
+66
+00:06:32,420 --> 00:06:38,320
+There's a lot of variation. There's a lot of variation in the height of five year olds.
+
+67
+00:06:38,320 --> 00:06:42,850
+But if we randomly pick a five year old and a six year old, we probably expect the six year old to be a little taller.
+
+68
+00:06:42,850 --> 00:06:52,540
+And so we can model this as modeling height as a base offset plus a multiplier of the age.
+
+69
+00:06:52,540 --> 00:06:59,650
+And this isn't perfect. I get it. As I said, there's a lot of variation in the heights of five year olds, but it's a starting point for prediction.
+
+70
+00:06:59,650 --> 00:07:06,370
+And the residual is what the model can't account for.
+
+71
+00:07:06,370 --> 00:07:11,180
+And we model these as we model the residuals as random.
+
+72
+00:07:11,180 --> 00:07:17,110
+That doesn't mean they are random. But we can treat these unknowns as a random variable.
+
+73
+00:07:17,110 --> 00:07:21,490
+And so we we treat these these residuals as a random variable.
+
+74
+00:07:21,490 --> 00:07:26,830
+We're going to have random variable ways of dealing with them. But this is is what we get when we have a model.
+
+75
+00:07:26,830 --> 00:07:32,350
+Older children are taller. So we can try to predict it a child's height with their age.
+
+76
+00:07:32,350 --> 00:07:35,650
+And then we have this leftover that we can't predict with the age.
+
+77
+00:07:35,650 --> 00:07:41,500
+There may well be other things that we could throw in that would allow us to predict that. But we can't predict it with age.
+
+78
+00:07:41,500 --> 00:07:50,010
+So to conclude, models simplify a process so we can understand at least pieces of it and predict them.
+
+79
+00:07:50,010 --> 00:07:56,740
+They're simplifications, but they're related to the data generating process that we can try to learn about what is actually happening.
+
+80
+00:07:56,740 --> 00:08:06,200
+That's giving rise to the data that we see so we can use the data to learn about the world.
+

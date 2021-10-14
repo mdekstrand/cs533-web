@@ -1,0 +1,352 @@
+1
+00:00:04,730 --> 00:00:07,670
+This video, we're going to talk about how to compute prediction accuracy,
+
+2
+00:00:07,670 --> 00:00:13,210
+I gave you a couple examples back in the prediction inference video, but we're going to see here how to actually do it.
+
+3
+00:00:13,210 --> 00:00:18,770
+So we're going to compute the accuracy of our regressions predictions and understand the benefits of animacy over MAIG.
+
+4
+00:00:18,770 --> 00:00:24,200
+The code for this, you're going to find in the updated version of the correlation notebook from the tutorial section.
+
+5
+00:00:24,200 --> 00:00:31,190
+I've also linked to it in the in the resources links in this in this week's material.
+
+6
+00:00:31,190 --> 00:00:35,720
+So remember, Prediction tries to predict the future with the model.
+
+7
+00:00:35,720 --> 00:00:42,170
+And we don't actually care about how well the models, internal structures map to real world structures.
+
+8
+00:00:42,170 --> 00:00:49,640
+Acceptance, so far as we might hope that a model that's more directly connected to reality does a better job of prediction.
+
+9
+00:00:49,640 --> 00:00:57,200
+That hope doesn't always hold true. But the way we test the prediction accuracy is through a train test split.
+
+10
+00:00:57,200 --> 00:01:01,220
+So we so we take our data. We split it into two parts. We've got the train part.
+
+11
+00:01:01,220 --> 00:01:06,350
+We've got the test part. We're going to fit the model on the training data.
+
+12
+00:01:06,350 --> 00:01:10,550
+And there are one to ask it to predict the test data and see how well it does.
+
+13
+00:01:10,550 --> 00:01:14,870
+So to do the split we can do is if we've got a data frame,
+
+14
+00:01:14,870 --> 00:01:20,630
+I've got a data frame predictable that has the values and I've pruned out all of the ones where the predictor won't work.
+
+15
+00:01:20,630 --> 00:01:27,050
+So one of the predictors is that a or the outcome is N.A because we just can't predict those with with a linear model.
+
+16
+00:01:27,050 --> 00:01:32,630
+So I create a test sample. So I use the sample method on the data frame object.
+
+17
+00:01:32,630 --> 00:01:38,830
+So this is a D.F. Use the sample method on the data frame object, and I tell it, I want a fraction of a point too.
+
+18
+00:01:38,830 --> 00:01:45,700
+This is gonna pick 20 percent of the data. He uses test data. So now I've got this test data and it keeps the index from the predictable.
+
+19
+00:01:45,700 --> 00:01:50,860
+So even if it's just arranged next. Now, test has the values from that index that that correspond to the rows.
+
+20
+00:01:50,860 --> 00:01:53,260
+It doesn't change the indexes of your rows.
+
+21
+00:01:53,260 --> 00:02:00,220
+So what I can do then to get the training data, I'm the training data should be everything that's not in the test data.
+
+22
+00:02:00,220 --> 00:02:08,700
+So I'm going create as a mask. I don't use the mask as a name for a boolean value that's going to select Rose and I initialize it.
+
+23
+00:02:08,700 --> 00:02:14,860
+I said it was a serious and I initialize it to true to say, yeah, we want the value and I give it an index.
+
+24
+00:02:14,860 --> 00:02:20,650
+That's the same index as our original data frame. So it starts out saying we want to select every row.
+
+25
+00:02:20,650 --> 00:02:27,340
+And then what I do is I set the. So I use the test index to select items in here.
+
+26
+00:02:27,340 --> 00:02:31,630
+And I set the values where I set the values of the match.
+
+27
+00:02:31,630 --> 00:02:35,170
+I set the mask to false everywhere.
+
+28
+00:02:35,170 --> 00:02:46,880
+We picked a test row. You can also use dot lock here. I'm not it's a shortcut, but you can use dot lock there if you feel that's clearer.
+
+29
+00:02:46,880 --> 00:02:50,660
+And then with this mask, I get our training data by asking the training,
+
+30
+00:02:50,660 --> 00:02:56,060
+the predictable by passing the train mask is a logical series to index into predictable.
+
+31
+00:02:56,060 --> 00:03:00,350
+And that's going to give me my training data. So compute your test sample.
+
+32
+00:03:00,350 --> 00:03:04,730
+Create a mask. That's true. Set it false. Everywhere you pick the test row.
+
+33
+00:03:04,730 --> 00:03:09,890
+And then if you pick the remaining truths, you get all of the other data. And that's going to be our training data.
+
+34
+00:03:09,890 --> 00:03:19,160
+So then we fit the model on trains. We set up our oh well, if we're using it as well as we set up our lesson train, we we call fit.
+
+35
+00:03:19,160 --> 00:03:24,170
+It's going to give us a fit object. Then we call predict.
+
+36
+00:03:24,170 --> 00:03:30,560
+We call it predict method. So a fit object from a stat's model's model has a method called predict,
+
+37
+00:03:30,560 --> 00:03:34,610
+which we give in another set of data, and it's going to try to predict the outcomes for it.
+
+38
+00:03:34,610 --> 00:03:39,680
+So we ask it to predict our test data and then we compare the predictions to the test outcomes.
+
+39
+00:03:39,680 --> 00:03:46,370
+Now, something that I haven't quite specifically talked about yet is when we're when we're running code.
+
+40
+00:03:46,370 --> 00:03:50,990
+We have a model. And so we're gonna say model. Equals.
+
+41
+00:03:50,990 --> 00:04:03,900
+Oh, alas, we're going to our formula. And we also give it our data off.
+
+42
+00:04:03,900 --> 00:04:12,210
+And then we get fit equals model dot fit.
+
+43
+00:04:12,210 --> 00:04:18,780
+That's the stats model's pattern to the model itself, has the data, the the the the setup, the model that we're gonna be fitting.
+
+44
+00:04:18,780 --> 00:04:24,750
+And then when we actually fit the model, we get another object that has the parameters that are result of fitting the model.
+
+45
+00:04:24,750 --> 00:04:28,980
+No, if you've used Saikat learn before, we're going to be using Saikat learned later.
+
+46
+00:04:28,980 --> 00:04:38,630
+This is a different setup. Stats Models uses a little bit different pattern than Saikat learned does it has these separate model and fit objects.
+
+47
+00:04:38,630 --> 00:04:45,900
+But the fit object allows us to compute predictions for the test values that we can then compare to our test outcomes.
+
+48
+00:04:45,900 --> 00:04:54,100
+One way to compare them is by taking the mean absolute error. So we take the absolute values of our errors.
+
+49
+00:04:54,100 --> 00:04:55,390
+And then we take the mean of them,
+
+50
+00:04:55,390 --> 00:05:02,020
+we sum them up and we divide them by and I'm going to let you think a little bit about why we don't want to take the mean error.
+
+51
+00:05:02,020 --> 00:05:13,580
+I will note that the mean of our residuals, if we've properly Fedeli Squares module model, the mean of our residuals is zero.
+
+52
+00:05:13,580 --> 00:05:21,560
+So the root mean squared error squares, the individual errors rather than computing and absolute value, we compute the square.
+
+53
+00:05:21,560 --> 00:05:32,000
+We then take their mean and we take the square root of all of that. The square root puts it back in units of the original of the original values.
+
+54
+00:05:32,000 --> 00:05:44,360
+This. So why do we do the root mean square or.
+
+55
+00:05:44,360 --> 00:05:49,700
+So to see how to compute the root mean squared error, I have broken it down and I've ever written the code here.
+
+56
+00:05:49,700 --> 00:05:53,990
+So if we've got our outcome, if we have a variable called outcome in our test frame,
+
+57
+00:05:53,990 --> 00:05:59,190
+we subtract the predictions from the outcome and that computes Y minus Y hat.
+
+58
+00:05:59,190 --> 00:06:02,930
+And I've color coded the code to match the part of the formula.
+
+59
+00:06:02,930 --> 00:06:07,970
+We then take the square, we multiply the error by itself and that's going to compute the squares.
+
+60
+00:06:07,970 --> 00:06:16,160
+We then take the mean of all of that. And that's one that's the sometimes one minus enter the sum divided by the count.
+
+61
+00:06:16,160 --> 00:06:23,840
+And then finally, we take the square root. And you can see here, especially as you move past being able to use existing models,
+
+62
+00:06:23,840 --> 00:06:29,900
+you're going to need to be able to implement formulas in terms of num pi or PSI Pi or pandas.
+
+63
+00:06:29,900 --> 00:06:33,230
+And you've done that some already. But this, I hope, helps you see.
+
+64
+00:06:33,230 --> 00:06:36,030
+How do you take a formula like we can write out,
+
+65
+00:06:36,030 --> 00:06:43,670
+like our messy and you can break it down into the different num pi operations that you're going to need to perform in order to compute the formula.
+
+66
+00:06:43,670 --> 00:06:49,550
+So now why do we use are messy instead of energy? One is that it gives higher weight to larger errors.
+
+67
+00:06:49,550 --> 00:06:57,110
+So one is less than two point one is less than two point one squared is much less than two squared.
+
+68
+00:06:57,110 --> 00:07:03,470
+Also, though, and this is particularly important, is that it's continuous and differentiable the absolute value.
+
+69
+00:07:03,470 --> 00:07:08,240
+If we have X and we have Y, the absolute value is discontinuous at zero.
+
+70
+00:07:08,240 --> 00:07:17,540
+You can't take its derivative. You can take the derivative of the square and for a lot of optimization techniques in
+
+71
+00:07:17,540 --> 00:07:22,730
+order to learn models that are going to fit well and are going to have low error,
+
+72
+00:07:22,730 --> 00:07:27,270
+they rely on the differential ability of the errors. And so are messy.
+
+73
+00:07:27,270 --> 00:07:31,270
+Gives us an error metric that has a derivative.
+
+74
+00:07:31,270 --> 00:07:37,720
+So to interpret the prediction accuracy, both of these metrics are their units are in the original outcome variable.
+
+75
+00:07:37,720 --> 00:07:44,560
+But what is good enough depends on your application. How good do you actually need to be for the purposes you're deploying the model for?
+
+76
+00:07:44,560 --> 00:07:48,560
+Also there for a lot of problem, for a lot of cases.
+
+77
+00:07:48,560 --> 00:07:55,030
+There's a minimum possible error just due to the intrinsic variance of the data and the intrinsic noise of the data.
+
+78
+00:07:55,030 --> 00:07:58,690
+You can't predict. Well, you can maybe try to predict noise.
+
+79
+00:07:58,690 --> 00:08:04,690
+But if you've got part of the data that is just random noise of random variation that
+
+80
+00:08:04,690 --> 00:08:11,590
+puts a floor on how low your prediction accurate your prediction error can get.
+
+81
+00:08:11,590 --> 00:08:20,590
+But with equivalent test data, we can use MAIG in our messy to compare the prediction of effectiveness of multiple different models.
+
+82
+00:08:20,590 --> 00:08:23,260
+And that's where they really become useful as they allow us to say,
+
+83
+00:08:23,260 --> 00:08:28,670
+is this model better than our current model or better than some simple baseline model?
+
+84
+00:08:28,670 --> 00:08:32,290
+The linear models that we're seeing, like they're going to be really hot that we're using this week.
+
+85
+00:08:32,290 --> 00:08:38,680
+They're really powerful in their own right. They're also a really good baseline if you are using some more sophisticated model.
+
+86
+00:08:38,680 --> 00:08:45,110
+It's useful to include a linear model and the see. Can you beat a linear model? If not, maybe use the linear one.
+
+87
+00:08:45,110 --> 00:08:53,210
+So to wrap up, we measure of predictors, accuracy by comparing predictions to the actual outcome variables on test data.
+
+88
+00:08:53,210 --> 00:09:12,767
+And it's important that the test data was not seen during the fitting process.
+
