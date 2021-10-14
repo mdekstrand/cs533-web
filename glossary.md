@@ -175,6 +175,13 @@ Hyperparameter
     A value that controls a model's training or prediction behavior that is **not** learned from the data.
     Examples include learning rates, iteration counts, and regularization terms.
 
+Inference
+    As we primarily use it in this class, inference is the act of learning from the data; in particular, when we are trying to learn something about the world or the data generating process from the data we observe.  It contrasts with {term}`prediction`.
+
+    In machine learning deployment, inference is often used to refer to using the model to score or classify new instances at runtime, as opposed to the training stage of the model.
+
+    Inference can also be used to refer to learning the model parameters itself, but we won't be using it this way to avoid confusion.
+
 Joint Probability
     The joint probability $\P[A, B]$ is the probability of both $A$ and $B$ occurring (in terms of underlying events, it's the probability that the elementary event $\zeta$ is in both $A$ and $B$).
     Equivalent to $\P[A \cap B]$.
@@ -290,15 +297,19 @@ Parameter
     In *model fitting*: a variable in a statistical or machine learning model whose value is learned from the data.
     Contrast *hyper-parameter*, a variable that controls the model or the model-fitting process but is not learned from the data.
 
+$p$-hacking
+    Computing hypothesis tests of multiple things in hopes that one of them will be statistically significant.
+    See [XKCD #882: Significant](https://xkcd.com/882/) and [Week 4](p-hacking-cartoon).
+
 Population
     The complete set of entities we want to study.  This is not only all entities that *do* exist, but under some philosophies, all entities that *could* exist.
     For example, the set of all possible adult Chinstrap penguins would be the population.
 
     Discussed in more detail in {video}`week4:sampling`.
 
-$p$-hacking
-    Computing hypothesis tests of multiple things in hopes that one of them will be statistically significant.
-    See [XKCD #882: Significant](https://xkcd.com/882/) and [Week 4](p-hacking-cartoon).
+Prediction
+    Using a model to estimate or predict a score or label from explanatory variables for instances that were not seen during training.
+    Contrasts with {term}`inference` as one of the major goals of modeling.
 
 $p$-value
     In hypothesis testing, the probability that the null hypothesis ($H_0$) would produce a value as large as the observed value; if the observed statistic is $x$ and $X$ is a random variable representing the sampling and analysis process, this is $\P[X > x | H_0 \text{ is true}]$.
