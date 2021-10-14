@@ -169,7 +169,7 @@ HARKing
     at the data.  A {term}`null hypothesis significance test` computes the probability
     $P(t' \ge t | H_0 \text{ is true})$; if we have already looked at the data, what we are computing is
     $P(t' \ge t | H_0 \text{ is true}, H_0 \text{ looks false})$.
-    See {video}`week4:hypotest`.
+    See {video}`week5:hypotest`.
 
 Heteroskedasticity
     Having unequal {term}`variance`.  The opposite of {term}`homoskedasticity`.
@@ -182,7 +182,7 @@ Hyperparameter
     Examples include learning rates, iteration counts, and regularization terms.
 
 Inference
-    As we primarily use it in this class, inference is the act of learning from the data; in particular, when we are trying to learn something about the world or the data generating process from the data we observe.  It contrasts with {term}`prediction`, discussed in {video}`week8:pred-inf`.
+    As we primarily use it in this class, inference is the act of learning from the data; in particular, when we are trying to learn something about the world or the data generating process from the data we observe.  It contrasts with {term}`prediction`, discussed in {video}`week8:pred-inf` and at length in {module}`week4`.
 
     In machine learning deployment, inference is often used to refer to using the model to score or classify new instances at runtime, as opposed to the training stage of the model.
 
@@ -322,7 +322,7 @@ $p$-value
 
     Typically the null hypothesis is an appropriate formalization of “nothing interesting”, so the *p*-value is the probability of seeing an effect as large as the one observed if there is no true effect to observe.
 
-    Discussed in {video}`week4:hypotest`.
+    Discussed in {video}`week5:hypotest`.
 
 Random variable
     A variable that takes on random values, usually as the result of a random process or because we are using randomness and probability to model uncertainty about the variable's actual value in any particular case.  For our purposes, random variables may be discrete (integer-valued) or continuous (real-valued), but are always numeric.  We denote random variables with capital letters ($X$).  A single sample is an observation of a random variable.
@@ -406,7 +406,7 @@ Standardization
     2. Two-sample independent *t*-test that tests whether the means of two independent samples are the same.  $H_0: \mu_1 = \mu_2$
     3. Paired *t*-test that tests, for a sample of paired observations, whether the mean difference between observations for each sample is zero (the measurements are, on average, the same).  $H_0: \mu_{x_{i1} - x_{i2}} = 0$
 
-    Discussed in {video}`week4:hypotest`, {video}`week5:t-test`, and associated readings.
+    Discussed in {video}`week5:hypotest`, {video}`week5:t-test`, and associated readings.
 
 Variance
     A measure of the spread of a random variable (which may be observable quantities in the population).

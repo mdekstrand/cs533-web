@@ -29,7 +29,7 @@ proceeding to Week 6.
 
 ## {{mvideo}} Introduction
 
-:::{video}
+:::{video} introduction
 :length: 10m36s
 :name: 4-1 - Inference Intro
 :::
@@ -53,7 +53,7 @@ proceeding to Week 6.
 
 ## {{mvideo}} Continuous Probability
 
-:::{video}
+:::{video} continuous
 :length: 11m48s
 :name: 4-4 - Continuous Probability
 :::
