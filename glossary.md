@@ -182,7 +182,7 @@ Hyperparameter
     Examples include learning rates, iteration counts, and regularization terms.
 
 Inference
-    As we primarily use it in this class, inference is the act of learning from the data; in particular, when we are trying to learn something about the world or the data generating process from the data we observe.  It contrasts with {term}`prediction`.
+    As we primarily use it in this class, inference is the act of learning from the data; in particular, when we are trying to learn something about the world or the data generating process from the data we observe.  It contrasts with {term}`prediction`, discussed in {video}`week8:pred-inf`.
 
     In machine learning deployment, inference is often used to refer to using the model to score or classify new instances at runtime, as opposed to the training stage of the model.
 
@@ -315,7 +315,7 @@ Population
 
 Prediction
     Using a model to estimate or predict a score or label from explanatory variables for instances that were not seen during training.
-    Contrasts with {term}`inference` as one of the major goals of modeling.
+    Contrasts with {term}`inference` as one of the major goals of modeling, discussed in {video}`week8:pred-inf`.
 
 $p$-value
     In hypothesis testing, the probability that the null hypothesis ($H_0$) would produce a value as large as the observed value; if the observed statistic is $x$ and $X$ is a random variable representing the sampling and analysis process, this is $\P[X > x | H_0 \text{ is true}]$.
