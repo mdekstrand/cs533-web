@@ -20,6 +20,8 @@ livereload = "==2.*"
 flake8 = "*"
 pandas = "*"
 seaborn = "*"
+msal = "*"
+requests = "*"
 
 [requires]
 python_version = "3.8"

@@ -144,3 +144,19 @@ def get_videos(c, folder):
         _msg('downloaded subtitles, saving')
         file = vidroot / f'{title}.srt'
         file.write_bytes(srt.text.encode('utf8'))
+
+
+@task
+def onedrive_login(c):
+    import toml
+    from msal import PublicClientApplication
+
+    odtp = Path('onedrive.toml')
+    cfg = toml.loads(odtp.read_text())
+    client_cfg = cfg['client']
+    tenant = client_cfg['tenant']
+    auth = f'https://login.microsoftonline.com/{tenant}/'
+
+    app = PublicClientApplication(client_cfg['id'], authority=auth)
+    result = app.acquire_token_interactive(scopes=["user.read", "files.readwrite"])
+    print(result)

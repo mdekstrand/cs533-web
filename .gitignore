@@ -7,6 +7,7 @@ _build/
 *.log
 *.prof
 *.stats
+onedrive.toml
 .ipynb_checkpoints/
 /pythonenv*
 

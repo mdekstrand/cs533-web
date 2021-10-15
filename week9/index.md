@@ -105,15 +105,14 @@ Further reading: [Lecture 12: Bias-Variance Tradeoff](https://www.cs.cornell.edu
 ## {{mvideo}} Optimizing Loss
 
 :::{video}
-:length: 14m3s
+:length: 15m23s
 :name: 9-6 - Optimizing Loss
-:slide-id: 495979F9A431DDB0%2173288
-:slide-auth: AKxIYJP7LW4ct2Y
 :::
 
-## {{mnotebook}} Loss-Based Regression Notebook
+### Links
 
-Read the [minimization regression notebook](./BadRegression.ipynb) notebook.
+- {py:func}`scipy.optimize.minimize`
+- The [minimization regression notebook](./BadRegression.ipynb) notebook.
 
 ## {{mquiz}} Week 9 Quiz
 
