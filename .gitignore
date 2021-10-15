@@ -10,6 +10,6 @@ _build/
 onedrive.toml
 .ipynb_checkpoints/
 /pythonenv*
-
+.python-version
 # Local Netlify folder
 .netlify
