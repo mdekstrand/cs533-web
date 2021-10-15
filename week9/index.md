@@ -117,6 +117,8 @@ Further reading: [Lecture 12: Bias-Variance Tradeoff](https://www.cs.cornell.edu
 
 Take the Week 9 quiz in Blackboard (will be up by end of Saturday).
 
+Since this is the second of two very closely intertwined weeks, there are questions about {module}`week8` in the quiz ads well.
+
 ## {{mtask}} Practice
 
 There are several ways you can practice the material so far:
