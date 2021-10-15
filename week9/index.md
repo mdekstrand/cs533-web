@@ -102,15 +102,16 @@ Further reading: [Lecture 12: Bias-Variance Tradeoff](https://www.cs.cornell.edu
 
 ## {{mvideo}} Optimizing Loss
 
-:::{video}
+:::{video} optimizing-loss
 :length: 15m23s
 :name: 9-6 - Optimizing Loss
 :::
 
 ### Links
 
-- {py:func}`scipy.optimize.minimize`
+- The {py:func}`scipy.optimize.minimize` function.
 - The [minimization regression notebook](./BadRegression.ipynb) notebook.
+- Our introduction to the idea of an {term}`objective function`.
 
 ## {{mquiz}} Week 9 Quiz
 
