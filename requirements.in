@@ -1,0 +1,5 @@
+jupyter-book==0.11.*
+mdit-py-plugins<0.2.7
+srt
+invoke
+requests
