@@ -1,8 +1,6 @@
-# 🚧 Week 9 — Models & Prediction (Oct. 18–22) 🚧
+# Week 9 — Models & Prediction (Oct. 18–22)
 
-:::{draft}
-This content is still in draft state and has not yet been finalized.
-:::
+This week talks more about regression, simulation, and introduces the idea of minimizing a loss function.
 
 ## {{moverview}} Content Overview
 
