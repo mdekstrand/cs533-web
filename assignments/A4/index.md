@@ -305,7 +305,7 @@ x & \sim \mathrm{Gamma}(2, 1)
 
 - Plot the distributions of $X$ and $Y$
 - Fit a linear model predicting $y$ with $x$
-- How well does this model fit? How much of the variance does it explain? Do the assumptions seem to hold?  Does the linear regression teem appropriate to the data?
+- How well does this model fit? How much of the variance does it explain? Do the assumptions seem to hold?  Does the linear regression seem appropriate to the data?
 
 :::{ltip} Gamma Distributions
 
