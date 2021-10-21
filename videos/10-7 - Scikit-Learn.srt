@@ -1,0 +1,264 @@
+1
+00:00:04,640 --> 00:00:10,950
+So this video I want to introduce you to, Saikat Learned, which is another tool kit for training models.
+
+2
+00:00:10,950 --> 00:00:17,050
+So with this video, I want you to be able to apply a logistic regression model with psychic learn,
+
+3
+00:00:17,050 --> 00:00:22,660
+understand and understand the API differences between psychic learning stats, models code to accompany.
+
+4
+00:00:22,660 --> 00:00:26,900
+This is in the course notes for this week. You'll be able to go see the psychic learn.
+
+5
+00:00:26,900 --> 00:00:31,480
+It's the same problem as I use for the logistics regression demo with stats models.
+
+6
+00:00:31,480 --> 00:00:36,220
+You can directly compare a stats model solution and a psychic learned solution.
+
+7
+00:00:36,220 --> 00:00:41,440
+So to train a model with psychic learn, we need to do a few things.
+
+8
+00:00:41,440 --> 00:00:49,660
+So I'm going to create here a couple of variables that store the names of columns just to make it easy to extract columns,
+
+9
+00:00:49,660 --> 00:00:55,330
+the same columns in the same order from both my training data and my test data.
+
+10
+00:00:55,330 --> 00:01:00,080
+So I'm going to get my training x my input features by getting the feature column.
+
+11
+00:01:00,080 --> 00:01:11,270
+So this. So this is my predictor features.
+
+12
+00:01:11,270 --> 00:01:16,040
+Then I'm going to grab the outcome variable. This is my outcome.
+
+13
+00:01:16,040 --> 00:01:24,290
+And then I, I set up my logistic regression and I just pass those values to fit Kirilov just to progression model, pass them to fit.
+
+14
+00:01:24,290 --> 00:01:33,030
+And it is going to train the models parameters based on my data to fit my logistic regression model.
+
+15
+00:01:33,030 --> 00:01:39,060
+And that's all there is to it. Structures just a little bit different here. Notice that fit does not return a new results object.
+
+16
+00:01:39,060 --> 00:01:48,110
+It actually just returns to the model. There's not two objects in stats, models, you create a model and then you fit it and you get results.
+
+17
+00:01:48,110 --> 00:01:51,950
+And Saikat learn, you create a model and then you fit it.
+
+18
+00:01:51,950 --> 00:02:01,610
+And the results are stored in the model object. Lots of other software in the Python ecosystem follows the Saikat Learn API patterns.
+
+19
+00:02:01,610 --> 00:02:06,320
+So if you're familiar with them, that's going to also help you with a lot of other software.
+
+20
+00:02:06,320 --> 00:02:11,960
+Tenzer flow follows the same patterns. Many other packages follow the same pattern, just like it learn.
+
+21
+00:02:11,960 --> 00:02:17,120
+So those who want to use the model we use predict now.
+
+22
+00:02:17,120 --> 00:02:23,480
+And Saikat learn to, when stat's models predict, gave us the estimated probability in psychic learn,
+
+23
+00:02:23,480 --> 00:02:26,900
+it gives us the actual class, the actual predicted class.
+
+24
+00:02:26,900 --> 00:02:29,750
+So it gives us the decision. It makes the decision right away.
+
+25
+00:02:29,750 --> 00:02:37,100
+One of the advantages of this is that any of the psychic learn classifier A-P eyes or classifier models do this.
+
+26
+00:02:37,100 --> 00:02:40,730
+So you predict is going to return the decision. There's other function to give you.
+
+27
+00:02:40,730 --> 00:02:44,810
+The underlying scores decision function gives you the log odds.
+
+28
+00:02:44,810 --> 00:02:52,670
+You can use predict Prop eight to get the probabilities. It returns both the probabilities of fail of zero and the probabilities of one.
+
+29
+00:02:52,670 --> 00:02:56,840
+So we need to get the second column, the one column to get the probabilities of one.
+
+30
+00:02:56,840 --> 00:03:10,550
+This is equivalent to the stats model's output. But the nice advantage of Saikat predict returning your classes is it's easier to use directly.
+
+31
+00:03:10,550 --> 00:03:12,590
+You don't have to manage Threshold's yourself.
+
+32
+00:03:12,590 --> 00:03:20,540
+And the other thing is that since all of the different psychic classifier models return decisions like that,
+
+33
+00:03:20,540 --> 00:03:28,040
+then you can make write code to do classification. They can use any model and you can plug in the different models with the same code.
+
+34
+00:03:28,040 --> 00:03:39,530
+And it makes it easier to to exchange models as part of your workflow and to also test the performance of different models in the same data workflow.
+
+35
+00:03:39,530 --> 00:03:45,330
+So a few differences from stats models Saikat Learn works with matrices, not data frames.
+
+36
+00:03:45,330 --> 00:03:52,880
+A data frame is a matrix. They're compatible. You can treat a data frame as a matrix, but Saikat Learn doesn't know that it's a data frame.
+
+37
+00:03:52,880 --> 00:03:57,560
+It just treats it as a matrix. One of the things this means is that your column labels are ignored.
+
+38
+00:03:57,560 --> 00:04:05,570
+Everything is based on position. You need to have your columns in the same order for fit and for every call to predict and fit and predict.
+
+39
+00:04:05,570 --> 00:04:09,530
+Map require the same column num numbers, the same column positions.
+
+40
+00:04:09,530 --> 00:04:20,320
+You also don't have your you have your feature, your input feature matrix and your outcome variable as separate vectors.
+
+41
+00:04:20,320 --> 00:04:26,950
+So a matrix of input features a vector of outcome variables. And then.
+
+42
+00:04:26,950 --> 00:04:32,220
+And so that's why I when I was doing the training I got our input matrix and I got
+
+43
+00:04:32,220 --> 00:04:38,810
+our our outcome vector column as a series which can be treated as an umpire ray,
+
+44
+00:04:38,810 --> 00:04:44,810
+which is what syk it does. So you can't cycad it doesn't know anything about your column names.
+
+45
+00:04:44,810 --> 00:04:50,090
+Also, Psyche just has a single motto object that's updated by fit. As I said, there's no separate results.
+
+46
+00:04:50,090 --> 00:04:55,290
+And then predict returns, the predicted class, not the score.
+
+47
+00:04:55,290 --> 00:05:03,520
+So use case wise stats models is good for inference, and it's it's easier to do inference.
+
+48
+00:05:03,520 --> 00:05:07,830
+With stats, models am a psychic. Learn it reports a lot of statistical goodness.
+
+49
+00:05:07,830 --> 00:05:12,670
+Fitz measures it defaults to UN regularized models, which are often easier for inference.
+
+50
+00:05:12,670 --> 00:05:17,560
+It reports. It also say things like when you do your fit, you get your results.
+
+51
+00:05:17,560 --> 00:05:23,040
+It also gives you all the residual psychic learning to go back and get those yourself because Saikat learns best for prediction.
+
+52
+00:05:23,040 --> 00:05:30,160
+So you don't need the residuals to go to a prediction. You only need the residuals to understand your training process.
+
+53
+00:05:30,160 --> 00:05:34,210
+For in France, Saikat learned, though, is really good for prediction. It has many bottles.
+
+54
+00:05:34,210 --> 00:05:38,710
+Many more models than Stotz models. And its API is output.
+
+55
+00:05:38,710 --> 00:05:42,450
+The actual prediction, not just the underlying score, but a fault.
+
+56
+00:05:42,450 --> 00:05:46,870
+It also is a bunch of capabilities for data transformation, preprocessing post-processing,
+
+57
+00:05:46,870 --> 00:05:54,280
+etc. and it only saves the parameter estimates when you call the logistic regression that fit.
+
+58
+00:05:54,280 --> 00:05:58,000
+It learns coefficients, it learns at intercept, and that's all it saves.
+
+59
+00:05:58,000 --> 00:06:03,580
+It doesn't say if you're fitted values, it doesn't save your residuals. You have to go back and get those by having it predict.
+
+60
+00:06:03,580 --> 00:06:08,500
+The outcomes for your training is what you have to do yourself.
+
+61
+00:06:08,500 --> 00:06:13,780
+If you want to do those. So it's more work if you want to do inference, but it's fantastic for prediction.
+
+62
+00:06:13,780 --> 00:06:18,670
+So wrap up Saikat Learn provides a lot of machine learning models, including logistic and linear.
+
+63
+00:06:18,670 --> 00:06:23,080
+You can go back into the linear regression things we've been doing with Saikat learn as well.
+
+64
+00:06:23,080 --> 00:06:25,300
+It's more difficult to do inference with Saikat learn,
+
+65
+00:06:25,300 --> 00:06:34,270
+but it's got a broader selection of models that are useful for prediction and in most production prediction predictive analytics tasks.
+
+66
+00:06:34,270 --> 00:06:42,300
+You're probably gonna want Saikat learn instead of stats models.
+

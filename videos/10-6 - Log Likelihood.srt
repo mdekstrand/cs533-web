@@ -1,0 +1,604 @@
+1
+00:00:04,600 --> 00:00:10,300
+Oh, and this video, I'm going to introduce the log likelihood measure that you see when you're training a logistic regression.
+
+2
+00:00:10,300 --> 00:00:18,610
+We're going to see how that's computed. And we're going to talk about what it means to to estimate parameters with a maximum likelihood estimate.
+
+3
+00:00:18,610 --> 00:00:21,280
+So our our learning outcomes for this video,
+
+4
+00:00:21,280 --> 00:00:27,670
+for you to be able to compute the log likelihood of data and understand the objective function of logistic regression.
+
+5
+00:00:27,670 --> 00:00:36,190
+So recall and logistic regression, we're learning a model y hat equals the logistic function of a linear model.
+
+6
+00:00:36,190 --> 00:00:44,050
+And that's why Hat is trying to predict the probability that our outcome variable will be one or the probability of yes.
+
+7
+00:00:44,050 --> 00:00:52,720
+That's what we're doing in our logistic regression. But we can also think about the probability of the data.
+
+8
+00:00:52,720 --> 00:00:56,170
+So what if we want to not just compute, what if we want to compute,
+
+9
+00:00:56,170 --> 00:01:01,780
+not the probability that Y is one, but the probability that it equals our observed value?
+
+10
+00:01:01,780 --> 00:01:10,420
+So what probability does our model, our logistic regression model, assign to the outcomes that we actually observe in the data?
+
+11
+00:01:10,420 --> 00:01:19,810
+That's what's being captured in the log likelihood. So we can compute this by computing, by using the scores.
+
+12
+00:01:19,810 --> 00:01:24,290
+These estimated probabilities. And the actual values.
+
+13
+00:01:24,290 --> 00:01:34,210
+So. We have here. We're going to take the score and we're going to raise it to the power of the outcome variable, which is in zero one.
+
+14
+00:01:34,210 --> 00:01:41,470
+We're gonna have one minus the score. And remember, the one minus the probability of something is the probability of not something.
+
+15
+00:01:41,470 --> 00:01:50,050
+So if y hat sabai is, the probability of Y is one than one minus Y has survived, the estimated probability of Y is zero.
+
+16
+00:01:50,050 --> 00:01:56,100
+We're going to raise that to the power of one minus Y to the eye. So.
+
+17
+00:01:56,100 --> 00:01:59,370
+This is a trick where if you're going to multiply things.
+
+18
+00:01:59,370 --> 00:02:10,660
+So we saw in previous examples, when we're trying to add things, we can use multiplication by a one or a zero effectively as an.
+
+19
+00:02:10,660 --> 00:02:15,300
+If if you multiply something by one, you get something. If you multiply it by zero, you get zero.
+
+20
+00:02:15,300 --> 00:02:22,200
+So if you're adding those together, what you get it basically turn the ones and zeros turn on and off.
+
+21
+00:02:22,200 --> 00:02:27,420
+Different pieces of the of the computation and multiplication.
+
+22
+00:02:27,420 --> 00:02:32,040
+We can use exponentiation to do that or raising something to a power.
+
+23
+00:02:32,040 --> 00:02:38,280
+And so because because remember that X to the zero is one no matter what axis.
+
+24
+00:02:38,280 --> 00:02:44,830
+So if our power is a one or a zero.
+
+25
+00:02:44,830 --> 00:02:53,840
+X to the one equals X. So. If we have, why I as one.
+
+26
+00:02:53,840 --> 00:03:02,290
+Then why hat's a bye to the one is why hat survived and one minus Y hats a bye to the one minus Y.
+
+27
+00:03:02,290 --> 00:03:09,500
+Is going to be. Zero. So when Y equals one, then this is one.
+
+28
+00:03:09,500 --> 00:03:20,990
+And this is zero. See, this is why hat sub I.
+
+29
+00:03:20,990 --> 00:03:29,860
+And this is zero. And if. Why have I?
+
+30
+00:03:29,860 --> 00:03:39,500
+If Y. Supply equals zero, then we get zero over here and we get why we get.
+
+31
+00:03:39,500 --> 00:03:49,550
+One minus Y hats have I here. And so it the zero over the one picks, which of these two scores we actually use.
+
+32
+00:03:49,550 --> 00:03:55,850
+Because if the observed value is one, then it's probability as the result of our logistic regression.
+
+33
+00:03:55,850 --> 00:03:59,660
+Passes the logic for the logistic function, so it's actually a probability.
+
+34
+00:03:59,660 --> 00:04:05,690
+But if the observed value is zero, then we need the negation of that probability one minus it.
+
+35
+00:04:05,690 --> 00:04:13,820
+And the exponentiation and the multiplication turns into precisely the switching, the conditional that we need there.
+
+36
+00:04:13,820 --> 00:04:23,210
+It's a neat little trick, because if you if you multiply a variable by a one or a zero, you get the additive identity.
+
+37
+00:04:23,210 --> 00:04:29,510
+And if you raise a variable to the power of one or zero, you get the multiplicative identity one.
+
+38
+00:04:29,510 --> 00:04:34,850
+When the very when. When you raise it to the zero.
+
+39
+00:04:34,850 --> 00:04:40,570
+So. We can compute the probability of our observed data.
+
+40
+00:04:40,570 --> 00:04:47,800
+We can also condition on probability. So we've been thinking about the probability of Y equals one given X.
+
+41
+00:04:47,800 --> 00:04:53,920
+But we can extend that to think about the probability of Y equals one given our parameters, beta two.
+
+42
+00:04:53,920 --> 00:04:58,080
+So what our model is really computing if we generalize it over betas.
+
+43
+00:04:58,080 --> 00:05:09,950
+So their input as well is the probability of one given X and given our parameter values beta.
+
+44
+00:05:09,950 --> 00:05:17,520
+And that is equal to the logistic function of our batur zero plus our sum of better job, better j.s multiplied by the feature values.
+
+45
+00:05:17,520 --> 00:05:29,160
+So this gives us given data Y and X, and I'm using boldface here to indicate this is a vector of data values as opposed to individual data values,
+
+46
+00:05:29,160 --> 00:05:32,250
+and just to make it a little bit distinct from a random variable.
+
+47
+00:05:32,250 --> 00:05:37,530
+The likelihood of the data, given the parameters, is the probability of the data Y and X,
+
+48
+00:05:37,530 --> 00:05:45,330
+given our parameters, which is proportional to the in this case, it's proportional to probability of Y,
+
+49
+00:05:45,330 --> 00:05:51,300
+A and X given beta is proportional to probability of Y given X and beta,
+
+50
+00:05:51,300 --> 00:05:59,370
+which in turn is equal to the product of the probabilities of our individual y excise.
+
+51
+00:05:59,370 --> 00:06:04,260
+We are assuming here that they are exchangeable, that there's no difference if we shuffle the order.
+
+52
+00:06:04,260 --> 00:06:09,900
+Now this is the probability of the exact sequence that we observed.
+
+53
+00:06:09,900 --> 00:06:16,740
+But and we can renormalize it if we want to be able to observe these data in any sequence.
+
+54
+00:06:16,740 --> 00:06:22,290
+But this is the likelihood function. And you're talking a little bit more about what likelihood means and how it fits into a bigger picture.
+
+55
+00:06:22,290 --> 00:06:28,710
+But I said here that it is proportional. So this operator here is the proportional to operator.
+
+56
+00:06:28,710 --> 00:06:36,810
+And what it means is that it is equal to the left hand side is equal to the right hand side, multiplied by some scaling constant.
+
+57
+00:06:36,810 --> 00:06:44,730
+And the reason we get this here is that probably by the by the definition of conditional probability, P of Y of X,
+
+58
+00:06:44,730 --> 00:06:52,380
+Y and X given be given better is the probability of Y given X and bita times
+
+59
+00:06:52,380 --> 00:07:00,470
+the probability of X given bita but X we're not choosing X based on Batur.
+
+60
+00:07:00,470 --> 00:07:07,160
+Y y es probability is conditional on beta, but X is is not X is independent of our parameter is better.
+
+61
+00:07:07,160 --> 00:07:16,190
+It's just the data that we have. So the probability of X given beta is equal to the probability of X also because X is fixed.
+
+62
+00:07:16,190 --> 00:07:21,050
+We just have X, we treat it as an unknown constant or we can treat it as one.
+
+63
+00:07:21,050 --> 00:07:25,220
+The probability of having the data we have is one as one as another way to think about it.
+
+64
+00:07:25,220 --> 00:07:30,780
+And so. If we think of that as one than this, proud torsional two becomes equals.
+
+65
+00:07:30,780 --> 00:07:39,240
+But we get this proportionality so that we can just move we can move the ax to the other side of the given bar here in this specific case,
+
+66
+00:07:39,240 --> 00:07:47,370
+because we're not using Beda to choose X, so we can then do the last piece and we can convert this to a log.
+
+67
+00:07:47,370 --> 00:07:55,440
+Likelihoods of a log likelihood is the log of the likelihood. So it's the log of P of X times, this big product,
+
+68
+00:07:55,440 --> 00:08:04,170
+because we want the probability of of the first outcome and the second outcome and the third outcome and probability of these things.
+
+69
+00:08:04,170 --> 00:08:12,730
+Since we're assuming all of our values are are independent, the probability is equal to their product.
+
+70
+00:08:12,730 --> 00:08:24,310
+So but then and log is low-Pitched X plus the sum of the logs of the individual probabilities because multiplying values becomes Sum's and log space.
+
+71
+00:08:24,310 --> 00:08:29,710
+So we can do this thing as a big sum. We do it as a multiplications value is gonna get vanishingly small.
+
+72
+00:08:29,710 --> 00:08:33,310
+The example dataset I've been using like ten to the negative 80.
+
+73
+00:08:33,310 --> 00:08:40,390
+But if we use logs, then it's gonna be in a much more reasonable space, like nine minus one hundred and fifty two.
+
+74
+00:08:40,390 --> 00:08:50,150
+And so lets us do it with additional lets us keep the probabilities in a much more reasonable range so we can compute with much smaller probabilities.
+
+75
+00:08:50,150 --> 00:08:57,880
+The the probability of any specific sequence of a specific set of observations is relatively low.
+
+76
+00:08:57,880 --> 00:09:03,180
+We can still talk about finding the data that gives it the most probability, but the probability is small because,
+
+77
+00:09:03,180 --> 00:09:08,550
+well, you could have just shuffled them and gotten a very, very different value on the order of N factorial.
+
+78
+00:09:08,550 --> 00:09:14,100
+Different times. So we have this log likelihood is the some of the lives of the individual probabilities
+
+79
+00:09:14,100 --> 00:09:17,610
+we saw in an earlier slide how to compute those individual probabilities.
+
+80
+00:09:17,610 --> 00:09:22,980
+The code that actually does this is in the logistic regression demo notebook.
+
+81
+00:09:22,980 --> 00:09:30,510
+So we have this likelihood function. And we can use what's called a maximum likelihood estimate or so logistic regression.
+
+82
+00:09:30,510 --> 00:09:36,930
+The way it actually trains what it does is it uses the log likelihood as a as a utility function.
+
+83
+00:09:36,930 --> 00:09:42,000
+Utility function is the opposite of a lost function or a cost function. And it maximize it.
+
+84
+00:09:42,000 --> 00:09:48,990
+So it finds the parameter values that maximize this log likelihood.
+
+85
+00:09:48,990 --> 00:09:59,070
+We can optimize many other models. We could opt out. We can optimize any model that produces a probability or a likelihood.
+
+86
+00:09:59,070 --> 00:10:06,360
+By computing this kind of an amax, by maximizing the log likelihood of the training data given the model.
+
+87
+00:10:06,360 --> 00:10:10,050
+This gives us what, as I said, this gives us a maximum likelihood estimate or note.
+
+88
+00:10:10,050 --> 00:10:15,600
+This is it's maximizing the log likelihood, not the log odds, but the log maximum with the log likelihood,
+
+89
+00:10:15,600 --> 00:10:24,360
+a maximum of the log odds are going to have the same parameter values because they're monotonic functions or they have a monotonic relationship.
+
+90
+00:10:24,360 --> 00:10:30,780
+So if we expand this log likelihood, though, we get the log likelihood is equal to Y times.
+
+91
+00:10:30,780 --> 00:10:36,960
+The log of Y had EI plus the one minus log. Why times the log of one minus Y had I.
+
+92
+00:10:36,960 --> 00:10:40,680
+And now I've turned. Because we're now adding in log space.
+
+93
+00:10:40,680 --> 00:10:45,390
+And also because of how you expand powers when you're doing a log. We've now moved.
+
+94
+00:10:45,390 --> 00:10:53,710
+What was this multiplicative switch or multiplicative conditional that we were using the power as we've now turned it into an additive conditional.
+
+95
+00:10:53,710 --> 00:11:00,960
+They said this is applicable to any model, where are y hat is an estimate of the probability of the positive class.
+
+96
+00:11:00,960 --> 00:11:08,410
+So to show you an example of computing this, if we have the first data point.
+
+97
+00:11:08,410 --> 00:11:18,160
+It's SCOR, why that is. Point one eight to eight 07, and but it's admit it's why a zero, so it's going to be.
+
+98
+00:11:18,160 --> 00:11:23,890
+We're going to compute why hat zero? Why hat time to the zero?
+
+99
+00:11:23,890 --> 00:11:29,740
+Times one minus Y hat. Which is point eight, seven to the one, and that's going to be point it one seven.
+
+100
+00:11:29,740 --> 00:11:35,470
+And we have point eight one seven right here. If you want to compute the log likelihood, you're gonna get negative point, too.
+
+101
+00:11:35,470 --> 00:11:42,340
+To sum up all these log likelihoods and we're going to get the total log likelihood of the data for this model.
+
+102
+00:11:42,340 --> 00:11:47,110
+We can compare these on the same data. But if one if you have this, if we have the same.
+
+103
+00:11:47,110 --> 00:11:52,210
+If we have this model, that fits just as well. But we have different data, even if it's just, say, half of this data.
+
+104
+00:11:52,210 --> 00:11:56,560
+It's going to change the likelihood because the likelihood is over the whole data set.
+
+105
+00:11:56,560 --> 00:12:01,960
+So you can use the log likelihood to compare models on exactly the same data.
+
+106
+00:12:01,960 --> 00:12:07,180
+But as soon as you change the data set. You can't you can't compete.
+
+107
+00:12:07,180 --> 00:12:11,350
+You cannot use the log likelihood to compare a model on one data with the same
+
+108
+00:12:11,350 --> 00:12:15,430
+model with a with either the same or a different model on a different data set.
+
+109
+00:12:15,430 --> 00:12:20,470
+It's only comparable within the exact same set of training data.
+
+110
+00:12:20,470 --> 00:12:26,940
+So I said I was gonna tell you a little bit about what it means to a maximum likelihood estimate by sideswiping likelihood function,
+
+111
+00:12:26,940 --> 00:12:33,430
+we're going to maximize it. So if we're ever Bayes Theorem. We can break Bayes Theorem down into a few pieces.
+
+112
+00:12:33,430 --> 00:12:40,240
+We have the posterior. Which is the probability I'm using here data.
+
+113
+00:12:40,240 --> 00:12:46,940
+And why? Because we have some data. Why? And I'm folding X into Y for now.
+
+114
+00:12:46,940 --> 00:12:50,820
+And we have some model parameters, STADA, oftentimes we want to be able to ask,
+
+115
+00:12:50,820 --> 00:12:56,640
+given the data I have, what's the probability of a particular set of model parameters?
+
+116
+00:12:56,640 --> 00:13:02,070
+And this is the heart of what we call Bayesian inference. Not all applications that base theorem are Bayesian inference,
+
+117
+00:13:02,070 --> 00:13:09,610
+but Bayesian thinking becomes it's quite common in various machine learning applications.
+
+118
+00:13:09,610 --> 00:13:14,880
+So we can think about what's the probability of my parameters, given my particular data.
+
+119
+00:13:14,880 --> 00:13:19,680
+And we do that with a few pieces. We have our prior.
+
+120
+00:13:19,680 --> 00:13:28,410
+Before I see any data, what's my knowledge of the ah, what's the probability I assigned to different portions of the parameter space?
+
+121
+00:13:28,410 --> 00:13:34,890
+This might be uniform, it might be broad, like some broad normal. It might be based on actual information.
+
+122
+00:13:34,890 --> 00:13:39,030
+The likelihood function, it tells me, for a particular parameter set.
+
+123
+00:13:39,030 --> 00:13:45,780
+How likely is my data? And that's what we just saw computing for a logistic regression for a particular parameter set.
+
+124
+00:13:45,780 --> 00:13:52,850
+How likely is the data that we have seen? If it if it's true, if this is the true value of the parameter,
+
+125
+00:13:52,850 --> 00:14:00,200
+how likely is the particular data I would have seen then we have probability of y, which effectively for our purposes is a scaling factor.
+
+126
+00:14:00,200 --> 00:14:06,230
+Because for a given data set, if the data set is not changing, its probability is not going to change.
+
+127
+00:14:06,230 --> 00:14:13,990
+So if our goal is to say find Fada, that either maximizes the likelihood or maximizes the posterior.
+
+128
+00:14:13,990 --> 00:14:20,950
+Because multiplying by a scalar doesn't change where the maximum point is, it just changes the value of that maximum point.
+
+129
+00:14:20,950 --> 00:14:27,080
+We can ignore it. Most of the time. So we treated the scaling factor, if you need the definition.
+
+130
+00:14:27,080 --> 00:14:33,470
+It's the integral overall of the possible parameter values of the numerator there.
+
+131
+00:14:33,470 --> 00:14:38,560
+So. Where Maxima in training a logistic regression,
+
+132
+00:14:38,560 --> 00:14:44,620
+we maximize the likelihood we call this a maximum likelihood or an MLS demetre because it does exactly what it says,
+
+133
+00:14:44,620 --> 00:14:50,960
+it maximizes the likelihood it maximize it finds the parameter values.
+
+134
+00:14:50,960 --> 00:14:55,730
+For which the data is as likely as possible with our particular model.
+
+135
+00:14:55,730 --> 00:15:03,800
+We can also maximize the posterior. We can find the theta that is the most likely given our model.
+
+136
+00:15:03,800 --> 00:15:11,280
+That's often more computationally expensive. And when the prior is, say, uniform.
+
+137
+00:15:11,280 --> 00:15:14,820
+They're all constant across parameter space. There's no difference.
+
+138
+00:15:14,820 --> 00:15:20,670
+But also with lots and lots of data as the amount of data you have and why increases
+
+139
+00:15:20,670 --> 00:15:25,860
+the relative importance of the likelihood increases and outweighs the prior.
+
+140
+00:15:25,860 --> 00:15:36,960
+And so when you have a lot of data, the prior doesn't influence the posterior very much so long as it's sufficiently broad over your parameter space.
+
+141
+00:15:36,960 --> 00:15:45,040
+And so the parameter values that maximize the likelihood we very close to the parameter values to maximize the posterior.
+
+142
+00:15:45,040 --> 00:15:54,160
+The exact relationship between those and when you when in detail, when you can use MRL, when you really need to use map,
+
+143
+00:15:54,160 --> 00:16:01,270
+those are you're going to say you should see those in more detail in either machine learning or the computational statistics course.
+
+144
+00:16:01,270 --> 00:16:07,090
+For now, we're going to. For our purposes right here, they're going to be very, very similar.
+
+145
+00:16:07,090 --> 00:16:12,940
+To wrap up, the logistic function is back trained by maximizing the log likelihood of the training data.
+
+146
+00:16:12,940 --> 00:16:17,350
+Given the model with a particular set of parameters, you could implement this yourself.
+
+147
+00:16:17,350 --> 00:16:24,370
+And if you want to practice this, you could take what we did in last week's material to optimize linear regression using
+
+148
+00:16:24,370 --> 00:16:29,320
+the optimize function and use that to optimize the parameters of a logistic regression.
+
+149
+00:16:29,320 --> 00:16:37,690
+Note that you can just tick in negative if you if you maximizing the log likelihood is equivalent to minimizing the negative log likelihood.
+
+150
+00:16:37,690 --> 00:16:44,830
+So if you want to see this in action, I encourage you to open up one of the notebooks and go practice and try to use it out,
+
+151
+00:16:44,830 --> 00:16:54,233
+optimize to train yourself a logistic regression.
+

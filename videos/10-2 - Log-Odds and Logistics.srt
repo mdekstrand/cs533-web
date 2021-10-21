@@ -1,0 +1,368 @@
+1
+00:00:04,330 --> 00:00:09,290
+Hello. This video, I want to introduce the concept of odds and log odds,
+
+2
+00:00:09,290 --> 00:00:12,920
+learning outcomes are to be able to convert between probability odds and log odds
+
+3
+00:00:12,920 --> 00:00:21,820
+and understand the role and the purpose of the logistic and logic functions.
+
+4
+00:00:21,820 --> 00:00:31,510
+So if we have a probability of success. Probability is not the only way to quantify a probability.
+
+5
+00:00:31,510 --> 00:00:39,880
+We can also quantify it. And what's her called? The odds. So if you've heard of odds of like ten to one against odds of two to one.
+
+6
+00:00:39,880 --> 00:00:44,550
+This is what it's talking about. So if we have a probability of success.
+
+7
+00:00:44,550 --> 00:00:49,120
+And remember, this is going to be in the range zero less than or equal.
+
+8
+00:00:49,120 --> 00:00:55,200
+So probability is going to be in the range zero to one.
+
+9
+00:00:55,200 --> 00:00:59,040
+We can't actually have probabilities of zero and one when we're talking about odds four.
+
+10
+00:00:59,040 --> 00:01:07,050
+I'll get to that in a moment, but the odds is the probability of success.
+
+11
+00:01:07,050 --> 00:01:13,980
+Divided by the probability of failure or the probability of success, divided by the probability of one minus success.
+
+12
+00:01:13,980 --> 00:01:20,100
+And it gives us this ratio of the likelihood of one outcome versus the other.
+
+13
+00:01:20,100 --> 00:01:26,450
+And how much it expresses odds expresses how much more likely.
+
+14
+00:01:26,450 --> 00:01:35,230
+Success is than failure or failure is then success if we're quantifying the odds of failure.
+
+15
+00:01:35,230 --> 00:01:38,860
+So a couple of examples. Star Wars robots.
+
+16
+00:01:38,860 --> 00:01:42,970
+A couple of them talk differently, some in some in probability and some odds.
+
+17
+00:01:42,970 --> 00:01:47,620
+K2 Esso says there's a ninety seven point six percent chance of failure.
+
+18
+00:01:47,620 --> 00:01:53,200
+So our probability of failure is ninety seven point six. Point nine, seven, six.
+
+19
+00:01:53,200 --> 00:01:58,230
+And so our odds are point nine seven six divided by pointing to four.
+
+20
+00:01:58,230 --> 00:02:01,800
+Which is equal to forty point six seven. So we affect it.
+
+21
+00:02:01,800 --> 00:02:11,380
+We approximately have a forty one to one odds. The odds against success are the odds of failure are forty one to one.
+
+22
+00:02:11,380 --> 00:02:19,620
+That if we're going to translate this ninety seven point six percent chance into OD's, we can also translate the other way around.
+
+23
+00:02:19,620 --> 00:02:25,320
+See through Apio is being a little imprecise in his speech.
+
+24
+00:02:25,320 --> 00:02:31,950
+He should say the odds. The odds against successfully navigating an asteroid field.
+
+25
+00:02:31,950 --> 00:02:38,160
+But he says the possibility of successfully navigating will forgive him because he's talking about a ratio 37 20 to one.
+
+26
+00:02:38,160 --> 00:02:45,210
+He's clearly talking about odds. And so if the odds are thirty seven, twenty over one, that's equal to P. over one minus P.
+
+27
+00:02:45,210 --> 00:02:51,990
+If we solve that equation, what we're going to get is that the probability of failure, if we converting this odds of thirty seven,
+
+28
+00:02:51,990 --> 00:03:00,640
+twenty to one, that we get a probability of failure of point nine nine nine seven or ninety nine point nine seven.
+
+29
+00:03:00,640 --> 00:03:04,750
+And so we can convert back and forth between probability and odds.
+
+30
+00:03:04,750 --> 00:03:08,740
+So long as our probability is not zero or one, we can't.
+
+31
+00:03:08,740 --> 00:03:14,620
+If probability is zero, then the odds will be zero.
+
+32
+00:03:14,620 --> 00:03:18,790
+But if the probability is one, then the probability of failure will be zero.
+
+33
+00:03:18,790 --> 00:03:29,920
+And so the odds will be infinite. Another thing about odds is that P is equal to zero point five, then odds is equal to one.
+
+34
+00:03:29,920 --> 00:03:35,180
+So one is even odds. Just as likely as it is unlikely.
+
+35
+00:03:35,180 --> 00:03:47,090
+Now, hopefully you may remember from high school algebra, logarithms and logarithms allow us to convert between exponents and.
+
+36
+00:03:47,090 --> 00:03:58,310
+In normal numbers, and so if X is the log base B of Y, that means Y is equal to be to the X logarithms undo exponentiation.
+
+37
+00:03:58,310 --> 00:04:02,000
+A few common bases. We have E the natural log. That's the one we use.
+
+38
+00:04:02,000 --> 00:04:07,550
+By far the most. We have log 10. That's really useful for doing orders of magnitude.
+
+39
+00:04:07,550 --> 00:04:11,480
+And when we plot on a log access, that log is almost always log.
+
+40
+00:04:11,480 --> 00:04:16,970
+Ten logs and different bases are proportional to each other, just a constant multiplier.
+
+41
+00:04:16,970 --> 00:04:26,960
+And so we have the we can have E for a lot of computations based 10 logs for displaying log axes and plots.
+
+42
+00:04:26,960 --> 00:04:34,360
+Sometimes you're gonna see base two logs when we're dealing, particularly dealing with low level operations and computer programing.
+
+43
+00:04:34,360 --> 00:04:40,220
+NUM Pi has the function log, which is the natural log and log 10, which is the base 10 log.
+
+44
+00:04:40,220 --> 00:04:44,090
+So a couple logarithms have a variety of identities.
+
+45
+00:04:44,090 --> 00:04:49,350
+If you're going to multiply two numbers, you can that's equivalent to adding their logarithm.
+
+46
+00:04:49,350 --> 00:04:59,720
+So log of X Y is equal to log of X plus log of Y. Exponentiation is multiplying the logarithm to the log of X to the Y as Y times the log of X.
+
+47
+00:04:59,720 --> 00:05:04,100
+These identities are useful for reasoning about what's happening with your logarithms.
+
+48
+00:05:04,100 --> 00:05:09,410
+Logarithms are only defined for X greater than zero.
+
+49
+00:05:09,410 --> 00:05:17,440
+And so. In a moment, we're going to get to log odds in which you so your.
+
+50
+00:05:17,440 --> 00:05:22,840
+The probability can't be won and allow you to convert to odds, because then you're going to have infinite,
+
+51
+00:05:22,840 --> 00:05:29,640
+infinite odds and it can't be zero and convert to law gods because you have zero and you can't take the log of zero.
+
+52
+00:05:29,640 --> 00:05:38,460
+One common operation when we do have some zeroes is to take the log of one plus X and this and num PI has a function that does that very,
+
+53
+00:05:38,460 --> 00:05:45,570
+very precisely. If you need to do log of one plus X, don't just do log of one plus X two log one P floating point is a weird beast.
+
+54
+00:05:45,570 --> 00:05:50,160
+I'm going to post a reading or two free to learn more about what's going on with floating point.
+
+55
+00:05:50,160 --> 00:05:55,740
+But logarithms are very useful for compute because they will help us avoid floating point under or overflow.
+
+56
+00:05:55,740 --> 00:06:05,220
+And so very, very small probabilities. We'll have logarithms that are still within the reasonable range that we can store.
+
+57
+00:06:05,220 --> 00:06:08,700
+Also, though, you have to be a little bit careful because in flooding point arithmetic.
+
+58
+00:06:08,700 --> 00:06:13,200
+So in addition and subtraction are more efficient than multiplication and division.
+
+59
+00:06:13,200 --> 00:06:19,320
+So if you do the logarithms in your computations, the more efficient they stay in a more useful range of values many times.
+
+60
+00:06:19,320 --> 00:06:22,830
+But you have to be a little bit careful with particularly subtraction,
+
+61
+00:06:22,830 --> 00:06:29,850
+but also addition and floating point to avoid problems with precision and cancelation.
+
+62
+00:06:29,850 --> 00:06:33,250
+Again, I'm going to post a couple of reading or two about that.
+
+63
+00:06:33,250 --> 00:06:39,490
+But we have our odds and we have our logarithms, so now we can get to law gods or add logs.
+
+64
+00:06:39,490 --> 00:06:44,350
+But we can go to log odds. And so the log odds is the log of the odds.
+
+65
+00:06:44,350 --> 00:06:55,480
+And so it's the log of p0 ovei times one minus PMA, which is equal to log of P of a minus the log of one minus P of A.
+
+66
+00:06:55,480 --> 00:07:01,240
+Because multiplication is addition. Division is subtraction. This function has a name.
+
+67
+00:07:01,240 --> 00:07:06,220
+This log God's function is called the logic and the logic of P is equal to
+
+68
+00:07:06,220 --> 00:07:15,010
+log P minus log of one minus P or log the P of log of P over one minus P and.
+
+69
+00:07:15,010 --> 00:07:21,370
+This converts odd or this converts probability into odds to go back.
+
+70
+00:07:21,370 --> 00:07:29,370
+It would convert K to S.O. indices through Pyo. The logistic function is the inverse of the logic.
+
+71
+00:07:29,370 --> 00:07:38,460
+So the logic is the log, the logistic is one over one plus E, the minus X, equivalently, it's either the X over each of the X plus one.
+
+72
+00:07:38,460 --> 00:07:45,210
+And it has a curve like this. The logic, the logistic of zero is point five as logistic goes to infinity.
+
+73
+00:07:45,210 --> 00:07:50,700
+This approaches one. As it goes to negative infinity, it approaches zero.
+
+74
+00:07:50,700 --> 00:07:55,230
+So it maps unbounded real values into the range zero one.
+
+75
+00:07:55,230 --> 00:07:59,550
+This is very useful because we have zero one outcomes.
+
+76
+00:07:59,550 --> 00:08:04,350
+It allows us to have an unbounded value that predicts it and it gets us into zero
+
+77
+00:08:04,350 --> 00:08:15,390
+ones without having to do clamping or anything else that's not differentiable. It also often when you.
+
+78
+00:08:15,390 --> 00:08:17,360
+You might have a zero one outcome variable. OK?
+
+79
+00:08:17,360 --> 00:08:24,810
+That's not not the 01 isn't normal or Pritam probabilities often aren't normal because they're bounded in this range zero one.
+
+80
+00:08:24,810 --> 00:08:32,800
+But it's not uncommon to find a situation where the logic of probabilities is normal.
+
+81
+00:08:32,800 --> 00:08:43,170
+And so you can if the logic of your probabilities is normal, then that lets you apply that like the law gods is normal.
+
+82
+00:08:43,170 --> 00:08:47,160
+So that lets you apply things that, like normal numbers,
+
+83
+00:08:47,160 --> 00:08:55,020
+normally distributed numbers to the log odds and then convert them back into probabilities with the logistic function.
+
+84
+00:08:55,020 --> 00:09:00,980
+When you actually need a probability, the logistic function is also an example of what's called a sigmoid curve.
+
+85
+00:09:00,980 --> 00:09:06,120
+S shaped curve. As I said, it converts log odds in the probability.
+
+86
+00:09:06,120 --> 00:09:16,630
+So odds are another way of representing probabilities and the logistic and logic functions convert between probabilities and the log odds and odds.
+
+87
+00:09:16,630 --> 00:09:25,720
+The odds of one is even log odds of zero is even log odds.
+
+88
+00:09:25,720 --> 00:09:30,640
+Zero. When odds equals one.
+
+89
+00:09:30,640 --> 00:09:43,340
+So and also they're more their balance. So. The odds of two to one is two, odds of one to two is point five.
+
+90
+00:09:43,340 --> 00:09:49,220
+Odds of long odds of two to one is just a little under one.
+
+91
+00:09:49,220 --> 00:09:53,990
+And the drug odds of one to two is just a little over negative one.
+
+92
+00:09:53,990 --> 00:10:04,767
+So it gives you more symmetry, more balance in the law. Become very computationally useful to work with.
+

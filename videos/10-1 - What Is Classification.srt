@@ -1,0 +1,248 @@
+1
+00:00:04,910 --> 00:00:10,780
+Hello and welcome to the tenth week of CSI 533. This video and one introduce our week's topic,
+
+2
+00:00:10,780 --> 00:00:14,990
+where we're going to pivot from regression to classifications where learning outcomes for this
+
+3
+00:00:14,990 --> 00:00:20,390
+week are for you to be able to predict binary outcomes or classes for observed instances to
+
+4
+00:00:20,390 --> 00:00:25,880
+evaluate the accuracy of a model for doing this classification and also to use psychic learn
+
+5
+00:00:25,880 --> 00:00:30,770
+for predictive modeling in addition to the stats models code that we've been using so far.
+
+6
+00:00:30,770 --> 00:00:33,140
+So if we think about our different outcome variables,
+
+7
+00:00:33,140 --> 00:00:39,890
+we talked at the beginning of the class about different types of variables and that applies to outcomes as well as all the other variables.
+
+8
+00:00:39,890 --> 00:00:48,020
+What we saw in the last couple of weeks is using is trying to predict continuous outcome variables and we call this regression.
+
+9
+00:00:48,020 --> 00:00:51,250
+It also applies to other numeric outcome variables like integers,
+
+10
+00:00:51,250 --> 00:00:57,610
+but regressions where we're trying to we're trying to predict these continuous numeric outcome variables.
+
+11
+00:00:57,610 --> 00:01:04,540
+We're trying to predict a categorical variable. We typically call it classification.
+
+12
+00:01:04,540 --> 00:01:07,790
+And if we have a two level category or a two level ordinal,
+
+13
+00:01:07,790 --> 00:01:16,490
+we call this binary classification because our goal is to classify instances into one of two different categories.
+
+14
+00:01:16,490 --> 00:01:22,160
+There's also methods for dealing with multi-level ordinals, which are called ordinal regression.
+
+15
+00:01:22,160 --> 00:01:26,660
+And if you have multi-level categorically, you have more than two categories.
+
+16
+00:01:26,660 --> 00:01:31,330
+Then you then we have what we call multiclass classification.
+
+17
+00:01:31,330 --> 00:01:38,350
+We're going to be focusing, particularly for now, on binary classification, where we have a yes or no outcome that we're trying to predict.
+
+18
+00:01:38,350 --> 00:01:46,240
+We call it yes, no positive, negative, true, false. We could call it a B. if we don't want to assign positive value to one.
+
+19
+00:01:46,240 --> 00:01:52,630
+But our usual classification setup is going to be to estimate. Is this in the positive class?
+
+20
+00:01:52,630 --> 00:02:00,940
+Sometimes we'll simplify another problem to a binary problems. We can apply a classification, for example, in the Rotten Tomatoes data.
+
+21
+00:02:00,940 --> 00:02:04,600
+We may say we want to we want to classify movies as mostly fresh.
+
+22
+00:02:04,600 --> 00:02:09,400
+If they have a percent fresh, greater than 50 percent or some other threshold.
+
+23
+00:02:09,400 --> 00:02:16,330
+You might say categorized a rating as positive if it's greater than three or greater than or equal to three other ways in which we
+
+24
+00:02:16,330 --> 00:02:27,100
+will sometimes take outcomes that are richer than a binary class and convert them into one for the purposes of using a classifier.
+
+25
+00:02:27,100 --> 00:02:31,210
+Now, to relate this to the inference that we saw back in the fourth week.
+
+26
+00:02:31,210 --> 00:02:35,180
+So if we've got two different groups or two different classes here,
+
+27
+00:02:35,180 --> 00:02:40,970
+an inference that we saw is looking at what what is different about these two groups?
+
+28
+00:02:40,970 --> 00:02:45,820
+One's in a basket. One's on stairs. One's kittens. One's puppies.
+
+29
+00:02:45,820 --> 00:02:52,120
+We use things like T tests, other pair Y or other tests to look at the difference between two groups.
+
+30
+00:02:52,120 --> 00:02:57,280
+But our goal is to understand the groups and their relationships. That's what we're doing with inference.
+
+31
+00:02:57,280 --> 00:03:00,550
+Just like with with inference in the regression context,
+
+32
+00:03:00,550 --> 00:03:07,960
+trying to understand the structure of the space and what drives changes with classification, which is a type of prediction.
+
+33
+00:03:07,960 --> 00:03:13,120
+What we're trying to do is we're given a new animal. We're trying to figure out which group it goes in.
+
+34
+00:03:13,120 --> 00:03:20,560
+So inference is, given these groups of animals, what makes them different classification is given a new animal.
+
+35
+00:03:20,560 --> 00:03:25,000
+Is it a cat or a dog? Now we're assuming everything is cats or dogs for now.
+
+36
+00:03:25,000 --> 00:03:31,510
+If you bring in a rabbit or a ferret or a durable classifier, it's going to have a hard time.
+
+37
+00:03:31,510 --> 00:03:38,800
+But. The got the idea here is that the classification is trying to figure out which group it belongs in,
+
+38
+00:03:38,800 --> 00:03:43,510
+whereas in France is trying to figure out what is the differences between the groups.
+
+39
+00:03:43,510 --> 00:03:52,270
+These are gonna be very related because the differences between the groups are the basis for figuring out which group something belongs in.
+
+40
+00:03:52,270 --> 00:04:00,070
+But the outcome is different. And the way we assess what we're doing is different classification, as with prediction.
+
+41
+00:04:00,070 --> 00:04:08,230
+We assess on the basis of its ability to correctly predict or classify future unseen data.
+
+42
+00:04:08,230 --> 00:04:15,070
+So we often encode our binary classes in zero one where one is the positive class.
+
+43
+00:04:15,070 --> 00:04:23,200
+If you use a logical value, if you use a logical and pandas, it will automatically convert to an integer zero one where one is true.
+
+44
+00:04:23,200 --> 00:04:30,970
+And remember that when we have a vector or a series of zero ones, then if you can take you take the mean of that,
+
+45
+00:04:30,970 --> 00:04:38,660
+you get the fraction of trews or the estimated probability of true.
+
+46
+00:04:38,660 --> 00:04:41,840
+It's the probability of drawing an item from your data and it being true.
+
+47
+00:04:41,840 --> 00:04:51,020
+But also, if your data is a reasonable as a as a representative sample, it is a estimate of the probability of data being true.
+
+48
+00:04:51,020 --> 00:04:57,560
+When you drop in the population so we can think about taking the mean of why for some fixed X.
+
+49
+00:04:57,560 --> 00:05:06,830
+So when we're doing a regression, what we do is we compute the the the expected y the expected outcome variable
+
+50
+00:05:06,830 --> 00:05:12,710
+for some fixed X regression is gonna find an estimate of the mean outcome.
+
+51
+00:05:12,710 --> 00:05:20,360
+And if the regression properly captures the the what's going on in the data, then the output of the regression is going to be the mean outcome.
+
+52
+00:05:20,360 --> 00:05:25,700
+Because remember, our residuals are normally distributed. Heteros, you're homeless, get ascetics centered at zero.
+
+53
+00:05:25,700 --> 00:05:35,390
+So everywhere along of everywhere along your line, the mean zero, which means that the the lie is the mean residual zero,
+
+54
+00:05:35,390 --> 00:05:43,130
+which means that the line is the expected value of the outcome variable for that particular value of X.
+
+55
+00:05:43,130 --> 00:05:47,690
+What we do here, well, we often do here as we try to compute the conditional probability.
+
+56
+00:05:47,690 --> 00:05:54,500
+What's the probability of Y being true, given a particular value of X?
+
+57
+00:05:54,500 --> 00:06:03,140
+So it's gonna have this relationship there to regression. In both cases, we're trying to compute the dis expectation or this probability.
+
+58
+00:06:03,140 --> 00:06:10,670
+Fun sidebar fact probability is the expected value of the characteristic function where the characteristic function is one.
+
+59
+00:06:10,670 --> 00:06:19,490
+If something is true and zero if it's false. But we're trying to compute this conditional probability, which we as a which.
+
+60
+00:06:19,490 --> 00:06:23,780
+Conclusion to this we can also frame as a continuant, as a conditional expectation.
+
+61
+00:06:23,780 --> 00:06:28,520
+So to wrap up classification allows us to predict discrete outcome variables.
+
+62
+00:06:28,520 --> 00:06:39,567
+There are many different models for doing this. We're gonna start with linear ones as we were using for regression.
+

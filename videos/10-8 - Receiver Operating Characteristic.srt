@@ -1,0 +1,276 @@
+1
+00:00:04,410 --> 00:00:11,500
+Love this video. I want to introduce you to R.O. curves that we can use to understand and visualize tradeoffs between
+
+2
+00:00:11,500 --> 00:00:19,990
+different types of errors as we change the threshold for our our logistic or for classifier.
+
+3
+00:00:19,990 --> 00:00:27,400
+So objectives here. Friedberger plot accuracy curve and to compute interprete receiver operating characteristic curve.
+
+4
+00:00:27,400 --> 00:00:31,300
+So the matrix metrics from the confusion matrix are hard.
+
+5
+00:00:31,300 --> 00:00:35,240
+Are based on hard. Yes no outcomes. They compare your decision. Yes.
+
+6
+00:00:35,240 --> 00:00:40,360
+Or one or zero. Yes or no. To the action to the observed outcome in our ground.
+
+7
+00:00:40,360 --> 00:00:45,730
+Truth data. One or zero. Yes or no. But a single classifier often has this tradeoff points.
+
+8
+00:00:45,730 --> 00:00:54,220
+So you train a logistic regression, the default. This is what Saikat learned does is it uses point five probability or zero log odds as the threshold.
+
+9
+00:00:54,220 --> 00:00:58,510
+And if it's more if one is more likely than zero, it returns one.
+
+10
+00:00:58,510 --> 00:01:06,430
+But we could have it be more conservative to say require an 80 percent probability of one in order to classify as one.
+
+11
+00:01:06,430 --> 00:01:10,420
+Or we could classify as one as soon as that are 20 percent probability,
+
+12
+00:01:10,420 --> 00:01:18,010
+depending on the needs we have and depending on the specific costs of false positives and false negatives in our application.
+
+13
+00:01:18,010 --> 00:01:29,800
+So we can plot curves for various metrics here, I've done precision, you could do it for recall, you could do it for accuracy at different thresholds.
+
+14
+00:01:29,800 --> 00:01:35,860
+So here I have thresholds. And these are in law gods and I. The X axis decreases as you go.
+
+15
+00:01:35,860 --> 00:01:40,840
+Right. So as you go from left to right, we're decreasing our threshold and seeing what happens to the physician.
+
+16
+00:01:40,840 --> 00:01:48,730
+And it's wobbly up at the top. That's wobbly in the higher end because we make a few more classifications.
+
+17
+00:01:48,730 --> 00:01:51,580
+It can wind up being more precise for a little bit.
+
+18
+00:01:51,580 --> 00:01:58,570
+And then as we keep it starts stabilizing and as we decrease to as we keep decreasing the threshold,
+
+19
+00:01:58,570 --> 00:02:03,190
+we keep decreasing the precision of our system because we're classifying more and more as.
+
+20
+00:02:03,190 --> 00:02:08,320
+Yes. And we're deeping digging deeper and deeper into the barrel to find the ones we want to classify as.
+
+21
+00:02:08,320 --> 00:02:14,350
+Yes. And we're finding quite a few. And then we wind up classifying quite a few noses.
+
+22
+00:02:14,350 --> 00:02:23,820
+Yes. Now, we also do see here that at ah, at our zero cut off about here, we can look at a negative point five and that actually has just as high.
+
+23
+00:02:23,820 --> 00:02:27,800
+That actually has a higher precision than the default cutoff. A zero.
+
+24
+00:02:27,800 --> 00:02:32,900
+This is useful for actually setting the threshold value, if you can plot your metric, be a precision,
+
+25
+00:02:32,900 --> 00:02:41,060
+be it something else at these different thresholds, and and use that to gain insight, to think about where you want to set your threshold.
+
+26
+00:02:41,060 --> 00:02:48,530
+Another curve that we use for evaluating classifiers sometimes is the receiver operating characteristic curve.
+
+27
+00:02:48,530 --> 00:02:57,530
+And so in the ROIC curve, what we do is we plot the true positive rate on the Y axis and the false positive rate on the x axis.
+
+28
+00:02:57,530 --> 00:03:05,240
+And what this lets us see is as we as we decrease R, as we increase our tolerance for false positives,
+
+29
+00:03:05,240 --> 00:03:11,450
+what happens to the number of true positives we find? Now, remember, two true positive rate and recall are the same thing.
+
+30
+00:03:11,450 --> 00:03:19,860
+So if we want to find half of the Yes cases. How what's the flip, false positive rate?
+
+31
+00:03:19,860 --> 00:03:24,210
+Do we have to accept in order to do that, we have to accept the point to.
+
+32
+00:03:24,210 --> 00:03:33,250
+And it lets us see it. Well, if we want to find if we want to find 80 percent of the positives, then we have to accept around a point for three or so.
+
+33
+00:03:33,250 --> 00:03:41,670
+But it lets us it lets us see here what false positive rate we have to tolerate in order to achieve a certain recall in our classifier.
+
+34
+00:03:41,670 --> 00:03:48,150
+You can also do other curves like this for other pairs of metrics, but other pairs of metrics against each other.
+
+35
+00:03:48,150 --> 00:03:52,620
+A precision recall curve looks at the relationship between precision and recall.
+
+36
+00:03:52,620 --> 00:03:58,530
+As you change your threshold. Another thing that's important to note is that the diagonal line here is random.
+
+37
+00:03:58,530 --> 00:04:06,420
+So a random classifier is going to get the diagonal lines performance. If you're if your curve is up over here to the left, then that's doing better.
+
+38
+00:04:06,420 --> 00:04:11,280
+One of the things we can do, though, is even for the same precision, we might have a curve that goes like this.
+
+39
+00:04:11,280 --> 00:04:15,480
+We might have a curve that goes up more quickly and then dials off.
+
+40
+00:04:15,480 --> 00:04:21,540
+We might have a curve that trails off for a while and then gets better. This lets us understand.
+
+41
+00:04:21,540 --> 00:04:28,560
+It lets us see the different tradeoff points for different classifiers and determine which one has a curve that
+
+42
+00:04:28,560 --> 00:04:35,880
+better aligns with the needs of our application and and generally want to be able to pick up the false positives.
+
+43
+00:04:35,880 --> 00:04:43,690
+The true positive quickly. But this curve here, as you see, is as soon as you get over here, if you want to get over about.
+
+44
+00:04:43,690 --> 00:04:47,490
+You want to get more than point six recall. So you want point eight.
+
+45
+00:04:47,490 --> 00:04:55,630
+Recall, you have to accept a lot more false positives with this one than you do with the blue curve.
+
+46
+00:04:55,630 --> 00:04:58,990
+Because it doesn't cross point eight to here as opposed to here.
+
+47
+00:04:58,990 --> 00:05:05,200
+Whereas if you want if you want to recall a 50 percent, then you don't have to have as many false positives with this one.
+
+48
+00:05:05,200 --> 00:05:11,470
+So it really lets you it lets you know. It characterizes.
+
+49
+00:05:11,470 --> 00:05:19,660
+The tradeoffs of the different classifiers and lets you pick one that's going to be better aligned with the needs of your particular application.
+
+50
+00:05:19,660 --> 00:05:24,690
+If you wind up with a classifier down here.
+
+51
+00:05:24,690 --> 00:05:30,150
+It's worse than random, but in verdict classified, yes.
+
+52
+00:05:30,150 --> 00:05:34,500
+When it and when it says no. And then you're going to get a relatively good classifier.
+
+53
+00:05:34,500 --> 00:05:39,450
+So we're really paying attention to classifiers in the top left triangle of the ROIC curve.
+
+54
+00:05:39,450 --> 00:05:46,450
+We could also compute the area under the ROIC curve. And this gives us a metric, a U.S.
+
+55
+00:05:46,450 --> 00:05:54,320
+Put a random classifier, that agonal line is going to have an AUC of point five greater is good because.
+
+56
+00:05:54,320 --> 00:05:58,880
+The only way you get greater than point five is you have mass here,
+
+57
+00:05:58,880 --> 00:06:05,710
+you have a curve that goes up that gives you more true positives for the false positives than you would with a random classifier.
+
+58
+00:06:05,710 --> 00:06:14,390
+It's less than point five again. You can avert your classifier. Also, the area under the curve is the problem, Bill, is equal to the probability of.
+
+59
+00:06:14,390 --> 00:06:18,110
+If you pick two items at random that your classifier put them in the correct order.
+
+60
+00:06:18,110 --> 00:06:24,440
+So it said it scored Y above J when Y is actually better than J.
+
+61
+00:06:24,440 --> 00:06:30,050
+Or its score or vice versa. It scored Y below J. Y is actually below J.
+
+62
+00:06:30,050 --> 00:06:38,000
+The probability of that is the same as the area under the curve, which becomes useful in a few applications, especially where your application,
+
+63
+00:06:38,000 --> 00:06:43,970
+what you care about is what's the probability that I put you care about the relative classifications of things.
+
+64
+00:06:43,970 --> 00:06:49,640
+This becomes important when you're doing systems that rank that rank their outputs.
+
+65
+00:06:49,640 --> 00:06:53,600
+And the classification is we're gonna take the top ten as our good ones.
+
+66
+00:06:53,600 --> 00:07:03,250
+That's basically what a search engine does. Area under the curve gives you the probability that you stuck two things in the right order.
+
+67
+00:07:03,250 --> 00:07:04,720
+So to conclude ROIC,
+
+68
+00:07:04,720 --> 00:07:14,290
+Kurz gives us a way to see tradeoffs between false positives and false and true positives and compared to the tradeoff curves of multiple classifiers.
+
+69
+00:07:14,290 --> 00:07:25,567
+It also gives us the area under the curve metric that we can use to quantify classifier performance.
+

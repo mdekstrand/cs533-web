@@ -1,0 +1,348 @@
+1
+00:00:04,480 --> 00:00:08,500
+This video, we're going to take the combination, the concept we introduced in the last video,
+
+2
+00:00:08,500 --> 00:00:14,590
+the law guides the logistic and introduced the logistic regression learning outcomes are for you to be able to compute logistic,
+
+3
+00:00:14,590 --> 00:00:20,740
+which are great aggression, to predict a binary value and understand and generalize logistic regression.
+
+4
+00:00:20,740 --> 00:00:26,350
+So recall linear regression where we have we're trying to generate predictions y hatam.
+
+5
+00:00:26,350 --> 00:00:34,000
+We do that with an intercept. And then the sum of scalar multiples of our feature values.
+
+6
+00:00:34,000 --> 00:00:40,270
+We can generalize this in one way. We can transform feature values with which generally we can think of as applying a
+
+7
+00:00:40,270 --> 00:00:45,220
+function F of JD each feature X of IJA rather than just multiplying it by a car,
+
+8
+00:00:45,220 --> 00:00:49,990
+by a coefficient. The full version of this is called what's called a generalized additive model.
+
+9
+00:00:49,990 --> 00:00:56,020
+But that's it's transforming our input features. We can also do that as a part of our data cleaning process.
+
+10
+00:00:56,020 --> 00:01:00,370
+But in addition to transforming input features, we can transform output features.
+
+11
+00:01:00,370 --> 00:01:07,840
+We're going to see that as we always we look at our classification setup. So if Y is a zero one logical random variable,
+
+12
+00:01:07,840 --> 00:01:17,290
+one is going to be what we call our positive class is admitted is spam is fraud, whatever it is we're trying to detect.
+
+13
+00:01:17,290 --> 00:01:23,680
+We're going to say one will get Y equals. One is the positive class and Y equals zero is the negative class in some cases numbers.
+
+14
+00:01:23,680 --> 00:01:25,810
+There's not going to be any hierarchy or moral value.
+
+15
+00:01:25,810 --> 00:01:34,330
+We just have to pick one and say it's the positive class and then we have our predictive variables X just like we did in the linear regression.
+
+16
+00:01:34,330 --> 00:01:39,410
+And our goal is to compute Y hat that predicts y just like we did in linear modeling,
+
+17
+00:01:39,410 --> 00:01:42,850
+except now we don't have these continuous values and it's not meaningful.
+
+18
+00:01:42,850 --> 00:01:48,080
+Subtract. What happens if you subtract zero like true from false.
+
+19
+00:01:48,080 --> 00:01:56,360
+So one way to do this is to rather than estimate the value of why we can estimate the probability that Y is one.
+
+20
+00:01:56,360 --> 00:02:00,530
+Now, remember probability of one.
+
+21
+00:02:00,530 --> 00:02:06,140
+And when we have zero. One probability of one. And the mean.
+
+22
+00:02:06,140 --> 00:02:11,820
+Are the same thing we can try to estimate the probability that Y is one.
+
+23
+00:02:11,820 --> 00:02:18,880
+In a way, we can do this as well with what's called a general linear models with general linear model wrapped the whole model and a functions.
+
+24
+00:02:18,880 --> 00:02:25,600
+We have a link function G and we wrap the model and its infers inverse G to the minus one.
+
+25
+00:02:25,600 --> 00:02:30,550
+And so there's different ways we can do this. We can do this for count data with what's called a Poisson.
+
+26
+00:02:30,550 --> 00:02:37,390
+Regression in the link function is the log. We can do it with binary data or zero one outcomes.
+
+27
+00:02:37,390 --> 00:02:44,800
+That's what we're going to be focusing on here. This is called a logistic regression and the like function is the logic.
+
+28
+00:02:44,800 --> 00:02:53,410
+So G minus one. So this is G. So G to the minus one is the logistic.
+
+29
+00:02:53,410 --> 00:02:57,800
+It's called logistic regression, because we wrap call, we wrap.
+
+30
+00:02:57,800 --> 00:03:01,370
+The results of our linear model, better zero plus the sum of the better.
+
+31
+00:03:01,370 --> 00:03:05,540
+I better JS X JS in the logistic function.
+
+32
+00:03:05,540 --> 00:03:13,530
+So we get the probability of Y equals one. For a particular ax.
+
+33
+00:03:13,530 --> 00:03:20,560
+Is why hat our predictive value, which is equal to the would?
+
+34
+00:03:20,560 --> 00:03:27,710
+Which is equal to the logistic. Made an error in the slide.
+
+35
+00:03:27,710 --> 00:03:36,810
+There it is equal to the logistic of BITA zero plus the sum of our beta JS.
+
+36
+00:03:36,810 --> 00:03:46,980
+So in this case, why can be our variable admitted grad school X can be and then we have X one, X two, x three as our GRV GPA and school rank.
+
+37
+00:03:46,980 --> 00:03:55,940
+I'm going to provide a notebook that does this and we can try to predict that with our Y hats now.
+
+38
+00:03:55,940 --> 00:04:02,600
+So we can do this. We can not. We have this code here that we call G.L. AM instead of oh,
+
+39
+00:04:02,600 --> 00:04:10,350
+I'll ask for the general linear model we want to predicted met with our three variables and then we tell it that we have a family.
+
+40
+00:04:10,350 --> 00:04:14,820
+So general linear models have what are called the code usually caused in families.
+
+41
+00:04:14,820 --> 00:04:19,410
+We're going to say it's the family binomial, which gives us the logic link function.
+
+42
+00:04:19,410 --> 00:04:23,100
+And then we we fit the bottle when we get the results. And this is going to look kind of familiar.
+
+43
+00:04:23,100 --> 00:04:28,920
+We don't have an R squared because we're predicting zero one outcomes. It's not really meaningful to talk about their variance.
+
+44
+00:04:28,920 --> 00:04:32,970
+We do have a lot of likelihood. We're going to see in a later video what that means.
+
+45
+00:04:32,970 --> 00:04:37,860
+We also have our column of P values, which gives us significant tests on our different coefficients.
+
+46
+00:04:37,860 --> 00:04:47,400
+We can use them. We can drop non significant predictor variables like we did and like we would in linear regression.
+
+47
+00:04:47,400 --> 00:04:51,810
+But this gives us that. But there's now so then builds up this linear model.
+
+48
+00:04:51,810 --> 00:04:56,760
+The coefficient is the coefficients are harder to interpret.
+
+49
+00:04:56,760 --> 00:05:01,170
+They're not impossible to interpret and logistic regression, but they're harder to interpret.
+
+50
+00:05:01,170 --> 00:05:06,330
+The important the first important thing is that they are all in terms of log odds.
+
+51
+00:05:06,330 --> 00:05:17,340
+And so a increase in school. An increase in rank of one decreases the law gods of admission by by point five.
+
+52
+00:05:17,340 --> 00:05:23,610
+One point five to. But this is the output of our logistic regression.
+
+53
+00:05:23,610 --> 00:05:31,650
+We can then predict with a logistic regression using the predict method, just like we do in with a linear regression stats,
+
+54
+00:05:31,650 --> 00:05:38,130
+models that predict method gives us predicted scores which are going to be and these are after calling logistic.
+
+55
+00:05:38,130 --> 00:05:46,740
+So these are estimated probabilities and they get. We can then convert them into a binary class so we can actually make a decision with a threshold so
+
+56
+00:05:46,740 --> 00:05:51,480
+we can say we're going to accept everything where the predicted accept is greater than point five.
+
+57
+00:05:51,480 --> 00:05:57,510
+So it's more likely than not that we're going to accept that we that this one would be.
+
+58
+00:05:57,510 --> 00:06:04,050
+Yes, according to our model. Different models and different tasks may require different thresholds because there are going
+
+59
+00:06:04,050 --> 00:06:09,390
+to be different costs for false positives and false negatives depending on our application.
+
+60
+00:06:09,390 --> 00:06:12,510
+So a couple of terms that are going to be useful as we talk more about these.
+
+61
+00:06:12,510 --> 00:06:17,610
+First, the outcome that this is the true outcome of the data we seek to predict as it the linear model.
+
+62
+00:06:17,610 --> 00:06:24,500
+We're going to call it Y. We call this the ground truth as well, and this is also why it's called a supervised learning problem,
+
+63
+00:06:24,500 --> 00:06:29,660
+because we have this ground truth outcome data that we're trying to learn to predict.
+
+64
+00:06:29,660 --> 00:06:34,590
+And for the purposes of building and evaluating our model, we assume the data is correct.
+
+65
+00:06:34,590 --> 00:06:44,450
+Ground troops data can be biased in various ways as well, that can affect our that can affect what we.
+
+66
+00:06:44,450 --> 00:06:47,210
+That affects what we learn from it, that affects our ability to predict.
+
+67
+00:06:47,210 --> 00:06:56,850
+It also is a really, really important to note that the outcome variable, this needs to be the actual outcome we're looking for.
+
+68
+00:06:56,850 --> 00:07:02,820
+Because you're predicting your outcome variable and if your outcome variable isn't what you think it is.
+
+69
+00:07:02,820 --> 00:07:07,830
+Then you're not predicting the thing you think you're predicting.
+
+70
+00:07:07,830 --> 00:07:15,060
+I mentioned this in class at one point, but Cathy O'Neill, author of Weapons of Mass Destruction,
+
+71
+00:07:15,060 --> 00:07:25,110
+pointed out on Twitter a few earlier this fall that in most cases we don't actually have crime data if we want to predict crime,
+
+72
+00:07:25,110 --> 00:07:30,630
+say, high crime area, or whether a crime is going to happen in a particular area or particular time.
+
+73
+00:07:30,630 --> 00:07:36,030
+We don't usually actually have crime data. None of our data tells whether a crime happened or not.
+
+74
+00:07:36,030 --> 00:07:40,350
+Our data says whether a crime was reported. Our data says what police do.
+
+75
+00:07:40,350 --> 00:07:49,350
+And so if we're trading off of that data, we're not predicting crimes. We're predicting crime reports or police activity, which is not the same thing.
+
+76
+00:07:49,350 --> 00:07:51,960
+And so it's important to know what our outcome variable,
+
+77
+00:07:51,960 --> 00:07:58,890
+what our observed outcome variable actually is and how that relates the task that we're actually trying to solve.
+
+78
+00:07:58,890 --> 00:08:03,480
+We then have a score, which is the prediction score that comes out of our model and the logistic regression.
+
+79
+00:08:03,480 --> 00:08:10,260
+It's the estimated probability if we just take the linear part of the logistic regression, that it's the estimated log odds.
+
+80
+00:08:10,260 --> 00:08:16,530
+And then we have our decisions. We use the score to make a decision, often by thresholding it.
+
+81
+00:08:16,530 --> 00:08:18,030
+And that's what we decide to do.
+
+82
+00:08:18,030 --> 00:08:26,880
+So if we got a spam detector, our outcome is whether or not the message is spam, as it's been labeled, maybe by our users, maybe by our spam experts.
+
+83
+00:08:26,880 --> 00:08:34,650
+Our decision is whether or not our model says it's spam. And then what we're going to look for when we start to look at the accuracy of these models
+
+84
+00:08:34,650 --> 00:08:40,770
+for their predictions is the extent to which those decisions match those outcome variables.
+
+85
+00:08:40,770 --> 00:08:50,460
+When we say it's spam, is it spam? So to wrap up general linear models, allow linear predictions of nonlinear quantities such as sometimes counts.
+
+86
+00:08:50,460 --> 00:08:56,970
+Such as. Particularly for our purposes. Binary outcomes, yes or no, true or false.
+
+87
+00:08:56,970 --> 00:09:07,867
+Logistic regression is the particular way that we use a linear model in order to do binary classification.
+

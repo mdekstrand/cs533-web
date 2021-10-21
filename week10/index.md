@@ -14,11 +14,8 @@ This content is still in draft state and has not yet been finalized.
 In this video, I introduce the week and what classification is.
 
 :::{video}
-:id: 5c480e36-8608-402c-a129-ac5d001ff796
 :length: 6m39s
 :name: 10-1 - What Is Classification
-:slide-id: 495979F9A431DDB0%2173290
-:slide-auth: AIrnE1IeJheWGMo
 :::
 
 ## {{mvideo}} Log-Odds and Logistics
@@ -28,11 +25,8 @@ the *{term}`logit function`*.
 Log odds are a useful concept in many situations!
 
 :::{video} logistic
-:id: 5443ea85-5c44-4fda-9945-ac5d001ff832
-:length: 10m4s
 :name: 10-2 - Log-Odds and Logistics
-:slide-id: 495979F9A431DDB0%2173292
-:slide-auth: ADvOZLcsA-Eof-M
+:length: 10m4s
 :::
 
 ## {{mvideo}} Logistic Regression
@@ -40,27 +34,17 @@ Log odds are a useful concept in many situations!
 We're now ready for our first classification model: *logistic regression*.
 
 :::{video}
-:id: 4e40bba2-840d-4c81-a9a3-ac5d001ff7bf
-:length: 9m7s
 :name: 10-3 - Logistic Regression
-:slide-id: 495979F9A431DDB0%2173293
-:slide-auth: AMtiFgrMB1GajNQ
+:length: 9m7s
 :::
 
 ## {{mvideo}} The Confusion Matrix
 
 The *confusion matrix* describes the outcomes of a classification model and is the basis for computing effectiveness metrics.
 
-:::{note}
-I am going to re-record this video before finalizing Week 10.
-:::
-
 :::{video} confusion
-:id: da6ee201-03c8-4d93-9abe-ac5d001ff7f8
-:length: 11m50s
 :name: 10-4 - The Confusion Matrix
-:slide-id: 495979F9A431DDB0%2173294
-:slide-auth: AP40RfAwO30CwLE
+:length: 11m48s
 :::
 
 ### Resources
@@ -69,7 +53,14 @@ I am going to re-record this video before finalizing Week 10.
 
 ## {{mnotebook}} Logistic Regression Demo
 
-The [demo notebook](LogitRegressionDemo.ipynb) for the first-half videos.
+The [demo notebook](LogitRegressionDemo.ipynb) for our initial logistic regression videos.
+
+## {{mvideo}} Baseline Models
+
+:::{video} baselines
+:name: 10-5 - Baselines
+:length: 9m44s
+:::
 
 ## {{mdoc}} Floating Point
 
@@ -90,11 +81,8 @@ This is **not** an assigned reading - it is here for your reference.
 This video describes the *log likelihood* that is the objective function used by logistic regression.
 
 :::{video}
-:id: 1e548030-76ea-45e9-b543-ac5f0054f199
 :length: 16m54s
-:name: 10-5 - Log Likelihood
-:slide-id: 495979F9A431DDB0%2173298
-:slide-auth: ADOpJqu9OvKINK4
+:name: 10-6 - Log Likelihood
 :::
 
 ## {{mvideo}} Scikit-Learn
@@ -102,11 +90,8 @@ This video describes the *log likelihood* that is the objective function used by
 This video introduces SciKit-Learn, and using it for a logistic regression.
 
 :::{video}
-:id: 029a7a8d-a7fe-4474-a551-ac5f0054f129
 :length: 6m42s
-:name: 10-6 - Scikit-Learn
-:slide-id: 495979F9A431DDB0%2173300
-:slide-auth: AHK68fjvLEWn8GY
+:name: 10-7 - Scikit-Learn
 :::
 
 ## {{mnotebook}} SciKit-Learn Logistic Regression
@@ -119,11 +104,8 @@ The [SciKit Logistic](./SciKitLogistic.ipynb) notebook demonstrates training and
 This video introduces the *receiver operating characteristic* (ROC) curve, and its use in evaluating classifiers and selecting tradeoffs.
 
 :::{video}
-:id: 0a3a7981-c4cf-47a9-9236-ac5f0054f174
 :length: 7m25s
-:name: 10-7 - Receiver Operating Characteristic
-:slide-id: 495979F9A431DDB0%2173301
-:slide-auth: ABkYIOGgIpko-K4
+:name: 10-8 - Receiver Operating Characteristic
 :::
 
 ## {{mtask}} Practice
@@ -136,11 +118,8 @@ Delete the Adelie penguins first, so you have a binary classification problem.
 This video revisits sources of bias and discusses the assumptions underlying prediction.
 
 :::{video}
-:id: eb40dfed-7a3e-4c08-a7f8-ac5f005a7e34
 :length: 22m
-:name: 10-8 - Biases and Assumptions
-:slide-id: 495979F9A431DDB0%2173303
-:slide-auth: AHZT9DGmNOxGZxM
+:name: 10-9 - Biases and Assumptions
 :::
 
 ## {{mdoc}} Prediction-Based Decisions
