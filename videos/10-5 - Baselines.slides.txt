@@ -1,0 +1,67 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+BASELINE MODELS
+Learning Outcomes
+Understand the role of a baseline predictor
+Compare a prediction quality metric against a suitable reference
+Photo by Diana Polekhina on Unsplash 
+Reference Point
+RMSE = 0.8567
+Precision = 0.925
+
+Are these good?
+
+Unknown – we need more information!
+Application specific
+State-of-the-art specific
+Photo by Diana Polekhina on Unsplash 
+How Good is Possible?
+Noise inherent in observable outcomes may limit how good a predictor can get!
+Noise component of bias/variance tradeoff
+Sometimes called “magic barrier”
+May be in:
+Actual outcomes
+Observation of outcomes
+Or both
+May not actually know this value.
+How Bad is Possible?
+Majority-Class Classifier
+Classifies everything as having the most common label
+
+Can you beat it?
+
+If not, maybe use constant policy?
+
+Works well for accuracy – less well for other metrics (depending on which class is majority)
+Photo by Mahmud Ahsan on Unsplash 
+Random classifier
+Randomly picks outcomes
+Uniformly, or
+Proportional to observations in training data
+
+Another example of how bad you can get!
+Works for all our confusion matrix metrics
+More Sophisticated Baselines
+Linear models (w/ a few predictors)
+Decision trees
+Widely-used, “simple” models
+
+Application-specific, but there’s often something between “do nothing” and “state of the art”.
+State of the Art
+Many problems have an existing best practice
+Model currently used to solve the problem
+Good models from the research literature
+
+Can you do better?
+Recommended Comparison Set
+Naïve baseline (mean, majority, or random)
+Simple baseline models
+Current state of the art
+Your thing
+
+Not all levels make sense for all problems
+Wrapping Up
+Most effectiveness metrics need context to be interpreted.
+
+Baselines and state-of-the-art can provide that context.
+Photo by Anne Nygård on Unsplash 

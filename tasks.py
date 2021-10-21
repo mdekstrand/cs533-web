@@ -107,8 +107,11 @@ def clean(c):
 @task
 def extract_slides(c, dir):
     out_dir = Path('videos')
+    if dir.endswith('"'):
+        dir = dir[:-1]
     dir = Path(dir)
     import pptx
+    _msg('scanning slides in %s', dir)
     for file in dir.glob("*.pptx"):
         print('reading', file.name)
         name = file.stem
