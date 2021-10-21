@@ -70,8 +70,8 @@ sphinx:
   config:
     primary_domain: res
     mathjax_config:
-      TeX:
-        Macros:
+      tex:
+        macros:
           E: "\\mathrm{E}"
           Field: "\\mathcal{F}"
           P: "\\mathrm{P}"
