@@ -173,7 +173,7 @@ The Week 10 quiz will be posted to Canvas.
 :::{reading} tech-to-prison
 :length: 2000 words
 :url: https://medium.com/@CoalitionForCriticalTechnology/abolish-the-techtoprisonpipeline-9b5b14366b16
-:title: Abolish the #TechToPrison Pipeline
+:title: "Abolish the #TechToPrison Pipeline"
 :::
 
 Read [Abolish the #TechToPrison Pipeline](https://medium.com/@CoalitionForCriticalTechnology/abolish-the-techtoprisonpipeline-9b5b14366b16) (the Medium reading time estimate includes the thorough — and valuable — footnotes and list of 2435 signatories).
