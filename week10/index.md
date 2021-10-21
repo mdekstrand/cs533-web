@@ -1,8 +1,4 @@
-# 🚧 Week 10 — Classification (Oct. 25–29) 🚧
-
-:::{draft}
-This content is still in draft state and has not yet been finalized.
-:::
+# Week 10 — Classification (Oct. 25–29)
 
 ## {{moverview}} Content Overview
 
