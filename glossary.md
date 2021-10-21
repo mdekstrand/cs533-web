@@ -29,9 +29,9 @@ Bayesianism
 Bayes' Theorem
     A theorem or identity in probability theory that allows us to reverse a {term}`conditional probability`:
 
-    $$P(B|A) = \frac{P(A|B) P(B)}{P(A)}$$
+    $$\P[B|A] = \frac{\P[A|B] \P[B]}{\P[A]}$$
 
-    Statisticians of all schools of thought make use of Bayes' theorem — all it does is relate $P(A|B)$ to $P(B|A)$, allowing us to (with additional information) reverse a conditional probability.
+    Statisticians of all schools of thought make use of Bayes' theorem — all it does is relate $\P[A|B]$ to $\P[B|A]$, allowing us to (with additional information) reverse a conditional probability.
 
     Introduced in {video}`week4:joint-conditional`.
 
@@ -220,16 +220,19 @@ Logistic function
 
     $$\mathrm{logistic}(x) = \frac{1}{1 + e^{-x}} = \frac{e^x}{e^x + 1}$$
 
-    The logistic function is the invert of the logit function.
+    The logistic function is the invert of the {term}`logit function`.
 
     Logistic regressions are introduced in {module}`week10`.
 
 Logit function
-    The inverse of the logistic function:
+    The inverse of the {term}`logistic function`:
 
     $$\mathrm{logit(x)} = \mathrm{logistic}^{-1}(x) = \operatorname{log} \frac{x}{1-x} = \operatorname{log} x - \operatorname{log} (1-x)$$
 
-    Applying *logit* to a probability yields the *log odds*.
+    Applying *logit* to a probability yields the {term}`log odds`.
+
+Log odds
+    The logarithm of the {term}`odds`.  Introduced in {video}`week10:logistic`.
 
 Majority-class classifier
     A classifier that classifies every data point with the most common class from the training data.
@@ -279,8 +282,8 @@ Odds
 
     $$\Odds(A) = \frac{\P[A]}{\P[A^c]}$$
 
-    The *log odds* is a particularly convenient way of working with odds, and is $\log \P[A] - \log (1 - \P[A])$.
-    See the [{{mnote}} probability notes](resources/probability.md#odds).
+    The {term}`log odds` is a particularly convenient way of working with odds, and is $\log \P[A] - \log (1 - \P[A])$.
+    See the [{{mnote}} probability notes](prob-odds).
 
 Odds ratio
     The ratio of the odds of two different outcomes.

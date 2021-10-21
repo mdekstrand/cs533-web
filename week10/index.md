@@ -9,46 +9,56 @@ This content is still in draft state and has not yet been finalized.
 :::{module} week10
 :::
 
-## {{mvideo}} What is Classification? {: data-length="6m39s"}
+## {{mvideo}} What is Classification?
 
 In this video, I introduce the week and what classification is.
 
 :::{video}
 :id: 5c480e36-8608-402c-a129-ac5d001ff796
 :length: 6m39s
+:name: 10-1 - What Is Classification
 :slide-id: 495979F9A431DDB0%2173290
 :slide-auth: AIrnE1IeJheWGMo
 :::
 
-## {{mvideo}} Log-Odds and Logistics {: data-length="10m4s"}
+## {{mvideo}} Log-Odds and Logistics
 
-In this video, I introduce log-odds, along with the *logistic function* and its inverse, *logit*.
+In this video, I introduce {term}`log odds`, along with the *{term}`logistic function`* and its inverse, 
+the *{term}`logit function`*.
+Log odds are a useful concept in many situations!
 
-:::{video}
+:::{video} logistic
 :id: 5443ea85-5c44-4fda-9945-ac5d001ff832
 :length: 10m4s
+:name: 10-2 - Log-Odds and Logistics
 :slide-id: 495979F9A431DDB0%2173292
 :slide-auth: ADvOZLcsA-Eof-M
 :::
 
-## {{mvideo}} Logistic Regression {: data-length="9m7s"}
+## {{mvideo}} Logistic Regression
 
 We're now ready for our first classification model: *logistic regression*.
 
 :::{video}
 :id: 4e40bba2-840d-4c81-a9a3-ac5d001ff7bf
 :length: 9m7s
+:name: 10-3 - Logistic Regression
 :slide-id: 495979F9A431DDB0%2173293
 :slide-auth: AMtiFgrMB1GajNQ
 :::
 
-## {{mvideo}} The Confusion Matrix {: data-length="11m50s"}
+## {{mvideo}} The Confusion Matrix
 
 The *confusion matrix* describes the outcomes of a classification model and is the basis for computing effectiveness metrics.
 
-:::{video}
+:::{note}
+I am going to re-record this video before finalizing Week 10.
+:::
+
+:::{video} confusion
 :id: da6ee201-03c8-4d93-9abe-ac5d001ff7f8
 :length: 11m50s
+:name: 10-4 - The Confusion Matrix
 :slide-id: 495979F9A431DDB0%2173294
 :slide-auth: AP40RfAwO30CwLE
 :::
@@ -75,63 +85,68 @@ The following StatsModels page documents its logistic regression:
 
 This is **not** an assigned reading - it is here for your reference.
 
-## {{mvideo}} Log Likelihood {: data-length="16m54s"}
+## {{mvideo}} Log Likelihood
 
 This video describes the *log likelihood* that is the objective function used by logistic regression.
 
 :::{video}
 :id: 1e548030-76ea-45e9-b543-ac5f0054f199
 :length: 16m54s
+:name: 10-5 - Log Likelihood
 :slide-id: 495979F9A431DDB0%2173298
 :slide-auth: ADOpJqu9OvKINK4
 :::
 
-## {{mvideo}} Scikit-Learn {: data-length="6m42s"}
+## {{mvideo}} Scikit-Learn
 
 This video introduces SciKit-Learn, and using it for a logistic regression.
 
 :::{video}
 :id: 029a7a8d-a7fe-4474-a551-ac5f0054f129
 :length: 6m42s
+:name: 10-6 - Scikit-Learn
 :slide-id: 495979F9A431DDB0%2173300
 :slide-auth: AHK68fjvLEWn8GY
 :::
 
 ## {{mnotebook}} SciKit-Learn Logistic Regression
 
-The [SciKit Logistic](./SciKitLogistic.ipynb) notebook demonstrates training and using a logistic regression classifier with SciKit-Learn.
+The [SciKit Logistic](./SciKitLogistic.ipynb) notebook demonstrates training and using
+{py:class}`sklearn.linear_model.LogisticRegression`.
 
-## {{mvideo}} Receiver Operating Characteristic {: data-length="7m25s"}
+## {{mvideo}} Receiver Operating Characteristic
 
 This video introduces the *receiver operating characteristic* (ROC) curve, and its use in evaluating classifiers and selecting tradeoffs.
 
 :::{video}
 :id: 0a3a7981-c4cf-47a9-9236-ac5f0054f174
 :length: 7m25s
+:name: 10-7 - Receiver Operating Characteristic
 :slide-id: 495979F9A431DDB0%2173301
 :slide-auth: ABkYIOGgIpko-K4
 :::
 
-## :a-task: Practice
+## {{mtask}} Practice
 
 Load the Penguin data, and use a logistic regression to try to classify a penguin as Gentoo or Chinstrap using various measurements.
 Delete the Adelie penguins first, so you have a binary classification problem.
 
-## {{mvideo}} Biases and Assumptions {: data-length="22m"}
+## {{mvideo}} Biases and Assumptions
 
 This video revisits sources of bias and discusses the assumptions underlying prediction.
 
 :::{video}
 :id: eb40dfed-7a3e-4c08-a7f8-ac5f005a7e34
 :length: 22m
+:name: 10-8 - Biases and Assumptions
 :slide-id: 495979F9A431DDB0%2173303
 :slide-auth: AHZT9DGmNOxGZxM
 :::
 
-## {{mdoc}} Prediction-Based Decisions {: data-length="3650 words"}
+## {{mdoc}} Prediction-Based Decisions
 
 :::{reading} pdb
-:title: Prediction-Based Decisions and Fairness: A Catalogue of Choices, Assumptions, and Definitions
+:title: Prediction-Based Decisions and Fairness
 :url: https://arxiv.org/abs/1811.07867
 :length: 3650 words
 :::
@@ -153,7 +168,7 @@ If you would like to learn more, I recommend:
 
 The Week 10 quiz will be posted to Canvas.
 
-## {{mdoc}} Abolish the #TechToPrison Pipeline {: data-length="2000 words"}
+## {{mdoc}} Abolish the #TechToPrison Pipeline
 
 :::{reading} tech-to-prison
 :length: 2000 words

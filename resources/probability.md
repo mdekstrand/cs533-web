@@ -267,6 +267,7 @@ Then the **expected value** of this function is the same as the probability of $
 
 $$\E[\IND_A(X)] = \P[A]$$
 
+(prob-odds)=
 ## Odds
 
 Another way of computing probability is to compute with **odds**: the ratio of probabilities for or against an event.
