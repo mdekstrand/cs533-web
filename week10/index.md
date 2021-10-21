@@ -9,7 +9,7 @@ This content is still in draft state and has not yet been finalized.
 :::{module} week10
 :::
 
-## :a-video: What is Classification? {: data-length="6m39s"}
+## {{mvideo}} What is Classification? {: data-length="6m39s"}
 
 In this video, I introduce the week and what classification is.
 
@@ -20,7 +20,7 @@ In this video, I introduce the week and what classification is.
 :slide-auth: AIrnE1IeJheWGMo
 :::
 
-## :a-video: Log-Odds and Logistics {: data-length="10m4s"}
+## {{mvideo}} Log-Odds and Logistics {: data-length="10m4s"}
 
 In this video, I introduce log-odds, along with the *logistic function* and its inverse, *logit*.
 
@@ -31,7 +31,7 @@ In this video, I introduce log-odds, along with the *logistic function* and its 
 :slide-auth: ADvOZLcsA-Eof-M
 :::
 
-## :a-video: Logistic Regression {: data-length="9m7s"}
+## {{mvideo}} Logistic Regression {: data-length="9m7s"}
 
 We're now ready for our first classification model: *logistic regression*.
 
@@ -42,7 +42,7 @@ We're now ready for our first classification model: *logistic regression*.
 :slide-auth: AMtiFgrMB1GajNQ
 :::
 
-## :a-video: The Confusion Matrix {: data-length="11m50s"}
+## {{mvideo}} The Confusion Matrix {: data-length="11m50s"}
 
 The *confusion matrix* describes the outcomes of a classification model and is the basis for computing effectiveness metrics.
 
@@ -57,21 +57,17 @@ The *confusion matrix* describes the outcomes of a classification model and is t
 
 - The [Wikipedia article](https://en.wikipedia.org/wiki/Confusion_matrix) has a very good diagram of the confusion matrix and its derived metrics.
 
-## :a-notebook: Logistic Regression Demo
+## {{mnotebook}} Logistic Regression Demo
 
 The [demo notebook](LogitRegressionDemo.ipynb) for the first-half videos.
 
-## :a-quiz: Week 10 Quiz
-
-The Week 10 quiz will be posted to Blackboard.
-
-## :a-reading: Floating Point
+## {{mdoc}} Floating Point
 
 - [Floating Point Guide](https://floating-point-gui.de/)
 
 This is provided for reference.
 
-## :a-reading: StatsModels Documentation
+## {{mdoc}} StatsModels Documentation
 
 The following StatsModels page documents its logistic regression:
 
@@ -79,7 +75,7 @@ The following StatsModels page documents its logistic regression:
 
 This is **not** an assigned reading - it is here for your reference.
 
-## :a-video: Log Likelihood {: data-length="16m54s"}
+## {{mvideo}} Log Likelihood {: data-length="16m54s"}
 
 This video describes the *log likelihood* that is the objective function used by logistic regression.
 
@@ -90,7 +86,7 @@ This video describes the *log likelihood* that is the objective function used by
 :slide-auth: ADOpJqu9OvKINK4
 :::
 
-## :a-video: Scikit-Learn {: data-length="6m42s"}
+## {{mvideo}} Scikit-Learn {: data-length="6m42s"}
 
 This video introduces SciKit-Learn, and using it for a logistic regression.
 
@@ -101,11 +97,11 @@ This video introduces SciKit-Learn, and using it for a logistic regression.
 :slide-auth: AHK68fjvLEWn8GY
 :::
 
-## :a-notebook: SciKit-Learn Logistic Regression
+## {{mnotebook}} SciKit-Learn Logistic Regression
 
 The [SciKit Logistic](./SciKitLogistic.ipynb) notebook demonstrates training and using a logistic regression classifier with SciKit-Learn.
 
-## :a-video: Receiver Operating Characteristic {: data-length="7m25s"}
+## {{mvideo}} Receiver Operating Characteristic {: data-length="7m25s"}
 
 This video introduces the *receiver operating characteristic* (ROC) curve, and its use in evaluating classifiers and selecting tradeoffs.
 
@@ -121,7 +117,7 @@ This video introduces the *receiver operating characteristic* (ROC) curve, and i
 Load the Penguin data, and use a logistic regression to try to classify a penguin as Gentoo or Chinstrap using various measurements.
 Delete the Adelie penguins first, so you have a binary classification problem.
 
-## :a-video: Biases and Assumptions {: data-length="22m"}
+## {{mvideo}} Biases and Assumptions {: data-length="22m"}
 
 This video revisits sources of bias and discusses the assumptions underlying prediction.
 
@@ -132,7 +128,7 @@ This video revisits sources of bias and discusses the assumptions underlying pre
 :slide-auth: AHZT9DGmNOxGZxM
 :::
 
-## :a-reading: Prediction-Based Decisions {: data-length="3650 words"}
+## {{mdoc}} Prediction-Based Decisions {: data-length="3650 words"}
 
 :::{reading} pdb
 :title: Prediction-Based Decisions and Fairness: A Catalogue of Choices, Assumptions, and Definitions
@@ -153,11 +149,21 @@ If you would like to learn more, I recommend:
 - [Big Data's Disparate Impact](http://papers.ssrn.com/abstract=2477899)
 - [Social Data](http://dx.doi.org/10.3389/fdata.2019.00013)
 
-## :a-reading: Abolish the #TechToPrison Pipeline {: data-length="2000 words"}
+## {{mquiz}} Week 10 Quiz
+
+The Week 10 quiz will be posted to Canvas.
+
+## {{mdoc}} Abolish the #TechToPrison Pipeline {: data-length="2000 words"}
+
+:::{reading} tech-to-prison
+:length: 2000 words
+:url: https://medium.com/@CoalitionForCriticalTechnology/abolish-the-techtoprisonpipeline-9b5b14366b16
+:title: Abolish the #TechToPrison Pipeline
+:::
 
 Read [Abolish the #TechToPrison Pipeline](https://medium.com/@CoalitionForCriticalTechnology/abolish-the-techtoprisonpipeline-9b5b14366b16) (the Medium reading time estimate includes the thorough — and valuable — footnotes and list of 2435 signatories).
 This article probes in more detail the assumptions underlying classes of criminal justice data science applications.
 
-## :a-assignment: Assignment 5
+## {{massignment}} Assignment 5
 
 [Assignment 5](../../assignments/A5/index.md) is due **November 7, 2020**.
