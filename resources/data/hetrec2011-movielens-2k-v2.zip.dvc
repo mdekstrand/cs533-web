@@ -1,0 +1,10 @@
+md5: f5f26075203ea4447ac9a38a51f743c1
+frozen: true
+deps:
+- checksum: '"11fbb76-598cfd8880e9b"'
+  size: 18856822
+  path: https://files.grouplens.org/datasets/hetrec2011/hetrec2011-movielens-2k-v2.zip
+outs:
+- md5: 3b714d797f1cd512a6676a6e59ab9efc
+  size: 18856822
+  path: hetrec2011-movielens-2k-v2.zip

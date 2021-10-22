@@ -1,0 +1,10 @@
+md5: 65be5051039fbca1906d7cfee46e1e3a
+frozen: true
+deps:
+- checksum: '"f9d7b6a-598cfd314523f"'
+  size: 261978986
+  path: https://files.grouplens.org/datasets/movielens/ml-25m.zip
+outs:
+- md5: 6b51fb2759a8657d3bfcbfc42b592ada
+  size: 261978986
+  path: ml-25m.zip
