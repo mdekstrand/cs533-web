@@ -21,6 +21,7 @@ flake8 = "*"
 pandas = "*"
 seaborn = "*"
 msal = "*"
+dvc = "*"
 
 [requires]
 python_version = "3.9"
