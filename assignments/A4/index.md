@@ -353,7 +353,7 @@ $$\begin{bmatrix}
 \Cov(X_2, X_1) & \Var(X_2)
 \end{bmatrix}$$
 
-That is, the diagonals of them matrix are the variances of the individual variables, and the other cells are the covariances between pairs of variables.
+That is, the diagonals of the matrix are the variances of the individual variables, and the other cells are the covariances between pairs of variables.
 The example code sets up the following matrix:
 
 $$\begin{bmatrix}
