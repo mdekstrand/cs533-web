@@ -1,4 +1,4 @@
-# Notebook Guidance
+# Notebook Checklist & Guide
 
 In this class, it is not enough to create a notebook that contains code to compute correct results.
 You also need to ensure that your notebooks are well-structured documents that communicate your work
