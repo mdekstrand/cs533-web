@@ -1,9 +1,9 @@
 schema: '2.0'
 stages:
   ml-25m:
-    cmd: python -m zipfile -e ../data/ml-25m.zip .
+    cmd: python -m zipfile -e ml-25m.zip .
     deps:
-    - path: ../data/ml-25m.zip
+    - path: ml-25m.zip
       md5: 6b51fb2759a8657d3bfcbfc42b592ada
       size: 261978986
     outs:
@@ -12,9 +12,9 @@ stages:
       size: 1156670716
       nfiles: 7
   hetrec-ml:
-    cmd: python -m zipfile -e ../data/hetrec2011-movielens-2k-v2.zip hetrec2011-ml
+    cmd: python -m zipfile -e hetrec2011-movielens-2k-v2.zip hetrec2011-ml
     deps:
-    - path: ../data/hetrec2011-movielens-2k-v2.zip
+    - path: hetrec2011-movielens-2k-v2.zip
       md5: 3b714d797f1cd512a6676a6e59ab9efc
       size: 18856822
     outs:
