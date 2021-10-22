@@ -43,7 +43,7 @@ parts:
   chapters:
   - file: resources/software
   - file: resources/documentation.md
-  - file: resources/datasets.md
+  - file: resources/data/index.md
   - file: resources/notebook-checklist
   - file: resources/probability
   - file: resources/problems

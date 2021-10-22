@@ -207,7 +207,7 @@ These notebooks, the {book}`p4da` textbook, and the [Pandas User Guide](https://
 
 In a few videos, I have used the *Palmer Penguins* data set.
 
-- Download {download}`../resources/penguins.csv` (provided under CC-0)
+- Download {download}`../resources/data/penguins.csv` (provided under CC-0)
 - Look at the documentation and references in the [source repository](https://github.com/allisonhorst/palmerpenguins)
 - Describe the distributions of the different variables numerically and graphically
 - See how many questions from *Datasheets for Datasets* you can find answers to in the penguin data documentation
