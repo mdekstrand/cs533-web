@@ -19,9 +19,11 @@ notebook = "*"
 livereload = "==2.*"
 flake8 = "*"
 pandas = "*"
-seaborn = "*"
 msal = "*"
+seaborn = "*"
 dvc = "*"
+statsmodels = "*"
+scikit-learn = "*"
 
 [requires]
 python_version = "3.9"
