@@ -341,7 +341,7 @@ Check the model assumptions — do they hold?
 You can draw both $x_1$ and $x_2$ simultaneously with:
 
 ```python
-xs = rng.multivariate_normal([10, -2], [[2, 0], [0, 5]], 100)
+xs = rng.multivariate_normal([10, -2], [[2, 0], [0, 5]], 1000)
 # turn into a data frame
 xdf = pd.DataFrame(xs, columns=['X1', 'X2'])
 ```
