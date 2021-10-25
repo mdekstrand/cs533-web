@@ -1,138 +1,136 @@
-# Week 11 — Evaluation
-{% import 'video.md' as media %}
+# 🚧 Week 11 — More Modeling 🚧
 
-!!! warning "Draft content"
+:::{draft}
+This content is still in draft state and has not yet been finalized.
+:::
 
-    This content is still in draft state and has not yet been finalized.
-    Do not depend on it as the final requirements for this week.
+## {{moverview}} Content Overview
 
-Activities:
+:::{module} week11
+:::
 
-[TOC]
-
-There is **no quiz** this week.
-
-This week's videos are also available as a [Panopto playlist](https://boisestate.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=94fc0cc9-53df-43b5-b46d-ac66003dd5e1).
-
-## :a-video: Intro & Context {: #intro data-length="4m39s"}
+## {{mvideo}} Intro & Context
 
 In this video, I review where we are at conceptually, and recap the ideas of estimating conditional probability and expectation.
 
-=== "Video"
+:::{video} eval-intro
+:length: 4m39s
+:id: 40a41051-8c07-443c-b7d1-ac66002b3208
+:slide-id: 495979F9A431DDB0%2173320
+:slide-auth: AJXlvBsutNDBkoE
+:::
 
-    {{ media.video('40a41051-8c07-443c-b7d1-ac66002b3208') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173320', 'AJXlvBsutNDBkoE') }}
-
-## :a-video: Feature Transforms {: data-length="21m03s"}
+## {{mvideo}} Feature Transforms
 
 What are some useful techniques for engineering features in an application?
 
-=== "Video"
+:::{video}
+:length: 21m3s
+:id: 80203946-b811-4ecb-b703-ac660033edd1
+:slide-id: 495979F9A431DDB0%2173322
+:slide-auth: ABC9rmLnxkHsstY
+:::
 
-    {{ media.video('80203946-b811-4ecb-b703-ac660033edd1') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173322', 'ABC9rmLnxkHsstY') }}
-
-## :a-video: Workflow {: data-length="14m29s"}
+## {{mvideo}} Workflow
 
 How do you do feature engineering and model selection in a machine learning workflow?
 What is the iterative process involved?
 
-=== "Video"
+:::{video}
+:length: 14m29s
+:id: 71b1aa35-8435-4eae-ae32-ac660033ee09
+:slide-id: 495979F9A431DDB0%2173324
+:slide-auth: AGk8GhY4fx1Mnm8
+:::
 
-    {{ media.video('71b1aa35-8435-4eae-ae32-ac660033ee09') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173324', 'AGk8GhY4fx1Mnm8') }}
-
-## :a-video: SciKit Pipelines {: data-length="7m19s"}
+## {{mvideo}} SciKit Pipelines
 
 In this video, I introduce SciKit *pipelines* that put multiple transformations together.
 
-=== "Video"
+:::{video}
+:length: 7m19s
+:id: f448da70-c2d2-4c1b-942b-ac66003656a1
+:slide-id: 495979F9A431DDB0%2173328
+:slide-auth: ACahS4jRCAE3ueU
+:::
 
-    {{ media.video('f448da70-c2d2-4c1b-942b-ac66003656a1') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173328', 'ACahS4jRCAE3ueU') }}
-
-## :a-reading: SciKit Learn Pipelines
+## {{mdoc}} SciKit Learn Pipelines
 
 Read the [SciKit-Learn User Guide chapter on pipelines](https://scikit-learn.org/stable/modules/compose.html).
 
-## :a-reading: SciKit Learn Preprocessing
+## {{mdoc}} SciKit Learn Preprocessing
 
 Read the [SciKit-Learn User Guide chapter on pre-processing](https://scikit-learn.org/stable/modules/preprocessing.html).
 
-## :a-video: Regularization {: data-length="15m4s"}
+## {{mvideo}} Regularization
 
 This video introduces regularization: ridge regression, lasso regression, and the elasticnet.
 Lasso regression can help with (semi-)automatic feature selection.
 
-=== "Video"
+:::{video}
+:length: 15m4s
+:id: fa457314-7344-48cd-af1f-ac660039cbc4
+:slide-id: 495979F9A431DDB0%2173326
+:slide-auth: APzIM2g9IcVX0XQ
+:::
 
-    {{ media.video('fa457314-7344-48cd-af1f-ac660039cbc4') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173326', 'APzIM2g9IcVX0XQ') }}
-
-## :a-notebook: Pipeline and Regularization
+## {{mnotebook}}} Pipeline and Regularization
 
 [This notebook](../../resources/tutorials/SciKitPipeline.ipynb) demonstrates pipelines and $L_2$ regression, and performs a significance test of classifier improvement.
 
 It also shows a training of a decision tree (next video).
 
-## :a-video: Models and Depth {: data-length="7m23s"}
+## {{mvideo}} Models and Depth
 
 What does the world look like beyond logistic regression?
 Can a model output be a feature?
 
-=== "Video"
+:::{video}
+:length: 7m23s
+:id: 220a8acb-a901-49e7-bf9e-ac66003d7033
+:slide-id: 495979F9A431DDB0%2173330
+:slide-auth: APtXIrllUsY0_vY
+:::
 
-    {{ media.video('220a8acb-a901-49e7-bf9e-ac66003d7033') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173330', 'APtXIrllUsY0_vY') }}
-
-## :a-video: Inference and Ablation {: #ablation data-length="14m55s"}
+## {{mvideo}} Inference and Ablation {: 
 
 How do we understand, *robustly*, the performance of our system?
 What contributes to its performance?
 
-=== "Video"
+:::{video}
+:length: 14m55s
+:id: 589628b2-30ce-4c38-ba45-ac66003f5163
+:slide-id: 495979F9A431DDB0%2173331
+:slide-auth: %21AAlNEpWRX05DM90
+:::
 
-    {{ media.video('589628b2-30ce-4c38-ba45-ac66003f5163') }}
+## {{mdoc}} Statistical Significance Tests
 
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173331', '%21AAlNEpWRX05DM90') }}
-
-## :a-reading: Statistical Significance Tests {: data-length="3400 words"}
+:::{reading}
+:title: Statistical Significance Tests for Comparing Machine Learning Algorithms
+:url: https://machinelearningmastery.com/statistical-significance-tests-for-comparing-machine-learning-algorithms/
+:length: 3400 words
+:::
 
 Read [Statistical Significance Tests for Comparing Machine Learning Algorithms](https://machinelearningmastery.com/statistical-significance-tests-for-comparing-machine-learning-algorithms/).
 
+:::{note}
+In the Week 9 activity, we used the paired *t*-test for comparing the output of two regression models.
+Our use of this test did **not** violate the guidance in this reading — why is that?
+:::
+
 For further reading, you can also see [Approximate Statistical Tests](http://dx.doi.org/10.1162/089976698300017197).
 
-## :a-video: Dates {: data-length="8m34s"}
+## {{mvideo}} Dates
 
 This video discusses how to use work with dates in Pandas.
 
-=== "Video"
-
-    {{ media.video('db1dc799-8ed1-4a7b-960e-ac69001a590d') }}
-
-=== "Slides"
-
-    {{ media.slides('495979F9A431DDB0%2173338', 'ALt4_zuupKaPObs') }}
+:::{video}
+:length: 8m34s
+:id: db1dc799-8ed1-4a7b-960e-ac69001a590d
+:slide-id: 495979F9A431DDB0%2173338
+:slide-auth: ALt4_zuupKaPObs
+:::
 
 ### Links
 
@@ -142,6 +140,6 @@ This video discusses how to use work with dates in Pandas.
 - [DateOffset](https://pandas.pydata.org/pandas-docs/stable/reference/offset_frequency.html)
 - [Format codes](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior)
 
-## :a-assignment: Assignment 5
+## {{massignment}} Assignment 5
 
-[Assignment 5](../../assignments/A5/index.md) is due **November 11, 2020**.
+[Assignment 5](../../assignments/A5/index.md) is due **November 7, 2020**.
