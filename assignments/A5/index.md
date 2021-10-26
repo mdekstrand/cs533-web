@@ -2,7 +2,7 @@
 
 :::{draft}
 This assignment is still in draft state, as I am finalizing my review of the requirements.
-You can go ahead and get started on the data set preparation, however.
+You can go ahead and get started on the data set preparation and exploration, however.
 :::
 
 This assignment is designed to develop and assess your ability to build classifiers and reason about
@@ -31,7 +31,7 @@ You will be working with the full SBA National data set.
 I have attached the data file to the Canvas assignment.
 
 Your goal in this assignment is to predict **loan default**: does the business fail to pay off their loan?
-This is recorded in the `MIS_Status` field, which is ‘PIF’ if the loan is paid in full and ‘CHGOFF’ if the borrower defaulted (the loan was charged off).
+This is recorded in the ``MIS_Status`` field, which is ‘PIF’ if the loan is paid in full and ‘CHGOFF’ if the borrower defaulted (the loan was charged off).
 The Loan Documentation file contains more information about fields in the database; this is also in Table 1(a) in the paper, along with additional descriptions of some of the variables.
 We are going to treat **default as the positive class**: the goal is to predict 1 if the loan is likely to default.  A logistic regression, therefore, is computing the log odds of default.
 
