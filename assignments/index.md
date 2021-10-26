@@ -5,7 +5,7 @@
 - [Assignment 2](./A2/index.md) (due **September 26**)
 - [Assignment 3](./A3/index.md) (due **October 10**)
 - [Assignment 4](./A4/index.md) (due **October 24**)
-- Assignment 5 (due **November 7**)
+- [Assignment 5](./A5/index.md) (due **November 7**)
 - Assignment 6 (due **November 21**)
 - Assignment 7 (due **December 12**)
 

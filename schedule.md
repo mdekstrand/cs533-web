@@ -14,12 +14,12 @@ Following is a tentative schedule.  Topics may shift a little bit depending on h
 |   8   | 10/11 | [Regression][W8]                    |        |
 |   9   | 10/18 | [Modeling & Prediction][W9]         | [A4][] |
 |  10   | 10/25 | [Classification][W10]               |        |
-|  11   | 11/1  | [Evaluating Models][W11]            |   A5   |
+|  11   | 11/1  | [Evaluating Models][W11]            | [A5][] |
 |  12   | 11/8  | [Text][W12]                         |   E2   |
-|  13   | 11/15 | [Unsupervised][W13]                 |   A6   |
+|  13   | 11/15 | [Unsupervised][W13]                 | [A6][] |
 | *Th*  | 11/22 | *Thanksgiving*                      |        |
 |  14   | 11/29 | [Workflow][W14]                     |        |
-|  15   | 12/6  | [What's Next?][W15]                 |   A7   |
+|  15   | 12/6  | [What's Next?][W15]                 | [A7][] |
 |   F   | 12/13 | Finals week                         | Final  |
 
 Assignments are due at **midnight on Sunday** at the end of the week in which they are listed. For
