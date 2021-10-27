@@ -4,6 +4,13 @@
 This content is still in draft state and has not yet been finalized.
 :::
 
+In this week, we're going to learn more about model building, that will be useful in Assignment 5:
+
+- Feature engineering
+- SciKit-Learn pipelines and workflows
+- Regularization
+- Analyzing model results
+
 ## {{moverview}} Content Overview
 
 :::{module} week11
@@ -15,6 +22,7 @@ In this video, I review where we are at conceptually, and recap the ideas of est
 
 :::{video} eval-intro
 :length: 4m39s
+:name: 11-1 - Intro and Context
 :id: 40a41051-8c07-443c-b7d1-ac66002b3208
 :slide-id: 495979F9A431DDB0%2173320
 :slide-auth: AJXlvBsutNDBkoE
@@ -26,6 +34,7 @@ What are some useful techniques for engineering features in an application?
 
 :::{video}
 :length: 21m3s
+:name: 11-2 - Feature Transforms
 :id: 80203946-b811-4ecb-b703-ac660033edd1
 :slide-id: 495979F9A431DDB0%2173322
 :slide-auth: ABC9rmLnxkHsstY
@@ -38,6 +47,7 @@ What is the iterative process involved?
 
 :::{video}
 :length: 14m29s
+:name: 11-3 - Workflow
 :id: 71b1aa35-8435-4eae-ae32-ac660033ee09
 :slide-id: 495979F9A431DDB0%2173324
 :slide-auth: AGk8GhY4fx1Mnm8
@@ -49,6 +59,7 @@ In this video, I introduce SciKit *pipelines* that put multiple transformations 
 
 :::{video}
 :length: 7m19s
+:name: 11-4 - SciKit Pipelines
 :id: f448da70-c2d2-4c1b-942b-ac66003656a1
 :slide-id: 495979F9A431DDB0%2173328
 :slide-auth: ACahS4jRCAE3ueU
@@ -69,12 +80,13 @@ Lasso regression can help with (semi-)automatic feature selection.
 
 :::{video}
 :length: 15m4s
+:name: 11-5 - Regularization
 :id: fa457314-7344-48cd-af1f-ac660039cbc4
 :slide-id: 495979F9A431DDB0%2173326
 :slide-auth: APzIM2g9IcVX0XQ
 :::
 
-## {{mnotebook}}} Pipeline and Regularization
+## {{mnotebook}} Pipeline and Regularization
 
 [This notebook](../../resources/tutorials/SciKitPipeline.ipynb) demonstrates pipelines and $L_2$ regression, and performs a significance test of classifier improvement.
 
@@ -87,6 +99,7 @@ Can a model output be a feature?
 
 :::{video}
 :length: 7m23s
+:name: 11-6 - Models and Depth
 :id: 220a8acb-a901-49e7-bf9e-ac66003d7033
 :slide-id: 495979F9A431DDB0%2173330
 :slide-auth: APtXIrllUsY0_vY
@@ -99,6 +112,7 @@ What contributes to its performance?
 
 :::{video}
 :length: 14m55s
+:name: 11-7 - Inference and Ablation
 :id: 589628b2-30ce-4c38-ba45-ac66003f5163
 :slide-id: 495979F9A431DDB0%2173331
 :slide-auth: %21AAlNEpWRX05DM90
@@ -127,6 +141,7 @@ This video discusses how to use work with dates in Pandas.
 
 :::{video}
 :length: 8m34s
+:name: 11-8 - Dates
 :id: db1dc799-8ed1-4a7b-960e-ac69001a590d
 :slide-id: 495979F9A431DDB0%2173338
 :slide-auth: ALt4_zuupKaPObs
