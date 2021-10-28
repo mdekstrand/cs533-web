@@ -49,7 +49,7 @@ The *confusion matrix* describes the outcomes of a classification model and is t
 
 ## {{mnotebook}} Logistic Regression Demo
 
-The [demo notebook](LogitRegressionDemo.ipynb) for our initial logistic regression videos.
+The [demo notebook](../resources/tutorials/LogitRegressionDemo.ipynb) for our initial logistic regression videos.
 
 ## {{mvideo}} Baseline Models
 
@@ -92,7 +92,7 @@ This video introduces SciKit-Learn, and using it for a logistic regression.
 
 ## {{mnotebook}} SciKit-Learn Logistic Regression
 
-The [SciKit Logistic](./SciKitLogistic.ipynb) notebook demonstrates training and using
+The [SciKit Logistic](../resources/tutorials/SciKitLogistic.ipynb) notebook demonstrates training and using
 {py:class}`sklearn.linear_model.LogisticRegression`.
 
 ## {{mvideo}} Receiver Operating Characteristic
