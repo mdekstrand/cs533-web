@@ -57,19 +57,19 @@ class DateRole(SphinxRole):
 
             d1 = self.course_start + r1
             d2 = self.course_start + r2
-            ds1 = d1.strftime('%b. %#d')
+            ds1 = '{dt:%b}. {dt.day}'.format(dt=d1)
             if d1.month == d2.month:
-                ds2 = d2.strftime('%#d')
+                ds1 = '{dt.day}'.format(dt=d2)
             else:
-                ds2 = d2.strftime('%b. %#d')
+                ds2 = '{dt:%b}. {dt.day}'.format(dt=d2)
             ds = f'{ds1}–{ds2}'
 
         else:
             date = self.course_start + self.delta
             if self.keyword == 'long':
-                ds = date.strftime('%B %#d')
+                ds = '{dt:%B} {dt.day}'.format(dt=date)
             else:
-                ds = date.strftime('%#m/%#d')
+                ds = '{dt.month}/{dt.day}'.format(dt=date)
 
         dn = inline('', ds)
         return [dn], []
