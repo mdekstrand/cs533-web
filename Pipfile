@@ -25,6 +25,7 @@ seaborn = "*"
 dvc = "*"
 statsmodels = "*"
 scikit-learn = "*"
+seedbank = "*"
 
 [requires]
 python_version = "3.9"
