@@ -42,10 +42,11 @@ These notebooks are on basic Python data manipulation:
 1.  [SciKit-Learn Logistic Regression](SciKitLogistic.ipynb)
 2.  [SciKit-Learn Pipelines and Regularization](SciKitPipeline.ipynb) — also includes a significance test for difference in classifier accuracy, and a decision tree
 3.  [Linear Regression with SciKit-Learn](SciKitRegression.ipynb) — also uses a pipeline and applies standardization
-4.  [Advanced SciKit-Learn pipeline and logistic regression example](https://towardsdatascience.com/logistic-regression-classifier-on-census-income-data-e1dbef0b5738) (on Towards Data Science)
-5.  [Movie Decomposition](MovieDecomp.ipynb)
-6.  [K-Means Example](ClusteringExample.ipynb) (uses the chi-papers data from [Week 13](../../week13/index.md#practice))
-7.  [Tuning Hyperparameters](TuningExample.ipynb)
+4.  [Advanced SciKit-Learn Pipeline](AdvancedPipeline.ipynb)
+5.  [Another advanced SciKit-Learn pipeline and logistic regression example](https://towardsdatascience.com/logistic-regression-classifier-on-census-income-data-e1dbef0b5738) (on Towards Data Science)
+6.  [Movie Decomposition](MovieDecomp.ipynb)
+7.  [K-Means Example](ClusteringExample.ipynb) (uses the chi-papers data from [Week 13](../../week13/index.md#practice))
+8.  [Tuning Hyperparameters](TuningExample.ipynb)
 
 ## Specific Data Set Examples
 
