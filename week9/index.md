@@ -110,7 +110,7 @@ Further reading: [Lecture 12: Bias-Variance Tradeoff](https://www.cs.cornell.edu
 ### Links
 
 - The {py:func}`scipy.optimize.minimize` function.
-- The [minimization regression notebook](./BadRegression.ipynb) notebook.
+- The [minimization regression notebook](../resources/tutorials/MinimizeRegression.ipynb) notebook.
 - Our introduction to the idea of an {term}`objective function`.
 
 ## {{mquiz}} Week 9 Quiz

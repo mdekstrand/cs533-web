@@ -10,3 +10,7 @@
 # one-time redirects
 /syllabus/      /F20/syllabus/  301
 /schedule/      /F20/schedule/  301
+
+# content moves
+/f21/week9/BadRegression/* /f21/resources/tutorials/MinimizeRegression/:splat
+/f21/week9/OverfittingSimulation/* /f21/resources/tutorials/OverfittingSimulation/:splat
