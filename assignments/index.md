@@ -1,13 +1,13 @@
 # Assignments
 
-- [Assignment 0](./A0/index.md) (due **August 29**)
-- [Assignment 1](./A1/index.md) (due **September 12**)
-- [Assignment 2](./A2/index.md) (due **September 26**)
-- [Assignment 3](./A3/index.md) (due **October 10**)
-- [Assignment 4](./A4/index.md) (due **October 24**)
-- [Assignment 5](./A5/index.md) (due **November 7**)
-- Assignment 6 (due **November 21**)
-- Assignment 7 (due **December 12**)
+- [Assignment 0](./A0/index.md) (due **{date}`wk1 sun long`**)
+- [Assignment 1](./A1/index.md) (due **{date}`wk3 sun long`**)
+- [Assignment 2](./A2/index.md) (due **{date}`wk5 sun long`**)
+- [Assignment 3](./A3/index.md) (due **{date}`wk7 sun long`**)
+- [Assignment 4](./A4/index.md) (due **{date}`wk9 sun long`**)
+- [Assignment 5](./A5/index.md) (due **{date}`wk11 sun long`**)
+- Assignment 6 (due **{date}`wk13 sun long`**)
+- Assignment 7 (due **{date}`wk15 sun long`**)
 
 (asn-rubric)=
 ## General Rubric

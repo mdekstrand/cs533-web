@@ -115,7 +115,7 @@ What contributes to its performance?
 :name: 11-7 - Inference and Ablation
 :id: 589628b2-30ce-4c38-ba45-ac66003f5163
 :slide-id: 495979F9A431DDB0%2173331
-:slide-auth: %21AAlNEpWRX05DM90
+:slide-auth: "%21AAlNEpWRX05DM90"
 :::
 
 ## {{mdoc}} Statistical Significance Tests

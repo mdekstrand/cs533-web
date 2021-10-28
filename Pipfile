@@ -9,6 +9,7 @@ jupyter-book = "==0.12.*"
 srt = "*"
 invoke = "*"
 requests = "*"
+python-dateutil = ">=2.8"
 
 [dev-packages]
 XlsxWriter = "~=1.3"

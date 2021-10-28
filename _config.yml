@@ -66,8 +66,11 @@ sphinx:
     admonitions: extensions
     media: extensions
     cleanups: extensions
+    schedule: extensions
   config:
     primary_domain: res
+    course_start: 2021-08-23
+    break_week: 14
     mathjax_config:
       tex:
         macros:

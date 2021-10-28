@@ -156,4 +156,4 @@ This article probes in more detail the assumptions underlying classes of crimina
 
 ## {{massignment}} Assignment 5
 
-[Assignment 5](../../assignments/A5/index.md) is due **November 7, 2020**.
+[Assignment 5](../../assignments/A5/index.md) is due **{date}`wk11 sun long`**.
