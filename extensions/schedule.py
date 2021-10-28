@@ -37,20 +37,39 @@ class DateRole(SphinxRole):
             week = int(match.group('week'))
             if week >= self.config.break_week:
                 week += 1
+            self.week = week
             weekday = match.group('weekday')
-            weekday = _weekdays[weekday]
-            self.delta = rd.relativedelta(weekday=weekday(week))
+
+            if weekday == 'range':
+                self.delta = 'range'
+            else:
+                weekday = _weekdays[weekday]
+                self.delta = rd.relativedelta(weekday=weekday(week))
         else:
             raise ValueError('unknown date ' + text)
 
         return super().__call__(name, rawtext, text, lineno, inliner, options, content)
 
     def run(self):
-        date = self.course_start + self.delta
-        if self.keyword == 'long':
-            ds = date.strftime('%B %#d')
+        if self.delta == 'range':
+            r1 = rd.relativedelta(weekday=rd.MO(self.week))
+            r2 = rd.relativedelta(weekday=rd.FR(self.week))
+
+            d1 = self.course_start + r1
+            d2 = self.course_start + r2
+            ds1 = d1.strftime('%b. %#d')
+            if d1.month == d2.month:
+                ds2 = d2.strftime('%#d')
+            else:
+                ds2 = d2.strftime('%b. %#d')
+            ds = f'{ds1}–{ds2}'
+
         else:
-            ds = date.strftime('%#m/%#d')
+            date = self.course_start + self.delta
+            if self.keyword == 'long':
+                ds = date.strftime('%B %#d')
+            else:
+                ds = date.strftime('%#m/%#d')
 
         dn = inline('', ds)
         return [dn], []

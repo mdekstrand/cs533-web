@@ -1,4 +1,4 @@
-# Week 10 — Classification (Oct. 25–29)
+# Week 10 — Classification ({date}`wk10 range`)
 
 ## {{moverview}} Content Overview
 

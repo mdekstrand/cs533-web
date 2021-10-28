@@ -65,7 +65,7 @@ This video introduces the idea of *overfitting*: learning too much from the trai
 
 ## {{mnotebook}} Overfitting Simulation
 
-- [Overfitting Simulation notebook](./OverfittingSimulation.ipynb)
+- [Overfitting Simulation notebook](../resources/tutorials/OverfittingSimulation.ipynb)
 
 ## {{mdoc}} Overfitting Example
 

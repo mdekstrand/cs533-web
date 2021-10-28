@@ -1,8 +1,4 @@
-# 🚧 Week 11 — More Modeling 🚧
-
-:::{draft}
-This content is still in draft state and has not yet been finalized.
-:::
+# Week 11 — More Modeling ({date}`wk11 range`)
 
 In this week, we're going to learn more about model building, that will be useful in Assignment 5:
 
@@ -88,9 +84,13 @@ Lasso regression can help with (semi-)automatic feature selection.
 
 ## {{mnotebook}} Pipeline and Regularization
 
-[This notebook](../../resources/tutorials/SciKitPipeline.ipynb) demonstrates pipelines and $L_2$ regression, and performs a significance test of classifier improvement.
+[This notebook](../resources/tutorials/SciKitPipeline.ipynb) demonstrates pipelines and $L_2$ regression, and performs a significance test of classifier improvement.
 
 It also shows a training of a decision tree (next video).
+
+## {{mnotebook}} Advanced Pipelines
+
+The [Advanced Pipelines notebook](../resources/tutorials/AdvancedPipeline.ipynb) demonstrates a much more advanced SciKit-Learn pipeline.
 
 ## {{mvideo}} Models and Depth
 
@@ -157,4 +157,4 @@ This video discusses how to use work with dates in Pandas.
 
 ## {{massignment}} Assignment 5
 
-[Assignment 5](../../assignments/A5/index.md) is due **November 7, 2020**.
+[Assignment 5](../../assignments/A5/index.md) is due **{date}`wk11 sun long`**.
