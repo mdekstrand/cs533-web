@@ -40,7 +40,7 @@ These notebooks are on basic Python data manipulation:
 ## SciKit-Learn and ML Models
 
 1.  [SciKit-Learn Logistic Regression](SciKitLogistic.ipynb)
-2.  [SciKit-Learn Pipelines and Regularization](SciKitPipeline.ipynb) — also includes a significance test
+2.  [SciKit-Learn Pipelines and Regularization](SciKitPipeline.ipynb) — also includes a significance test for difference in classifier accuracy, and a decision tree
 3.  [Linear Regression with SciKit-Learn](SciKitRegression.ipynb) — also uses a pipeline and applies standardization
 4.  [Advanced SciKit-Learn pipeline and logistic regression example](https://towardsdatascience.com/logistic-regression-classifier-on-census-income-data-e1dbef0b5738) (on Towards Data Science)
 5.  [Movie Decomposition](MovieDecomp.ipynb)
