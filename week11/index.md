@@ -155,6 +155,10 @@ This video discusses how to use work with dates in Pandas.
 - [DateOffset](https://pandas.pydata.org/pandas-docs/stable/reference/offset_frequency.html)
 - [Format codes](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior)
 
+## {{mquiz}} Quiz 11
+
+Quiz 11 is in Blackboard.
+
 ## {{massignment}} Assignment 5
 
 [Assignment 5](../../assignments/A5/index.md) is due **{date}`wk11 sun long`**.
