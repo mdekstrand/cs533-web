@@ -133,6 +133,9 @@ Read Sections 1 and 2 of the following paper:
 > arXiv:1811.07867 [stat.AP].
 
 We'll come back to ideas here, but sections 1 and 2 describe the assumptions underlying most classification problems.
+While the overall topic of the paper is fairness in making these decisions, I am not assigning it because it is a fairness paper;
+rather, those first two sections provide a succinct description of the assumptions that we make when we undertake most
+classification problems.  They apply no matter what properties of a classification problem or model we care about.
 
 If you would like to learn more, I recommend:
 
