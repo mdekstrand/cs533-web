@@ -59,7 +59,7 @@ class DateRole(SphinxRole):
             d2 = self.course_start + r2
             ds1 = '{dt:%b}. {dt.day}'.format(dt=d1)
             if d1.month == d2.month:
-                ds1 = '{dt.day}'.format(dt=d2)
+                ds2 = '{dt.day}'.format(dt=d2)
             else:
                 ds2 = '{dt:%b}. {dt.day}'.format(dt=d2)
             ds = f'{ds1}–{ds2}'
