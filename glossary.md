@@ -49,8 +49,8 @@ Classification
     This is often *binary classification*, where instances are categorized into one of two classes.
 
 Conditional Probability
-    The conditional probability $P(B|A)$ (read “the probability of $B$ given $A$”) is the probability of $B$, given that we know $A$ occurred.
-    We can also discuss conditional expectation $\mathrm{E}[X|A]$, the expected value of $X$ for those occurrences where $A$ occurred.
+    The conditional probability $\P[B|A]$ (read “the probability of $B$ given $A$”) is the probability of $B$, given that we know $A$ occurred.
+    We can also discuss conditional expectation $\E[X|A]$, the expected value of $X$ for those occurrences where $A$ occurred.
 
     Introduced in {video}`week4:joint-conditional` and discussed in [Notes on Probability](prob-conditional).
 
