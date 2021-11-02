@@ -14,6 +14,11 @@ reading, or what you observe in the data.
 Read the **entire assignment** before beginning.
 :::
 
+## Revision Log
+
+November 2, 2021
+:   Revised [initial model](#initial-logistic-model-25) to expand on what was meant and clarify terms lost in assignment revision.
+
 ## Context and Data
 
 For this assignment, you will work with a data set of loans issued to small businesses, provided by the U.S. Small Business Administration.
@@ -87,14 +92,11 @@ If you want to submit your exploratory notebook as a separate file, that's fine 
 4.  What is the accuracy, precision, and recall of the majority-class classifier on the test data?
 5.  Identify some variables that, based on your understanding and reading (e.g. the source paper!) are likely to be useful for predicting default.  Describe them, your motivation, their distribution, and their relationship to outcomes (in the training data).  Do feature transformations you find useful here as well.  You may need to create interaction features, or do other feature transformations.
 
-## Full Model (25%)
+## Initial Logistic Model (25%)
 
-Extend your model from the subset data set (California/53) to the full data set.
-Do you need to add state & industry terms?
-Do you need to use interaction terms?
+Build a logistic regression model using no more than 8 features to predict default on this subset. Likely useful features include whether it is a new business, a real estate transaction, the proportion guaranteed by SBA, and whether it was active during the recession.
 
-Use a tuning set to make these decisions.
-Test **one model** from this section on the test data.
+If you want to experiment with different features, create a tuning set that is a subset of the training set, and use it to evaluate the accuracy of your model with them. Test the final accuracy of **one model** on the test data using the accuracy metric.
 
 ## Lasso Regression (15%)
 
