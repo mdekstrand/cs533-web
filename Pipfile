@@ -26,6 +26,7 @@ dvc = "*"
 statsmodels = "*"
 scikit-learn = "*"
 seedbank = "*"
+jupyterlab = "*"
 
 [requires]
 python_version = "3.9"
