@@ -110,7 +110,7 @@ Can a model output be a feature?
 How do we understand, *robustly*, the performance of our system?
 What contributes to its performance?
 
-:::{video}
+:::{video} ablation
 :length: 14m55s
 :name: 11-7 - Inference and Ablation
 :id: 589628b2-30ce-4c38-ba45-ac66003f5163
