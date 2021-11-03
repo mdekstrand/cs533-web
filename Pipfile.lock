@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "108cf2d21998659d38e724137e1afc629f71db8bbb6436e7aead561bbf2ba5d6"
+            "sha256": "27f2cbc75ec4dcaebe07a769df2793d608469df2df0663c7a98598a74efb755d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -959,7 +959,7 @@
                 "sha256:94078db9184491e15bce0a56d9186e0aec95f16ac20b12d00e06d4e36f1058a6",
                 "sha256:98a535c62a4fcfcc362528592f69b26f7caec587d32cd55688db580be0287ae0"
             ],
-            "markers": "python_version >= '3.6'",
+            "index": "pypi",
             "version": "==4.2.0"
         },
         "sphinx-book-theme": {
@@ -2902,7 +2902,7 @@
                 "sha256:83fb3eff778beec3c55201455c17cccde1ccdf66d5b4dade8ef28f56b50c4bd4",
                 "sha256:c30d6808d1cd3defd56a7bd2d587d13e53b5f55de6cf587f035bcbb56bc3f37b"
             ],
-            "markers": "python_full_version >= '3.6.2' and python_full_version < '4.0.0'",
+            "markers": "python_version < '4' and python_full_version >= '3.6.2'",
             "version": "==10.12.0"
         },
         "ruamel.yaml": {

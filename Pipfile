@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 jupyter-book = "==0.12.*"
+sphinx = ">=4"
 # mdit-py-plugins = "<0.2.7"
 srt = "*"
 invoke = "*"

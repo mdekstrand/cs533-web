@@ -43,9 +43,15 @@ The representation is an approximation of the true quantities.
 
 ## Events
 
-A random process (or a process modeled as random) produces distinct individual outcomes, called **elementary events**.
+:::{index} Elementary Event
+:::
+
+A random process (or a process modeled as random) produces distinct individual outcomes, called **{term}`elementary events <elementary event>`**.
 We use $E$ to denote the set of such outcomes; for a coin flip, $E = \{H, T\}$.
 For a random process that produces a count, $E = \mathbb{N}$.
+
+:::{index} Event
+:::
 
 Probability is defined over **events**.
 An event $A$ is a subset of $E$ ($A \subseteq E$).
