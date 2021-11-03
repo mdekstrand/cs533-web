@@ -55,11 +55,11 @@ class DateRole(SphinxRole):
         if isinstance(self.date, tuple):
             start, end = self.date
 
-            ds1 = start.format('MMM. D')
+            ds1 = start.format('M/D')
             if start.month == end.month:
                 ds2 = end.format('D')
             else:
-                ds2 = end.format('MMM. D')
+                ds2 = end.format('M/D')
             ds = f'{ds1}–{ds2}'
 
         else:
