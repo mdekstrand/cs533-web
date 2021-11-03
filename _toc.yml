@@ -43,6 +43,7 @@ parts:
   - file: assignments/A4/index
   - file: assignments/A5/index
   - file: assignments/A6/index
+  - file: assignments/A7/index
 - caption: Resources
   chapters:
   - file: resources/software
