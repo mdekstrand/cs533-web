@@ -1,6 +1,6 @@
 # Week 6 — Two Variables (Sep. 27–Oct. 1)
 
-:::{alert}
+:::{attention}
 The first midterm exam is on Tuesday.
 :::
 
@@ -23,6 +23,7 @@ Since we have the exam this week, the lecture load is significantly reduced.
 - Midterm A **Tuesday 9:00–10:15 AM** (in class)
 - Quiz 6 **Thursday by 8AM**
 
+(midterm-a)=
 ## {{mquiz}} Midterm A
 
 The first midterm is on Tuesday.  It is written to take about an hour, and covers material

@@ -66,7 +66,9 @@ class DateRole(SphinxRole):
 
         else:
             date = self.course_start + self.delta
-            if self.keyword == 'long':
+            if self.keyword == 'xlong':
+                ds = '{dt:%A}, {dt:%B} {dt.day}, {dt.year}'.format(dt=date)
+            elif self.keyword == 'long':
                 ds = '{dt:%B} {dt.day}'.format(dt=date)
             else:
                 ds = '{dt.month}/{dt.day}'.format(dt=date)
