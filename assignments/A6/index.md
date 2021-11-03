@@ -1,4 +1,4 @@
-# Assignment 6
+# 🚧 Assignment 6 🚧
 
 :::{draft}
 This assignment is still in draft state.
