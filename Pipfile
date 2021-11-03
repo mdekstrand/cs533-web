@@ -10,7 +10,7 @@ sphinx = ">=4"
 srt = "*"
 invoke = "*"
 requests = "*"
-python-dateutil = ">=2.8"
+arrow = "*"
 
 [dev-packages]
 XlsxWriter = "~=1.3"

@@ -1,8 +1,7 @@
-import datetime as dt
-import dateutil.relativedelta as rd
+import arrow
 
 from typing import Dict, List, Tuple
-from docutils.nodes import Node, system_message, inline
+from docutils.nodes import Node, system_message, inline, Text
 from docutils.parsers.rst.states import Inliner
 from sphinx.application import Sphinx
 from sphinx.util.docutils import SphinxRole
@@ -11,20 +10,20 @@ import re
 _date_re = re.compile(r'wk(?P<week>\d+)\s+(?P<weekday>\w+)(?:\s+(?P<keyword>\w+))?')
 
 _weekdays = {
-    'sun': rd.SU,
-    'mon': rd.MO,
-    'tue': rd.TU,
-    'wed': rd.WE,
-    'thu': rd.TH,
-    'fri': rd.FR,
-    'sat': rd.SA,
+    'sun': 6,
+    'mon': 0,
+    'tue': 1,
+    'wed': 2,
+    'thu': 3,
+    'fri': 4,
+    'sat': 5,
 }
 
 
 class DateRole(SphinxRole):
     @property
     def course_start(self):
-        return self.config.course_start
+        return arrow.get(self.config.course_start)
 
     def __call__(self, name: str, rawtext: str, text: str, lineno: int,
                  inliner: Inliner, options: Dict = {}, content: List[str] = []
@@ -33,47 +32,48 @@ class DateRole(SphinxRole):
 
         match = _date_re.match(text)
         self.keyword = match.group('keyword')
+        date = self.course_start
         if match:
             week = int(match.group('week'))
             if week >= self.config.break_week:
                 week += 1
-            self.week = week
+
+            wstart = date.shift(weeks=(week - 1))
             weekday = match.group('weekday')
 
             if weekday == 'range':
-                self.delta = 'range'
+                self.date = (wstart, wstart.shift(weekday=4))
             else:
                 weekday = _weekdays[weekday]
-                self.delta = rd.relativedelta(weekday=weekday(week))
+                self.date = wstart.shift(weekday=weekday)
         else:
             raise ValueError('unknown date ' + text)
 
         return super().__call__(name, rawtext, text, lineno, inliner, options, content)
 
     def run(self):
-        if self.delta == 'range':
-            r1 = rd.relativedelta(weekday=rd.MO(self.week))
-            r2 = rd.relativedelta(weekday=rd.FR(self.week))
+        if isinstance(self.date, tuple):
+            start, end = self.date
 
-            d1 = self.course_start + r1
-            d2 = self.course_start + r2
-            ds1 = '{dt:%b}. {dt.day}'.format(dt=d1)
-            if d1.month == d2.month:
-                ds2 = '{dt.day}'.format(dt=d2)
+            ds1 = start.format('MMM. D')
+            if start.month == end.month:
+                ds2 = end.format('D')
             else:
-                ds2 = '{dt:%b}. {dt.day}'.format(dt=d2)
+                ds2 = end.format('MMM. D')
             ds = f'{ds1}–{ds2}'
 
         else:
-            date = self.course_start + self.delta
             if self.keyword == 'xlong':
-                ds = '{dt:%A}, {dt:%B} {dt.day}, {dt.year}'.format(dt=date)
+                fmt = 'dddd, MMMM D, YYYY'
             elif self.keyword == 'long':
-                ds = '{dt:%B} {dt.day}'.format(dt=date)
+                fmt = 'MMMM D'
             else:
-                ds = '{dt.month}/{dt.day}'.format(dt=date)
+                fmt = 'M/D'
 
-        dn = inline('', ds)
+            ds = self.date.format(fmt)
+
+        # dn = inline('', ds)
+        dn = Text(ds)
         return [dn], []
 
 
