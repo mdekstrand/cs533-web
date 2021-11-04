@@ -297,6 +297,15 @@ Naïve Bayes
     Naïve Bayes is a good baseline model for many text classification tasks.
     It is implemented (for arbitrarily many classes) by {py:class}`sklearn.naive_bayes.MultinomialNB`, and introduced in {video}`week12:classifying-text`.
 
+Null hypothesis
+    A formalization of the idea of “no effect”, used for {term}`null hypothesis significance testing <null hypothesis significance test>` and typically
+    denoted $H_0$. See {term}`p-value`.
+
+Null hypothesis significance test
+    A significance test that assesses whether the data provide evidence to reject the {term}`null hypothesis` $H_0$ in favor of an alternate hypothesis
+    $H_a$.  This is typically done by computing a {term}`p-value`, the probability of seeing an effect at least as large as the one observed if the
+    null hypothesis is true, and rejecting the null hypothesis if this probability is sufficiently small.
+
 Objective Function
     A function describing a model's performance that is used as the goal for learning its parameters.
     This can be a **loss function** (where the goal is to minimize it) or a **utility function** (which should be maximized).
