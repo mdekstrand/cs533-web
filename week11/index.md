@@ -74,7 +74,7 @@ Read the [SciKit-Learn User Guide chapter on pre-processing](https://scikit-lear
 This video introduces regularization: ridge regression, lasso regression, and the elasticnet.
 Lasso regression can help with (semi-)automatic feature selection.
 
-:::{video}
+:::{video} regularization
 :length: 15m4s
 :name: 11-5 - Regularization
 :id: fa457314-7344-48cd-af1f-ac660039cbc4

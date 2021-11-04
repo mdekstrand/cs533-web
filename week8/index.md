@@ -43,7 +43,7 @@ All the examples will use the StatsModels OLS (ordinary least squares) model, ge
 
 In this video, I introduce single-variable regression.
 
-:::{video}
+:::{video} single-regression
 :name: 8-3 - Single Regression
 :id: 6974f533-c84a-425f-85c6-ac4e011f97ae
 :length: 10m14s

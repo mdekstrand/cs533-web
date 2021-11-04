@@ -12,7 +12,7 @@ Ablation study
 
 Aggregate
     A function that computes a single value from a series (or matrix) of values.
-    Often used to compute a *statistic*.
+    Often used to compute a {term}`statistic`.
 
     Introduced in {video}`week2:group-aggregate`.
 
@@ -47,6 +47,8 @@ Central limit theorem
 Classification
     A problem where the goal is to predict a discrete class for an instance.
     This is often *binary classification*, where instances are categorized into one of two classes.
+
+    This is the major topic of {module}`week10`.
 
 Conditional Probability
     The conditional probability $\P[B|A]$ (read “the probability of $B$ given $A$”) is the probability of $B$, given that we know $A$ occurred.
@@ -88,6 +90,8 @@ Degrees of Freedom
     For example, the degrees of freedom for the sample standard deviation for $n$ observations is $n-1$, because one DoF is “used up” by the mean:
 
     $$s = \sqrt{\frac{\sum_i (x_i - \bar{x})^2}{n - 1}}$$
+
+    Introduced in {video}`week5:t-test`.
 
 Disaggregation
     When we take something that is usually aggregated over the total population (e.g. the completion rate for students at a school) and
@@ -147,7 +151,7 @@ Estimator
     Introduced in {video}`week4:introduction`.
 
 Expected value
-    The mean of a {term}`random variable` $X$: $\E[X] = \sum x P(x)$ or $\E[X] = \int x p(x) dx$.
+    The mean of a {term}`random variable` $X$: $\E[X] = \sum x \P[x]$ or $\E[X] = \int x p(x) dx$.
 
     Discussed in {video}`week4:continuous` and [Notes on Probability](resources/probability.md).
 
@@ -180,6 +184,14 @@ Homoskedasticity
 Hyperparameter
     A value that controls a model's training or prediction behavior that is **not** learned from the data.
     Examples include learning rates, iteration counts, and regularization terms.
+    These hyperparameters usually control one of three things:
+
+    - A configurable aspect of the model's *structure*, such as the number of dimensions in a {term}`dimensionality reduction`.
+    - A configurable aspect of the model's *objective function*, such as the regularization strength.
+    - A configurable aspect of the model's *optimization process*, such as the number of iterations to run for an {term}`iterative method`.
+
+    In programming, we would usually call these “parameters”, but that term is taken by the statistical or machine learning notion of a
+    {term}`parameter`, so we call these “hyperparameters”.
 
 Inference
     As we primarily use it in this class, inference is the act of learning from the data; in particular, when we are trying to learn something about the world or the data generating process from the data we observe.  It contrasts with {term}`prediction`, discussed in {video}`week8:pred-inf` and at length in {module}`week4`.
@@ -187,6 +199,12 @@ Inference
     In machine learning deployment, inference is often used to refer to using the model to score or classify new instances at runtime, as opposed to the training stage of the model.
 
     Inference can also be used to refer to learning the model parameters itself, but we won't be using it this way to avoid confusion.
+
+Iterative method
+    An computational method that works by computing an initial solution (or guess) and iteratively refining it, usually until some stopping condition is met (often
+    the number of iterations, or a convergence criteria such as the change from one iteration to the next dropping below a threshold).
+
+    {py:func}`scipy.optimize.minimize` as demonstrated in {video}`week9:optimizing-loss` is an example of an iterative method.
 
 Joint Probability
     The joint probability $\P[A, B]$ is the probability of both $A$ and $B$ occurring (in terms of underlying events, it's the probability that the elementary event $\zeta$ is in both $A$ and $B$).
@@ -265,11 +283,25 @@ Mean
 
     Introduced in {video}`week2:descriptive-statistics`.
 
+Naïve Bayes
+    A classification technique that uses Bayes' theorem to classify instances given (counts of) discrete features.  Given a sequence of tokens $T$,
+    it computes:
+
+    $$\P[Y=y|T] \propto \P[T|Y=y] P[Y=y]$$
+
+    The "naïve" term comes from the simplifying assumption that tokens are conditionally independent of each other given the class, so that $\P[T|Y=y]$ can be
+    computed from $\P[t|Y=y]$:
+
+    $$\P[T|Y=y] = \prod_{t \in T} \P[t | Y=y]$$
+
+    Naïve Bayes is a good baseline model for many text classification tasks.
+    It is implemented (for arbitrarily many classes) by {py:class}`sklearn.naive_bayes.MultinomialNB`, and introduced in {video}`week12:classifying-text`.
+
 Objective Function
     A function describing a model's performance that is used as the goal for learning its parameters.
     This can be a **loss function** (where the goal is to minimize it) or a **utility function** (which should be maximized).
 
-    Defined in {video}`week11:building-models`, and introduced in {video}`week9:optimizing-loss`.
+    Defined in {video}`week11:eval-intro`, and introduced in {video}`week9:optimizing-loss`.
 
 Operationalization
     The mapping of a goal or question to a specific, measurable quantity (or measurement procedure).
@@ -304,7 +336,7 @@ Parameter
     Introduced in {video}`week4:sampling`.
 
     In *model fitting*: a variable in a statistical or machine learning model whose value is learned from the data.
-    Contrast *hyper-parameter*, a variable that controls the model or the model-fitting process but is not learned from the data.
+    Contrast {term}`hyperparameter`, a variable that controls the model or the model-fitting process but is not learned from the data.
 
 $p$-hacking
     Computing hypothesis tests of multiple things in hopes that one of them will be statistically significant.
@@ -335,7 +367,7 @@ Random variable
 
     Formally, a random variable is a function $f_X: E \to \Reals$, where $E$ is the set of {term}`elementary events <elementary event>` from a probability space $(E, \Field, \P)$, and $F_X(x) = \P[F_X(e) < x]$.  For the purposes of this class, we will not need this distinction.
 
-    Discussed in [Notes on Probability](resources/probability.md).
+    Discussed in [Notes on Probability](resources/probability.md) and {video}`week4:continuous`.
 
 Regression
     A modeling or prediction problem where we try to estimate or predict a continuous variable $Y$.
@@ -364,6 +396,8 @@ Sample size
 Sampling distribution
     The distribution of a statistic when it is computed over many repeated samples of the same size from the same population.
     The sampling distribution of the sample mean from a population with mean $\mu$ and variance $\sigma^2$ is $\mathrm{Normal}(\mu, \sigma/\sqrt{n})$.
+
+    Discussed in {video}`week4:sampling`.
 
 Statistic
     A value computed from a set of observations.

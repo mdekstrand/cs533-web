@@ -84,9 +84,12 @@ This video describes the concept of a *vector representation*, and how to comput
 
 ## {{mvideo}} Classifying Text
 
-This video introduces *classifying text*, and the use of a naïve Bayes classifier based on term frequencies.
+:::{index} naïve Bayes
+:::
 
-:::{video}
+This video introduces *classifying text*, and the use of a {term}`naïve Bayes` classifier based on term frequencies.
+
+:::{video} classifying-text
 :name: 12-5 - Classifying Text
 :length: 6m9s
 :slide-id: 495979F9A431DDB0%2173351
@@ -95,8 +98,8 @@ This video introduces *classifying text*, and the use of a naïve Bayes classifi
 
 ### Resources
 
-- [KNeighborsClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier)
-- [MultinomialNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html#sklearn.naive_bayes.MultinomialNB) (Naïve Bayes)
+- {py:class}`sklearn.neighbors.KNeighborsClassifier`
+- {py:class}`sklearn.naive_bayes.MultinomialNB` ({term}`Naïve Bayes`)
 
 ## {{mnotebook}} Spam Filter Example
 

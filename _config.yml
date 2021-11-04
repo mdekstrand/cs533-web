@@ -67,6 +67,7 @@ sphinx:
     primary_domain: res
     course_start: 2021-08-23
     break_week: 14
+    external_toc_exclude_missing: true
     mathjax3_config:
       tex:
         macros:

@@ -56,7 +56,7 @@ This video provides more detail on *explained variance* and what the $R^2$ means
 
 This video introduces the idea of *overfitting*: learning too much from the training data so we can't predict the testing data.
 
-:::{video}
+:::{video} overfitting
 :length: 10m31s
 :name: 9-4 - Overfitting
 :slide-id: 495979F9A431DDB0%2173279
