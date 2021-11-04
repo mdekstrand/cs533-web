@@ -81,3 +81,9 @@ def setup(app: Sphinx):
     app.add_config_value('course_start', None, 'html')
     app.add_config_value('break_week', 14, 'html')
     app.add_role('date', DateRole())
+
+    return {
+        'version': 1,
+        'parallel_read_safe': True,
+        'parallel_write_safe': True
+    }
