@@ -1,0 +1,1076 @@
+1
+00:00:04,660 --> 00:00:12,070
+This video I'm going to talk with you about Unicode and Encodings. How is text actually represented and stored?
+
+2
+00:00:12,070 --> 00:00:17,490
+We talked a while ago about encodings and codings for different kinds of data.
+
+3
+00:00:17,490 --> 00:00:22,090
+We forecasted that we're going to talk about text we've seen in some of our initial processing.
+
+4
+00:00:22,090 --> 00:00:25,930
+Occasionally we need to provide an encoding. What's up with all of that?
+
+5
+00:00:25,930 --> 00:00:32,680
+So learning outcomes for the video are few. To understand how text is stored in memory and in files,
+
+6
+00:00:32,680 --> 00:00:39,880
+encode and decode text for storage and communication and to distinguish between characters, code points and bytes.
+
+7
+00:00:39,880 --> 00:00:48,040
+So we have text, we have some input. We have say here with a first sentence of the book, The Trial by Franz Kafka.
+
+8
+00:00:48,040 --> 00:00:52,810
+Someone must have slandered Josef K for one morning without having done anything truly wrong.
+
+9
+00:00:52,810 --> 00:00:56,740
+He was arrested and this was a sentence of the English language.
+
+10
+00:00:56,740 --> 00:01:04,720
+It's a sequence of words. It's a sequence of characters. And we store it as a sequence of bytes encoding those characters.
+
+11
+00:01:04,720 --> 00:01:14,080
+Computer has to store everything in byte. We've talked about how you start flooding poll numbers a little bit here where the text is stored in bytes.
+
+12
+00:01:14,080 --> 00:01:26,050
+So for a long time in U.S. based computing, we stored text in what was called ASCII, the American Standard Code for Information Interchange,
+
+13
+00:01:26,050 --> 00:01:33,040
+and it assigned a number in the range zero to one hundred and twenty seven seven bits for all the English letters.
+
+14
+00:01:33,040 --> 00:01:36,490
+A number of symbols and control codes.
+
+15
+00:01:36,490 --> 00:01:44,020
+You'll find the numbers in in range 48 to fifty seven uppercase letters go from sixty five to ninety or lowercase from ninety seven
+
+16
+00:01:44,020 --> 00:01:51,760
+to 122 etc. to sign these codes that we could store in bytes and just the lower seven bits of the byte so you could use the top,
+
+17
+00:01:51,760 --> 00:02:01,720
+the upper bit for for other control purposes. It was able to store written English text using most of the characters and punctuation.
+
+18
+00:02:01,720 --> 00:02:08,550
+That's in common use. So few problems with this one.
+
+19
+00:02:08,550 --> 00:02:09,960
+The whole world doesn't speak English,
+
+20
+00:02:09,960 --> 00:02:18,540
+and we need to be able to encode a lot of different languages for our languages that use Latin, insert Latin or Cyrillic alphabet.
+
+21
+00:02:18,540 --> 00:02:29,340
+This is often able to be done with extended code pages. So Latin one extends ASCII, so the number zero through to 127 are ASCII, 128 through 255.
+
+22
+00:02:29,340 --> 00:02:38,210
+So when a bit in a bite, this is the difference where whether the first bit is set or not, the high order bit, is it set or not?
+
+23
+00:02:38,210 --> 00:02:44,880
+Are for used for characters with Western European accents and some control characters, Latin fifteen does the same with Eastern European windows.
+
+24
+00:02:44,880 --> 00:02:47,570
+Twelve fifty two combines both.
+
+25
+00:02:47,570 --> 00:02:56,380
+It's compatible with Latin one, but it uses a range of characters that Latin one reserves for control codes to store the Eastern European accents.
+
+26
+00:02:56,380 --> 00:03:02,270
+Califate eight are uses the uses the upper one hundred and twenty seven characters for
+
+27
+00:03:02,270 --> 00:03:09,210
+Russian Cyrillic characters and so allows you this to store Russian and English in KEYT r.
+
+28
+00:03:09,210 --> 00:03:13,980
+But many languages, such as Chinese, Korean, Japanese,
+
+29
+00:03:13,980 --> 00:03:19,680
+they have many more characters that can fit in a bite even if the entire bite was allocated to it.
+
+30
+00:03:19,680 --> 00:03:21,690
+And so you use a double bite in code.
+
+31
+00:03:21,690 --> 00:03:30,150
+A multi byte character set often uses two bytes per character, such as Big Five for traditional Chinese and Jeab twenty 12,
+
+32
+00:03:30,150 --> 00:03:36,390
+which is the Chinese national standard for simplified Chinese, and it also covers Russian.
+
+33
+00:03:36,390 --> 00:03:44,430
+Now for a sequence of bytes that's text. In order to properly interpret this text, you have to know the encoding.
+
+34
+00:03:44,430 --> 00:03:47,670
+So that's one problem. It's another encoding in order to decode it properly.
+
+35
+00:03:47,670 --> 00:03:54,770
+Also, it's very hard to mix encodings and therefore languages because if you've got text that's encoded in GIBI twenty three.
+
+36
+00:03:54,770 --> 00:04:01,980
+Twelve. Well, you can't write Turkish on that. So if you've got a document that you're trying to have parts in Chinese and parts in Turkish,
+
+37
+00:04:01,980 --> 00:04:07,800
+you have to have a way to switch back and forth between code pages within a single document gets very complex.
+
+38
+00:04:07,800 --> 00:04:11,670
+And so Unicode was developed to try to unify these.
+
+39
+00:04:11,670 --> 00:04:20,820
+Unicode is an international standard for text representation in which text is represented as a sequence of what's called a code point.
+
+40
+00:04:20,820 --> 00:04:28,220
+These code points basically can think about. You can think of a Unicode text string is an array of code points.
+
+41
+00:04:28,220 --> 00:04:31,490
+These are code points are encoded into bytes.
+
+42
+00:04:31,490 --> 00:04:37,210
+And so here, again, as we saw with other data types, there's this distinction between data and it's encodings.
+
+43
+00:04:37,210 --> 00:04:40,190
+We actually kind of have three levels here because you've got characters code
+
+44
+00:04:40,190 --> 00:04:44,420
+points and then the bytes that are used to actually store the code points.
+
+45
+00:04:44,420 --> 00:04:52,740
+We have universal encoding that can encode all valid Unicode. And as I said, we've got the other encoding that have historically been used.
+
+46
+00:04:52,740 --> 00:05:00,200
+Latin, one U.S. ASCII califate are they have been redefined as encodings for subsets of Unicode.
+
+47
+00:05:00,200 --> 00:05:04,970
+So if you if you want to process KEYT are in modern program,
+
+48
+00:05:04,970 --> 00:05:12,470
+what you do is you decode the K away eight R and Unicode process Unicode and then you can read encode into whatever.
+
+49
+00:05:12,470 --> 00:05:16,280
+Now not all encodings can take all characters.
+
+50
+00:05:16,280 --> 00:05:26,320
+So if you try to encode Russian text into Windows twelve fifty two, it will fail because Windows twelve fifty two doesn't have the Cyrillic alphabet.
+
+51
+00:05:26,320 --> 00:05:32,920
+Unicode is intended to cover all nonfictional human languages, so it includes.
+
+52
+00:05:32,920 --> 00:05:39,340
+Any in the goals include any characters use to write any human language spoken today,
+
+53
+00:05:39,340 --> 00:05:44,320
+it includes ancient languages that are no longer spoken, such as it has Phoenician characters.
+
+54
+00:05:44,320 --> 00:05:54,250
+It includes a lot of things like mass symbols, the international phonetic alphabet emoji and a lot of other symbols.
+
+55
+00:05:54,250 --> 00:05:59,980
+You'll sometimes find the people using these for various strange effects, like to get a italics in a tweet or something.
+
+56
+00:05:59,980 --> 00:06:04,930
+What it's actually doing is it's going and grabbing naff characters and using those,
+
+57
+00:06:04,930 --> 00:06:11,770
+if you want to see sometime, use your computer's assistive technology to read aloud such content.
+
+58
+00:06:11,770 --> 00:06:15,460
+And you'll see here what it's doing under the hood.
+
+59
+00:06:15,460 --> 00:06:24,460
+And it winds up being very, very difficult for for visually impaired users to engage with because the read aloud is gonna be completely mangled.
+
+60
+00:06:24,460 --> 00:06:30,160
+But you've got a lot of different symbols across the space that are being used for human communication.
+
+61
+00:06:30,160 --> 00:06:36,130
+Unicode specifically does not include fictional languages. You're not going to find clicking on our Elvish characters in Unicode.
+
+62
+00:06:36,130 --> 00:06:44,740
+People have there are portions of Unicode that are reserved for private use force of software, and there are people who have mapped,
+
+63
+00:06:44,740 --> 00:06:53,500
+cling on or Elvish characters into those into those code points and then developed fonts that are capable of rendering them,
+
+64
+00:06:53,500 --> 00:07:01,470
+but they're not part of the Unicode standard. So to store all of this, python has two string types.
+
+65
+00:07:01,470 --> 00:07:05,970
+The SDR is a text string when you write a string. This was your single or your double quote.
+
+66
+00:07:05,970 --> 00:07:13,890
+This is what you get. You get a text string and a string is a C ATEC string is a sequence of code points.
+
+67
+00:07:13,890 --> 00:07:21,060
+So SRF seven is going to return the eighth, the eighth character or code point does its character and does it as a single,
+
+68
+00:07:21,060 --> 00:07:23,790
+does it as a string of a single character.
+
+69
+00:07:23,790 --> 00:07:32,460
+But the Owada function o r d will then get you the numeric code point from one of these single character strings.
+
+70
+00:07:32,460 --> 00:07:36,540
+Bites as a bite string. And here it's a sequence of eight bit bites.
+
+71
+00:07:36,540 --> 00:07:40,410
+If you ask for B.S. subset of a bite string B.S. and you have four B.S. up seven,
+
+72
+00:07:40,410 --> 00:07:46,860
+you're going to get the eighth bite in the strings and start from zero. You can convert between them with the end code and decode function.
+
+73
+00:07:46,860 --> 00:07:53,430
+So ENCODE takes a text string and encodes it to bytes. Decode takes a bite string and decodes it to stir.
+
+74
+00:07:53,430 --> 00:08:01,530
+And both of these you need to provide the Kodak, the name of the Kodak that you want to use UTF eight ASCII,
+
+75
+00:08:01,530 --> 00:08:06,380
+Latin one big five, whatever Kodak it is that you want to use.
+
+76
+00:08:06,380 --> 00:08:12,530
+Pandas also provide string types historically for pandas one, and it's still supported and still the default,
+
+77
+00:08:12,530 --> 00:08:17,600
+you would use an object series to stat stores, python strings, either bite's or Sturr objects.
+
+78
+00:08:17,600 --> 00:08:22,100
+Pandas can work with both pandas also now has a string type.
+
+79
+00:08:22,100 --> 00:08:27,800
+You can convert an object type storying strings to a panda string type.
+
+80
+00:08:27,800 --> 00:08:33,350
+You can also convert a you can also use the string D type when you're loading CSC as V file and then it will.
+
+81
+00:08:33,350 --> 00:08:38,240
+Lowden's a panda string, Cullom, both of them. The pandas has these.
+
+82
+00:08:38,240 --> 00:08:43,970
+These families have access of type specific methods and accessors that stirred up whatever four
+
+83
+00:08:43,970 --> 00:08:55,910
+strings that works on both the objects Cyle Strings series and the the new string data type.
+
+84
+00:08:55,910 --> 00:09:01,130
+So, as I said, to encode and decode, you have a python, you can do bytes that decode,
+
+85
+00:09:01,130 --> 00:09:08,230
+insert and encode panda series also provides, encode and decode operations off of this Sturr accessor now.
+
+86
+00:09:08,230 --> 00:09:12,740
+So you've got these strings. They're sequences of code points. How do those relate to characters?
+
+87
+00:09:12,740 --> 00:09:19,970
+So the code points in the simple form. The code points record the numeric values used for different characters.
+
+88
+00:09:19,970 --> 00:09:24,640
+So if I write Joseph K, the name of our character from the.
+
+89
+00:09:24,640 --> 00:09:30,160
+From the sentence at the beginning, it's going to be recorded as this sequence of code points for A as J.
+
+90
+00:09:30,160 --> 00:09:34,840
+O is six F SS seven three E six five.
+
+91
+00:09:34,840 --> 00:09:38,830
+These are in hexadecimal. These are hexadecimal numbers. So that abiders. Exactly.
+
+92
+00:09:38,830 --> 00:09:45,370
+To two digits. And any character that's in Latin one.
+
+93
+00:09:45,370 --> 00:09:49,620
+So in terms of letters, it's English letters, it's Western European accent.
+
+94
+00:09:49,620 --> 00:09:55,480
+Their code point is the same as their Latin one encoding number. And so the ASCII numbers are there.
+
+95
+00:09:55,480 --> 00:10:04,270
+Unicode code points for the Western European accents. Their Latin one by value is is the Unicode code point.
+
+96
+00:10:04,270 --> 00:10:10,750
+So O with an mail out is F six use an amount is F c.
+
+97
+00:10:10,750 --> 00:10:15,980
+And so we get these accented characters being stored this way.
+
+98
+00:10:15,980 --> 00:10:22,000
+But code points and characters don't necessarily have a one to one relationship.
+
+99
+00:10:22,000 --> 00:10:31,060
+So if we have Motley Crue and it's we can encode it, as with the O is the, um, lot of SSX that is the character O with Rumaila.
+
+100
+00:10:31,060 --> 00:10:42,640
+But you can also encode. You can also store that same character as two code points, six F, which is O and three oh eight which is combining diary sis.
+
+101
+00:10:42,640 --> 00:10:46,570
+And so what that does when it sees that sequences.
+
+102
+00:10:46,570 --> 00:10:51,610
+Oh. And then it says OK, complete combining diaries is and put the diaries is on top of it.
+
+103
+00:10:51,610 --> 00:10:55,120
+These combined there are a lot of things combining characters that can add accents.
+
+104
+00:10:55,120 --> 00:11:00,280
+They can stack on top of each others. You can stick like diaries. Is Anatoliy around a hat or whatever?
+
+105
+00:11:00,280 --> 00:11:11,920
+If you see sometimes people writing text has like stacked accents coming off the tops and bottoms that supposed to look like Lovecraftian horror.
+
+106
+00:11:11,920 --> 00:11:19,270
+They're doing that with these combining the characters just stack more and more, combining characters on top of each other.
+
+107
+00:11:19,270 --> 00:11:23,030
+They can also, in some cases, modify the shape of a character. They can assemble complex emoji.
+
+108
+00:11:23,030 --> 00:11:24,790
+There's some other use cases as well.
+
+109
+00:11:24,790 --> 00:11:33,550
+But code points have can have these relationships with code point can modify code points that come before in rare occasions after.
+
+110
+00:11:33,550 --> 00:11:43,360
+So you don't when you ask a string for its length, that's gonna give you the number of code points, which is not the same as the number of characters.
+
+111
+00:11:43,360 --> 00:11:49,180
+So if you did if if we had Motley Crue stored this way and you did a LAN on it,
+
+112
+00:11:49,180 --> 00:11:54,190
+you're gonna get 13 instead of 11, even though it's only going to print eleven characters.
+
+113
+00:11:54,190 --> 00:12:06,680
+You're going to get you have 13 code points. This does let you assign lots to characters that don't commonly have them, for example, diaries.
+
+114
+00:12:06,680 --> 00:12:12,220
+The diaries of the unallowed is usually only applied to. Disavowals.
+
+115
+00:12:12,220 --> 00:12:28,850
+And so if you want if you want Spinal Tap. You need to use an which is going to be six B and you need three O eight.
+
+116
+00:12:28,850 --> 00:12:35,570
+The combined guy races, there are a few human languages that do use this character, but they have not added a pre combined character,
+
+117
+00:12:35,570 --> 00:12:42,840
+Unicode, and they don't need one because you can make one out of the raw end and the combining character correction.
+
+118
+00:12:42,840 --> 00:12:52,490
+This is not six. This is six e. So one a complex use for these are complex emojis.
+
+119
+00:12:52,490 --> 00:12:56,510
+So emoji can have a number of modifiers and layers on top of them.
+
+120
+00:12:56,510 --> 00:13:02,180
+And so if you have the woman with dark skin tone, running emoji.
+
+121
+00:13:02,180 --> 00:13:06,140
+The skin tone is actually amplify entered as a Unicode combining modifier.
+
+122
+00:13:06,140 --> 00:13:15,130
+And so this this emoji here is actually made up of six or a five code points in sequence runner.
+
+123
+00:13:15,130 --> 00:13:22,550
+The modifier for dark skin tone, a joint character, the modifier for female or the character for female.
+
+124
+00:13:22,550 --> 00:13:28,010
+And then the another character, which means display as emoji rather than text.
+
+125
+00:13:28,010 --> 00:13:32,760
+And it puts all of those together to get a woman running with dark skin tone.
+
+126
+00:13:32,760 --> 00:13:40,770
+The politics of this in terms of what's the default and what's the default for different emoji are interesting and worth contemplating.
+
+127
+00:13:40,770 --> 00:13:49,380
+But you can use but this idea of being able to combine code points allows you to build up arbitrarily modified characters.
+
+128
+00:13:49,380 --> 00:13:56,910
+And so they define many of the more complex emojis are defined by these sets of combinator of combinations,
+
+129
+00:13:56,910 --> 00:14:06,180
+rather than defining a separate code point for every possible configuration of a of a particular emoji.
+
+130
+00:14:06,180 --> 00:14:12,870
+So the key point here is that Kote points are not equal to characters, a character can require multiple code points.
+
+131
+00:14:12,870 --> 00:14:16,260
+And this comes in. This becomes relevant when you'd say compute the string length.
+
+132
+00:14:16,260 --> 00:14:21,330
+If you want to say line strings up there, OBC edge cases where it's wrong.
+
+133
+00:14:21,330 --> 00:14:24,570
+The only way truly to tell how wide a character,
+
+134
+00:14:24,570 --> 00:14:34,980
+how wide a string is going to be and display is to ask a rendering engine to render it in a fort and measure how wide it is.
+
+135
+00:14:34,980 --> 00:14:46,080
+Also, though, a character can be encoded multiple ways, as we saw, the oath diaries can be either F six or it can be six F followed by three or eight.
+
+136
+00:14:46,080 --> 00:14:51,850
+And what this means is that simple string equality will sometimes.
+
+137
+00:14:51,850 --> 00:15:00,150
+You can have equivalent strings that are not equal. We're gonna see in a little bit normalization techniques that let you let let me deal with that.
+
+138
+00:15:00,150 --> 00:15:05,730
+But there's no semantic difference between the two ways of encoding the O with a diary source.
+
+139
+00:15:05,730 --> 00:15:13,170
+But if when you compare the strings bite, when you compare the strings code point by point, they're not going to be equal.
+
+140
+00:15:13,170 --> 00:15:18,750
+Also, you have some things such as Roman numeral. There's a code point for Roman numeral one.
+
+141
+00:15:18,750 --> 00:15:22,030
+And there's it's indistinguishable from the Latin capital letter.
+
+142
+00:15:22,030 --> 00:15:26,820
+I and it's in their speak for compatibility reasons because some encoding.
+
+143
+00:15:26,820 --> 00:15:34,390
+So we had we had all of these different encodings that are encoding text in different ways before we tried to unify everything in the Unicode.
+
+144
+00:15:34,390 --> 00:15:40,390
+Jimmy, Twenty three. 12 had encoding, had characters for four latt for Roman numerals,
+
+145
+00:15:40,390 --> 00:15:44,590
+and so to translate that into Unicode, they had to have be able to map those into code points.
+
+146
+00:15:44,590 --> 00:15:49,120
+It's the code point is it's called a compatibility code point,
+
+147
+00:15:49,120 --> 00:15:54,980
+and it's not distinguishable from the Latin letteri, except that it's a different code point.
+
+148
+00:15:54,980 --> 00:16:00,440
+So there's a Unico database that tracks many properties of code point to get identifies,
+
+149
+00:16:00,440 --> 00:16:05,210
+which ones are these compatability code points and what they're what they're equivalent to?
+
+150
+00:16:05,210 --> 00:16:13,780
+It tracks the type you can marks for each code point is a letter, a number of punctuation, a combiner upper lower case.
+
+151
+00:16:13,780 --> 00:16:22,550
+There's a lot of different properties in the Unicode database. Also, the code points themselves are divided into blocks like the Latin one supplement.
+
+152
+00:16:22,550 --> 00:16:28,610
+The Python Unicode data module is a starting point for being for getting access to this
+
+153
+00:16:28,610 --> 00:16:38,650
+database and and making inquiries about your about your about different characters.
+
+154
+00:16:38,650 --> 00:16:46,480
+But another thing we can do with these and the Unicode data module gives you a function for this is you can normalize them.
+
+155
+00:16:46,480 --> 00:16:51,420
+So Unicode defined some normal forms and SFD normal form decomposed.
+
+156
+00:16:51,420 --> 00:17:09,390
+It always uses the combining characters. So if you if you have a A seven.
+
+157
+00:17:09,390 --> 00:17:19,260
+So if you have an F six. It's going to translate that to a sex F and a three o eight.
+
+158
+00:17:19,260 --> 00:17:25,920
+And the normal form composed using single code points whenever possible.
+
+159
+00:17:25,920 --> 00:17:33,440
+So it is going to go the other way around.
+
+160
+00:17:33,440 --> 00:17:38,550
+It's going to if it sees a six f three away, it's going to turn it into an F six.
+
+161
+00:17:38,550 --> 00:17:43,650
+Then there's also JFK variance, so JFK, DNF, Casey, they do the same thing,
+
+162
+00:17:43,650 --> 00:17:51,240
+but they also normalize compatibility character so that Roman numeral one is going to turn into a Latin capital left eye.
+
+163
+00:17:51,240 --> 00:17:58,020
+So once you've normalized strings, then it's a lot more likely that two semantically equivalent strings are going to also be
+
+164
+00:17:58,020 --> 00:18:02,730
+equal because you don't have the issue of like they're different just because the oh,
+
+165
+00:18:02,730 --> 00:18:06,710
+the new plot was was encoded differently. That's normalized.
+
+166
+00:18:06,710 --> 00:18:08,190
+So you can more directly compare them.
+
+167
+00:18:08,190 --> 00:18:14,460
+You can look up, you can say if you're using Unicode for file names, you can look up the file correctly and know they're going to get it right,
+
+168
+00:18:14,460 --> 00:18:22,180
+even if it was typed in or even if it was initially encoded in a different a different encoding.
+
+169
+00:18:22,180 --> 00:18:25,720
+So Unico data provides you a method to normalize.
+
+170
+00:18:25,720 --> 00:18:32,720
+So I can say a motley crew to normalize and F.D. and it will normalize it to the decomposed normal form.
+
+171
+00:18:32,720 --> 00:18:37,540
+PANDAS has normalization with that stirred up normalized normalization, super useful.
+
+172
+00:18:37,540 --> 00:18:42,190
+As I said, to in order to make sure that Mottley is only going to be encoded one way,
+
+173
+00:18:42,190 --> 00:18:53,490
+even if you've got files that are coming from different systems that might have defaulted to whether they use it composed or decomposed characters.
+
+174
+00:18:53,490 --> 00:18:56,340
+There's some other subtleties to Unicode as well, though.
+
+175
+00:18:56,340 --> 00:19:04,110
+So the lower method converts a string to lower case, but there can still be distinctions that don't make a semantic difference.
+
+176
+00:19:04,110 --> 00:19:10,200
+There's another function case foaled that converts to a lower case and goes farther to eliminate case distinctions.
+
+177
+00:19:10,200 --> 00:19:14,960
+For example, the German letter Stronsay will become two S's.
+
+178
+00:19:14,960 --> 00:19:23,280
+It's this, it's equivalent, but lower is not going to convert it because it's already it's already lowercase letter.
+
+179
+00:19:23,280 --> 00:19:29,910
+But it's going to convert it down to these two S's so that you get that there's absolutely no distinctions there anymore.
+
+180
+00:19:29,910 --> 00:19:31,860
+But there's other rules that are locale specific.
+
+181
+00:19:31,860 --> 00:19:42,390
+For example, if you want to sort strings and you want to do it correctly, the rules for doing that depend on the language, not just the characters.
+
+182
+00:19:42,390 --> 00:19:47,670
+And so your computer has something called a little count each.
+
+183
+00:19:47,670 --> 00:19:52,040
+Prosit, you can change locales for a process. Each process has a locale that it's running in.
+
+184
+00:19:52,040 --> 00:19:55,590
+The defines a number of things that could define your date formats and things like that.
+
+185
+00:19:55,590 --> 00:19:57,630
+But it also defines sort orders.
+
+186
+00:19:57,630 --> 00:20:07,080
+And the Python locale module gives you the sterkel function, which allows you to compare two strings based on their locale specific store order.
+
+187
+00:20:07,080 --> 00:20:13,230
+And it also gives you an X Asterix form function, which given a string,
+
+188
+00:20:13,230 --> 00:20:19,950
+it'll convert it into another string such that just doing a normal lexical graphic code
+
+189
+00:20:19,950 --> 00:20:25,740
+point by code point comparison on the resulting strings will sort them in the correct order.
+
+190
+00:20:25,740 --> 00:20:27,870
+So if you're going to Sawtell, if you're going to sort a lot.
+
+191
+00:20:27,870 --> 00:20:35,990
+It can be useful to say make another column of your data frame that has the store X foreign versions of your strings and then use that as your source.
+
+192
+00:20:35,990 --> 00:20:39,270
+Keep one thing to be aware of, though, that when you're doing that,
+
+193
+00:20:39,270 --> 00:20:43,620
+your program is going to have different results based on look how in which it's running.
+
+194
+00:20:43,620 --> 00:20:50,270
+And so for reproducibility, you might need to specify a particular locale to run your program in.
+
+195
+00:20:50,270 --> 00:20:57,260
+So as I said earlier, there are some universal encodings that can encode all Unicode characters,
+
+196
+00:20:57,260 --> 00:21:02,000
+UTF eight is probably the most common, particularly for storing files on disk.
+
+197
+00:21:02,000 --> 00:21:05,360
+If you have a choice, store your files in UTF eight.
+
+198
+00:21:05,360 --> 00:21:15,780
+Could points tape between one and four bites, ASCII is valid UTF eight, because the code points in the range zero through one twenty seven.
+
+199
+00:21:15,780 --> 00:21:25,910
+Ah, in the. The code point number is the same as the ASCII number, and also they get stored in one bite and you and UTF eight.
+
+200
+00:21:25,910 --> 00:21:33,350
+So ASCII just is immediately UTF eight. Anything outside the ASCII range gets encoded in two to four bytes.
+
+201
+00:21:33,350 --> 00:21:44,090
+UTF 16 uses two bytes per basic character. And so any character ins or any character inside what's called the basic multilingual plane,
+
+202
+00:21:44,090 --> 00:21:51,230
+which covers most currently spoken human languages, doesn't include emoji or mathematical symbols.
+
+203
+00:21:51,230 --> 00:21:56,260
+It will use two bytes. Characters outside of it will use four bytes.
+
+204
+00:21:56,260 --> 00:22:03,190
+A couple notes in the UTF 16 encoding and requires you to know the bite order because some computing systems are what's called big endian,
+
+205
+00:22:03,190 --> 00:22:11,470
+where the the higher order byte comes before the lower order byte in memory and others are little endian where it's the other way around.
+
+206
+00:22:11,470 --> 00:22:14,470
+Intel processors work in little endian.
+
+207
+00:22:14,470 --> 00:22:26,100
+And so there's a charac there's a two character or two byte sequence that goes at the beginning of the file that marks its brightwater.
+
+208
+00:22:26,100 --> 00:22:33,480
+UTF eight. So UTF eight is a great default in general, and it's particularly a great default for English,
+
+209
+00:22:33,480 --> 00:22:38,460
+for European languages, because a lot of them will take one to two bytes.
+
+210
+00:22:38,460 --> 00:22:42,600
+But if you're storing text that's written in Chinese or Japanese.
+
+211
+00:22:42,600 --> 00:22:48,630
+Most of those characters are going to require three bytes and UTF eight, but only two bytes and UTF 16.
+
+212
+00:22:48,630 --> 00:22:55,140
+And so UTF 16 can be a more compact format for storing files, storing text in those languages.
+
+213
+00:22:55,140 --> 00:23:01,530
+Then there's UCSF four, which stores four bytes per character. It also requires a buy order and UCSC for it.
+
+214
+00:23:01,530 --> 00:23:07,920
+It's just it's the sequence of four byte. It's an array of thirty twos or you and thirty twos.
+
+215
+00:23:07,920 --> 00:23:15,420
+And each one just stores the code point directly. There is no special encodings.
+
+216
+00:23:15,420 --> 00:23:23,340
+Internally, what Python does is it stores strings in the most compact form it can from the following list.
+
+217
+00:23:23,340 --> 00:23:31,140
+If if the string is Latin valid, Latin one, it stores it with one in Latin, one with one byte per character.
+
+218
+00:23:31,140 --> 00:23:38,090
+Is that so if if it's code points are all in the range zero to 255. It will store it as Latin one with one bite per character.
+
+219
+00:23:38,090 --> 00:23:42,590
+If they aren't. But all of the characters in the string are in the basic multilingual plane.
+
+220
+00:23:42,590 --> 00:23:48,530
+Then it all stored in UCSC two, which is two bytes per character, but it can only store text in the BNP.
+
+221
+00:23:48,530 --> 00:23:52,110
+And if it's not, if it can't fit in UCSC too, then it stores it in use.
+
+222
+00:23:52,110 --> 00:23:57,140
+Yes. Four. So it's an array of in thirty twos. And no matter.
+
+223
+00:23:57,140 --> 00:24:04,220
+This is transparent to you as he is a python. When you're writing in Python, you do not see the difference in how it's stored.
+
+224
+00:24:04,220 --> 00:24:10,220
+Unless you go get the size of the object. Land is always going to return the number of code points you can get.
+
+225
+00:24:10,220 --> 00:24:13,700
+It's just storing it more in the most compact form it can.
+
+226
+00:24:13,700 --> 00:24:21,320
+If you're writing a C ext module, then you'll see the difference between the different storage formats of a strength.
+
+227
+00:24:21,320 --> 00:24:23,780
+Other systems, many of them use UTF 16.
+
+228
+00:24:23,780 --> 00:24:32,180
+So Java, JavaScript, Windows and Mac API as they natively use usually UTF 16 for legacy reasons are often treated as UCSC too.
+
+229
+00:24:32,180 --> 00:24:43,520
+So you see, S2 was used in the 90s when there were fewer than 64000 code points in Unicode and you could store them in just two bytes.
+
+230
+00:24:43,520 --> 00:24:51,560
+UTF 16. First for four characters in the book Basic Multilingual Plane.
+
+231
+00:24:51,560 --> 00:24:55,260
+There's no difference between UTF 16 and UCSD two, Usaia,
+
+232
+00:24:55,260 --> 00:25:04,080
+UTF 16 extends UCSC to with the ability to say this character uses an extra pair of bytes to encode the additional characters.
+
+233
+00:25:04,080 --> 00:25:08,280
+So if you ask Java or Java script to give you the length of a string,
+
+234
+00:25:08,280 --> 00:25:13,380
+it's actually going to give you the number of two byte pairs UTF sixteen code units,
+
+235
+00:25:13,380 --> 00:25:18,120
+which will be the length of the number of code points if everything's in the basic multilingual plane.
+
+236
+00:25:18,120 --> 00:25:23,220
+But as soon as you've emoji or mathematical symbols in your string, it's gonna be wrong.
+
+237
+00:25:23,220 --> 00:25:28,800
+Also, the char at function that gives you an individual code code point is going to give you the UTF 16
+
+238
+00:25:28,800 --> 00:25:36,150
+code unit if you need the actual code point for a character that's in the upper parts of Unicode.
+
+239
+00:25:36,150 --> 00:25:44,460
+You're gonna need another function. So all this said, when you get some text, there's first two first steps of processing your text.
+
+240
+00:25:44,460 --> 00:25:51,120
+The first is to decode the text and convert the bytes into text that you can then process in Unicode.
+
+241
+00:25:51,120 --> 00:25:55,380
+Then we may want to normalize the text to put it into a consistent form.
+
+242
+00:25:55,380 --> 00:25:59,250
+Unicode normal form is often useful. We might want to strip accents.
+
+243
+00:25:59,250 --> 00:26:07,140
+This is going to lose some meaning, but it can make. It can reduce distinctions between words in ways that can occasionally be useful for processing.
+
+244
+00:26:07,140 --> 00:26:12,900
+We might want the case for it so that our text is all lower case and we don't have to deal with
+
+245
+00:26:12,900 --> 00:26:18,760
+deal with mixed case text because we don't if we don't want to make distinctions between case.
+
+246
+00:26:18,760 --> 00:26:24,760
+Some points that you need, you need to remember when processing tax, and I've also linked to a reading that provide some additional material.
+
+247
+00:26:24,760 --> 00:26:27,940
+You always need to know what you're encoding is when you're getting text from the
+
+248
+00:26:27,940 --> 00:26:33,880
+outside world or you're writing text back out on a modern Mac or Linux system.
+
+249
+00:26:33,880 --> 00:26:37,960
+It's going to default to UTF eight on a Windows system.
+
+250
+00:26:37,960 --> 00:26:46,130
+It's still usually defaults to code page twelve fifty to. You need to decode bytes in order to get a text string, which is a sequence of code points.
+
+251
+00:26:46,130 --> 00:26:52,840
+But even once you have your code points, they don't necessarily map one to one with characters.
+
+252
+00:26:52,840 --> 00:27:01,460
+And the length of a string does not mean the printed number of characters because you can have combine hours and things that are going to.
+
+253
+00:27:01,460 --> 00:27:06,480
+You can have combiner that are going to make multiple bytes of us. One character that zero with Joyner doesn't show up,
+
+254
+00:27:06,480 --> 00:27:13,980
+etc. You can use normalization to improve the comparability of strings so that you say to normalize that.
+
+255
+00:27:13,980 --> 00:27:17,360
+So you always use combiner, you never use combine hours.
+
+256
+00:27:17,360 --> 00:27:26,570
+And then case folding is a tool that allows you to make strings comparable case insensitively by removing distinctions between upper and lower case.
+
+257
+00:27:26,570 --> 00:27:31,290
+You have to pay attention to Lukow as well. If you want to sort things correctly for your current human language,
+
+258
+00:27:31,290 --> 00:27:37,710
+you need to do so in a way that's based on the specific locale because different ones have different sorting roles.
+
+259
+00:27:37,710 --> 00:27:42,610
+If you have single byte encoding of text and it's not UTF eight, not all byte sequences are valid,
+
+260
+00:27:42,610 --> 00:27:47,670
+UTF eight, then Latin one is a common one and Latin one will always succeed.
+
+261
+00:27:47,670 --> 00:27:53,090
+If it's wrong, you're going to have some of your accents and other non English characters.
+
+262
+00:27:53,090 --> 00:27:56,460
+They will be incorrect. But if you're just trying to get it read in.
+
+263
+00:27:56,460 --> 00:28:01,920
+You can start looking at them Latin one is common. Unfortunately, there's not a you can look at it.
+
+264
+00:28:01,920 --> 00:28:07,050
+Try different encodings and get the one that gets you meaningful text and language.
+
+265
+00:28:07,050 --> 00:28:14,130
+But there's not a there's not a foolproof way to detect the encoding used for text.
+
+266
+00:28:14,130 --> 00:28:21,270
+So to wrap up string is not a simple data type. Text is encoded both for on disk storage and in memory processing.
+
+267
+00:28:21,270 --> 00:28:26,100
+You've got these multiple layers. We have characters. Characters are represented with code points.
+
+268
+00:28:26,100 --> 00:28:32,430
+Code points are encoded in the bytes. There's not the one to one relationships that we might think going up and down the stack,
+
+269
+00:28:32,430 --> 00:28:45,312
+but it enables us now to, in a very flexible fashion, represent a wide array of written human language.
+

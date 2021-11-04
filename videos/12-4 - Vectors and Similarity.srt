@@ -1,0 +1,272 @@
+1
+00:00:04,510 --> 00:00:09,850
+So now that we have some term vectors, what can we do with them learning outcomes for this video or for you to understand the
+
+2
+00:00:09,850 --> 00:00:14,590
+value of vector representations and instances and the compute similarities between vectors?
+
+3
+00:00:14,590 --> 00:00:18,790
+So we've talked about vectors from time to time throughout this course.
+
+4
+00:00:18,790 --> 00:00:25,830
+But. And you've probably seen you may have seen them in a linear algebra class or statistics class, but a vectors just an array of numbers.
+
+5
+00:00:25,830 --> 00:00:29,420
+Got a vector X that's got values X one, X, two, three, X.
+
+6
+00:00:29,420 --> 00:00:35,220
+Then we say that it has N dimensions. This can be the row or column of a matrix.
+
+7
+00:00:35,220 --> 00:00:42,380
+And we often then the length of the vector, the length of the vector is usually not as dimensionality, the length is usually the L2 norm.
+
+8
+00:00:42,380 --> 00:00:48,890
+The sum of the squares, the value of the vector we can think about.
+
+9
+00:00:48,890 --> 00:00:54,650
+So in instances, features form an array of form of vector, an array of values like the role of a data frame.
+
+10
+00:00:54,650 --> 00:00:58,040
+It's a vector. We can treat it as one. We could create the column as a vector.
+
+11
+00:00:58,040 --> 00:01:02,330
+But when we with the features you've been seeing so far on this, we standardize,
+
+12
+00:01:02,330 --> 00:01:07,970
+then the features often have different scales, different meanings, not necessarily meaningful to relate them to each other.
+
+13
+00:01:07,970 --> 00:01:17,000
+One of the things that's a little different about our about the vectors that we get out of tax is that they're more homogenous, like each.
+
+14
+00:01:17,000 --> 00:01:21,700
+Each dimension corresponds to a term. But they all mean the same kind of thing.
+
+15
+00:01:21,700 --> 00:01:26,190
+It's the number of times that term has been applied or the relevance of that term
+
+16
+00:01:26,190 --> 00:01:31,230
+to the document and the both the voelz heterogeneous and homogenous vectors.
+
+17
+00:01:31,230 --> 00:01:39,300
+They they record of that. They we can think of them as giving data points a position in some kind of a vector space.
+
+18
+00:01:39,300 --> 00:01:43,110
+So if we've got a two dimensional vector space here, we have vectors A and B,
+
+19
+00:01:43,110 --> 00:01:50,520
+we can think of them either as a point in space out here at the end of the arrow or as a line from origin to point.
+
+20
+00:01:50,520 --> 00:01:57,090
+So we've got a is at two, three and B is it for one using the standard X Y notation.
+
+21
+00:01:57,090 --> 00:02:04,260
+We can compute a variety of things. We can compute C, which is A minus B.
+
+22
+00:02:04,260 --> 00:02:12,330
+Which is a factor that would go from B to A. We can computer distance between them, which is the length of that vector, the Euclidean length.
+
+23
+00:02:12,330 --> 00:02:17,580
+And we call it would you that is the length because it's the it's the length of this arrow.
+
+24
+00:02:17,580 --> 00:02:23,490
+If Pythagorean it's a multidimensional generalization of Pythagoras, of the Pythagorean Theorem.
+
+25
+00:02:23,490 --> 00:02:26,490
+Because if you want the length of this arrow,
+
+26
+00:02:26,490 --> 00:02:38,690
+then you need to compute the square root to the sum of the squares of its two sides, which are four and one.
+
+27
+00:02:38,690 --> 00:02:44,540
+Square, the square, the Miach, some them take the square root and you're going to get square root of 17,
+
+28
+00:02:44,540 --> 00:02:48,770
+which is going to be the length of this vector, the length of that that arrow.
+
+29
+00:02:48,770 --> 00:02:54,850
+You can also compute what's called an inner product, which is the sum of the products of.
+
+30
+00:02:54,850 --> 00:02:58,940
+So two vectors have the same dimensionality. They're both n dimensional vectors.
+
+31
+00:02:58,940 --> 00:03:05,390
+If you go across the dimensions and you multiply the vectors values for them and you sum up all of that, then you get what's called the DOT product.
+
+32
+00:03:05,390 --> 00:03:13,740
+So for these particular vectors, it's going to be two times four plus three times one, which is going to be you leavens.
+
+33
+00:03:13,740 --> 00:03:22,090
+The inner product of these two vectors is 11. You can also think about the angle between them so they have an angle theta.
+
+34
+00:03:22,090 --> 00:03:27,010
+And you can often, in terms of what we do at that angle is we compute its cosine.
+
+35
+00:03:27,010 --> 00:03:31,030
+We want to get the angle itself. We can compute the arc cosine of this cosine.
+
+36
+00:03:31,030 --> 00:03:37,720
+But the coast between two vectors is their inner product divided by the product of their lengths.
+
+37
+00:03:37,720 --> 00:03:48,950
+And so it would be that eleven divided by Route 17 and the other A has a length of the square root.
+
+38
+00:03:48,950 --> 00:03:58,740
+Of four plus nine, which is 13. So that's going to be the angle between these two vectors, this angle is a common measure of object similarity,
+
+39
+00:03:58,740 --> 00:04:01,110
+and we aren't we could do this with any kind of a vector.
+
+40
+00:04:01,110 --> 00:04:05,460
+It just happens to be especially useful for these kinds of homogenous vectors, like text vector.
+
+41
+00:04:05,460 --> 00:04:10,020
+You can do it for any you can at any data point. You can computer cosine similarity between them.
+
+42
+00:04:10,020 --> 00:04:17,040
+If you've got vector representation, it looks at how related are to vectors and it has a useful relationship with the the two
+
+43
+00:04:17,040 --> 00:04:22,350
+vectors are have a mean of zero then it's equivalent to the Peerson correlation between them.
+
+44
+00:04:22,350 --> 00:04:28,750
+It's very common though to do this with TFI D.F. vectors and a T.F. idea vector is.
+
+45
+00:04:28,750 --> 00:04:33,550
+It's going to always have a value of it.
+
+46
+00:04:33,550 --> 00:04:38,860
+It's always going to be a positive values. They're all in that upper right quadrant. But it lets you compare.
+
+47
+00:04:38,860 --> 00:04:42,490
+It gives you a measure of some very common similarity measure between documents.
+
+48
+00:04:42,490 --> 00:04:48,180
+You can also take the distance between the two documents and the vector spaces, the relationship between them.
+
+49
+00:04:48,180 --> 00:04:49,590
+A couple of useful tricks first.
+
+50
+00:04:49,590 --> 00:04:55,980
+If the two vectors are unit vectors, then the inner product is the cosine because both of the length is a length of one.
+
+51
+00:04:55,980 --> 00:05:03,660
+The denominator is one times once. You can just compute an inner product. This is one reason that normalizing TFT effectors to unit vectors is useful.
+
+52
+00:05:03,660 --> 00:05:07,500
+And oftentimes, if we're gonna do something that's going to compute cosine similarities,
+
+53
+00:05:07,500 --> 00:05:11,810
+we normalize the unit vectors first, then we get these very efficient, cosine similarity.
+
+54
+00:05:11,810 --> 00:05:18,210
+Because you just have to compute the inner product between vectors. This is also a useful reason why it's interest.
+
+55
+00:05:18,210 --> 00:05:29,550
+It's useful to normal sometimes to normalize a set of feature values, for instance, to a unit vector unit vector normalization that we talked about.
+
+56
+00:05:29,550 --> 00:05:37,440
+Transformations in normalizations unit vector normalization is almost never something we want to do to a column in one of our data frames.
+
+57
+00:05:37,440 --> 00:05:44,070
+We only want to do it within a row that the feature values of a particular instance, either all of them or some subset of them.
+
+58
+00:05:44,070 --> 00:05:48,690
+If we have a matrix whose rows are all unit vectors, then we can compete.
+
+59
+00:05:48,690 --> 00:05:56,640
+We can use a matrix multiplication to compute the pairwise similarities between all rows of M and a very optimized fashion.
+
+60
+00:05:56,640 --> 00:06:00,090
+We start talking. We're thinking about how you really.
+
+61
+00:06:00,090 --> 00:06:10,710
+Lean hard into vectorized and computations, being able to use a matrix matrix, multiply two to compute a large number of similarities at one go.
+
+62
+00:06:10,710 --> 00:06:14,670
+It's a very good example of that kind of that kind of thinking.
+
+63
+00:06:14,670 --> 00:06:22,210
+And Sipi provides sparse matrix representations to a super, super useful for that view account vectorized or TFI de'ath vectorized.
+
+64
+00:06:22,210 --> 00:06:27,660
+Or you're going to get a sci fi sparse matrix out that it doesn't spend space storing all the zeroes.
+
+65
+00:06:27,660 --> 00:06:33,720
+So to conclude, vector representations allow us to do a lot of useful computations.
+
+66
+00:06:33,720 --> 00:06:43,260
+And one of those is that we can compute the similarity between two documents by taking the cosine between their vectors, their TFI, D.F. of vectors.
+
+67
+00:06:43,260 --> 00:06:50,070
+And this gives us a powerful mudgett. We can compute similarity or distance or difference between documents by using their bag of words.
+
+68
+00:06:50,070 --> 00:06:58,911
+Term frequency renormalize term frequency remembering.
+

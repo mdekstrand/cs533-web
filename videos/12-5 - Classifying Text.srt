@@ -1,0 +1,236 @@
+1
+00:00:04,600 --> 00:00:07,480
+This video, we're going to talk about how to classify text,
+
+2
+00:00:07,480 --> 00:00:14,800
+so learning outcomes are to be able to use vector space representations to classify text and also to classify in a more than two classes.
+
+3
+00:00:14,800 --> 00:00:20,110
+So there's a lot of various reasons you might want to classify text. You might want to distinguish between spam and not spam.
+
+4
+00:00:20,110 --> 00:00:25,510
+We might want to identify news categories. You're going to be doing that in the end.
+
+5
+00:00:25,510 --> 00:00:29,980
+The assignment might want to say separate news from opinion or identify fraud or
+
+6
+00:00:29,980 --> 00:00:34,810
+a lot of other reasons why we might want to classify texts into different kinds.
+
+7
+00:00:34,810 --> 00:00:41,170
+And we're going to be using for this process as our input term vectors. There's been work lately on using more sophisticated representations.
+
+8
+00:00:41,170 --> 00:00:48,910
+But we're going to start just with using our term vectors. So really simple way to do it is to use what's called a K nearest neighbor, a classifier.
+
+9
+00:00:48,910 --> 00:00:54,890
+And what what it does is it finds the K nearest neighbors to a data point that are closest to the vector space.
+
+10
+00:00:54,890 --> 00:01:01,680
+So if we've got some vector space and we have some data points.
+
+11
+00:01:01,680 --> 00:01:10,480
+And we maybe have some data points of another class. And we've got one that comes in and we want to classify it.
+
+12
+00:01:10,480 --> 00:01:18,070
+Let's say it's here, what it's going to do is it's going to go find the closest data points.
+
+13
+00:01:18,070 --> 00:01:24,580
+Maybe it'll be these three and it's going to take a little vote. And inside this green circle, it's a little hard to see.
+
+14
+00:01:24,580 --> 00:01:29,830
+But two of them are purple and one of them is red. So it's going to the vote is going to be purple.
+
+15
+00:01:29,830 --> 00:01:33,520
+This is K is three, three years neighbors. Two of them were purple. One is red.
+
+16
+00:01:33,520 --> 00:01:39,460
+And two, it's going to classify our new data point as purple. He uses some metric.
+
+17
+00:01:39,460 --> 00:01:44,350
+Often this metric is the Euclidean distance between the two vectors.
+
+18
+00:01:44,350 --> 00:01:49,330
+And it also easily extends to more than two classes because you can have three, four or five classes.
+
+19
+00:01:49,330 --> 00:01:56,090
+You can see what the most common class is in your neighborhood. This works fine with TFI, D.F. vectors.
+
+20
+00:01:56,090 --> 00:02:01,840
+So you can you can use the TFT effect. Dreiser this. The psychic K neighbors classifier and you can get.
+
+21
+00:02:01,840 --> 00:02:11,690
+But don't put those two things in a pipeline and you get a working classifier that can work well on a variety of tasks.
+
+22
+00:02:11,690 --> 00:02:16,180
+That uses the term vectors extract from your text in order to do classification.
+
+23
+00:02:16,180 --> 00:02:21,040
+Another way is to use what's called a naive Bayes classifier, where here the goal is.
+
+24
+00:02:21,040 --> 00:02:30,600
+It tries to estimate the probability in this case, as is spam, the probability of spam given a particular documents text.
+
+25
+00:02:30,600 --> 00:02:39,750
+And the way that you and we can use Bayes Theorem to say if we have the probability of a dock of a particular document given tax,
+
+26
+00:02:39,750 --> 00:02:45,840
+the probability that if we said, oh, we want to make a spam, what would these words appear in it?
+
+27
+00:02:45,840 --> 00:02:51,930
+And the probability of making a spam. And we can divide that then by normalizing constant.
+
+28
+00:02:51,930 --> 00:02:58,870
+We can compute the probability of spam given a document. And there's a couple of things that go into this.
+
+29
+00:02:58,870 --> 00:03:03,730
+First, we have data. We have a bunch of documents that we can learn what how terms relate to spam.
+
+30
+00:03:03,730 --> 00:03:10,270
+And second, we make what's called the naive Bayes assumption, which assumes that terms are independent of each other.
+
+31
+00:03:10,270 --> 00:03:18,700
+This assumption is false. But this assumption is very useful because it makes it very computationally simple way to do the classification.
+
+32
+00:03:18,700 --> 00:03:21,550
+That also happens to work remarkably well.
+
+33
+00:03:21,550 --> 00:03:30,670
+And so then I leave base assumption is that if I say I'm going to write a spam and then my spam, I say Apple.
+
+34
+00:03:30,670 --> 00:03:36,940
+The next word I use is the frequency of any other word occurring as independent of that.
+
+35
+00:03:36,940 --> 00:03:47,540
+It's the fact that you saw that I said Apple in my spam has no influence on the probability that I am going to say cash in my spam.
+
+36
+00:03:47,540 --> 00:03:57,710
+And so since they're independent, we can take the product over the terms and the document of the probability of each term given spam.
+
+37
+00:03:57,710 --> 00:04:02,930
+And so what we do is we have four spam. We have a probability distribution over terms for not spam.
+
+38
+00:04:02,930 --> 00:04:05,330
+Well, the probability distribution over terms,
+
+39
+00:04:05,330 --> 00:04:17,750
+we can learn those probability distributions from labeled data just by counting how common each term is and spams and not spammers.
+
+40
+00:04:17,750 --> 00:04:23,710
+So how are words we ever span's you are not spams are labeled as count how often his term appears in each one,
+
+41
+00:04:23,710 --> 00:04:28,270
+we use that to derive a probability of using that term.
+
+42
+00:04:28,270 --> 00:04:32,680
+If I'm going to write a spam, if I'm going to write a non spam email, so we do that,
+
+43
+00:04:32,680 --> 00:04:36,370
+we learned our prior we either we can either set it to even or we can learn it from the data.
+
+44
+00:04:36,370 --> 00:04:40,260
+This is called sometimes empirical Bayes psychic learns it from the default.
+
+45
+00:04:40,260 --> 00:04:45,460
+So if if 70 percent of our emails are spam, then the probability of spam will be point seven.
+
+46
+00:04:45,460 --> 00:04:50,990
+The probability of not spam will be point three. It does that automatically.
+
+47
+00:04:50,990 --> 00:04:55,120
+And then given a new document, we compute this probability of spam.
+
+48
+00:04:55,120 --> 00:05:03,100
+We also compute the probability of not spam.
+
+49
+00:05:03,100 --> 00:05:16,130
+And did we use our prior we use the term probabilities from the data, we can compute the normalizing function by by computing these two probabilities.
+
+50
+00:05:16,130 --> 00:05:19,100
+This works well with not you don't want to do TFI D.F. before this,
+
+51
+00:05:19,100 --> 00:05:24,020
+you can do it and it mostly works, but to really compute the probabilities, trillion.
+
+52
+00:05:24,020 --> 00:05:29,510
+It's going to work on your term. Your term.
+
+53
+00:05:29,510 --> 00:05:33,050
+You're just your term frequency vectors. How often the word appears.
+
+54
+00:05:33,050 --> 00:05:38,250
+And it's going to naturally learn which words are more useful for distinguishing between spam and not spam.
+
+55
+00:05:38,250 --> 00:05:42,880
+Psychic learn implements this in the multinomial and the classifier class.
+
+56
+00:05:42,880 --> 00:05:50,480
+So Tarapur, both CNN and Naive Bayes can predict multiple classes from vector data such as term frequency vectors from text.
+
+57
+00:05:50,480 --> 00:05:54,500
+If you want to do multiple class accuracy, it's the same as binary accuracy.
+
+58
+00:05:54,500 --> 00:05:57,500
+It's just the net, the fraction, the time it was correct.
+
+59
+00:05:57,500 --> 00:06:09,801
+The spam filter example notebook demonstrates naive Bayes with the count vector Isar that we've been talking about.
+

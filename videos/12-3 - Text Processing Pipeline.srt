@@ -1,0 +1,704 @@
+1
+00:00:04,750 --> 00:00:08,290
+This video, we're going to talk about more of the text processing pipeline,
+
+2
+00:00:08,290 --> 00:00:17,730
+how do we actually get from tax that we've decoded into features and vectors that we can use in order to do computation?
+
+3
+00:00:17,730 --> 00:00:23,850
+So learning outcomes for this video feed understand the different stages of text processing and to be able to extract a
+
+4
+00:00:23,850 --> 00:00:30,750
+vector representation from text and also know some of the things that are possible beyond what we will discuss in class.
+
+5
+00:00:30,750 --> 00:00:37,590
+So we've got our input, a sentence that we saw in the previous video. Someone must have slandered Joseph K and we output.
+
+6
+00:00:37,590 --> 00:00:45,030
+We want to we maybe want to get some features from it as vectors, maybe want to get scores, decisions for some process.
+
+7
+00:00:45,030 --> 00:00:48,840
+So first, before we get into how to do that, I want to define a few terms.
+
+8
+00:00:48,840 --> 00:00:59,940
+A corpus is a set of textual data that to analyze and a document is a single document within the corpus of a corpus and it's made off of documents.
+
+9
+00:00:59,940 --> 00:01:04,740
+So the example that I give you is a spam filter example.
+
+10
+00:01:04,740 --> 00:01:12,240
+Our corpus is a bunch of emails. Each email is a document and then a term is a single word within a document.
+
+11
+00:01:12,240 --> 00:01:18,300
+We can think of the set of all terms is the vocabulary of of the corpus.
+
+12
+00:01:18,300 --> 00:01:23,670
+So we first want to decode a normalized text, as we talked about, in the encoding and decoding video.
+
+13
+00:01:23,670 --> 00:01:28,770
+Then we want to tokenized it or split it into individual words. We want to do some filtering on those tokens.
+
+14
+00:01:28,770 --> 00:01:34,140
+We want might want to further process them and into some kind of a normal form.
+
+15
+00:01:34,140 --> 00:01:38,310
+Then convert these the sequence of tokens, the output of that stops a sequence of tokens.
+
+16
+00:01:38,310 --> 00:01:44,560
+We want to convert it into a vector that we then may also further normalize and we can use for various types of processing.
+
+17
+00:01:44,560 --> 00:01:50,370
+So that's the pipeline. We're gonna be talking through previous video talking about decoding a normalization.
+
+18
+00:01:50,370 --> 00:01:55,710
+Sometimes we might delay some of the normalization until after tokenization. Oftentimes we'll do it first.
+
+19
+00:01:55,710 --> 00:02:00,480
+So that we've got we've got the code, the text decoded, the code points.
+
+20
+00:02:00,480 --> 00:02:05,730
+We've put them in a normal form. We've maybe lowercase everything or case full of everything.
+
+21
+00:02:05,730 --> 00:02:08,940
+We might even have stripped accents at that process as well.
+
+22
+00:02:08,940 --> 00:02:15,450
+And then the input, the output of that is the sequence of normalized text that's ready to be tokenized and so on.
+
+23
+00:02:15,450 --> 00:02:19,980
+Tokenization where we want to do is we want to split text into individual tokens.
+
+24
+00:02:19,980 --> 00:02:23,460
+And these tokens often are words. So we want to grab the words.
+
+25
+00:02:23,460 --> 00:02:29,910
+Someone must have slandered Josef K.
+
+26
+00:02:29,910 --> 00:02:33,240
+And so Sacket learns default.
+
+27
+00:02:33,240 --> 00:02:44,050
+Tolkan Isar uses a sequence of alphanumeric characters that actually use it requires there to be at least two so it will not extract K as a token.
+
+28
+00:02:44,050 --> 00:02:50,400
+But but we split this text into individual tokens and still at a sequence of tokens.
+
+29
+00:02:50,400 --> 00:02:54,460
+But this becomes the basis basically for any further analysis.
+
+30
+00:02:54,460 --> 00:03:04,480
+The next thing we do is we might want to remove stop words and so common utility words like and or or are often not useful depending on the task.
+
+31
+00:03:04,480 --> 00:03:10,090
+If you're trying to do an information retrieval task or you're searching for text finding documents that include the word,
+
+32
+00:03:10,090 --> 00:03:20,320
+and it's probably not useful because almost every documents going to include the word and or or but or if you want to do document classification,
+
+33
+00:03:20,320 --> 00:03:25,370
+the vast majority of your documents are going to have these words. So they're not very useful for.
+
+34
+00:03:25,370 --> 00:03:29,750
+Distinguishing between one class of documents and another.
+
+35
+00:03:29,750 --> 00:03:36,860
+So we can remove them either with a list of stop words, Saikat learn includes a list of stop words or by using a frequency based analysis.
+
+36
+00:03:36,860 --> 00:03:42,080
+So we remove the words that appear the most often.
+
+37
+00:03:42,080 --> 00:03:47,330
+Whether or not you do this depends on task and it also depends on the other analysis you're going to do.
+
+38
+00:03:47,330 --> 00:03:55,130
+If you're going to be doing an analysis that drink that recovers sentence structure, then you need these words.
+
+39
+00:03:55,130 --> 00:04:02,590
+If your. If you're but if you're doing information retrieval, you may well not need them if you're doing classification.
+
+40
+00:04:02,590 --> 00:04:08,130
+They're often not useful for a classification task and so they're worth removing.
+
+41
+00:04:08,130 --> 00:04:13,410
+Then after we've leave tokenized, we might have removed our stop words. Then we'll do something called we might.
+
+42
+00:04:13,410 --> 00:04:19,200
+I'll get it again. Whether or not you do this depends on task. But you can do something called stemming or limitation.
+
+43
+00:04:19,200 --> 00:04:24,990
+And the idea here is that words have multiple forms in English. Change changes, change changing.
+
+44
+00:04:24,990 --> 00:04:29,100
+These are different forms of the same word. They're different tenses of the same verb.
+
+45
+00:04:29,100 --> 00:04:37,320
+And so but if for some purposes, especially search purposes, a lot of this pipeline has its origins in search.
+
+46
+00:04:37,320 --> 00:04:43,770
+But then it's used for a lot of other purposes as well. There's no difference if you want to search for change in the corpus.
+
+47
+00:04:43,770 --> 00:04:49,030
+You probably want to find documents. It's a changed or changing.
+
+48
+00:04:49,030 --> 00:04:54,940
+And so there's two ways of doing this stemming is a relatively simple technique that transforms words into common stems.
+
+49
+00:04:54,940 --> 00:05:05,230
+The result is not necessarily a word like a stemming algorithm may well change all of these forms of the word change in CNG.
+
+50
+00:05:05,230 --> 00:05:10,930
+But the what the stemming does give you is that different forms of the same word are going to go to the same steps.
+
+51
+00:05:10,930 --> 00:05:16,750
+So if you stem all of the word that all of the different forms are going to result in identical tokens in ink for English,
+
+52
+00:05:16,750 --> 00:05:21,640
+snowball is a common stemming algorithm. Saikat learned does not provide you with any stemming or limitation.
+
+53
+00:05:21,640 --> 00:05:27,670
+To do that, you're going to need to go to another package, limits zation, accomplishes a similar purpose,
+
+54
+00:05:27,670 --> 00:05:34,810
+but it transforms words actually in what's called Alema form, which is an actual word, and it's the root form of the word.
+
+55
+00:05:34,810 --> 00:05:42,790
+And so these will all become change most likely in your lamma Tizer limited zation is more computationally intensive.
+
+56
+00:05:42,790 --> 00:05:48,490
+But the upside of limitation is it gives you actual words rather than these stems.
+
+57
+00:05:48,490 --> 00:05:53,980
+So once we've got our tokens, we've we've dropped the ones we don't want to use.
+
+58
+00:05:53,980 --> 00:05:59,050
+We've stemmed or DeMatteis, if we if that's appropriate for our task, we then want to vectorized that.
+
+59
+00:05:59,050 --> 00:06:03,310
+We want to create what's called a tom vector or a term frequency vector.
+
+60
+00:06:03,310 --> 00:06:12,490
+And this vector has one dimension for every term in the entire vocabulary, and its values are the number of times the term appears in the document.
+
+61
+00:06:12,490 --> 00:06:17,960
+So. And our example tax, someone must have slandered Joseph Kay.
+
+62
+00:06:17,960 --> 00:06:24,530
+We're gonna have a one for someone, one for mosta, one for have a one for slandered, one for Joseph.
+
+63
+00:06:24,530 --> 00:06:28,380
+It's also so sparse because each doctor is probably only going to use a fraction of the terms,
+
+64
+00:06:28,380 --> 00:06:32,690
+and so we'll use a sparse representation that doesn't actually store all of the zeroes.
+
+65
+00:06:32,690 --> 00:06:40,290
+But mathematically, this vector has an entry for every term. And if a term never appears in the document, it gets a zero.
+
+66
+00:06:40,290 --> 00:06:51,030
+So in psych, it provides a class called the Count Vector Ricer, which gets us to this stage.
+
+67
+00:06:51,030 --> 00:06:55,120
+It tokenized this text. It can do transformation. It can do lowercase.
+
+68
+00:06:55,120 --> 00:07:01,410
+And it can decode your Unicode if necessary. Erica, decode into Unicode if necessary.
+
+69
+00:07:01,410 --> 00:07:05,760
+The fit method learns the vocabulary and transforms transform turns.
+
+70
+00:07:05,760 --> 00:07:12,240
+An array of tax sets a one dimensional ray. Each element is a text string into a sparse matrix that looks like this.
+
+71
+00:07:12,240 --> 00:07:17,520
+This is called a Tom Doc or a document term matrix we have on the Y axis.
+
+72
+00:07:17,520 --> 00:07:24,940
+We have documents and on the columns, the different columns are terms.
+
+73
+00:07:24,940 --> 00:07:31,000
+And it's not recording the zeroes, the empties here are zeros and the term one document one is term one five times term three,
+
+74
+00:07:31,000 --> 00:07:35,470
+two times in term for its term for three times.
+
+75
+00:07:35,470 --> 00:07:39,030
+And so you get this transform. You get this. The sparse matrix.
+
+76
+00:07:39,030 --> 00:07:47,280
+And now for each documents a row and each column is a word. Basically now our words are features and their values are how frequently they appear.
+
+77
+00:07:47,280 --> 00:07:52,150
+So when our pipeline. Here's what Count Vectorized can do for you decode lower case.
+
+78
+00:07:52,150 --> 00:07:56,800
+It can strip accents if you tell it to strip accents, it's also going to normalize your Unicode.
+
+79
+00:07:56,800 --> 00:08:01,580
+It can then tokenized. It then tokenized is your tax.
+
+80
+00:08:01,580 --> 00:08:08,900
+It's default tokenization strategy is it treats any sequence of two or more alphanumeric characters as a word.
+
+81
+00:08:08,900 --> 00:08:14,120
+And then once it's tokenized it vectorized is and you get back these values that are the term frequency's,
+
+82
+00:08:14,120 --> 00:08:20,180
+how often did the word appear in each document? This is what count vector rhetoric gives you super useful.
+
+83
+00:08:20,180 --> 00:08:25,360
+You're going to use it as the basis for some of your processing in the assignment.
+
+84
+00:08:25,360 --> 00:08:29,500
+Now, there are a few problems for some purposes for using raw term frequency.
+
+85
+00:08:29,500 --> 00:08:37,900
+The first is that all words are equally important. If the word have appears tens times and the word hippopotamus appears 10 times.
+
+86
+00:08:37,900 --> 00:08:42,490
+It makes no distinction, even though if you're trying for a lot of purposes,
+
+87
+00:08:42,490 --> 00:08:47,470
+the fact that a document says hippopotamus, which is a far less common word,
+
+88
+00:08:47,470 --> 00:08:55,300
+is probably more meaningful for distinguishing it from other documents than the fact that it has half almost every document has have in it.
+
+89
+00:08:55,300 --> 00:09:00,520
+And so this is a solution. There's two pieces of the solution. One is we wait words differently.
+
+90
+00:09:00,520 --> 00:09:04,630
+We're going to give uncommon words, words that don't appear in very many documents.
+
+91
+00:09:04,630 --> 00:09:13,810
+Higher weight. And this is this winds up being broadly useful because if you're trying to retrieve a document,
+
+92
+00:09:13,810 --> 00:09:18,880
+the words that are more unique to that document are probably more useful for trying to retrieve it.
+
+93
+00:09:18,880 --> 00:09:25,750
+If we're trying to classify a document, the words that are more unique are probably also going to be more useful for dividing
+
+94
+00:09:25,750 --> 00:09:30,280
+distinguishing between one class of documents for another than another example,
+
+95
+00:09:30,280 --> 00:09:41,350
+if you're trying to. If you have a collection of of scientific reports and you're trying to distinguish between zoology and botany,
+
+96
+00:09:41,350 --> 00:09:46,090
+the word have is probably not useful because both classes of documents probably have it,
+
+97
+00:09:46,090 --> 00:09:53,290
+whereas hippopotamus is probably much more common in zoology documents than in a botany document.
+
+98
+00:09:53,290 --> 00:09:56,620
+So the other thing that we're going to do is we're going to normalize these
+
+99
+00:09:56,620 --> 00:10:01,280
+vectors so that rather than just using an absolute counts in a longer document,
+
+100
+00:10:01,280 --> 00:10:08,230
+it just has higher values everywhere. We're going to normalize it so that every documents vector has the same magnitude.
+
+101
+00:10:08,230 --> 00:10:15,220
+And this is going to mean long documents don't have substantially higher values than short documents just on the virtue of their length.
+
+102
+00:10:15,220 --> 00:10:23,050
+Which makes it easier to compare documents. So the first part of it waiting more waiting,
+
+103
+00:10:23,050 --> 00:10:29,230
+giving more weight to less common words is done through something called term frequency, inverse document frequency.
+
+104
+00:10:29,230 --> 00:10:36,600
+And the idea here is that we compute a feature value by multiplying the term frequency t.f.
+
+105
+00:10:36,600 --> 00:10:40,940
+By the inverse of the document frequency D.F.
+
+106
+00:10:40,940 --> 00:10:53,020
+And we take it the way we compute, the way Saikat learn computes the inverse document frequency is if we have N and that's the number of documents.
+
+107
+00:10:53,020 --> 00:10:58,270
+We take the log of the number of documents divided by the number of documents
+
+108
+00:10:58,270 --> 00:11:03,660
+with the terms of D.F. is the number of documents that have the term tea. And is the total number.
+
+109
+00:11:03,660 --> 00:11:09,950
+So. And it's the inverse. So rather than saying D.F. over D.F. of tea over N,
+
+110
+00:11:09,950 --> 00:11:14,440
+which would be the fraction of documents that have the term, we do take the inverse of that fraction.
+
+111
+00:11:14,440 --> 00:11:22,720
+And over D.F. of tea, we take the log Saikat learn add some ones to both the numerator and the denominator in order to prevent.
+
+112
+00:11:22,720 --> 00:11:28,570
+If you've got a term that doesn't appear in any of the documents which the Count Vectorized isn't going to give you one of
+
+113
+00:11:28,570 --> 00:11:35,020
+those terms because the vocabulary just doesn't have words not going to be in the vocabulary if it's not in the document.
+
+114
+00:11:35,020 --> 00:11:39,580
+But in some other cases, we have a vocabulary that comes from somewhere else. You might adding a one.
+
+115
+00:11:39,580 --> 00:11:45,540
+Just make sure you never have division by zero and you're never trying to take a log of zero.
+
+116
+00:11:45,540 --> 00:11:51,660
+Other common ones are you're gonna take the log of an over one plus D.F. of T so
+
+117
+00:11:51,660 --> 00:11:56,250
+that you just have the one plus in the denominator and not in the numerator.
+
+118
+00:11:56,250 --> 00:12:00,630
+That little change is not going to make a significant difference in terms of performance.
+
+119
+00:12:00,630 --> 00:12:07,370
+It's a subtle difference in how it's implemented, but it's not going to make a significant computational difference.
+
+120
+00:12:07,370 --> 00:12:13,760
+But what this does is a document that appears, if you think about what you have to do to make the value go up.
+
+121
+00:12:13,760 --> 00:12:20,140
+The document appears more frequently. You can increase the value by having the document appear more frequently in the terms of increased T.F.
+
+122
+00:12:20,140 --> 00:12:26,240
+That'll go up. You can also increase the the value, the TFI D.F. value, which we're calling X.
+
+123
+00:12:26,240 --> 00:12:33,490
+You can increase that by having the document appear determined here in you were documents.
+
+124
+00:12:33,490 --> 00:12:37,450
+So the more documents it appears in, the closer this is the one where it has,
+
+125
+00:12:37,450 --> 00:12:41,380
+if it's if it doesn't appear in very many documents, it's going to be a large number.
+
+126
+00:12:41,380 --> 00:12:46,200
+Say a million over 50 or a million. Over five hundred.
+
+127
+00:12:46,200 --> 00:12:53,140
+The log of that's going to be high and you can have a much higher TFI D.F. value if the term does not appear in very many documents.
+
+128
+00:12:53,140 --> 00:13:00,580
+And that reflects that if the term is more unique to this document than it's more useful for distinguishing this document from other documents.
+
+129
+00:13:00,580 --> 00:13:09,190
+That's the key insight here. Less common words are more useful for describing what makes this document different from other documents.
+
+130
+00:13:09,190 --> 00:13:14,710
+And if two documents have the same eyes, have the same uncommon words.
+
+131
+00:13:14,710 --> 00:13:19,360
+That's really useful for saying they're probably similar if they have the same words.
+
+132
+00:13:19,360 --> 00:13:24,130
+But those words are super common, that the documents are probably not very similar.
+
+133
+00:13:24,130 --> 00:13:28,720
+So we then normalize our TFI D.F. vector to be what's called a unit vector.
+
+134
+00:13:28,720 --> 00:13:33,730
+And what this means is we just divide the vector by its L2 norm.
+
+135
+00:13:33,730 --> 00:13:39,460
+If you use the T.F. IDF Vector Isar instead of the Count Vectorized and Saikat, it's going to do everything to count vectorized.
+
+136
+00:13:39,460 --> 00:13:45,670
+It does. And then it's going to apply T.F. IDF and it's going to normalize them, the unit vectors by the default.
+
+137
+00:13:45,670 --> 00:13:52,180
+You can change some of that, like have it not in do the L2 normalization, but use the TFI the effector.
+
+138
+00:13:52,180 --> 00:13:55,820
+It's going to give you unit vectors that apply. They use TFI,
+
+139
+00:13:55,820 --> 00:14:03,250
+D.F. adjustment to down wait common terms and give you these factors that are useful too for
+
+140
+00:14:03,250 --> 00:14:11,110
+for characterizing documents in terms of how frequently they use relatively uncommon words.
+
+141
+00:14:11,110 --> 00:14:14,890
+So now we have our whole text processing pipeline for getting to a term vector.
+
+142
+00:14:14,890 --> 00:14:23,390
+We decode normalize. We tokenized. We remove, stop words. We may do some other token filtering as well, like throw out numbers or something.
+
+143
+00:14:23,390 --> 00:14:29,030
+You can stammer lemon ties. So both of stopwork removal and the stemming and limitation are optional.
+
+144
+00:14:29,030 --> 00:14:33,350
+You don't have to do them. You can. This is the template for the pipeline.
+
+145
+00:14:33,350 --> 00:14:38,970
+Different applications and different tasks is going to use different steps of this of this pipeline.
+
+146
+00:14:38,970 --> 00:14:45,450
+Then we vectorized the text and we normalized our resulting vectors that we get these nice vector representations of a document.
+
+147
+00:14:45,450 --> 00:14:51,810
+The result is each document gets this vector that assigns scores to terms for their relevance to that document.
+
+148
+00:14:51,810 --> 00:14:55,830
+And this this is a very high dimensional vector.
+
+149
+00:14:55,830 --> 00:15:02,760
+Ten thousand hundred thousand dimensions. So if you stick into a linear model, that's a large number of coefficients.
+
+150
+00:15:02,760 --> 00:15:10,710
+But it gives you this vector representation of the resulting text that we can then use for additional tasks processing,
+
+151
+00:15:10,710 --> 00:15:18,570
+classifying, clustering, etc. our text. So a few alternatives to some of the design decision for some of the pieces of this pipeline.
+
+152
+00:15:18,570 --> 00:15:22,850
+First, we can we don't have to tokenized the words. We can tokenized into what's called an end.
+
+153
+00:15:22,850 --> 00:15:30,390
+Gramp's such as a Bigram or a Trigram. And what they are. There are sequences that were so a bigram as pairs of words that appear next to each other.
+
+154
+00:15:30,390 --> 00:15:33,450
+You can also do character level bigram. So it's pairs of characters.
+
+155
+00:15:33,450 --> 00:15:37,740
+You can also do what's called a skip gram, which pairs of characters that appear in proximity.
+
+156
+00:15:37,740 --> 00:15:40,080
+But there might be another word between them.
+
+157
+00:15:40,080 --> 00:15:45,060
+You can also do sentence level analysis rather than just splitting into words and putting the words into a vector,
+
+158
+00:15:45,060 --> 00:15:46,960
+which is called bag of work, by the well way.
+
+159
+00:15:46,960 --> 00:15:52,140
+It's called a bag of words model because you just take the document, we throw it all the words into a bag.
+
+160
+00:15:52,140 --> 00:15:57,660
+We don't have the relationships anymore. We can split it not only in the words, but in the sentences.
+
+161
+00:15:57,660 --> 00:16:02,700
+We can tag words by parts of speech. We can look at analyze relationships between words.
+
+162
+00:16:02,700 --> 00:16:06,960
+Various natural language processing toolkits give you tools for doing that.
+
+163
+00:16:06,960 --> 00:16:11,850
+Stanford MLP is one that gives you the ability to do those word relationships.
+
+164
+00:16:11,850 --> 00:16:18,210
+Currently, there's a lot of work in an AP Natura. So A.P. natural language processing is the field for studying this.
+
+165
+00:16:18,210 --> 00:16:26,780
+If you want to learn a lot more about this processing pipeline and things you can do with text the classes you want to take out an LP and I are.
+
+166
+00:16:26,780 --> 00:16:35,820
+Information retrieval. Transformer architectures are deep neural networks that can deal with sequences of words.
+
+167
+00:16:35,820 --> 00:16:40,230
+They have significant power for modeling how language works and modeling.
+
+168
+00:16:40,230 --> 00:16:46,260
+What's going on in text. But that comes with significant processing cost.
+
+169
+00:16:46,260 --> 00:16:52,950
+The Python package and K gives you a lot of tools. It doesn't give you the full sentence analyzer, but gives you a lot more sophisticated tools,
+
+170
+00:16:52,950 --> 00:16:59,820
+such as parts of speech, tagging, stemming in limited zation, etc. Then you haven't like it.
+
+171
+00:16:59,820 --> 00:17:01,320
+You can also integrate with Saikat,
+
+172
+00:17:01,320 --> 00:17:09,120
+learn who can replace the psychic lern count vectorized or TFI the effect Dreiser with a vectorized that uses NLC K to do the analysis.
+
+173
+00:17:09,120 --> 00:17:14,520
+If you need more sophisticated text, processing is a part of your application.
+
+174
+00:17:14,520 --> 00:17:20,430
+So to conclude, term vectors treat each word as a feature for which documents have scores that often normalize.
+
+175
+00:17:20,430 --> 00:17:26,790
+The uncommon words have higher weight and that longer documents don't just have larger vector values.
+
+176
+00:17:26,790 --> 00:17:36,531
+Where then when you use these vectors downstream in order to do a variety of computations.
+

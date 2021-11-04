@@ -9,6 +9,7 @@ This week we are going to talk about *unstructured data*, particularly text.
 ## {{moverview}} Content Overview
 
 :::{module} week12
+:folder: 6686c43b-1af7-4d8c-b577-adc6018332e3
 :::
 
 ## {{mcal}} Deadlines
@@ -28,7 +29,6 @@ material through Week 11.
 This video introduces the week and describes the key ideas of extracting features from unstructured data.
 
 :::{video} intro
-:id: dde82af5-7c5f-4df4-807b-ac6d004d1d34
 :name: 12-1 - Unstructured Data
 :length: 2m57s
 :slide-id: 495979F9A431DDB0%2173340
@@ -40,7 +40,6 @@ This video introduces the week and describes the key ideas of extracting feature
 In this video, I describe Unicode and text encodings.
 
 :::{video}
-:id: 7b4ca444-6d1a-4848-aafd-ac6d00539b23
 :name: 12-2 - Unicode and Encodings
 :length: 28m45s
 :slide-id: 495979F9A431DDB0%2173344
@@ -59,7 +58,6 @@ This video discusses the basic steps of text processing, beginning with tokeniza
 The result is a document/term matrix, possibly normalized.
 
 :::{video} pipeline
-:id: 58038e58-a1d6-49bf-82c9-ac6d005a287a
 :name: 12-3 - Text Processing Pipeline
 :length: 17m36s
 :slide-id: 495979F9A431DDB0%2173342
@@ -78,7 +76,6 @@ The result is a document/term matrix, possibly normalized.
 This video describes the concept of a *vector representation*, and how to compute the similarity between two documents.
 
 :::{video} similarity
-:id: 10db2775-5258-4adc-8eaf-ac6d005a2848
 :name: 12-4 - Vectors and Similarity
 :length: 6m58s
 :slide-id: 495979F9A431DDB0%2173347
@@ -90,7 +87,6 @@ This video describes the concept of a *vector representation*, and how to comput
 This video introduces *classifying text*, and the use of a naïve Bayes classifier based on term frequencies.
 
 :::{video}
-:id: 8e92f9de-2437-4633-af10-ac6d005b10e8
 :name: 12-5 - Classifying Text
 :length: 6m9s
 :slide-id: 495979F9A431DDB0%2173351

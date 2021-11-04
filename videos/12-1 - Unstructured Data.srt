@@ -1,0 +1,116 @@
+1
+00:00:04,780 --> 00:00:11,930
+Oh, again. Now going to talk about how to start processing unstructured data, particularly text data.
+
+2
+00:00:11,930 --> 00:00:20,600
+So this video, we're going to introduce the idea of processing unstructured text, unstructured data modeling,
+
+3
+00:00:20,600 --> 00:00:30,090
+going to understand a little bit about some of the different types of features we can try to extract from unstructured data.
+
+4
+00:00:30,090 --> 00:00:36,240
+So so far in this class, we've been dealing primarily with tabular data, fully structured data of various forms.
+
+5
+00:00:36,240 --> 00:00:40,250
+Or we have for each instance, we have an equivalent set of features. Some feature values might be missing.
+
+6
+00:00:40,250 --> 00:00:42,150
+Well, we've got all of these features.
+
+7
+00:00:42,150 --> 00:00:49,680
+As I just as we discussed earlier in the class, there's additional types of data, semi's structured data has defined fields got,
+
+8
+00:00:49,680 --> 00:00:57,290
+but they can vary significantly in terms of what fields we get for what objects and unstructured data doesn't have defined fields.
+
+9
+00:00:57,290 --> 00:00:59,400
+There may be these aren't mutually exclusive.
+
+10
+00:00:59,400 --> 00:01:06,120
+You might have some unstructured data like text or images that have structured or some a structure made, a data that come with them.
+
+11
+00:01:06,120 --> 00:01:09,780
+You can treat the meta data just like we treat or other structured data.
+
+12
+00:01:09,780 --> 00:01:14,760
+But we're gonna be talking this week about how to start working with the unstructured data.
+
+13
+00:01:14,760 --> 00:01:18,750
+So to get features from data, there's a few things we can do.
+
+14
+00:01:18,750 --> 00:01:22,650
+We can get raw features so we can get words. For example, we got text.
+
+15
+00:01:22,650 --> 00:01:29,580
+We might say, well, the words are features and the values associated with those features say are the number of times the word appears.
+
+16
+00:01:29,580 --> 00:01:36,690
+We've got image data. We've got pixels. Then we can get some features that are readily convert to a readily think.
+
+17
+00:01:36,690 --> 00:01:40,170
+We can think of them in some ten tabular form, like size or length like this.
+
+18
+00:01:40,170 --> 00:01:50,700
+The number of characters in a document is a feature. We could also use additional models like there's a sentiment and sentiment inference models that
+
+19
+00:01:50,700 --> 00:01:56,460
+will try to determine if a sentence or some text is positive as a positive or negative sentiment.
+
+20
+00:01:56,460 --> 00:02:03,030
+In other models that we can apply in order to compute additional features from some of our raw data this week we're going to be processing and strong,
+
+21
+00:02:03,030 --> 00:02:07,290
+unstructured text using words as features. The result will be tabular.
+
+22
+00:02:07,290 --> 00:02:14,670
+You'll have a column for each word, but we're going to be using words as features no when you use it to build classifiers.
+
+23
+00:02:14,670 --> 00:02:19,920
+There's an example notebook in this week's material that walks you through Luke using
+
+24
+00:02:19,920 --> 00:02:27,660
+the topics that we're learning in the videos to build a classifier for email spam.
+
+25
+00:02:27,660 --> 00:02:31,650
+So to wrap up unstructured data doesn't come with the nice data frame style features.
+
+26
+00:02:31,650 --> 00:02:36,450
+You don't get the rows and the columns that are all set up. You can do nice math on the columns.
+
+27
+00:02:36,450 --> 00:02:41,370
+We're gonna directly use content is a large feature space and we're using words as features.
+
+28
+00:02:41,370 --> 00:02:47,670
+We have as many features as there are different words in the content. We'll also see how to derive.
+
+29
+00:02:47,670 --> 00:02:57,367
+We also set up to be able to derive smaller set of features from the data.
+
