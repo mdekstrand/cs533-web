@@ -6,8 +6,8 @@
 - [Assignment 3](./A3/index.md) (due **{date}`wk7 sun long`**)
 - [Assignment 4](./A4/index.md) (due **{date}`wk9 sun long`**)
 - [Assignment 5](./A5/index.md) (due **{date}`wk11 sun long`**)
-- Assignment 6 (due **{date}`wk13 sun long`**)
-- Assignment 7 (due **{date}`wk15 sun long`**)
+- [Assignment 6](./A6/index.md) (due **{date}`wk13 sun long`**)
+- [Assignment 7](./A7/index.md) (due **{date}`wk15 sun long`**)
 
 (asn-rubric)=
 ## General Rubric
