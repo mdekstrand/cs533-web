@@ -40,6 +40,12 @@ In this video, I describe Unicode and text encodings.
 :::{video}
 :name: 12-2 - Unicode and Encodings
 :length: 28m45s
+
+Important Python code:
+
+- {py:meth}`str.encode` and {py:meth}`bytes.decode`
+- {py:meth}`pandas.Series.str.encode` and {py:meth}`pandas.Series.str.decode`
+- {py:mod}`unicodedata`
 :::
 
 ### Resources
