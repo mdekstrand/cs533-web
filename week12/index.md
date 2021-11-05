@@ -103,7 +103,7 @@ The [Spam Filter Example](../../resources/tutorials/SpamFilter.ipynb) demonstrat
 
 ## {{mquiz}} Week 12 Quiz
 
-The Week 12 quiz is on Blackboard.
+The Week 12 quiz is on Canvas.
 
 ## {{massignment}} Assignment 6
 
