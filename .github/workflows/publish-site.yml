@@ -35,7 +35,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ~/.local/share/virtualenvs
-        key: ${{ runner.os }}-pipenv-py38-${{ hashFiles('Pipfile.lock') }}
+        key: ${{ runner.os }}-pipenv-py39-${{ hashFiles('Pipfile.lock') }}
 
     - name: 💰 Cache Node modules
       uses: actions/cache@v2
