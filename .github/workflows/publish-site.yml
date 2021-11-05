@@ -63,6 +63,7 @@ jobs:
 
     - name: 🛠 Build site
       run: |
+        pipenv run jb --version
         pipenv run invoke build-site
 
     - name: 📢 Publish
