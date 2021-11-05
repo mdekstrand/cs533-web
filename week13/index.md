@@ -50,8 +50,8 @@ This video introduces the idea of *matrix decomposition*, which we can use to *r
 
 - The next notebook
 - The [PCADemo](./PCADemo.ipynb), demonstrating the PCA plots
-- [`TruncatedSVD`](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html)
-- [`PCA`](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html)
+- {py:class}`sklearn.decomposition.TruncatedSVD`
+- {py:class}`sklearn.decomposition.PCA`
 
 ## :a-notebook: Movie Decomposition
 
@@ -73,7 +73,7 @@ This video introduces the concept of *clustering*, another useful unsupervised l
 
 ### Resources
 
-- [`KMeans`](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)
+- {py:class}`sklearn.cluster.KMeans`
 
 ## :a-notebook: Clustering Example
 

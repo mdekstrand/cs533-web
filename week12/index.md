@@ -66,8 +66,8 @@ The result is a document/term matrix, possibly normalized.
 
 ### Resources
 
-- [CountVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer)
-- [TfidfVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html#sklearn.feature_extraction.text.TfidfVectorizer)
+- {py:class}`~sklearn.feature_extraction.text.CountVectorizer`
+- {py:class}`~sklearn.feature_extraction.text.TfidfVectorizer`
 - [NLTK](https://www.nltk.org/)
 - [Stanza](https://stanfordnlp.github.io/stanza/) (formerly StanfordNLP)
 
