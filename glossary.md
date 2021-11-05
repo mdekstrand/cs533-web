@@ -460,7 +460,7 @@ Test set
     We can think of these either as three separate sets, or as a sequence of splits:
 
     - Split the initial data into train and test data
-    - Re-split the training data into tuning data a “test'” test
+    - Re-split the training data into tuning data a “train'” set
     
     Introduced in {video}`week8:prediction-accuracy` and discussed in more detail in {video}`week11:workflow`.
     See also [Training, validation, and test sets](https://en.wikipedia.org/wiki/Training,_validation,_and_test_sets) on Wikipedia, and
