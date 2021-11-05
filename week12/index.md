@@ -31,8 +31,6 @@ This video introduces the week and describes the key ideas of extracting feature
 :::{video} intro
 :name: 12-1 - Unstructured Data
 :length: 2m57s
-:slide-id: 495979F9A431DDB0%2173340
-:slide-auth: AP4XTmNhYJeUW4A
 :::
 
 ## {{mvideo}} Unicode and Encodings
@@ -42,8 +40,6 @@ In this video, I describe Unicode and text encodings.
 :::{video}
 :name: 12-2 - Unicode and Encodings
 :length: 28m45s
-:slide-id: 495979F9A431DDB0%2173344
-:slide-auth: AJWLHFsJ8GwmbUg
 :::
 
 ### Resources
@@ -60,8 +56,6 @@ The result is a document/term matrix, possibly normalized.
 :::{video} pipeline
 :name: 12-3 - Text Processing Pipeline
 :length: 17m36s
-:slide-id: 495979F9A431DDB0%2173342
-:slide-auth: AJ1kEb9itG5obig
 :::
 
 ### Resources
@@ -78,8 +72,6 @@ This video describes the concept of a *vector representation*, and how to comput
 :::{video} similarity
 :name: 12-4 - Vectors and Similarity
 :length: 6m58s
-:slide-id: 495979F9A431DDB0%2173347
-:slide-auth: PpcK
 :::
 
 ## {{mvideo}} Classifying Text
@@ -92,8 +84,6 @@ This video introduces *classifying text*, and the use of a {term}`naïve Bayes` 
 :::{video} classifying-text
 :name: 12-5 - Classifying Text
 :length: 6m9s
-:slide-id: 495979F9A431DDB0%2173351
-:slide-auth: APyYW6VLHuHdq_s
 :::
 
 ### Resources
