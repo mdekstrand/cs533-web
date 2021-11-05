@@ -79,3 +79,4 @@ These resources will help you explore further some thing we touch on in this cla
 -   [<cite>Statistics Done Wrong: The Woefully Complete Guide</cite>](http://www.worldcat.org/oclc/891609129), by Alex Reinhart.  Also available in the O'Reilly Learning Center.
 -   [<cite>How to Lie with Statistics</cite>](http://www.worldcat.org/oclc/1014298802) by Darrell Huff.
 -   <cite>Counterfactuals and Causal Inference</cite>, 2nd Edition, by Stephen L. Morgan and Christopher Winship.
+-   [<cite>An Introduction to Statistical Learning</cite>](https://www.statlearning.com/), by Gareth James, Daniela Witten, Trevor Hastie, and Robert Tibshirani.

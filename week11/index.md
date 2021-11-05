@@ -41,7 +41,7 @@ What are some useful techniques for engineering features in an application?
 How do you do feature engineering and model selection in a machine learning workflow?
 What is the iterative process involved?
 
-:::{video}
+:::{video} workflow
 :length: 14m29s
 :name: 11-3 - Workflow
 :id: 71b1aa35-8435-4eae-ae32-ac660033ee09

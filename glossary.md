@@ -445,6 +445,32 @@ Standardization
 
     Demonstrated in [One Sample notebook](resources/tutorials/OneSample.ipynb).
 
+Test set
+    A portion of your data set that is held back to evaluate the effectiveness of the **final** model.
+    Contrast with {term}`training set`.
+    Sometimes erroneously called the {term}`validation set`.
+
+    Data is typically split into three pieces:
+
+    1. The test set
+    2. The tuning or validation set
+    3. The training set
+
+    Once model tuning is done, the model may be retrained on the union of the training and tuning sets, or it may be used as-is.
+    We can think of these either as three separate sets, or as a sequence of splits:
+
+    - Split the initial data into train and test data
+    - Re-split the training data into tuning data a “test'” test
+    
+    Introduced in {video}`week8:prediction-accuracy` and discussed in more detail in {video}`week11:workflow`.
+    See also [Training, validation, and test sets](https://en.wikipedia.org/wiki/Training,_validation,_and_test_sets) on Wikipedia, and
+    [this answer on Cross Validated](https://stats.stackexchange.com/a/96869/389).
+
+Training set
+    The portion of your data set on which you train your model.
+    Contrast with {term}`test set` and {term}`tuning set`.
+    See {term}`test set` for more details.
+
 *t*-test
     A statistical test for means of normally-distributed data.  T-tests come in three varieties:
 
@@ -453,6 +479,18 @@ Standardization
     3. Paired *t*-test that tests, for a sample of paired observations, whether the mean difference between observations for each sample is zero (the measurements are, on average, the same).  $H_0: \mu_{x_{i1} - x_{i2}} = 0$
 
     Discussed in {video}`week5:hypotest`, {video}`week5:t-test`, and associated readings.
+
+Tuning set
+    A portion of your data set that you use to compare the performance of different candidate models, for hyperparameter tuning, feature selection, and similar tasks.
+    Distinct from the {term}`test set`, which is only used **once** to test the performance of your final model.
+    Often called a *validation set*, but I avoid this term because it is ambiguous.
+
+    See {term}`test set` for more details.
+
+Validation set
+    A widely-used name for the {term}`tuning set`.  Sometimes validation and test are switched, so an author will talk about trying out different models with their test set and doing the final evaluation with a validation set.  I avoid the term due to this confusion.
+
+    See {term}`test set` for more details.
 
 Variance
     A measure of the spread of a random variable (which may be observable quantities in the population).

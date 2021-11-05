@@ -114,7 +114,7 @@ Read [Regression Model Assumptions](https://www.jmp.com/en_us/statistics-knowled
 
 ## {{mvideo}} Measuring Prediction Accuracy
 
-:::{video}
+:::{video} prediction-accuracy
 :name: 8-8 - Prediction Accuracy
 :id: 5ba717f5-1c46-4118-a89e-ac51001564cd
 :length: 9m12s
