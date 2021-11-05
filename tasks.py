@@ -46,7 +46,7 @@ def build(c, rebuild=False, builder='dirhtml'):
     if rebuild:
         c.run(f'jb build --all --builder {builder} .')
     else:
-        c.run(f'jb build --builder {builder} .')
+        c.run(f'jb build --builder {builder} .', env={'PATH': os.environ['PATH']})
 
 
 @task
