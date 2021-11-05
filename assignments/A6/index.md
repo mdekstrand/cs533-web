@@ -1,8 +1,4 @@
-# 🚧 Assignment 6 🚧
-
-:::{draft}
-This assignment is still in draft state.
-:::
+# Assignment 6
 
 This assignment is designed to develop your ability to process data sets, use scikit-learn models, and analyze their output.
 You will do this by classifying, clustering, and analyzing news articles from the BBC.
