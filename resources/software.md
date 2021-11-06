@@ -7,7 +7,7 @@ one additional piece of software we will need is Git.
 We are using **Python 3.8** (or newer — Python 3.9 is fine) in this class.  Older versions of Python
 may work, but I will be testing my example code and instructions with Python 3.8.
 
-:::{ltip}Department Computers
+:::{ltip} Department Computers
 If you want to use the department's computer lab for your work, see the [Onyx setup instructions](onyx-install) as well
 as the instructions for [remotely using Onyx](onyx.md).
 :::
