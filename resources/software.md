@@ -7,10 +7,10 @@ one additional piece of software we will need is Git.
 We are using **Python 3.8** (or newer — Python 3.9 is fine) in this class.  Older versions of Python
 may work, but I will be testing my example code and instructions with Python 3.8.
 
-!!! tip Department Computers
-
-    If you want to use the department's computer lab for your work, see the [Onyx setup instructions](#onyx) as well
-    as the instructions for [remotely using Onyx](onyx.md).
+:::{ltip}Department Computers
+If you want to use the department's computer lab for your work, see the [Onyx setup instructions](onyx-install) as well
+as the instructions for [remotely using Onyx](onyx.md).
+:::
 
 [VSC]: http://code.visualstudio.com/
 
@@ -103,7 +103,8 @@ To install Git, the instructions differ based on your platform:
 -   On macOS, install Xcode from the App Store.
 -   On Linux, install `git` from your package manager.
 
-## Installing on Onyx {: #onyx}
+(onyx-install)=
+## Installing on Onyx
 
 Unlike a lot of other software, Anaconda is designed to be installed separately by each user.
 
