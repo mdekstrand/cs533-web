@@ -52,7 +52,7 @@ as the Python package. You can search for Conda packages on [anaconda.org](https
 
     The full Anaconda distribution works on x86_64 platforms - most Windows and Linux computers, and Macs
     with Intel processors.  If you have a Mac with an M1 processor, or an ARM-based Linux computer, go to
-    the [miniconda instructions](#miniconda) and use the Miniforge installer.
+    the [miniconda instructions](miniconda) and use the Miniforge installer.
 
 To install Anaconda on your computer:
 
@@ -63,7 +63,8 @@ To install Anaconda on your computer:
 
 2.  Run the installer.
 
-## Saving Space with Miniconda {: #miniconda}
+(miniconda)=
+## Saving Space with Miniconda
 
 We don't need all of Anaconda.  If you want to save disk space, [Miniconda][] is a much smaller
 distribution that just contains Python and the Conda package manager, so you can install the
