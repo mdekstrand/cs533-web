@@ -22,10 +22,11 @@ jobs:
       with:
         python-version: 3.9
 
-    # - name: 🕸 Set up Node
-    #   uses: actions/setup-node@v2
-    #   with:
-    #     node-version: '14'
+    - name: 🕸 Set up Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+        cache: 'npm'
 
     - name: 📦 Install pipenv packages
       run: |
@@ -37,25 +38,19 @@ jobs:
         path: ~/.local/share/virtualenvs
         key: ${{ runner.os }}-pipenv-py39-${{ hashFiles('Pipfile.lock') }}
 
-    # - name: 💰 Cache Node modules
-    #   uses: actions/cache@v2
-    #   with:
-    #     path: node_modules
-    #     key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-
     - name: 📐 Install Python dependencies
       run: |
         pipenv install --deploy
 
-    # - name: 🥅 Install Node modules
-    #   run: |
-    #     if [ ! -d node_modules ]; then
-    #       npm ci
-    #     else
-    #       echo "modules already installed"
-    #     fi
-    #   env:
-    #     NODE_ENV: development
+    - name: 🥅 Install Node modules
+      run: |
+        if [ ! -d node_modules ]; then
+          npm ci
+        else
+          echo "modules already installed"
+        fi
+      env:
+        NODE_ENV: development
 
     - name: 🌿 Prepare Git branch
       run: |
@@ -67,11 +62,8 @@ jobs:
         pipenv run invoke build-site
 
     - name: 📢 Publish
-      uses: netlify/actions/cli@master
-      with:
-        args: deploy --dir=_build/site --prod
-      # run: |
-      #   netlify deploy --dir=_build/site --prod
+      run: |
+        netlify deploy --dir=_build/site --prod
       env:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
