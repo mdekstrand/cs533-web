@@ -1,3 +1,4 @@
+(onyx)=
 # Remotely Using Onyx
 
 If you want to use Jupyter notebooks on Onyx nodes, there are a few extra steps you need to do.
