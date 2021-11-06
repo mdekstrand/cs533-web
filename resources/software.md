@@ -81,6 +81,17 @@ that has support for more hardware platforms (including Linux and Mac on ARM-bas
         conda install pandas scipy scikit-learn notebook ipython \
             seaborn statsmodels
 
+## Additional Packages
+
+I use {py:mod}`seedbank` in many of my examples for seeding the random number generator. Seedbank is not currently available through the main Anaconda channel, so you will needt
+to install it with `pip`:
+
+    pip install seedbank
+
+Do this *after* installing your other packages with `conda`, so seedbank doesn't try to pull in a non-Conda NumPy.
+
+It is fine to use `pip` to install packages that are not available in Conda.  It also works to use it to install packages that are, but I do not recommend this, particularly for core compute packages such as `numpy`, `scipy`, and `scikit-learn` — the versions in Conda are more optimized.
+
 ## Installing Git and Command-Line Tools
 
 We will be using Git later in the semester.
