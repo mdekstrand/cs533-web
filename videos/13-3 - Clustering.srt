@@ -1,0 +1,272 @@
+1
+00:00:04,600 --> 00:00:09,280
+This video I want to introduce clustering, so learning outcomes are for.
+
+2
+00:00:09,280 --> 00:00:13,300
+To understand the idea of clustering and to interpret the results of clustering with K means.
+
+3
+00:00:13,300 --> 00:00:21,460
+So the idea of clustering is to group things together. So if we want to find groups in our data points, but we don't know what the groups are,
+
+4
+00:00:21,460 --> 00:00:26,650
+many clustering techniques require us to know how many groups there are. But we don't know what the groups are.
+
+5
+00:00:26,650 --> 00:00:31,780
+If we did, we would just use a multiclass classifier to find them. We want to find them from the data.
+
+6
+00:00:31,780 --> 00:00:38,230
+This is what we call clustering. So there's a couple of different kinds of clustering in terms of the membership of the clusters.
+
+7
+00:00:38,230 --> 00:00:42,070
+One is mixed membership where a point can be in more than one cluster.
+
+8
+00:00:42,070 --> 00:00:49,030
+And it has a different degree of affinity for the different clusters matrix factorization we can see as a kind of mixed membership clustering.
+
+9
+00:00:49,030 --> 00:00:54,400
+Where do the values in the decomposed and the lower dimensional space are?
+
+10
+00:00:54,400 --> 00:01:02,110
+How strongly the matrix is associated? The data point is associated with that cluster, but single membership clustering we want to find.
+
+11
+00:01:02,110 --> 00:01:08,650
+We want to find clusters. And we want to put each point in one cluster. So we might have movie types, different types of movies.
+
+12
+00:01:08,650 --> 00:01:13,960
+Want to put each movie in a different type. These might align with genres. They might align with something else.
+
+13
+00:01:13,960 --> 00:01:20,440
+So the idea one technique is to do it based on what we call centroid and the centroid is just the center of a cluster.
+
+14
+00:01:20,440 --> 00:01:25,450
+And so to do this, we typically need a distance function between two data points, between two vectors.
+
+15
+00:01:25,450 --> 00:01:30,070
+Often this is the Euclidean distance, but we have to define the vector space properly.
+
+16
+00:01:30,070 --> 00:01:38,810
+We need to do the feature engineering, have the features appropriately normalized and standardized so that the distance between them.
+
+17
+00:01:38,810 --> 00:01:48,800
+The distance between their vectors actually reflects how far apart the vectors are, the instances are with regards to our clustering goal.
+
+18
+00:01:48,800 --> 00:01:58,550
+If the distance does not relay, if it isn't so, that more similar items in terms of what we what we hope the cluster is going to uncover,
+
+19
+00:01:58,550 --> 00:02:09,140
+those more similar items need to have a smaller distance between each other than they do their distance to a not a less similar right along again,
+
+20
+00:02:09,140 --> 00:02:13,810
+along whatever it is that we hope the clustering is going to uncover.
+
+21
+00:02:13,810 --> 00:02:19,480
+We can do clustering on on dimensioned after dimensionality reductions that we can get.
+
+22
+00:02:19,480 --> 00:02:26,560
+We can get our ah. We can work in a lower dimensional space and sometimes that'll make where our distances be better behaved.
+
+23
+00:02:26,560 --> 00:02:31,700
+So the goal is to find the centroid of these clusters. And then what we'll do is we'll when an item comes in, we'll find which of our clusters.
+
+24
+00:02:31,700 --> 00:02:36,850
+So we have 10 clusters. We're gonna fi compare it. We're gonna measure its distance from the centers of all of the clusters.
+
+25
+00:02:36,850 --> 00:02:42,580
+And we're gonna say it's in the closest one. And so the K means algorithm does this by.
+
+26
+00:02:42,580 --> 00:02:46,540
+So we tell you how many clusters we want. We want five clusters, 10 clusters.
+
+27
+00:02:46,540 --> 00:02:50,930
+And it picks ten points. And says, these are my cluster centers.
+
+28
+00:02:50,930 --> 00:02:55,090
+And then figures out what cluster all of the data points are in.
+
+29
+00:02:55,090 --> 00:03:00,640
+And now that it's got all the data points clustered, it uses the it takes each cluster and recompute the new center.
+
+30
+00:03:00,640 --> 00:03:05,990
+It takes all the data points, computes the center of that set of points. And that's the new cluster center.
+
+31
+00:03:05,990 --> 00:03:08,540
+It then does this again because then you move the cluster center.
+
+32
+00:03:08,540 --> 00:03:13,490
+It might be that some points on the edge between it and another cluster switch clusters.
+
+33
+00:03:13,490 --> 00:03:21,770
+And then once you've switched clusters, you compute the center centroid again and you repeat this several times until what we call convergence.
+
+34
+00:03:21,770 --> 00:03:26,630
+And so this is a this is an example. We've seen a couple of others of what's called an iterative method,
+
+35
+00:03:26,630 --> 00:03:31,310
+iterative method as a method where you start somewhere and you incrementally improve your result.
+
+36
+00:03:31,310 --> 00:03:37,130
+So we start with some cluster centers, cluster the data points, move the centers to reflect the data points.
+
+37
+00:03:37,130 --> 00:03:41,660
+Try again. And convergence basically means it stops moving.
+
+38
+00:03:41,660 --> 00:03:46,250
+We've rerun another round of it. And our cluster centers haven't moved very much.
+
+39
+00:03:46,250 --> 00:03:51,770
+This does require us to know. Okay. It can't figure out how many clusters there are supposed to be.
+
+40
+00:03:51,770 --> 00:03:56,900
+And they're optimizations that can improve it various ways, particularly picking a like the simple way to do it.
+
+41
+00:03:56,900 --> 00:04:08,060
+If you pick K points just completely at random. There are more sophisticated ways to pick those points that can result in better clustering behavior.
+
+42
+00:04:08,060 --> 00:04:13,610
+So to do this, since I can't learn the K means class or do K means clustering fit learns, the cluster centers predict,
+
+43
+00:04:13,610 --> 00:04:22,120
+will map a data point to a cluster no super give it predict with some data and it will give you numbers, cluster numbers, cluster centers.
+
+44
+00:04:22,120 --> 00:04:28,880
+If you look if you go into and get the cluster centers attribute out of the escolar an object, that's the center centroid.
+
+45
+00:04:28,880 --> 00:04:34,580
+If your clusters of other clustering algorithms and Saikat learn of a similar interface.
+
+46
+00:04:34,580 --> 00:04:37,490
+Now we've got these clusters. How do we see how well they work?
+
+47
+00:04:37,490 --> 00:04:45,280
+Well, look at them like the purpose here is we want to uncover data, uncover connections and groupings in the data.
+
+48
+00:04:45,280 --> 00:04:49,540
+But we don't have labels, so one thing you really have to do with clustering is just look at it.
+
+49
+00:04:49,540 --> 00:04:59,350
+Do the clusters seem to be finding coherent? Do they seem to be finding coherent sets of things that we're clustering?
+
+50
+00:04:59,350 --> 00:05:04,180
+If you do have labels, sometimes we will have labels and we can like we have labels for a little bit of data.
+
+51
+00:05:04,180 --> 00:05:10,660
+We can use it to compare clustering behaviors, clustering systems also, or cluster clustering results.
+
+52
+00:05:10,660 --> 00:05:15,400
+Also, it can be useful when we're experimenting with clustering techniques to cluster data
+
+53
+00:05:15,400 --> 00:05:18,970
+where we do have the labels to see how good a job it's doing at recovering labels.
+
+54
+00:05:18,970 --> 00:05:23,700
+And we do have them to get some idea of how it might do. And we don't have them.
+
+55
+00:05:23,700 --> 00:05:25,470
+And then there are some quality scores.
+
+56
+00:05:25,470 --> 00:05:35,300
+There's a score called silhouette that compares the distances within a cluster to the distances between items and items and the closest other cluster.
+
+57
+00:05:35,300 --> 00:05:41,760
+And if things tend to be closer to each other than they are to other clusters, then you've got a better clustering.
+
+58
+00:05:41,760 --> 00:05:46,290
+These can be used to compare clustering, but there's not an absolute quality value like,
+
+59
+00:05:46,290 --> 00:05:52,110
+oh, a silhouette of point five means they've got a good clustering. No clustering is a really, really evaluating.
+
+60
+00:05:52,110 --> 00:06:01,890
+Clustering is a really imprecise thing. But the basic it basically is the clustering useful for what you're trying to do with it.
+
+61
+00:06:01,890 --> 00:06:07,100
+So to wrap up clustering allows us to identify groups of items in the data. These clusters may or may not make sense.
+
+62
+00:06:07,100 --> 00:06:10,890
+You have to look at them really. Cluster quality depends on a number of things.
+
+63
+00:06:10,890 --> 00:06:17,190
+Your features and your metric are super important because if you don't have a feature space and a
+
+64
+00:06:17,190 --> 00:06:26,010
+metric such that things that are similar to each other are close together in the on your metric,
+
+65
+00:06:26,010 --> 00:06:31,830
+then clustering is not going to be able to find the relationships you're looking for. Also, the cluster counters superimportant.
+
+66
+00:06:31,830 --> 00:06:39,510
+If there are eight natural groups and you try to find five clusters, clusters might not work so well.
+
+67
+00:06:39,510 --> 00:06:44,520
+Now the natural gropings and the cluster count do not necessarily need a map.
+
+68
+00:06:44,520 --> 00:06:56,433
+Sometimes you can get good cluster rings with an extra cluster or not having quite as many clusters.
+

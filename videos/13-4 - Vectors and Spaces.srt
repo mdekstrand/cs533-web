@@ -1,0 +1,288 @@
+1
+00:00:04,540 --> 00:00:08,530
+This video, I want to talk a little bit more about vector spaces, we've talked about them a little,
+
+2
+00:00:08,530 --> 00:00:12,250
+but we're going to talk about the concept in a little more detail now.
+
+3
+00:00:12,250 --> 00:00:19,570
+Want to formally introduce more formally introduced the concept of vector space and understand the idea of a vector space transformation.
+
+4
+00:00:19,570 --> 00:00:27,490
+We're only going to scratch the surface for a lot more. I recommend that you read a good linear algebra book.
+
+5
+00:00:27,490 --> 00:00:34,090
+So remember, vector is a vector is there's a sequence of numbers, an array, basically a one dimensional array.
+
+6
+00:00:34,090 --> 00:00:40,510
+So X X one X two X and that's the vector real's to the end is an end dimensional vector space.
+
+7
+00:00:40,510 --> 00:00:45,870
+In the real numbers, you vector spaces over other things to integers over.
+
+8
+00:00:45,870 --> 00:00:52,920
+Complex numbers over weird things, but it's an n dimensional vector space and we can do a few operations, the vector.
+
+9
+00:00:52,920 --> 00:01:00,180
+We can add, subtract, we can multiply by a scalar. That's a real number, we can compute the inner product.
+
+10
+00:01:00,180 --> 00:01:05,940
+You cannot multiply multiplying two vectors, just I'm going to multiply defector's together is not an operation.
+
+11
+00:01:05,940 --> 00:01:09,420
+If you both apply to vectors and know what you're actually getting is the pairwise
+
+12
+00:01:09,420 --> 00:01:13,830
+multiplication like it multiplies the elements together if they're compatible sizes.
+
+13
+00:01:13,830 --> 00:01:21,570
+That is not actually a linear algebra operation. There is the inner product, which is the sum of the element Y's products.
+
+14
+00:01:21,570 --> 00:01:28,900
+And then there's a distance, which is the inner product of a subtraction with itself. And so we can have a matrix.
+
+15
+00:01:28,900 --> 00:01:33,150
+So we've got a sample exit rows and instance, each instance is a row vector.
+
+16
+00:01:33,150 --> 00:01:38,340
+As a row of this matrix X, we can do all the vector things with these rows.
+
+17
+00:01:38,340 --> 00:01:49,650
+Matrix, a matrix is, as we said in an earlier video. Is this this two dimensional array?
+
+18
+00:01:49,650 --> 00:01:54,900
+Of numbers. It's a collection of row vectors and it's a collection of Cullom vectors.
+
+19
+00:01:54,900 --> 00:02:03,600
+It's also a linear map from one vector space to another. And the other one might be the same the the the same vector space in terms like it
+
+20
+00:02:03,600 --> 00:02:08,970
+might be n by n subtle map are an N dimensional vector to another N dimensional vector.
+
+21
+00:02:08,970 --> 00:02:13,680
+But it's had some transformations applied to it. There's a bunch of things we can do with matrices.
+
+22
+00:02:13,680 --> 00:02:18,690
+We can add them, multiply them by either a scalar or by a compatible matrix or vector.
+
+23
+00:02:18,690 --> 00:02:25,110
+We saw that earlier. You can transpose them, et cetera. There's a number of special matrices.
+
+24
+00:02:25,110 --> 00:02:29,190
+So we have column vectors which are m by one, remember, we always have rows first.
+
+25
+00:02:29,190 --> 00:02:33,240
+So M rose by one column is an M by one column vector.
+
+26
+00:02:33,240 --> 00:02:37,890
+One row by N columns is an it is a one by N row vector.
+
+27
+00:02:37,890 --> 00:02:40,830
+We can have a square matrix where the two dimensions are the same.
+
+28
+00:02:40,830 --> 00:02:45,920
+We can have a diagonal matrix that only had that zero everywhere except the diagonal.
+
+29
+00:02:45,920 --> 00:02:54,380
+So you've got your big matrix. It's got. The diagonal is non-zero.
+
+30
+00:02:54,380 --> 00:03:04,430
+All of this is zero. You can have an identity matrix, which is a diagonal matrix where all the non-zero values are one.
+
+31
+00:03:04,430 --> 00:03:12,710
+You can have a triangular matrix where either the upper right. Or the lower left corner is non-zero and the other side is zero.
+
+32
+00:03:12,710 --> 00:03:18,130
+So it's the everything above and to the right of the diagonal is zero for a lower triangular matrix.
+
+33
+00:03:18,130 --> 00:03:22,500
+Everything down the left of the diagonal is zero for an upper triangular matrix.
+
+34
+00:03:22,500 --> 00:03:28,240
+Also a symmetric matrix, which is a square matrix where it's equal to its transpose.
+
+35
+00:03:28,240 --> 00:03:32,350
+So the top right corner is equal to the top bottom left corner.
+
+36
+00:03:32,350 --> 00:03:38,230
+You flip it. You flip the rows in the column and you get the same Matrix backout. You can also have what's called an orthogonal matrix,
+
+37
+00:03:38,230 --> 00:03:45,230
+where if a transpose times A is equal to the identity matrix, then you have an orthogonal matrix.
+
+38
+00:03:45,230 --> 00:03:48,050
+Matrix vector multiplication is super useful operation.
+
+39
+00:03:48,050 --> 00:03:55,460
+So if we've got an M byan matrix and we've gotten N dimensional column vector, then we can compute Y equals X and we can.
+
+40
+00:03:55,460 --> 00:03:58,190
+And this is going to be an M dimensional column vector.
+
+41
+00:03:58,190 --> 00:04:04,610
+And what we've done here is we have mapped X into another vector space or we've transformed it.
+
+42
+00:04:04,610 --> 00:04:10,520
+And even if even if the even if a a square. So it's from R and R n.
+
+43
+00:04:10,520 --> 00:04:16,820
+What we're doing we can apply this can transform the vector so that it's in it's in the same space.
+
+44
+00:04:16,820 --> 00:04:23,240
+But it is its relationships to other vectors have changed.
+
+45
+00:04:23,240 --> 00:04:29,330
+And it's effectively a. In the different organization of the same space for lack of a better term.
+
+46
+00:04:29,330 --> 00:04:36,110
+I'm trying to avoid getting deep into the linear algebra terms like so like change of basis and things.
+
+47
+00:04:36,110 --> 00:04:39,970
+Because I'm trying to give you the intuition for it.
+
+48
+00:04:39,970 --> 00:04:47,120
+And linear algebra class is gonna really eat either a class or a textbook or an online course is going
+
+49
+00:04:47,120 --> 00:04:52,420
+to help you shore up a lot of the details that you're going to need to dove deeper into linear algebra.
+
+50
+00:04:52,420 --> 00:04:56,320
+So multiplying by a matrix can give us a bunch of different transform.
+
+51
+00:04:56,320 --> 00:05:01,930
+We can reduce dimensionality. We can basically project, project and do other transformations.
+
+52
+00:05:01,930 --> 00:05:06,400
+So a projection is when you just strip off vectors. So if we have X.
+
+53
+00:05:06,400 --> 00:05:13,570
+So if we've got one seven. The projection of this under the first dimension is just one.
+
+54
+00:05:13,570 --> 00:05:20,230
+But you can also do some additional transformations at your besides just projection to get it down to a lower dimensional space.
+
+55
+00:05:20,230 --> 00:05:28,100
+One of the things you can do is translate. So if we've got here. We can translate it.
+
+56
+00:05:28,100 --> 00:05:35,680
+We've got Vector's. And we just shift them, same relationship to each other.
+
+57
+00:05:35,680 --> 00:05:47,940
+They're just moved. We can scale them so that they're going to this vector is going to.
+
+58
+00:05:47,940 --> 00:05:54,860
+Get a vector here. We can scale it.
+
+59
+00:05:54,860 --> 00:06:03,360
+You can skew the space. You can also rotate within the space and any combination of these, you can do any linear transformation.
+
+60
+00:06:03,360 --> 00:06:07,370
+And actually this is what it means for something to be a linear transformation of linear
+
+61
+00:06:07,370 --> 00:06:13,080
+transformation is the transformation you can express through a matrix multiplication.
+
+62
+00:06:13,080 --> 00:06:17,790
+But also, we have linear systems, so linear systems are written as matrix vector operations.
+
+63
+00:06:17,790 --> 00:06:29,510
+We can solve this for Beda. So why is X better than Beda is equal is X inverse times Y.
+
+64
+00:06:29,510 --> 00:06:34,730
+If we want ordinarily, this is this is the direct exact solution to the linear equations.
+
+65
+00:06:34,730 --> 00:06:40,250
+But if they don't have a solution, we can get the least squared solution by solving a different system.
+
+66
+00:06:40,250 --> 00:06:49,730
+Multiply. X transpo solve, X transpose, Y equal to X transpose, x beda.
+
+67
+00:06:49,730 --> 00:06:52,670
+I missed it x there, I just wrote it in.
+
+68
+00:06:52,670 --> 00:06:59,840
+Now one particular note though is so I wrote a matrix inverse here matrix and versus an operation but usually don't actually want to perform it.
+
+69
+00:06:59,840 --> 00:07:03,240
+Matrix and Versus are almost always used for solving a system.
+
+70
+00:07:03,240 --> 00:07:09,620
+Linear equation solving the system is usually a better solution than actually inverting a matrix.
+
+71
+00:07:09,620 --> 00:07:17,120
+So wrap up vectors represent data points in a vector space. These can be manipulated and transform, particularly by multiplying them by a matrix.
+
+72
+00:07:17,120 --> 00:07:27,300
+I recommend that you can salties Lynge some linear algebra learning resources to learn a lot more.
+

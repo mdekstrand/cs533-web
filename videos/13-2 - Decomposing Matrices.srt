@@ -1,0 +1,664 @@
+1
+00:00:04,470 --> 00:00:08,290
+Blow in this video. I want to introduce the idea of Matrix decompositions.
+
+2
+00:00:08,290 --> 00:00:14,620
+There's a couple of notebooks that go with this to demonstrate the concepts more and to give you some additional readings in this.
+
+3
+00:00:14,620 --> 00:00:23,530
+This video is going to explain what's going on. So goal here is to view matrix multiplication and decompose a matrix into a lower rank approximation.
+
+4
+00:00:23,530 --> 00:00:28,210
+So if you've taken a linear algebra class, you may have seen a matrix.
+
+5
+00:00:28,210 --> 00:00:33,970
+We have a it's a two matrix is just a two dimensional array of numbers.
+
+6
+00:00:33,970 --> 00:00:43,360
+We say it's dimension is M by N Rose always go first. When we're notating matrices, this is also the convention used by NUM Pi.
+
+7
+00:00:43,360 --> 00:00:50,020
+And so it is. It's Rose R and dimensional row vectors.
+
+8
+00:00:50,020 --> 00:00:58,590
+So that's a row vector. It's columns. R m dimensional column vectors have a column vector there.
+
+9
+00:00:58,590 --> 00:01:06,690
+We can also compute its transpose if we swapped the rows and columns. Vampyre exposes that as the exact capital T operation.
+
+10
+00:01:06,690 --> 00:01:10,470
+But a matrix is it's this two dimensional array of numbers. We can do a few things with them.
+
+11
+00:01:10,470 --> 00:01:15,930
+We can add them together. We can subtract them. One of those things we can do is we can multiply them.
+
+12
+00:01:15,930 --> 00:01:23,010
+So if we have two matrices A and B and A is M by K and B is K by N.
+
+13
+00:01:23,010 --> 00:01:29,990
+This is important. The inner dimensions of the two matrices have to match.
+
+14
+00:01:29,990 --> 00:01:35,360
+Then we can compute the Matrix product and it's gonna be M times and so for multiplying two matrices.
+
+15
+00:01:35,360 --> 00:01:40,460
+Unlike multiplication of of scalars.
+
+16
+00:01:40,460 --> 00:01:46,070
+Matrix multiplication is not commutative. You can't switch B get the same result.
+
+17
+00:01:46,070 --> 00:01:55,790
+You have to have the same the same matrix or the same dimensionality on the inside.
+
+18
+00:01:55,790 --> 00:01:59,780
+And what you get as the result is the dimensionality of the outside.
+
+19
+00:01:59,780 --> 00:02:09,600
+So what it's defined as is is CIJ Row, Row I column J is defined by the SARM.
+
+20
+00:02:09,600 --> 00:02:16,350
+Across the row of A and down the column of B of the pairwise items.
+
+21
+00:02:16,350 --> 00:02:29,100
+So it is it is the DOT product of Roe A.
+
+22
+00:02:29,100 --> 00:02:41,690
+And Column B. Or and of column Jay of of Matrixx Base.
+
+23
+00:02:41,690 --> 00:02:52,220
+You compute. You compute the DOT product. So see what C is, is it is the dot product of every row of A with every column of B num pi.
+
+24
+00:02:52,220 --> 00:02:57,800
+You can compute this with the A and B operation. That's the Python Matrix multiplication operator.
+
+25
+00:02:57,800 --> 00:03:04,700
+So this is a fundamental operation for matrices that you can multiply them together.
+
+26
+00:03:04,700 --> 00:03:08,240
+We also can have what we call sparse matrices and a matrix is sparse.
+
+27
+00:03:08,240 --> 00:03:12,380
+If most of its values are zero, that's what it means mathematically for it to be sparse.
+
+28
+00:03:12,380 --> 00:03:17,540
+Computationally a sparse matrix is a matrix with a zero. Values are not stored.
+
+29
+00:03:17,540 --> 00:03:24,290
+And so Saipov provide the sparse Matrix class that we can a number of sparse matrix classes that we can use.
+
+30
+00:03:24,290 --> 00:03:28,370
+The number high ENDI array is a dense matrix. Data frame is also a dense matrix.
+
+31
+00:03:28,370 --> 00:03:29,240
+S data frame.
+
+32
+00:03:29,240 --> 00:03:37,220
+It's very serious, can't be sparse, but if we need to do sparse computations, we can use this Sipi that sparse package to give us sparse matrices.
+
+33
+00:03:37,220 --> 00:03:39,740
+This is what Saikat learned does under the hood.
+
+34
+00:03:39,740 --> 00:03:47,540
+When you do, when you tokenized text with its with its count vector Dreiser or its TFI D.F. Vector riser,
+
+35
+00:03:47,540 --> 00:03:52,130
+its giving use Sibai sparse matrices as a result.
+
+36
+00:03:52,130 --> 00:03:58,700
+Now one of the things we can do with another thing we can do with a matrix is do what's called the dimensionality reduction.
+
+37
+00:03:58,700 --> 00:04:03,050
+And this follows from a theorem that if we have a matrix and intown by hand,
+
+38
+00:04:03,050 --> 00:04:14,410
+then we can compute a decompositions into the multiplication of three matrices P Sigma and Q Transpose.
+
+39
+00:04:14,410 --> 00:04:23,470
+And this gives us we can break down any matrix into this, Sipi provides us with functions in order to compute this decompensating given an ax.
+
+40
+00:04:23,470 --> 00:04:30,130
+It will compute piece Sigmon Q or Q Transpose. We can also then truncate this.
+
+41
+00:04:30,130 --> 00:04:37,060
+So Sigma is what's called the singular values.
+
+42
+00:04:37,060 --> 00:04:45,530
+We can truncate this matrix, only keep the K largest ones and set the rest of zero or just cut them out so that.
+
+43
+00:04:45,530 --> 00:04:52,990
+To so that we can get we get a narrower P and a narrower cure, a shorter Q transpose.
+
+44
+00:04:52,990 --> 00:04:57,040
+And this gives us an approximation of the original Matrix X.
+
+45
+00:04:57,040 --> 00:05:07,880
+There's a few useful properties. So the rows of P rows of P correspond to rows of X rows correspond.
+
+46
+00:05:07,880 --> 00:05:22,130
+So what Pier gives us is a K dimensional. Representation of rows of X, if X has a lot of columns.
+
+47
+00:05:22,130 --> 00:05:27,710
+This is super useful because if case more than no columns of X, then we get the smaller,
+
+48
+00:05:27,710 --> 00:05:33,440
+more compact representation of the original rows of the Matrix.
+
+49
+00:05:33,440 --> 00:05:42,500
+Also, it preserves distance things that are things are approximately as far apart in the in P as they are in the original X.
+
+50
+00:05:42,500 --> 00:05:49,670
+So why do we want to do this? One reason is for a compact representation. As I said, we get this k dimensional representation of our values x.
+
+51
+00:05:49,670 --> 00:05:53,480
+It can be useful to remove noise. I'll talk more about that in a little bit.
+
+52
+00:05:53,480 --> 00:05:59,360
+It can be useful for plotting high dimensional data to show relationships. If you've got 50 columns of X.
+
+53
+00:05:59,360 --> 00:06:08,420
+You can plot just like two columns of it. Or you can take the SDD to find columns that are particularly hard to project it into another.
+
+54
+00:06:08,420 --> 00:06:17,330
+Another vector space that you can show it in two dimensions that maximize the maximize the
+
+55
+00:06:17,330 --> 00:06:23,620
+amount or the extent to which the data points you can be spread out in those two dimensions.
+
+56
+00:06:23,620 --> 00:06:30,430
+It can also improve our ability to compute distances and fine and then it can provide.
+
+57
+00:06:30,430 --> 00:06:35,590
+It finds relationship and it can be helpful for finding relationships between features.
+
+58
+00:06:35,590 --> 00:06:42,190
+So if we have correlated features, we have multiple features that are partially measuring a similar thing.
+
+59
+00:06:42,190 --> 00:06:52,450
+They're correlated with each other. Principal component analysis is an application of matrix composition that allows us to find those relationships
+
+60
+00:06:52,450 --> 00:07:02,800
+and combine those correlated things and extract non correlated components out of these correlated observations.
+
+61
+00:07:02,800 --> 00:07:07,450
+So how do you actually do this? So Saikat learn provide a truncated SPDM class.
+
+62
+00:07:07,450 --> 00:07:11,920
+It's a transformer. If you call fit, it learns Kute transpose.
+
+63
+00:07:11,920 --> 00:07:16,870
+If you call transformatory turns the rows of P for the instances you pass in the anthraces,
+
+64
+00:07:16,870 --> 00:07:20,890
+you pass and don't have to be the same instances that you gave to fit.
+
+65
+00:07:20,890 --> 00:07:27,580
+Fit. Transform does the whole thing at once. I'm giving you example Kobel that you see this in action.
+
+66
+00:07:27,580 --> 00:07:34,270
+And then there's also the SEVIS function inside PI that computes the SVOD of a sparse matrix.
+
+67
+00:07:34,270 --> 00:07:38,800
+So one of the applications of SFD, as I said, is something called principal component analysis.
+
+68
+00:07:38,800 --> 00:07:45,640
+If you mean center, your features are you can standardize them. But if you mean center your features and then you compute the S.V. D.
+
+69
+00:07:45,640 --> 00:07:49,900
+What you get is the columns of P or what we call principle components.
+
+70
+00:07:49,900 --> 00:08:02,610
+So columns zero. Is the position of the data point along a vector that has a maximum variance and you're over?
+
+71
+00:08:02,610 --> 00:08:07,230
+You can go over to Q and find that vector in the original of the original data space.
+
+72
+00:08:07,230 --> 00:08:13,650
+And so what it does is it finds you've got this you've got this data in space and it finds it aligned through the data.
+
+73
+00:08:13,650 --> 00:08:18,810
+That explains more variance over a long which is not that it explains more
+
+74
+00:08:18,810 --> 00:08:23,610
+variance along which there is more variance than there is along any other line.
+
+75
+00:08:23,610 --> 00:08:31,560
+You could draw through that data point through that that space. That can be the axis at axis and a vector space.
+
+76
+00:08:31,560 --> 00:08:40,440
+And then if you see projekt all of your points onto that line, then you can find another line that explains most of the remaining.
+
+77
+00:08:40,440 --> 00:08:45,440
+The more of the remaining variance than any other.
+
+78
+00:08:45,440 --> 00:08:51,650
+So here I have I have data projected in two dimensional space, it's actually three dimensional data.
+
+79
+00:08:51,650 --> 00:08:55,970
+There's some correlation. We get this line here that runs through it.
+
+80
+00:08:55,970 --> 00:09:00,050
+And this line, if you go along so that the variance along the axis,
+
+81
+00:09:00,050 --> 00:09:05,090
+there's a fair amount of variance is a fair amount of variance along why there's more variance along this line.
+
+82
+00:09:05,090 --> 00:09:10,250
+So it gives just this line that this is the line through which there's most of the variance.
+
+83
+00:09:10,250 --> 00:09:16,240
+We could transform the data. So this line is now our X X-axis.
+
+84
+00:09:16,240 --> 00:09:22,980
+And then we could look at where's the where's the rest of the variance? So we can see here.
+
+85
+00:09:22,980 --> 00:09:26,850
+Here I'm showing the vectors the first and the second principle components.
+
+86
+00:09:26,850 --> 00:09:30,420
+The first one is along this line. I showed you the first place. It can go either way.
+
+87
+00:09:30,420 --> 00:09:34,470
+PCI does not guarantee which direction the sign is going to go. It does the same flip.
+
+88
+00:09:34,470 --> 00:09:42,950
+You can point the arrow the other direction, but you've got this this vector here that lets us.
+
+89
+00:09:42,950 --> 00:09:45,780
+Is this line along which there's more variance than any other?
+
+90
+00:09:45,780 --> 00:09:52,050
+But then there's this second line and it's orthogonal to the first and it's OK, where's the next chunk of variance?
+
+91
+00:09:52,050 --> 00:09:58,770
+What direction do I go to find the next amount of variance? You and The Notebook was online that generated these plots along with the simulation.
+
+92
+00:09:58,770 --> 00:10:04,440
+You can play with a little bit. So why do we want to use this? There's a few different useful use cases.
+
+93
+00:10:04,440 --> 00:10:09,510
+One is to compress and genoise our data. So as I said, we truncate we can truncate DVD.
+
+94
+00:10:09,510 --> 00:10:14,880
+We keep the K largest singular values. This means that P and Q are much smaller than pretty liste.
+
+95
+00:10:14,880 --> 00:10:18,020
+P is much smaller than X.
+
+96
+00:10:18,020 --> 00:10:27,530
+Then the result is that when we multiply them back together, it approximates X and it is it is the best rank approximation to the rank.
+
+97
+00:10:27,530 --> 00:10:32,000
+The rank of a matrix is basically a measure of how complex it is.
+
+98
+00:10:32,000 --> 00:10:36,620
+What it is, is it's the number of non-zero values in the singular value decomposition.
+
+99
+00:10:36,620 --> 00:10:44,090
+And so if we zero out the smallest values, what we get is.
+
+100
+00:10:44,090 --> 00:10:51,620
+If least squares error is our measure. Of how good an approximation of the original matrix is.
+
+101
+00:10:51,620 --> 00:10:55,790
+There is no better approximation than the truncated SPDM.
+
+102
+00:10:55,790 --> 00:11:03,310
+Another thing that happens is if there's noise in X, if X is some strong signal and a bunch of noise.
+
+103
+00:11:03,310 --> 00:11:09,590
+The largest singular values and singular vectors are probably going to pick up the signal and not the noise.
+
+104
+00:11:09,590 --> 00:11:15,760
+Always both for the most part. And so if you add the noise will be learned in the smaller vectors.
+
+105
+00:11:15,760 --> 00:11:20,320
+And so if you drop the smaller vectors, then you're dropping a bunch of the noise.
+
+106
+00:11:20,320 --> 00:11:25,150
+And so it can be useful to clean up data for some various purposes.
+
+107
+00:11:25,150 --> 00:11:27,700
+If X is sparsely observed,
+
+108
+00:11:27,700 --> 00:11:34,060
+you can use this also to impute values if you're careful about how you set up the composition because that he got but this you have to have
+
+109
+00:11:34,060 --> 00:11:41,710
+the full matrix if you're careful about how you set it up or use an alternative means of learning one that can deal with missing data.
+
+110
+00:11:41,710 --> 00:11:47,410
+Then you can multiply them back together to predict what the values you weren't able to observe of X are.
+
+111
+00:11:47,410 --> 00:11:51,250
+Really useful technique for imputing that data.
+
+112
+00:11:51,250 --> 00:11:56,530
+And for filling in unobserved values.
+
+113
+00:11:56,530 --> 00:12:02,410
+This is how a lot of recommender systems work. Actually, if we observe your preference for some movies,
+
+114
+00:12:02,410 --> 00:12:10,690
+we can use a singular value decomposition or a derivative of it in order to fill back in and estimate your preference for the movies you haven't seen.
+
+115
+00:12:10,690 --> 00:12:17,260
+And then if X is the document term Matrix or the Roeser documents and the columns or terms and we take the SFD,
+
+116
+00:12:17,260 --> 00:12:22,420
+this is what's called latent semantic analysis or latent semantic indexing.
+
+117
+00:12:22,420 --> 00:12:25,780
+And it's a way for understanding.
+
+118
+00:12:25,780 --> 00:12:39,770
+What we call the topics in a corpus, because these these dimensions and in the reduced dimensionality space, the metric, the.
+
+119
+00:12:39,770 --> 00:12:47,900
+This inner vector space and talk of another video about what a little bit more about what that means.
+
+120
+00:12:47,900 --> 00:12:52,700
+They correspond theoretically to different kinds of topics.
+
+121
+00:12:52,700 --> 00:12:59,600
+And so if that document becomes represented rather than the words, it becomes represented as a vector over topics.
+
+122
+00:12:59,600 --> 00:13:06,780
+And each document is a mixture of these topics and words correspond to topics as well.
+
+123
+00:13:06,780 --> 00:13:16,190
+The model there is that a document produces a word or contains a word because the document is about topic and the word is relevant to the topic.
+
+124
+00:13:16,190 --> 00:13:18,230
+And so you learn these topics.
+
+125
+00:13:18,230 --> 00:13:24,100
+And it lets you compare documents even if they don't have as many words in common because you can establish this in enemies, OK?
+
+126
+00:13:24,100 --> 00:13:27,920
+These words are on the same topic. Then if I use some of them, I'm on that topic.
+
+127
+00:13:27,920 --> 00:13:34,970
+And another document uses other ones that it's on that topic. And we can learn the topic relationship by doing a matrix, the composition.
+
+128
+00:13:34,970 --> 00:13:39,290
+Another one is for visualization. So low dimensional vectors can be visualized.
+
+129
+00:13:39,290 --> 00:13:41,330
+And I show this in the example notebooks.
+
+130
+00:13:41,330 --> 00:13:47,210
+But if we take an SVOD, then we can you say the first two columns of the SFD to visualize our data points in a space.
+
+131
+00:13:47,210 --> 00:13:51,680
+The space is not human interpretable. But let's see how spread out the points are.
+
+132
+00:13:51,680 --> 00:13:58,250
+We can also use it to get better neighborhood. So one of the problems, there's a couple of problems with high dimensional spaces.
+
+133
+00:13:58,250 --> 00:14:00,080
+We're trying to compute distances.
+
+134
+00:14:00,080 --> 00:14:06,230
+One is that distance is more expensive to compute because the more dimensions you have, the more compute you need to do.
+
+135
+00:14:06,230 --> 00:14:10,290
+But also, as the dimensionality of a space increases, the number of features,
+
+136
+00:14:10,290 --> 00:14:17,510
+the number of columns in your in your Matrix point start to look about the same distance from each other.
+
+137
+00:14:17,510 --> 00:14:21,740
+It's called the cursive dimensionality. Decomposed matrices can help with this.
+
+138
+00:14:21,740 --> 00:14:29,690
+So doing SFD can help make either a K and then classifier or a commune's clustering approach work better if you work on the.
+
+139
+00:14:29,690 --> 00:14:34,250
+If you do the K and N or the K means clustering, which we're going to talk about in the next video.
+
+140
+00:14:34,250 --> 00:14:45,750
+On top of. The transformed data using an SVOD, it can sometimes be more effective than if you just use it on its own.
+
+141
+00:14:45,750 --> 00:14:53,050
+The fourth case is the model categorical interaction. So if we want to models say the likelihoods of words to appear together,
+
+142
+00:14:53,050 --> 00:14:57,540
+like what's the likelihood that apple and fish appear within three words of each other in a sentence?
+
+143
+00:14:57,540 --> 00:15:02,910
+We can think about this as a probability, but there's N squared of them because we have no probability for every pair of words.
+
+144
+00:15:02,910 --> 00:15:04,940
+That's a lot to learn if we were going to learn.
+
+145
+00:15:04,940 --> 00:15:11,820
+If you want to learn a matrix that maps the probability between every pair of words in the English language, that's a very, very large matrix.
+
+146
+00:15:11,820 --> 00:15:20,940
+So instead, what we can do is we can learn of reduced dimensionality, space, and we usually don't do this by actually taking the NCD.
+
+147
+00:15:20,940 --> 00:15:27,560
+We do it with with approximation method that just directly optimize these vectors.
+
+148
+00:15:27,560 --> 00:15:32,110
+But we can learn vectors for words so that.
+
+149
+00:15:32,110 --> 00:15:40,330
+You basically using a logistic model of the probabilities so that the DOT products between them is the law gods of the two words appearing together.
+
+150
+00:15:40,330 --> 00:15:43,840
+And so words that appear together are going to have similar vectors.
+
+151
+00:15:43,840 --> 00:15:48,730
+Words that appear far apart are going to have very different vectors. And this is called a word embedding.
+
+152
+00:15:48,730 --> 00:15:52,870
+This is what a word embedding does. Like word the vac glove. These various word embedded.
+
+153
+00:15:52,870 --> 00:15:59,020
+This is what they do. And more sophisticated versions of this are at the heart of a lot of machine learning models.
+
+154
+00:15:59,020 --> 00:16:01,750
+So a lot of neural architecture is a lot of deep learning.
+
+155
+00:16:01,750 --> 00:16:09,600
+Models have various embedding and all in embedding is it's a vector representation of something.
+
+156
+00:16:09,600 --> 00:16:16,410
+And they're often done through these kinds of dimensionality, reduction techniques or approximations of them,
+
+157
+00:16:16,410 --> 00:16:24,480
+so that you get you get these vectors, these low dimensional vectors that are in a space like they're 10 dimensional vector.
+
+158
+00:16:24,480 --> 00:16:31,230
+And the 10 dimensions don't mean anything. They're just dimensions that are useful for explaining this.
+
+159
+00:16:31,230 --> 00:16:37,020
+This this instance is relationship to whatever we're trying to do with it.
+
+160
+00:16:37,020 --> 00:16:40,520
+And so they take you a long ways and a lot of machine learning.
+
+161
+00:16:40,520 --> 00:16:45,120
+And then they're the core piece of a lot of different models.
+
+162
+00:16:45,120 --> 00:16:50,730
+So to wrap up Matrix decompositions, which is also called a matrix factorization or dimensionality reduction,
+
+163
+00:16:50,730 --> 00:16:58,110
+breaks a high dimensional matrix into a low dimensional one. And it's useful for compressing data.
+
+164
+00:16:58,110 --> 00:17:03,780
+You've got a more compact representation. It's useful for making it more well behaved numerically.
+
+165
+00:17:03,780 --> 00:17:09,960
+We can compute better distances. We compute distances more efficiently, can reduce noise in the data.
+
+166
+00:17:09,960 --> 00:17:22,833
+There's a lot of different purposes for which decomposing data into this lower dimensional space is super useful.
+

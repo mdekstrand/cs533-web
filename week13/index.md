@@ -12,6 +12,7 @@ This week's content is lighter, since we just had a large assignment and a midte
 ## {{moverview}} Content Overview
 
 :::{module} week13
+:folder: 0ad54e44-0249-4039-b405-adc601833667
 :::
 
 ## {{mcal}} Deadlines
@@ -24,11 +25,8 @@ This week's content is lighter, since we just had a large assignment and a midte
 In this video, we review the idea of supervised learning and contrast it with unsupervised learning.
 
 :::{video}
-:id: cfa074b5-dd9c-4b45-8590-ac74005d8b2b
 :name: 13-1 - No Supervision
 :length: 2m51s
-:slide-id: 495979F9A431DDB0%2173390
-:slide-auth: AHEM5KWN4LkcGB0
 :::
 
 ## {{mvideo}} Decomposing Matrices
@@ -36,11 +34,8 @@ In this video, we review the idea of supervised learning and contrast it with un
 This video introduces the idea of *matrix decomposition*, which we can use to *reduce the dimensionality* of data points.
 
 :::{video} decomp
-:id: eae061db-3834-4514-9644-ac74005fa6b4
 :name: 13-2 - Decomposing Matrices
 :length: 17m22s
-:slide-id: 495979F9A431DDB0%2173349
-:slide-auth: APzn98jtSv0QCak
 :::
 
 ### Resources
@@ -59,11 +54,8 @@ The [Movie Decomposition](../resources/tutorials/MovieDecomp.ipynb) notebook dem
 This video introduces the concept of *clustering*, another useful unsupervised learning technique.
 
 :::{video}
-:id: fc13ea03-e493-4662-8630-ac7400614a2f
 :name: 13-3 - Clustering
 :length: 6m56s
-:slide-id: 495979F9A431DDB0%2173391
-:slide-auth: ADR5dKQHSG5VznM
 :::
 
 ### Resources
@@ -79,11 +71,8 @@ The [clustering example notebook](../resources/tutorials/ClusteringExample.ipynb
 This video talks about *vector spaces* and transforms.
 
 :::{video}
-:id: fb68cbf0-6a7e-4a6e-b235-ac740062a396
 :name: 13-4 - Vectors and Spaces
 :length: 7m27s
-:slide-id: 495979F9A431DDB0%2173394
-:slide-auth: ACkeUzx3rOug5do
 :::
 
 ## {{mquiz}} Week 13 Quiz
