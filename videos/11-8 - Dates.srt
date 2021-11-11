@@ -1,0 +1,344 @@
+1
+00:00:04,320 --> 00:00:07,990
+So in this video, I want to talk with you about dates,
+
+2
+00:00:07,990 --> 00:00:13,900
+learning outcomes are for you to be able to pass and transform dates and adjust dates using date offsets.
+
+3
+00:00:13,900 --> 00:00:20,480
+So first, I want to talk just briefly about the difference between a date as we say it, like.
+
+4
+00:00:20,480 --> 00:00:26,410
+OK. It's November the 3rd, 2020 and underlying time.
+
+5
+00:00:26,410 --> 00:00:35,620
+So dates to all kinds of funny things. When we change to or from Daylight Savings Time, we skip an hour or we repeat an hour.
+
+6
+00:00:35,620 --> 00:00:39,130
+But the underlying time stream doesn't repeat.
+
+7
+00:00:39,130 --> 00:00:44,770
+It's just that our way of mapping that to the way we write it down repeats.
+
+8
+00:00:44,770 --> 00:00:50,140
+So we can think of underlying time as moving forward at a constant rate.
+
+9
+00:00:50,140 --> 00:00:53,510
+Generally, there's relativity and all of those things.
+
+10
+00:00:53,510 --> 00:01:03,350
+But the time is moving forward and how we record it changes and is complex and subject to a lot of rules.
+
+11
+00:01:03,350 --> 00:01:09,100
+The key thing is like with text being different, like the text content is different from its encoding.
+
+12
+00:01:09,100 --> 00:01:11,710
+Time is different from its representation.
+
+13
+00:01:11,710 --> 00:01:21,130
+Well, one of the implications this says, is that we typically store time in more of its monotonic form, like seconds since a particular date, UTC.
+
+14
+00:01:21,130 --> 00:01:30,790
+And then we translate for presentation. And so you'll see your store the time it offset UTC and then you will you'll translate
+
+15
+00:01:30,790 --> 00:01:34,600
+that to the local time zone with all of the daylight savings rules and everything,
+
+16
+00:01:34,600 --> 00:01:37,390
+we are going to go actually display it.
+
+17
+00:01:37,390 --> 00:01:43,720
+So internally, there are a few ways we can represent time numerically, and sometimes you'll need to do this yourself.
+
+18
+00:01:43,720 --> 00:01:49,240
+So one one is Unix timestamps, which is time since or before that can be negative.
+
+19
+00:01:49,240 --> 00:01:56,920
+Midnight, UTC, January 1st, 1970. Often this is stored in seconds.
+
+20
+00:01:56,920 --> 00:02:08,320
+Pythons like not in pandas or not pie, but Python, the Pathfinder standard library tends to do time and second floating point seconds since midnight.
+
+21
+00:02:08,320 --> 00:02:15,520
+The reference point, as I said, the reference point for this is UTC. You can also store at milliseconds or nanoseconds since that time.
+
+22
+00:02:15,520 --> 00:02:22,630
+If you have a data, if you have a data file that has a file, a column that's labeled as a timestamp and it's an end.
+
+23
+00:02:22,630 --> 00:02:29,050
+It's a number. There's a very good chance it's a Unix timestamp. That's very common way to store dates and times.
+
+24
+00:02:29,050 --> 00:02:32,770
+We can also store Julian Day numbers, which are days since January 1st.
+
+25
+00:02:32,770 --> 00:02:39,290
+Forty seven 13 B.C. And you can you you can store a time by using a floating point numbers,
+
+26
+00:02:39,290 --> 00:02:43,900
+it might be twenty two million, three hundred and seventy five point eight days.
+
+27
+00:02:43,900 --> 00:02:49,660
+There's also other origins. You can use a lot of different origins. Pandas actually lets you specify arbitrary origins.
+
+28
+00:02:49,660 --> 00:02:55,360
+But the nineteen hundred system that's used by Excel and other spreadsheets stores days since January 1st.
+
+29
+00:02:55,360 --> 00:03:05,120
+Nineteen hundred. So we can also store data strings, so the ISO format is year, month, day.
+
+30
+00:03:05,120 --> 00:03:09,590
+This has the nice advantage that at least until the year ten thousand.
+
+31
+00:03:09,590 --> 00:03:15,020
+It sorts by date. If you sorted Alphabet Alpha numerically, it's it's going to sort the resulting dates by date.
+
+32
+00:03:15,020 --> 00:03:19,850
+So if you're going to name files after dates, this with dates at the beginning of the file name.
+
+33
+00:03:19,850 --> 00:03:21,770
+This is super useful.
+
+34
+00:03:21,770 --> 00:03:29,990
+There's also localized numeric forms such as eleven three, twenty twenty, which is how we write the dates in the United States, Europe and the UK.
+
+35
+00:03:29,990 --> 00:03:34,340
+Right. Generally right at day, month, year three. Eleven, twenty, twenty.
+
+36
+00:03:34,340 --> 00:03:46,490
+So if you see a date that's two digits, two digits year, that's not enough information to know when we're talking about.
+
+37
+00:03:46,490 --> 00:03:51,080
+Are we talking about November 3rd or are we talking about March 11th?
+
+38
+00:03:51,080 --> 00:03:55,970
+You need to know the country locale in which the date came from to know how to correctly interpret it.
+
+39
+00:03:55,970 --> 00:04:01,280
+Sometimes you can infer it by looking for, say, November twenty eighth,
+
+40
+00:04:01,280 --> 00:04:05,990
+because 28 isn't a valid month number that I'll let you figure out which one you're dealing with.
+
+41
+00:04:05,990 --> 00:04:10,370
+But this localized form, just if you get a date, it's often ambiguous.
+
+42
+00:04:10,370 --> 00:04:13,490
+You could also have longer string forms like you did right out November 3rd.
+
+43
+00:04:13,490 --> 00:04:21,440
+Twenty Twenty Panels provides a function called Date Time 64 that allows you to store dates and times.
+
+44
+00:04:21,440 --> 00:04:25,350
+And even if you just have a date, you usually store it. It's a date time with midnight.
+
+45
+00:04:25,350 --> 00:04:30,590
+At least that's how you work with it. And pan those pandas doesn't have a time free date type.
+
+46
+00:04:30,590 --> 00:04:35,350
+You can create a date time from number and units as an origin.
+
+47
+00:04:35,350 --> 00:04:43,120
+So you can say we want. We want two hundred and thirty million.
+
+48
+00:04:43,120 --> 00:04:52,780
+Seconds since the Unix epoch, we want three point eight million second days since the Julian Origin D Funk.
+
+49
+00:04:52,780 --> 00:04:59,890
+This function also supports the number can be a series or an array in addition to a single numbers.
+
+50
+00:04:59,890 --> 00:05:04,780
+You can create a series or an array of pand date time objects.
+
+51
+00:05:04,780 --> 00:05:09,820
+You can also convert it from a string. This also can be up a series or array of strings.
+
+52
+00:05:09,820 --> 00:05:13,480
+So in an assignment, if you've got it, if you've got a column that string dates,
+
+53
+00:05:13,480 --> 00:05:17,620
+you can convert that to a column of date times by using these functions.
+
+54
+00:05:17,620 --> 00:05:20,350
+And by default, it's going to pass the time for my S.O.
+
+55
+00:05:20,350 --> 00:05:26,830
+But you can also tell it to pass other time, but providing a format string that describes how the time is laid out.
+
+56
+00:05:26,830 --> 00:05:31,860
+And there's a link in the pandas documentation to the way these format strings work can also be provided.
+
+57
+00:05:31,860 --> 00:05:40,540
+That link in the notes that go with this video. Then so we've got daytime's pandas has also had an object called a Time Delta,
+
+58
+00:05:40,540 --> 00:05:45,550
+which stores of a difference between two times, if you subtract one date time from another,
+
+59
+00:05:45,550 --> 00:05:47,410
+what you're going to get as a time delta,
+
+60
+00:05:47,410 --> 00:05:54,550
+you can create one from a number of plus units or a string that describes that like I can create the the the time delta one day,
+
+61
+00:05:54,550 --> 00:05:59,710
+thirty minutes and twenty two seconds. The time Delta marks advances in linear times.
+
+62
+00:05:59,710 --> 00:06:07,580
+You can't create a time delta for example, of one month. The date offset is what you use to get one month.
+
+63
+00:06:07,580 --> 00:06:12,290
+So it's you can create it from a number and units and it correctly offsets the dates,
+
+64
+00:06:12,290 --> 00:06:19,190
+even if you it knows it can know whether it needs to extend by 30 days or thirty one or twenty eight.
+
+65
+00:06:19,190 --> 00:06:26,450
+It handles Daylight Savings Time, a Hannahs leap year, a handle's leap seconds and deals with being able to offset dates properly.
+
+66
+00:06:26,450 --> 00:06:33,980
+Date Offset does not natively support series, so date times and time deltas, both native pandas natively supports them in series.
+
+67
+00:06:33,980 --> 00:06:38,660
+You can't, however, create a series of an object series that contains data offsets.
+
+68
+00:06:38,660 --> 00:06:47,930
+So if Month series is a series of numeric series that contains numbers of months, then we can use apply.
+
+69
+00:06:47,930 --> 00:06:51,620
+And it's it's it's a little slow because it's doing a python loop effectively.
+
+70
+00:06:51,620 --> 00:06:57,170
+But we can use apply to convert these data, offset these numbers of month into data, offset objects.
+
+71
+00:06:57,170 --> 00:07:07,490
+We get a series of those which we can then say add to add to a series of date times in order to produce offset date times.
+
+72
+00:07:07,490 --> 00:07:14,450
+For example, to add if we've got a column that has the term the number of months on loan is for and when the loan was issued,
+
+73
+00:07:14,450 --> 00:07:23,850
+we can add we can convert the month to a date offset. Add it to the issue date and we can find when the loan is due.
+
+74
+00:07:23,850 --> 00:07:27,150
+When you're doing arithmetic with dates, if you add a date time and the time Delta,
+
+75
+00:07:27,150 --> 00:07:32,370
+you're going to get a date time, date time plus a tight offset is also a date time. You could subtract as well as add.
+
+76
+00:07:32,370 --> 00:07:36,480
+As I said, if you subtract two date times, you're gonna get a time Delta.
+
+77
+00:07:36,480 --> 00:07:41,580
+You can also multiply a date offset by a number and it's going to give you another date offset that's multiplied.
+
+78
+00:07:41,580 --> 00:07:46,290
+So you can if you've got two months, you can multiply it by five and you'll get 10 months.
+
+79
+00:07:46,290 --> 00:07:50,370
+You can also compare you can compare date times using comparison operators.
+
+80
+00:07:50,370 --> 00:07:56,790
+You do need to create date times on both sides. If you've got something that say strings, you need to convert it to a date time object.
+
+81
+00:07:56,790 --> 00:08:03,570
+So then you can do the comparison. So in conclusion, dates and times are typically stored internally using offsets from an origin.
+
+82
+00:08:03,570 --> 00:08:07,440
+Usually store. Usually we store them in UTC and then we translate them to local time.
+
+83
+00:08:07,440 --> 00:08:15,050
+When we go on display. PANDAS provides a number of functions and types for working with dates and times.
+
+84
+00:08:15,050 --> 00:08:21,750
+In addition, NUM Pi provides some of its own. I generally work with pandas, but not PI does provide time.
+
+85
+00:08:21,750 --> 00:08:27,720
+Delta date time objects at work just a little bit differently. Python also does it its standard library for our purposes.
+
+86
+00:08:27,720 --> 00:08:35,200
+I recommend generally sticking with the pandas ones.
+

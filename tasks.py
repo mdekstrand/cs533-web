@@ -162,5 +162,5 @@ def onedrive_login(c):
     auth = f'https://login.microsoftonline.com/{tenant}/'
 
     app = PublicClientApplication(client_cfg['id'], authority=auth)
-    result = app.acquire_token_interactive(scopes=["user.read", "files.readwrite"])
+    result = app.acquire_token_interactive(scopes=["files.readwrite"])
     print(result)

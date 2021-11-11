@@ -1,0 +1,296 @@
+1
+00:00:04,600 --> 00:00:09,340
+This video, I'm going to introduce psychic learn transformers and pipelines that are going to allow
+
+2
+00:00:09,340 --> 00:00:15,490
+you to put your feature transformation and your modeling process into one pipeline that's
+
+3
+00:00:15,490 --> 00:00:19,780
+reproducible across your training and your test data learning objectives are for you to
+
+4
+00:00:19,780 --> 00:00:24,640
+be able to use a psychic learning pipeline to combine feature transforms and prediction.
+
+5
+00:00:24,640 --> 00:00:28,240
+So our data often takes the form conceptually of a pipeline.
+
+6
+00:00:28,240 --> 00:00:31,390
+We're going to transform some features that are going to fit a model.
+
+7
+00:00:31,390 --> 00:00:35,470
+And then in prediction, we need to transform the features and generate the predictions.
+
+8
+00:00:35,470 --> 00:00:41,530
+Both of these steps you have, the transformation, the transformation may have parameters, for example, the standardization that we talked about.
+
+9
+00:00:41,530 --> 00:00:49,030
+We have to learn the mean and the standard deviation that we're going to subtract and scale by in order to do the transformation.
+
+10
+00:00:49,030 --> 00:00:55,300
+And in the test data, we want to transform by the training data properties, not the test data properties, for two reasons.
+
+11
+00:00:55,300 --> 00:00:58,900
+One, they might be different to an actual production.
+
+12
+00:00:58,900 --> 00:01:03,530
+You don't necessarily have a whole batch of test data. If you've got a new.
+
+13
+00:01:03,530 --> 00:01:07,480
+So if you've got a new user coming to your online shop and you're going to predict for you want to
+
+14
+00:01:07,480 --> 00:01:14,860
+predict whether they're going to which of the three specials they're most likely to be interested in.
+
+15
+00:01:14,860 --> 00:01:18,820
+You just have this customer coming and you need to be able to transform their features to put them in the model
+
+16
+00:01:18,820 --> 00:01:24,160
+or the way you do that as you use the transformation parameters that you learned from the training data.
+
+17
+00:01:24,160 --> 00:01:30,160
+So Psyched Learn has an object called a pipeline that allows us to create a sequence of models.
+
+18
+00:01:30,160 --> 00:01:38,410
+And the typically this is one or more transformer algorithms or models followed by finally a regressive or a classifier or some other kind of model,
+
+19
+00:01:38,410 --> 00:01:39,310
+though, to output.
+
+20
+00:01:39,310 --> 00:01:47,200
+There's other things you can put in the middle, like Matrix decompositions and other things like that that we're going to see a little bit of later.
+
+21
+00:01:47,200 --> 00:01:53,470
+But if you have if you put this into a pipeline and then you tell and then you fit the pipeline, the pipeline exposes the fit method.
+
+22
+00:01:53,470 --> 00:01:58,510
+It will fit its inner models and it will transform the data through in sequence.
+
+23
+00:01:58,510 --> 00:02:04,260
+So if you've got so if you've got a if you've got a pipeline.
+
+24
+00:02:04,260 --> 00:02:12,260
+And it has a transform. And it has a classifier.
+
+25
+00:02:12,260 --> 00:02:18,650
+When you call fit, what it's going to do is it's going to, one, fit the data.
+
+26
+00:02:18,650 --> 00:02:28,990
+Or fit the transform to transform data. Using the parameters at Just Fit.
+
+27
+00:02:28,990 --> 00:02:38,100
+And then three fit the classifier. On the Transform data.
+
+28
+00:02:38,100 --> 00:02:41,780
+So it automates this process of managing your data pipelines.
+
+29
+00:02:41,780 --> 00:02:50,640
+So to talk a little bit about Transformers, the learned use case we've seen so far is that we train something on data with fit.
+
+30
+00:02:50,640 --> 00:02:56,740
+We give it our input features, we give it our output class, and then we generate predictions with predict transformers.
+
+31
+00:02:56,740 --> 00:02:59,970
+Add another modeled another function to this paradigm.
+
+32
+00:02:59,970 --> 00:03:10,770
+Transform some functions can do both transformation and prediction, but transform returns a copy of your input data with the features adjusted.
+
+33
+00:03:10,770 --> 00:03:17,310
+So if you fit so for the scale the standardization transformer.
+
+34
+00:03:17,310 --> 00:03:30,120
+Fitt. What it does is it computes. It computes X Bar and S and then transform.
+
+35
+00:03:30,120 --> 00:03:36,010
+Return. X minus X bar over s.
+
+36
+00:03:36,010 --> 00:03:41,260
+And it. It does this separately for each column,
+
+37
+00:03:41,260 --> 00:03:46,540
+for each of your input features is going to learn a separate mean and a separate scale for each of your input features.
+
+38
+00:03:46,540 --> 00:03:50,650
+But that's what fit and transform. And so you can then.
+
+39
+00:03:50,650 --> 00:03:57,970
+So if you fit the transformer and then you transform that, you can then use the transformed data as input to the next stage in the pipeline,
+
+40
+00:03:57,970 --> 00:04:05,150
+another transformer or your your final classification of regression model.
+
+41
+00:04:05,150 --> 00:04:12,470
+If you want to transform your columns differently, so Transformer's if you have a transformer, it's going to fly to every column in the asset column.
+
+42
+00:04:12,470 --> 00:04:18,470
+Transformer allows you to apply different transformations to different columns in your input data.
+
+43
+00:04:18,470 --> 00:04:26,120
+It's also one of the few Pay Saikat learn classes that actually knows about Panda's data frames.
+
+44
+00:04:26,120 --> 00:04:32,480
+And so you give it a list of triples, you give it name transformer and column triples,
+
+45
+00:04:32,480 --> 00:04:39,590
+and it will learn this transformer for these columns in this transformer for these columns.
+
+46
+00:04:39,590 --> 00:04:48,410
+And then there's a remainder option, which you can say either a transformer that apply to all of them or a drop or there's some other options as well.
+
+47
+00:04:48,410 --> 00:04:53,510
+And so what you can do is if you've got, say, three different categorical transfer functions, you want to do something.
+
+48
+00:04:53,510 --> 00:04:57,530
+Or call it you want to do something, too. And you have a number of numerics you can apply.
+
+49
+00:04:57,530 --> 00:05:02,480
+OK, here's one transformer for one of the the the categorical calls transformer
+
+50
+00:05:02,480 --> 00:05:07,190
+for another one and then remainder just standardize all my numeric variables.
+
+51
+00:05:07,190 --> 00:05:11,450
+Lets you do that conveniently. But the column I'm going to refer you to the documentation.
+
+52
+00:05:11,450 --> 00:05:15,410
+I've got links to the documentation in the notes for this week.
+
+53
+00:05:15,410 --> 00:05:23,540
+I'm going to refer you to that to learn more about how to apply column transformers, but they allow you to transform columns differently.
+
+54
+00:05:23,540 --> 00:05:29,060
+Some of the useful transformers that psychic learn gives you are the standard scalar that standardizes variables.
+
+55
+00:05:29,060 --> 00:05:35,870
+There's a power transformer that does power box or does box Cox style power transformations binary or
+
+56
+00:05:35,870 --> 00:05:41,590
+converts numeric data to zero one by applying a threshold's be one of its greater one out encoder.
+
+57
+00:05:41,590 --> 00:05:47,540
+We'll take a particle Virk Oracle variable. So a transformer is not limited to just returning one output column.
+
+58
+00:05:47,540 --> 00:05:51,320
+It can expand the column in the multiple columns. So one hot encoder.
+
+59
+00:05:51,320 --> 00:05:56,810
+We'll take your categorical column and it will return multiple columns by encoding
+
+60
+00:05:56,810 --> 00:06:00,920
+by dummy encoding the categorical variable and then the function transformer.
+
+61
+00:06:00,920 --> 00:06:06,500
+You can give an arbitrary function that will use that to transform the data.
+
+62
+00:06:06,500 --> 00:06:12,080
+So the Transformers, though, they only apply to features if you also need to transform your outcome variable.
+
+63
+00:06:12,080 --> 00:06:17,060
+The transformer target regressed classes. What you need to use and it does not go into a pipeline.
+
+64
+00:06:17,060 --> 00:06:20,900
+You could use it as the as the last stage of a pipeline or as a stage in a pipeline.
+
+65
+00:06:20,900 --> 00:06:22,850
+But it wraps an underlying predictors.
+
+66
+00:06:22,850 --> 00:06:32,330
+You pass a predictor and a transformer in its constructor parameters and it transforms the target before calling the predict method or the fit method.
+
+67
+00:06:32,330 --> 00:06:40,910
+And then if you when you call, predict it untransformed, the results, you get the results back out in the original scale.
+
+68
+00:06:40,910 --> 00:06:45,560
+So to wrap up pipelines, let us combine multiple data steps into a single operation.
+
+69
+00:06:45,560 --> 00:06:51,200
+One of the things this is really useful for is being able to apply your training data transforms to your test data.
+
+70
+00:06:51,200 --> 00:06:55,340
+You fit the whole pipeline that transforms. You're going to learn the parameters from the training data.
+
+71
+00:06:55,340 --> 00:07:00,530
+You then go apply them to the test data and it just does the right thing for you automatically.
+
+72
+00:07:00,530 --> 00:07:05,600
+Now, one thing you have to do throughout your work with Saikat learn is pay very close attention to defaults.
+
+73
+00:07:05,600 --> 00:07:07,430
+The defaults are not always what you expected.
+
+74
+00:07:07,430 --> 00:07:19,433
+You need to pay close attention to them in order to understand that the model is doing exactly what you think that it's doing.
+

@@ -1,0 +1,868 @@
+1
+00:00:04,610 --> 00:00:08,930
+This video I want to talk with you about, transforming features,
+
+2
+00:00:08,930 --> 00:00:14,690
+learning outcomes are for you to be able to transform individual features and also derive new features and combine features.
+
+3
+00:00:14,690 --> 00:00:19,460
+What we're talking about here applies to both classification and regression models.
+
+4
+00:00:19,460 --> 00:00:24,190
+So. We've seen a few different things we can do with features already.
+
+5
+00:00:24,190 --> 00:00:29,980
+Just a little bit. Such as dealing with categorical features by dummy coating them.
+
+6
+00:00:29,980 --> 00:00:36,160
+But I'm going to start by refreshing on some discrete feature transference if we have one feature and it's a discrete feature.
+
+7
+00:00:36,160 --> 00:00:41,410
+There's a few things we can do with it. This is not an exhaustive list. But we can we can recode it.
+
+8
+00:00:41,410 --> 00:00:47,350
+We can rename coats. It might be that we've got the code. Just the names aren't very useful, so we want to rename them.
+
+9
+00:00:47,350 --> 00:00:50,890
+It might be that we want to merge codes. So some distinctions are irrelevant.
+
+10
+00:00:50,890 --> 00:01:00,730
+So, for example, on one of my datasets for completeness and being able to track coverage across each stage of the data integration pipeline,
+
+11
+00:01:00,730 --> 00:01:04,870
+there are four or five different ways a value can be unknown.
+
+12
+00:01:04,870 --> 00:01:08,650
+But when it comes to doing my final computations, I just care if it's unknown.
+
+13
+00:01:08,650 --> 00:01:13,170
+So I merge all of those codes into one unknown code. So that's one thing you might want to do is,
+
+14
+00:01:13,170 --> 00:01:16,990
+is merge some codes that your model doesn't have as many different codes to
+
+15
+00:01:16,990 --> 00:01:21,160
+work with because you don't care about the distinctions between some of them.
+
+16
+00:01:21,160 --> 00:01:27,490
+You may want to convert a value to a logical or a zero one numeric so that maybe it's you just want you're doing your recoding
+
+17
+00:01:27,490 --> 00:01:32,290
+where you pick one value and it's got to be one or two values that are going to be true and everything else is gonna be false.
+
+18
+00:01:32,290 --> 00:01:36,880
+You may also want to threshold values. For example, if you've gotten ordinal,
+
+19
+00:01:36,880 --> 00:01:43,870
+maybe you have some ratings and you want to say you want to collapse that into a category or a logical feature of rated positively,
+
+20
+00:01:43,870 --> 00:01:48,760
+where if they gave it more than three out of five stars, you say it was rated positively.
+
+21
+00:01:48,760 --> 00:01:52,930
+This can be really useful because people are really noisy and their inputs, like some people will say.
+
+22
+00:01:52,930 --> 00:01:57,100
+For some people say a five and you can reduce some of that noise by saying, you know,
+
+23
+00:01:57,100 --> 00:02:02,530
+we don't care how good they said the movie was, we just care if they said it was good.
+
+24
+00:02:02,530 --> 00:02:05,380
+This is kind of what Rotten Tomatoes is doing with its percent Frasch.
+
+25
+00:02:05,380 --> 00:02:12,550
+They take each rating and they convert it into did the you did the person say rate it positively or not.
+
+26
+00:02:12,550 --> 00:02:21,970
+And they look at the fraction of users or of critics who rated the movie positively and that becomes that becomes a feature.
+
+27
+00:02:21,970 --> 00:02:27,220
+So you can also dummy code your values. If you've got a categorical value with more than two levels,
+
+28
+00:02:27,220 --> 00:02:33,460
+then you can expand that out of the multiple features, that dummy code, your variable or one hot in code.
+
+29
+00:02:33,460 --> 00:02:37,870
+You can also do a number of things, the continuous features. You can take a log. You can take a square root.
+
+30
+00:02:37,870 --> 00:02:45,040
+Both of these are useful for reducing SKU. Sometimes you might want to take a square or a higher order polynomial in order
+
+31
+00:02:45,040 --> 00:02:48,700
+to a higher order power or higher order polynomial building out more features.
+
+32
+00:02:48,700 --> 00:02:56,800
+You've got a feature and it's square and it's cube that lets you learn more complex, nonlinear functions using a linear model.
+
+33
+00:02:56,800 --> 00:03:02,860
+You can also standardize various standardized and center variables. So they're mean what they call what we call mean centered.
+
+34
+00:03:02,860 --> 00:03:06,730
+If you take the mean of a feature and you subtract it from all the feature values,
+
+35
+00:03:06,730 --> 00:03:12,820
+the resulting mean is zero and the data is now means centered and you can also democratize it.
+
+36
+00:03:12,820 --> 00:03:20,800
+So you can convert it to either to more than one bean or you can threshold it to convert it to a binary value that's positive or negative.
+
+37
+00:03:20,800 --> 00:03:28,670
+There is a binary value based on whether it's above or below a threshold. So but how do you think about when you want to do this?
+
+38
+00:03:28,670 --> 00:03:33,740
+There's a couple of things that particularly drive when we might want to transform features.
+
+39
+00:03:33,740 --> 00:03:37,700
+One is when the feature has a non linear relationship to our outcome.
+
+40
+00:03:37,700 --> 00:03:43,520
+Variable transformation of the feature and or the outcome variable can make the relationship linear.
+
+41
+00:03:43,520 --> 00:03:48,560
+And now all of our linear modeling techniques work again. Also that the feature is not normally distributed.
+
+42
+00:03:48,560 --> 00:03:53,900
+This isn't inherently a problem, but close to normally distributed features often work better.
+
+43
+00:03:53,900 --> 00:03:56,000
+There's often more likely going to be linear.
+
+44
+00:03:56,000 --> 00:04:01,040
+So if we have a feature that's really that's very not normal and there's a simple transformation that can make it normal,
+
+45
+00:04:01,040 --> 00:04:06,740
+that's often going to make it work better as a feature that's input into particularly a linear model.
+
+46
+00:04:06,740 --> 00:04:10,570
+But other kinds of models as well. So, for one example,
+
+47
+00:04:10,570 --> 00:04:14,080
+if we want to standardize variables where we want to do is we want to subtract the
+
+48
+00:04:14,080 --> 00:04:18,760
+main feature value that's going to make the new mean on the training data zero.
+
+49
+00:04:18,760 --> 00:04:29,510
+And then what this means is so if if you've got this means centered variable and you use it as a feature, a linear model.
+
+50
+00:04:29,510 --> 00:04:33,980
+Then when the value is average, you're just going to have the intercept or the intercept,
+
+51
+00:04:33,980 --> 00:04:40,860
+plus the other features and the coefficient describes the change in the re outcome.
+
+52
+00:04:40,860 --> 00:04:49,860
+As the variable bill goes above or below average, rather than as it goes just with respect to zero, it's its natural value.
+
+53
+00:04:49,860 --> 00:04:56,280
+Mean Centerin can also result in more interpretable intercepts.
+
+54
+00:04:56,280 --> 00:05:07,320
+Because. If all of your features are mean centered, then your intercept of your linear model is the average value.
+
+55
+00:05:07,320 --> 00:05:15,480
+If your features aren't, many aren't mean centered than the the intercept is average,
+
+56
+00:05:15,480 --> 00:05:20,670
+but corrected for the averages of your different features so it can make the model more interpretable.
+
+57
+00:05:20,670 --> 00:05:25,140
+It can make it make the meet means enter.
+
+58
+00:05:25,140 --> 00:05:26,790
+It makes the model far more interpretable.
+
+59
+00:05:26,790 --> 00:05:36,780
+It's also useful for dealing with sparse data because if you mean center your values, then it's a lot more reasonable to treat missing values as zero.
+
+60
+00:05:36,780 --> 00:05:41,790
+It's still a form of a mutation, but if you mean center your values and you have something come in that doesn't have a value,
+
+61
+00:05:41,790 --> 00:05:46,680
+you can say, well, we don't know anything about it, so we're gonna assume at zero or we're going to zoom it's average.
+
+62
+00:05:46,680 --> 00:05:53,730
+Since you've means centered, the value average means the coefficient on that feature plays no role in the outcome prediction.
+
+63
+00:05:53,730 --> 00:06:02,100
+That's also very important. So mean centering really gives you this way to allow missing data to not have an effect
+
+64
+00:06:02,100 --> 00:06:06,810
+in your model because you're going sue its average average has a zero coefficient.
+
+65
+00:06:06,810 --> 00:06:11,940
+Its outcome is going to be based completely on the values of the other features and the observation.
+
+66
+00:06:11,940 --> 00:06:19,620
+It's not a perfect solution for all systems. You can't just blindly assume it's going to work, but it is a really useful technique.
+
+67
+00:06:19,620 --> 00:06:28,290
+The other thing we do in standard is a full standardization is we divide by the standard deviation and so the resulting value of F X.
+
+68
+00:06:28,290 --> 00:06:35,760
+We have a value X AI that's in our input feature. We subtract the main divide by the standard deviation and we get this transformed value x sabai.
+
+69
+00:06:35,760 --> 00:06:41,160
+Now the coefficients on this in a linear model are going to be a units of standard deviations.
+
+70
+00:06:41,160 --> 00:06:48,770
+So if f x changes by one standard deviation, how much does that change the output?
+
+71
+00:06:48,770 --> 00:06:53,630
+One. And this also makes if we standardize it, this makes our coefficients more directly comparable.
+
+72
+00:06:53,630 --> 00:06:58,580
+Because if all of our features are standardized or all of our numeric features are standardized,
+
+73
+00:06:58,580 --> 00:07:02,390
+then all of the coefficients are in terms of standard deviation.
+
+74
+00:07:02,390 --> 00:07:04,910
+You can say if this feature moves by one standard deviation,
+
+75
+00:07:04,910 --> 00:07:10,460
+if that feature moves by one standard deviation and you don't have to deal with all this was in millimeters and this one's in Gramp's,
+
+76
+00:07:10,460 --> 00:07:16,760
+how do we think about the relative impact of these two features? You can't if they're in their natural units, you can.
+
+77
+00:07:16,760 --> 00:07:20,630
+If they're in terms of standard, it's much easier if they're in terms of standard deviations.
+
+78
+00:07:20,630 --> 00:07:24,560
+And this applies to both inference and predictive modeling.
+
+79
+00:07:24,560 --> 00:07:33,290
+Now, it's important to note that the the parameters here, the mean that we're going to shift by.
+
+80
+00:07:33,290 --> 00:07:37,910
+And the scaling factor are parameters that we learned from the training data.
+
+81
+00:07:37,910 --> 00:07:44,090
+And when we want to transform the test data, we need to transform them by the training data's parameters,
+
+82
+00:07:44,090 --> 00:07:47,660
+because effectively what you do is part of the training process. You learn.
+
+83
+00:07:47,660 --> 00:07:54,200
+Okay, I've got I've got my coefficients, but also I normalize this feature by subtracting seven and dividing by three.
+
+84
+00:07:54,200 --> 00:07:56,420
+Well, that's going to change a little bit with different training data.
+
+85
+00:07:56,420 --> 00:08:02,660
+So you treat these as parameters and use the same values for transforming your test data.
+
+86
+00:08:02,660 --> 00:08:06,870
+I want to show you an example of why you might want to do a log transform even for binary outcome.
+
+87
+00:08:06,870 --> 00:08:11,060
+So here what I've done. Here's our outcome variable.
+
+88
+00:08:11,060 --> 00:08:18,760
+And I've been and I've shown a Bloks box plot of our input variable as it changes for the two versions, the output variable.
+
+89
+00:08:18,760 --> 00:08:23,950
+So we've got some much larger values here. And what's going to happen with these larger value?
+
+90
+00:08:23,950 --> 00:08:26,350
+One of the things that's gonna happen with these larger values.
+
+91
+00:08:26,350 --> 00:08:37,300
+Yes, it's useful that yes, it's useful that the values, the mean or the median is higher.
+
+92
+00:08:37,300 --> 00:08:42,880
+So it's going to. Yes. If for higher values, it's more likely to be a one on the outcome.
+
+93
+00:08:42,880 --> 00:08:46,330
+But we have a very, very large values. And you get. OK.
+
+94
+00:08:46,330 --> 00:08:50,950
+So you get some these a little bit lower. But you can. OK. We're gonna get one of these values its way up here at fifty.
+
+95
+00:08:50,950 --> 00:08:54,670
+You put that in your linear model. If on the off chance, that might be a zero.
+
+96
+00:08:54,670 --> 00:09:00,160
+It's going to jack the. It's going to push the numbers so far. Or the model output so far,
+
+97
+00:09:00,160 --> 00:09:08,590
+it's impossible for any other features to do anything to allow these extreme that these larger values to just completely dominate your computation.
+
+98
+00:09:08,590 --> 00:09:13,330
+So if you log transform, what you're gonna do is you're going to significantly decrease the skew.
+
+99
+00:09:13,330 --> 00:09:19,360
+It's not going to make our poor distributions perfectly symmetric. But the skew is going to be there's going to be substantially less skew.
+
+100
+00:09:19,360 --> 00:09:24,670
+There's going to be substantially smaller range. These values are a lot more comparable to each other.
+
+101
+00:09:24,670 --> 00:09:30,550
+And so the log we are looking at a difference of two here rather than about eight.
+
+102
+00:09:30,550 --> 00:09:36,730
+And we don't have the massively large values like the the top value here is only as large as four.
+
+103
+00:09:36,730 --> 00:09:42,280
+And so it really is going to make the values a lot a lot better distributed.
+
+104
+00:09:42,280 --> 00:09:47,950
+If you've got heavily skewed data, it's worth trying both a log transform and a square root transform,
+
+105
+00:09:47,950 --> 00:09:55,330
+just depending on how precisely the data is skewed. One might work better than another, but you decrease the skew, you decrease the range.
+
+106
+00:09:55,330 --> 00:10:02,410
+The values are a lot more contained. You don't the extreme values are still being collapsed down to a much more manageable range.
+
+107
+00:10:02,410 --> 00:10:09,910
+And this is. But we haven't lost the fact that a difference in this value is going to correlate with a difference in outcome.
+
+108
+00:10:09,910 --> 00:10:18,310
+We haven't lost the ability to use it to distinguish. We've just compressed, condensed that ability down into a more reasonable range of values.
+
+109
+00:10:18,310 --> 00:10:24,940
+So the resulting mathematical model is going to be better behaved. Another example is descript haisong.
+
+110
+00:10:24,940 --> 00:10:28,480
+So sometimes this might come from outside knowledge.
+
+111
+00:10:28,480 --> 00:10:33,670
+So one of the hints I've given you in the assignment is that you might want to disk critize term
+
+112
+00:10:33,670 --> 00:10:38,110
+so that greater than or equal to two hundred and forty months is considered a real estate loan.
+
+113
+00:10:38,110 --> 00:10:45,010
+We know that's a reasonable thing to do from the reading that came with the data set and explain what happens with the real estate loans.
+
+114
+00:10:45,010 --> 00:10:49,150
+You might also, as I said earlier, talk about going from greater than three stars to I liked it.
+
+115
+00:10:49,150 --> 00:10:54,340
+It can reduce the noise in the rating data. One sign that you might want to discuss ties.
+
+116
+00:10:54,340 --> 00:11:01,970
+If there's a non-linear response with a sharp change, it might be that you want rather than.
+
+117
+00:11:01,970 --> 00:11:08,810
+Trying to fit a continuous model may be the OK. There's this really sharp jump, a really sharp change at a particular point.
+
+118
+00:11:08,810 --> 00:11:17,900
+Let's let's turn that into a binary feature. One way you can think and sometimes what you might want to do is just split the data in half.
+
+119
+00:11:17,900 --> 00:11:25,010
+So your median becomes your threshold. You might want to look for an inflection point, increase in the response curve of some other variable to it.
+
+120
+00:11:25,010 --> 00:11:29,060
+One thing to note, though, is that discrimination can have very subtle effects on your model performance.
+
+121
+00:11:29,060 --> 00:11:32,960
+You have to be careful with it. If you're measuring all the things you're measuring about your model,
+
+122
+00:11:32,960 --> 00:11:39,290
+make sure you measure them after you change your disparate causation to see what happens as the results change.
+
+123
+00:11:39,290 --> 00:11:41,810
+So there's other transformations you can do to a box.
+
+124
+00:11:41,810 --> 00:11:51,320
+Cox or a power transformation learns a monotonic function of data to transform all your points quite a bit into something that's close to normal.
+
+125
+00:11:51,320 --> 00:11:57,740
+And effectively, you've learned the parameters of this transformation to optimize like with the objective function.
+
+126
+00:11:57,740 --> 00:12:06,170
+That is that back that minimizes its distance from normality and the distribution of the resulting form of the resulting data.
+
+127
+00:12:06,170 --> 00:12:12,140
+Psychic learned gives you methods for doing boxcutter, for doing power transformations, splain functions,
+
+128
+00:12:12,140 --> 00:12:16,940
+allow you to learn complex functions that don't have to be monotonic of a single variable.
+
+129
+00:12:16,940 --> 00:12:20,300
+We're not going to touch on them. I just want you to know that they exist.
+
+130
+00:12:20,300 --> 00:12:27,620
+But also sometimes we're going to need to deal with multi feature normalization. So we have a group of related features.
+
+131
+00:12:27,620 --> 00:12:31,780
+These might be we've got some of our features are accounts of different tack.
+
+132
+00:12:31,780 --> 00:12:39,470
+Like how often users have tagged the ah item with different tags.
+
+133
+00:12:39,470 --> 00:12:45,740
+And sometimes it's going to be useful to normalize those together that either some to one or they form a unit vector.
+
+134
+00:12:45,740 --> 00:12:52,920
+The sum of squares is equal to one. And this. This for the unit vector one,
+
+135
+00:12:52,920 --> 00:12:58,890
+it puts makes its that all of them are on a unit hyper sphere and so like you can compute similarities between them easily.
+
+136
+00:12:58,890 --> 00:13:03,320
+Distances become more normalized if it's word counts or tag count.
+
+137
+00:13:03,320 --> 00:13:08,700
+So if you if your features are how many times you've say you've got ten different tags and you allow users to tag it
+
+138
+00:13:08,700 --> 00:13:16,560
+with those tags or you have the Facebook emoji responses and users can respond with five or six different emojis,
+
+139
+00:13:16,560 --> 00:13:20,610
+and your features are how often they've responded to each of these emojis?
+
+140
+00:13:20,610 --> 00:13:24,890
+Well, there's two components of each of those features.
+
+141
+00:13:24,890 --> 00:13:35,130
+The two in the two components are how many people have interacted with this because if a million people interact with a message.
+
+142
+00:13:35,130 --> 00:13:40,380
+And five and a thousand people interact with a message or 10 people interact with the message.
+
+143
+00:13:40,380 --> 00:13:47,010
+They're going to have and the same fraction of them use the wow emoji.
+
+144
+00:13:47,010 --> 00:13:52,860
+You're going to have the feature values are going to be dominated by the popularity, not by the wow.
+
+145
+00:13:52,860 --> 00:13:57,720
+How much it's wow versus how much it's care or how much it's t.
+
+146
+00:13:57,720 --> 00:13:59,130
+It's cry.
+
+147
+00:13:59,130 --> 00:14:10,140
+And so if you make them some to one or if you turn them into a unit vector, then you make it to these features are no longer proxies for popularity.
+
+148
+00:14:10,140 --> 00:14:20,650
+But they are specifically. What fraction of the interactions are wow or cry or heart or care?
+
+149
+00:14:20,650 --> 00:14:24,760
+And if you all you probably also want to keep a popularity and there you.
+
+150
+00:14:24,760 --> 00:14:33,250
+There's a good chance you want to take take the log of it. But it really treant changes the meaning of the feature.
+
+151
+00:14:33,250 --> 00:14:40,450
+How many caires is a different feature from what fraction of responses work hair.
+
+152
+00:14:40,450 --> 00:14:45,280
+And depending on your modeling task, one of those might be a more useful model than the other.
+
+153
+00:14:45,280 --> 00:14:50,170
+And so you can get this multi feature normalization that you want to do together.
+
+154
+00:14:50,170 --> 00:14:54,970
+Another thing you can do with multiple features is an eye interaction term that we've seen a product.
+
+155
+00:14:54,970 --> 00:15:01,810
+You can combine the effects of two features by multiplying them together. And if they're numeric, then it's the product of them.
+
+156
+00:15:01,810 --> 00:15:08,740
+If one of them is logical or it's the dummy for a categorical, then effectively what it does is it turns on or off the other feature.
+
+157
+00:15:08,740 --> 00:15:11,230
+It gives you an F in your linear model.
+
+158
+00:15:11,230 --> 00:15:20,170
+And so B one two is the influence of if if X one is logical and B one, two is the influence of X two when X one is equal to one.
+
+159
+00:15:20,170 --> 00:15:23,600
+But if one is equal to zero, it just uses the default term.
+
+160
+00:15:23,600 --> 00:15:28,150
+B two X two. Now the effects are additive. So one X one is one.
+
+161
+00:15:28,150 --> 00:15:38,680
+The result is B two times. So if, if we have B two X two and we have B one two x one.
+
+162
+00:15:38,680 --> 00:15:47,740
+X two. And X is equal to one or X, one is equal to one, then the total coefficient.
+
+163
+00:15:47,740 --> 00:15:52,800
+On X two is Beda two plus beta one to.
+
+164
+00:15:52,800 --> 00:15:55,950
+And that's how you'd interpret it. You're going to go interpret the coefficients.
+
+165
+00:15:55,950 --> 00:16:06,110
+But this is a really useful way to allow a feature to have additional effect for some of the.
+
+166
+00:16:06,110 --> 00:16:11,460
+Additional linear effect for some of your of your data point and not for others.
+
+167
+00:16:11,460 --> 00:16:15,010
+Another one you can do as you can, computer ratio or a fraction.
+
+168
+00:16:15,010 --> 00:16:20,720
+And one example of this, if we're trying to model something that happens when students are in a class, again, this is a useful thing to do.
+
+169
+00:16:20,720 --> 00:16:24,870
+And you've got something that's dominated by popularity. You have to be careful with counts.
+
+170
+00:16:24,870 --> 00:16:28,920
+Counts from user activity often become really heavily skewed.
+
+171
+00:16:28,920 --> 00:16:35,040
+And if you've got anything that's a count of something, you really it's going to be dominated by popularity.
+
+172
+00:16:35,040 --> 00:16:42,030
+And it often times it's going to be more effective to separate popularity as its own feature
+
+173
+00:16:42,030 --> 00:16:47,760
+from how much of that popularity is being allocated to different things in your model.
+
+174
+00:16:47,760 --> 00:16:54,530
+So if a an x ray is the number of students in a class and X F is the number of first year students in a class,
+
+175
+00:16:54,530 --> 00:16:58,830
+and we want to understand like something about the B,
+
+176
+00:16:58,830 --> 00:17:05,550
+the impact of a class or the dynamics of a class based on what frat based on how many first years are taking it?
+
+177
+00:17:05,550 --> 00:17:09,870
+Well, a small class is going to a small number of first years and it's going to have a small number of students.
+
+178
+00:17:09,870 --> 00:17:12,240
+So we might take a ratio or proportion.
+
+179
+00:17:12,240 --> 00:17:19,110
+And so we might take the X, F, F for a fraction first year, which is the first year divided by the total students.
+
+180
+00:17:19,110 --> 00:17:26,480
+And that's going to give us the fraction of students for first year. And that allows us to build a model that rather than being.
+
+181
+00:17:26,480 --> 00:17:30,640
+I have two proxies for popularity. Number of students, a number of first years.
+
+182
+00:17:30,640 --> 00:17:38,760
+It allows us to separate. OK. What is the influence of having a lot of students in the class as a separate component of our predictive
+
+183
+00:17:38,760 --> 00:17:45,660
+modeling from what is the influence of having a large portion of the class being first year students?
+
+184
+00:17:45,660 --> 00:17:51,300
+And it also reduces our clinic already because X, say, at X, F are going to be quite highly correlated.
+
+185
+00:17:51,300 --> 00:17:54,990
+But X say an X, F, F probably won't or won't be.
+
+186
+00:17:54,990 --> 00:18:03,210
+At least they likely won't be unless larger classes are more likely to have more first year for a higher fraction of first years.
+
+187
+00:18:03,210 --> 00:18:06,930
+So it's another piece of the toolbag, an assignment five.
+
+188
+00:18:06,930 --> 00:18:11,090
+I give you a suggestion to possibly consider computing a ratio or a fraction feature.
+
+189
+00:18:11,090 --> 00:18:20,820
+There are other combinations we can do too, such as the difference. So if you take if you have a list of of actions, say,
+
+190
+00:18:20,820 --> 00:18:26,550
+forum posts or account transactions and you take the activity date minus the accounts creation date,
+
+191
+00:18:26,550 --> 00:18:32,640
+then what you get is the account age at the time of activity. And if you're trying to classify something that you're trying to understand.
+
+192
+00:18:32,640 --> 00:18:38,490
+OK, what is this more happened with new accounts. It allows you to make the feature rather than being when did the thing happen?
+
+193
+00:18:38,490 --> 00:18:43,780
+It allows the feature to be how established was the account when it was the account when it happened.
+
+194
+00:18:43,780 --> 00:18:47,400
+You then might want to describe disparities. It is this account at least a year old,
+
+195
+00:18:47,400 --> 00:18:55,480
+because it might be that established accounts of that established accounts are going to have different behavior than new accounts.
+
+196
+00:18:55,480 --> 00:18:57,580
+You might also want to some you want to combine with.
+
+197
+00:18:57,580 --> 00:19:06,050
+You can also combine with single feature transforms so you can do a product where one of the features is logged or square rooted or whatever.
+
+198
+00:19:06,050 --> 00:19:13,200
+So you can combine these things in arbitrary ways to get the final set of features that you need.
+
+199
+00:19:13,200 --> 00:19:17,250
+Actually, figuring out what are these you need to do takes practice and creativity.
+
+200
+00:19:17,250 --> 00:19:22,500
+I've given you a few hints. Look, to try to make things normal. Look to try to build linear relationships.
+
+201
+00:19:22,500 --> 00:19:30,030
+Look for hard jumps. Like if you if you haven't if you plot an X value and you plot a Y response, you see this jump at some point.
+
+202
+00:19:30,030 --> 00:19:36,390
+That suggests democratization might be useful. One thing that's super useful, though, is to read read other data.
+
+203
+00:19:36,390 --> 00:19:41,520
+Scientists working in Europe, brain working in other domains. If you're doing research, you should be reading papers.
+
+204
+00:19:41,520 --> 00:19:45,810
+Pay attention to what they do in their feature engineering. What features do they pick?
+
+205
+00:19:45,810 --> 00:19:53,640
+Why do they pick them? That can give you a lot of good ideas for what to go do when you're doing your own projects.
+
+206
+00:19:53,640 --> 00:19:58,470
+Also, it's important to note that you do all this feature exploration and design on the training data.
+
+207
+00:19:58,470 --> 00:20:03,270
+You don't get to look at your testing data while you're doing your feature exploration and development.
+
+208
+00:20:03,270 --> 00:20:09,330
+So to wrap up transforming and building features is a really important and powerful part of model building.
+
+209
+00:20:09,330 --> 00:20:17,770
+The model can only accept. So one of the things some deep learning models can do is do some of their own feature engineering,
+
+210
+00:20:17,770 --> 00:20:23,650
+like they can work with raw features and learn sophisticated functions of them on somewhat on their own.
+
+211
+00:20:23,650 --> 00:20:31,290
+That works well, very well for some domains, but for a lot simpler models.
+
+212
+00:20:31,290 --> 00:20:33,780
+The model can only work with the features you give it.
+
+213
+00:20:33,780 --> 00:20:39,930
+We're gonna see some techniques for automatic feature selection, but though they can't generate new features, they can.
+
+214
+00:20:39,930 --> 00:20:45,360
+If you if you give them a product, they can decide whether or not it's actually helping the model.
+
+215
+00:20:45,360 --> 00:20:50,460
+But they can't create the product. If you didn't give them product feature to start with.
+
+216
+00:20:50,460 --> 00:20:55,170
+So it's important to get your features right and to give your model a good set of features to work with.
+
+217
+00:20:55,170 --> 00:21:03,167
+Even when you're doing automated feature selection.
+

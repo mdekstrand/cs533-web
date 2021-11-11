@@ -1,0 +1,300 @@
+1
+00:00:04,590 --> 00:00:09,410
+Bo and this video, I want to move beyond logistic regression to talk about some additional classification
+
+2
+00:00:09,410 --> 00:00:14,300
+models and also introduce the idea of putting models in features for other models.
+
+3
+00:00:14,300 --> 00:00:18,570
+So learning outcomes are to do exactly what I just said.
+
+4
+00:00:18,570 --> 00:00:30,210
+So so far, we've been estimating the probability of Y equals one by using a linear linear model, a Y hat equals actually would logistic.
+
+5
+00:00:30,210 --> 00:00:40,510
+Of this. And we can use any estimate of this probability or we can just use models that output decisions,
+
+6
+00:00:40,510 --> 00:00:43,910
+these may be based on scores, the scores that aren't estimated probabilities.
+
+7
+00:00:43,910 --> 00:00:48,410
+For example, a support vector machine uses distance from either plane as its score.
+
+8
+00:00:48,410 --> 00:00:53,750
+But we're not limited to just using a logistic regression, of course.
+
+9
+00:00:53,750 --> 00:00:58,970
+So for one model, a decision tree is a tree of nodes where each node is a decision point.
+
+10
+00:00:58,970 --> 00:01:02,990
+So I made a little decision tree here for the grad student admissions example.
+
+11
+00:01:02,990 --> 00:01:08,150
+And at the first node, it's going to check if the GPA is less than or equal to three point four three five.
+
+12
+00:01:08,150 --> 00:01:14,300
+And if it's less, it's gonna go to the left hand side. And there's extra nodes here, but it's going to deny admission.
+
+13
+00:01:14,300 --> 00:01:20,090
+And if it's greater than three point four, three, five, it's then going to look at their class rank,
+
+14
+00:01:20,090 --> 00:01:24,440
+their school rank, and if their school rank is less than one point five, it's going to do.
+
+15
+00:01:24,440 --> 00:01:28,820
+It's going to admit. And if it's greater than one point five, it's going to deny.
+
+16
+00:01:28,820 --> 00:01:37,860
+Really simple model. It would be absolutely terrible to actually use this model for regression, for admissions decisions, but for predicting the.
+
+17
+00:01:37,860 --> 00:01:42,580
+But here we aren't. We aren't trying to build a model that will admit we're trying to build a model
+
+18
+00:01:42,580 --> 00:01:50,480
+is gonna predict whether someone is going to get admitted it might work. But this illustrates how the decision tree actually works.
+
+19
+00:01:50,480 --> 00:01:56,390
+They can learn complex interaction effects on their own because you can have the threshold.
+
+20
+00:01:56,390 --> 00:02:02,550
+And what happens with the features changes as you go down to the node? Now, one of the problems, though, they have high variance,
+
+21
+00:02:02,550 --> 00:02:10,530
+they can effectively memory memorize all of the training data by building themselves a lookup table that looks up the outcomes for training data.
+
+22
+00:02:10,530 --> 00:02:16,830
+By the by the feature values, you can get extremely good training, accuracy.
+
+23
+00:02:16,830 --> 00:02:24,360
+I trained one on this data with with unlimited feet, feature depth and I got training accuracy of over 99 percent.
+
+24
+00:02:24,360 --> 00:02:28,280
+And I got tested accuracy of point five to.
+
+25
+00:02:28,280 --> 00:02:34,730
+But a random forest, what a random forest does is it takes bootstrap samples by default psych, it learns random for us.
+
+26
+00:02:34,730 --> 00:02:37,970
+We'll take complete bootstrap samples. You can tell it to take smaller ones.
+
+27
+00:02:37,970 --> 00:02:44,090
+It's not actually a bootstrap sample, but it's a subsample of the dataset. And it fits a decision tree to that sample.
+
+28
+00:02:44,090 --> 00:02:49,340
+And then it does that 100 times or however many times to get a bunch, you get one hundred decision trees.
+
+29
+00:02:49,340 --> 00:02:57,040
+And then for a final classification, when you tell it to predict what it's going to do is it asks all of the decision, trees to vote.
+
+30
+00:02:57,040 --> 00:03:02,210
+It's building up this random forest of happy trees. They're happy because they have a functioning democracy.
+
+31
+00:03:02,210 --> 00:03:08,150
+They all get to vote on the final outcome. And the random forest takes the vote and returns the majority of the classification.
+
+32
+00:03:08,150 --> 00:03:15,950
+Or if the if the individual values are producing scores, that it then it might average the scores and use that as an output.
+
+33
+00:03:15,950 --> 00:03:20,280
+So but you build up, you decrease your variance.
+
+34
+00:03:20,280 --> 00:03:25,230
+That you would get from training, it is, isn't she, on one set of data training decisions and another set of data by train?
+
+35
+00:03:25,230 --> 00:03:34,800
+The decision tree on a bunch of sets of data by sub sampling your training data and then averaging over that in order to produce your final output.
+
+36
+00:03:34,800 --> 00:03:40,650
+Brandon Forest is one of the classifiers that I want you to use in your assignment.
+
+37
+00:03:40,650 --> 00:03:46,560
+Another thing, though, that I want to introduce is that feature output features don't have to directly come from data.
+
+38
+00:03:46,560 --> 00:03:48,450
+So a lot of our features are going to come from data.
+
+39
+00:03:48,450 --> 00:03:54,150
+But sometimes they're when they come from other models, sometimes they're a transformation model, some kind of what we call unsupervised learning,
+
+40
+00:03:54,150 --> 00:03:55,530
+where it's computing things,
+
+41
+00:03:55,530 --> 00:04:03,150
+but it doesn't have an output class that it's that's known that it's trying to predict or prediction models for other tasks.
+
+42
+00:04:03,150 --> 00:04:10,080
+For example, in link to end their job ad recommender, the last I knew just a few years ago, it was it was at a high level.
+
+43
+00:04:10,080 --> 00:04:15,060
+It was a logistic regression. You're going to LinkedIn. It says, here's a job ad for you.
+
+44
+00:04:15,060 --> 00:04:16,590
+Well, that's coming from a logistic regression.
+
+45
+00:04:16,590 --> 00:04:21,930
+But that logistic regression has very complex features, some of which are the outputs of other machine learning models.
+
+46
+00:04:21,930 --> 00:04:27,720
+And so you're gonna get features from the job text, the job description features in the user's profile.
+
+47
+00:04:27,720 --> 00:04:32,610
+One particularly interesting feature they use is a transition probability estimate.
+
+48
+00:04:32,610 --> 00:04:39,840
+So they have a model. This is another. This is a statistical model that tries to predict.
+
+49
+00:04:39,840 --> 00:04:44,820
+So if you are currently working and Boise as a data scientist,
+
+50
+00:04:44,820 --> 00:04:54,600
+what's the likelihood that you would transition to a job title of senior data scientist in Salt Lake City?
+
+51
+00:04:54,600 --> 00:04:57,570
+And so it takes into account job transitions like data.
+
+52
+00:04:57,570 --> 00:05:04,290
+Scientists might leave the senior data scientists, software engineers to staff, software engineers or principal software engineers.
+
+53
+00:05:04,290 --> 00:05:10,920
+It takes into account current migration patterns in the industry and various things like that to get this.
+
+54
+00:05:10,920 --> 00:05:14,850
+How likely are you to even go move someone at a staff?
+
+55
+00:05:14,850 --> 00:05:21,560
+Software engineering position is unlikely to take a job that where the title is Junior Software Engineer.
+
+56
+00:05:21,560 --> 00:05:30,990
+And the output of this transition probability model is one of the input features to their logistic regression that's computed.
+
+57
+00:05:30,990 --> 00:05:39,510
+That's estimating. Would you like to see this job ad for a senior data scientist in Salt Lake City?
+
+58
+00:05:39,510 --> 00:05:44,280
+Also, you also get things where you might have might come from some kind of a deep learning thing,
+
+59
+00:05:44,280 --> 00:05:49,230
+a deep learning object detection mechanism, a deep learning image similarity mechanism.
+
+60
+00:05:49,230 --> 00:05:59,100
+So Pinterest gets a lot of mileage out of doing nearest neighbor calculations where the the neighbor nearest
+
+61
+00:05:59,100 --> 00:06:05,980
+is defined by a deep learning model for assessing whether two images that are being pinned or similar.
+
+62
+00:06:05,980 --> 00:06:08,620
+So we can there are many different models that we can look at.
+
+63
+00:06:08,620 --> 00:06:14,980
+Linear models with their extensions, a generalized linear model and the logistic regression that we've been seeing, generalized adaptive models.
+
+64
+00:06:14,980 --> 00:06:22,370
+There's also thing the support vector machine, which is another linear model, but it's not a regression model.
+
+65
+00:06:22,370 --> 00:06:28,060
+The naive, naive Bayes classifier, we're going to see those later, a neural net.
+
+66
+00:06:28,060 --> 00:06:32,740
+Whether shallow or deep, a lot of models, pretty like a lot of neural nets.
+
+67
+00:06:32,740 --> 00:06:39,100
+They do a similar thing in logistic regression. They're computing a score and then you pass it through a logistic function or some other sigmoid in
+
+68
+00:06:39,100 --> 00:06:44,440
+order to convert the model score to probabilities for making your final classification decisions.
+
+69
+00:06:44,440 --> 00:06:49,030
+So wrap up. There are many different models for classification and for regression.
+
+70
+00:06:49,030 --> 00:06:53,290
+I'm just the my goal in this class is to teach you what regression and
+
+71
+00:06:53,290 --> 00:06:58,000
+classification are and how to get started with applying them and evaluating them,
+
+72
+00:06:58,000 --> 00:07:00,520
+not to teach you a bunch of models in depth.
+
+73
+00:07:00,520 --> 00:07:06,880
+The machine learning class is going to go into a lot more about how these different models work and how to get them to work.
+
+74
+00:07:06,880 --> 00:07:13,690
+Well, model outputs also, though, can be features used as input features for other models, often linear.
+
+75
+00:07:13,690 --> 00:07:23,333
+Not always, though. And so you can get models that build on top of other models.
+

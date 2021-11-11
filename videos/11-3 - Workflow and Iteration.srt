@@ -1,0 +1,600 @@
+1
+00:00:04,570 --> 00:00:10,440
+Though, in this video, I want to talk more about the workflow and the iterative process of model, building and refinement.
+
+2
+00:00:10,440 --> 00:00:14,120
+We talk about how to properly split training, tuning in evaluation data,
+
+3
+00:00:14,120 --> 00:00:18,980
+understand better what is and is not cheating for evaluating a predictive model.
+
+4
+00:00:18,980 --> 00:00:24,350
+So we're setting up our setup. So we split our testing data. We have our main dataset, all the data.
+
+5
+00:00:24,350 --> 00:00:29,480
+We split it into training data and testing data. And then on our training data, we print our model.
+
+6
+00:00:29,480 --> 00:00:33,590
+We experiment with different model designs, different features. We select hyper parameters.
+
+7
+00:00:33,590 --> 00:00:37,310
+We can do this based on the models internal goodness of fit statistics.
+
+8
+00:00:37,310 --> 00:00:41,540
+So you can if you're training a linear regression model, you can be looking at your R-squared.
+
+9
+00:00:41,540 --> 00:00:49,280
+You can look and be looking at your adjusted R-squared. You can be looking your AIC for a for logistic regression model.
+
+10
+00:00:49,280 --> 00:00:57,580
+You can be looking at your log likelihood or you can do it by testing, by running a classifier evaluation metric on some tuning data.
+
+11
+00:00:57,580 --> 00:01:06,050
+So you further subdivide your training data into train. Antoon.
+
+12
+00:01:06,050 --> 00:01:11,450
+Or you may do cross-validation where you split your training data into five or 10 pieces.
+
+13
+00:01:11,450 --> 00:01:17,930
+And for each piece you trade, the rest of the data, predict that piece and measure your metric.
+
+14
+00:01:17,930 --> 00:01:21,440
+You can do all of these things basically so long as you don't touch your training.
+
+15
+00:01:21,440 --> 00:01:27,770
+You're testing data. You can do whatever you want with your training data to better improve and understand your model.
+
+16
+00:01:27,770 --> 00:01:36,080
+Well, not all things are reasonable to do, but you can do it. You can do. You're not cheating with whatever you do there in your training data.
+
+17
+00:01:36,080 --> 00:01:41,330
+What you can't do is use knowledge from the testing data to refine.
+
+18
+00:01:41,330 --> 00:01:49,670
+Your modeling process, and this includes exploratory analysis of the testing data, because the idea here is that.
+
+19
+00:01:49,670 --> 00:01:53,350
+There is sort of the the motivation of what we're trying to do with this predictive
+
+20
+00:01:53,350 --> 00:01:58,000
+modeling is to build models that are going to be able to process new data.
+
+21
+00:01:58,000 --> 00:02:07,260
+So predicting our testing data isn't the point. If you're training something to detect.
+
+22
+00:02:07,260 --> 00:02:14,440
+Fraudulent transactions in your online gaming platform.
+
+23
+00:02:14,440 --> 00:02:22,040
+Your goal isn't to predict that like you're the purpose of your model is never to predict the fraudulent transactions in your historical data.
+
+24
+00:02:22,040 --> 00:02:28,780
+For the purpose of the motto is to be able to run it. And as new transactions happen, categorize them as likely fraud or not.
+
+25
+00:02:28,780 --> 00:02:38,200
+And so the goal of our evaluation is to simulate the model's ability to generalize to new data that it hasn't seen yet.
+
+26
+00:02:38,200 --> 00:02:42,640
+And the way we do this is we hide some of the data and pretend it's new.
+
+27
+00:02:42,640 --> 00:02:46,120
+And as soon as you allow this data that's supposed to be new.
+
+28
+00:02:46,120 --> 00:02:51,910
+If you're simulating what's gonna happen, if you run this for a week and try to classify the new transactions,
+
+29
+00:02:51,910 --> 00:03:03,790
+what you're doing is you're giving the model. Or the modeling process data that it's not going to be allowed to have in real life.
+
+30
+00:03:03,790 --> 00:03:11,750
+We call this leakage. Information leaks into the model than its actual application.
+
+31
+00:03:11,750 --> 00:03:19,790
+It's not going to be able to have in some ways, it's the opposite of the problem that we have when we're trying to give you tests in class and tests.
+
+32
+00:03:19,790 --> 00:03:25,760
+We say you can't have a textbook, you can't have notes, you can't use the Internet, answer these questions.
+
+33
+00:03:25,760 --> 00:03:29,630
+But in real life, you can use all of the reference material you want.
+
+34
+00:03:29,630 --> 00:03:34,580
+Anytime you want have to actually solve that problem. In practice, there's still value in internalizing.
+
+35
+00:03:34,580 --> 00:03:39,110
+A lot of it's that you can detect when you because you need if you haven't internalized a lot
+
+36
+00:03:39,110 --> 00:03:44,510
+of the knowledge that it's hard to detect when you're going to go need to look something up.
+
+37
+00:03:44,510 --> 00:03:49,550
+If you don't know that overfitting is a problem, then you don't know when you need to go read more about Overfitting.
+
+38
+00:03:49,550 --> 00:03:51,200
+You just don't even think about it.
+
+39
+00:03:51,200 --> 00:03:58,100
+But when it comes to actually doing things about things, you have all these resources available in machine learning.
+
+40
+00:03:58,100 --> 00:04:03,870
+We have the opposite problem. Because in real life,
+
+41
+00:04:03,870 --> 00:04:10,500
+the model is not going to have access to the test data because you're trying to use it to classify new transactions as they come in.
+
+42
+00:04:10,500 --> 00:04:17,100
+You're trying to use it to predict the purchasing behavior of users as they come in.
+
+43
+00:04:17,100 --> 00:04:25,470
+You're trying to use it to forecast the load that's going to be on your power grid or on your transportation network for a time in the future.
+
+44
+00:04:25,470 --> 00:04:30,120
+And you don't get to look ahead and see any of that information. So in the real world,
+
+45
+00:04:30,120 --> 00:04:38,260
+your model does not have access to any information about what it's trying to predict other than what it can learn from historical data.
+
+46
+00:04:38,260 --> 00:04:45,610
+And so if you do anything with your test data that leaks information about the unknown,
+
+47
+00:04:45,610 --> 00:04:50,110
+it's supposed to be predicting into your true model building process,
+
+48
+00:04:50,110 --> 00:04:59,080
+either learning the model itself or the process of figuring out what feature parameters and values and whatever are going to be useful for your model.
+
+49
+00:04:59,080 --> 00:05:02,530
+Then you effectively allow the model to cheat.
+
+50
+00:05:02,530 --> 00:05:08,050
+And it's going to get better and you reduce it's gonna get better performance than who actually will in reality.
+
+51
+00:05:08,050 --> 00:05:14,380
+And you reduce the ability of the evaluation process to simulate what you actually care about.
+
+52
+00:05:14,380 --> 00:05:21,490
+Can my model effectively predict how much traffic is going to be on the freeway in December?
+
+53
+00:05:21,490 --> 00:05:28,460
+Based on. Previous Decembers and on the date earlier in the air, like let's say we've got 10 years of traffic data.
+
+54
+00:05:28,460 --> 00:05:33,570
+Can I accurately predict what the freeway data is going to be this December?
+
+55
+00:05:33,570 --> 00:05:40,160
+You don't get to look at this December if you do. I think the physics department would like to have a word with you.
+
+56
+00:05:40,160 --> 00:05:44,990
+So. When we have within this setup, we have an iterative model process.
+
+57
+00:05:44,990 --> 00:05:50,360
+So with our training data, we can do exploratory analysis. We can try features and transforms.
+
+58
+00:05:50,360 --> 00:05:53,810
+We can try different hyper parameters, talking to a hyper print.
+
+59
+00:05:53,810 --> 00:05:58,940
+The parameters are what we learn in the model. Your logistic regression coefficients, those are parameters.
+
+60
+00:05:58,940 --> 00:06:07,830
+We learn them from the data. Hyper parameters are additional values that control how the model learning process works.
+
+61
+00:06:07,830 --> 00:06:11,070
+Oh, we can try different models like a logistic regression or random forest.
+
+62
+00:06:11,070 --> 00:06:17,760
+We can test effectiveness with the tuning set so we can take our training set, split it into tuning and real training.
+
+63
+00:06:17,760 --> 00:06:22,550
+We can do cross-validation, as I talked about, where we can split into many separate things.
+
+64
+00:06:22,550 --> 00:06:29,170
+Some of the circuit models Saikat learn models have built in selection for some of their hyper parameters using cross-validation.
+
+65
+00:06:29,170 --> 00:06:31,890
+Once you see regularization, you can pick the regular.
+
+66
+00:06:31,890 --> 00:06:40,920
+You can tell logistic regression c.v to automatically find the regularization strength using cross-validation on on your training data.
+
+67
+00:06:40,920 --> 00:06:44,160
+Then, though, you need to apply it to your test data. And a couple of things here.
+
+68
+00:06:44,160 --> 00:06:48,840
+First, you need to apply your feature transformations and combinations to your test data.
+
+69
+00:06:48,840 --> 00:06:57,840
+You have to apply them to test data because your model is built on these, your model, your linear model or whatever is built on these.
+
+70
+00:06:57,840 --> 00:07:02,490
+These transformed features. These combine features, all of your feature engineering.
+
+71
+00:07:02,490 --> 00:07:07,720
+The results of that are what the model is trained on. If you just try to apply the model to the raw data, it's not going to work.
+
+72
+00:07:07,720 --> 00:07:14,180
+It's not going to have the features it needs. But the difference is you apply the feature transformations, the test data,
+
+73
+00:07:14,180 --> 00:07:20,540
+but you don't use the test data to a site to test to assess which feature transformations are useful.
+
+74
+00:07:20,540 --> 00:07:24,850
+You did all of that in the training data. And you take that as a pattern or a recipe.
+
+75
+00:07:24,850 --> 00:07:31,690
+I'm going to show you in a future video how you can change Saikat, learn pipelines together to do this, to automate some of this.
+
+76
+00:07:31,690 --> 00:07:35,950
+If you aren't using. Saikat learned you might write a function that, given raw data,
+
+77
+00:07:35,950 --> 00:07:41,230
+will return transformed feature Saul or will you turn data with the final set of features?
+
+78
+00:07:41,230 --> 00:07:46,900
+That's a very good design as well. You just take this as a pre canned recipe and you apply it to your test data.
+
+79
+00:07:46,900 --> 00:07:53,290
+Then you run the model, predict the test outcome data and you measure accuracy precision area under the ROIC curve,
+
+80
+00:07:53,290 --> 00:07:59,230
+whatever measure you're going to measure of of your model effectiveness on those results.
+
+81
+00:07:59,230 --> 00:08:02,750
+The outcome of the iterative modeling process in the preceding slide, though,
+
+82
+00:08:02,750 --> 00:08:08,050
+is one model or possibly like one model from each of three or different families
+
+83
+00:08:08,050 --> 00:08:13,650
+that you want to finally evaluate for effectiveness using the test data.
+
+84
+00:08:13,650 --> 00:08:19,740
+So. A few, too, does kind of synthesize what I've been talking about here.
+
+85
+00:08:19,740 --> 00:08:22,650
+It's fine to split the training data and a small and additional subsets.
+
+86
+00:08:22,650 --> 00:08:27,120
+You can do train test things within your training process as an iterative process to figure out.
+
+87
+00:08:27,120 --> 00:08:33,110
+Does this does this feature give me? Does this feature transformation? Give me a more accurate classifier.
+
+88
+00:08:33,110 --> 00:08:37,350
+Will do a train tune split. Add the feature. Measure the accuracy on the tuning data.
+
+89
+00:08:37,350 --> 00:08:46,440
+Does it help? Does it not? Does a square root give me better give me better classifications or does a log give me better classifications.
+
+90
+00:08:46,440 --> 00:08:49,680
+Do that on splits of your training data and leave the test data alone.
+
+91
+00:08:49,680 --> 00:08:56,480
+Go put it on the shelf, lock it in the cupboard, whatever you're going to do with it. You can iteratively refining the models, predictive quality,
+
+92
+00:08:56,480 --> 00:09:01,610
+you can explore and test all of your features using, as I said, using cross-validation or using train,
+
+93
+00:09:01,610 --> 00:09:04,130
+using tuning splits of your training data,
+
+94
+00:09:04,130 --> 00:09:11,120
+allow you to use predictive accuracy as part of your decision for what features do include how to transform them,
+
+95
+00:09:11,120 --> 00:09:21,740
+how to construct new combinations, etc. Don't know if it was a once you then you take you take your model, you go, you run on your test data.
+
+96
+00:09:21,740 --> 00:09:26,150
+You don't get to go back and fix the model if it performs poorly on the test data.
+
+97
+00:09:26,150 --> 00:09:27,390
+That's what you need.
+
+98
+00:09:27,390 --> 00:09:33,440
+In get it to do all of those fixes, because as soon as you say, oh, it didn't perform on the testing data, let me go back and fix something.
+
+99
+00:09:33,440 --> 00:09:37,910
+Then you're giving your model development process access to information it doesn't have in reality.
+
+100
+00:09:37,910 --> 00:09:45,860
+And testing on that test data is no longer a reliable test of what's going to happen when your model meets new data in the field.
+
+101
+00:09:45,860 --> 00:09:51,710
+You also can't use the test data to inform model or future decisions, at least within the scope of one project.
+
+102
+00:09:51,710 --> 00:09:55,280
+You can't say you've got your project, your test data thing. You've got to learn things from that.
+
+103
+00:09:55,280 --> 00:09:56,240
+You're going to publish a paper.
+
+104
+00:09:56,240 --> 00:10:02,690
+If you're doing this for a graduate, research the results of that learning you're going to carry into the next project.
+
+105
+00:10:02,690 --> 00:10:10,080
+Arguably, that's that can induce a little bit of leakage because you or someone else is going to use them and they might work on the same dataset.
+
+106
+00:10:10,080 --> 00:10:14,750
+Get a different data set. Arguably, it's a little bit of leakage if they read your paper on your test data.
+
+107
+00:10:14,750 --> 00:10:19,850
+OK. We have these things on test data. I'm going to make a neutron test split of the same dataset and I want to do things.
+
+108
+00:10:19,850 --> 00:10:27,050
+Arguably, we have some leakage. We can't plug all the leaks. The goal is to have the goal is not to be perfect.
+
+109
+00:10:27,050 --> 00:10:33,830
+The goal is to have a good and credible emulation of the actual production environment for what
+
+110
+00:10:33,830 --> 00:10:39,860
+we're trying to do so that we have an effective test of our models ability to do its job.
+
+111
+00:10:39,860 --> 00:10:43,220
+And its job is almost never classify preexisting data.
+
+112
+00:10:43,220 --> 00:10:46,880
+And the trick in the test data. That's how we study the model's effectiveness.
+
+113
+00:10:46,880 --> 00:10:52,040
+But that's not how we deploy the model to improve our lives and improve our businesses.
+
+114
+00:10:52,040 --> 00:10:56,120
+Production systems often have new streams of test data coming in every day.
+
+115
+00:10:56,120 --> 00:11:02,740
+If you're doing online. If if you're doing an online.
+
+116
+00:11:02,740 --> 00:11:09,820
+Shopping center. If you are monitoring quality control processes in a chip fab you've gotten used to in the test data.
+
+117
+00:11:09,820 --> 00:11:15,820
+The things keep running next week, next month. And so you could knowledge from today's test data.
+
+118
+00:11:15,820 --> 00:11:21,490
+So you run things. You predict the month of October. You predict last December.
+
+119
+00:11:21,490 --> 00:11:26,800
+You're doing these tests on your models effectiveness. You run it.
+
+120
+00:11:26,800 --> 00:11:32,710
+You're predicting this coming December. It's fine to learn what you learn about predicting this December for next December.
+
+121
+00:11:32,710 --> 00:11:35,260
+There's no cheating. You aren't seeing next December.
+
+122
+00:11:35,260 --> 00:11:40,210
+You're accusing the year over year, the month over month, etc, trends to be able to predict what's gonna happen next December.
+
+123
+00:11:40,210 --> 00:11:45,850
+So in the industrial setting, because we can continually acquire new test data,
+
+124
+00:11:45,850 --> 00:11:52,570
+it makes some of the iterative problems that happen in academic research with a static dataset significantly less of a problem because.
+
+125
+00:11:52,570 --> 00:11:55,690
+OK, well, that's so I learned something from this project. What am I going to do next?
+
+126
+00:11:55,690 --> 00:12:01,990
+Project when next project you have new test data because your chip plant has been running for another two UTS.
+
+127
+00:12:01,990 --> 00:12:08,890
+You can use some of that data and your what you learn from the data you captured before, that isn't cheating at all.
+
+128
+00:12:08,890 --> 00:12:13,000
+It's a problem in academic research where we have a static dataset.
+
+129
+00:12:13,000 --> 00:12:17,020
+The movie lends data that wreck data edness pick your data set.
+
+130
+00:12:17,020 --> 00:12:22,610
+We're all working with test sets on the same data set. I read your paper.
+
+131
+00:12:22,610 --> 00:12:28,760
+And that's effectively a form of leakage. That's not a whole, as I said, that we can completely plug.
+
+132
+00:12:28,760 --> 00:12:33,590
+So we carry knowledge forward and we use what we learn that our test data for the next
+
+133
+00:12:33,590 --> 00:12:39,240
+project in production with new test data that comes from new runs of the system.
+
+134
+00:12:39,240 --> 00:12:44,500
+As I said, technical violation. But if we pick a new test sample, it's less of a problem.
+
+135
+00:12:44,500 --> 00:12:50,380
+We're all using the same test set. Then we have a real problem.
+
+136
+00:12:50,380 --> 00:12:56,320
+But we don't often have a choice when we're trying to do academic research with these data sets.
+
+137
+00:12:56,320 --> 00:13:04,690
+So to wrap up trend test splits are to help us test the model's ability to predict future unseen data that it didn't have a chance to learn from.
+
+138
+00:13:04,690 --> 00:13:13,060
+So we're doing what we've been doing here with this predictive modeling its machine, learning the machine that the system is learning about the data.
+
+139
+00:13:13,060 --> 00:13:24,430
+So we can generate predictions for future data. And we test it by giving it data hasn't been able to see using test data knowledge going back.
+
+140
+00:13:24,430 --> 00:13:31,520
+It's like making a loop and using knowledge from our test data to inform our modeling decisions, breaks down that barrier.
+
+141
+00:13:31,520 --> 00:13:39,740
+And it means testing on our test data is no longer an effective test of the model's ability to generalize to data.
+
+142
+00:13:39,740 --> 00:13:44,200
+It wasn't able to learn from. This isn't a problem within your training process.
+
+143
+00:13:44,200 --> 00:13:48,740
+The train tunes that like OK, train and try something, train data, see it on tuning data,
+
+144
+00:13:48,740 --> 00:13:52,460
+go back and keep doing with the same tuning data because we're not using the
+
+145
+00:13:52,460 --> 00:13:57,740
+tuning data results as the conclusive evidence of our model's effectiveness.
+
+146
+00:13:57,740 --> 00:14:05,060
+We're just using them for our own internal debugging. It's why we want to go see this model works better.
+
+147
+00:14:05,060 --> 00:14:08,000
+That we do that, then we go. We do that with the test data,
+
+148
+00:14:08,000 --> 00:14:14,450
+we're not allowed to go back because otherwise we're optimizing for our ability to predict that specific set of test data.
+
+149
+00:14:14,450 --> 00:14:18,710
+Which means predicting that specific set of tests we want is predicting that test
+
+150
+00:14:18,710 --> 00:14:29,133
+data to be representative of predicting data that we haven't been able to see yet.
+

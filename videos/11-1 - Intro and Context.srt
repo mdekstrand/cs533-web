@@ -1,0 +1,176 @@
+1
+00:00:04,760 --> 00:00:13,640
+Oh, this video, I'm going to introduce our week's topic about building and evaluating models, talking more in detail about how we go about doing that,
+
+2
+00:00:13,640 --> 00:00:17,960
+learning outcomes for the week or for you to be able to build and refine a predictive model,
+
+3
+00:00:17,960 --> 00:00:24,800
+construct features for that model, apply regularization to control features and then her interaction and to give us models that
+
+4
+00:00:24,800 --> 00:00:31,290
+generalize better and to model measure of a model's effectiveness and its other behavior.
+
+5
+00:00:31,290 --> 00:00:37,320
+So where we're at right now, we've seen linear regression and we have seen continue to be able to do continuous prediction,
+
+6
+00:00:37,320 --> 00:00:40,440
+we want to predict a continuous outcome or target variable.
+
+7
+00:00:40,440 --> 00:00:46,960
+We've seen logistic regression that lets us take the concept of linear modeling and move it into the realm of binary classification,
+
+8
+00:00:46,960 --> 00:00:55,820
+where rather than having a continuous outcome variable, we have a binary outcome such as defaulted on the loan or is spam or fraud.
+
+9
+00:00:55,820 --> 00:01:03,200
+We've also seen the idea of minimize it, of optimizing objective functions, we might minimize a loss function such as the squared error.
+
+10
+00:01:03,200 --> 00:01:08,630
+We might maximize utility functions such as log likelihood. These are equivalent to each other.
+
+11
+00:01:08,630 --> 00:01:15,850
+And if you've got a utility function in the minimize or you can minimize the negative of the utility function.
+
+12
+00:01:15,850 --> 00:01:21,580
+We've also seen that we can think about what we're doing with modeling is doing conditional estimation.
+
+13
+00:01:21,580 --> 00:01:31,690
+So in a regression model, we're trying to estimate the conditional expectation, given a particular set of values for my input features X.
+
+14
+00:01:31,690 --> 00:01:37,060
+What's the expected value of Y? We might we might do some transformations to all these variables.
+
+15
+00:01:37,060 --> 00:01:40,840
+But we're trying to compute this conditional expectation function.
+
+16
+00:01:40,840 --> 00:01:46,020
+What's the expected value of Y condition done by feature values, X and classification?
+
+17
+00:01:46,020 --> 00:01:48,880
+We're trying to solve a conditional probability problem.
+
+18
+00:01:48,880 --> 00:01:56,860
+What's the probability of a particular outcome given that I have some particular feature values x.
+
+19
+00:01:56,860 --> 00:02:03,990
+Also so. There's another, though, thing in here that's useful to thinking about,
+
+20
+00:02:03,990 --> 00:02:10,050
+so that would just add regression at its heart is trying to model the probability of your data.
+
+21
+00:02:10,050 --> 00:02:13,020
+So what we've been doing is with stats, models.
+
+22
+00:02:13,020 --> 00:02:18,750
+We do model that predict and we get some scores and then we use the scores to make a decision because internally,
+
+23
+00:02:18,750 --> 00:02:26,520
+the logistic regression mathematically with solving this problem of maximizing the log likelihood.
+
+24
+00:02:26,520 --> 00:02:32,940
+Mathematically, what the logistic regression is doing is it's trying to build a probabilistic model of the data and the
+
+25
+00:02:32,940 --> 00:02:38,250
+parameters are estimated based on their ability to accurately model probabilities in your training data.
+
+26
+00:02:38,250 --> 00:02:45,510
+We then use these output probabilities to make decisions. So we'll say success if y had is greater than point five.
+
+27
+00:02:45,510 --> 00:02:51,300
+Saikat Learn uses the logistic regression to directly classify by using the threshold of point five.
+
+28
+00:02:51,300 --> 00:02:56,420
+But you can get those estimated probabilities out of it with decision, the decision function.
+
+29
+00:02:56,420 --> 00:02:57,240
+This is important to note.
+
+30
+00:02:57,240 --> 00:03:04,530
+So the log likelihood that you get out of a logistic regression is not based on its actual actual decisions that it's making.
+
+31
+00:03:04,530 --> 00:03:11,370
+It's based on its ability to model probabilistically what the labels look like in your training data.
+
+32
+00:03:11,370 --> 00:03:18,480
+And it's the more it's the probability that it assigns to those labels with the final fitted versions of the parameters.
+
+33
+00:03:18,480 --> 00:03:25,740
+I want to mention briefly again, a trick that I mentioned, I believe, last week where.
+
+34
+00:03:25,740 --> 00:03:34,620
+Expected value and probability are closely related. The expected value is the integral or the somewhere of values weighted by their probabilities.
+
+35
+00:03:34,620 --> 00:03:41,720
+But also if we have an indicator function, ie, which is one if.
+
+36
+00:03:41,720 --> 00:03:46,720
+X is in the set and and zero, if it is not with what one?
+
+37
+00:03:46,720 --> 00:03:53,410
+Basically, given a value, it decides whether or not it's in the set. If that said as an event, it says whether or not the event happened,
+
+38
+00:03:53,410 --> 00:03:59,980
+the probability and the expected value of the indicator function are the same thing.
+
+39
+00:03:59,980 --> 00:04:07,180
+So we can think about estimating conditional expectation probable, but we can think about everything is estimated conditional expectation.
+
+40
+00:04:07,180 --> 00:04:14,290
+When we're estimating a probability, we're estimating the conditional expectation of the characteristic or indicator function.
+
+41
+00:04:14,290 --> 00:04:18,190
+So to wrap up, we're building models that estimate conditional probability and expectation.
+
+42
+00:04:18,190 --> 00:04:22,360
+We've been doing this in a variety of ways. We use these models to make decisions.
+
+43
+00:04:22,360 --> 00:04:30,160
+This week we're gonna see more. So we've got the idea of doing the modeling. This week, we're looking more at how do we build inputs for these models?
+
+44
+00:04:30,160 --> 00:04:39,367
+And how do we evaluate the outputs that we get out of them?
+

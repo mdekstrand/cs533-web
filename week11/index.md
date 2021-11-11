@@ -10,6 +10,7 @@ In this week, we're going to learn more about model building, that will be usefu
 ## {{moverview}} Content Overview
 
 :::{module} week11
+:folder: d92a38f0-5764-4306-b97a-adc101859d2b
 :::
 
 ## {{mvideo}} Intro & Context

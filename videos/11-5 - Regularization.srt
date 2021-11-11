@@ -1,0 +1,552 @@
+1
+00:00:04,240 --> 00:00:11,180
+But now it's time for a topic that I've mentioned a few times, when we're actually going to learn what it is, regularization.
+
+2
+00:00:11,180 --> 00:00:15,050
+So the goal here is for you to understand the function of regularization,
+
+3
+00:00:15,050 --> 00:00:22,520
+terminal lost function and apply regularization to your logistic regression models and then finally tune regularization parameters.
+
+4
+00:00:22,520 --> 00:00:29,480
+I want to start by reviewing MultiKulti Darity. So remember that if we have correlated predictors that can cause poor model fit.
+
+5
+00:00:29,480 --> 00:00:37,110
+So if we've got X1 and x2 and they cause why we've got this correlation between them.
+
+6
+00:00:37,110 --> 00:00:43,080
+We don't know particularly where the common affects, so we can have a look.
+
+7
+00:00:43,080 --> 00:00:50,040
+So we can factor this out as X one two plus X one plus X two.
+
+8
+00:00:50,040 --> 00:00:59,210
+Except we don't actually have X one to. It's hidden behind the wall.
+
+9
+00:00:59,210 --> 00:01:08,470
+Where does it. Where does its its value go when the coefficients?
+
+10
+00:01:08,470 --> 00:01:12,340
+Does it go on X one, does it go next to you split it between them?
+
+11
+00:01:12,340 --> 00:01:19,970
+The linear model itself has no way to determine where the common component should actually be allocated.
+
+12
+00:01:19,970 --> 00:01:27,140
+And so one way we can deal with this and several other problems is by introducing what we call a regularization.
+
+13
+00:01:27,140 --> 00:01:30,460
+So rather than just solving the problem, minimize lost function.
+
+14
+00:01:30,460 --> 00:01:39,280
+And so if this is a linear regression, this might be squared loss or suspect B squared error.
+
+15
+00:01:39,280 --> 00:01:48,920
+This might be negative log likelihood. Log likelihood is a utility function, a negative log likelihood to be a positive value,
+
+16
+00:01:48,920 --> 00:01:54,170
+because the log likelihood they're negative is a lost function. You want to minimize your negative log likelihood.
+
+17
+00:01:54,170 --> 00:01:59,300
+And what we do is we add to that another term, which is we call the regularization term.
+
+18
+00:01:59,300 --> 00:02:04,460
+And all it is, is it is a parameter of the regularization strength times,
+
+19
+00:02:04,460 --> 00:02:12,410
+the magnitude of our parameters lost function now as two terms, the error and the and the magnitude of the coefficients.
+
+20
+00:02:12,410 --> 00:02:18,920
+When we're doing the squared magnitude here, we call it the ridge regression.
+
+21
+00:02:18,920 --> 00:02:25,170
+So quick detour on some of the notation. I'm using a norm as a measure of the magnitude of a vector.
+
+22
+00:02:25,170 --> 00:02:34,520
+So when we say X, we say the L2 norm, which is indicated with the subscript two, there's called it L2 Norma Euclidean norm.
+
+23
+00:02:34,520 --> 00:02:39,980
+What it is, is it's the square root of the sum of the squares that the elements of the vector.
+
+24
+00:02:39,980 --> 00:02:45,770
+If you take the L2 norm of Y minus Z, that's the Euclidean distance between Y and Axis.
+
+25
+00:02:45,770 --> 00:02:50,270
+If they're two dimensional vectors, it's the straight line distance between them.
+
+26
+00:02:50,270 --> 00:02:57,120
+So if you've got Y. And you've got X, Y, Z.
+
+27
+00:02:57,120 --> 00:03:01,710
+It's the straight line distance between them, the.
+
+28
+00:03:01,710 --> 00:03:07,890
+And then we can square it. So subscripts two means L2 Naum superscript, two means square.
+
+29
+00:03:07,890 --> 00:03:15,210
+And that's the sum of the squares of the element. So we get rid of this square root and we get the some of the squares useful, really useful.
+
+30
+00:03:15,210 --> 00:03:22,800
+It it simplifies the computation just a little bit. And it's how the retrogression normalization is defined or regularization is to find the L1 norm.
+
+31
+00:03:22,800 --> 00:03:28,590
+Subscript one is the sum of the absolute values and we call this the Manhattan or taxicab distance
+
+32
+00:03:28,590 --> 00:03:34,290
+because it's the distance you would have to travel if you could only travel in straight lines.
+
+33
+00:03:34,290 --> 00:03:39,900
+So if you want to go from X to Y, it's the it's the total length of that path.
+
+34
+00:03:39,900 --> 00:03:43,650
+So but it's also it's also useful, some of absolute values.
+
+35
+00:03:43,650 --> 00:03:48,630
+I'll want to some of absolute values. L2 is the sum as the square root of the sum of the squares.
+
+36
+00:03:48,630 --> 00:03:53,070
+You can generalize to get other norms as well. But this is what this notation means.
+
+37
+00:03:53,070 --> 00:04:04,600
+The magnitude of the vector. And so when we build up this rig, we build up our regularized model the way we increase.
+
+38
+00:04:04,600 --> 00:04:14,950
+The. The way we increase this component, the loss.
+
+39
+00:04:14,950 --> 00:04:21,700
+Remember the way we want to think about it. One of the tools we want to use for understanding a metric is how do you how do you make them change?
+
+40
+00:04:21,700 --> 00:04:28,850
+How do you increase them or decrease them? And the way you increase or decrease this part of the lost function is you.
+
+41
+00:04:28,850 --> 00:04:32,980
+You increase the coefficient and that can happen where having a strong relationship
+
+42
+00:04:32,980 --> 00:04:38,380
+that can happen by putting more the common factor on one than another. So when you have this multiple linearity,
+
+43
+00:04:38,380 --> 00:04:41,710
+one thing the retrogression regression is going to do is it's going to encourage the
+
+44
+00:04:41,710 --> 00:04:48,010
+model to distribute the influence of the common factor between the different sub factors.
+
+45
+00:04:48,010 --> 00:04:53,560
+Because if I put it all on one, that would increase the square more than if it divides it evenly between the two,
+
+46
+00:04:53,560 --> 00:05:00,220
+the way you minimize the squares as you divide the common the common components evenly between the two features.
+
+47
+00:05:00,220 --> 00:05:05,470
+It's it's a part of and it gives us a solution. So a multi linearity our system is under determined.
+
+48
+00:05:05,470 --> 00:05:13,210
+We don't have enough information to know where the coefficient is by adding regularization to our to our lost function.
+
+49
+00:05:13,210 --> 00:05:18,700
+We introduce this additional this additional loss that.
+
+50
+00:05:18,700 --> 00:05:27,560
+Tells it where to put it. By making the least expensive solution be the one where it's evenly distributed between all of the correlated features.
+
+51
+00:05:27,560 --> 00:05:34,730
+So where do we have this lost function, we have our our error loss plus our coefficient strength.
+
+52
+00:05:34,730 --> 00:05:41,340
+We can minimize this in two ways. We can minimize it by decreasing our error and we can minimize it by having small coefficients.
+
+53
+00:05:41,340 --> 00:05:49,950
+And what effectively, though, what that means is in order for a coefficient value to be large, it has to earn its keep and it has to earn its keep.
+
+54
+00:05:49,950 --> 00:05:57,670
+By decreasing training error. If if if if you've got a minimum, if you if you've got a particular value,
+
+55
+00:05:57,670 --> 00:06:04,470
+we're going to try to try to increase the coefficient and increase the coefficient.
+
+56
+00:06:04,470 --> 00:06:10,690
+That might give us a lower error. We only get a lower total loss if it decreases the error by more than it increases
+
+57
+00:06:10,690 --> 00:06:16,210
+the coefficient after take into account square and our regularization strength term.
+
+58
+00:06:16,210 --> 00:06:24,400
+And it gives this it encourages the coefficients to be small values unless a large value contribute significantly
+
+59
+00:06:24,400 --> 00:06:30,660
+to decreasing the models error on the training data squared error or increasing its log likelihood.
+
+60
+00:06:30,660 --> 00:06:33,020
+We're talking about a logistic regression.
+
+61
+00:06:33,020 --> 00:06:40,850
+The regularization parameter lambda is what we call a hyper parameter because we don't learn lambda from the data in general,
+
+62
+00:06:40,850 --> 00:06:44,660
+like within a single linear model. We don't learn lambda from the data.
+
+63
+00:06:44,660 --> 00:06:53,410
+We have to come in from outside the exact impact. The value depends somewhat implementation details such as how difficult one thing is,
+
+64
+00:06:53,410 --> 00:06:57,880
+the loss function itself, a mean or a some different psychic models actually make it.
+
+65
+00:06:57,880 --> 00:07:01,420
+You can't just take a regularization term for once I get model and use it for another,
+
+66
+00:07:01,420 --> 00:07:06,730
+even if they're both doing L2, because other details of lost function mean the value doesn't transfer,
+
+67
+00:07:06,730 --> 00:07:10,360
+because if it's using a sum of squared error,
+
+68
+00:07:10,360 --> 00:07:18,210
+then the regularization strength needs to depend on the data side because for the same amount, for the same amount of average error.
+
+69
+00:07:18,210 --> 00:07:21,360
+The sum of squared error is going to be larger just for having more data.
+
+70
+00:07:21,360 --> 00:07:29,490
+If it's a mean, then it's going to then you're right, Visitacion term is not going to depend on your data size.
+
+71
+00:07:29,490 --> 00:07:35,250
+Some Saikat models also use a concentration parameter C, which is one over Lambda Lambda,
+
+72
+00:07:35,250 --> 00:07:42,970
+and it's multiplied by the error instead of being multiplied by the by the, the coefficients.
+
+73
+00:07:42,970 --> 00:07:50,660
+Because the strict parameters. So an increased value of lambda or a decreased value of C results in stronger regularization,
+
+74
+00:07:50,660 --> 00:08:00,210
+a coefficient has to contribute more to the model performance to earn the keep for for a large value than it does with weaker regularization.
+
+75
+00:08:00,210 --> 00:08:06,750
+Now one good way to learn to write a good value for Lambda is to optimize with the training and tuning split of the training data.
+
+76
+00:08:06,750 --> 00:08:09,270
+Saikat learned. We'll do this automatically if you use.
+
+77
+00:08:09,270 --> 00:08:16,080
+So a lot of the repressors also of a CVO class logistic regression c.v you're going to have REJ CV.
+
+78
+00:08:16,080 --> 00:08:18,090
+Quite a few others have a CV variant.
+
+79
+00:08:18,090 --> 00:08:26,340
+And what happens with the CV variant is it will learn values for one or more hyper parameters by doing Krait when you call fit with training data.
+
+80
+00:08:26,340 --> 00:08:31,680
+It will cross validate on the training data to learn and you can give it a range of Perama,
+
+81
+00:08:31,680 --> 00:08:35,610
+a range of hyper parameter values to consider a list of them.
+
+82
+00:08:35,610 --> 00:08:46,200
+It will do. It will do the cross validation to automatically learn good values, the best values it can for these regularization parameters.
+
+83
+00:08:46,200 --> 00:08:54,150
+There is also a class grid search CV that allows you to do hyper cross validation to search for good hyper parameter values,
+
+84
+00:08:54,150 --> 00:08:59,520
+for any parameter, for any hyper parameter for a psychic. Learn model.
+
+85
+00:08:59,520 --> 00:09:05,220
+I encourage you to go play with that at some point. But logistic regression CV will do that automatically just in the fit call within
+
+86
+00:09:05,220 --> 00:09:12,440
+itself's with all it'll find a good and a good regularization strength value.
+
+87
+00:09:12,440 --> 00:09:21,770
+So the lasso regression. This looks very, very similar, except every place, that square at L2, nor in the sum of squares.
+
+88
+00:09:21,770 --> 00:09:32,090
+With the L1 norm, we're now looking at some of the absolute values and so the Elst, the square, the L2 norm allows it encourages values to be small.
+
+89
+00:09:32,090 --> 00:09:36,410
+But if the value is close to zero, it doesn't like it's close to zero. Fine.
+
+90
+00:09:36,410 --> 00:09:41,810
+What the oh one naum one of the effects it has is it doesn't like small noun's zero values.
+
+91
+00:09:41,810 --> 00:09:47,030
+If a coexistent value was small as L1, Naum is going to push it to zero.
+
+92
+00:09:47,030 --> 00:09:53,450
+And what this does is it makes the coefficient spot what we call sparse, sparse data is data with a lot of zeros.
+
+93
+00:09:53,450 --> 00:10:00,930
+And so. If a coefficient is not contributing very much to classification, it's going to go to zero.
+
+94
+00:10:00,930 --> 00:10:08,130
+And you can use that to see which class, which features are actually being used in the classification.
+
+95
+00:10:08,130 --> 00:10:17,970
+And it effectively becomes an automatic feature selection technique because it's going to push the it's going to push the.
+
+96
+00:10:17,970 --> 00:10:27,920
+Coefficients for features that don't contribute very much to decreasing your training error to zero.
+
+97
+00:10:27,920 --> 00:10:34,220
+You can then put them together in what's called the elastic net, which combines L1 and L2 regularization.
+
+98
+00:10:34,220 --> 00:10:42,350
+And you have an overall regularization strength lambda that controls your regularization or Seage was one over lambdas.
+
+99
+00:10:42,350 --> 00:10:50,000
+What's going to multiply the loss function by sea? And then we have L1 regularization and L2 regularization.
+
+100
+00:10:50,000 --> 00:10:54,320
+And they're balanced and they're balanced with this parameter ro.
+
+101
+00:10:54,320 --> 00:10:58,400
+And so you could parameter Ryze. It's you just have your L1 strengthen your L2 strength.
+
+102
+00:10:58,400 --> 00:11:03,260
+But most elastic net implementations have a regularization strength.
+
+103
+00:11:03,260 --> 00:11:10,630
+Your out your lambda area C. And some of the psychic docs that use Alpha for this.
+
+104
+00:11:10,630 --> 00:11:15,370
+And then you have a balance that says how much of the regularization to put on a one?
+
+105
+00:11:15,370 --> 00:11:21,370
+And how much to put on L2 and these parameters both need to be chosen by cross-validation.
+
+106
+00:11:21,370 --> 00:11:25,270
+That's really the only way to find good values if you use logistic regression.
+
+107
+00:11:25,270 --> 00:11:28,870
+So logistic regression and logistic regression CVA can do elastic net.
+
+108
+00:11:28,870 --> 00:11:39,280
+There's also an elastic net and elastic net CV classes. And by default, if you use logistic regression CV, it's only going to use.
+
+109
+00:11:39,280 --> 00:11:45,340
+It's only going to search for the it's going to default L2 regularization and search for the regularization strength.
+
+110
+00:11:45,340 --> 00:11:48,200
+If you want elastic net, you change the penalty option.
+
+111
+00:11:48,200 --> 00:11:55,540
+You also have to change the solver because only one of the logistic regression can you several solvers to learn the logistic regression parameters.
+
+112
+00:11:55,540 --> 00:12:07,120
+Only one of them supports elastic net. And then you're going to need some additional options in order to tell it to also search for for that L1 ratio.
+
+113
+00:12:07,120 --> 00:12:08,650
+But it can do all of that for you.
+
+114
+00:12:08,650 --> 00:12:15,400
+I refer you to the documentation for though, with logistic regression, logistic regression, CV classes to see how to do that.
+
+115
+00:12:15,400 --> 00:12:26,250
+You're gonna find it useful in assignment five. I'm also gonna be giving you an example in the synchronous session that is dealing with some of this.
+
+116
+00:12:26,250 --> 00:12:31,380
+So some notes on applying regularization, though.
+
+117
+00:12:31,380 --> 00:12:38,220
+Regularization really works best when you're numeric variables are standardized because the coefficients.
+
+118
+00:12:38,220 --> 00:12:42,750
+It's it's looking at the total magnitude of your coefficient vector.
+
+119
+00:12:42,750 --> 00:12:50,190
+And if one of your coey if one of your features is in units of millimeters and one of your features is in units of KG's,
+
+120
+00:12:50,190 --> 00:12:56,130
+the coefficient values have nothing to do with each other. And so looking at the total magnitude, treating them as elements of a vector,
+
+121
+00:12:56,130 --> 00:13:02,370
+it becomes really difficult and it's going to penalize one just for having to have a larger range because of the underlying units.
+
+122
+00:13:02,370 --> 00:13:07,830
+If you standardize your numeric variables, then each one is in terms of standard deviation.
+
+123
+00:13:07,830 --> 00:13:15,420
+The coefficients become a lot more directly comparable with each other and your regression is going to be better be your your regularization
+
+124
+00:13:15,420 --> 00:13:21,930
+is going to be better behaved than you want to select your hyper parameters based on performance and the tuning getter and the CV classes,
+
+125
+00:13:21,930 --> 00:13:27,320
+as I said, get help with this. I'm giving you an example and one of the notebooks that does so give you an example,
+
+126
+00:13:27,320 --> 00:13:36,280
+a notebook that does uses logistic regression CV to do hyper parameter search for L2 regularization.
+
+127
+00:13:36,280 --> 00:13:43,710
+So you can see that in action with a simple example. So to conclude.
+
+128
+00:13:43,710 --> 00:13:57,240
+So to conclude regularization. Imposes costs on the model for large coefficient values, either large squared values, the large, absolute values.
+
+129
+00:13:57,240 --> 00:14:03,800
+Squared costs, which we call Rig Ridge Regularization, encourages values to be small.
+
+130
+00:14:03,800 --> 00:14:09,380
+Absolute value loss, so to call L1 or lasso regularization encourages small values to be zero.
+
+131
+00:14:09,380 --> 00:14:17,630
+If you put those together, it encourages values to be either zero or large enough to be meaningful, but not super large.
+
+132
+00:14:17,630 --> 00:14:24,140
+L2 regularization or Vage regularization is useful for controlling the effects of multicam linearity.
+
+133
+00:14:24,140 --> 00:14:30,080
+And together they're useful for decreasing your moral complexity. Allow making coefficient values to earn their keep.
+
+134
+00:14:30,080 --> 00:14:31,220
+Another way.
+
+135
+00:14:31,220 --> 00:14:41,240
+So another thing that they do is if everything's standardized or at least means centered, then small coefficients results in small effects.
+
+136
+00:14:41,240 --> 00:14:46,080
+And effectively what it means is assume everything's average. Unless we have enough evidence,
+
+137
+00:14:46,080 --> 00:14:53,000
+enough data to justify stronger beliefs and beliefs and stronger relationships that
+
+138
+00:14:53,000 --> 00:15:04,533
+are justified in terms of their ability to reduce our error on the training data.
+

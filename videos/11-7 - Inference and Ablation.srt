@@ -1,0 +1,620 @@
+1
+00:00:05,030 --> 00:00:12,050
+Oh, in this video, I want to talk with you about inference from auto effectiveness and introduced the idea of an inflation study.
+
+2
+00:00:12,050 --> 00:00:17,330
+So our goals are for you to be able to make inferences about model accuracy and underpin
+
+3
+00:00:17,330 --> 00:00:21,170
+understand a little bit better the interplay of cross validation and inference,
+
+4
+00:00:21,170 --> 00:00:26,930
+remembering that we can't be perfect. The goal is to do a good and an incredible job.
+
+5
+00:00:26,930 --> 00:00:31,490
+And then also to be able to use an ablation study to make inferences about the particular
+
+6
+00:00:31,490 --> 00:00:38,150
+contributions and value of different features or subsets of your subcomponents of your model.
+
+7
+00:00:38,150 --> 00:00:41,870
+So remember, we've got this train test split training.
+
+8
+00:00:41,870 --> 00:00:45,600
+We have the training data. We're doing all of our iterative process.
+
+9
+00:00:45,600 --> 00:00:50,780
+It's a big, loopy thing. And then we've got we evaluate our effectiveness.
+
+10
+00:00:50,780 --> 00:00:57,130
+One thing we haven't talked about yet is, is the is the effectiveness significant?
+
+11
+00:00:57,130 --> 00:00:59,760
+To go and wait for our test data, we have a few outputs.
+
+12
+00:00:59,760 --> 00:01:05,850
+We have the individual classifications of predictions and four classifications we have, whether they're right or wrong for predictions,
+
+13
+00:01:05,850 --> 00:01:10,620
+we have the error and then we have a metric value, accuracy, precision, etc. for each classifier.
+
+14
+00:01:10,620 --> 00:01:18,690
+One of the challenges is, though, for the classifier and the test data, we just have accuracy is point nine nine or precision is point four.
+
+15
+00:01:18,690 --> 00:01:22,800
+We can't significance test that value.
+
+16
+00:01:22,800 --> 00:01:31,350
+But I want to talk in order to set up how we can significance test, I'm first going to or otherwise do inference, I should say, because significant,
+
+17
+00:01:31,350 --> 00:01:38,310
+significant testing, as we discussed earlier, a lot of times we might actually care about like an effect size estimate with confidence intervals.
+
+18
+00:01:38,310 --> 00:01:42,360
+A lot more than we care about significance test.
+
+19
+00:01:42,360 --> 00:01:49,410
+But there's a few questions that we want to answer as the results of an evaluation. What does my classifier perform better than some benchmark value?
+
+20
+00:01:49,410 --> 00:01:54,140
+Well, you might have a value we want to beat, say, a value we know was good enough.
+
+21
+00:01:54,140 --> 00:01:57,900
+And we want to know if my classifier performs better than that value.
+
+22
+00:01:57,900 --> 00:02:06,870
+We might want to get an estimate of our classifiers, accuracy or precision or recall our pick our metric that has a confidence interval on it.
+
+23
+00:02:06,870 --> 00:02:12,690
+So we know how precise ice this estimated performance measure is.
+
+24
+00:02:12,690 --> 00:02:16,170
+And then we may also want to answer the question, is classifier A perform better than B?
+
+25
+00:02:16,170 --> 00:02:20,790
+Maybe B is our current system, or B is the existing known state of the art.
+
+26
+00:02:20,790 --> 00:02:23,640
+And we want to know if A does better. We might want to p value.
+
+27
+00:02:23,640 --> 00:02:29,250
+We might want a confidence interval for the improvement or the difference in performance between A and B.
+
+28
+00:02:29,250 --> 00:02:34,370
+So. To get started one way, we can compute a confidence interval.
+
+29
+00:02:34,370 --> 00:02:40,340
+We can treat each item as a binary measurement. So you are each test item.
+
+30
+00:02:40,340 --> 00:02:46,200
+So you've got hundred thousand test items because you've got a very large dataset.
+
+31
+00:02:46,200 --> 00:02:49,730
+And hundred thousand to 20 percent split. Or it's a 10 percent split.
+
+32
+00:02:49,730 --> 00:02:54,320
+You've got a million data points, one 100000 test points for each of these.
+
+33
+00:02:54,320 --> 00:02:59,100
+You have the true value. Yes or no. You have prediction. Yes or no.
+
+34
+00:02:59,100 --> 00:03:07,170
+If the metric denominator comes from the test data accuracy, it definitely does, because the denominate because accuracy is correct overall.
+
+35
+00:03:07,170 --> 00:03:12,000
+You can also do this for false positive ratio, false negative ratio.
+
+36
+00:03:12,000 --> 00:03:19,770
+Recall specificity, anything where the denominator is completely determined by the test data, not by the classifier results.
+
+37
+00:03:19,770 --> 00:03:25,470
+You can use a Willcocks confit or a Wilson confidence interval.
+
+38
+00:03:25,470 --> 00:03:33,330
+Stats models does this with proportion confident and a Wilson confidence interval is a confidence interval for a proportion.
+
+39
+00:03:33,330 --> 00:03:37,440
+Any metric you can bootstrap that you can take your to your test samples, you can do.
+
+40
+00:03:37,440 --> 00:03:43,590
+You can take bootstrap samples of them and then you can compute your classifier metric over your bootstrap samples.
+
+41
+00:03:43,590 --> 00:03:47,540
+Now, you have to be careful when you're doing your bootstrap samples to make sure that
+
+42
+00:03:47,540 --> 00:03:55,020
+when you're sample you're when you're doing the bootstrap and you keep the labels, the ground truth labels and the classifier outputs together.
+
+43
+00:03:55,020 --> 00:04:00,600
+And if you're doing multiple classifiers, you have to keep all the classifier outputs together as you're computing these bootstrap samples.
+
+44
+00:04:00,600 --> 00:04:08,400
+You can bootstrap from your test data and get a confidence interval for any of your classifier performance metrics.
+
+45
+00:04:08,400 --> 00:04:14,100
+You can also do a computer P-value for the accuracy metric. This specific technique only works for accuracy.
+
+46
+00:04:14,100 --> 00:04:23,490
+It does not work for any of our other classifier metrics. But you can get a P value for the null hypothesis that the two classifiers have the same
+
+47
+00:04:23,490 --> 00:04:30,570
+accuracy by using what's called a contingency table and a contingency table for this purpose.
+
+48
+00:04:30,570 --> 00:04:36,360
+You have you go from reclassifications to whether or not it was right or wrong.
+
+49
+00:04:36,360 --> 00:04:44,200
+So. Here we have the number of times both classifiers were right in here, the number of times they were both wrong.
+
+50
+00:04:44,200 --> 00:04:48,340
+And here we have where classifier one was right and classifier two was wrong.
+
+51
+00:04:48,340 --> 00:04:52,270
+How often did that happen? We can do the same the other way around.
+
+52
+00:04:52,270 --> 00:05:02,030
+And then we compute. What we do what's called a McNee ma test, and it uses these values and NY n is the value and one is wrong.
+
+53
+00:05:02,030 --> 00:05:07,840
+And two is right. And then why is. One excuse excuse me.
+
+54
+00:05:07,840 --> 00:05:14,960
+And this is. So here we have an.
+
+55
+00:05:14,960 --> 00:05:23,100
+And why? And here we have. And why an.
+
+56
+00:05:23,100 --> 00:05:32,370
+And so we take the squared difference and the their wrongness is and divide it by the sum of their wrongness is and this gives us a statistic.
+
+57
+00:05:32,370 --> 00:05:37,770
+And my test statistic and under H zero under the null hypothesis and follows what's called
+
+58
+00:05:37,770 --> 00:05:42,330
+a chi squared distribution with one degree of freedom to probability distribution,
+
+59
+00:05:42,330 --> 00:05:47,670
+you can get CGF from stat's models or from sci fi.
+
+60
+00:05:47,670 --> 00:05:55,560
+And you can use that to compute a P value. What's the probability of having an MS statistic, at least this large?
+
+61
+00:05:55,560 --> 00:06:02,970
+And it's it's you don't have to deal with absolute values on it because it's it's a non-negative statistic in a non-negative distribution.
+
+62
+00:06:02,970 --> 00:06:09,660
+We can't just. There is something called a proportion test, but proportion test is for independent proportions and independent samples.
+
+63
+00:06:09,660 --> 00:06:12,930
+But we don't have independent samples. We have one sample of our test data.
+
+64
+00:06:12,930 --> 00:06:17,640
+And for each test point, we have two measurements, class of a classifier one and classifier two.
+
+65
+00:06:17,640 --> 00:06:19,290
+So we can't use a proportion test.
+
+66
+00:06:19,290 --> 00:06:28,260
+But the Mackney MA test basically that says do this paired proportion test kind of thing and allows us to get a P value for whether this classifier,
+
+67
+00:06:28,260 --> 00:06:31,020
+whether the classifiers have the same accuracy or not.
+
+68
+00:06:31,020 --> 00:06:35,640
+And this one, the P value, does not allow us to reject the null hypothesis that they have the same accuracy.
+
+69
+00:06:35,640 --> 00:06:41,340
+The P value is about one. So.
+
+70
+00:06:41,340 --> 00:06:45,990
+We can also test regression. So each sample is a continuous measurement of the model's prediction error.
+
+71
+00:06:45,990 --> 00:06:51,900
+So we have Y minus Y hat Y.
+
+72
+00:06:51,900 --> 00:06:57,570
+I from C one for CROSSFIRE a. And we have Y minus Y.
+
+73
+00:06:57,570 --> 00:07:03,510
+Hat I. From Classifier B. And those are two different measurements,
+
+74
+00:07:03,510 --> 00:07:10,950
+we can use a paired t test or we can use an appropriate bootstrapping mechanism in order to assess the accuracy of a regression model.
+
+75
+00:07:10,950 --> 00:07:20,340
+Now, when we have when we do a cross validation, so one technique, the sun, sometimes you do cross validation, say 10 tenfold cross validation.
+
+76
+00:07:20,340 --> 00:07:25,350
+That gives you 10 accuracy's for each classifier and you can compute paired t test.
+
+77
+00:07:25,350 --> 00:07:31,660
+So each of your each of your folds and your cross validation is a sample.
+
+78
+00:07:31,660 --> 00:07:34,830
+Is one data point in your sample. So you've got N equals 10.
+
+79
+00:07:34,830 --> 00:07:39,900
+You can do a T test that actually doesn't work very well because your your samples are not independent.
+
+80
+00:07:39,900 --> 00:07:42,150
+If you're doing capable cross validation.
+
+81
+00:07:42,150 --> 00:07:49,590
+Also if you just repeatedly draw a 10 percent sample and draw a 10 percent sample and do that, say, 30 times,
+
+82
+00:07:49,590 --> 00:07:54,240
+you also have the same problem of the same data points are going to show up and you're sent to monitor your samples.
+
+83
+00:07:54,240 --> 00:07:58,420
+Also, your training data classifiers are being trained in the same data too much.
+
+84
+00:07:58,420 --> 00:08:07,020
+And the ideal is to be able to draw, say, 30 completely independent training and testing sets from your big population.
+
+85
+00:08:07,020 --> 00:08:09,960
+But yeah, but if you can't do that, you're trying to simulate with cross validation,
+
+86
+00:08:09,960 --> 00:08:17,250
+you wind up with the non independence just causes the resulting come statistical test to not be reliable.
+
+87
+00:08:17,250 --> 00:08:24,060
+One thing you can do is you can do repeated cross validation where five times you do a two fold cross validation.
+
+88
+00:08:24,060 --> 00:08:28,230
+I'm going to refer you to one of the readings I put in the notes for a lot more details on this.
+
+89
+00:08:28,230 --> 00:08:35,040
+Just wanted to bring it up so that, you know, it's there. Cross-validation is sometimes used for final evaluation.
+
+90
+00:08:35,040 --> 00:08:37,380
+You'll find this in papers sometimes.
+
+91
+00:08:37,380 --> 00:08:42,930
+One of the problems, though, is this allows data leakage because you're testing on data that was available and you're trying it.
+
+92
+00:08:42,930 --> 00:08:46,720
+You're testing on all of the data data that was available in your training set.
+
+93
+00:08:46,720 --> 00:08:50,080
+This is a this can be a significant problem if we've got a large enough data
+
+94
+00:08:50,080 --> 00:08:55,480
+set that we can just use a single test split or maybe two or three test split.
+
+95
+00:08:55,480 --> 00:09:01,420
+That's going to allow us to much better simulate to avoid leakage, much better simulate what's going to happen.
+
+96
+00:09:01,420 --> 00:09:06,940
+We put the model in production. Cross validation is really useful for a couple of contexts.
+
+97
+00:09:06,940 --> 00:09:11,570
+One where you're not doing much model design or feature engineering. You just want to take you have data.
+
+98
+00:09:11,570 --> 00:09:17,310
+Want to take a model. Apply it, see how it works. Cross-validation is great for that.
+
+99
+00:09:17,310 --> 00:09:22,650
+You're not. You don't have the iterative process of how am I really getting this model to work?
+
+100
+00:09:22,650 --> 00:09:25,230
+You can cross validate if you've got hyper parameter search,
+
+101
+00:09:25,230 --> 00:09:32,040
+do a hyper parameter search separately for each needful, like make it part of your training process.
+
+102
+00:09:32,040 --> 00:09:36,510
+Logit like that logistic regression c.v kinds of things. Help with that.
+
+103
+00:09:36,510 --> 00:09:41,700
+But if you've got a model and just want to see how well it works in the data, cross-validation can work pretty well.
+
+104
+00:09:41,700 --> 00:09:49,740
+Also with when you are doing cross-validation on the training data to iteratively, do improve your model and feature design.
+
+105
+00:09:49,740 --> 00:10:00,710
+That can work really, really well as well. The problem arises when you're doing a lot of engineering on your model.
+
+106
+00:10:00,710 --> 00:10:07,460
+And you get access to the test data, which you effectively have on a cross validation setup.
+
+107
+00:10:07,460 --> 00:10:13,130
+Because even if you've got it's your say you do 10 cross-validation, do you pick one of them that's gonna be your.
+
+108
+00:10:13,130 --> 00:10:18,260
+That's gonna be what you're really doing, your development? Well, all of your other test data is in this.
+
+109
+00:10:18,260 --> 00:10:19,770
+This initial development part.
+
+110
+00:10:19,770 --> 00:10:26,840
+So it's part of how you're effectively you're using the test data as part of your tuning process for your hyper parameter selection,
+
+111
+00:10:26,840 --> 00:10:31,400
+as part of your exploratory data analysis. And that that is a cause of leakage.
+
+112
+00:10:31,400 --> 00:10:36,970
+Again, though, I guess. We're can never be perfect, but it's important to be aware of as a cause of leakage.
+
+113
+00:10:36,970 --> 00:10:40,300
+I really recommend having the designated test set that you hold out.
+
+114
+00:10:40,300 --> 00:10:47,020
+You don't touch. That's the basis of your evaluation. Even if it makes the statistical inference a little bit harder.
+
+115
+00:10:47,020 --> 00:10:51,670
+Now, another thing, though, I want to talk about is suppose.
+
+116
+00:10:51,670 --> 00:11:01,060
+So let's suppose you've got a complex model and we've got we're detecting spam where we're working for, say, a.
+
+117
+00:11:01,060 --> 00:11:06,880
+Telecommunications company were detecting text message spam or were detecting an e-mail spam for any mail company.
+
+118
+00:11:06,880 --> 00:11:10,210
+We have text features. We've got made a day to features when they're sending you are else.
+
+119
+00:11:10,210 --> 00:11:13,360
+You've got features of the you are all itself. Maybe we even hit the server.
+
+120
+00:11:13,360 --> 00:11:19,390
+Let's say we've got another couple of sophisticated models that do that score.
+
+121
+00:11:19,390 --> 00:11:23,440
+You are else by their reputation and they're sent and also score senders by theirs,
+
+122
+00:11:23,440 --> 00:11:30,270
+by a reputation score that large e-mail search spam, antispam efforts such as the one built in the GMAT.
+
+123
+00:11:30,270 --> 00:11:39,430
+I'll do this. I'm not just making that up. It's a part of of antispam at scale is building reputations for you are else and centers.
+
+124
+00:11:39,430 --> 00:11:48,330
+And we've got let's say art, let's say our spam detector works well. Precision of ninety nine point five or ninety nine point nine.
+
+125
+00:11:48,330 --> 00:11:54,110
+Recall of 80 percent. But what makes it work?
+
+126
+00:11:54,110 --> 00:11:58,580
+Which of these features is contributing, how much to its success?
+
+127
+00:11:58,580 --> 00:12:03,710
+The answer is to do what's called an oblation study and an oblation study takes our model.
+
+128
+00:12:03,710 --> 00:12:09,020
+We take our whole model. We see how accurate it is, but then we turn off individual features of it.
+
+129
+00:12:09,020 --> 00:12:15,590
+So we might turn off the sender reputation. How what how exactly you turn off depends on the model design.
+
+130
+00:12:15,590 --> 00:12:22,550
+It might be if it's an honor. You just take that part out of your neuron, that graph syllogistic model, you know, everything's well standardized.
+
+131
+00:12:22,550 --> 00:12:26,750
+You can put it zeroes for the feature and not retrain or even just take that term out of the model,
+
+132
+00:12:26,750 --> 00:12:34,640
+trying to on your training data and try to predict your testing data. And what this lets you see and you probably want to do that just in case.
+
+133
+00:12:34,640 --> 00:12:40,610
+Just to make sure the parameters are being tuned without the peace. What does that seat you see, though, is how much each component contributes?
+
+134
+00:12:40,610 --> 00:12:50,450
+You can say, OK, my model gets ninety nine percent precision on spams and it gets 98 percent precision if I turn off the sender reputation.
+
+135
+00:12:50,450 --> 00:12:57,610
+Well, that lets you see, OK, the sender reputation is responsible for one percent of my precision.
+
+136
+00:12:57,610 --> 00:13:04,780
+Now, it's important to be careful how you use this, because you can use this for production decisions and for future work.
+
+137
+00:13:04,780 --> 00:13:11,860
+You do this oblation study, you discover, OK, the center reputations only contributing 98 or one percent,
+
+138
+00:13:11,860 --> 00:13:22,940
+or maybe it's contributing point one percent. And it's really expensive in terms of compute time and engineer time to maintain maybe stop using it.
+
+139
+00:13:22,940 --> 00:13:29,960
+You could also use it for your future research work. What you can't do, particularly within the scope of one study,
+
+140
+00:13:29,960 --> 00:13:37,550
+is use the results of your oblation study to go back and revisit your model design that gets you your leakage again.
+
+141
+00:13:37,550 --> 00:13:39,430
+As again, as I said in the academic setting,
+
+142
+00:13:39,430 --> 00:13:45,010
+we're doing multiple studies in the same data that we do get some leakage and we carry it forward to the next study.
+
+143
+00:13:45,010 --> 00:13:49,230
+We again, we can't be perfect, but.
+
+144
+00:13:49,230 --> 00:13:54,600
+There's a difference between the oblation study and the feature engineering, the feature engineering, I'm trying a bunch of things that keep things.
+
+145
+00:13:54,600 --> 00:14:01,760
+I'm not going to keep things up doing it with this tuning data. Things are going back. I'm not being keeping my careful firewalls.
+
+146
+00:14:01,760 --> 00:14:06,100
+In the oblation study, I have my top line performance monitor. Here's my model, I ran it.
+
+147
+00:14:06,100 --> 00:14:12,730
+It got 99 percent precision and then. I'm trying to understand.
+
+148
+00:14:12,730 --> 00:14:17,380
+Well, what are the drivers of that? I'm not putting it iteratively back into my life.
+
+149
+00:14:17,380 --> 00:14:25,120
+Going back and rerunning my my stuff in my training data with it, I'm just using it to get knowledge to carry forward.
+
+150
+00:14:25,120 --> 00:14:29,800
+That doesn't cause leakage within the context of the specific study we're talking about.
+
+151
+00:14:29,800 --> 00:14:32,530
+And it is of acceptable practice.
+
+152
+00:14:32,530 --> 00:14:38,830
+And it's a very, very useful practice for understanding the contributing factors to the performance of a complex model.
+
+153
+00:14:38,830 --> 00:14:42,660
+So wrap up inference for classified performance is not immediately straightforward.
+
+154
+00:14:42,660 --> 00:14:48,730
+There are several helpful techniques that pointed you here at pointing to you two in the readings and be careful about data leakage.
+
+155
+00:14:48,730 --> 00:14:55,733
+But again, sometimes tradeoffs are.
+
