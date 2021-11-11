@@ -30,6 +30,7 @@ parts:
   - file: week10/index
   - file: week11/index
   - file: week12/index
+  - file: week13/index
 - caption: Assignments
   chapters:
   - file: assignments/index

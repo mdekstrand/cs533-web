@@ -7,7 +7,7 @@ from sphinx.application import Sphinx
 from sphinx.util.docutils import SphinxRole
 import re
 
-_date_re = re.compile(r'wk(?P<week>\d+)\s+(?P<weekday>\w+)(?:\s+(?P<keyword>\w+))?')
+_date_re = re.compile(r'w(?:ee)?k(?P<week>\d+)\s+(?P<weekday>\w+)(?:\s+(?P<keyword>\w+))?')
 
 _weekdays = {
     'sun': 6,
