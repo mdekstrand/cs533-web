@@ -31,6 +31,8 @@ parts:
   - file: week11/index
   - file: week12/index
   - file: week13/index
+  - file: week14/index
+  - file: week15/index
 - caption: Assignments
   chapters:
   - file: assignments/index
