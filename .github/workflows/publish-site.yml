@@ -32,13 +32,12 @@ jobs:
       uses: actions/cache@v2
       with:
         path: venv
-        key: ${{ runner.os }}-pipenv-py39-${{ hashFiles('requirements.txt') }}
+        key: ${{ runner.os }}-venv-py39-${{ hashFiles('requirements.txt') }}
 
     - name: 📦 Set up virtual environment
       run: |
         python -m venv venv
-        source venv/bin/activate
-        pip install wheel
+        ./venv/bin/pip install wheel
         echo "$PWD/venv" >>$GITHUB_PATH
 
     - name: 📐 Install Python dependencies
