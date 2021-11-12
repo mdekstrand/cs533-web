@@ -5,6 +5,7 @@ copyright: '2021'
 
 exclude_patterns:
 - .venv/*
+- venv/*
 - node_modules/*
 - README.md
 - assignments/A0/A0-Solution.ipynb
