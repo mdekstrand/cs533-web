@@ -37,6 +37,8 @@ jobs:
     - name: 📦 Set up virtual environment
       run: |
         python -m venv venv
+        source venv/bin/activate
+        pip install wheel
         echo "$PWD/venv" >>$GITHUB_PATH
 
     - name: 📐 Install Python dependencies
@@ -45,11 +47,7 @@ jobs:
 
     - name: 🥅 Install Node modules
       run: |
-        if [ ! -d node_modules ]; then
-          npm ci
-        else
-          echo "modules already installed"
-        fi
+        npm ci
       env:
         NODE_ENV: development
 
