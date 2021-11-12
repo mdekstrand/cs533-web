@@ -43,7 +43,6 @@ def build(c, rebuild=False, builder='dirhtml'):
     """
     Build the current site.
     """
-    c.run('echo PATH=$PATH')
     if rebuild:
         c.run(f'jb build --all --builder {builder} .')
     else:
