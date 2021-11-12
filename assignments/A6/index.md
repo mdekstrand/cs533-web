@@ -90,6 +90,7 @@ GridSearchCV(KNeighborsClassifier(), {
 ```
 
 This will select the `n_neighbors` with the highest cross-validation accuracy on the training data.
+The {py:func}`sklearn.metrics.make_scorer` function adapts a metric for use as a grid-search objective, and in this case we're using {py:func}`~sklearn.metrics.accuracy_score` as our metric.
 
 {{mtodo}} Train a *k*-NN classifier with {py:class}`~sklearn.model_selection.GridSearchCV` to pick the neighborhood size.
 Report its accuracy on both the training and test data.
@@ -103,7 +104,7 @@ Should you remove stop words? Are stop words useful for this classification task
 
 We can also search for neighbors in a vector space with reduced dimension, using either {py:class}`~sklearn.decomposition.TruncatedSVD` (to compute a singular value decomposition) or {py:class}`~sklearn.decomposition.NMF` (to compute a non-negative matrix factorization).
 
-You can use {py:class}`~sklearn.decomposition.TruncatedSVD` in a pipeline, either as the last step (so you need to call `transform(X)` on the pipeline instead of `predict`), or in between your vectorizer and your classifier.
+You can use {py:class}`~sklearn.decomposition.TruncatedSVD` in a pipeline, either as the last step (so you need to call {py:meth}`~sklearn.pipeline.Pipeline.transform` on the pipeline instead of {py:meth}`~sklearn.pipeline.Pipeline.predict`), or in between your vectorizer and your classifier.
 The `transform(X)` method will return a matrix where the rows correspond to your data points, and the columns correspond to your reduced-dimension features.
 So, if you want to get some reduced-dimension representations of texts, you can do:
 
@@ -116,7 +117,7 @@ svd_pipe.fit(train['text'])
 text_vectors = svd_pipe.transform(train['text'])
 ```
 
-{{mtodo}} Plot a Seaborn pairplot of the results of projecting the article texts with an 8-dimensional SVD, with the points colored by document class.
+{{mtodo}} Plot a Seaborn {py:func}`~seaborn.pairplot` of the results of projecting the article texts with an 8-dimensional SVD, with the points colored by document class.
 What do you observe?
 
 {{mtodo}} Train a *k*-NN classifier with 5 neighbors on the SVD-transformed article texts.  You can do this with a 3-stage pipeline.
@@ -130,7 +131,7 @@ At this point, you should have 4 different classifiers.
 Which classifier design performs the best?
 Which classifier seems like it may be overfitting the most in the training process?
 
-{{mtodo}} Use `GridSearchCV` to simultaneously pick a good number of dimensions for the SVD and a good number of neighbors.
+{{mtodo}} Use {py:class}`~sklearn.model_selection.GridSearchCV` to simultaneously pick a good number of dimensions for the SVD and a good number of neighbors.
 You can do this by using it to search for parameters for a pipeline.
 Does optimizing your SVD improve the resulting classifier's accuracy?
 
