@@ -42,6 +42,7 @@ jobs:
 
     - name: 📐 Install Python dependencies
       run: |
+        echo "PATH=$PATH"
         which pip
         pip install -r requirements.txt
 
