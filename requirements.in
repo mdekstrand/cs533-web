@@ -1,0 +1,6 @@
+jupyter-book==0.12.*
+sphinx>=4
+srt
+invoke
+requests
+arrow

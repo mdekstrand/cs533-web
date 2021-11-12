@@ -28,19 +28,20 @@ jobs:
         node-version: '16'
         cache: 'npm'
 
-    - name: 📦 Install pipenv packages
-      run: |
-        python -m pip install -r boot-requirements.txt
-
     - name: 💰 Cache Python environment
       uses: actions/cache@v2
       with:
-        path: ~/.local/share/virtualenvs
-        key: ${{ runner.os }}-pipenv-py39-${{ hashFiles('Pipfile.lock') }}
+        path: venv
+        key: ${{ runner.os }}-pipenv-py39-${{ hashFiles('requirements.txt') }}
+
+    - name: 📦 Set up virtual environment
+      run: |
+        python -m venv venv
+        source venv/bin/activate
 
     - name: 📐 Install Python dependencies
       run: |
-        pipenv install --deploy
+        pip install -r requirements.txt
 
     - name: 🥅 Install Node modules
       run: |
@@ -58,8 +59,8 @@ jobs:
 
     - name: 🛠 Build site
       run: |
-        pipenv run jb --version
-        pipenv run invoke build-site
+        jb --version
+        invoke build-site
 
     - name: 📢 Publish
       run: |
