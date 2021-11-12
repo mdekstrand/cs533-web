@@ -42,6 +42,7 @@ jobs:
 
     - name: 📐 Install Python dependencies
       run: |
+        which pip
         pip install -r requirements.txt
 
     - name: 🥅 Install Node modules
