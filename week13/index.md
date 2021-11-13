@@ -83,7 +83,7 @@ at least once by the end of the class.
 
 ### Resources
 
-* [<cite>An Introduction to Information Theory: Symbols, Signals & Noise</cite>](https://worldcat.org/v2/oclc/7335058) by John R. Pierce
+* [<cite>An Introduction to Information Theory: Symbols, Signals & Noise</cite>](http://www.worldcat.org/oclc/1170834662) by John R. Pierce
 * [Entropy (information theory)](https://en.wikipedia.org/wiki/Entropy_(information_theory)) on Wikipedia
 
 ## {{mquiz}} No Week 13 Quiz
