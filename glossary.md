@@ -103,12 +103,21 @@ elementary event
 
     Introduced in {video}`week4:probability` and [Notes on Probability](resources/probability.md).
 
-Embedding
+embedding
     As a noun, a vector-space representation of a data point or instance.
     This is often a lower-dimensional representation produced through some form of matrix decomposition such as SVD.
     Introduced in {module}`week13`.
 
     As a verb, to convert an instance to such a representation.
+
+entropy
+    A measure of the “uninformitiveness” or uncertainty represented by a probability distribution.  For a discrete distribution,
+    it is computed as:
+
+    $$H(X) = - \sum_x \P[x] \log_2 \P[x]$$
+
+    The entropy is the expected number of bits required to record a draw from the distribution (or a message resolving the uncertainty)
+    using an efficient encoding, assuming the recipient knows the distribution and the encoding.
 
 environment variable
     A string variable associated with a process by the operating system.
