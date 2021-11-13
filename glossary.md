@@ -117,7 +117,9 @@ entropy
     $$H(X) = - \sum_x \P[x] \log_2 \P[x]$$
 
     The entropy is the expected number of bits required to record a draw from the distribution (or a message resolving the uncertainty)
-    using an efficient encoding, assuming the recipient knows the distribution and the encoding.
+    using an efficient encoding, assuming the recipient knows the distribution and the encoding. 
+
+    Introduced in {video}`week13:entropy`.
 
 environment variable
     A string variable associated with a process by the operating system.

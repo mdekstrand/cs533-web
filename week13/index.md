@@ -88,7 +88,7 @@ This video talks about *vector spaces* and transforms.
 This video introduces the idea of *entropy* as a way to quantify information.  It's something I want to make sure you've seen
 at least once by the end of the class.
 
-:::{video}
+:::{video} entropy
 :name: 13-5 - Information and Entropy
 :length: 10m31s
 :::
