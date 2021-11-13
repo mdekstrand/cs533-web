@@ -75,6 +75,21 @@ This video talks about *vector spaces* and transforms.
 :length: 7m27s
 :::
 
+## {{mvideo}} Information and Entropy
+
+This video introduces the idea of *entropy* as a way to quantify information.  It's something I want to make sure you've seen
+at least once by the end of the class.
+
+:::{video}
+:name: 13-5 - Information and Entropy
+:length: 10m31s
+:::
+
+### Resources
+
+* [<cite>An Introduction to Information Theory: Symbols, Signals & Noise</cite>](https://worldcat.org/v2/oclc/7335058) by John R. Pierce
+* [Entropy (information theory)](https://en.wikipedia.org/wiki/Entropy_(information_theory)) on Wikipedia
+
 ## {{mquiz}} Week 13 Quiz
 
 The Week 13 quiz is due on Thursday morning.
