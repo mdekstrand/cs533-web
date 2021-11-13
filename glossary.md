@@ -10,7 +10,7 @@ ablation study
 
     Introduced in {video}`week11:ablation`.
 
-Aggregate
+aggregate
     A function that computes a single value from a series (or matrix) of values.
     Often used to compute a {term}`statistic`.
 
