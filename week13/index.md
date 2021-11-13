@@ -1,8 +1,4 @@
-# 🚧 Week 13 — Unsupervised ({date}`wk13 range`) 🚧
-
-:::{draft}
-This content is still in draft state and has not yet been finalized.
-:::
+# Week 13 — Unsupervised ({date}`wk13 range`)
 
 In this week, we are going to talk more about *unsupervised learning* — learning without labels.
 We are not going to have time to investigate these techniques very deeply, but I want you to know about them, and you are experimenting with them in Assignment 6.
