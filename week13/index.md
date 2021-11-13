@@ -86,9 +86,9 @@ at least once by the end of the class.
 * [<cite>An Introduction to Information Theory: Symbols, Signals & Noise</cite>](http://www.worldcat.org/oclc/1170834662) by John R. Pierce
 * [Entropy (information theory)](https://en.wikipedia.org/wiki/Entropy_(information_theory)) on Wikipedia
 
-## {{mquiz}} No Week 13 Quiz
+## {{mquiz}} Week 13 Quiz
 
-There is **no quiz** for Week 13 - we've just had a large chunk of things.  I will make sure this isn't a grading problem for anyone.
+Take the Week 13 quiz on Blackboard.
 
 ## {{mnotebook}} Practice: SVD on Paper Abstracts
 
