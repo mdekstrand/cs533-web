@@ -20,7 +20,7 @@ This week's content is lighter, since we just had a large assignment and a midte
 
 In this video, we review the idea of supervised learning and contrast it with unsupervised learning.
 
-:::{video}
+:::{video} unsupervised-intro
 :name: 13-1 - No Supervision
 :length: 2m51s
 :::

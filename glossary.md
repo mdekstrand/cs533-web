@@ -200,6 +200,10 @@ Inference
 
     Inference can also be used to refer to learning the model parameters itself, but we won't be using it this way to avoid confusion.
 
+Instance
+    One entity of the data for a modeling or prediction problem.  Typically one row of the training or testing data; each row is an observation of an
+    instance.  In general, however, it is one entity about which we are trying to learn or predict, such as one transaction.
+
 Iterative method
     An computational method that works by computing an initial solution (or guess) and iteratively refining it, usually until some stopping condition is met (often
     the number of iterations, or a convergence criteria such as the change from one iteration to the next dropping below a threshold).
@@ -223,6 +227,9 @@ L₂ Norm
     A measure of the magnitude of a vector, also called the *Euclidean norm* or *Euclidean length*.  It is square root of the sum of squares of the elements in the vector:
 
     $$\| \mathbf{x} \|_2 = \sqrt{\sum_i x_i^2}$$
+
+Label
+    An observed outcome for an {term}`instance`, used for supervized learning.  Sometimes called a {term}`supervision signal`.
 
 Leakage
     When your predictive model benefits from information that would not be available when the model is in actual use.
@@ -445,6 +452,17 @@ Standardization
 
     Demonstrated in [One Sample notebook](resources/tutorials/OneSample.ipynb).
 
+Supervision signal
+    The label or outcome observations used for supervised machine learning.  See {term}`label`.
+
+    This term is introduced in {video}`week13:unsupervised-intro`.
+
+Supervized learning
+    Training a model to predict an observed outcome or {term}`label`.  We use this when we have known outcomes for training and evaluation data,
+    and want to build a model that will predict those outcomes for future data before they are observed (or when they cannot be observed).
+
+    Contrast {term}`unsupervised learning`.
+
 Test set
     A portion of your data set that is held back to evaluate the effectiveness of the **final** model.
     Contrast with {term}`training set`.
@@ -486,6 +504,11 @@ Tuning set
     Often called a *validation set*, but I avoid this term because it is ambiguous.
 
     See {term}`test set` for more details.
+
+Unsupervised learning
+    Learning when we do not have a specific observed outcome to predict; this typically tries to learn patterns or structure in the training data,
+    but no external ground truth is available to know if the patterns it learns are “correct”.  Contrast {term}`supervised learning`.  Introduced in
+    {video}`week13:unsupervised-intro`.
 
 Validation set
     A widely-used name for the {term}`tuning set`.  Sometimes validation and test are switched, so an author will talk about trying out different models with their test set and doing the final evaluation with a validation set.  I avoid the term due to this confusion.
