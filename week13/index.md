@@ -29,6 +29,9 @@ In this video, we review the idea of supervised learning and contrast it with un
 
 This video introduces the idea of *matrix decomposition*, which we can use to *reduce the dimensionality* of data points.
 
+:::{index} matrix decomposition
+:::
+
 :::{video} decomp
 :name: 13-2 - Decomposing Matrices
 :length: 17m22s
