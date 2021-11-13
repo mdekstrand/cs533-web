@@ -41,6 +41,10 @@ This video introduces the idea of *matrix decomposition*, which we can use to *r
 
 - The next notebook
 - The [PCADemo](../resources/tutorials/PCADemo.ipynb), demonstrating the PCA plots
+- {py:class}`numpy.ndarray`
+- {py:mod}`scipy.sparse`
+- {py:func}`scipy.linalg.svd`
+- {py:func}`scipy.sparse.linalg.svds`
 - {py:class}`sklearn.decomposition.TruncatedSVD`
 - {py:class}`sklearn.decomposition.PCA`
 
@@ -73,6 +77,11 @@ This video talks about *vector spaces* and transforms.
 :name: 13-4 - Vectors and Spaces
 :length: 7m27s
 :::
+
+### Resources
+
+- [<cite>Linear Algebra Done Right</cite>](https://linear.axler.net/) by Sheldon Axler
+- <cite>Handbook of Linear Algebra</cite> (terse and comprehensive reference)
 
 ## {{mvideo}} Information and Entropy
 
