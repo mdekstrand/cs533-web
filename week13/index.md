@@ -88,7 +88,7 @@ at least once by the end of the class.
 
 ## {{mquiz}} Week 13 Quiz
 
-Take the Week 13 quiz on Blackboard.
+Take the Week 13 quiz on Canvas.
 
 ## {{mnotebook}} Practice: SVD on Paper Abstracts
 
