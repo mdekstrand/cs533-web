@@ -67,7 +67,7 @@ This video introduces version control with Git.
 - [Version Control by Example](https://ericsink.com/vcbe/index.html)
 - [GitHub Student Developer Pack](https://education.github.com/pack)
 
-## {{mvideo}} Git for Data Science {: data-length="6m52s"}
+## {{mvideo}} Git for Data Science
 
 How do you use Git effectively in a data science project?
 
@@ -87,7 +87,7 @@ How do you use Git effectively in a data science project?
 -   [git-lfs](https://git-lfs.github.com/)
 
 
-## {{mvideo}} Extract, Transform, Load {: data-length="6m46s"}
+## {{mvideo}} Extract, Transform, Load
 
 The Extract, Transform, Load (ETL) pipeline is a common design pattern for data ingest.
 Sometimes it is adjusted to Extract, Load, Transform.
@@ -123,7 +123,7 @@ We've seen group-by operations this semester; they're a specific form of a gener
 
 - [Split, Apply, Combine at Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html)
 
-## {{mvideo}} Tuning Hyperparameters {: data-length="10m49s"}
+## {{mvideo}} Tuning Hyperparameters
 
 How can we move beyond `GridSearchCV` in our quest to tune hyperparameters?
 
