@@ -162,6 +162,16 @@ Some software that supports data and/or workflow management:
 - [Data Version Control](https://dvc.org) — I use this
 - [MLflow](https://mlflow.org/) — support for machine learning workflows
 
+## {{mdoc}} Software Environments
+
+:::{reading}
+:title: Software Environments
+:url: ../resources/environments.md
+:length: 1068 words
+:::
+
+Read [software environments](../resources/environments.md).
+
 ## {{mquiz}} Weekly Quiz 14
 
 Take **Quiz 14** in {{LMS}}.
