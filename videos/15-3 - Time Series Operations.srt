@@ -1,0 +1,420 @@
+1
+00:00:05,010 --> 00:00:11,180
+And this video, I want to introduce the concept of a time series, some basic time series operations in pandas.
+
+2
+00:00:11,180 --> 00:00:18,060
+There's a notebook also in the resources that gives you a demonstration of the PANDAS code that actually works with Time series.
+
+3
+00:00:18,060 --> 00:00:20,910
+Learning outcomes are for you to be able to summarize and plot time series data
+
+4
+00:00:20,910 --> 00:00:26,090
+with pandas and understand that Time series data is often not independent.
+
+5
+00:00:26,090 --> 00:00:30,050
+So at times, serious is a sequence of observations over time,
+
+6
+00:00:30,050 --> 00:00:35,120
+these observations may be periodically sampled, like maybe having one measurement for each day.
+
+7
+00:00:35,120 --> 00:00:45,710
+Or they may they may not be. You might be that you record a sequence of events like every time someone uses the card scanner at a door.
+
+8
+00:00:45,710 --> 00:00:50,840
+Typically, their observations are the same kind of thing. Like we have our instances in a normal data frame, the same kind of thing.
+
+9
+00:00:50,840 --> 00:00:54,570
+The observations we're looking at a time series are homogenous,
+
+10
+00:00:54,570 --> 00:01:01,160
+like the price of a stock or revenue of a country or some kind of user activity and mathematical notation.
+
+11
+00:01:01,160 --> 00:01:09,860
+We typically refer to a time with the letter T. And we have the current time as T t t minus one T plus one.
+
+12
+00:01:09,860 --> 00:01:20,300
+We often speak of times steps. So we might time as in years or months, days, seconds, whatever is appropriate to our particular application.
+
+13
+00:01:20,300 --> 00:01:25,490
+And it is. And we can talk about the value at time T X of T.
+
+14
+00:01:25,490 --> 00:01:30,950
+We can talk about X, T, minus one, etc. for the previous value, the value of the previous timestamp.
+
+15
+00:01:30,950 --> 00:01:35,270
+This particularly applies when we have a periodically type sample time step.
+
+16
+00:01:35,270 --> 00:01:39,830
+So to show you an example of a time series, this is from the movie lens data that we've been working with.
+
+17
+00:01:39,830 --> 00:01:44,210
+And it is by month the number of each ratings in the month.
+
+18
+00:01:44,210 --> 00:01:52,660
+So our time steps are months. And our value.
+
+19
+00:01:52,660 --> 00:02:02,620
+Is the number of ratings. For movies in time are in month t.
+
+20
+00:02:02,620 --> 00:02:09,100
+We can see those values. There were some spikes of growth. There were some spikes of activity here.
+
+21
+00:02:09,100 --> 00:02:12,210
+We've got a few one month spikes. We had a significant jump there.
+
+22
+00:02:12,210 --> 00:02:21,230
+And we've there's been declining month over month activity as we go into 2000 or in 2018, 2019.
+
+23
+00:02:21,230 --> 00:02:27,560
+So there are many ways, as we talked earlier, that are many ways we can represent time, we can have string dates, years, months.
+
+24
+00:02:27,560 --> 00:02:30,920
+We can have timestamps to work with a time series, though, and PAN does.
+
+25
+00:02:30,920 --> 00:02:33,830
+We have to convert it to a time to a date time.
+
+26
+00:02:33,830 --> 00:02:41,270
+We can't use pandas time serious operations without converting our time into a date time somehow first from whatever format it's in.
+
+27
+00:02:41,270 --> 00:02:49,190
+So the setup steps to be able to start working with time, serious data and pandas are to first create or convert a date time column.
+
+28
+00:02:49,190 --> 00:02:51,340
+It might be that you need to put it together multiple columns.
+
+29
+00:02:51,340 --> 00:02:55,130
+It might just be the you need to convert an existing column so that you have a timestamp
+
+30
+00:02:55,130 --> 00:03:01,130
+column of type date time for each for each of your instances in your data frame.
+
+31
+00:03:01,130 --> 00:03:09,080
+Then typically you're going to want to index the data frame by timestamp and then sort it by index using the sort index method.
+
+32
+00:03:09,080 --> 00:03:14,120
+And you can use it. There's a lot you can use a lot of date time operations without setting an index.
+
+33
+00:03:14,120 --> 00:03:17,840
+But setting an index is often the most convenient way to work with time.
+
+34
+00:03:17,840 --> 00:03:27,860
+Serious data in Pandas and Time series data is an exception to our general guideline to prefer unique indexes because pandas will have some memory,
+
+35
+00:03:27,860 --> 00:03:35,150
+can have memory and performance problems with non-unique indexes. You might have multiple events that happened at the same time.
+
+36
+00:03:35,150 --> 00:03:41,870
+The utility of a time series index around looking up things by time and by date over what that overrides.
+
+37
+00:03:41,870 --> 00:03:45,710
+The general concern of don't use duplicate and of avoid indexes.
+
+38
+00:03:45,710 --> 00:03:54,160
+A duplicate keys. So if you operations that we can perform at this time series, data one is re sampling and re sampling works like group by.
+
+39
+00:03:54,160 --> 00:04:05,280
+But it works on time intervals. And so in this in this code here, what we're doing is we are re sampling by interval one month.
+
+40
+00:04:05,280 --> 00:04:09,610
+We could sample by day, we could sample. By week.
+
+41
+00:04:09,610 --> 00:04:18,880
+But this is telling us that we want to group the data by one week or by one month periods so our groups will be or it's indexed by a timestamp.
+
+42
+00:04:18,880 --> 00:04:24,000
+But our groups are going to be October of 2000. 13.
+
+43
+00:04:24,000 --> 00:04:29,280
+November of 2013, and then within that, we're going to do exactly the same thing we do with any group.
+
+44
+00:04:29,280 --> 00:04:35,820
+We're going to pick a column and we're gonna count it. And this is going to count the number of ratings in each month.
+
+45
+00:04:35,820 --> 00:04:40,590
+So after the recent the results of a resample work, exactly like your group, buy into all your Google group,
+
+46
+00:04:40,590 --> 00:04:45,210
+I think that's just rather than being grouped by the distinct values of a column.
+
+47
+00:04:45,210 --> 00:04:51,660
+They're grouped by a time period of the index. Or you can also group by a column.
+
+48
+00:04:51,660 --> 00:04:56,490
+There's an on option for every sample that allows you to specify the column that you want
+
+49
+00:04:56,490 --> 00:05:01,860
+to do the re sampling on if you have not indexed your data frame by its time stamp column.
+
+50
+00:05:01,860 --> 00:05:05,130
+So this is our first operation. We can take it. We can sample our day.
+
+51
+00:05:05,130 --> 00:05:17,110
+If we have this particularly works for data that is. If this works well for data that is events, it works well for data, that is.
+
+52
+00:05:17,110 --> 00:05:19,690
+It can also work well for it, for data that is already sampled,
+
+53
+00:05:19,690 --> 00:05:24,460
+that if you've got daily measurements of something and you want to take it by month, you can re sample that by month.
+
+54
+00:05:24,460 --> 00:05:30,370
+You can also up sample and have it fill in missing values for time period that you're missing.
+
+55
+00:05:30,370 --> 00:05:33,600
+If you want to increase the resolution of data.
+
+56
+00:05:33,600 --> 00:05:41,370
+So another thing we can do is plot and matplotlib and Seabourne both render timestamps on their x axis relatively well.
+
+57
+00:05:41,370 --> 00:05:49,980
+So if I just do X and that's that line plot and I give it a series, it's going to mark the x axis by an appropriate time,
+
+58
+00:05:49,980 --> 00:05:57,090
+derive value in this case because my data starts in two thousand or nineteen ninety six and runs until relatively recently.
+
+59
+00:05:57,090 --> 00:06:02,220
+It is it's, it's, it's marking the X axis by year.
+
+60
+00:06:02,220 --> 00:06:06,330
+So they, they know what to do with time data, with timestamp columns.
+
+61
+00:06:06,330 --> 00:06:13,890
+And they will the air, they will render the x axis with appropriate labels for time, serious data.
+
+62
+00:06:13,890 --> 00:06:24,870
+Another operation is to be able to do a range select so time series indexes, support range operations and so we can select by range,
+
+63
+00:06:24,870 --> 00:06:32,340
+you can say every we want everything from January 1st through December thirty first.
+
+64
+00:06:32,340 --> 00:06:38,160
+Now, one key thing to note is that when you're doing a range selection of a time series column,
+
+65
+00:06:38,160 --> 00:06:43,530
+unlike basically every other slicing context in Python, it includes the end point.
+
+66
+00:06:43,530 --> 00:06:51,450
+So this this query is going to include December thirty, first all and it's going to include all day on December thirty first.
+
+67
+00:06:51,450 --> 00:06:56,990
+It's not going to be the usual stop right before.
+
+68
+00:06:56,990 --> 00:07:01,370
+We can also just pass in a partial date time in order to select by a period.
+
+69
+00:07:01,370 --> 00:07:05,270
+So if we want to select July 2010, we can you do that lock.
+
+70
+00:07:05,270 --> 00:07:12,550
+And we can look up 2010, Dasch 07. It's going to give us the ratings that are in July.
+
+71
+00:07:12,550 --> 00:07:17,230
+Another operation we can perform a set of operations, we can perform our diff and shift.
+
+72
+00:07:17,230 --> 00:07:22,420
+So the diff operation computes X sub T minus X, T, minus one.
+
+73
+00:07:22,420 --> 00:07:26,710
+So what it does is it computes. So we've got our it's basically the opposite of cume.
+
+74
+00:07:26,710 --> 00:07:33,190
+So we've got our data points. And what it does is it computes each one minus the one before it.
+
+75
+00:07:33,190 --> 00:07:39,820
+The first one gets narm. So your first value becomes more than your second value becomes the second minus the first et cetera.
+
+76
+00:07:39,820 --> 00:07:47,200
+Shift is an operation that just shifts data points by one or more time steps.
+
+77
+00:07:47,200 --> 00:07:53,320
+And so a shift of one which is the default, if you don't specify parameter is what we call a lag operator.
+
+78
+00:07:53,320 --> 00:08:05,340
+It move points down once that each one has its previous value. So def is just X minus X that shift or it's it's X minus the lag of X.
+
+79
+00:08:05,340 --> 00:08:12,450
+Shift of minus one is lead. So each one has the next value, if you want to compare each value with the one that's gonna come after it.
+
+80
+00:08:12,450 --> 00:08:21,720
+But so these are this. This diff operation and then shift, which is its building block, allow you to compare data to the previous data point.
+
+81
+00:08:21,720 --> 00:08:26,460
+This is particularly useful for data that is periodically sampled to its day by days or by seconds.
+
+82
+00:08:26,460 --> 00:08:34,820
+It doesn't it's not quite as useful by events, but. You can convert event timestamped event data into period data.
+
+83
+00:08:34,820 --> 00:08:41,370
+Just the library sampling. So there's a few different effects that we want to think about in Time series data.
+
+84
+00:08:41,370 --> 00:08:45,600
+One is a trend, which is a period over period change in values.
+
+85
+00:08:45,600 --> 00:08:50,130
+So if the price of something is going up and it'll be noisy around that,
+
+86
+00:08:50,130 --> 00:08:56,370
+but often noisy around that, but the overall trend is up as you go through time.
+
+87
+00:08:56,370 --> 00:09:03,340
+You can have linear trends. You can have exponential trends. When you have an.
+
+88
+00:09:03,340 --> 00:09:13,240
+You might hear the value are not being used sometimes in discussing disease, transmit disease transmission epidemiology.
+
+89
+00:09:13,240 --> 00:09:18,480
+That's a multiplier for an exponential trend.
+
+90
+00:09:18,480 --> 00:09:26,790
+We can have seasonal and cyclic effects with our periodic effects in the data and seasonal ones are are around this time of year.
+
+91
+00:09:26,790 --> 00:09:33,840
+So like holiday, if you're in a commerce setting, holidays look really, really differently than June.
+
+92
+00:09:33,840 --> 00:09:41,490
+There can also be cyclical effects like on a week cycle, et cetera, that does that affect your data?
+
+93
+00:09:41,490 --> 00:09:45,030
+People behave differently on weekends than during the week, etc.
+
+94
+00:09:45,030 --> 00:09:53,680
+There's also shocks which are impact events that impact the time series and change data going forward.
+
+95
+00:09:53,680 --> 00:09:59,020
+And these can have short term effects or they can have continued effects. But a shock is like an outside event.
+
+96
+00:09:59,020 --> 00:10:06,650
+Like if your time series is, say, the the price of a stock, a shock would be an event that affects the stock price.
+
+97
+00:10:06,650 --> 00:10:14,230
+One thing that's important to know about time, serious data, is that as often what we call auto correlated, which means correlated with itself.
+
+98
+00:10:14,230 --> 00:10:21,780
+Because it's X, sub T plus one at exit two, plus one, an exit T are not independent.
+
+99
+00:10:21,780 --> 00:10:30,050
+Today's weather is probably more likely correlated with tomorrow's weather than it is weather in three months.
+
+100
+00:10:30,050 --> 00:10:37,410
+So if you have observations of a variable over time, especially that you're trying to predict the future with today.
+
+101
+00:10:37,410 --> 00:10:47,500
+It usually violates independence. And so we're going to need to take special care in order to model what's going on when we have data.
+
+102
+00:10:47,500 --> 00:10:51,720
+And even if we have other predictive variables.
+
+103
+00:10:51,720 --> 00:11:00,180
+There's a non independence between from one step to another that we need to account for when we're doing statistical modeling.
+
+104
+00:11:00,180 --> 00:11:05,100
+So to wrap up repeated data over time requires particular handling and are distinct operations to work for it.
+
+105
+00:11:05,100 --> 00:11:16,769
+PANDAS provides access to daytime columns, daytime indexes to allow you to do various times serious operations.
+

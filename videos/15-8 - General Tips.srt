@@ -1,0 +1,412 @@
+1
+00:00:04,570 --> 00:00:07,330
+This video, I want to give you a few general tips,
+
+2
+00:00:07,330 --> 00:00:14,170
+wrap up the semester with some suggestions and some advice for doing data science and for learning more.
+
+3
+00:00:14,170 --> 00:00:18,670
+So that's our learning outcome. Some concluding tips for your data science work.
+
+4
+00:00:18,670 --> 00:00:23,710
+The first is to never take your eye off of questions. Good questions are fundamental.
+
+5
+00:00:23,710 --> 00:00:30,430
+John Tukey, who developed a lot of important statistical concepts.
+
+6
+00:00:30,430 --> 00:00:40,030
+Is quoted as saying that it's far better to have an approximate answer to the right question than an exact answer to the wrong question.
+
+7
+00:00:40,030 --> 00:00:48,280
+If you have a good question that you can get insight into, even if you don't have a crisp and precise answer for it, you can often refine the answer.
+
+8
+00:00:48,280 --> 00:00:52,060
+But that's also often more illuminating for what you want to learn and for
+
+9
+00:00:52,060 --> 00:00:56,740
+what you want to what you need to do than a very precise answer to a question.
+
+10
+00:00:56,740 --> 00:01:01,570
+That is not ultimately the question you want to ask. So.
+
+11
+00:01:01,570 --> 00:01:10,020
+Focus a lot of energy on defining your question properly and appropriately and understanding.
+
+12
+00:01:10,020 --> 00:01:18,990
+Understanding its relationship to contacts and to talk about that just a bit. And what your answer means to it and its limitations.
+
+13
+00:01:18,990 --> 00:01:22,230
+The second piece of advice is to work reproducibly. I've talked about this a little bit.
+
+14
+00:01:22,230 --> 00:01:28,140
+As we've been wrapping up, there's many reasons that you should make your analysis reproducible.
+
+15
+00:01:28,140 --> 00:01:29,670
+One, though, really important.
+
+16
+00:01:29,670 --> 00:01:41,520
+One is that when you go when you write up your results, either for a publication, for your thesis, for for a report, you need to know what you did.
+
+17
+00:01:41,520 --> 00:01:45,430
+And if you've been doing a bunch of different things, writing scripts, processing data here and there,
+
+18
+00:01:45,430 --> 00:01:52,740
+it's easy to lose track of exactly what steps got you from source data to conclusions.
+
+19
+00:01:52,740 --> 00:02:00,060
+And if you put it into a reproducible pipeline where it's automated, ideally you can rerun the whole thing with one command or a few commands.
+
+20
+00:02:00,060 --> 00:02:07,550
+Then it's easy to make sure that you have accurately described all of the steps because you can check.
+
+21
+00:02:07,550 --> 00:02:12,640
+Do I describe the steps that are in my pipeline? And then you can try every running the pipeline to make sure it still works.
+
+22
+00:02:12,640 --> 00:02:18,330
+Do you still get the same conclusions? And if not. Either you missed the step or what you read.
+
+23
+00:02:18,330 --> 00:02:22,960
+What you reporting is the results of running a different set of steps or a set of steps in a different order.
+
+24
+00:02:22,960 --> 00:02:28,350
+So in addition to all of the the external scientific benefits of reproducibility,
+
+25
+00:02:28,350 --> 00:02:34,530
+the benefits of reproducibility for being able to maintain your model in the long run in production settings,
+
+26
+00:02:34,530 --> 00:02:42,080
+just for documentation purposes, the reproducibility helps you make sure that you've correctly described what it is that you did.
+
+27
+00:02:42,080 --> 00:02:46,290
+You never lose sight of the context of what you're doing.
+
+28
+00:02:46,290 --> 00:02:52,380
+There's a reason why when we talk to the very beginning of the semester about developing questions,
+
+29
+00:02:52,380 --> 00:02:57,570
+we start with goals and we have questions that are going to advance those goals, analysis to answer the questions.
+
+30
+00:02:57,570 --> 00:03:00,650
+And the analysis is of data.
+
+31
+00:03:00,650 --> 00:03:07,280
+We don't we we focus on a question, we're trying to answer the question that the question has to be precise in order for us to answer it.
+
+32
+00:03:07,280 --> 00:03:14,030
+But that question, as with the TOOKEY quote, it may well be an approximation for something we really care about.
+
+33
+00:03:14,030 --> 00:03:20,440
+And so. We don't want to. Once we define the question, we don't want to just focus on the question.
+
+34
+00:03:20,440 --> 00:03:23,230
+We need to keep the big picture in mind to remember why.
+
+35
+00:03:23,230 --> 00:03:32,370
+If we need to do further refinements of the question, we have a touchstone to look to to figure out how we need to revise the question.
+
+36
+00:03:32,370 --> 00:03:35,850
+If we need to adjust it, because our data can't answer that question.
+
+37
+00:03:35,850 --> 00:03:41,100
+Well, when your new question will, what new question is going to bridge between the data and our goals?
+
+38
+00:03:41,100 --> 00:03:46,380
+So we have some where we're going. It also helps. It's crucial for being able to contextualize our results.
+
+39
+00:03:46,380 --> 00:03:53,280
+Why do we care about the answer to this question? What does it mean for what we know about the world or for what we're trying to do in the world?
+
+40
+00:03:53,280 --> 00:04:00,970
+It's crucial for helping identify limitations. If you know the goal and then you have a cutoff of goal, you've a question you can.
+
+41
+00:04:00,970 --> 00:04:05,060
+Having the goal gives you a place to context to talk about.
+
+42
+00:04:05,060 --> 00:04:10,170
+OK. So our question can do this. But there's these other things that are important to our goal that we can't do right now.
+
+43
+00:04:10,170 --> 00:04:15,660
+That's fine. It gives you a way to document them. It's also then super useful for generating next ideas.
+
+44
+00:04:15,660 --> 00:04:20,340
+Our question has taken us two steps towards our goal. Our goal goals still 10 steps away.
+
+45
+00:04:20,340 --> 00:04:26,610
+That's a lot of future work that's already written for us. But then also, we don't want to overlook detail.
+
+46
+00:04:26,610 --> 00:04:32,550
+So when we're specifying our questions and results, we need to be precise and specific about what exactly were measuring.
+
+47
+00:04:32,550 --> 00:04:40,130
+And this might seem that it's. This might at first glance seem to contradict the two key quote at the beginning is he said,
+
+48
+00:04:40,130 --> 00:04:43,880
+better to have the vague question than the precise wrong question.
+
+49
+00:04:43,880 --> 00:04:51,170
+But they're they're not really in conflict because whenever we're measuring something, we're measuring something very precise.
+
+50
+00:04:51,170 --> 00:04:56,780
+Computers and measurements are very precise things. We need to understand precisely what that is.
+
+51
+00:04:56,780 --> 00:05:03,470
+And we need to understand the relationship between the precise thing we computed.
+
+52
+00:05:03,470 --> 00:05:09,330
+A measurement of. How many people?
+
+53
+00:05:09,330 --> 00:05:16,630
+Clicked. I've never seen this number before in our interface for dealing with incoming calls.
+
+54
+00:05:16,630 --> 00:05:22,880
+And we need to connect that to the vaguer question that we're trying to answer so we understand the approximation.
+
+55
+00:05:22,880 --> 00:05:28,610
+It's not enough to say, well, OK, I have I have the right question and I have an approximate answer to it.
+
+56
+00:05:28,610 --> 00:05:36,590
+We need to understand the approximation and the best of our ability, the relationship of that approximate of the precise thing we measured.
+
+57
+00:05:36,590 --> 00:05:42,650
+How what's an approximation of the question we're trying to answer and how that's then going to advance the goal we have?
+
+58
+00:05:42,650 --> 00:05:52,590
+We can't we can't overlook the details to understand precisely what it is that we're doing and different people approach.
+
+59
+00:05:52,590 --> 00:05:58,040
+Connecting data and goals in different ways. Some are very top down thinkers.
+
+60
+00:05:58,040 --> 00:06:02,490
+They start with the big picture goals. They're very focused on big picture things.
+
+61
+00:06:02,490 --> 00:06:07,140
+That's often my default mode of operation. I'm a relatively big picture person.
+
+62
+00:06:07,140 --> 00:06:14,670
+But in order to be a big picture person, effectively, you have to be able to connect that big picture with specific,
+
+63
+00:06:14,670 --> 00:06:20,090
+concrete, measurable things that are going to advance the big picture.
+
+64
+00:06:20,090 --> 00:06:26,120
+You can't if you don't do that, then you're going to wind up either not being able to make progress because you can't
+
+65
+00:06:26,120 --> 00:06:30,710
+actually define something actionable that's going to advance the big picture or
+
+66
+00:06:30,710 --> 00:06:35,570
+you're going to not have a clear sense of whether you're advancing it or going to make
+
+67
+00:06:35,570 --> 00:06:40,820
+a lot of unsubstantiated statements because you're not connecting to the details.
+
+68
+00:06:40,820 --> 00:06:44,510
+Some people start from the details, more bottom up development of ideas.
+
+69
+00:06:44,510 --> 00:06:50,930
+Neither of these are wrong. Different faculty in the department tend to start from top down or bottom up places.
+
+70
+00:06:50,930 --> 00:06:59,450
+You need to learn to be able to learn from people who communiqu, who structure ideas in both ways.
+
+71
+00:06:59,450 --> 00:07:06,110
+But bottom up, you start more with the data and the details of the problem, and you build that into a big picture.
+
+72
+00:07:06,110 --> 00:07:12,110
+And there you need to be able to connect to to see the context and not lose the context for what it is that you're doing.
+
+73
+00:07:12,110 --> 00:07:19,160
+Both are good ways to approach problems and are complementary perspectives that can work very well together.
+
+74
+00:07:19,160 --> 00:07:26,930
+But it's something to be aware of. You can't lose sight of either the context why you're doing the thing that you're doing or of the details to
+
+75
+00:07:26,930 --> 00:07:35,270
+understand what precisely it is did to be able to reason about how that relates to your context and your goals.
+
+76
+00:07:35,270 --> 00:07:38,930
+Be curious. There's so much to learn.
+
+77
+00:07:38,930 --> 00:07:47,750
+I am continually learning new things about programing, about statistics, about the problems that I'm trying to solve with with these techniques.
+
+78
+00:07:47,750 --> 00:07:51,650
+And so learn about that. I've given you some pointers of some things to read in these videos.
+
+79
+00:07:51,650 --> 00:07:56,450
+I've given you pointers elsewhere in the course materials. There's so much to go study.
+
+80
+00:07:56,450 --> 00:08:03,740
+This class is intended to open the door to the world of data science that you can walk through and have.
+
+81
+00:08:03,740 --> 00:08:13,610
+A basic framework in which to fit all the new information that you're going to need to be acquiring over the next years.
+
+82
+00:08:13,610 --> 00:08:21,740
+Pause and reflect. And this applies to a lot of things. It applies to the work you're doing, reflect on what does this result mean?
+
+83
+00:08:21,740 --> 00:08:26,630
+Reflect on is my code efficient, is my code readable?
+
+84
+00:08:26,630 --> 00:08:31,190
+Does this chart makes sense? Reflect on your practices of work.
+
+85
+00:08:31,190 --> 00:08:35,480
+How am I organizing my work to go from my goals to my analysis?
+
+86
+00:08:35,480 --> 00:08:41,870
+How my organizing my to do list something I also tell my students is to take time to reflect on their practices.
+
+87
+00:08:41,870 --> 00:08:46,070
+How do you organize just overall your work as a student and to reflect?
+
+88
+00:08:46,070 --> 00:08:50,960
+Is this working for me? Am I having problems with my productivity, problems with getting things done?
+
+89
+00:08:50,960 --> 00:08:54,770
+Problems with communication problems? Or are maybe not.
+
+90
+00:08:54,770 --> 00:08:58,820
+Problems might be a harsh way to frame it. Are there places I can improve?
+
+91
+00:08:58,820 --> 00:09:04,310
+What's working about how I'm doing my work as a student? What's not working and how can I improve?
+
+92
+00:09:04,310 --> 00:09:08,480
+There's a there's a risk of spending so much time in your process for getting things done.
+
+93
+00:09:08,480 --> 00:09:14,600
+You never get things done. But it's important to reflect on our work, on its outcomes.
+
+94
+00:09:14,600 --> 00:09:19,260
+How could this paper be better? How could this report be better?
+
+95
+00:09:19,260 --> 00:09:24,180
+How can I do this kind of project better the next time it is done, it's published, it's good.
+
+96
+00:09:24,180 --> 00:09:34,480
+How can I do even better the next time? So to wrap up, good state of science requires ongoing reflection, study and practice.
+
+97
+00:09:34,480 --> 00:09:41,790
+Never stop learning, never stop paying attention to the various things like.
+
+98
+00:09:41,790 --> 00:09:46,330
+Ideas. Don't live well in little boxes.
+
+99
+00:09:46,330 --> 00:09:51,250
+There may be someone working on some completely different problem, but they're using.
+
+100
+00:09:51,250 --> 00:09:54,760
+They had an insight into their problem, which you can go apply to yours.
+
+101
+00:09:54,760 --> 00:10:02,860
+So take advantage of the opportunity to go to a wide range of talks, to read or write a wide range of papers and a wide range of books,
+
+102
+00:10:02,860 --> 00:10:09,750
+etc., to get ideas for how you can do better work and how you can better understand your problems.
+
+103
+00:10:09,750 --> 00:10:25,894
+Space, the world around you, your customers, the needs of your organization in order to do better data science tomorrow than you did yesterday.
+

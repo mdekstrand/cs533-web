@@ -1,0 +1,576 @@
+1
+00:00:04,570 --> 00:00:07,830
+This video, we're going to talk about correlated errors,
+
+2
+00:00:07,830 --> 00:00:14,140
+so the previous video we talked about time serious and we talked about autocorrelation where its value is correlated with the value before it.
+
+3
+00:00:14,140 --> 00:00:18,700
+This video, we're going to talk more generally about the idea of correlated errors and how they can be addressed.
+
+4
+00:00:18,700 --> 00:00:18,760
+Now,
+
+5
+00:00:18,760 --> 00:00:24,520
+I want you to be able to know when you need to look for a model that can handle correlated errors and know a few of the models you need to go study.
+
+6
+00:00:24,520 --> 00:00:34,240
+So observations, linear regression has this assumption that we've particularly our errors are independent, but often they aren't.
+
+7
+00:00:34,240 --> 00:00:38,890
+So if we've got time series data, we have this autocorrelation that will manifest in non-independent errors.
+
+8
+00:00:38,890 --> 00:00:49,000
+We don't control for it within subjects, designs and experimental design, where you have each participant gets more than one treatment.
+
+9
+00:00:49,000 --> 00:00:58,050
+And you want to compare how the treatment performed within the same person. You're not independent because.
+
+10
+00:00:58,050 --> 00:01:05,960
+Do you have. There's a person level effect and the the the person has a certain propensity to the outcome that you're trying to measure.
+
+11
+00:01:05,960 --> 00:01:10,070
+And then the treatments also go into effect. You can have other data that can be grouped as well.
+
+12
+00:01:10,070 --> 00:01:19,150
+If you're trying to to study medical outcomes and you're assigning people to a treatment or a control group, even though within the same hospital,
+
+13
+00:01:19,150 --> 00:01:21,380
+like people that are being treated by the same medical staff,
+
+14
+00:01:21,380 --> 00:01:24,950
+might have different outcomes than people who are being treated by different medical staff.
+
+15
+00:01:24,950 --> 00:01:29,900
+And so if you just pull all of the participants together, you can have this non-independent,
+
+16
+00:01:29,900 --> 00:01:36,890
+that student that participants at one hospital are more likely to look like each other than they are likely to look like participants,
+
+17
+00:01:36,890 --> 00:01:38,870
+more random other hospital.
+
+18
+00:01:38,870 --> 00:01:46,730
+And so, for an example, to talk about this more concretely, I want to talk about you're trying to measure search engine effectiveness.
+
+19
+00:01:46,730 --> 00:01:54,170
+So you have to search algorithms. Maybe you're working for Google or you're working for for Microsoft on being working for some
+
+20
+00:01:54,170 --> 00:01:58,040
+other somewhere else where you have a search setting and you've got to search algorithms,
+
+21
+00:01:58,040 --> 00:02:03,350
+maybe ones your current one and one's your proposed new one, or you're trying out two different possibilities.
+
+22
+00:02:03,350 --> 00:02:09,350
+Users issue queries and you're trying to measure and the search systems return results and
+
+23
+00:02:09,350 --> 00:02:15,260
+you measure the accuracy of the result list that you get back from each search system.
+
+24
+00:02:15,260 --> 00:02:23,510
+And so your data point, your instance consists of a query and it consists of the responses from one of the search systems,
+
+25
+00:02:23,510 --> 00:02:30,320
+along with which system generated those responses. And it might be that we somehow have experts assessing how good the results are.
+
+26
+00:02:30,320 --> 00:02:35,090
+It might be that we're looking at quick click logs to collect. We actually have users. They issue a query.
+
+27
+00:02:35,090 --> 00:02:44,630
+One of our systems returns results. So we see how likely they are to click a result and how high up in this is in the search list.
+
+28
+00:02:44,630 --> 00:02:50,060
+The result they click is that we use that as the basis to measure how good the searches are.
+
+29
+00:02:50,060 --> 00:02:52,340
+The problem is that these results are not independent.
+
+30
+00:02:52,340 --> 00:02:58,520
+We have these queries and if the same a query appears multiple times, not all queries are easy to are as easy to answer.
+
+31
+00:02:58,520 --> 00:03:02,090
+Maybe one query has more documents that are relevant.
+
+32
+00:03:02,090 --> 00:03:11,060
+Maybe one query has no documents that are relevant. Maybe queries have language that matches your documents or matches too many documents, too.
+
+33
+00:03:11,060 --> 00:03:14,960
+It's hard to figure out which one in particular the user is looking for.
+
+34
+00:03:14,960 --> 00:03:21,590
+There are many different reasons for query difficulty. You can take the information retrieval class to learn about a lot more about that.
+
+35
+00:03:21,590 --> 00:03:26,420
+But this is the setup for that. I'm going to use as an example here we have queries.
+
+36
+00:03:26,420 --> 00:03:33,410
+Query might happen multiple times, like people will probably search Google for Pendas Time series a lot.
+
+37
+00:03:33,410 --> 00:03:38,840
+And so you're trying to measure the effectiveness of your two systems at these repeated queries.
+
+38
+00:03:38,840 --> 00:03:42,260
+So a naive solution without taking into account the correlated errors is what you
+
+39
+00:03:42,260 --> 00:03:45,830
+might try to build a linear model where you might try to try to do a T test,
+
+40
+00:03:45,830 --> 00:03:50,360
+but you might try to build a linear model where you have Alfa's your intercept and you
+
+41
+00:03:50,360 --> 00:03:54,010
+have a variable that says whether it's provided by the new system or the old system,
+
+42
+00:03:54,010 --> 00:04:00,260
+if you have more than one more than two systems, it will be a dummy coding of which system is as providing the results.
+
+43
+00:04:00,260 --> 00:04:09,140
+And we have our errors and we're trying to predict our outcome outcome as some metric doesn't really matter which one for our purposes right now.
+
+44
+00:04:09,140 --> 00:04:15,090
+And so beedis of new is going to be greater than zero if the new system performs better than the old one.
+
+45
+00:04:15,090 --> 00:04:19,100
+We're gonna want to check the confidence interval of this. But the problem is, as I just said,
+
+46
+00:04:19,100 --> 00:04:23,150
+these epsilon's are not going to be idee normal because the Epsilon's for the same
+
+47
+00:04:23,150 --> 00:04:27,200
+query are going to be more like each other than the Epsilon's for a different query.
+
+48
+00:04:27,200 --> 00:04:33,560
+That's a lack of independence. So the solution to this is to use what's called stratified errors or group effects.
+
+49
+00:04:33,560 --> 00:04:40,100
+There's a lot of different names for a similar concept, but the idea is to allow the query to be a predictor variable, too.
+
+50
+00:04:40,100 --> 00:04:42,440
+Now, one way to do this is something called repeated measures.
+
+51
+00:04:42,440 --> 00:04:47,710
+Enova or repeated never measures in other requires you have a very balanced and matched design.
+
+52
+00:04:47,710 --> 00:04:52,100
+The next effect's model is a little more flexible. And what it does is we've got our model before.
+
+53
+00:04:52,100 --> 00:04:59,030
+We've got our intercept. We've got our Beda. But then we also have this query effect.
+
+54
+00:04:59,030 --> 00:05:04,670
+And so this is a per query value and you're talking to Wilma about how you actually find it's actually coefficients.
+
+55
+00:05:04,670 --> 00:05:08,120
+On the one hot encoding of query as a categorical variable.
+
+56
+00:05:08,120 --> 00:05:12,630
+And then we have our error. So what this.
+
+57
+00:05:12,630 --> 00:05:16,580
+This is called a mixed effects model because it combines two types of effects.
+
+58
+00:05:16,580 --> 00:05:19,630
+The fix effects, which are what we control, the experimental condition.
+
+59
+00:05:19,630 --> 00:05:24,200
+The thing we're wanting to test, we are looking for the coefficients on the fixed effects.
+
+60
+00:05:24,200 --> 00:05:27,980
+In our example, it's which search algorithm we're using.
+
+61
+00:05:27,980 --> 00:05:33,410
+And then we have the random effects, which are the experiments, natural sources of variance in this case.
+
+62
+00:05:33,410 --> 00:05:39,260
+It's the queries. They said this is what this is actually coefficients on a one hot encoding the query.
+
+63
+00:05:39,260 --> 00:05:43,250
+And so we're effectively we're making a query as a predictor.
+
+64
+00:05:43,250 --> 00:05:48,650
+And what's going to happen is the intrinsic difficult relative.
+
+65
+00:05:48,650 --> 00:05:52,460
+Difficulty, your years of the query is going to be encoded here.
+
+66
+00:05:52,460 --> 00:05:59,250
+And this is going to capture the concept of given a query of a particular difficulty.
+
+67
+00:05:59,250 --> 00:06:02,190
+Does the new system perform better than the old one,
+
+68
+00:06:02,190 --> 00:06:11,250
+and that's going to give us a much more accurate picture of the performance of the new search system.
+
+69
+00:06:11,250 --> 00:06:16,290
+And ideally, once this is done, we saw you always check your assumptions.
+
+70
+00:06:16,290 --> 00:06:20,580
+We have a much better chance that the epsilons of eyes are going to be idee normal.
+
+71
+00:06:20,580 --> 00:06:25,230
+Not necessarily. Still might not be enough to capture everything that's going on in the model.
+
+72
+00:06:25,230 --> 00:06:30,660
+But if your primary source of variance that you have a problem with or your primary
+
+73
+00:06:30,660 --> 00:06:35,560
+source of structure or correlation in your errors is effects within a group.
+
+74
+00:06:35,560 --> 00:06:41,130
+You have your observations come in groups and there can be a group level effect.
+
+75
+00:06:41,130 --> 00:06:51,220
+The mixed effects model allows you to control for those group level effects to get a much more accurate estimate of your actual experimental effect.
+
+76
+00:06:51,220 --> 00:06:59,500
+So the basic idea here is that when you've got correlation or structure in your residuals, you can.
+
+77
+00:06:59,500 --> 00:07:06,870
+You can try to model that directly. So random effects capture these natural but known sources of variance between observations.
+
+78
+00:07:06,870 --> 00:07:12,840
+And then the performance becomes the system effectiveness, plus or minus the query difficulty.
+
+79
+00:07:12,840 --> 00:07:19,290
+And then, as I said, hopefully you're a man who wears the jewels or idee normal. And now you're linear model interpretation works again.
+
+80
+00:07:19,290 --> 00:07:29,920
+So we've taken something that didn't work as a linear model. You've got structure in your errors because you've got this within query correlation.
+
+81
+00:07:29,920 --> 00:07:39,120
+Or non-independent. But you can. We've now taken that effect out and now our errors are just the remaining error.
+
+82
+00:07:39,120 --> 00:07:42,210
+So when do you need to use this kind of an analysis design?
+
+83
+00:07:42,210 --> 00:07:46,950
+Basically, any time your data points come in groups, you need to think about using this kind of an analysis design.
+
+84
+00:07:46,950 --> 00:07:50,070
+Well, any time you trying to do a regression and your data points come in groups,
+
+85
+00:07:50,070 --> 00:07:54,690
+you want to think about this kind of analysis design, you might have multiple measurements for the same object.
+
+86
+00:07:54,690 --> 00:07:59,610
+The key thing, though, is that if you're trying to assign understand the difference between measurements,
+
+87
+00:07:59,610 --> 00:08:01,680
+you're trying to understand the difference between objects.
+
+88
+00:08:01,680 --> 00:08:08,820
+You're just measuring them with multiple devices, then the object would be a fixed effect and the measurement device would be a random effect.
+
+89
+00:08:08,820 --> 00:08:14,790
+Remember, the fixed effect is the thing you're trying to study is the thing you're controlling and manipulating in your experiment.
+
+90
+00:08:14,790 --> 00:08:20,430
+And the random effect is the other sources of variance that you need to account for.
+
+91
+00:08:20,430 --> 00:08:26,220
+Also, if you have an extra feature that's being shared, you've got a feature that's being shared between instances.
+
+92
+00:08:26,220 --> 00:08:29,430
+You might want to model that as a random effect as well.
+
+93
+00:08:29,430 --> 00:08:34,680
+If you don't care about learning the effect of the feature, you just need to control for the effect of the feature,
+
+94
+00:08:34,680 --> 00:08:37,320
+then it can work as a random effect of the mixed effects model.
+
+95
+00:08:37,320 --> 00:08:43,080
+You can also have nonlinear mixed effects models for doing categorical regression, buisson regression, etc.
+
+96
+00:08:43,080 --> 00:08:49,920
+So now to go back to the autocorrelation that we talked about in the TIME series, video time series data that says correlated with itself.
+
+97
+00:08:49,920 --> 00:08:55,020
+So it raises the question, can we predict exit time T with X at time T minus one?
+
+98
+00:08:55,020 --> 00:09:01,810
+Also, if we removing that prediction, removing the autocorrelation may let a linear model work for other effects in the data.
+
+99
+00:09:01,810 --> 00:09:08,710
+And so the idea of auto regression is that you predict data point with history, so X sub T,
+
+100
+00:09:08,710 --> 00:09:14,800
+we try to predict it with a linear model vadis of zero and Y Gamma one, x T minus one.
+
+101
+00:09:14,800 --> 00:09:21,460
+So basically each one is a linear function of the previous value. You can generalize this to more than one previous value.
+
+102
+00:09:21,460 --> 00:09:23,030
+So.
+
+103
+00:09:23,030 --> 00:09:33,980
+If the aiyah k auto regressive category or the auto regressive model of order K is going to look at the K previous points, I'm summing one Dekay here.
+
+104
+00:09:33,980 --> 00:09:41,730
+And what this does is that it me, it was a shock or a change and it changes the value of your time series.
+
+105
+00:09:41,730 --> 00:09:46,830
+That effect will accumulate and carry forwards. If you got a change, then that changes.
+
+106
+00:09:46,830 --> 00:09:54,270
+That changes at time, T. So then time T plus one since that has the odds is based on time t it key.
+
+107
+00:09:54,270 --> 00:09:59,550
+It carries the value forward and then carries it forward and the T plus two etc.
+
+108
+00:09:59,550 --> 00:10:05,410
+A moving average uses the area from the previous prediction to predict the next point.
+
+109
+00:10:05,410 --> 00:10:13,080
+So X of T is our intercept, plus a coefficient times the error at T minus one, and then it has its own error.
+
+110
+00:10:13,080 --> 00:10:17,970
+And then likewise, we can have a K which looks at the previous K errors.
+
+111
+00:10:17,970 --> 00:10:21,750
+What this does is that an adjustment or a shock wears off.
+
+112
+00:10:21,750 --> 00:10:25,830
+So it'll affect it for the first few points and then it will its effect will wear off in the.
+
+113
+00:10:25,830 --> 00:10:33,960
+And the data will regress back to its mean. Now we can put the auto regressive model in the moving average model together into a model Koldo Rhema.
+
+114
+00:10:33,960 --> 00:10:41,670
+And so it is an A.R of P model. So the Rhema peak you are is a R of P and a moving average of R,
+
+115
+00:10:41,670 --> 00:10:50,540
+so we can model can capture both long term effects of a change and short term wearing off effects of a change.
+
+116
+00:10:50,540 --> 00:10:52,650
+And then also it's applied to diffs.
+
+117
+00:10:52,650 --> 00:11:02,880
+So Q If Q is one, then rather than modeling the time series data itself, we're applying the ARMM models to the diff of the Time series data.
+
+118
+00:11:02,880 --> 00:11:11,250
+If it's two, then if the diff of the diffs oftentimes that the auto regression in moving average acquire the model to be what's
+
+119
+00:11:11,250 --> 00:11:18,960
+called stationary and sometimes duffing that often defining your time series can bake it at least stationary enough.
+
+120
+00:11:18,960 --> 00:11:24,870
+We can also think of the auto regression and the integration parts as a type of feature engineering.
+
+121
+00:11:24,870 --> 00:11:34,700
+So if our data points and we've got these X values, we're engineering the feature, the value with the previous timestamp or we're X of we're.
+
+122
+00:11:34,700 --> 00:11:39,700
+We're engineering the feature difference from the previous timestep or.
+
+123
+00:11:39,700 --> 00:11:49,270
+The difference at the previous timestep, so time t we have the feature X, T minus one, minus X, T, minus two.
+
+124
+00:11:49,270 --> 00:11:54,920
+That's one way you can think about the auto regressive part and the integration part of the Arima model.
+
+125
+00:11:54,920 --> 00:12:03,590
+Now, we can integrate then this with prediction, because we can use a rhema to model the natural time series behavior of the data,
+
+126
+00:12:03,590 --> 00:12:06,410
+and then we can combine that with additional variable from features,
+
+127
+00:12:06,410 --> 00:12:11,150
+maybe is during a holiday or you've got a feature that it turns one at some point in time
+
+128
+00:12:11,150 --> 00:12:17,870
+and then stays one throughout the rest to capture a change that happened in the system.
+
+129
+00:12:17,870 --> 00:12:23,420
+And you can use it with this design, then beedis of one is going to be the in fact,
+
+130
+00:12:23,420 --> 00:12:30,860
+the influence of that feature after we've controlled for the normal temporal behavior of the data.
+
+131
+00:12:30,860 --> 00:12:34,970
+And then hopefully our Epsilon's some Ts might be idee normal now.
+
+132
+00:12:34,970 --> 00:12:37,640
+And we can get back to the point where our linear model works again.
+
+133
+00:12:37,640 --> 00:12:44,300
+Now, I've tried to give you the rough shape in the rough structure, which is that you know what, you need to go study and you have a starting point.
+
+134
+00:12:44,300 --> 00:12:49,400
+What I told you was not enough to go effectively apply a rhema.
+
+135
+00:12:49,400 --> 00:12:57,470
+There are resources. I'm pointing to you to one extended slide deck that that talks a lot more about Rhema.
+
+136
+00:12:57,470 --> 00:13:01,580
+If you need to use Erina four times serious modeling, you do need to go do some more study.
+
+137
+00:13:01,580 --> 00:13:09,350
+There's also a time series, analysis class that you can take in the math department and spend an entire semester learning how to do time,
+
+138
+00:13:09,350 --> 00:13:12,140
+serious analysis with models like a rhema.
+
+139
+00:13:12,140 --> 00:13:19,300
+So to wrap up, we often have structured errors in a regression problem and in some cases modeling that structure.
+
+140
+00:13:19,300 --> 00:13:26,780
+This is a structured. Errors mean our errors aren't. Independents were violating a key assumption for the inferential validity of linear regression.
+
+141
+00:13:26,780 --> 00:13:33,410
+But in some cases, we can model that structure. Either the rant, the random effects of a mixed effects model,
+
+142
+00:13:33,410 --> 00:13:39,140
+modeling the effect of which group a data point is in eurema model modeling temporal
+
+143
+00:13:39,140 --> 00:13:44,390
+effects of the data in order to yield a model that is inferentially valid.
+
+144
+00:13:44,390 --> 00:13:50,229
+Again.
+

@@ -1,0 +1,428 @@
+1
+00:00:04,540 --> 00:00:09,850
+We've talked a lot about how to do the analysis part of data science.
+
+2
+00:00:09,850 --> 00:00:16,900
+I now want to take this a little bit of time to talk about what do you need to do in order to take that and actually put it into a publication.
+
+3
+00:00:16,900 --> 00:00:19,150
+So we're going to talk about you.
+
+4
+00:00:19,150 --> 00:00:25,510
+I want you to understand what's needed to go from analysis to a published report and also to be able to outline a research paper.
+
+5
+00:00:25,510 --> 00:00:33,850
+So a lot of different audiences that a document that comes out of a data science project can before it might be an internal document.
+
+6
+00:00:33,850 --> 00:00:38,350
+Just for our collaborators to update them on some analysis you're doing as part of a project.
+
+7
+00:00:38,350 --> 00:00:43,840
+It might be a report that's intended to be used by decision makers in order to make a data informed decision.
+
+8
+00:00:43,840 --> 00:00:49,650
+It might be a report for other elsewhere in your organization or else other organizations.
+
+9
+00:00:49,650 --> 00:00:56,590
+It might be a scientific publication for the scientific community and or it might be a document intended to educate the lay public.
+
+10
+00:00:56,590 --> 00:01:05,350
+So there are a variety of formats that these can come in. One is that it could be a written document that's either electronic or printed.
+
+11
+00:01:05,350 --> 00:01:11,560
+It can be a presentation that you're giving live or that you're recording as a prerecorded video.
+
+12
+00:01:11,560 --> 00:01:19,180
+It could be an interactive online demo or dashboard. These happens for product dashboards and internal monitoring all the time.
+
+13
+00:01:19,180 --> 00:01:22,710
+They also happen sometimes in journalism where a.
+
+14
+00:01:22,710 --> 00:01:33,200
+A news organization will make an interactive data visualization to allow people to explore the data that underlies some of their reporting.
+
+15
+00:01:33,200 --> 00:01:40,820
+The goals of a publication of any of these forms, any of these audiences is that the reader needs to be able to understand what you did,
+
+16
+00:01:40,820 --> 00:01:44,180
+what you learned, and then what they should do or take away with it.
+
+17
+00:01:44,180 --> 00:01:48,020
+This is in general, not every analysis is going to have actionable. Here's what you need to do.
+
+18
+00:01:48,020 --> 00:01:55,370
+Kinds of insights, but your readers need to understand what the takeaways are and why they should believe them.
+
+19
+00:01:55,370 --> 00:02:00,820
+That's the part of the being able to communicate your methods is to show.
+
+20
+00:02:00,820 --> 00:02:09,730
+The evidence behind showing your work at showing the evidence behind the conclusions that you're drawing.
+
+21
+00:02:09,730 --> 00:02:14,260
+So the typical outline for a lot of publications, particularly scientific publications.
+
+22
+00:02:14,260 --> 00:02:19,000
+But a lot of other publications are going to have so many of these same outline elements
+
+23
+00:02:19,000 --> 00:02:23,950
+is that you first have an introduction that sets the stage for why you're doing this.
+
+24
+00:02:23,950 --> 00:02:29,250
+Oftentimes an introduction will also for.
+
+25
+00:02:29,250 --> 00:02:37,050
+Foreshadow the conclusions of the report of a data analysis, particularly a scientific publication, is not a mystery novel.
+
+26
+00:02:37,050 --> 00:02:43,560
+You should not keep your reader guessing until the end. What the conclusion is, you can just say it and need action.
+
+27
+00:02:43,560 --> 00:02:48,520
+We're trying to solve this problem. Here's the bullet point summary of what we found.
+
+28
+00:02:48,520 --> 00:02:55,330
+And then you get into the details, then you've got background and related work and background and related work are not the same thing,
+
+29
+00:02:55,330 --> 00:03:02,560
+but they're often put together in one section. Background is background information that people need to understand what you did.
+
+30
+00:03:02,560 --> 00:03:07,010
+Background on the problem. Background on the methods that you're using to apply it.
+
+31
+00:03:07,010 --> 00:03:13,150
+You know, there is common knowledge that you can assume. And what that common knowledge is varies from audience to audience.
+
+32
+00:03:13,150 --> 00:03:17,620
+But the background is there to the background is the material that they need to understand.
+
+33
+00:03:17,620 --> 00:03:23,540
+On top of the common assumed knowledge in order to understand what it is that you did.
+
+34
+00:03:23,540 --> 00:03:31,580
+Related work is other work working on similar related problems that might be working on the same problem with different scope, different methods, etc.
+
+35
+00:03:31,580 --> 00:03:34,550
+It might be using the same methods for a different problem,
+
+36
+00:03:34,550 --> 00:03:40,940
+but it fills in the place of the other knowledge that we have about the problem space that you're trying to study.
+
+37
+00:03:40,940 --> 00:03:47,630
+So people have a context for how your Rinella assess is filling in a gap in our current knowledge.
+
+38
+00:03:47,630 --> 00:03:52,610
+So the background is the prerequisite knowledge and the related work is the adjacent knowledge.
+
+39
+00:03:52,610 --> 00:04:00,230
+And between them, your readers will be able to understand what you did and understand how what you did contributes to knowledge.
+
+40
+00:04:00,230 --> 00:04:05,420
+The methods are where you explain what you did. What's the data? What's the statistical methods you did?
+
+41
+00:04:05,420 --> 00:04:11,530
+What's the machine learning methods you did? As I say, in the variant side, methods may sometimes be split.
+
+42
+00:04:11,530 --> 00:04:16,450
+So if you've got something where maybe you have a new algorithm and then you're doing experiments on it.
+
+43
+00:04:16,450 --> 00:04:19,720
+Those who usually be separate methods, you've got your. Here's my new algorithm.
+
+44
+00:04:19,720 --> 00:04:25,070
+And then maybe as an experimental result section, you'll have methods and then results.
+
+45
+00:04:25,070 --> 00:04:30,560
+Then you have your result. So the methods are here's the experiment, I'm going to run the data, I'm going to use Hymes setting up the experiment.
+
+46
+00:04:30,560 --> 00:04:35,040
+Results are OK. So I did that. What do we learn?
+
+47
+00:04:35,040 --> 00:04:40,040
+It's where you have your key figures and charts, et cetera. You're presenting the results and run the experiment.
+
+48
+00:04:40,040 --> 00:04:45,620
+Discussion, then, is where you talk about what the results mean.
+
+49
+00:04:45,620 --> 00:04:50,240
+So you have the individual results of a chart that shows the accuracy of a model, you have a chart.
+
+50
+00:04:50,240 --> 00:04:55,330
+You have a chart that shows what's happening in some data over time.
+
+51
+00:04:55,330 --> 00:04:59,180
+Discussion is where you pull it together and you connect the results that you have
+
+52
+00:04:59,180 --> 00:05:04,250
+back to the original problem context that you put forward in your introduction.
+
+53
+00:05:04,250 --> 00:05:13,430
+And then finally, in the conclusion you summarize takeaways of the paper and you often point to what some future work, maybe some variance on this.
+
+54
+00:05:13,430 --> 00:05:17,710
+Some research communities put related work at the end right before the conclusion.
+
+55
+00:05:17,710 --> 00:05:22,170
+Here's everything I did, by the way. Here's what other people did. Now we conclude.
+
+56
+00:05:22,170 --> 00:05:27,360
+If you're doing something that's not not a scientific publication, but it's an institutional report.
+
+57
+00:05:27,360 --> 00:05:32,880
+A lot of those often lead with an executive summary. That's one to two pages with the key points and takeaways.
+
+58
+00:05:32,880 --> 00:05:36,810
+And it does not get into all of the methodological details, but it summarizes.
+
+59
+00:05:36,810 --> 00:05:41,910
+OK, here's the key. Here's what you need to know. If you trust me that I did all the details.
+
+60
+00:05:41,910 --> 00:05:46,920
+Right. Well, the analysis. Right. Here's what you need to know, where here's the recommended course of action.
+
+61
+00:05:46,920 --> 00:05:51,390
+And then the rest of the report. Backs that up.
+
+62
+00:05:51,390 --> 00:05:55,560
+And so if they have a question of how you know, the things you're telling them,
+
+63
+00:05:55,560 --> 00:06:01,500
+they need to know why they're where their recommendations are coming from, they can go read the rest of the report.
+
+64
+00:06:01,500 --> 00:06:07,830
+And some writing you might merge discussion with results, you might talk about the results and talk about what they mean together.
+
+65
+00:06:07,830 --> 00:06:13,140
+You might merge discussion with conclusion. We have a longer conclusion that does the discussion integrated.
+
+66
+00:06:13,140 --> 00:06:18,780
+But these are the key pieces usually in this order for the typical kinds of research papers,
+
+67
+00:06:18,780 --> 00:06:23,630
+but also other kinds of documents that come out of data science projects.
+
+68
+00:06:23,630 --> 00:06:27,410
+Another point you need to pay attention to when you're going into publication is rendering your plots,
+
+69
+00:06:27,410 --> 00:06:31,040
+especially if you're going to a publication, they might be printed or anything.
+
+70
+00:06:31,040 --> 00:06:35,810
+That's where you're delivering as PBS. And so this key thing is that you want high quality images.
+
+71
+00:06:35,810 --> 00:06:46,390
+And when practical vector images are good. Python plotting software can export an image to PDAF low tech and pull in the PDAF.
+
+72
+00:06:46,390 --> 00:06:51,760
+And there's nope, it's not rendered to pixels, it's actually includes all of the paths, the circles, the letters.
+
+73
+00:06:51,760 --> 00:06:57,080
+And so you can zoom in that PDAF as far as you want and you're never hitting pixelation.
+
+74
+00:06:57,080 --> 00:07:00,710
+If you have very complex image, it can overwhelm pdaf,
+
+75
+00:07:00,710 --> 00:07:06,940
+you wind up with a PDAF that just takes forever to render because you've got an image that's trying to render five million data points.
+
+76
+00:07:06,940 --> 00:07:11,290
+So in those cases, or if you're working with software that you were, you don't have a good vector image path,
+
+77
+00:07:11,290 --> 00:07:17,540
+high resolution images, PMG, you don't want to use JPEG, never use JPEG for a figure because J.
+
+78
+00:07:17,540 --> 00:07:24,960
+Peg loses information in the compression use PMG or TIFF and at least 300 Deepthi.
+
+79
+00:07:24,960 --> 00:07:29,110
+Six hundred is better. Your typical printer is around 300 S.P.I.
+
+80
+00:07:29,110 --> 00:07:33,670
+And so if your image is 300 DPN, most people will be able to print it.
+
+81
+00:07:33,670 --> 00:07:36,970
+Well if it's six hundred GPI, basically anyone can print it.
+
+82
+00:07:36,970 --> 00:07:44,500
+Well and also look very good on high resolution screens. You want to make sure you have clear labels and captions, distinct colors, shapes, et cetera.
+
+83
+00:07:44,500 --> 00:07:46,840
+So the image is clear, readable, self-contained.
+
+84
+00:07:46,840 --> 00:07:51,370
+Oftentimes we'll have it like outdraw seven different versions, image or holle a bunch of different figures.
+
+85
+00:07:51,370 --> 00:07:57,130
+But then I'll combine them together. I'll have the one clean picture that has all the pieces, all the bells and whistles.
+
+86
+00:07:57,130 --> 00:07:58,360
+Everything's very, very.
+
+87
+00:07:58,360 --> 00:08:06,010
+I pay particular attention to the precise wording and consistency of the labels and everything that's gonna go into the final publication.
+
+88
+00:08:06,010 --> 00:08:08,860
+Then you also are going to want to experiment with dimensions in aspect ratio.
+
+89
+00:08:08,860 --> 00:08:14,770
+So if I've got a two column paper so that my columns are about three in that three point seventy five or so inches wide,
+
+90
+00:08:14,770 --> 00:08:21,850
+I might have a five inch wide image and then I'll scale down a little bit to fit in that column and it'll look really good in the final paper.
+
+91
+00:08:21,850 --> 00:08:27,880
+Another thing, though, that you need to be able to do is to check the writing in the presentation, step outside yourself.
+
+92
+00:08:27,880 --> 00:08:30,520
+Forget that you did all of the work and wrote the document.
+
+93
+00:08:30,520 --> 00:08:39,330
+Forget all of the knowledge you have or set aside all of the knowledge you have as the person who did the work and read what you wrote and ask.
+
+94
+00:08:39,330 --> 00:08:43,100
+Do I understand this is if I was not the one who created this?
+
+95
+00:08:43,100 --> 00:08:48,060
+Can I understand it? Could I reproduce it? Is there information that's missing?
+
+96
+00:08:48,060 --> 00:08:53,010
+Other readers help you with this. And you should get input from other people who weren't you.
+
+97
+00:08:53,010 --> 00:08:59,070
+But as a first pass, in order to make the most use of the time, the best use of their time as you can.
+
+98
+00:08:59,070 --> 00:09:08,210
+You need to be able to to set aside your knowledge as the creator and evaluate whether what you wrote is clear and complete.
+
+99
+00:09:08,210 --> 00:09:11,970
+And in a coherent order. And this applies to any kind of writing you're doing,
+
+100
+00:09:11,970 --> 00:09:16,980
+both presenting the results in a report from a paper, but also in other writing like documentation.
+
+101
+00:09:16,980 --> 00:09:19,650
+Writing a read me about how to run your experiment.
+
+102
+00:09:19,650 --> 00:09:25,050
+You need to be able to step back and ask if I followed the instruction, the steps of these instructions, one after another.
+
+103
+00:09:25,050 --> 00:09:28,890
+What I get the result or is there a piece? Is there are there steps that are missing?
+
+104
+00:09:28,890 --> 00:09:31,320
+Are there pieces or knowledge that are missing?
+
+105
+00:09:31,320 --> 00:09:40,050
+So if I just read this, these instructions say in this read me file, I would not have enough information in order to complete the expected activity.
+
+106
+00:09:40,050 --> 00:09:47,040
+So to wrap up internal and external publications require special attention to writing and the visual presentation.
+
+107
+00:09:47,040 --> 00:09:55,638
+Hopefully this gives you a little bit of a start for learning how to do that.
+

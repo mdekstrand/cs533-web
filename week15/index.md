@@ -9,6 +9,7 @@ This is the last week of class. We're going to recap, and talk about what's next
 ## {{moverview}} Content Overview
 
 :::{module} week15
+:folder: 73a9b45b-25d2-4ad0-a25c-adc601833e0b
 :::
 
 ## {{mcal}} Deadlines
@@ -22,7 +23,6 @@ This is the last week of class. We're going to recap, and talk about what's next
 This video reviews the concepts we have discussed this term and puts them into the broader context of data science.
 
 :::{video}
-:id: 56f9e697-dcc1-488f-b704-ac890065a439
 :name: 15-1 - Recap
 :length: 6m23s
 :slide-id: 495979F9A431DDB0%2173432
@@ -44,7 +44,6 @@ Only turn it in if you think you did better than your worst normal midterm!
 This video introduces a fundamental assumption of predictive modeling and the way *drift* can affect it.
  
 :::{video}
-:id: 6cfcf3f6-241f-4f28-9dd6-ac89006a23a3
 :name: 15-2 - Drift
 :length: 7m13s
 :slide-id: 495979F9A431DDB0%2173435
@@ -60,8 +59,7 @@ This video introduces a fundamental assumption of predictive modeling and the wa
 Time is an important kind of data that we haven't spent much time with — this video discusses the fundamental Pandas operations for working with time-series data.
 
 :::{video}
-:id: d160dff7-e6f7-47fc-96c7-ac890065a401
-:name: 15-3 - Time Series Operation
+:name: 15-3 - Time Series Operations
 :length: 11m16s
 :slide-id: 495979F9A431DDB0%2173433
 :slide-auth: AOYczBP6aJFAe9Q
@@ -80,7 +78,6 @@ The [MovieLens Time Series notebook](../resources/tutorials/MLTimeSeries.ipynb) 
 Regression models require that the data be *independent*. This video introduces two kinds of non-independence and methods for addressing them: grouped observations addressed with a mixed-effects model and temporal auto-correlation addressed with ARIMA models.
 
 :::{video}
-:id: f3021c78-deef-4e69-8f87-ac89006865fb
 :name: 15-4 - Correlated Errors
 :length: 13m50s
 :slide-id: 495979F9A431DDB0%2173434
@@ -98,7 +95,6 @@ Regression models require that the data be *independent*. This video introduces 
 This video talks about going from an analysis and its notebooks to a publishable paper.
 
 :::{video}
-:id: 22727cd5-2fbc-4125-9b65-ac89006dc967
 :name: 15-5 - Publishing Projects
 :length: 9m55s
 :slide-id: 495979F9A431DDB0%2173436
@@ -115,7 +111,6 @@ This video talks about going from an analysis and its notebooks to a publishable
 How do you put the results of your data science project into product?
 
 :::{video}
-:id: 16e9af81-ea7b-4d46-b4bf-ac89006ebceb
 :name: 15-6 - Production Applications
 :length: 7m28s
 :slide-id: 495979F9A431DDB0%2173437
@@ -129,7 +124,6 @@ How do you put the results of your data science project into product?
 This video goes over some useful topics to learn to fill out more of your data science education.
 
 :::{video}
-:id: 8ba3b404-9499-4134-8be7-ac890071e33c
 :name: 15-7 - Topics to Learn
 :length: 6m25s
 :slide-id: 495979F9A431DDB0%2173438
@@ -141,7 +135,6 @@ This video goes over some useful topics to learn to fill out more of your data s
 Some final closing tips and suggestions for you to think about as you take the next steps in your data science career.
 
 :::{video}
-:id: 211d4a20-4b95-45d0-b7b5-ac890073df03
 :name: 15-8 - General Tips
 :length: 10m25s
 :slide-id: 495979F9A431DDB0%2173439
@@ -158,7 +151,6 @@ It's been grand!
 I would love to hear more feedback on how to improve this material, because I hope to keep using it for a while.
 
 :::{video}
-:id: d0ddb9e9-abc5-4401-840e-ac890065a3b3
 :name: 15-9 - Farewell
 :length: 1m58s
 :::
