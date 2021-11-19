@@ -159,7 +159,7 @@ Describe the variables and their distributions, and any limitations their source
 
 ## Final Submission
 
-Your submission on Canvas should include:
+Your submission on {{LMS}} should include:
 
 - A link to a **private** GitHub repository containing your code
 - PDF exports of your two notebooks

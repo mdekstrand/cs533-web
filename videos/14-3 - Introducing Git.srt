@@ -1,0 +1,496 @@
+1
+00:00:04,560 --> 00:00:13,090
+So in this video, I want to introduce using get to save versions of some of your project and share code with others.
+
+2
+00:00:13,090 --> 00:00:17,650
+So learning outcomes are for you to be able to use get to save versions of your scripts and notebooks.
+
+3
+00:00:17,650 --> 00:00:23,020
+Sherko to get hub and merge code changes from collaborators. This video introduces the concept.
+
+4
+00:00:23,020 --> 00:00:28,300
+It's not Hands-On and I'm not going to walk through the specific details of how to do each operation.
+
+5
+00:00:28,300 --> 00:00:31,930
+There are a lot of tools of resources online for learning get.
+
+6
+00:00:31,930 --> 00:00:38,590
+And I expect a number of you probably already know it, although certainly not all of you.
+
+7
+00:00:38,590 --> 00:00:48,400
+So I'm going to fried some links in the resources with this video to more of places where you can do hands on learning of the details of get.
+
+8
+00:00:48,400 --> 00:00:52,330
+I'm going to be talking about the concepts that you need to know to put it all together.
+
+9
+00:00:52,330 --> 00:00:56,460
+So we save files, we have scripts, you have notebooks, they're saved files.
+
+10
+00:00:56,460 --> 00:01:00,070
+But there are a few things we might want to be able to do. Maybe we made a change.
+
+11
+00:01:00,070 --> 00:01:07,810
+It didn't work. We want to get an old version of the file back. Maybe you want to make sure that we have the current version saves as we make changes.
+
+12
+00:01:07,810 --> 00:01:13,030
+We can't go back. Maybe we want to make sure that you have the right version of the file on multiple computers.
+
+13
+00:01:13,030 --> 00:01:17,980
+You've changed it and you changed it at home and you changed it at work. You want to make sure you've got the same version everywhere.
+
+14
+00:01:17,980 --> 00:01:24,280
+We also want to be able to share changes to our files and our projects with collaborators if we're working with others on a project.
+
+15
+00:01:24,280 --> 00:01:30,340
+And so give us a tool for storing versions of software or versions, a snapshot of the current state of your code.
+
+16
+00:01:30,340 --> 00:01:34,900
+And then it has a history of these versions. It's the first version, second version, et cetera.
+
+17
+00:01:34,900 --> 00:01:37,720
+So a comet. It does this with what's called a comet.
+
+18
+00:01:37,720 --> 00:01:42,970
+And a comet is a snapshot of your correct code with a pointer to the previous commits usually one,
+
+19
+00:01:42,970 --> 00:01:50,500
+but it can be two if it's the result of merging two divergent branches of code back together, the chain of commits form a history.
+
+20
+00:01:50,500 --> 00:01:53,000
+You can go back to previous commits, commits,
+
+21
+00:01:53,000 --> 00:01:59,530
+then form the basis for sharing and merging changes between multiple computers and multiple collaborators.
+
+22
+00:01:59,530 --> 00:02:04,780
+Few of the core concepts of Get Out First is the working tree, which is your directory of files ready to run or read it.
+
+23
+00:02:04,780 --> 00:02:12,910
+So you've got to work. If you aren't using get yet, you already have a working tree and then get has a repository that stores the history.
+
+24
+00:02:12,910 --> 00:02:16,510
+This lives inside a get directory in your working tree.
+
+25
+00:02:16,510 --> 00:02:25,510
+There's also remote repositories such as GitHub. You have an index which is a staging area for changes to be committed.
+
+26
+00:02:25,510 --> 00:02:31,030
+So you got your working treats, you stage files into the index, and then you commit them to a repository.
+
+27
+00:02:31,030 --> 00:02:35,020
+You also then have a branch, which is a line of development that points to a commit.
+
+28
+00:02:35,020 --> 00:02:51,950
+So if I've got a first commit A and then I've got a second commit B and a third commit C.
+
+29
+00:02:51,950 --> 00:03:03,460
+And I have my main. Main points to see, and that says OKC is the branch and it has its history going back through B and A demerging happens,
+
+30
+00:03:03,460 --> 00:03:06,850
+well, maybe somebody else makes a B prime from A,
+
+31
+00:03:06,850 --> 00:03:16,540
+and then I say, well, I want both B, NDB Prime and I merge the changes, resolving any places where they conflict and I get my commit c the domain.
+
+32
+00:03:16,540 --> 00:03:23,810
+The branch is updated as you make new Kimmet. So if you're on Branch Main and you make a new commit C prime.
+
+33
+00:03:23,810 --> 00:03:32,300
+Or as new, commit deth. Then it's going to update Maine to point to D.
+
+34
+00:03:32,300 --> 00:03:35,210
+So you have a local repository where you make him work your changes.
+
+35
+00:03:35,210 --> 00:03:42,710
+So you're working tree has a guy get directory that get directory contains the entire it contains your local repository.
+
+36
+00:03:42,710 --> 00:03:50,060
+It has a complete history. You have a complete copy of the history locally. You can then have configured remotes where you push and pull changes.
+
+37
+00:03:50,060 --> 00:03:58,400
+So if you're using GitHub, then GitHub will be a remote that your local is set up for KIPP to push to other options besides GitHub,
+
+38
+00:03:58,400 --> 00:04:03,450
+include BitBucket and get lab. You can also run your own server to host get repositories.
+
+39
+00:04:03,450 --> 00:04:06,240
+A few of the operations you're going to need to be able to perform and again,
+
+40
+00:04:06,240 --> 00:04:12,000
+I'm going to refer you to the resources I'm linking online to learn more detail about each of these operations.
+
+41
+00:04:12,000 --> 00:04:19,500
+A commit records that the commit operation or command records, the current version of your files creates and you commit.
+
+42
+00:04:19,500 --> 00:04:23,730
+Clone creates a repository and working tree by copying another.
+
+43
+00:04:23,730 --> 00:04:29,900
+So if you say if there's a repository on GitHub and you want to work on it, you clone it to your local computer.
+
+44
+00:04:29,900 --> 00:04:38,820
+Push sends commits from your repository to a remote, and so if you've made some changes and you want to push them, if you want to share them.
+
+45
+00:04:38,820 --> 00:04:46,100
+Either push the new repositories so you can access them on another computer or that your your collaborators can access them.
+
+46
+00:04:46,100 --> 00:04:51,080
+You use push and that's make sure that pushes you push a branch.
+
+47
+00:04:51,080 --> 00:04:59,330
+And what that does, it is it makes sure that the remote machine, the remote mote repository has all the changes in your branch that you have.
+
+48
+00:04:59,330 --> 00:05:05,580
+In fact, retrieves a different remote repository, merge merges two.
+
+49
+00:05:05,580 --> 00:05:10,590
+So if you've made some changes and someone else has made some changes and pushed them.
+
+50
+00:05:10,590 --> 00:05:17,670
+You need to merge those changes together before you can push your code backup and update your common branch pull fetches,
+
+51
+00:05:17,670 --> 00:05:22,290
+emerges together to update your current local branch to include the remote.
+
+52
+00:05:22,290 --> 00:05:28,800
+So now to talk through a few use cases here. First, the simple use case is just tracking history and a repository on your local computer.
+
+53
+00:05:28,800 --> 00:05:32,700
+You work on your code and notebooks. You commit when you have a version you want to save.
+
+54
+00:05:32,700 --> 00:05:40,470
+I recommend doing this very frequently, multiple times a day, possibly even multiple times an hour.
+
+55
+00:05:40,470 --> 00:05:50,700
+That way you can always go back and you have the security of if you if you accidently make a mistake, you delete the wrong file, you can get it back.
+
+56
+00:05:50,700 --> 00:05:54,400
+The result of this is you've got a local history to go back and recover old versions.
+
+57
+00:05:54,400 --> 00:06:00,120
+I also sometimes see I go K through three days, a complete week's worth of work and haven't committed.
+
+58
+00:06:00,120 --> 00:06:07,290
+I'd strongly recommend commit early and commit often. So another another use cases.
+
+59
+00:06:07,290 --> 00:06:09,390
+You've got multiple computers, you work on one machine.
+
+60
+00:06:09,390 --> 00:06:13,830
+You can make your changes, you push through a remote repository, maybe it's GitHub, maybe it's somewhere else.
+
+61
+00:06:13,830 --> 00:06:18,510
+Then on the other machine you pull to make sure you have the latest changes and you continue working.
+
+62
+00:06:18,510 --> 00:06:24,930
+This is significantly less error prone than manually copying files because GET is tracking your
+
+63
+00:06:24,930 --> 00:06:30,300
+versions and it knows that the remote is more current than your current version or vice versa.
+
+64
+00:06:30,300 --> 00:06:36,390
+And so if you're just copying files around, you have to keep track of which one is the latest and current version of the file to make sure you
+
+65
+00:06:36,390 --> 00:06:43,430
+don't accidentally copy an old file on top of a new one get since it's chaining the commits together.
+
+66
+00:06:43,430 --> 00:06:49,730
+It knows old versus new, and it can also merge if you made changes in both places at the same time.
+
+67
+00:06:49,730 --> 00:06:57,440
+It can help you merge those together. So it's a much more reliable way to share a code between multiple computers than copying files around.
+
+68
+00:06:57,440 --> 00:07:01,420
+You cannot directly push. I can't push from my laptop to my desktop.
+
+69
+00:07:01,420 --> 00:07:05,420
+I have to push from my laptop to get up and then pull from GitHub to my desktop.
+
+70
+00:07:05,420 --> 00:07:09,110
+I can't. You can't pull like I could pull for my desktop to my laptop.
+
+71
+00:07:09,110 --> 00:07:14,160
+I don't do that. I always go to get help. Another then use case is collaboration.
+
+72
+00:07:14,160 --> 00:07:19,980
+So you work, you commit changes from time to time when you're ready to share your work with your collaborator, you push to a remote.
+
+73
+00:07:19,980 --> 00:07:28,650
+You both have access to. Maybe it's your GitHub repository. Excuse me, first you poll, because you need to make sure you have your collaborators work,
+
+74
+00:07:28,650 --> 00:07:32,910
+because if they've pushed changes you don't have, you can't push get will say your branch isn't up to date.
+
+75
+00:07:32,910 --> 00:07:37,850
+I can't push. And so you pull from your local.
+
+76
+00:07:37,850 --> 00:07:41,580
+You collect your report remote repository to get your collaborator's work.
+
+77
+00:07:41,580 --> 00:07:45,600
+You merge if necessary, if you need to merging of tests, run the tests,
+
+78
+00:07:45,600 --> 00:07:50,610
+make sure things to work, and then push your work with the merge changes to the shared remote.
+
+79
+00:07:50,610 --> 00:07:54,720
+Now your collaborator can get them. They'll need to pull before they can push again.
+
+80
+00:07:54,720 --> 00:08:00,480
+But you can only you can only push if your Brant if you have a current copy of everything that's on the remote.
+
+81
+00:08:00,480 --> 00:08:06,810
+And so you have to do the pull in the merge before you can push if you have an especially active collaborator.
+
+82
+00:08:06,810 --> 00:08:12,460
+And it takes a little while to do your merge, then you might wind up OK.
+
+83
+00:08:12,460 --> 00:08:17,610
+I pulled the total merge. I'm ready to push up. They've pushed more code.
+
+84
+00:08:17,610 --> 00:08:22,920
+Since I pulled I have to pull again. And then your collaborator can pull down the changes.
+
+85
+00:08:22,920 --> 00:08:26,940
+One note here. Always commit before merging.
+
+86
+00:08:26,940 --> 00:08:34,890
+You can pull with uncommitted changes. But if something goes wrong in the merge process, if you've committed everything before,
+
+87
+00:08:34,890 --> 00:08:42,960
+you start to try to merge your divergent lines of code, then you can always go back and try again if something goes wrong in the merge.
+
+88
+00:08:42,960 --> 00:08:46,350
+So another thing you want to pay attention to is ignoring files.
+
+89
+00:08:46,350 --> 00:08:54,240
+You don't want to commit every file to get. So a repository usually has a file called get ignore to specify files to ignore.
+
+90
+00:08:54,240 --> 00:08:59,100
+You could also have your own settings. You can have a ignore file that's applied to all repositories.
+
+91
+00:08:59,100 --> 00:09:03,390
+You work on it. Say if you have a text editor that makes a particular kind of backup file.
+
+92
+00:09:03,390 --> 00:09:11,310
+I recommend putting that in your personal get ignore. But the things you some of the things you should ignore editor temp files some times
+
+93
+00:09:11,310 --> 00:09:17,730
+like Emacs when backup mode save a file that ends until the VM creates swap files.
+
+94
+00:09:17,730 --> 00:09:25,320
+You want to ignore those, you don't actually accidentally commit them. Macko asked, likes to create directories called Dot D.
+
+95
+00:09:25,320 --> 00:09:29,900
+S store. You'd never want to commit that to getting share. It's useless to your collaborators.
+
+96
+00:09:29,900 --> 00:09:34,250
+Python creates a variety of temporary files.
+
+97
+00:09:34,250 --> 00:09:39,080
+That cache transformed versions of Python code.
+
+98
+00:09:39,080 --> 00:09:41,550
+You may have a project recompiling some code you don't want to commit.
+
+99
+00:09:41,550 --> 00:09:48,110
+The compiled files, in part because you committed compiled on Mac and someone else is going to run on Linux most of your generation.
+
+100
+00:09:48,110 --> 00:09:53,060
+In general, if the file is generated from another file, you probably don't want to commit.
+
+101
+00:09:53,060 --> 00:09:56,600
+A key exception is notebook's and then some data science project.
+
+102
+00:09:56,600 --> 00:10:01,650
+You may store the results of analysis and get. It's not a hard and fast break if you do it.
+
+103
+00:10:01,650 --> 00:10:05,420
+It says if you can quickly and easily regenerate the code, it's often a good idea.
+
+104
+00:10:05,420 --> 00:10:10,730
+You commit source get a designed for tracking source code, not generated files.
+
+105
+00:10:10,730 --> 00:10:20,190
+And so. So these are some of the files you're going to you're going to you often want to ignore in the resources.
+
+106
+00:10:20,190 --> 00:10:26,290
+I'm going to give you an example that get ignore file. That's good to toss in a lot of Python data science projects.
+
+107
+00:10:26,290 --> 00:10:31,300
+So some of the interfaces and tools that you can use to work with get first the get command
+
+108
+00:10:31,300 --> 00:10:35,350
+line tools to get the command line tool you can use in Unix or Windows command show.
+
+109
+00:10:35,350 --> 00:10:40,330
+You're really going to need to learn the command line tool, even if in most of your day to day work you use other tools.
+
+110
+00:10:40,330 --> 00:10:43,870
+Because if you're running code on a server, on a cluster or something,
+
+111
+00:10:43,870 --> 00:10:49,930
+you need to be able to pull at least and probably make some changes and commit sometimes.
+
+112
+00:10:49,930 --> 00:10:55,600
+Also, you need your repository getting a state where you need to fix things that aren't easy to fix from the gooey.
+
+113
+00:10:55,600 --> 00:10:57,370
+The degrees are getting better and better about that.
+
+114
+00:10:57,370 --> 00:11:02,830
+But occasionally I find myself needing to go into surgery or something just faster on the command line.
+
+115
+00:11:02,830 --> 00:11:05,980
+But the big reason you really need to learn it is when you've got larger projects,
+
+116
+00:11:05,980 --> 00:11:11,050
+you're probably going to be doing some running on a remote server, not just on your local machine with graphical interface.
+
+117
+00:11:11,050 --> 00:11:17,230
+And you really need the command line to be able to do that. There's good get support and a lot of editors and I.D.
+
+118
+00:11:17,230 --> 00:11:20,920
+I used Visual Studio Code for a lot of my editing. It is very good.
+
+119
+00:11:20,920 --> 00:11:27,040
+Get support. And then there's get dedicated. Get DUIs like tower or source tree or get crackin.
+
+120
+00:11:27,040 --> 00:11:31,000
+Some of those cost tower and get crackin.
+
+121
+00:11:31,000 --> 00:11:36,310
+Both cost money, but they're both also available for free to the GitHub student developer PAC.
+
+122
+00:11:36,310 --> 00:11:44,350
+If you register your university email address, so wrap up get allows you to record versions of your code so you can track history,
+
+123
+00:11:44,350 --> 00:11:50,590
+rollback changes and you can share with others and with yourself across multiple computer computers.
+
+124
+00:11:50,590 --> 00:12:02,567
+I strongly recommend that you commit early and often to prevent lost work as you're working on your projects.
+

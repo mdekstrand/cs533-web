@@ -11,7 +11,7 @@ This will demonstrate the following skills:
 - Dimensionality reduction with SVD and NMF
 
 This assignment is due **midnight, {date}`wk13 sun long`**.
-Upload your solution notebook and PDF export to Canvas.
+Upload your solution notebook and PDF export to {{LMS}}.
 
 :::{attention}
 Please pay careful attention to writing up your notebook, explaining what you are doing and *why*, and observing what we learn from the analysis.

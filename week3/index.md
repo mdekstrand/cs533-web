@@ -222,7 +222,7 @@ The [notebook checklist](../resources/notebook-checklist.md) will help you make 
 
 ## {{mquiz}} Week 3 Quiz
 
-The Week 3 quiz will be over all of the assigned material for this week, and is in Canvas.
+The Week 3 quiz will be over all of the assigned material for this week, and is in {{LMS}}.
 
 The sections below this are for your further study and practice.
 

@@ -1,0 +1,628 @@
+1
+00:00:04,550 --> 00:00:13,760
+In this video, we're going to talk about how to use Python scripts and modules to break our analysis apart into smaller pieces and organize our code,
+
+2
+00:00:13,760 --> 00:00:21,260
+learning outcomes are for you to be able to write a Python script. Put Python code in a module and understand the Python module in package structure.
+
+3
+00:00:21,260 --> 00:00:25,220
+So Adopt Pi file can be run as a script from the command line.
+
+4
+00:00:25,220 --> 00:00:29,300
+So if we have if we have a file like this, we can run it.
+
+5
+00:00:29,300 --> 00:00:34,490
+And it saved as my script. Scott Pi, we can write it with Python, my scripts, not pi on some systems.
+
+6
+00:00:34,490 --> 00:00:42,320
+You might need to run it with Python three, my script dot pi. But what it does is it just runs the code in the file from top to bottom.
+
+7
+00:00:42,320 --> 00:00:48,590
+If you define a function, debt in python def in class are actually just python statements that define a
+
+8
+00:00:48,590 --> 00:00:54,980
+function or a class and save the resulting function or class object in a variable.
+
+9
+00:00:54,980 --> 00:01:00,300
+It runs a script from top to bottom. So this example here, it reads in a file.
+
+10
+00:01:00,300 --> 00:01:07,950
+It filters it so we only have the values with the rating is greater than zero, and then it saves the result back out to another file.
+
+11
+00:01:07,950 --> 00:01:11,940
+It also starts with a dock string. So a dock string is this.
+
+12
+00:01:11,940 --> 00:01:13,170
+It's this string at the top.
+
+13
+00:01:13,170 --> 00:01:19,920
+I'm using triple quotes with which allows us to have a multi-line string in Python triple quotes to limit multi-line strings.
+
+14
+00:01:19,920 --> 00:01:25,340
+The string at the beginning just tells us that we've got it. What the script is going to do.
+
+15
+00:01:25,340 --> 00:01:32,160
+It's going to filter ratings to only real ones. So the script also was an example of the typical kinds of things that we usually do with scripts.
+
+16
+00:01:32,160 --> 00:01:35,730
+So a script is often going to read some input files, do some processing,
+
+17
+00:01:35,730 --> 00:01:39,960
+and might do Panda's manipulations and might trying to Saikat learn model and make some predictions.
+
+18
+00:01:39,960 --> 00:01:46,020
+It might do a statistical inference and then it's gonna save the results data frame it like if the results are a date,
+
+19
+00:01:46,020 --> 00:01:53,800
+one or more data frames save them and CSP files. I really like saving data frames and kept files because they're easier.
+
+20
+00:01:53,800 --> 00:01:57,000
+They're they're more efficient to read and write.
+
+21
+00:01:57,000 --> 00:02:05,100
+If you can also take entire Saikat Learn model that you've trained and use a library called Pikul to save it to a file on disk.
+
+22
+00:02:05,100 --> 00:02:07,740
+And then the next stage of the pipeline,
+
+23
+00:02:07,740 --> 00:02:15,160
+another script or a notebook is going to read these outputs that you saved from this script and do something with them like.
+
+24
+00:02:15,160 --> 00:02:20,020
+You might train a psychic. Learn model and predict some test data and save the results of that.
+
+25
+00:02:20,020 --> 00:02:27,730
+And then a notebook will load the test data and load your predictions of it and compute your accuracy metrics so that you can separate
+
+26
+00:02:27,730 --> 00:02:36,780
+perhaps a very computationally intensive model training and prediction stage from analyzing the results of running your predictor.
+
+27
+00:02:36,780 --> 00:02:42,060
+So any Python code object, a script, a class, a function, a module can start with a dock string.
+
+28
+00:02:42,060 --> 00:02:45,720
+It's just a string and it's just a string. All it is, is a string.
+
+29
+00:02:45,720 --> 00:02:50,800
+And it's at the beginning of the file. The beginning of the function or the class.
+
+30
+00:02:50,800 --> 00:02:58,650
+And what it does is it documents the code, its purpose, its argument, if it's a function, might document class field, et cetera.
+
+31
+00:02:58,650 --> 00:03:02,440
+If you've used Java, it's Python, the equivalent to Java doc.
+
+32
+00:03:02,440 --> 00:03:07,800
+And both documentation renderers such as Sphynx and eye python and Jupiters.
+
+33
+00:03:07,800 --> 00:03:11,280
+So I Python is the python engine that lives inside of Jupiter.
+
+34
+00:03:11,280 --> 00:03:15,960
+They use the dock strings when you ask them to document a particular function or a class.
+
+35
+00:03:15,960 --> 00:03:21,330
+They're also useful for scripts. Scripts can also take command line arguments.
+
+36
+00:03:21,330 --> 00:03:31,050
+So if we run this script with Python script up high and then we give it to command line arguments in that CSB and outdate CSP.
+
+37
+00:03:31,050 --> 00:03:38,810
+Then. What it's going to do is it's going to pass in that CSB.
+
+38
+00:03:38,810 --> 00:03:46,140
+As Sister RGV one, and it's going to pass out, that's GSV as Sister AAG too.
+
+39
+00:03:46,140 --> 00:03:56,140
+And we can access them in2. We can access them in our script so that we can make a script that can do the same operation on different data files.
+
+40
+00:03:56,140 --> 00:04:00,040
+And so if you've got a variety, if you have different data sets, you want to do the same operation.
+
+41
+00:04:00,040 --> 00:04:05,830
+You have maybe different models that you want to run. And you know how to run them given a name and a command line.
+
+42
+00:04:05,830 --> 00:04:12,970
+This allows you to make scripts that are parameter eyes. You can use the same script code to do multiple different tasks.
+
+43
+00:04:12,970 --> 00:04:17,590
+The system RTV variable, it's in the system module C, we import that.
+
+44
+00:04:17,590 --> 00:04:24,070
+It's a list of command line arguments. ARG V Zero is the name of the program and then ARG V one.
+
+45
+00:04:24,070 --> 00:04:30,850
+And following is the are the actual command line arguments that were passed to your script.
+
+46
+00:04:30,850 --> 00:04:35,860
+It does not include any of the command line arguments that were passed to the Python interpreter itself.
+
+47
+00:04:35,860 --> 00:04:42,460
+Python strips those out and sets it up so that your program just sees its name and its arguments.
+
+48
+00:04:42,460 --> 00:04:48,730
+Then there are some libraries that help you pass command line arguments to allow you to build very sophisticated command line interfaces.
+
+49
+00:04:48,730 --> 00:04:56,530
+One is AAG parts. It's in the Python standard library. Another that I use a lot is called Doc Opt and it actually uses your help message
+
+50
+00:04:56,530 --> 00:05:01,000
+to define what options are available or they are written in your doc string.
+
+51
+00:05:01,000 --> 00:05:04,390
+Another thing we need to do when we're writing a script is do what we call import,
+
+52
+00:05:04,390 --> 00:05:09,940
+protect it, because Python files can either be run as a script or imported as a module.
+
+53
+00:05:09,940 --> 00:05:15,100
+And if we it's a common convention to import protect. And what we do is we put all of the code and function.
+
+54
+00:05:15,100 --> 00:05:19,510
+So I've moved all of our code into a main function here.
+
+55
+00:05:19,510 --> 00:05:28,120
+And then at the end of the script, you have this kind of a line where if name is May equals Main, then we call the main function.
+
+56
+00:05:28,120 --> 00:05:33,400
+And this underscore, underscore name is a python magic variable.
+
+57
+00:05:33,400 --> 00:05:40,600
+That that contains the name of the currently of the module that's currently being run or loaded.
+
+58
+00:05:40,600 --> 00:05:52,120
+And as a special case, if you run a Python file as a script, what it does is it sets the name to underscore, underscore, main, underscore, underscore.
+
+59
+00:05:52,120 --> 00:05:55,870
+So this is this is how you detect that your file is being run as a script.
+
+60
+00:05:55,870 --> 00:06:04,540
+And what it does is it only actually runs the code that's going to do your operations if it's being run as a script.
+
+61
+00:06:04,540 --> 00:06:09,040
+If it's not being as it's run as a script, it's just gonna define all of the functions. Couple of reasons for this.
+
+62
+00:06:09,040 --> 00:06:12,700
+One is it allows you to just import a function from another script.
+
+63
+00:06:12,700 --> 00:06:18,670
+I don't really recommend that if two scripts need the same function, I recommend putting that in a module.
+
+64
+00:06:18,670 --> 00:06:30,050
+But. Also, there are some situations where Python may need to reimport your script around certain parallelism techniques.
+
+65
+00:06:30,050 --> 00:06:33,530
+I haven't taught you how to do any of them, but some libraries may use them.
+
+66
+00:06:33,530 --> 00:06:41,720
+And so import protecting your scripts just provides this extra protection in case in case eventually you wind
+
+67
+00:06:41,720 --> 00:06:47,930
+up wanting to do something in your code that uses one of these techniques that requires it to be reimported.
+
+68
+00:06:47,930 --> 00:06:56,370
+It's standard practice, though. Most Python scripts you're going to find in the wild, particularly in distributed software, are import protected.
+
+69
+00:06:56,370 --> 00:07:04,860
+So I've mentioned module's what is a module when you run, when you have the pilot, the Python command, import that food or import food?
+
+70
+00:07:04,860 --> 00:07:09,210
+What it does is it looks for the file called food up pie, and it looks in a few different places.
+
+71
+00:07:09,210 --> 00:07:16,110
+It first looks in the scripts directory or if you're just running a python interactive interpreter or a notebook notebook,
+
+72
+00:07:16,110 --> 00:07:20,700
+it looks in the notebooks current directory for a console.
+
+73
+00:07:20,700 --> 00:07:23,970
+It's going to look in your current local or at current working directory.
+
+74
+00:07:23,970 --> 00:07:28,380
+It then searches that environment, the directories in an environment variable called python path.
+
+75
+00:07:28,380 --> 00:07:36,570
+Environment variables are a mechanism for a process to have information about its environment and then to pass that on to child processes.
+
+76
+00:07:36,570 --> 00:07:43,650
+I put just a little bit about them in the glossary online. It also then looks in your Python system directory.
+
+77
+00:07:43,650 --> 00:07:47,970
+And then it runs this file to create its definitions and it runs the whole file because a python,
+
+78
+00:07:47,970 --> 00:07:55,890
+a python file just runs and all of your things are statements. Def is a statement that defines a function import the statement that imports code.
+
+79
+00:07:55,890 --> 00:08:00,560
+And then what it does is all of the definitions get exposed under the few objects.
+
+80
+00:08:00,560 --> 00:08:03,990
+So Foo has a death bar that defines a function called bar.
+
+81
+00:08:03,990 --> 00:08:11,610
+Then it's available as food bar in the function or in the code that imports Foo and it exposes all of our assigned names,
+
+82
+00:08:11,610 --> 00:08:17,020
+variables, functions, classes, other imports. Any variable that's defined gets made available.
+
+83
+00:08:17,020 --> 00:08:24,120
+There's no such thing as a truly private variable. Can convention is you prefix it with underscores.
+
+84
+00:08:24,120 --> 00:08:31,740
+Anything that's defined in food is available, food, whatever. Pilot modules can also be grouped together into packages,
+
+85
+00:08:31,740 --> 00:08:38,550
+so a package is just a directory with a file called underscore, underscore in it, underscore, underscore, dot pie.
+
+86
+00:08:38,550 --> 00:08:42,510
+This file can be empty. All it does is signal that the package is there.
+
+87
+00:08:42,510 --> 00:08:47,580
+You can also put some code in it to the default setup, some things in the package if you want.
+
+88
+00:08:47,580 --> 00:08:53,100
+It can also the dock string to document the package and present packages can contain modules and other packages.
+
+89
+00:08:53,100 --> 00:08:59,340
+So if you import food up bar, what it does is it looks for the food module or the food package,
+
+90
+00:08:59,340 --> 00:09:08,340
+a food directory with the init file in it, and then it looks for bardock pie or a bar directory with the init file in it within that.
+
+91
+00:09:08,340 --> 00:09:16,950
+So let's see an example of this. This is a project I have for doing some experiments with recommender systems.
+
+92
+00:09:16,950 --> 00:09:23,820
+And here, this first file that I'm showing you is a script that I created that splits data.
+
+93
+00:09:23,820 --> 00:09:28,650
+And in its Doch string, I give the usage to say how how to run the script.
+
+94
+00:09:28,650 --> 00:09:34,320
+You run split data, that pie with with partition, you can give it to options.
+
+95
+00:09:34,320 --> 00:09:39,930
+Doc Opt will pass this in order to figure out what options to pass out of the command line.
+
+96
+00:09:39,930 --> 00:09:49,260
+And then I have my imports. I have my main function, which actually takes the arguments that are already past the main function, does all of the work.
+
+97
+00:09:49,260 --> 00:09:55,760
+And then we finally have at the end we have a.
+
+98
+00:09:55,760 --> 00:10:00,980
+We have a file that we have the import protections, if the name is made, that we set up a logger.
+
+99
+00:10:00,980 --> 00:10:03,860
+We pass the arguments and we call the main function.
+
+100
+00:10:03,860 --> 00:10:08,870
+I don't usually do very much like I just have no more than like three lines or so in my import protecting.
+
+101
+00:10:08,870 --> 00:10:13,610
+But here I'm making it's that the main function actually takes the pre passed arguments already.
+
+102
+00:10:13,610 --> 00:10:22,250
+Now in this project, I also have a directory called LTA Demo that has a file underscore, underscore and it dot pie that's empty and that makes.
+
+103
+00:10:22,250 --> 00:10:28,940
+OK. Demo a package. And within that then I have modules. So I have the module log which defines a couple of functions.
+
+104
+00:10:28,940 --> 00:10:35,390
+The setup function to setup logging a script function that sets up logging for, for a script.
+
+105
+00:10:35,390 --> 00:10:40,340
+And so then. So I've defined this, this module, this, these functions in this module.
+
+106
+00:10:40,340 --> 00:10:45,680
+And then over and split data. What I did was from LDK demo.
+
+107
+00:10:45,680 --> 00:10:53,450
+I imported the data sets and log modules. And so then I can call log dot script and it's going to do that initialization process.
+
+108
+00:10:53,450 --> 00:11:01,100
+I'm linking to this example code that was prepared by me and some of my graduate students in the resources.
+
+109
+00:11:01,100 --> 00:11:07,630
+You can go see an actual example of how this kind of code gets laid out.
+
+110
+00:11:07,630 --> 00:11:12,370
+So a few pieces of advice for writing a script first. Always with a dark string for your script.
+
+111
+00:11:12,370 --> 00:11:18,250
+That way you can quickly just look at the file. Look at the top of the file and see what that script is supposed to do.
+
+112
+00:11:18,250 --> 00:11:24,610
+Also, I like using dark ops that then I just write in my dark string how you actually run the script and what its options are.
+
+113
+00:11:24,610 --> 00:11:31,610
+And Doc UPT uses that as the ground truth for how to actually pass command line arguments.
+
+114
+00:11:31,610 --> 00:11:34,490
+I'd recommend always import protecting your scripts.
+
+115
+00:11:34,490 --> 00:11:40,520
+Recommend providing reasonable configurability, so some options like, OK, I want to run on three different data sets.
+
+116
+00:11:40,520 --> 00:11:44,900
+Maybe change a parameter like how many partitions of data to create.
+
+117
+00:11:44,900 --> 00:11:50,240
+But if you've got if you wind up creating a lot of options that create a lot of different modes.
+
+118
+00:11:50,240 --> 00:11:56,540
+So there's different code pads. You've got a lot of extensive conditionals in order to figure out the right code path to the script.
+
+119
+00:11:56,540 --> 00:12:02,750
+I often recommend breaking that into multiple scripts, put the common code in the modules,
+
+120
+00:12:02,750 --> 00:12:08,900
+and then for each different way, you need to have combine those functions that you defined in the modules.
+
+121
+00:12:08,900 --> 00:12:14,600
+You can write a different script and if you put enough code in the module that each script is very simple and straightforward.
+
+122
+00:12:14,600 --> 00:12:23,310
+And that way you don't have near as much code complexity that easy to break as you're doing future development and maintenance of your code.
+
+123
+00:12:23,310 --> 00:12:28,110
+So another thing I want to mention briefly is we've got these scripts and run them from the command line.
+
+124
+00:12:28,110 --> 00:12:32,480
+We can also run them and the disconnect and leave them running on another computer.
+
+125
+00:12:32,480 --> 00:12:34,980
+It's like if you're running on Onex or you're running if your research group
+
+126
+00:12:34,980 --> 00:12:39,990
+has a computer that you can run things on or you're running on an Amazon node.
+
+127
+00:12:39,990 --> 00:12:47,010
+There's a program called Tmax that creates a terminal that you log into a computer, to a machine, to a machine, overassessed age.
+
+128
+00:12:47,010 --> 00:12:51,940
+You run Team X, it creates it starts in your shell, but it's within ti max.
+
+129
+00:12:51,940 --> 00:12:54,780
+So you can run programs and there you can start your program running.
+
+130
+00:12:54,780 --> 00:13:00,480
+You can then detached from t max hit control be followed by D it's team X will detach.
+
+131
+00:13:00,480 --> 00:13:05,070
+You can log out your team X is still running and the program you're running is still running.
+
+132
+00:13:05,070 --> 00:13:09,540
+So then you can go home. You can log back into the machine. You can run Team X again.
+
+133
+00:13:09,540 --> 00:13:13,710
+Team X attach will reattach to an existing T-Mac session.
+
+134
+00:13:13,710 --> 00:13:16,530
+And then you can see. You can check on your program.
+
+135
+00:13:16,530 --> 00:13:22,350
+So and also it protects if you lose your Internet connection, if you're just running a program over, as I said, you lose your Internet connection.
+
+136
+00:13:22,350 --> 00:13:26,220
+It's going to stop. But if you run your program over SSA, it's through T Tmax.
+
+137
+00:13:26,220 --> 00:13:33,410
+You lose your connection. When you connect again, you can tarmacked attach. And the program will never know you disconnect it.
+
+138
+00:13:33,410 --> 00:13:37,670
+And so it allows you to run your scripts in a much more robust fashion.
+
+139
+00:13:37,670 --> 00:13:41,910
+If you've got a script, that's going to take a while.
+
+140
+00:13:41,910 --> 00:13:49,250
+So general principles are they want to recommend or use packages and modules to organize code for your project,
+
+141
+00:13:49,250 --> 00:13:58,290
+a variety of things that I put in there, I put in code about how to go find other files so that I can I have my file names defined in one place,
+
+142
+00:13:58,290 --> 00:14:01,650
+maybe code about like, OK, here are the data sets that might be stored as a variable.
+
+143
+00:14:01,650 --> 00:14:06,450
+And one of my modules, common utility functions that I use throughout, like those logging scripts,
+
+144
+00:14:06,450 --> 00:14:11,580
+all of my scripts use those logging functions in order to set up the logging framework.
+
+145
+00:14:11,580 --> 00:14:19,890
+I often wind up having a module that has code for doing prison, time for doing plot some visualizations particularly that has the theme.
+
+146
+00:14:19,890 --> 00:14:26,670
+So it's easy for me to have the same layout and the same ability to save images to desk etc
+
+147
+00:14:26,670 --> 00:14:32,340
+throughout all of my notebooks always refer to rule part files by their relative paths.
+
+148
+00:14:32,340 --> 00:14:36,630
+You never want to have an absolute path in a script or in a notebook or in a module,
+
+149
+00:14:36,630 --> 00:14:41,250
+because then if someone else is working with the code or you just check it out in a different location in or different computer,
+
+150
+00:14:41,250 --> 00:14:42,600
+it's not going to run.
+
+151
+00:14:42,600 --> 00:14:50,970
+Always have relative paths relative to the top of the working directory or the top of your repository usually is where I have them from.
+
+152
+00:14:50,970 --> 00:14:59,190
+If it's a notebook, it needs to be relative to the notebooks location so that you can move code from one place to another and still run it.
+
+153
+00:14:59,190 --> 00:15:03,690
+Also, be careful about excessive configurability, either in functions or in scripts.
+
+154
+00:15:03,690 --> 00:15:07,350
+If you've got too many different paths to it through a function or through a script,
+
+155
+00:15:07,350 --> 00:15:13,770
+then that's a good sign that you need to pull some code off into the functions in a module, make multiple functions or multiple scripts.
+
+156
+00:15:13,770 --> 00:15:23,070
+Each one has one of those paths through the code. So to wrap up scrips, the modules are useful for organizing code and larger projects.
+
+157
+00:15:23,070 --> 00:15:33,367
+We can reuse code in operations across multiple parts of the project.
+

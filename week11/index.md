@@ -158,7 +158,7 @@ This video discusses how to use work with dates in Pandas.
 
 ## {{mquiz}} Quiz 11
 
-Quiz 11 is in Canvas.
+Quiz 11 is in {{LMS}}.
 
 ## {{massignment}} Assignment 5
 

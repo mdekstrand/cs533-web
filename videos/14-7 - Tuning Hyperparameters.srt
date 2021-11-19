@@ -1,0 +1,460 @@
+1
+00:00:04,570 --> 00:00:09,370
+Let's talk about tuning hyper parameters, learning outcomes are for you to be able to apply different techniques,
+
+2
+00:00:09,370 --> 00:00:13,570
+to tune hyper parameters of your model and to understand the principle of random search.
+
+3
+00:00:13,570 --> 00:00:18,130
+So as we've seen with some of our models, we need to be able to pick good values for hyper parameters.
+
+4
+00:00:18,130 --> 00:00:22,540
+That might be the regularization strength in a regularized linear model. It might be in a random forest.
+
+5
+00:00:22,540 --> 00:00:29,830
+The number of trees with the maximum depth in the forest might be the number of neighbors for a canyon classifier.
+
+6
+00:00:29,830 --> 00:00:36,940
+Or if we're doing something with a with a matrix factorization or SVOD the dimensionality of the latent embedding space.
+
+7
+00:00:36,940 --> 00:00:42,130
+And so we need to pick good values for these. The general principles that we try different values.
+
+8
+00:00:42,130 --> 00:00:46,720
+We measure the effectiveness in some way, maybe the classifier accuracy,
+
+9
+00:00:46,720 --> 00:00:51,980
+maybe the classifier area under the curve or some other metric on some tuning data.
+
+10
+00:00:51,980 --> 00:00:55,420
+Often with cross-validation, we'll split the training data into multiple partitions.
+
+11
+00:00:55,420 --> 00:01:01,670
+So we've seen this with logistic regression CV where we try every combination of lists of values,
+
+12
+00:01:01,670 --> 00:01:08,170
+where we have some values for our regularization strength. Lambe They hear or see in the.
+
+13
+00:01:08,170 --> 00:01:16,150
+And the structure for Saikat learns logistic regression, some values for our L1 ratio row.
+
+14
+00:01:16,150 --> 00:01:20,170
+And then we compute the accuracy at each value and we pick the best as we see it.
+
+15
+00:01:20,170 --> 00:01:22,600
+It's built into logistic regression CV.
+
+16
+00:01:22,600 --> 00:01:29,290
+And then there's also the grid search c.v class that allows us to search any parameter of any Saikat Learn model.
+
+17
+00:01:29,290 --> 00:01:33,910
+So long as the model provides it ability to a score function that returns a at
+
+18
+00:01:33,910 --> 00:01:38,620
+some kind of an accuracy or performance score that it can try to optimize.
+
+19
+00:01:38,620 --> 00:01:42,730
+So grid search has a couple of issues. It was has a couple advantages.
+
+20
+00:01:42,730 --> 00:01:46,960
+It's simple and it's trivial to paralyze if you have access to multiple processors.
+
+21
+00:01:46,960 --> 00:01:50,470
+But it's expensive. If we've got any parameters, then values mean.
+
+22
+00:01:50,470 --> 00:01:55,610
+And then test its combinatorial explodes as particularly as we add more and more parameters.
+
+23
+00:01:55,610 --> 00:01:57,310
+It also only test selected values.
+
+24
+00:01:57,310 --> 00:02:08,680
+So here where we're selecting rows in intervals of point one, point two, and if the actual best value is point to three, we're not going to find it.
+
+25
+00:02:08,680 --> 00:02:12,430
+So random search is a way to speed up grid search.
+
+26
+00:02:12,430 --> 00:02:16,040
+It doesn't help with the well. It doesn't help with the.
+
+27
+00:02:16,040 --> 00:02:24,080
+Well, maybe the best values between them very much. But it does help with the the time complexity of the comments.
+
+28
+00:02:24,080 --> 00:02:28,810
+Horrible explosion as we acquire more and more points to sample.
+
+29
+00:02:28,810 --> 00:02:32,680
+The idea is that you randomly pick end points from either grade or from intervals.
+
+30
+00:02:32,680 --> 00:02:37,420
+You define that, you define your different parameters and you define a way to pick values,
+
+31
+00:02:37,420 --> 00:02:42,130
+to hybrid parameter values to try and you just pick and different combinations.
+
+32
+00:02:42,130 --> 00:02:45,260
+You then measure the performance and use the best one you can use.
+
+33
+00:02:45,260 --> 00:02:48,930
+That equals 60 the default. And so I could learn as N equals 10. If you want to.
+
+34
+00:02:48,930 --> 00:02:54,880
+If you want to do some more, you can do end equals one hundred. The idea though of random searches based on a couple of principles.
+
+35
+00:02:54,880 --> 00:03:01,540
+First, the idea that we actually don't need the best hyper parameter values for most applications.
+
+36
+00:03:01,540 --> 00:03:04,630
+We need good enough hyper parameter values,
+
+37
+00:03:04,630 --> 00:03:10,780
+values that are going to get the model to perform well enough for our business purposes or organizational purposes.
+
+38
+00:03:10,780 --> 00:03:14,350
+Another principle is that more than one setting is probably good enough.
+
+39
+00:03:14,350 --> 00:03:20,350
+And so if if we have a search space here, let's say this is lambda and this is.
+
+40
+00:03:20,350 --> 00:03:26,730
+And this is Roe. And we have this space here that's good enough.
+
+41
+00:03:26,730 --> 00:03:33,600
+If five percent of our space is good enough and we sample 60 points at random from the space.
+
+42
+00:03:33,600 --> 00:03:35,220
+In this case, it's uniformally up random.
+
+43
+00:03:35,220 --> 00:03:43,170
+But the space takes into account your probability mass of five percent of the volume of your probability is good enough.
+
+44
+00:03:43,170 --> 00:03:46,620
+Then if you sample 60 points, you probably have at least one good enough point.
+
+45
+00:03:46,620 --> 00:03:50,850
+And that set in the probability that probability is point nine five.
+
+46
+00:03:50,850 --> 00:03:59,200
+So the reason that's true. So G is the set of good enough points. Then the probability of picking you randomly pick a point.
+
+47
+00:03:59,200 --> 00:04:03,730
+The probability of picking one that's good enough is point of five.
+
+48
+00:04:03,730 --> 00:04:13,240
+And this is our fundamental assumption. This is.
+
+49
+00:04:13,240 --> 00:04:13,750
+The mark,
+
+50
+00:04:13,750 --> 00:04:22,030
+this this approach assumes that this particular approach to selecting how many random points you should try assumes that that this is what it means,
+
+51
+00:04:22,030 --> 00:04:25,780
+that five percent of the space is good enough.
+
+52
+00:04:25,780 --> 00:04:34,270
+The probability of a randomly selected point, according to the distribution you're using being good enough is point five if you select.
+
+53
+00:04:34,270 --> 00:04:44,920
+Then if we say that s 60 is this is the event random, 60 randomly selected points have at least one good enough good enough point.
+
+54
+00:04:44,920 --> 00:04:49,660
+Actually, completing that probability is a little bit tricky because you need to compute the probability of having one good
+
+55
+00:04:49,660 --> 00:04:55,930
+enough point at any one of the positions and the probability of having to good enough points at any pair of positions.
+
+56
+00:04:55,930 --> 00:04:59,770
+It's a fairly complex expression, but it turns out we can turn it around.
+
+57
+00:04:59,770 --> 00:05:05,010
+So if there's at least one good enough point.
+
+58
+00:05:05,010 --> 00:05:08,640
+That means it's not the case that there are no good enough points.
+
+59
+00:05:08,640 --> 00:05:15,810
+So the compliment of there is at least one good enough point is there is no good enough points.
+
+60
+00:05:15,810 --> 00:05:21,270
+And if we can turn this probability around to get the probability that randomly selected point is not good enough,
+
+61
+00:05:21,270 --> 00:05:23,850
+point nine five, we can just take the compliment.
+
+62
+00:05:23,850 --> 00:05:31,070
+And so the probability of at least one good enough point is one minus the probability of no good enough points.
+
+63
+00:05:31,070 --> 00:05:40,650
+And the probability of no good enough points is the product. Over 60 points of the probability that that point is not good enough,
+
+64
+00:05:40,650 --> 00:05:47,210
+because the only way you none of the points can be good enough is if every point is not good enough.
+
+65
+00:05:47,210 --> 00:05:53,420
+So this is the probability of not good enough to the 60, which is point nine, five to the 60,
+
+66
+00:05:53,420 --> 00:05:58,580
+push that in a calculator, going to get point O four six, which is less than point five.
+
+67
+00:05:58,580 --> 00:06:05,710
+So with probability better than point five, at least one of your.
+
+68
+00:06:05,710 --> 00:06:14,930
+Sixty randomly selected points is going to be good enough. So random search needs allows you to get away with only 60 to 100 points,
+
+69
+00:06:14,930 --> 00:06:23,660
+regardless of the number of parameters that sometimes go to 100 just because it allows us to get away with a smaller fraction of the search space.
+
+70
+00:06:23,660 --> 00:06:31,040
+Having that is good enough points. It's trivially paralyzed, but like good search because you can just paralyze over these hundred points.
+
+71
+00:06:31,040 --> 00:06:37,600
+It may not find the best solution. It requires us to this assumption about good enough, Saikat learned, does provide randomize search.
+
+72
+00:06:37,600 --> 00:06:43,650
+The random I search c.v works just like grid search CB tip. You can give it distributions of your of your points to try.
+
+73
+00:06:43,650 --> 00:06:49,340
+And then another one is that we can also think of hyper parameter searches optimization.
+
+74
+00:06:49,340 --> 00:06:56,080
+So when we're training a model or fitting a model, we're trying to find some parameters that minimize a lost function.
+
+75
+00:06:56,080 --> 00:07:01,750
+Hyper parameter search, we're really trying to do the same thing, we're trying to find hyper parameters that minimize the lost function,
+
+76
+00:07:01,750 --> 00:07:11,240
+but the lost function is cross, validate the model and compute a misclassification rate or and accuracy metric or whatever.
+
+77
+00:07:11,240 --> 00:07:14,360
+And we're training a model or training one model.
+
+78
+00:07:14,360 --> 00:07:20,740
+We've we have all this training data and we can just look up a data point and see its actual outcome and we can see our prediction.
+
+79
+00:07:20,740 --> 00:07:26,200
+But if we want to see the outcome of a.
+
+80
+00:07:26,200 --> 00:07:31,660
+Hyper parameter, we have to cross validate a model using that hyper parameter.
+
+81
+00:07:31,660 --> 00:07:35,110
+That's very expensive. And it also has no derivative.
+
+82
+00:07:35,110 --> 00:07:42,410
+And so a lot of the techniques that we use for optimizing models and solving this argument problem don't work anymore.
+
+83
+00:07:42,410 --> 00:07:49,010
+Or they're prohibitively expensive. So there's a technique called Bayesian optimization that works by testing the model with a few
+
+84
+00:07:49,010 --> 00:07:54,740
+initial points to get a starting point for how the accuracy is reflected in the search space.
+
+85
+00:07:54,740 --> 00:08:02,660
+It then maintains what's called a surrogate model that tries to predict the performance of new ABS unobserved hyper parameter settings.
+
+86
+00:08:02,660 --> 00:08:07,160
+And it uses this model to pick the next points it wants to test.
+
+87
+00:08:07,160 --> 00:08:14,510
+And this allows it to be more targeted in its search than just random search.
+
+88
+00:08:14,510 --> 00:08:19,460
+And it can it can sometimes find better solutions. It's implemented by a package called Cycad Optimized.
+
+89
+00:08:19,460 --> 00:08:24,260
+They have based search CV that works like randomized search or grid search c.v.
+
+90
+00:08:24,260 --> 00:08:26,120
+They also a function called g.P minimize.
+
+91
+00:08:26,120 --> 00:08:35,050
+That's a general purpose function, minimize the like psi PI is optimized function that we saw a while ago that uses Bayesian optimization.
+
+92
+00:08:35,050 --> 00:08:39,550
+It trades off parallelization for optimization ability, it might find better solutions.
+
+93
+00:08:39,550 --> 00:08:46,180
+But the next search points depend on the results so far. You can do some batch searches rather than just trying one new point.
+
+94
+00:08:46,180 --> 00:08:53,140
+You can say try four and then you could do that in parallel. But it's useful for complex search spaces if random search isn't good enough.
+
+95
+00:08:53,140 --> 00:08:59,050
+And also, you can't like random, doesn't have the ability to early stop because you need in order for the proofs,
+
+96
+00:08:59,050 --> 00:09:03,650
+the whole sheet to try to 60 unless you know the threshold for good enough.
+
+97
+00:09:03,650 --> 00:09:10,400
+But with Bayesian optimization, since it's continually trying to improve, then you can use of early stopping to say,
+
+98
+00:09:10,400 --> 00:09:15,470
+okay, our last five runs haven't gotten us any better, maybe we can go ahead and stop.
+
+99
+00:09:15,470 --> 00:09:21,590
+So in a work, I want to talk brief very, very briefly about using hyper parameter tuning in a workflow.
+
+100
+00:09:21,590 --> 00:09:23,810
+So far we've just included in our notebooks.
+
+101
+00:09:23,810 --> 00:09:31,110
+We have a pipeline that the cross-validation is just part of a model fitting process that can be useful, especially for relatively simple models.
+
+102
+00:09:31,110 --> 00:09:39,080
+But. We might want to not redo the hyper parameter search every time, say, we update our data.
+
+103
+00:09:39,080 --> 00:09:44,540
+We might want to do it on a less frequent basis. What I often do is I have a script that does hyper parameter search.
+
+104
+00:09:44,540 --> 00:09:46,000
+And so it'll take the training data.
+
+105
+00:09:46,000 --> 00:09:52,280
+It will cross validate or I'll use a tuning set and it will do hyper parameter searches and that tuning set or the cross validation.
+
+106
+00:09:52,280 --> 00:09:59,860
+And then at the end of that, it's going to save the optimal values it learn through the cross validation to a file, often a Jason file.
+
+107
+00:09:59,860 --> 00:10:04,040
+Oh, here's my parameter values and then other scripts can read it like my model training or
+
+108
+00:10:04,040 --> 00:10:07,700
+my prediction or whatever script can read those optimal values and use those to train.
+
+109
+00:10:07,700 --> 00:10:12,530
+The real model that I'm going to use for actually testing on my data.
+
+110
+00:10:12,530 --> 00:10:17,690
+Works great. So to wrap up, hyper parameter tuning is an expensive optimization problem.
+
+111
+00:10:17,690 --> 00:10:23,930
+That's really what it is. It's it. Each sample is expensive because it's costly to evaluate that loss function.
+
+112
+00:10:23,930 --> 00:10:29,210
+Because you have to train models on cross validated data and also it has no derivative.
+
+113
+00:10:29,210 --> 00:10:34,280
+And so a lot of our techniques for a lot of the techniques that are used by other
+
+114
+00:10:34,280 --> 00:10:40,100
+packages in the fi ecosystem in order to do solve optimization problems don't work.
+
+115
+00:10:40,100 --> 00:10:49,633
+But there are several techniques that are useful with good automation for integration into psychedelic.
+

@@ -1,0 +1,264 @@
+1
+00:00:04,790 --> 00:00:12,470
+This video, we're going to talk about the extract, transform load pattern for handling data transformations and integration.
+
+2
+00:00:12,470 --> 00:00:18,470
+So learning outcomes for you to be able to use standard design patterns that think about your data integration and transformation.
+
+3
+00:00:18,470 --> 00:00:22,130
+So we saw the pipeline at the beginning of the week.
+
+4
+00:00:22,130 --> 00:00:29,950
+If we have some raw source data and we want to transform it into prepared data of some kind, that's ready for further use.
+
+5
+00:00:29,950 --> 00:00:33,640
+Using the techniques that we've discussed earlier in the semester,
+
+6
+00:00:33,640 --> 00:00:40,900
+turns out that there is there are standard paradigms for thinking about how we structure that process.
+
+7
+00:00:40,900 --> 00:00:44,530
+And it involves breaking it down into three stages.
+
+8
+00:00:44,530 --> 00:00:55,750
+So extract the extract, transform load pattern takes as input a source of initial unprocessed data, the extract process or stage.
+
+9
+00:00:55,750 --> 00:01:02,500
+Gets the data, it exports it from the database, it scrapes it from the Web site, it downloads it from wherever the data comes from.
+
+10
+00:01:02,500 --> 00:01:07,510
+And it's how you get the actual raw data that you're going to be working with.
+
+11
+00:01:07,510 --> 00:01:14,110
+Then you transform that data into maybe you transforming data from multiple sources into a common format.
+
+12
+00:01:14,110 --> 00:01:21,070
+You're integrating data. You're doing some initial cleaning, like deleting invalid records.
+
+13
+00:01:21,070 --> 00:01:24,040
+And then finally, you load the data into a system for analysis.
+
+14
+00:01:24,040 --> 00:01:28,420
+And the setups we've been talking about so far that a lot of times this is going to look like saving
+
+15
+00:01:28,420 --> 00:01:32,890
+it in the file like a part kept file or CSP file that you then can load in the later stages.
+
+16
+00:01:32,890 --> 00:01:41,820
+But you might load it into a database. And the result is that you have cleaned and integrated data ready for analysis or modeling.
+
+17
+00:01:41,820 --> 00:01:44,170
+And this may seem certainly fairly straightforward,
+
+18
+00:01:44,170 --> 00:01:52,170
+but it's what we call a pattern and a design pattern is a common structure for design in general, but in our purposes for software design.
+
+19
+00:01:52,170 --> 00:01:58,020
+And it serves as few useful features if it accomplishes a few useful things.
+
+20
+00:01:58,020 --> 00:02:03,330
+First is, it gives its common language for documenting and understanding software.
+
+21
+00:02:03,330 --> 00:02:09,810
+So if you document I'm here's my extract my transform my load for this for processing this data,
+
+22
+00:02:09,810 --> 00:02:15,780
+then others will know what you're talking about because you're using familiar in standard language.
+
+23
+00:02:15,780 --> 00:02:22,350
+It's also provides context for developing best practices because you can document, OK, here's good ways to do extraction.
+
+24
+00:02:22,350 --> 00:02:27,240
+Here's good ways to do transformation. It could also in some cases benefit from the automation support.
+
+25
+00:02:27,240 --> 00:02:35,400
+There are automate. There are automated tools that provide extensive support for doing various types of extractions, transformations and loads.
+
+26
+00:02:35,400 --> 00:02:39,360
+Another example, the design is a little bit tableau between an interface in a design pattern.
+
+27
+00:02:39,360 --> 00:02:44,220
+But the pattern we're using this, Kate, learning of a model. You fit the model. It updates in place.
+
+28
+00:02:44,220 --> 00:02:48,930
+We can think of that as a design pattern for machine learning models in Python.
+
+29
+00:02:48,930 --> 00:02:56,580
+So in context, ECL may live in a standalone instead of a project and may live in your repository.
+
+30
+00:02:56,580 --> 00:02:58,920
+So you have one or more scripts to do your EDL stages.
+
+31
+00:02:58,920 --> 00:03:08,640
+You might have separate ones like an extract, transform and load stage that save the data in a format that's ready for subsequent stages of analysis.
+
+32
+00:03:08,640 --> 00:03:13,770
+You don't have to have getting things into easy to work with format, deleting invalid records,
+
+33
+00:03:13,770 --> 00:03:19,890
+making sure you have tabular data in your train, a predictive model stage because that's happened in your E Taliban.
+
+34
+00:03:19,890 --> 00:03:26,880
+All of your you can do multiple things with your clean data. And you may also, though,
+
+35
+00:03:26,880 --> 00:03:34,710
+have a dedicated ECL pipeline project that to give repository that just does your ECL pipeline for big win
+
+36
+00:03:34,710 --> 00:03:40,500
+contexts where the loaded data is going to be used in multiple different projects across an organization.
+
+37
+00:03:40,500 --> 00:03:47,250
+And so if you've got if you've got an organization where your processing say you're processing some
+
+38
+00:03:47,250 --> 00:03:53,370
+government records in a form that's going to be used for informed decision making across the organization,
+
+39
+00:03:53,370 --> 00:03:56,760
+then you might have an ECL pipeline that fetches the current version of the government
+
+40
+00:03:56,760 --> 00:04:01,590
+records from the from the the the official source does whatever transformations
+
+41
+00:04:01,590 --> 00:04:09,510
+you're going to you need to do with them and then load them in a database so that other people in your organization can go and make use of that data.
+
+42
+00:04:09,510 --> 00:04:14,570
+And maybe you rerun this once a day, once a month, once a week, whatever the right timeframe is.
+
+43
+00:04:14,570 --> 00:04:20,150
+So that then. Anyone in the organization who needs the data can just go to your database.
+
+44
+00:04:20,150 --> 00:04:26,100
+Or sometimes it's called a data warehouse or data warehouse is basically a database that's often larger and capacity
+
+45
+00:04:26,100 --> 00:04:34,200
+and not designed to support real time production level systems is designed for more long term querying and analysis.
+
+46
+00:04:34,200 --> 00:04:41,190
+But anyone can go to the database and get the data as of the most recent result or the most recent import.
+
+47
+00:04:41,190 --> 00:04:48,000
+And you've got this ETF pipeline that takes care of that and you can rerun it from time to time as your source provides new data.
+
+48
+00:04:48,000 --> 00:04:51,090
+A variant of ECL is extract, load, transform.
+
+49
+00:04:51,090 --> 00:04:56,490
+So sometimes you're actually going to want to do the transformations in whatever place you're storing the data.
+
+50
+00:04:56,490 --> 00:05:00,480
+An example of this is if you want to use ask you all queries to do your data transformation.
+
+51
+00:05:00,480 --> 00:05:08,520
+So you extract your ross' or your raw source data and then you load it directly into initial database tables and then you use your database system.
+
+52
+00:05:08,520 --> 00:05:12,240
+If it's a rescue old database, use ask you all queries, but something else, use it.
+
+53
+00:05:12,240 --> 00:05:17,310
+It's native data processing capabilities to do your transformations in the database.
+
+54
+00:05:17,310 --> 00:05:26,580
+It's usually good to do a layered schema designed to it's clear what tables in your database get the raw or get the data directly out of the load.
+
+55
+00:05:26,580 --> 00:05:37,260
+And then what table store the results of your transformations. But it's a very useful variant of ECL for.
+
+56
+00:05:37,260 --> 00:05:44,340
+For situations where you've got the capacity and the desire to do your data transformations in a database.
+
+57
+00:05:44,340 --> 00:05:49,230
+The book data tools that I used as an example, we were talking about data integration.
+
+58
+00:05:49,230 --> 00:05:53,820
+That's an example of an EMT pipeline because we extracted from several data sources.
+
+59
+00:05:53,820 --> 00:05:59,520
+We piped that data directly into PostgreSQL. Well, and as night native a format as we could.
+
+60
+00:05:59,520 --> 00:06:03,360
+And then we used escudo queries to transform it into integrated tables.
+
+61
+00:06:03,360 --> 00:06:09,420
+And that gives it its own get repositories that we have this database that has our book data and any we can.
+
+62
+00:06:09,420 --> 00:06:17,220
+Any student in my research group can use that same set of book data for whatever book related projects that they want to work on.
+
+63
+00:06:17,220 --> 00:06:19,200
+And then if they need new data extractions,
+
+64
+00:06:19,200 --> 00:06:26,490
+we'll add them to the transform layer in the core projects that others can benefit from those changes as well.
+
+65
+00:06:26,490 --> 00:06:33,060
+So wrap up design patterns provide a common language for talking about software design, extract, transform, load and extract,
+
+66
+00:06:33,060 --> 00:06:46,900
+load, transform our two patterns for doing the data pre processing stage of a pipeline for a data science project.
+

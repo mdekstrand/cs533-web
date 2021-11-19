@@ -1,0 +1,336 @@
+1
+00:00:04,570 --> 00:00:10,090
+This video, I want to talk with you about how to make a reproducible data science pipeline.
+
+2
+00:00:10,090 --> 00:00:12,210
+I'm not going to be getting in a lot of the details here. I mean,
+
+3
+00:00:12,210 --> 00:00:20,470
+are we talking primarily about concepts and giving you a pointer to some software I use that you might find useful and want to study on your own?
+
+4
+00:00:20,470 --> 00:00:26,350
+So learning outcomes are few to understand the value for reproducible pipeline for both science and industrial purposes.
+
+5
+00:00:26,350 --> 00:00:30,550
+And nowhere to read more about tools. Help build and automate them.
+
+6
+00:00:30,550 --> 00:00:40,480
+So reproducibility, what do we. What we mean by reproducibility is that we can rerun the code and get the same conclusions and results out of it.
+
+7
+00:00:40,480 --> 00:00:48,520
+And reproducibility and its related concept replicability are cornerstones of current scientific philosophy, basic ideas.
+
+8
+00:00:48,520 --> 00:00:56,440
+If you can only observe things all at once, it's unlikely we Valadares, but we need to be able to rise to observe it multiple times.
+
+9
+00:00:56,440 --> 00:01:05,050
+We need to be able to reproduce the observation. And we also, from a practical perspective, in many cases, we need to be able to rerun with new data.
+
+10
+00:01:05,050 --> 00:01:08,890
+Maybe you're building a forecasting model for.
+
+11
+00:01:08,890 --> 00:01:16,600
+For traffic at your business and you need to be able to update it based on the new data you collected this month and re for next month, you need.
+
+12
+00:01:16,600 --> 00:01:21,220
+You've got it, Weldy, but you just need to be able to rerun it each month as new data comes in.
+
+13
+00:01:21,220 --> 00:01:28,000
+You need to be able to check for bugs and sensitivity if it's easy to have a stage where maybe some P.C. or pipeline,
+
+14
+00:01:28,000 --> 00:01:32,620
+you ran an old version of the data. You you don't have results on the same copy of the data.
+
+15
+00:01:32,620 --> 00:01:36,160
+Maybe you have your rerunning things in different orders.
+
+16
+00:01:36,160 --> 00:01:40,300
+And so you actually have an artifact of the order in which you ran things.
+
+17
+00:01:40,300 --> 00:01:47,380
+Maybe you have sensitive, you random seem unlikely, but it can happen if you can rerun your whole analysis front to back.
+
+18
+00:01:47,380 --> 00:01:55,870
+That ensures that your actual final conclusions are based on what you thought you did because you reran all of the steps in order.
+
+19
+00:01:55,870 --> 00:02:06,280
+So the goal that the high level ultimate goal, four four four on reproducibility is that you can rerun an entire analysis and end with one command.
+
+20
+00:02:06,280 --> 00:02:16,890
+I have achieved this in one or two of my projects where there is one command and I've run it on the AA2 cluster and.
+
+21
+00:02:16,890 --> 00:02:28,360
+A day later, I have a fresh copy of the results. Reproduced from the from the input data.
+
+22
+00:02:28,360 --> 00:02:35,110
+Including rerunning the notebooks and regenerating the figures that day doesn't include hyper brammer tuning,
+
+23
+00:02:35,110 --> 00:02:43,060
+hyper parameter tuning would take another week. But we want to be older, rerun it past with new data, new softer versions, new settings,
+
+24
+00:02:43,060 --> 00:02:46,900
+a well-documented set of steps like a read me that says, OK, run these five STAP.
+
+25
+00:02:46,900 --> 00:02:52,750
+Do these five steps to reproduce the analysis. That also accomplishes the full one script reproducibility.
+
+26
+00:02:52,750 --> 00:02:56,650
+That's kind of the ultimate easy go rerun the whole thing.
+
+27
+00:02:56,650 --> 00:03:03,400
+You can get a lot of value out of reproducibility just with documenting of a few steps that a human can run.
+
+28
+00:03:03,400 --> 00:03:07,930
+But this is the idea that you can rerun the analysis end to end,
+
+29
+00:03:07,930 --> 00:03:14,230
+possibly on another computer, possibly new data, and you're gonna get the same conclusions.
+
+30
+00:03:14,230 --> 00:03:19,740
+Requirements to be able to do that is first you need to know what steps need to happen, what scripts or notebooks do you need to run,
+
+31
+00:03:19,740 --> 00:03:23,940
+what arguments you need to provide with those scripts, what are their inputs and outputs?
+
+32
+00:03:23,940 --> 00:03:31,590
+What order do these script steps need to happen in? And then there's an optional thing for optimization is my step up to date.
+
+33
+00:03:31,590 --> 00:03:36,120
+So it might be that one of the steps the step hasn't changed, the inputs haven't changed.
+
+34
+00:03:36,120 --> 00:03:40,790
+The outputs are there, so you don't need to run it again. Might sound a lot like make.
+
+35
+00:03:40,790 --> 00:03:45,540
+And in fact, you can make these kinds of pipelines with make if you've used that tool before.
+
+36
+00:03:45,540 --> 00:03:53,760
+I use a tool called data version control for this. And in data version control, the pipeline is made up of stages, each of which has input files,
+
+37
+00:03:53,760 --> 00:03:58,080
+output files in the command that will produce the outputs from the inputs.
+
+38
+00:03:58,080 --> 00:04:02,160
+And the stages are defined in DVC files that are committed to get.
+
+39
+00:04:02,160 --> 00:04:09,420
+You can also have a stage that only has outputs and that basically just records the presence of a file.
+
+40
+00:04:09,420 --> 00:04:15,180
+And then you, DVC can reproduce, stages it or checkoffs stages up to date it check looks,
+
+41
+00:04:15,180 --> 00:04:21,600
+it's it records the check sums of the inputs and outputs and the commands so we can see.
+
+42
+00:04:21,600 --> 00:04:28,320
+Has anything changed since the stage last run? Am I missing an output file as one of my input files changed.
+
+43
+00:04:28,320 --> 00:04:35,670
+And if anything's changed or rerun the command to update the outputs before it does that, though, it first make sure that all of the dependencies,
+
+44
+00:04:35,670 --> 00:04:44,250
+all of those input files it looks and sees is is for each input file, it looks, and for a stage that produces it as an output.
+
+45
+00:04:44,250 --> 00:04:51,780
+And if there is one at first, make sure that stage is up to date so that you're building off of the current dependencies.
+
+46
+00:04:51,780 --> 00:05:00,220
+And then once it's commits the checksums, all these checksums get committed to get as a part of the.
+
+47
+00:05:00,220 --> 00:05:06,520
+As a part of the run, so that you get there as a part of the DVC files that at stores you store in get here is the check.
+
+48
+00:05:06,520 --> 00:05:10,690
+Here was the input check. Some here was the command that ran and he was the output checksum.
+
+49
+00:05:10,690 --> 00:05:14,260
+Then you reproduced the entire pipeline by ensuring the final stages.
+
+50
+00:05:14,260 --> 00:05:19,210
+Maybe your notebook, along with all their dependencies, are up to date.
+
+51
+00:05:19,210 --> 00:05:27,500
+And that's what the DVC repro command does. DVC can also help manage data because it's committing these checksums to get so it's got an M.D. five.
+
+52
+00:05:27,500 --> 00:05:33,690
+Check some of the data file. Then it will.
+
+53
+00:05:33,690 --> 00:05:39,810
+What will you do is that you have get ignore all the output files it gets not going to manage them, but DVC will look at those output files.
+
+54
+00:05:39,810 --> 00:05:47,040
+Anything that's an output of a stage knows about. And it will copy those outputs to and from a data server like Amazon S3.
+
+55
+00:05:47,040 --> 00:05:52,470
+That makes it really easy to ensure you have a current copy of the data because it ensures your current file, the DVC files.
+
+56
+00:05:52,470 --> 00:05:57,690
+The DVC file says I need the data output file with this checksum and DVC knows how to
+
+57
+00:05:57,690 --> 00:06:01,680
+go get that from your from your data server and make sure you have a local copy of it.
+
+58
+00:06:01,680 --> 00:06:06,270
+So all of the things that get gives us for make sure making sure we have the right version
+
+59
+00:06:06,270 --> 00:06:10,530
+of the code working across multiple machines when we're working with collaborators.
+
+60
+00:06:10,530 --> 00:06:15,190
+DDC gives us for the data files. Some practice.
+
+61
+00:06:15,190 --> 00:06:21,250
+I have my entire pipeline and DVC experiment with manual commands, and then once I have the script, I want it.
+
+62
+00:06:21,250 --> 00:06:27,220
+I created DVC stage. It's going to run it. And then I've run expensive models on the universe.
+
+63
+00:06:27,220 --> 00:06:31,920
+One of the university clusters, either R2 or Bora. And I.
+
+64
+00:06:31,920 --> 00:06:35,830
+And so I run that. I come and I. I commit my DVC steps.
+
+65
+00:06:35,830 --> 00:06:40,000
+I get push. I DVC push to copy the output files to our data server.
+
+66
+00:06:40,000 --> 00:06:46,120
+And then on another machine, either my desktop or are our research group server.
+
+67
+00:06:46,120 --> 00:06:50,080
+I will pull down those data files and then I'll do my statistical analysis.
+
+68
+00:06:50,080 --> 00:06:54,010
+I'll work with my notebooks and things. Their notebooks are annoying to use in the cluster.
+
+69
+00:06:54,010 --> 00:07:01,090
+So I just do the big models in the cluster. DVC saves the data. Make sure I know what version of the data I'm supposed to be working with.
+
+70
+00:07:01,090 --> 00:07:05,950
+And then I get pulled DVC pull on our on our research group server,
+
+71
+00:07:05,950 --> 00:07:10,210
+which isn't as powerful as the cluster, but it's good enough for Jupiter notebooks.
+
+72
+00:07:10,210 --> 00:07:14,110
+And I make sure that I'm running on the current version of the results from the cluster.
+
+73
+00:07:14,110 --> 00:07:19,810
+So it makes it easy to make sure that I've got the right version of my data files across all of my different machines.
+
+74
+00:07:19,810 --> 00:07:24,580
+And I don't have to worry about accidentally copying a file the wrong direction.
+
+75
+00:07:24,580 --> 00:07:30,190
+There's other tools that can do similar things. The tool called M.L. Flow, that's one of DVC competitors.
+
+76
+00:07:30,190 --> 00:07:35,020
+You can build your own your own pipelines out of make if you're always in a UNIX environment.
+
+77
+00:07:35,020 --> 00:07:42,310
+If you're in a Java Bay, if you're doing a Java based project, Gradle was a really useful integration tool.
+
+78
+00:07:42,310 --> 00:07:45,340
+When my before I switched all my source code to Python,
+
+79
+00:07:45,340 --> 00:07:50,320
+a lot of my extensive models were in Java and I was using Gradle from my automation at that point.
+
+80
+00:07:50,320 --> 00:07:57,400
+There are many other tools as well. You've got this and some of them will just do the pipeline management and you have to take care of the data files.
+
+81
+00:07:57,400 --> 00:08:03,310
+The right system that can just do the data management. You have to do pipeline with another system.
+
+82
+00:08:03,310 --> 00:08:09,310
+DVC does them together. There's a variety of options, but there are tools that can help you build this pipeline.
+
+83
+00:08:09,310 --> 00:08:16,090
+End to end. I'm providing a few links in the resources. So to wrap up fully reproducible data science pipelines,
+
+84
+00:08:16,090 --> 00:08:28,533
+help science and practice and tools like DVC and make and things can help you build such reproducible pipelines.
+

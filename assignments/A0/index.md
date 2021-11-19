@@ -25,7 +25,7 @@ The steps of this assignment:
 3. Start Jupyter and open the notebook.
 3. Fill in the code in the notebook, running each cell.
 4. Print the notebook to a PDF file.  To do this, go to “File” and pick “Print Preview” *within Jupyter*, then print the resulting page to PDF.  If you just print the notebook to a PDF without going through Jupyter's print preview, it won't look as good.
-5. Submit the notebook (`.ipynb` file) and PDF printout [to Canvas](https://boisestatecanvas.instructure.com/courses/4386/assignments/145576).
+5. Submit the notebook (`.ipynb` file) and PDF printout [to {{LMS}}](https://boisestatecanvas.instructure.com/courses/4386/assignments/145576).
 
 See [Our First Python Notebook](../../content/week1/index.md#first-notebook) for a video overview of the submission process.
 

@@ -1,0 +1,148 @@
+1
+00:00:04,580 --> 00:00:08,510
+So this video, we're going to talk about what we're really looking at this week,
+
+2
+00:00:08,510 --> 00:00:15,590
+which is moving beyond what we've been doing in individual notebooks to being able to have a workflow that crosses multiple modules,
+
+3
+00:00:15,590 --> 00:00:24,620
+multiple files and is version controlled. So learning outcomes for this week are for you to be able to break code into scripts, modules and notebooks,
+
+4
+00:00:24,620 --> 00:00:30,830
+to design a data pipeline, to run and reproduce and analysis and use get to version control your code.
+
+5
+00:00:30,830 --> 00:00:35,670
+So. Notebooks are great. We've been using them all semester.
+
+6
+00:00:35,670 --> 00:00:39,960
+Been getting a lot of use out of them. They're great for interactive with testing code.
+
+7
+00:00:39,960 --> 00:00:44,940
+You can view results right with the code. The notebook is great for displaying charts and visualizations.
+
+8
+00:00:44,940 --> 00:00:52,290
+It can display pandas data structures very nicely. We can combine discussion methods and results for.
+
+9
+00:00:52,290 --> 00:01:00,240
+For documents where the methods, the computational methods are right there for exactly what we're doing.
+
+10
+00:01:00,240 --> 00:01:07,790
+But they don't scale terribly well. There's a few problems with them that we want to try to address.
+
+11
+00:01:07,790 --> 00:01:11,930
+Which is one. One is that it's hard to reuse code from one notebook in another.
+
+12
+00:01:11,930 --> 00:01:17,120
+There are mechanisms that you import a notebook as a module that are a little weird.
+
+13
+00:01:17,120 --> 00:01:22,610
+They're also not great for long running tasks. The notebook you're try to use kick off a job from the browser.
+
+14
+00:01:22,610 --> 00:01:28,790
+You lose your Internet connection, you go home, whatever. It's not a great environment for running a long running task.
+
+15
+00:01:28,790 --> 00:01:33,890
+Those are better run in a Python script directly without the notebook infrastructure.
+
+16
+00:01:33,890 --> 00:01:38,120
+Also, you can there are you can run a notebook from the command line,
+
+17
+00:01:38,120 --> 00:01:48,260
+but it's going to be overwrite options and things like that to reuse the code in the sense of a program, not just functions that you reuse.
+
+18
+00:01:48,260 --> 00:01:52,970
+The options are a little limited there. So to move beyond this,
+
+19
+00:01:52,970 --> 00:01:58,460
+we're gonna look at in this video or in this week are being able to write scripts
+
+20
+00:01:58,460 --> 00:02:03,350
+which are Python programs that run on their own and then to take our python code,
+
+21
+00:02:03,350 --> 00:02:11,930
+our functions, our classes, et cetera, and put them in the modules that we can then reuse in our scripts, in our notebooks and in our other modules.
+
+22
+00:02:11,930 --> 00:02:15,860
+So in this context, we're going to be thinking about data pipelines.
+
+23
+00:02:15,860 --> 00:02:21,600
+And so if you've got a you've got we've seen diagrams like this earlier, but if you've got some raw source data,
+
+24
+00:02:21,600 --> 00:02:27,350
+if you have a data integration step that's going to get you some prepared data that you analyze,
+
+25
+00:02:27,350 --> 00:02:32,190
+then you're going to want to do some descriptive analysis. That's a great use for a notebook right there.
+
+26
+00:02:32,190 --> 00:02:36,860
+You want to do descriptive analysis of the results of your data integration, data transformation.
+
+27
+00:02:36,860 --> 00:02:42,620
+You also want to be able to do some statistical inference. You want to be able to do some predictive modeling where you're generating predictions,
+
+28
+00:02:42,620 --> 00:02:47,090
+classifications, etc. Maybe you're doing inference on their accuracy.
+
+29
+00:02:47,090 --> 00:02:51,830
+We can think of each. So far, we'd we would put all of this in one notebook.
+
+30
+00:02:51,830 --> 00:02:59,840
+But in practice and a lot of projects, you're actually going to want to split that apart so that you have different stages in their own files.
+
+31
+00:02:59,840 --> 00:03:04,550
+You'll have likes a script or more than one script that will do your data transformation.
+
+32
+00:03:04,550 --> 00:03:08,810
+You'll have a notebook that does data description. You'll have a script that runs one of your predictive models.
+
+33
+00:03:08,810 --> 00:03:12,260
+You might have different scripts for different predictive models, etc.,
+
+34
+00:03:12,260 --> 00:03:21,020
+so that you can rerun individual pieces and you don't have everything in one big file that's difficult to edit and maintain.
+
+35
+00:03:21,020 --> 00:03:25,940
+So to wrap up significant data science projects usually have multiple components in a pipeline.
+
+36
+00:03:25,940 --> 00:03:32,390
+Get is really useful for tracking, for tracking and versioning the code that used to generate these components.
+
+37
+00:03:32,390 --> 00:03:44,800
+The rest of the video, this video's this week. We're going to talk about more about how to do these different pieces.
+

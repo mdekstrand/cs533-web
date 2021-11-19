@@ -31,7 +31,8 @@ This video reviews the concepts we have discussed this term and puts them into t
 
 ## {{mquiz}} Makeup Exam
 
-The makeup midterm is **{date}`wk15 tue long`** in class.
+The makeup midterm is **{date}`wk15 tue long`** in class.  It covers the entire semester, with an emphasis on material since the 2nd midterm.
+The rules are the same as for [Midterm A](midterm-a).
 
 :::{warning}
 If you turn in the makeup exam to be graded, its grade will replace the lower of your Midterm A and B grades, **even if that lowers your final grade**.
@@ -149,7 +150,7 @@ Some final closing tips and suggestions for you to think about as you take the n
 
 ## {{mquiz}} Weekly Quiz 15
 
-Take the Week 15 Quiz in Canvas.
+Take the Week 15 Quiz in {{LMS}}.
 
 ## {{mvideo}} Farewell
 

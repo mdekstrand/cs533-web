@@ -100,7 +100,7 @@ at least once by the end of the class.
 
 ## {{mquiz}} Week 13 Quiz
 
-Take the Week 13 quiz on Canvas.
+Take the Week 13 quiz on {{LMS}}.
 
 ## {{mnotebook}} Practice: SVD on Paper Abstracts
 

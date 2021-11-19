@@ -5,7 +5,7 @@ their effectiveness. You will use SciKit-Learn classifiers; it is possible to do
 assignment with statsmodels, but some of the models only exist in SciKit-Learn.
 
 It is due **Sunday, November 7 at 11:59 pm**.
-Submit your notebook and its PDF export to Canvas.
+Submit your notebook and its PDF export to {{LMS}}.
 
 Throughout your writeup, **justify your decisions** based on theoretical knowledge, the background
 reading, or what you observe in the data.
@@ -28,7 +28,7 @@ For more details on the data and its history, read [“Should This Loan be Appro
 
 I have based this assignment on their class exercise.
 You will be working with the full SBA National data set.
-I have attached the data file to the Canvas assignment.
+I have attached the data file to the {{LMS}} assignment.
 
 Your goal in this assignment is to predict whether or not the business will pay off their loan.
 This is recorded in the ``MIS_Status`` field, which is ‘PIF’ if the loan is paid in full and ‘CHGOFF’ if the borrower defaulted (the loan was charged off).

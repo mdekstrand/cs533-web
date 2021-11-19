@@ -3,7 +3,7 @@
 This assignment is to give you experience with exploratory analysis and describing a data set.
 
 It is due on **Sunday, September 12, 2020** at the end of the day (11:59 PM).
-Submit your `.ipynb` and PDF files to Canvas.
+Submit your `.ipynb` and PDF files to {{LMS}}.
 
 :::{tip}
 I recommend reading through the whole assignment before beginning. I begin this assignment
@@ -194,7 +194,7 @@ Submit a Jupyter notebook that describes the following (grade percentages and es
 
 7.  Write 2 paragraphs reflecting on what you learned about this data, higher education, and data science through this assignment (10%).
 
-Submit the final assignment (both `.ipynb` and `.pdf` files) to Canvas.
+Submit the final assignment (both `.ipynb` and `.pdf` files) to {{LMS}}.
 
 ## Extra Credit
 

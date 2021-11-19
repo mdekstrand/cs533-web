@@ -135,7 +135,7 @@ Read [the ACM code of ethics](https://www.acm.org/code-of-ethics).
 
 ## {{mquiz}} Week 7 Quiz
 
-Take the Week 7 quiz in Canvas.
+Take the Week 7 quiz in {{LMS}}.
 
 ## {{mvideo}} A Real Example
 

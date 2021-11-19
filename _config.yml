@@ -39,6 +39,7 @@ parse:
     mtodo: ✅
     mquiz: 🚩
     mdownload: 🌠
+    LMS: Canvas
 
 execute:
   execute_notebooks: 'off'
