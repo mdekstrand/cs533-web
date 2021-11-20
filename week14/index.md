@@ -1,8 +1,4 @@
-# 🚧 Week 14 — Workflow ({date}`wk14 range`) 🚧
-
-:::{draft}
-This content is still in draft state and has not yet been finalized.
-:::
+# Week 14 — Workflow ({date}`wk14 range`)
 
 In this week, we are going to talk more about *workflows*.
 What does it look like to build a practical data science pipeline?
@@ -171,6 +167,16 @@ Some software that supports data and/or workflow management:
 :::
 
 Read [software environments](../resources/environments.md).
+
+## {{mdoc}} Reproducibility Case Study
+
+:::{reading}
+:title: Yay Reproducibility
+:url: https://md.ekstrandom.net/blog/2021/11/reproducibility
+:length: 1250 words
+:::
+
+Read my [case study on reproducibility and bug-hunting](https://md.ekstrandom.net/blog/2021/11/reproducibility).
 
 ## {{mquiz}} Weekly Quiz 14
 
