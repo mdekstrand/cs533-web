@@ -13,7 +13,7 @@ This is the last week of class. We're going to recap, and talk about what's next
 
 ## {{mcal}} Deadlines
 
-- Makeup Midterm, {date}`wk15 tue long`
+- [Makeup Midterm](midterm-m), {date}`wk15 tue long`
 - Quiz 14, {date}`wk15 thu long`
 - [Assignment 7](../assignments/A7/index.md), {date}`wk15 sun long`
 
@@ -29,6 +29,7 @@ This video reviews the concepts we have discussed this term and puts them into t
 :slide-auth: AHfNFdGccgu4HVE
 :::
 
+(midterm-m)
 ## {{mquiz}} Makeup Exam
 
 The makeup midterm is **{date}`wk15 tue long`** in class.
