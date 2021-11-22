@@ -146,15 +146,13 @@ Some final closing tips and suggestions for you to think about as you take the n
 
 Take the Week 15 Quiz in {{LMS}}.
 
-## {{mvideo}} Farewell
+## {{mdoc}} Farewell
 
 It's been grand!
-I would love to hear more feedback on how to improve this material, because I hope to keep using it for a while.
 
-:::{video}
-:name: 15-9 - Farewell
-:length: 1m58s
-:::
+I would love to hear feedback on how to further improve the course; I have tried to make some corrections as a result of the midterm assessment process, and will be keeping those notes for next year, but further suggestions either in the course evaluations or by Piazza are welcome.
+
+I hope to see many of you in future courses!
 
 ## {{massignment}} Assignment 7
 
