@@ -139,7 +139,7 @@ Read [Regression Model Assumptions](https://www.jmp.com/en_us/statistics-knowled
 
 ## {{mquiz}} Week 8 Quiz
 
-Complete the Week 8 quiz in Canvas.
+Complete the Week 8 quiz in {{LMS}}.
 
 ## {{mdoc}} StatsModels Examples and User Guide
 

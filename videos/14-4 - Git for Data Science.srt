@@ -1,0 +1,268 @@
+1
+00:00:04,670 --> 00:00:09,890
+This video, I'm going to talk with you a little bit about, you can get specifically for data science projects,
+
+2
+00:00:09,890 --> 00:00:17,570
+so learning outcomes are understand some of the limits of get ignore data files and know some additional tools to look out for managing data files.
+
+3
+00:00:17,570 --> 00:00:24,110
+So it gets very good at tracking modestly sized files, far smaller than the few megabytes and text files.
+
+4
+00:00:24,110 --> 00:00:30,770
+It's not so good for binary files or large files, especially large binary files.
+
+5
+00:00:30,770 --> 00:00:34,580
+It also has some difficulties with files that are hard to emerge, such as notebooks.
+
+6
+00:00:34,580 --> 00:00:38,900
+A notebook is stored in text, but its text is a lot of Jason merging.
+
+7
+00:00:38,900 --> 00:00:47,660
+All of that is really touchy and easy to get wrong. And so it requires a little special care when you commit your notebooks to get really good idea.
+
+8
+00:00:47,660 --> 00:00:54,950
+Get Hub lets you view them in line on online, but you have to take a little care if you're going to be needing to be merging them.
+
+9
+00:00:54,950 --> 00:00:59,270
+So first, is it a data science project? We often ignore more files.
+
+10
+00:00:59,270 --> 00:01:06,020
+So a lot of heads, the data files, input files, intermediate files, large output files, all of those are going to ignore.
+
+11
+00:01:06,020 --> 00:01:13,880
+So we're going to have ignore lines for CFS fees. Yes, Fijis. We're usually going to keep the notebooks, quite possibly other documents,
+
+12
+00:01:13,880 --> 00:01:19,370
+and that may involve keeping outputs like the notebook source, the source code and the output in the notebook file.
+
+13
+00:01:19,370 --> 00:01:22,920
+We may also store other notebook outputs, etc. and get just that.
+
+14
+00:01:22,920 --> 00:01:29,250
+We you can view the results without having to rerun everything when you check out the get repository.
+
+15
+00:01:29,250 --> 00:01:33,780
+So but for dealing with these large input files, you've got your input file, it's maybe two gigabytes.
+
+16
+00:01:33,780 --> 00:01:39,000
+You're going to create a few hundred megabytes of output. There's a few methods.
+
+17
+00:01:39,000 --> 00:01:48,120
+One is that you can just expect anyone working with the repository to recreate all the intermediate output files.
+
+18
+00:01:48,120 --> 00:01:54,240
+So you ignore all of your data files. You include either a script or instructions on how to fetch the input data.
+
+19
+00:01:54,240 --> 00:01:58,870
+Maybe it's a script that downloads data from a database or fetches it from a Web site.
+
+20
+00:01:58,870 --> 00:02:03,630
+Then you have scripts that reproduce the intermediate files. You've documented how to run them.
+
+21
+00:02:03,630 --> 00:02:11,310
+The read me is a very good place to do this. You may commit outputs or summaries of the files.
+
+22
+00:02:11,310 --> 00:02:17,550
+You may save the results into a database or shared repository. But if the analysis is relatively cheap, this can work well.
+
+23
+00:02:17,550 --> 00:02:26,280
+Fetch the project. Make sure you have the current input data rerun. But if the data is not so cheap.
+
+24
+00:02:26,280 --> 00:02:29,480
+If you've got processes that can take a while to run in there,
+
+25
+00:02:29,480 --> 00:02:33,860
+then you also want people to be able to get copies of the intermediate and output files.
+
+26
+00:02:33,860 --> 00:02:41,180
+Maybe you've got a classification model that takes four hours to train.
+
+27
+00:02:41,180 --> 00:02:42,800
+What you can do then is you can, again,
+
+28
+00:02:42,800 --> 00:02:49,850
+ignore your data files and you can include scripts that fetch both the current in inputs and intermediate files from another server.
+
+29
+00:02:49,850 --> 00:02:56,310
+Maybe it's a file share on your network. Maybe it's an Amazon s three server or Buckett.
+
+30
+00:02:56,310 --> 00:03:04,210
+And then you could also include include scripts to update inputs of you update the input files, you update the intermediate files.
+
+31
+00:03:04,210 --> 00:03:08,670
+Sort of the current versions on the other server. You might again commit your outputs.
+
+32
+00:03:08,670 --> 00:03:12,450
+You might commit information about the versions of your intermediate files.
+
+33
+00:03:12,450 --> 00:03:18,180
+You can do this just by writing about just scripts yourself, or you can use this tool that does a lot of it for you.
+
+34
+00:03:18,180 --> 00:03:24,450
+I take this approach to a lot of my own work using a tool called Data Version Control, but I'll talk more about later.
+
+35
+00:03:24,450 --> 00:03:32,880
+And then the third method is to use get large file storage, so large file storage is a system for managing large media files.
+
+36
+00:03:32,880 --> 00:03:38,730
+And it looks like they're committed when you're working with it and get it just. They act like any other file that's committed to get.
+
+37
+00:03:38,730 --> 00:03:45,090
+It's just that all that actually gets committed to get as a short stub that says what the contents are supposed to be.
+
+38
+00:03:45,090 --> 00:03:52,410
+And the actual file content gets stored in a separate server, get ELA fast, pushes and pulls that other content to this separate server.
+
+39
+00:03:52,410 --> 00:03:57,720
+And when you check out every places the stub with the actual contents, you have the large file.
+
+40
+00:03:57,720 --> 00:04:03,480
+It works great for big files. You can commit output. You might want up committing outputs if you use this.
+
+41
+00:04:03,480 --> 00:04:07,380
+And if you change it and you recreate your new output files and re push.
+
+42
+00:04:07,380 --> 00:04:14,940
+One of the one caveat to this or one of the caveats to this is that if you use if you can run your own get hosting,
+
+43
+00:04:14,940 --> 00:04:18,780
+you can run your own get out fast hosting server. All the storage you want.
+
+44
+00:04:18,780 --> 00:04:27,510
+But if you use GitHub, their default accounts have limited space and bandwidth and the pricing on expanding that can go up relatively quickly.
+
+45
+00:04:27,510 --> 00:04:38,310
+And so it's often not terribly cost effective. You get L-A fast and GitHub for a lot of large data science files, but get off as is an option.
+
+46
+00:04:38,310 --> 00:04:43,230
+So I want to talk just a little bit about notebooks. As I said, notebooks are taxed, but they're complex, Jason.
+
+47
+00:04:43,230 --> 00:04:48,390
+It's hard to compare and merge them. Also, they change. You run like you rewrite. It changes the images.
+
+48
+00:04:48,390 --> 00:04:53,790
+It might be bit forbid, identical. It might be running with a slightly different version of the software.
+
+49
+00:04:53,790 --> 00:05:05,260
+So it compresses differently. Also, it has it the Jew Jupiter stores like how many times each cell has been executed in the Jason.
+
+50
+00:05:05,260 --> 00:05:07,970
+So there's roughly two solutions for dealing this.
+
+51
+00:05:07,970 --> 00:05:17,030
+This one is just committee's normal merge by taking one version or like often merged by taking one version or another or doing manual merges.
+
+52
+00:05:17,030 --> 00:05:23,740
+There's a tool called NDB Dime Notebook. Different merge. That gives you support for actually merging notebooks.
+
+53
+00:05:23,740 --> 00:05:29,560
+It's a little weird, but it does work. I have used it successfully. Also, you can coordinate, notebook, edit.
+
+54
+00:05:29,560 --> 00:05:36,220
+So if you if you're a small pool of collaborators, you can just coordinate, send a message on slack, say hey.
+
+55
+00:05:36,220 --> 00:05:40,470
+I'm really working on this and hoping for a little while. Maybe don't change it, we'd have emerged problem.
+
+56
+00:05:40,470 --> 00:05:49,250
+You're done. You push it and then the others just stay away. It kind of breaks a little bit of the bird Frehley with get because it's easy.
+
+57
+00:05:49,250 --> 00:05:51,330
+But notebooks are a little hard to merge.
+
+58
+00:05:51,330 --> 00:05:58,590
+Another option that doesn't fully fix the problem but makes it merges easier is to only commit the notebook without outputs.
+
+59
+00:05:58,590 --> 00:06:05,250
+And so there's a program called NDB Strip Out that strips the output from a notebook content.
+
+60
+00:06:05,250 --> 00:06:10,890
+You can wire it into gets that anytime you commit. You still have the outputs in the version you're working free.
+
+61
+00:06:10,890 --> 00:06:19,380
+But the version that actually gets committed, it's like you ran clear all cells before saving and that can decrease the amount of conflict
+
+62
+00:06:19,380 --> 00:06:23,760
+because the only thing that changes your textual descriptions and your source code,
+
+63
+00:06:23,760 --> 00:06:28,980
+they're both options. I tend, which when I use really depends on which project I'm working on.
+
+64
+00:06:28,980 --> 00:06:35,110
+A lot of my projects I commit as normal and use NDB dime. If I have a notebook murd situation.
+
+65
+00:06:35,110 --> 00:06:38,880
+So wrap up. Gil works great for data science but requires a few tricks.
+
+66
+00:06:38,880 --> 00:06:43,200
+You need to be thoughtful in how you handle data, notebooks, things like that, and get works great.
+
+67
+00:06:43,200 --> 00:06:52,367
+But there's a few things you need to pay attention to. Notebooks can be a little annoying.
+

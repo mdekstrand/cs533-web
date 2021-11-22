@@ -2,7 +2,7 @@
 
 The purpose of Assignment 3 is to give you experience integrating data from multiple sources to explore a two-variable question.
 
-It is due **October 10, 2020** at the end of the day (11:59 PM). Submit your `.ipynb` and PDF files to Canvas.
+It is due **October 10, 2020** at the end of the day (11:59 PM). Submit your `.ipynb` and PDF files to {{LMS}}.
 
 :::{note}
 This assignment is not structured step-by-step like the first two.  I describe the data, and the questions you need to answer,

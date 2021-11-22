@@ -1,0 +1,72 @@
+1
+00:00:02,630 --> 00:00:06,740
+We're now at the end of the semester. I hope that you've learned a lot.
+
+2
+00:00:06,740 --> 00:00:16,320
+I have hope that you found the time that we've spent together to be educational, to be enjoyable.
+
+3
+00:00:16,320 --> 00:00:22,020
+We just have the final exam and turning in your last assignment left to go.
+
+4
+00:00:22,020 --> 00:00:24,810
+I have greatly enjoyed the time that you have spent together.
+
+5
+00:00:24,810 --> 00:00:31,830
+I have enjoyed learning from you as well for the comments and the questions that you asked through I read in your work.
+
+6
+00:00:31,830 --> 00:00:36,660
+Effective teaching is not a one to bet as want, not a one directional thing.
+
+7
+00:00:36,660 --> 00:00:40,290
+But I hope that always in the classroom that we learn from each other.
+
+8
+00:00:40,290 --> 00:00:43,830
+As I've said a few times, I'm hoping to use a lot of this material in the future.
+
+9
+00:00:43,830 --> 00:00:48,450
+So if you have feedback for how to make that more effective, for how to make good use of it,
+
+10
+00:00:48,450 --> 00:00:54,420
+for improvements that I should consider making to the material, to the core structure, I would love to hear it.
+
+11
+00:00:54,420 --> 00:01:01,110
+I've created a field for that in the course evaluation form. You could also email me or you can post it on Piazza.
+
+12
+00:01:01,110 --> 00:01:09,360
+I also hope that I'll see many of you in classes in the future. As I said before, I am teaching the recommender systems class in the spring.
+
+13
+00:01:09,360 --> 00:01:18,390
+I would love to have you in that class. I also hope to meet some of you in person, those who I haven't met before.
+
+14
+00:01:18,390 --> 00:01:26,160
+Once the university is able to return to instruction, to in-person instruction, hopefully sometime next year.
+
+15
+00:01:26,160 --> 00:01:31,410
+Please keep in touch. You know how to get in contact with me if you need input on data science.
+
+16
+00:01:31,410 --> 00:01:36,930
+If you need input on how to structure, navigate your academic career.
+
+17
+00:01:36,930 --> 00:01:45,210
+I'm happy to talk with you. I hope that you have a good close to the semester as you take your final exams and
+
+18
+00:01:45,210 --> 00:01:58,027
+that you get some rest over break and have a good rest of your academic year.
+

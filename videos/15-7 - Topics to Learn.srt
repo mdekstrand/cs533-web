@@ -1,0 +1,252 @@
+1
+00:00:04,670 --> 00:00:11,150
+So you've learned a lot this semester, I hope this video I want to talk with you some briefly overview,
+
+2
+00:00:11,150 --> 00:00:16,130
+some more things to go learn and give you pointers to places where you might be able to go learn them,
+
+3
+00:00:16,130 --> 00:00:21,740
+learning outcomes or which you used to know some topics and some software to study for expanding your data science skills.
+
+4
+00:00:21,740 --> 00:00:26,810
+You do not need to study all of this to be a competent data scientist, but also to have some input,
+
+5
+00:00:26,810 --> 00:00:32,690
+some data points to be able to help select the classes you want to take to complete your graduate degree.
+
+6
+00:00:32,690 --> 00:00:37,310
+So to learn more about machine learning and statistics, we've just introduced the basics.
+
+7
+00:00:37,310 --> 00:00:46,100
+As I said early in the semester, basically every almost every week of this class could be an entire class on its own.
+
+8
+00:00:46,100 --> 00:00:48,920
+So six, five thirty for the machine learning class.
+
+9
+00:00:48,920 --> 00:00:54,410
+You're going to learn a lot more about different machine learning models, how to build them, how to optimize them, how to evaluate them.
+
+10
+00:00:54,410 --> 00:00:59,080
+We've learned that the concepts, what they do, what they are, how a couple of them work.
+
+11
+00:00:59,080 --> 00:01:05,330
+534 is going to teach you a lot more about the insides of machine learning model math, 562 probability and statistics, too.
+
+12
+00:01:05,330 --> 00:01:09,710
+If you want to learn a lot more about statistical inference, that class will teach you five.
+
+13
+00:01:09,710 --> 00:01:16,490
+Seventy two is going to teach you a lot more about computational sides of statistics, particularly a lot of simulation things,
+
+14
+00:01:16,490 --> 00:01:23,240
+Monte Carlo simulations that are useful, the kinds of things you do with simulation, the kinds of things you're doing with bootstrapping.
+
+15
+00:01:23,240 --> 00:01:27,410
+That class is going to go into a lot more detail on Time series analysis.
+
+16
+00:01:27,410 --> 00:01:30,580
+If you want to learn a lot more about that, we have an entire class on it.
+
+17
+00:01:30,580 --> 00:01:38,600
+If you want to learn more about working with text to key topics, to be looking at our natural language processing and information retrieval,
+
+18
+00:01:38,600 --> 00:01:43,930
+computer science class has a department, has classes on both of those.
+
+19
+00:01:43,930 --> 00:01:50,960
+For working on specific application areas, if you want to do work on social media, you can take CSI 539, the social media mining class.
+
+20
+00:01:50,960 --> 00:01:54,360
+If you want to do work on information retrieval, we have two classes on it.
+
+21
+00:01:54,360 --> 00:02:01,870
+Five thirty seven, which is the how information retrieval works in six thirty seven, which is an advanced research class on information retrieval.
+
+22
+00:02:01,870 --> 00:02:07,480
+If you want to one about recommendation and personalization, you can take C.S. 538,
+
+23
+00:02:07,480 --> 00:02:14,410
+which discusses how to build recommended building, evaluate recommender systems to recommend products to people.
+
+24
+00:02:14,410 --> 00:02:21,490
+Software engineering skills are really useful for be able to take data to take your data science and connect it into product.
+
+25
+00:02:21,490 --> 00:02:29,770
+So to that end there, CSPI 73, the advanced software engineering class, it's useful for learning the process of software engineering.
+
+26
+00:02:29,770 --> 00:02:35,800
+It's also studying programing practices in software engineering in general on your own and practicing practice,
+
+27
+00:02:35,800 --> 00:02:45,100
+practice, practice, write code, do modeling, build web applications around or build applications around your data science analysis that you're doing,
+
+28
+00:02:45,100 --> 00:02:49,270
+but also then reflect and think about things as you write code.
+
+29
+00:02:49,270 --> 00:02:54,820
+Think is this readable? How can I learn? What do I know? What could I do to try to make this more readable, more efficient?
+
+30
+00:02:54,820 --> 00:03:00,820
+What do I think I need to go learn in order to expand my ability to do that advanced machine learning.
+
+31
+00:03:00,820 --> 00:03:06,490
+So we have a class on deep learning. See a six thirty three also learning software.
+
+32
+00:03:06,490 --> 00:03:13,600
+So Tensor Flow, Pi Torch are both useful for each useful pieces of software to learn to go beyond what you can do in Saikat learn.
+
+33
+00:03:13,600 --> 00:03:18,340
+And they are often associated with deep learning and they're used extensively for deep learning.
+
+34
+00:03:18,340 --> 00:03:27,370
+But they're not just deep learning packages. What they really are is it is very effective optimization engines that are useful for
+
+35
+00:03:27,370 --> 00:03:32,860
+modular differentiable like you set up a differentiable model and they optimize it.
+
+36
+00:03:32,860 --> 00:03:36,730
+So a lot of those models are deep neural nets. But there's a lot of other kinds of models.
+
+37
+00:03:36,730 --> 00:03:41,770
+I've used a tensor flow, for example, to build advanced matrix factorization.
+
+38
+00:03:41,770 --> 00:03:43,300
+There's nothing neural going on.
+
+39
+00:03:43,300 --> 00:03:49,780
+It's just a matrix composition, but it's taking advantage of tensor flows optimizers to build a recommendation engine around that.
+
+40
+00:03:49,780 --> 00:03:56,020
+And so either Tenzer flow or PI Torture's very useful software as you're trying to build your own machine learning models.
+
+41
+00:03:56,020 --> 00:04:04,840
+And it's a lot easier to use one of those pieces of software than to build your entire optima, your own optimizer from scratch.
+
+42
+00:04:04,840 --> 00:04:11,290
+I personally do a lot of work with Bayesian inference. That's a useful statistical paradigm and philosophy to learn.
+
+43
+00:04:11,290 --> 00:04:14,260
+Unfortunately, we don't have a class here that teaches it really.
+
+44
+00:04:14,260 --> 00:04:25,670
+But the books, Statistical Rethinking by Richard McIlwraith is a good book for learning that also software standard software is really good for doing.
+
+45
+00:04:25,670 --> 00:04:28,390
+It used a lot for Bayesian inference. That's not the only thing you can do.
+
+46
+00:04:28,390 --> 00:04:32,600
+It's useful for a lot of scenarios where you're trying to do what it is, isn't it?
+
+47
+00:04:32,600 --> 00:04:38,020
+It's it allows you to draw from arbitrarily complex distribution, not arbitrarily complex,
+
+48
+00:04:38,020 --> 00:04:42,070
+but allows you to draw from complex distributions connected to data.
+
+49
+00:04:42,070 --> 00:04:48,940
+PMC three, a similar software that works directly in Python Stand, has a good bridge to Python as well.
+
+50
+00:04:48,940 --> 00:04:53,830
+It's also really useful to learn causal inference and we don't have a dedicated causal inference class.
+
+51
+00:04:53,830 --> 00:05:00,130
+But you will learn a lot of causal material in the advanced econometrics class, in the economics department.
+
+52
+00:05:00,130 --> 00:05:06,640
+Also, there's the book counterfactuals and causal inference that you may wish to read and ordered learn causal inference techniques.
+
+53
+00:05:06,640 --> 00:05:12,190
+If you want to learn more about critical perspectives on data science, it's a variety of resources I can point you to.
+
+54
+00:05:12,190 --> 00:05:19,270
+So the book data feminism that I listed in the Class Resources is a good primer on critical thinking on data.
+
+55
+00:05:19,270 --> 00:05:24,760
+There's also if you want to get an example of some of the kinds of things that critical data scholars think about.
+
+56
+00:05:24,760 --> 00:05:27,810
+There's a short little book called Data Now Bigger and Better.
+
+57
+00:05:27,810 --> 00:05:37,840
+That is a selection of essays on data from a critical and a particularly from an anthropological perspective.
+
+58
+00:05:37,840 --> 00:05:40,150
+Also, if you want to learn more,
+
+59
+00:05:40,150 --> 00:05:49,210
+if you want to learn more about the underlying philosophies and mechanisms by which science in general, not just data science works,
+
+60
+00:05:49,210 --> 00:05:55,510
+Sergius is Mondo's introduction to science and technology studies is very good and a keyword that you can go look for to find much,
+
+61
+00:05:55,510 --> 00:06:04,220
+much more reading as critical data studies. So to wrap up, this class has laid a foundation for you to integrate further knowledge.
+
+62
+00:06:04,220 --> 00:06:13,640
+Never stop learning new things. There is so much more to learn as a student and as a practitioner to be able to do good and effective data science
+
+63
+00:06:13,640 --> 00:06:25,544
+and bring data to bear on questions that you have and decisions that you or your organization needs to make.
+

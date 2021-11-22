@@ -24,7 +24,7 @@ Our learning outcomes are:
 
 ## {{mnotebook}} Assignment 1 Solution
 
-I will post the Assignment 1 solution to Canvas (sorry, I'm not posting it to the entire Internet).
+I will post the Assignment 1 solution to {{LMS}} (sorry, I'm not posting it to the entire Internet).
 
 ## {{mdoc}} Course Glossary
 

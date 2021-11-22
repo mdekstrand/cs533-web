@@ -4,7 +4,7 @@ The purpose of Assignment 2 is to practice data processing, visualization, and
 inference using the [HETREC Movie](https://grouplens.org/datasets/hetrec-2011/)
 data we have been using for examples in class.
 
-It is due **September 26, 2020** at the end of the day (11:59 PM). Submit your `.ipynb` and PDF files to Canvas.
+It is due **September 26, 2020** at the end of the day (11:59 PM). Submit your `.ipynb` and PDF files to {{LMS}}.
 
 ## Revision Log
 

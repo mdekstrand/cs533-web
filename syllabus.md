@@ -33,7 +33,7 @@ In-Person Schedule
 
 Course Website
 :   <https://cs533.ekstrandom.net/F21/>
-:   Canvas (private links, grades, and assignments)
+:   {{LMS}} (private links, grades, and assignments)
 
 Course Discussion
 :   Piazza
@@ -201,7 +201,7 @@ you to contribute to the team quiz and work.
 
 ### Quizzes
 
-There is a short weekly **individual quiz** in Canvas, due before class on Thursday (at 8AM, so I
+There is a short weekly **individual quiz** in {{LMS}}, due before class on Thursday (at 8AM, so I
 can look at results before class), on the readings and videos.  The purpose of these quizzes is to
 help make sure you are prepared for applying the material, and to give both you and I early and
 frequent checks on your understanding.

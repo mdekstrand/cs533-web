@@ -1,0 +1,312 @@
+1
+00:00:04,630 --> 00:00:09,430
+This video, I want to talk with you a little bit about what you some of the things you need to consider in the
+
+2
+00:00:09,430 --> 00:00:15,400
+design patterns in order to be able to take your data science results and then put them in production.
+
+3
+00:00:15,400 --> 00:00:20,020
+So the learning outcomes are for you to understand how data science outcomes can be used in
+
+4
+00:00:20,020 --> 00:00:25,150
+business settings and think about what you need to do to put models and outcomes into production.
+
+5
+00:00:25,150 --> 00:00:28,210
+So variety of purposes, data science, conservative business.
+
+6
+00:00:28,210 --> 00:00:34,360
+We can use data driven reports to inform decisions we can do forecasting for internal purposes to inform internal decision making,
+
+7
+00:00:34,360 --> 00:00:35,980
+internal planning purposes.
+
+8
+00:00:35,980 --> 00:00:47,140
+We can also have data set out science outputs for Real-Time, decisions either internal for making internal business decisions or customer facing.
+
+9
+00:00:47,140 --> 00:00:50,830
+Part of your e-commerce platform, providing recommendations, doing fraud detection,
+
+10
+00:00:50,830 --> 00:00:58,150
+various things in order to make your customer product, your customer experience, work smoothly.
+
+11
+00:00:58,150 --> 00:01:01,690
+So one of the first things is that reproducibility is crucial.
+
+12
+00:01:01,690 --> 00:01:07,870
+If you've got if you've maybe if you're running regular forecasts of future business activity or future demands,
+
+13
+00:01:07,870 --> 00:01:12,040
+you can do inventory planning to be able to rerun those reports.
+
+14
+00:01:12,040 --> 00:01:20,140
+You need to have a reproducible pipeline so you can rerun this week's report quickly and easily without having to do a bunch of manual labor.
+
+15
+00:01:20,140 --> 00:01:28,060
+You also need if you're if you have something that's online, making online decisions, you need to be able to retrain it as new data comes in.
+
+16
+00:01:28,060 --> 00:01:34,000
+So for online use, we're building an app or building a data science product that's going to be making decisions
+
+17
+00:01:34,000 --> 00:01:38,500
+in an online fashion as as new users come in or as new decision requirements come in.
+
+18
+00:01:38,500 --> 00:01:43,780
+There's a variety of modalities for delivering. It might be a Web app, a mobile app, a desktop app.
+
+19
+00:01:43,780 --> 00:01:52,090
+It might be something that just lives in server side infrastructure, like the spam filter that's built into email, infrastructure, etc.
+
+20
+00:01:52,090 --> 00:01:59,170
+But in terms of the technology structures, there are some exceptions. But mobile and desktop apps often use Web technology to connect to models.
+
+21
+00:01:59,170 --> 00:02:02,740
+So even if you're targeting mobile apps, even if you're targeting desktop apps,
+
+22
+00:02:02,740 --> 00:02:10,060
+learning to build Web based services for data science outputs is going to be a really useful skill.
+
+23
+00:02:10,060 --> 00:02:17,890
+Multiple audiences can try to use these. You might have an internal recording dashboard that talks about your customer volume or it talks about the
+
+24
+00:02:17,890 --> 00:02:26,740
+throughput on your assembly line or other aspects of the of the functioning and health of of your factory setting.
+
+25
+00:02:26,740 --> 00:02:31,420
+You can use it for internal decision making and then also either to help your customers make
+
+26
+00:02:31,420 --> 00:02:35,920
+decisions or as you're making decisions about your customers in an online interactive setting.
+
+27
+00:02:35,920 --> 00:02:42,570
+So one architecture that's common for these kinds of applications is what's called a service oriented architecture.
+
+28
+00:02:42,570 --> 00:02:50,800
+And what a service oriented architecture means is that your infrastructure is split in the different services, different individual pieces.
+
+29
+00:02:50,800 --> 00:02:55,210
+So you've got a Web server and you're your customers or your users come in with a computer,
+
+30
+00:02:55,210 --> 00:03:00,790
+with Web browser, maybe with a mobile platform, talks to a Web server that serves up the application.
+
+31
+00:03:00,790 --> 00:03:03,980
+The mobile, the mobile platform might talk directly to backend.
+
+32
+00:03:03,980 --> 00:03:10,630
+Then the Web server talks of various other services in order to complete in order to fill out.
+
+33
+00:03:10,630 --> 00:03:13,870
+It's the user experience.
+
+34
+00:03:13,870 --> 00:03:20,830
+Those services then go and they get data from various databases in your back end in order to serve up the responses to the requests.
+
+35
+00:03:20,830 --> 00:03:24,250
+So a lot of organizations use this.
+
+36
+00:03:24,250 --> 00:03:27,130
+Amazon uses service oriented architectures extensively.
+
+37
+00:03:27,130 --> 00:03:32,620
+So when you go to a page on Amazon.com, there's one service that's providing product details and other services,
+
+38
+00:03:32,620 --> 00:03:37,630
+providing people also bought recommendation and other services handling the shopping cart.
+
+39
+00:03:37,630 --> 00:03:46,720
+And so each of these services are working and are working independently and the Web server is putting them together into a composite experience.
+
+40
+00:03:46,720 --> 00:03:54,070
+So from a data science perspective, a lot of what happening is you need two pieces, you need a UI.
+
+41
+00:03:54,070 --> 00:03:58,840
+And in the Web server, it might the UI might come from the service itself,
+
+42
+00:03:58,840 --> 00:04:05,110
+but you need a user interface component and then you need the service itself is going to serve up the data science.
+
+43
+00:04:05,110 --> 00:04:08,680
+Usually it's going to be some kind of a prediction.
+
+44
+00:04:08,680 --> 00:04:15,820
+It's going to serve up the results of running the model that you've trained, the machine learning model that you've built and trained on the new data.
+
+45
+00:04:15,820 --> 00:04:20,410
+To answer that particular request. So a lot of your work is going to be building up service.
+
+46
+00:04:20,410 --> 00:04:22,290
+And one way to design it.
+
+47
+00:04:22,290 --> 00:04:29,230
+And this goes well with the service oriented architecture is each different model that you have can live in a different service.
+
+48
+00:04:29,230 --> 00:04:33,680
+So to deploy, the predictions are made available with a Web service like your Web server.
+
+49
+00:04:33,680 --> 00:04:39,850
+Might it you might use other things. You might use something like zero MQ or some other or thrift our or some other RBOC
+
+50
+00:04:39,850 --> 00:04:45,580
+protocol or you might use it HDP rest API for the Web server to talk to these services.
+
+51
+00:04:45,580 --> 00:04:49,690
+One example is tensor flow serving if you're building your machine learning model with Tenzer flow.
+
+52
+00:04:49,690 --> 00:04:59,910
+There's a program called Tensor Flow Serving that allows you to upload your saved model and and service requests based on that model.
+
+53
+00:04:59,910 --> 00:05:05,410
+So you got to train the model offline and other hardware so that your your online system can just keep running.
+
+54
+00:05:05,410 --> 00:05:07,480
+You're not using it. C.P.E. power to train the model.
+
+55
+00:05:07,480 --> 00:05:14,620
+It's just dedicated for serving up responsive, serving up recommendations, making decisions about new incoming messages, etc.
+
+56
+00:05:14,620 --> 00:05:19,830
+On other hardware, you train your model on your model you like, you save that train model to disk somehow.
+
+57
+00:05:19,830 --> 00:05:26,920
+Well, or you might actually upload the model directly. Some have a model server, but you save it somehow and you make it available to the service,
+
+58
+00:05:26,920 --> 00:05:32,140
+which will then reload the model and start serving up predictions from the new model that you just trained.
+
+59
+00:05:32,140 --> 00:05:37,210
+So a few useful capabilities for building out this kind of infrastructure are to be able to train
+
+60
+00:05:37,210 --> 00:05:42,440
+models and live or freshly exported data CENI be able to get your current data from the database.
+
+61
+00:05:42,440 --> 00:05:47,560
+So you've got all the current customer transactions and then you train your statistical model on them.
+
+62
+00:05:47,560 --> 00:05:50,290
+Part of that process, it's useful to be able to hold out test status.
+
+63
+00:05:50,290 --> 00:05:56,980
+You can train this model, you can test it again before you to fly it to make sure you didn't accidentally train a model that performs badly.
+
+64
+00:05:56,980 --> 00:06:02,770
+It can be useful to version your models so that you have the ability, particularly in the rollback to old model version.
+
+65
+00:06:02,770 --> 00:06:11,020
+Maybe you train the model, you test the model. It doesn't work. You and you find out you can put it in production and suddenly your spam filter
+
+66
+00:06:11,020 --> 00:06:15,610
+metrics change to be able to as a stopgap rollback to the previously train model.
+
+67
+00:06:15,610 --> 00:06:24,730
+So you can then go figure out what went wrong with your model without leaving your customers at the new bad experience.
+
+68
+00:06:24,730 --> 00:06:29,500
+The exact details of this depend a lot on your institution, your product, your infrastructure.
+
+69
+00:06:29,500 --> 00:06:34,870
+But these are some of the things that you need to be able to keep in mind skills that are useful to learn in order to build this.
+
+70
+00:06:34,870 --> 00:06:41,350
+So Web back end programing to build the service web front end programing, you know, better build dashboards to build the user interface.
+
+71
+00:06:41,350 --> 00:06:47,710
+It's pieces that are going to make your service visible and available to users in some organizations
+
+72
+00:06:47,710 --> 00:06:51,310
+that kids are going to be handled by other people on your team or by a completely different team.
+
+73
+00:06:51,310 --> 00:06:53,050
+But in some many cases, it can be useful.
+
+74
+00:06:53,050 --> 00:07:00,790
+You at least need to be able to talk with those people and then also be able to do performance measurement and tuning to understand.
+
+75
+00:07:00,790 --> 00:07:06,250
+To be able to debug if your model's performing too slowly. So to wrap up many data science projects,
+
+76
+00:07:06,250 --> 00:07:13,450
+result in online production capabilities is often done by training a model and deploying as a Web services or some other kind of network service.
+
+77
+00:07:13,450 --> 00:07:16,900
+And it's useful to be able to learn at least some of the skills in order to do that,
+
+78
+00:07:16,900 --> 00:07:28,632
+or at least be able to talk with the other folks in your organization that are handling that deployment and monitoring.
+

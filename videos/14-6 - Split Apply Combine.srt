@@ -1,0 +1,276 @@
+1
+00:00:04,760 --> 00:00:11,570
+This video, we're going to talk about another pattern that's useful in building our data science pipelines, split, apply, combine.
+
+2
+00:00:11,570 --> 00:00:13,100
+We've actually already seen it a little bit,
+
+3
+00:00:13,100 --> 00:00:20,280
+but we're going to talk about the split of I can apply combine a pattern as a general pattern to analyze and transform data.
+
+4
+00:00:20,280 --> 00:00:26,580
+And so you've seen group by we we group some ratings by movie idee and then we
+
+5
+00:00:26,580 --> 00:00:32,430
+count the user I.D. group by is how you do split a fly combine and pandas and
+
+6
+00:00:32,430 --> 00:00:38,040
+we split the data by movie I.D. We apply the Operation Count user I.D. and then
+
+7
+00:00:38,040 --> 00:00:41,850
+we combine the results into a data frame or a series of movie rating counts.
+
+8
+00:00:41,850 --> 00:00:47,310
+This is another pattern and it's a pattern that does have direct computational support.
+
+9
+00:00:47,310 --> 00:00:49,260
+If you can fit your data in the split, apply.
+
+10
+00:00:49,260 --> 00:00:56,130
+Combine that pandas will take care of a lot of the bookkeeping for you in order to do a complex data transformation.
+
+11
+00:00:56,130 --> 00:01:05,900
+So the split stage, so partition splits or partitions, a data frame into subsets grouped by as how you do this in pandas.
+
+12
+00:01:05,900 --> 00:01:09,270
+So you give it a column and it's going to group by distinct values of that column.
+
+13
+00:01:09,270 --> 00:01:16,020
+If you want to do something like group by a range of values, then you would create another column that has the original values rounded,
+
+14
+00:01:16,020 --> 00:01:22,650
+that each range is represented by one value and then you can group by that. Each group results in a data frame.
+
+15
+00:01:22,650 --> 00:01:30,900
+You can see this if you iterate over a group by. So if you just for X or in group by data, frame that group by a column.
+
+16
+00:01:30,900 --> 00:01:34,780
+Then you're going to get a tuple of a grouping key.
+
+17
+00:01:34,780 --> 00:01:39,440
+There's a distinct set of values that indicate that of your gripping columns that defined that group.
+
+18
+00:01:39,440 --> 00:01:45,520
+And then a data frame that is the subset of the original data frame containing the entries for that group.
+
+19
+00:01:45,520 --> 00:01:52,020
+You then have the apply stage and the name, this name comes from programing languages, programing, language theory where you call flunked.
+
+20
+00:01:52,020 --> 00:01:58,390
+You apply a function to data is what you call it when you call a function. And pandas provide several ways to do apply.
+
+21
+00:01:58,390 --> 00:02:04,570
+One is AG. We've seen this many times. You at aggregate function and aggregate function returns a single value.
+
+22
+00:02:04,570 --> 00:02:09,400
+A transform applies a one to one operation. So the output size matches the input size.
+
+23
+00:02:09,400 --> 00:02:16,120
+If it gets 20 rows, it will be turned 20 rows means entering data would be an example of a trend or subtracting a value.
+
+24
+00:02:16,120 --> 00:02:22,450
+Be an example of a transform. So you could make a split of all I combined.
+
+25
+00:02:22,450 --> 00:02:23,620
+That means center's data.
+
+26
+00:02:23,620 --> 00:02:30,160
+By using transform compute, it takes a series, computes the mean of the series and that subtracts the mean from all the values and returns.
+
+27
+00:02:30,160 --> 00:02:35,230
+The result that's gonna be a transform apply applies an arbitrary function that
+
+28
+00:02:35,230 --> 00:02:38,890
+can return anything and maybe turn a value a series and maybe turn a data frame.
+
+29
+00:02:38,890 --> 00:02:45,370
+The only thing is that if we should return the same type for every partition, it shouldn't return of value sometimes in a series others.
+
+30
+00:02:45,370 --> 00:02:50,230
+It always needs to return the same kind of thing, but it can do any of the above.
+
+31
+00:02:50,230 --> 00:02:56,080
+If you know you have an aggregate right transform, it's better to use that it's a little more efficient.
+
+32
+00:02:56,080 --> 00:03:00,880
+Pandas actually called the apply function twice on the first group.
+
+33
+00:03:00,880 --> 00:03:07,270
+The first time to figure out what kind of value it's going to get. And then it goes and does the apply to all of the groups combined.
+
+34
+00:03:07,270 --> 00:03:11,270
+Then you've split the data into partitions. You've applied some operation to each partition.
+
+35
+00:03:11,270 --> 00:03:17,830
+Combine combines the results back into a final data structure. So if you're if your apply stamp returns of value,
+
+36
+00:03:17,830 --> 00:03:25,870
+then pandas combine is going to give you the combined stage of pandas is going to give you a series that's indexed by the group in columns.
+
+37
+00:03:25,870 --> 00:03:28,480
+If you're if you return to a series from the aggregate,
+
+38
+00:03:28,480 --> 00:03:34,300
+then you're going to get a series that is that indexed by grouping columns and the index of the result series.
+
+39
+00:03:34,300 --> 00:03:38,800
+And then if you're a data frame, you're going to get a data frame that if you're apply return to data frame,
+
+40
+00:03:38,800 --> 00:03:45,850
+you're going to get a data frame that's indexed by grouping columns. And then the index of your result data frame.
+
+41
+00:03:45,850 --> 00:03:51,090
+Apply your fly data frame should generally return the same columns for every partition.
+
+42
+00:03:51,090 --> 00:03:58,320
+Now, why do you want. Why do we think about this in these terms? If you if you formulate your data in terms of split, apply combine.
+
+43
+00:03:58,320 --> 00:04:05,280
+Then first, you can pandas takes care of a lot of the bookkeeping. All you have to write is your apply stage and pandas will do everything else.
+
+44
+00:04:05,280 --> 00:04:09,180
+It's also easier to understand the code that you could write some loops to do some complex things.
+
+45
+00:04:09,180 --> 00:04:17,040
+But then you have to pass out what is the Sloup doing? If you write it in terms of split up like mine and then someone reading the code, oh,
+
+46
+00:04:17,040 --> 00:04:23,820
+this is applies a split of like a lineup combine operation and it's easier for them to understand what you're doing.
+
+47
+00:04:23,820 --> 00:04:29,730
+And split up play combined is not unique to pandas. Pandas implementation is with group by R has support for split apply,
+
+48
+00:04:29,730 --> 00:04:36,030
+combine many different platforms in many different environments, have support for some kind of split apply combine operation.
+
+49
+00:04:36,030 --> 00:04:42,060
+Also, it's trivial to paralyze because there's no reason you have to do the groups one after another.
+
+50
+00:04:42,060 --> 00:04:46,500
+You could apply to multiple groups and parallel pandas doesn't do this.
+
+51
+00:04:46,500 --> 00:04:50,980
+But the package called Dask provides an API that's very similar to pandas.
+
+52
+00:04:50,980 --> 00:04:53,940
+It is. Well, it's a subset of the Pandas API.
+
+53
+00:04:53,940 --> 00:05:01,830
+It does split apply combine and it can run your apply and multiple processes or on multiple machines in a cluster.
+
+54
+00:05:01,830 --> 00:05:07,680
+And by putting in a split, a fly combined paradigm, you can take advantage of that parallelism very easily.
+
+55
+00:05:07,680 --> 00:05:13,770
+Want to talk very, very briefly about a related paradigm that's also useful for parallelism in some contexts.
+
+56
+00:05:13,770 --> 00:05:20,970
+Pandas does not directly support it, but it's the basis of YouTube and it's called Map Reduce, where you define two operations.
+
+57
+00:05:20,970 --> 00:05:25,110
+Map transforms the data and an instance into key value pairs.
+
+58
+00:05:25,110 --> 00:05:30,930
+One or more or zero or more actually, and then reduce transforms key,
+
+59
+00:05:30,930 --> 00:05:37,770
+a key and then a set of values that key to a single value you might need to reduce multiple times
+
+60
+00:05:37,770 --> 00:05:44,850
+because it might it might get off of what I do as a map one but one machine do the mapping.
+
+61
+00:05:44,850 --> 00:05:52,310
+You reduce everything to the key. Isn't that machine to reduce. So you don't have to trance transmit as much data off the pipe.
+
+62
+00:05:52,310 --> 00:05:58,950
+And that can be done parallel across a very large scale systems. If we want to count ratings again, what we would do is in the map stage,
+
+63
+00:05:58,950 --> 00:06:07,290
+we would yield the movie I.D. and the number one and then the reduced stage, we would sum up the kouts, we're gonna sum up all of these ones.
+
+64
+00:06:07,290 --> 00:06:10,980
+And if one is the result of another reduced, it's going to we're gonna sum that up as well.
+
+65
+00:06:10,980 --> 00:06:15,480
+So this is not code for any particular mass-produced framework.
+
+66
+00:06:15,480 --> 00:06:21,390
+It's just to show you the flavor of how Mass-produced works. Example of another pattern where if you can make your code fit this pattern,
+
+67
+00:06:21,390 --> 00:06:28,050
+there exists tools to automate and enhance your use of this pattern, for example, by paralyzing.
+
+68
+00:06:28,050 --> 00:06:34,440
+So to wrap up the split, apply a combined pattern. Let's transform groups of data and fitting code into patterns like this,
+
+69
+00:06:34,440 --> 00:06:45,567
+improves the understand the biology modify ability and in some cases parallelism of our code.
+

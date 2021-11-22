@@ -144,7 +144,7 @@ If you would like to learn more, I recommend:
 
 ## {{mquiz}} Week 10 Quiz
 
-The Week 10 quiz will be posted to Canvas.
+The Week 10 quiz will be posted to {{LMS}}.
 
 ## {{mdoc}} Abolish the #TechToPrison Pipeline
 

@@ -98,9 +98,13 @@ class VideoDirective(SphinxDirective):
         if not key:
             key = make_id(self.env, self.state.document, 'video', name)
 
-        tgt_node = nodes.target('', '', ids=[video_id])
-        self.set_source_info(tgt_node)
-        result.append(tgt_node)
+        if video_id:
+            tgt_node = nodes.target('', '', ids=[video_id])
+            self.set_source_info(tgt_node)
+            result.append(tgt_node)
+        else:
+            w = self.state.reporter.error(f'Video name {name} has no video ID')
+            result.append(w)
 
         dom = self.env.get_domain('res')
         dom.note_video(key, video_id, name, length)
@@ -110,9 +114,6 @@ class VideoDirective(SphinxDirective):
 
         if video_id:
             box += rst_video_tab(video_id, length, amara=self._get_param('amara', 'Amara URL'))
-        else:
-            w = self.state.reporter.error(f'Video name {name} has no video ID')
-            result.append(w)
 
         slide_id = self._get_param('slide-id', 'Slide ID')
         if slide_id:

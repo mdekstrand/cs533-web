@@ -99,7 +99,7 @@ Make sure you have [installed the course software](../../resources/software.md) 
 
 ## {{mquiz}} Week 1 Quiz
 
-The Week 1 individual quiz (in Canvas) is due at **8am Thursday**.
+The Week 1 individual quiz (in {{LMS}}) is due at **8am Thursday**.
 It is only over material prior to this point.
 
 You will have **30 minutes** from when you start the quiz to complete it.

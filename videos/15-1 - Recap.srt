@@ -1,0 +1,256 @@
+1
+00:00:04,820 --> 00:00:12,230
+Welcome. This is the last week of CSI 533. I want to start us off by doing some recap of what we've learned this semester.
+
+2
+00:00:12,230 --> 00:00:18,830
+The point to where we're gonna go in the last week or so are learning outcomes for this week or to tie up the class content together.
+
+3
+00:00:18,830 --> 00:00:21,980
+Give you a brief summary of what we've done, how it fits into the broader,
+
+4
+00:00:21,980 --> 00:00:29,720
+how it forms a broader picture into which the further topics you're going to study throughout your graduate degree will fit.
+
+5
+00:00:29,720 --> 00:00:37,400
+We're also going to tie up a couple of loose ends. We're going to talk about time, serious operations and modeling correlated regression errors.
+
+6
+00:00:37,400 --> 00:00:42,170
+And we're going to talk about how some of the things you need to do to take data science analysis,
+
+7
+00:00:42,170 --> 00:00:48,260
+results and outputs into publication or into production.
+
+8
+00:00:48,260 --> 00:00:54,020
+And then finally, I'm going to talk about some topics to study further to expand your data science skills.
+
+9
+00:00:54,020 --> 00:00:57,950
+So we've talked about the data science where I want to bring up the state of the science workflow again,
+
+10
+00:00:57,950 --> 00:01:03,260
+because it provides a context in which a lot of the things that we've been talking about fit.
+
+11
+00:01:03,260 --> 00:01:08,690
+We talk about how to describe data. We talk about how to integrate it, source it and transform it.
+
+12
+00:01:08,690 --> 00:01:16,610
+We talk about the various kinds of biases and you have to pay attention to throughout this workflow.
+
+13
+00:01:16,610 --> 00:01:21,850
+We have different kinds of tasks, such as modeling and inference.
+
+14
+00:01:21,850 --> 00:01:28,060
+I also want to return us, though, to our question at the beginning of this semester or our definition from the beginning of this semester,
+
+15
+00:01:28,060 --> 00:01:35,280
+that data science is the use of data to provide quantitative insights on questions of scientific business or social interest.
+
+16
+00:01:35,280 --> 00:01:39,820
+So the goal of all of this, what we're doing with data science, is to produce insights.
+
+17
+00:01:39,820 --> 00:01:41,600
+Now, there's a lot of overlap.
+
+18
+00:01:41,600 --> 00:01:48,880
+There's a lot of predictive predictive tools that are not necessarily being used to provide insights back to the operators,
+
+19
+00:01:48,880 --> 00:01:55,690
+but are being used to, say, generate predictions about customer transactions,
+
+20
+00:01:55,690 --> 00:02:02,710
+about whether something is fraud, whether something is a cybersecurity attack,
+
+21
+00:02:02,710 --> 00:02:08,680
+that the the action itself is not necessarily the model itself is not necessarily providing insights.
+
+22
+00:02:08,680 --> 00:02:14,530
+But we need to gain insights about whether it's working, how effective it is, where we need to go, try to improve it.
+
+23
+00:02:14,530 --> 00:02:18,370
+But also the techniques that we're using are applicable to other purposes as well,
+
+24
+00:02:18,370 --> 00:02:22,720
+such as training, machine learning models that can do various types of predictions.
+
+25
+00:02:22,720 --> 00:02:28,660
+We've talked about data management, so we've put primarily focused on reading from static files.
+
+26
+00:02:28,660 --> 00:02:34,570
+We do a little bit with obtaining data from the web. We've been processing and integrating our data with pandas.
+
+27
+00:02:34,570 --> 00:02:40,720
+Really useful utility skill. To take this a step further is to actually to be able to work with a database.
+
+28
+00:02:40,720 --> 00:02:51,400
+And so in the CSA five 10 class databases, you learn how to design data models and relational databases, how to query them, how to put data in them.
+
+29
+00:02:51,400 --> 00:02:59,470
+You're also going to see in other classes information about managing data that is particular to different applications and types of data.
+
+30
+00:02:59,470 --> 00:03:02,320
+We talked about some mathematical fundamentals, probability theory.
+
+31
+00:03:02,320 --> 00:03:07,030
+We talked a little bit about some linear algebra and we've used bits and pieces of it throughout the class.
+
+32
+00:03:07,030 --> 00:03:15,680
+You can learn a lot more about these taking math 562 and taking the linear algebra class as well.
+
+33
+00:03:15,680 --> 00:03:21,680
+Four. We've talked about statistical inference. We did some basic parametric pairwise comparisons with T tests.
+
+34
+00:03:21,680 --> 00:03:25,250
+We learned how to bootstrap confidence intervals and P values.
+
+35
+00:03:25,250 --> 00:03:31,010
+We learned some sampling theory that underlies a lot of statistical inference and underlies the bootstrap.
+
+36
+00:03:31,010 --> 00:03:35,000
+And we talked about doing inference with regression models to learn a lot.
+
+37
+00:03:35,000 --> 00:03:41,120
+You'll learn a lot more about this and the probability and statistics class. We've done some predictions.
+
+38
+00:03:41,120 --> 00:03:46,790
+We've predicted continuous outcomes with regression models. We've predicted binary outcomes with classification models.
+
+39
+00:03:46,790 --> 00:03:54,410
+You will learn a lot more about different models for doing. For doing these kinds of predictions in the machine learning class.
+
+40
+00:03:54,410 --> 00:03:58,370
+And they're also going to come up throughout a number of your other data science classes,
+
+41
+00:03:58,370 --> 00:04:05,700
+such as recommender systems, natural language processing, information retrieval and social media mining.
+
+42
+00:04:05,700 --> 00:04:12,180
+We talked about evaluating your your predictive model, your classifier or your regression based predictor.
+
+43
+00:04:12,180 --> 00:04:16,110
+We talked about how to do. How to do train test splits, why we need those.
+
+44
+00:04:16,110 --> 00:04:20,400
+We talked about metrics for assessing the effectiveness of your model.
+
+45
+00:04:20,400 --> 00:04:28,650
+We talked about strategies that set up to choose your models, hyper parameters. Again, you're going to see a lot more of this in C.S. 534.
+
+46
+00:04:28,650 --> 00:04:30,540
+We also introduced unsupervised learning.
+
+47
+00:04:30,540 --> 00:04:36,570
+We've looked at two different unsupervised learning techniques where we don't oppose the predictions that we're trying to do,
+
+48
+00:04:36,570 --> 00:04:39,990
+the supervised learning where we have a classification outcome or a label.
+
+49
+00:04:39,990 --> 00:04:45,320
+We're trying to predict the classifier. We have a value. We're trying to predict with a regression model.
+
+50
+00:04:45,320 --> 00:04:53,010
+We don't have a supervisions ignore a label that we're trying to predict. We're trying to allow the model to obtain.
+
+51
+00:04:53,010 --> 00:04:58,900
+To learn structure just from the input features,
+
+52
+00:04:58,900 --> 00:05:04,800
+we've seen how to do this with lower dimensional embedding with Matrix composition, and we've seen how to do this with clustering.
+
+53
+00:05:04,800 --> 00:05:09,150
+Again, you'll see more about this in machine learning and it'll appear in other classes.
+
+54
+00:05:09,150 --> 00:05:12,120
+We talked about workflows. We talked about the data science pipeline.
+
+55
+00:05:12,120 --> 00:05:18,930
+We talked about how to break code into scripts and modules, how to use get how to design, has some design pattern for your code workflows.
+
+56
+00:05:18,930 --> 00:05:27,300
+You're going to use this throughout your data science work, both in your studies and in your applied work when you're done.
+
+57
+00:05:27,300 --> 00:05:35,040
+I encourage you to take what you've learned here, refer back to the material in order to structure your assignments for other classes.
+
+58
+00:05:35,040 --> 00:05:41,700
+So to wrap up, this class has been designed to lay a conceptual foundation for the rest of your data science studies.
+
+59
+00:05:41,700 --> 00:05:45,570
+So do you take other classes? You have these concepts. You know what a classifier is.
+
+60
+00:05:45,570 --> 00:05:51,930
+You know how to evaluate one. You know how predictive models and statistical inference fit in the broader space.
+
+61
+00:05:51,930 --> 00:05:59,810
+You have a good working base to start to work with data, be able to ask questions, be able to think about how.
+
+62
+00:05:59,810 --> 00:06:07,940
+How to answer them and represent their answers. Other classes are going to build on these concepts and ideas.
+
+63
+00:06:07,940 --> 00:06:10,640
+And there's a number that you can take in the computer science department,
+
+64
+00:06:10,640 --> 00:06:23,036
+the math department and other departments as you complete either your master's degree or your HD.
+

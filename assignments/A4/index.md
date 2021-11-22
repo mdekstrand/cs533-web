@@ -5,7 +5,7 @@ Assignment 4 has two purposes:
 - To give you more experience with linear regression
 - To introduce simulation as a means of studying the behavior of statistical techniques
 
-This assignment is due **October 24, 2020** at the end of the day.  Upload your `.ipynb` and `.pdf` files to Canvas.
+This assignment is due **October 24, 2020** at the end of the day.  Upload your `.ipynb` and `.pdf` files to {{LMS}}.
 
 :::{lnote} Notation
 In this writeup, I will use capital letters (e.g. $X$) for random variables, and lowercase variables (e.g. $x$) for individual samples (or *draws*) from those random variables.

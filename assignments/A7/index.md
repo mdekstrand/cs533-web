@@ -1,8 +1,4 @@
-# 🚧 Assignment 7 🚧
-
-:::{draft}
-This assignment is still in draft state.
-:::
+# Assignment 7
 
 This assignment is designed for you to practice the things that we've put together this semester, along with extracting data directly from an online API and splitting a data pipeline into multiple stages with scripts acquiring and pre-processing data.
 
@@ -159,18 +155,18 @@ Describe the variables and their distributions, and any limitations their source
 
 ## Final Submission
 
-Your submission on Canvas should include:
+Your submission on {{LMS}} should include:
 
 - A link to a **private** GitHub repository containing your code
 - PDF exports of your two notebooks
 
-In addition, invite my GitHub account ([mdekstrand](https://github.com/mdekstrand)) as a collaborator on your repository, so I can actually see it.
-I only need read access.
-You can invite me through the “Manage access” section of your repository settings.
+In addition, invite the instructor and TA (see account names in {{LMS}}) as collaborators on your repository, so we can actually see it.
+We only need read access.
+You can invite us through the “Manage access” section of your repository settings.
 
 ### Rubric
 
-I will use the normal assignment rubric, with points assigned as follows:
+We will use the normal assignment rubric, with points assigned as follows:
 
 -   Repository construction and layout (15%)
 -   README (15%)
@@ -178,6 +174,6 @@ I will use the normal assignment rubric, with points assigned as follows:
 -   Research Question 1 (25%)
 -   Research Question 2 (25%)
 
-If you successfully use a third source of data (in addition to MovieLens and TMDB), it may earn extra credit.
+If you successfully use a third source of data (in addition to MovieLens and TMDB), it may earn up to 5% extra credit.
 Document this data in your README.
 (This needs to be a third distinct source — using additional TMDB endpoints doesn't count.)

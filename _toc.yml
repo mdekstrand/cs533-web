@@ -57,6 +57,7 @@ parts:
   - file: resources/problems
   - file: resources/onyx
   - file: resources/git-resources
+  - file: resources/environments
   - file: resources/tutorials/index
     sections:
     - glob: resources/tutorials/*

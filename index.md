@@ -7,7 +7,7 @@ This web site is the central information point for the class, where I will be di
 Points of interest include:
 
 *  The [syllabus](syllabus)
-*  Canvas (for grades and submitting assignments)
+*  {{LMS}} (for grades and submitting assignments)
 *  [Piazza](https://piazza.com/boisestate/fall2021/cs533001/home) (for Q&A and announcements)
 *  {module}`week0` — start here!
 

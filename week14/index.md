@@ -1,8 +1,4 @@
-# 🚧 Week 14 — Workflow ({date}`wk14 range`) 🚧
-
-:::{draft}
-This content is still in draft state and has not yet been finalized.
-:::
+# Week 14 — Workflow ({date}`wk14 range`)
 
 In this week, we are going to talk more about *workflows*.
 What does it look like to build a practical data science pipeline?
@@ -10,6 +6,7 @@ What does it look like to build a practical data science pipeline?
 ## {{moverview}} Content Overview
 
 :::{module} week14
+:folder: da13b422-df02-491a-bc43-adc601833918
 :::
 
 ## {{mcal}} Deadlines
@@ -22,7 +19,6 @@ What does it look like to build a practical data science pipeline?
 In this video, we introduce going beyond notebooks to broader structures for our Python projects.
 
 :::{video}
-:id: 0eccb59d-2a96-440a-82eb-ac82004d0a86
 :name: 14-1 - From Notebooks to Workflows
 :length: 3m44s
 :slide-id: 495979F9A431DDB0%2173401
@@ -34,7 +30,6 @@ In this video, we introduce going beyond notebooks to broader structures for our
 This video introduces Python scripts and modules, and how to organize Python code outside of a notebook.
 
 :::{video}
-:id: 3af006eb-8e58-434e-b7f7-ac8200547864
 :name: 14-2 - Scripts and Modules
 :length: 15m33s
 :slide-id: 495979F9A431DDB0%2173403
@@ -54,7 +49,6 @@ This video introduces Python scripts and modules, and how to organize Python cod
 This video introduces version control with Git.
 
 :::{video}
-:id: bf2603f3-2329-49b7-aafb-ac8200547812
 :name: 14-3 - Introducing Git
 :length: 12m2s
 :slide-id: 495979F9A431DDB0%2173404
@@ -69,16 +63,11 @@ This video introduces version control with Git.
 - [Version Control by Example](https://ericsink.com/vcbe/index.html)
 - [GitHub Student Developer Pack](https://education.github.com/pack)
 
-## :a-quiz: Weekly Quiz 14
-
-Take **Quiz 14** in Blackboard.
-
-## {{mvideo}} Git for Data Science {: data-length="6m52s"}
+## {{mvideo}} Git for Data Science
 
 How do you use Git effectively in a data science project?
 
 :::{video}
-:id: 501f007d-6a32-44fd-802d-ac820054783e
 :name: 14-4 - Git for Data Science
 :length: 6m52s
 :slide-id: 495979F9A431DDB0%2173405
@@ -94,13 +83,12 @@ How do you use Git effectively in a data science project?
 -   [git-lfs](https://git-lfs.github.com/)
 
 
-## {{mvideo}} Extract, Transform, Load {: data-length="6m46s"}
+## {{mvideo}} Extract, Transform, Load
 
 The Extract, Transform, Load (ETL) pipeline is a common design pattern for data ingest.
 Sometimes it is adjusted to Extract, Load, Transform.
 
 :::{video}
-:id: 493fed70-4eff-4fd0-9e90-ac820056c58f
 :name: 14-5 - ETL
 :length: 6m46s
 :slide-id: 495979F9A431DDB0%2173407
@@ -121,7 +109,6 @@ Sometimes it is adjusted to Extract, Load, Transform.
 We've seen group-by operations this semester; they're a specific form of a general paradigm called *split, apply, combine*.
 
 :::{video}
-:id: a87c9e55-f0c3-4b93-996e-ac82005bf3f7
 :name: 14-6 - Split Apply Combine
 :length: 6m45s
 :slide-id: 495979F9A431DDB0%2173408
@@ -132,12 +119,11 @@ We've seen group-by operations this semester; they're a specific form of a gener
 
 - [Split, Apply, Combine at Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html)
 
-## {{mvideo}} Tuning Hyperparameters {: data-length="10m49s"}
+## {{mvideo}} Tuning Hyperparameters
 
 How can we move beyond `GridSearchCV` in our quest to tune hyperparameters?
 
 :::{video}
-:id: a8a2d475-1b2d-48a0-a351-ac82005bf3b2
 :name: 14-7 - Tuning Hyperparameters
 :length: 10m49s
 :slide-id: 495979F9A431DDB0%2173409
@@ -159,7 +145,6 @@ The [Tuning Example](../resources/tutorials/TuningExample.ipynb) notebook demons
 I provide *very brief* pointers to additional tools you may want for workflow management in more advanced projects.
 
 :::{video}
-:id: 260993ac-f0a9-4054-ae5c-ac82005bf383
 :name: 14-8 - Reproducible Pipelines
 :length: 8m28s
 :slide-id: 495979F9A431DDB0%2173410
@@ -172,6 +157,30 @@ Some software that supports data and/or workflow management:
 
 - [Data Version Control](https://dvc.org) — I use this
 - [MLflow](https://mlflow.org/) — support for machine learning workflows
+
+## {{mdoc}} Software Environments
+
+:::{reading}
+:title: Software Environments
+:url: ../resources/environments.md
+:length: 1068 words
+:::
+
+Read [software environments](../resources/environments.md).
+
+## {{mdoc}} Reproducibility Case Study
+
+:::{reading}
+:title: Yay Reproducibility
+:url: https://md.ekstrandom.net/blog/2021/11/reproducibility
+:length: 1250 words
+:::
+
+Read my [case study on reproducibility and bug-hunting](https://md.ekstrandom.net/blog/2021/11/reproducibility).
+
+## {{mquiz}} Weekly Quiz 14
+
+Take **Quiz 14** in {{LMS}}.
 
 ## {{mnotebook}} More Examples
 
