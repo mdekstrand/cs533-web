@@ -177,6 +177,8 @@ I may ask you to do a range of things on the exam, including (but not limited to
 - Compute a metric from a small quantity of data
 - Interpret a chart
 
+The final exam will be a little less than twice as long as the midterms, to fit in the scheduled period.
+
 ### Exam Rules
 
 - You may have **1 note sheet**, letter- or A4-sized, **two-sided**.
