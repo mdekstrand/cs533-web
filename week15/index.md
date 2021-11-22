@@ -1,8 +1,4 @@
-# 🚧 Week 15 — What Next? ({date}`wk15 range`) 🚧
-
-:::{draft}
-This content is still in draft state and has not yet been finalized.
-:::
+# Week 15 — What Next? ({date}`wk15 range`)
 
 This is the last week of class. We're going to recap, and talk about what's next, both for learning and for putting what you've learned to practical use.
 
@@ -34,6 +30,8 @@ This video reviews the concepts we have discussed this term and puts them into t
 
 The makeup midterm is **{date}`wk15 tue long`** in class.  It covers the entire semester, with an emphasis on material since the 2nd midterm.
 The rules and format are the same as for [Midterm A](midterm-a).
+
+I encourage you to come and take the exam, as it is the single best way to prepare for the final.  You can at any time leave the exam, and take it with you; I will only grade it if you turn it in, and there is no problem with showing up, looking at it, even filling it out, and deciding you like your current grades well enough to not turn it in.
 
 :::{warning}
 If you turn in the makeup exam to be graded, its grade will replace the lower of your Midterm A and B grades, **even if that lowers your final grade**.
@@ -160,4 +158,35 @@ I hope to see many of you in future courses!
 
 ## {{mquiz}} Final Exam
 
-The final exam will be on **Tuesday, Dec. 14, 2021**.
+The final exam will be on **Tuesday, Dec. 14, 2021** at 9:30 AM.
+
+### Format
+
+The exam follows the same format as the midterms. It will be a written in-person exam with a variety of questions to assess your ability to understand and apply concepts from the class.  Question formats include:
+
+- Multiple-choice
+- True/false
+- Matching
+- Fill-in-the-blank
+- Short answer
+- Computation
+
+I may ask you to do a range of things on the exam, including (but not limited to):
+
+- Define a concept
+- Compute a metric from a small quantity of data
+- Interpret a chart
+
+### Exam Rules
+
+- You may have **1 note sheet**, letter- or A4-sized, **two-sided**.
+- You should not need a calculator, but may bring one if you wish.
+- You may answer in either pen or pencil.
+
+### Study Tips
+
+- Review the previous quizzes, assignments, and midterms.
+- Sit for the makeup midterm, even if you do not plan to turn it in.
+- Review lecture slides to see where you are unclear on concepts and need to review.
+- Skim assigned readings, particularly the section headings to remind yourself what was in them.
+- Review the [course glossary](../glossary.md), keeping in mind that it does contain terms we haven't gotten to yet.
