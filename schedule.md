@@ -2,25 +2,25 @@
 
 Following is a tentative schedule.  Topics may shift a little bit depending on how the semester goes.
 
-| Week  |      Start       |                Topic                |       Due       |
-| :---: | :--------------: | ----------------------------------- | :-------------: |
-|   1   | {date}`wk1 mon`  | [Asking Questions][W1]              |     [A0][]      |
-|   2   | {date}`wk2 mon`  | [Variables and Data][W2]            |                 |
-|   3   | {date}`wk3 mon`  | [Visualizing and Presenting][W3]    |     [A1][]      |
-|   4   | {date}`wk4 mon`  | [Probability and Inference][W4]     |                 |
-|   5   | {date}`wk5 mon`  | [Filling In][W5]                    |     [A2][]      |
-|   6   | {date}`wk6 mon`  | [Two Variables][W6]                 | [E1](midterm-a) |
-|   7   | {date}`wk7 mon`  | [Sourcing and Integrating Data][W7] |     [A3][]      |
-|   8   | {date}`wk8 mon`  | [Regression][W8]                    |                 |
-|   9   | {date}`wk9 mon`  | [Modeling & Prediction][W9]         |     [A4][]      |
-|  10   | {date}`wk10 mon` | [Classification][W10]               |                 |
-|  11   | {date}`wk11 mon` | [Evaluating Models][W11]            |     [A5][]      |
-|  12   | {date}`wk12 mon` | [Text][W12]                         | [E2](midterm-b) |
-|  13   | {date}`wk13 mon` | [Unsupervised][W13]                 |     [A6][]      |
-| *Th*  |      11/22       | *Thanksgiving*                      |                 |
-|  14   | {date}`wk14 mon` | [Workflow][W14]                     |                 |
-|  15   | {date}`wk15 mon` | [What's Next?][W15]                 |     [A7][]      |
-|   F   | {date}`wk16 mon` | Finals week                         |      Final      |
+| Week  |      Start       |                Topic                |           Due           |
+| :---: | :--------------: | ----------------------------------- | :---------------------: |
+|   1   | {date}`wk1 mon`  | [Asking Questions][W1]              |         [A0][]          |
+|   2   | {date}`wk2 mon`  | [Variables and Data][W2]            |                         |
+|   3   | {date}`wk3 mon`  | [Visualizing and Presenting][W3]    |         [A1][]          |
+|   4   | {date}`wk4 mon`  | [Probability and Inference][W4]     |                         |
+|   5   | {date}`wk5 mon`  | [Filling In][W5]                    |         [A2][]          |
+|   6   | {date}`wk6 mon`  | [Two Variables][W6]                 |     [E1](midterm-a)     |
+|   7   | {date}`wk7 mon`  | [Sourcing and Integrating Data][W7] |         [A3][]          |
+|   8   | {date}`wk8 mon`  | [Regression][W8]                    |                         |
+|   9   | {date}`wk9 mon`  | [Modeling & Prediction][W9]         |         [A4][]          |
+|  10   | {date}`wk10 mon` | [Classification][W10]               |                         |
+|  11   | {date}`wk11 mon` | [Evaluating Models][W11]            |         [A5][]          |
+|  12   | {date}`wk12 mon` | [Text][W12]                         |     [E2](midterm-b)     |
+|  13   | {date}`wk13 mon` | [Unsupervised][W13]                 |         [A6][]          |
+| *Th*  |      11/22       | *Thanksgiving*                      |                         |
+|  14   | {date}`wk14 mon` | [Workflow][W14]                     |                         |
+|  15   | {date}`wk15 mon` | [What's Next?][W15]                 | [EX](midterm-m), [A7][] |
+|   F   | {date}`wk16 mon` | Finals week                         |          Final          |
 
 Assignments are due at **midnight on Sunday** at the end of the week in which they are listed. For
 example, A0 is due at midnight, {date}`wk1 sun long`.  Exams are in class on Tuesdays the weeks they are
