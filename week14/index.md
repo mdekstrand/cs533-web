@@ -189,4 +189,4 @@ My [book author gender](https://github.com/BoiseState/book-author-gender) projec
 
 ## {{massignment}} Assignment 7
 
-[Assignment 7](../../assignments/A7/index.md) is due **{{wk15 sun xlong}}**.
+[Assignment 7](../../assignments/A7/index.md) is due **{date}`wk15 sun xlong`**.
