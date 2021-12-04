@@ -98,16 +98,16 @@ class VideoDirective(SphinxDirective):
         if not key:
             key = make_id(self.env, self.state.document, 'video', name)
 
+        dom = self.env.get_domain('res')
+
         if video_id:
             tgt_node = nodes.target('', '', ids=[video_id])
             self.set_source_info(tgt_node)
             result.append(tgt_node)
+            dom.note_video(key, video_id, name, length)
         else:
             w = self.state.reporter.error(f'Video name {name} has no video ID')
             result.append(w)
-
-        dom = self.env.get_domain('res')
-        dom.note_video(key, video_id, name, length)
 
         box = nodes.container('', classes=["resource", "video"])
         result.append(box)
