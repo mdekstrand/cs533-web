@@ -103,7 +103,7 @@ This video talks about going from an analysis and its notebooks to a publishable
 ### Resources
 
 - [PlotNine](https://plotnine.readthedocs.io/en/stable/api.html) is a good plotting library for preparing consistent, publication-ready graphics.
-- The [book gender example](../week14/index.md#more-examples) also demonstrates the current evolution of my own practices for preparing for publication.
+- The [book gender example](w14-more-examples) also demonstrates the current evolution of my own practices for preparing for publication.
 
 ## {{mvideo}} Production Applications
 

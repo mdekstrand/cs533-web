@@ -182,10 +182,11 @@ Read my [case study on reproducibility and bug-hunting](https://md.ekstrandom.ne
 
 Take **Quiz 14** in {{LMS}}.
 
+(w15-more-examples)=
 ## {{mnotebook}} More Examples
 
 My [book author gender](https://github.com/BoiseState/book-author-gender) project is an example of an advanced workflow with DVC.
 
 ## {{massignment}} Assignment 7
 
-[Assignment 7](../../assignments/A7/index.md) is due **{{wk15 sun xlong}}**.
+[Assignment 7](../../assignments/A7/index.md) is due **{date}`wk15 sun xlong`**.
