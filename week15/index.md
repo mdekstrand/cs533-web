@@ -140,9 +140,9 @@ Some final closing tips and suggestions for you to think about as you take the n
 :slide-auth: AMQPBtshRrNaHoc
 :::
 
-## {{mquiz}} Weekly Quiz 15
+## {{mquiz}} No Quiz 15
 
-Take the Week 15 Quiz in {{LMS}}.
+There is no quiz for this week.
 
 ## {{mdoc}} Farewell
 
