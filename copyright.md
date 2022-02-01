@@ -1,12 +1,23 @@
 # Copyright and License
 
 [BY-SA]: http://creativecommons.org/licenses/by-sa/4.0/
+[BY-NC-SA]: http://creativecommons.org/licenses/by-nc-sa/4.0/
 
 The materials for this course are an **open educational resource**.  Unless otherwise noted in a
 specific page or resource, all content with the exception of the assignments is made available under
-the terms of the [Creative Commons Attribution-ShareAlike 4.0 International License][BY-SA].  This
+the terms of the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][BY-NC-SA].  This
 means that you can reuse, adapt, and remix the content, so long as you (1) properly attribute the
-original creator(s) and (2) extend the same permission to people obtaining your version.
+original creator(s) and (2) extend the same permission to people obtaining your version.  For the
+purposes of my interpretation of the license, or in excess of the grants given by the Creative Commons
+license, you **are allowed** to use the materials at educational institutions that charge tuition;
+I do not consider this prohibited commercial use.  Similarly, using these materials to study at
+your company, or to train others, is also acceptable; I'd love to hear what you're doing.[^1]
+
+[^1]: My primary purpose with the non-commercial license is to make it illegal
+      for companies like CourseHero to sell my materials. I'm generally fine
+      with other uses that respect the attribution and share-alike requirements.
+      If you aren't sure if your intended use is ok, just drop me an e-mail for
+      permission.
 
 You may freely use small snippets of my example code in work under any license; I would appreciate
 attribution (e.g. a comment pointing to the source).
