@@ -52,6 +52,9 @@ html:
   use_repository_button: true
   use_edit_page_button: true
   favicon: logo.png
+  extra_footer: |
+    <script data-goatcounter="https://cs533.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
   comments:
     utterances:
       repo: mdekstrand/cs533-web
