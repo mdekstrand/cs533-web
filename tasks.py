@@ -7,11 +7,16 @@ import re
 from xml.etree import ElementTree as et
 from io import BytesIO
 
+from ruamel import yaml
+
 from invoke import task, call
 import requests
 
+with open('_config.yml', 'r', encoding='utf8') as yf:
+    CONFIG = yaml.safe_load(yf)
+
 BRANCH = 'archive'
-CURRENT = 'F21'
+CURRENT = CONFIG['sphinx']['config']['term']
 BUILD_DIR = Path('_build')
 FULL_DIR = BUILD_DIR / 'site'
 CUR_DIR = BUILD_DIR / 'dirhtml'
@@ -22,6 +27,11 @@ INVENTORY_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRYResrBniEP6Po
 
 def _msg(fmt, *args):
     print(fmt % args, file=sys.stderr)
+
+
+@task
+def info(c):
+    print('Current term:', CURRENT)
 
 
 @task
