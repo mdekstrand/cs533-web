@@ -1,6 +1,6 @@
 # CS 533 Homepage
 
-Welcome to CS 533, *Introduction to Data Science*, for Fall 2021.
+Welcome to CS 533, *Introduction to Data Science*, for Fall 2022.
 
 This web site is the central information point for the class, where I will be distributing the course materials, including lecture videos.
 

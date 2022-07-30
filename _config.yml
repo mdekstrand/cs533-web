@@ -1,6 +1,6 @@
-title: CS 533 Fall 2021
+title: CS 533 Fall 2022
 author: Michael D. Ekstrand
-copyright: '2021'
+copyright: '2020–2022'
 # logo: logo.png
 
 exclude_patterns:
@@ -70,8 +70,8 @@ sphinx:
     schedule: extensions
   config:
     primary_domain: res
-    term: F21
-    course_start: 2021-08-23
+    term: F22
+    course_start: 2022-08-22
     break_week: 14
     external_toc_exclude_missing: true
     mathjax3_config:
