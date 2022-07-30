@@ -10,7 +10,6 @@ flake8
 pandas
 msal
 seaborn
-dvc
 statsmodels
 scikit-learn
 seedbank
