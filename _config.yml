@@ -70,6 +70,7 @@ sphinx:
     schedule: extensions
   config:
     primary_domain: res
+    term: F21
     course_start: 2021-08-23
     break_week: 14
     external_toc_exclude_missing: true
