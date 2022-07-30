@@ -1,0 +1,1678 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rebuilding Regression &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabinsert.js"></script>
+    <script src="../../../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"E": "\\mathrm{E}", "Field": "\\mathcal{F}", "P": "\\mathrm{P}", "Cov": "\\mathrm{Cov}", "Cor": "\\mathrm{Cor}", "Var": "\\mathrm{Var}", "log": "\\operatorname{log}", "Odds": "\\operatorname{Odds}", "OR": "\\operatorname{OR}", "IND": "\\mathbb{I}", "Reals": "\\mathbb{R}"}}, "HTML-CSS": {"fonts": ["TeX"]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="copyright" title="Copyright" href="../../../copyright/" />
+    <link rel="next" title="Missing Data" href="../MissingData/" />
+    <link rel="prev" title="MovieLens Time Series" href="../MLTimeSeries/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../">
+   Tutorials
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/resources/tutorials/MinimizeRegression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fresources/tutorials/MinimizeRegression.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/resources/tutorials/MinimizeRegression.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-regression">
+   Building Regression
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optimization">
+     Optimization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multivariate-regression">
+   Multivariate Regression
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="rebuilding-regression">
+<h1>Rebuilding Regression<a class="headerlink" href="#rebuilding-regression" title="Permalink to this headline">¶</a></h1>
+<p>This notebook shows how to learn regression parameters using SciPy’s <code class="xref py py-mod docutils literal notranslate"><span class="pre">optimization</span> <span class="pre">functions</span></code>.
+The purpose here is to learn the concept of <em>minimizing a loss function</em>.</p>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>We’re going to import our modules.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">sps</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">spopt</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">20201017</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’re going to use the Penguins data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;penguins.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguins</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.1</td>
+      <td>18.7</td>
+      <td>181.0</td>
+      <td>3750.0</td>
+      <td>male</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.5</td>
+      <td>17.4</td>
+      <td>186.0</td>
+      <td>3800.0</td>
+      <td>female</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>40.3</td>
+      <td>18.0</td>
+      <td>195.0</td>
+      <td>3250.0</td>
+      <td>female</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>36.7</td>
+      <td>19.3</td>
+      <td>193.0</td>
+      <td>3450.0</td>
+      <td>female</td>
+      <td>2007</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>I’m also going to create a utility function for plotting lines:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_line</span><span class="p">(</span><span class="n">intercept</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">ys</span> <span class="o">=</span> <span class="n">intercept</span> <span class="o">+</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">xs</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s standardize the variables, like we did in Week 8:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">zscore</span><span class="p">(</span><span class="n">xs</span><span class="p">):</span>
+    <span class="n">xbar</span> <span class="o">=</span> <span class="n">xs</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">xs</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">xs</span> <span class="o">-</span> <span class="n">xbar</span><span class="p">)</span> <span class="o">/</span> <span class="n">s</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And create standardized versions of our variables:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguin_std</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;species&#39;</span><span class="p">:</span> <span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;mass&#39;</span><span class="p">:</span> <span class="n">zscore</span><span class="p">(</span><span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]),</span>
+    <span class="s1">&#39;flipper&#39;</span><span class="p">:</span> <span class="n">zscore</span><span class="p">(</span><span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;flipper_length_mm&#39;</span><span class="p">]),</span>
+    <span class="s1">&#39;bill_len&#39;</span><span class="p">:</span> <span class="n">zscore</span><span class="p">(</span><span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">]),</span>
+    <span class="s1">&#39;bill_depth&#39;</span><span class="p">:</span> <span class="n">zscore</span><span class="p">(</span><span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;bill_depth_mm&#39;</span><span class="p">])</span>
+<span class="p">})</span>
+<span class="n">penguin_std</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>sex</th>
+      <th>mass</th>
+      <th>flipper</th>
+      <th>bill_len</th>
+      <th>bill_depth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>male</td>
+      <td>-0.563317</td>
+      <td>-1.416272</td>
+      <td>-0.883205</td>
+      <td>0.784300</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>female</td>
+      <td>-0.500969</td>
+      <td>-1.060696</td>
+      <td>-0.809939</td>
+      <td>0.126003</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>female</td>
+      <td>-1.186793</td>
+      <td>-0.420660</td>
+      <td>-0.663408</td>
+      <td>0.429833</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>female</td>
+      <td>-0.937403</td>
+      <td>-0.562890</td>
+      <td>-1.322799</td>
+      <td>1.088129</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>339</th>
+      <td>Chinstrap</td>
+      <td>male</td>
+      <td>-0.251578</td>
+      <td>0.432721</td>
+      <td>2.175637</td>
+      <td>1.341320</td>
+    </tr>
+    <tr>
+      <th>340</th>
+      <td>Chinstrap</td>
+      <td>female</td>
+      <td>-0.999750</td>
+      <td>0.077145</td>
+      <td>-0.077282</td>
+      <td>0.480471</td>
+    </tr>
+    <tr>
+      <th>341</th>
+      <td>Chinstrap</td>
+      <td>male</td>
+      <td>-0.532143</td>
+      <td>-0.562890</td>
+      <td>1.040019</td>
+      <td>0.531109</td>
+    </tr>
+    <tr>
+      <th>342</th>
+      <td>Chinstrap</td>
+      <td>male</td>
+      <td>-0.126883</td>
+      <td>0.646066</td>
+      <td>1.259816</td>
+      <td>0.936215</td>
+    </tr>
+    <tr>
+      <th>343</th>
+      <td>Chinstrap</td>
+      <td>female</td>
+      <td>-0.532143</td>
+      <td>-0.207315</td>
+      <td>1.149917</td>
+      <td>0.784300</td>
+    </tr>
+  </tbody>
+</table>
+<p>344 rows × 6 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="building-regression">
+<h2>Building Regression<a class="headerlink" href="#building-regression" title="Permalink to this headline">¶</a></h2>
+<p>OLS stands for <em>ordinary least squares</em>.  That is, it finds the solution that minimizes <span class="math notranslate nohighlight">\(\mathrm{SS}_{\mathrm{resid}}\)</span>, the sum of squared error (on the test data).</p>
+<p>Remember that the linear model looks like this:</p>
+<div class="math notranslate nohighlight">
+\[\hat{y} = \beta_0 + \beta_1 x_1\]</div>
+<p>We can frame the problem of fitting a linear model as minimizing a <em>loss function</em>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+L(\beta_0, \beta_1) &amp; = \sum_i (y_i - \hat{y}_i)^2 \\
+\beta_0, \beta_1 &amp; = 
+\underset{\beta_0, \beta_1}{\operatorname{argmin}} L(\beta_0, \beta_1)
+\end{align*}\end{split}\]</div>
+<p>Before optimizing this, though, we need a function that will use coefficients to preidct the mass with flipper length.  This function will take its parameters as a list or array, for compatibility with APIs we’ll see in a moment:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predict_mass_uv</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">penguin_std</span><span class="p">):</span>
+    <span class="n">b0</span><span class="p">,</span> <span class="n">b1</span> <span class="o">=</span> <span class="n">params</span>
+    <span class="k">return</span> <span class="n">b0</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;flipper&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">b1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can predict flipper length. Let’s run a Statsmodels linear model to get the parameters so we can test this function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uv_mod</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;mass ~ flipper&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">penguin_std</span><span class="p">)</span>
+<span class="n">uv_fit</span> <span class="o">=</span> <span class="n">uv_mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">uv_fit</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>          <td>mass</td>       <th>  R-squared:         </th> <td>   0.759</td> 
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.758</td> 
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   1071.</td> 
+</tr>
+<tr>
+  <th>Date:</th>             <td>Sat, 17 Oct 2020</td> <th>  Prob (F-statistic):</th> <td>4.37e-107</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>19:54:18</td>     <th>  Log-Likelihood:    </th> <td> -241.46</td> 
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>   342</td>      <th>  AIC:               </th> <td>   486.9</td> 
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>   340</td>      <th>  BIC:               </th> <td>   494.6</td> 
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td>    
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>    
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+      <td></td>         <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>Intercept</th> <td> 6.939e-17</td> <td>    0.027</td> <td> 2.61e-15</td> <td> 1.000</td> <td>   -0.052</td> <td>    0.052</td>
+</tr>
+<tr>
+  <th>flipper</th>   <td>    0.8712</td> <td>    0.027</td> <td>   32.722</td> <td> 0.000</td> <td>    0.819</td> <td>    0.924</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td> 5.634</td> <th>  Durbin-Watson:     </th> <td>   2.190</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.060</td> <th>  Jarque-Bera (JB):  </th> <td>   5.585</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td> 0.313</td> <th>  Prob(JB):          </th> <td>  0.0613</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 3.019</td> <th>  Cond. No.          </th> <td>    1.00</td>
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_preds</span> <span class="o">=</span> <span class="n">predict_mass_uv</span><span class="p">(</span><span class="n">uv_fit</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">test_preds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     -1.233858
+1     -0.924080
+2     -0.366480
+3           NaN
+4     -0.490391
+         ...   
+339    0.376987
+340    0.067209
+341   -0.490391
+342    0.562854
+343   -0.180613
+Name: flipper, Length: 344, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Do these match the Statsmodels predictions?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uv_fit</span><span class="o">.</span><span class="n">fittedvalues</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     -1.233858
+1     -0.924080
+2     -0.366480
+4     -0.490391
+5     -0.676258
+         ...   
+339    0.376987
+340    0.067209
+341   -0.490391
+342    0.562854
+343   -0.180613
+Length: 342, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Yes! Our linear model function is working correctly.</p>
+<p>Now let’s make a <em>loss</em> function that computes the loss of a model with these parameters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">squared_loss_uv</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">penguin_std</span><span class="p">):</span>
+    <span class="n">preds</span> <span class="o">=</span> <span class="n">predict_mass_uv</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;mass&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">preds</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">err</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What’s the squared error with our data?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squared_loss_uv</span><span class="p">(</span><span class="n">uv_fit</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>82.18355089922281
+</pre></div>
+</div>
+</div>
+</div>
+<p>That should equal the residual sum of squares from Statsmodels, if we’re writing this code correctly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uv_fit</span><span class="o">.</span><span class="n">ssr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>82.18355089922281
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="optimization">
+<h3>Optimization<a class="headerlink" href="#optimization" title="Permalink to this headline">¶</a></h3>
+<p>Ok. We now have code that can correctly compute the sum of squares (loss), and the model predictions we’re trying to optimize.</p>
+<p>Now we want to solve.  Let’s do that.  The <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize" title="(in SciPy v1.9.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.optimize.minimize()</span></code></a> function searches for a parameter vector (in this case, two coefficients) that minimizes a function (in this case, our loss function).</p>
+<p>It needs two things:</p>
+<ol class="simple">
+<li><p>The loss function</p></li>
+<li><p>An initial guess for the parameters</p></li>
+</ol>
+<p>We’ll use standard normals for the parameter guess - since we have standardized variables, this will work pretty well.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">init_guess</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">init_guess</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.18652471,  0.9562162 ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>And now we minimize the loss function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="n">spopt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">squared_loss_uv</span><span class="p">,</span> <span class="n">init_guess</span><span class="p">)</span>
+<span class="n">params</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 82.18355089922284
+ hess_inv: array([[0.17155552, 0.37538334],
+       [0.37538334, 0.82990841]])
+      jac: array([ 6.67572021e-06, -1.90734863e-06])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 15
+      nit: 2
+     njev: 5
+   status: 0
+  success: True
+        x: array([1.12829633e-09, 8.71201757e-01])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">x</span></code> parameter has the optimized parameter values; <code class="docutils literal notranslate"><span class="pre">fun</span></code> has the smallest value of the function found. That’s really close to our residual sum of squares from the OLS model!  The parameters are also pretty close too.  Let’s put them side by side:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;OLS&#39;</span><span class="p">:</span> <span class="n">uv_fit</span><span class="o">.</span><span class="n">params</span><span class="p">,</span>
+    <span class="s1">&#39;SPOpt&#39;</span><span class="p">:</span> <span class="n">params</span><span class="o">.</span><span class="n">x</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OLS</th>
+      <th>SPOpt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Intercept</th>
+      <td>6.938894e-17</td>
+      <td>1.128296e-09</td>
+    </tr>
+    <tr>
+      <th>flipper</th>
+      <td>8.712018e-01</td>
+      <td>8.712018e-01</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The coefficient in particular is (nearly) identical, and the intercept is a little different but is essentially 0 in both cases.</p>
+<p>It’s not going to be quite exact, because Statsmodels OLS uses an exact solution for the least squares problem, while what we get with <code class="docutils literal notranslate"><span class="pre">minimize</span></code> is an approximate solution.  Approximate solutions will be good for many other problems!</p>
+</div>
+</div>
+<div class="section" id="multivariate-regression">
+<h2>Multivariate Regression<a class="headerlink" href="#multivariate-regression" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s learn the multivariate model.  From the regression model, the one we settled on was:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mass ~ flipper + species * sex
+</pre></div>
+</div>
+<p>This expands to:</p>
+<div class="math notranslate nohighlight">
+\[\hat{y} = \beta_0 + \beta_1 x_f + \beta_2 x_c + \beta_3 x_g + \beta_4 x_m + \beta_5 x_c x_m + \beta_6 x_g x_m\]</div>
+<p>We’re going to start by dummy-coding our data using <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.get_dummies.html#pandas.get_dummies" title="(in pandas v1.4.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.get_dummies()</span></code></a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguin_all</span> <span class="o">=</span> <span class="n">penguin_std</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">penguin_std</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">],</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">penguin_all</span> <span class="o">=</span> <span class="n">penguin_all</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">penguin_std</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">],</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">penguin_all</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>sex</th>
+      <th>mass</th>
+      <th>flipper</th>
+      <th>bill_len</th>
+      <th>bill_depth</th>
+      <th>Chinstrap</th>
+      <th>Gentoo</th>
+      <th>male</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>male</td>
+      <td>-0.563317</td>
+      <td>-1.416272</td>
+      <td>-0.883205</td>
+      <td>0.784300</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>female</td>
+      <td>-0.500969</td>
+      <td>-1.060696</td>
+      <td>-0.809939</td>
+      <td>0.126003</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>female</td>
+      <td>-1.186793</td>
+      <td>-0.420660</td>
+      <td>-0.663408</td>
+      <td>0.429833</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>female</td>
+      <td>-0.937403</td>
+      <td>-0.562890</td>
+      <td>-1.322799</td>
+      <td>1.088129</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>339</th>
+      <td>Chinstrap</td>
+      <td>male</td>
+      <td>-0.251578</td>
+      <td>0.432721</td>
+      <td>2.175637</td>
+      <td>1.341320</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>340</th>
+      <td>Chinstrap</td>
+      <td>female</td>
+      <td>-0.999750</td>
+      <td>0.077145</td>
+      <td>-0.077282</td>
+      <td>0.480471</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>341</th>
+      <td>Chinstrap</td>
+      <td>male</td>
+      <td>-0.532143</td>
+      <td>-0.562890</td>
+      <td>1.040019</td>
+      <td>0.531109</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>342</th>
+      <td>Chinstrap</td>
+      <td>male</td>
+      <td>-0.126883</td>
+      <td>0.646066</td>
+      <td>1.259816</td>
+      <td>0.936215</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>343</th>
+      <td>Chinstrap</td>
+      <td>female</td>
+      <td>-0.532143</td>
+      <td>-0.207315</td>
+      <td>1.149917</td>
+      <td>0.784300</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>344 rows × 9 columns</p>
+</div></div></div>
+</div>
+<p>Now let’s set up our prediction function.  We’re going to <em>vectorize</em> this - if we do a matrix multiply between a <span class="math notranslate nohighlight">\(n \times k\)</span> matrix and a <span class="math notranslate nohighlight">\(k\)</span>-dimensional array, we’ll get an <span class="math notranslate nohighlight">\(n \times 1\)</span> array of predictions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pred_mass_mv</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">penguin_all</span><span class="p">):</span>
+    <span class="n">intercept</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">slopes</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;flipper&#39;</span><span class="p">,</span> <span class="s1">&#39;Chinstrap&#39;</span><span class="p">,</span> <span class="s1">&#39;Gentoo&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">cols</span><span class="p">[</span><span class="s1">&#39;Chinstrap:male&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="s1">&#39;Chinstrap&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">cols</span><span class="p">[</span><span class="s1">&#39;male&#39;</span><span class="p">]</span>
+    <span class="n">cols</span><span class="p">[</span><span class="s1">&#39;Gentoo:male&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="s1">&#39;Gentoo&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">cols</span><span class="p">[</span><span class="s1">&#39;male&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">intercept</span> <span class="o">+</span> <span class="n">cols</span> <span class="o">@</span> <span class="n">slopes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s make a guess:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">init_guess</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">init_guess</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.30068623, -0.46800143,  1.05910917, -1.55308712,  0.06762369,
+        0.47486707, -0.72624577])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Test our prediction function - should give us predictions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_mass_mv</span><span class="p">(</span><span class="n">init_guess</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      1.031127
+1      0.797094
+2      0.497556
+3           NaN
+4      0.564120
+         ...   
+339    1.699772
+340    1.323691
+341    2.165720
+342    1.599926
+343    1.456819
+Length: 344, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we’ll define our loss function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">squared_loss_mv</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">penguin_all</span><span class="p">):</span>
+    <span class="n">preds</span> <span class="o">=</span> <span class="n">pred_mass_mv</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;mass&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">preds</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">err</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>How bad is that loss with our guess?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squared_loss_mv</span><span class="p">(</span><span class="n">init_guess</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2150.413368100089
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s minimize the parameters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mv_opt</span> <span class="o">=</span> <span class="n">spopt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">squared_loss_mv</span><span class="p">,</span> <span class="n">init_guess</span><span class="p">)</span>
+<span class="n">mv_opt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 44.02326049720256
+ hess_inv: array([[ 0.01480044,  0.00888065, -0.00903515, -0.02240841, -0.0094197 ,
+         0.00427484,  0.00407089],
+       [ 0.00888065,  0.00940691, -0.00278176, -0.0169299 , -0.00317235,
+        -0.00226389, -0.00251838],
+       [-0.00903515, -0.00278176,  0.0219765 ,  0.01141677,  0.00732328,
+        -0.02046506, -0.00564343],
+       [-0.02240841, -0.0169299 ,  0.01141677,  0.04498431,  0.01215354,
+        -0.00234171, -0.01004325],
+       [-0.0094197 , -0.00317235,  0.00732328,  0.01215354,  0.0143767 ,
+        -0.01249076, -0.01250795],
+       [ 0.00427484, -0.00226389, -0.02046506, -0.00234171, -0.01249076,
+         0.04323162,  0.01386635],
+       [ 0.00407089, -0.00251838, -0.00564343, -0.01004325, -0.01250795,
+         0.01386635,  0.03046714]])
+      jac: array([-0.00000000e+00,  0.00000000e+00,  4.76837158e-07,  0.00000000e+00,
+        0.00000000e+00, -0.00000000e+00,  0.00000000e+00])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 128
+      nit: 13
+     njev: 16
+   status: 0
+  success: True
+        x: array([-0.68863129,  0.35659433,  0.08029619,  0.97323106,  0.70694806,
+       -0.40084566,  0.0853413 ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>This gives us an optimized residual sum of squares of 44!  If we compare with the regression notebook, the parameters are pretty close! They aren’t quite in the same order, so we have to be careful, but this is clearly an approximation of the same model.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./resources\tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../MLTimeSeries/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">MovieLens Time Series</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../MissingData/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Missing Data</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../../../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

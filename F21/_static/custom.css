@@ -1,0 +1,51 @@
+tr p:last-child, td p:last-child {
+    margin-bottom: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+a.free::after, cite.free::after {
+    content: " 🆓";
+    font-style: normal;
+}
+
+.main-content a[href^="#"]::before {
+    content: "§ "
+}
+
+/* Video styling */
+.video-container, .slide-container {
+    position: relative;
+}
+
+.video .aux-links {
+    text-align: right;
+    font-style: italic;
+}
+
+.video-container.video-embed {
+    padding-top: 56.25%;
+    margin-bottom: 24px;
+}
+
+.video-container.video-embed iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slide-container {
+    padding-top: calc(56.25% + 24px);
+}
+
+.slide-embed {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

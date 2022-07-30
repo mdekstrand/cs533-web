@@ -1,0 +1,2457 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 10 — Classification (10/25–29) &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabinsert.js"></script>
+    <script src="../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="copyright" title="Copyright" href="../copyright/" />
+    <link rel="next" title="Week 11 — More Modeling (11/1–5)" href="../week11/" />
+    <link rel="prev" title="Week 9 — Models &amp; Prediction (Oct. 18–22)" href="../week9/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../resources/tutorials/">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/week10/index.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fweek10/index.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/week10/index.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#content-overview">
+   🧐 Content Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-classification">
+   🎥 What is Classification?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#log-odds-and-logistics">
+   🎥 Log-Odds and Logistics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logistic-regression">
+   🎥 Logistic Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-confusion-matrix">
+   🎥 The Confusion Matrix
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logistic-regression-demo">
+   📓 Logistic Regression Demo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#baseline-models">
+   🎥 Baseline Models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#floating-point">
+   📃 Floating Point
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statsmodels-documentation">
+   📃 StatsModels Documentation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#log-likelihood">
+   🎥 Log Likelihood
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scikit-learn">
+   🎥 Scikit-Learn
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scikit-learn-logistic-regression">
+   📓 SciKit-Learn Logistic Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#receiver-operating-characteristic">
+   🎥 Receiver Operating Characteristic
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practice">
+   ✅ Practice
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#biases-and-assumptions">
+   🎥 Biases and Assumptions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prediction-based-decisions">
+   📃 Prediction-Based Decisions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-10-quiz">
+   🚩 Week 10 Quiz
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#abolish-the-techtoprison-pipeline">
+   📃 Abolish the #TechToPrison Pipeline
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignment-5">
+   📩 Assignment 5
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-10-classification-10-2529">
+<span id="week10"></span><h1>Week 10 — Classification (10/25–29)<a class="headerlink" href="#week-10-classification-10-2529" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="content-overview">
+<h2>🧐 Content Overview<a class="headerlink" href="#content-overview" title="Permalink to this headline">¶</a></h2>
+<div class="module-content docutils">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><strong>Element</strong></th>
+<th class="head"><strong>Length</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#96bb220d-f751-4aa0-8a26-adc1018644fa"><span>🎥 What Is Classification</span></a></p></td>
+<td><span>6m39s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#db6b0a05-0cc0-4274-80ba-adc1018645a3"><span>🎥 Log-Odds and Logistics</span></a></p></td>
+<td><span>10m4s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#79f3395e-d3b6-4f58-82ce-adc101864664"><span>🎥 Logistic Regression</span></a></p></td>
+<td><span>9m7s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#869681f1-c582-4557-9469-adc801857c9f"><span>🎥 The Confusion Matrix</span></a></p></td>
+<td><span>11m48s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#26dae928-b1cd-48af-99c0-adc80180a589"><span>🎥 Baselines</span></a></p></td>
+<td><span>9m44s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#0f819708-8a01-4120-8026-adc1018647f7"><span>🎥 Log Likelihood</span></a></p></td>
+<td><span>16m54s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#45788c7f-5978-4ef8-8d3a-adc1018648af"><span>🎥 Scikit-Learn</span></a></p></td>
+<td><span>6m42s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#8b4dd455-91ee-45e7-90d8-adc10186494a"><span>🎥 Receiver Operating Characteristic</span></a></p></td>
+<td><span>7m25s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#74c0f84e-4150-4cbb-8ace-adc1018649c4"><span>🎥 Biases and Assumptions</span></a></p></td>
+<td><span>22m</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pdb"><span>📃 Prediction-Based Decisions and Fairness</span></a></p></td>
+<td><span>3650 words</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tech-to-prison"><span>📃 Abolish the #TechToPrison Pipeline</span></a></p></td>
+<td><span>2000 words</span></td>
+</tr>
+</tbody>
+</table>
+<p><span>This week has </span><strong>1h40m</strong><span> of video and </span><strong>5650 words</strong><span> of assigned readings.</span></p>
+</div>
+</div>
+<div class="section" id="what-is-classification">
+<h2>🎥 What is Classification?<a class="headerlink" href="#what-is-classification" title="Permalink to this headline">¶</a></h2>
+<p>In this video, I introduce the week and what classification is.</p>
+<div class="resource video docutils container" id="96bb220d-f751-4aa0-8a26-adc1018644fa">
+<div class="tabbed-set docutils">
+<input checked="checked" id="6be5df1e-6b01-4d88-9c82-b84cbb0ead82" name="cd0f1d39-b0b6-49d9-af01-7f0d04c82362" type="radio">
+</input><label class="tabbed-label" for="6be5df1e-6b01-4d88-9c82-b84cbb0ead82">
+Video (6m39s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=96bb220d-f751-4aa0-8a26-adc1018644fa&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="65b0c5ab-afb4-4036-ac99-d8adb6845b54" name="cd0f1d39-b0b6-49d9-af01-7f0d04c82362" type="radio">
+</input><label class="tabbed-label" for="65b0c5ab-afb4-4036-ac99-d8adb6845b54">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2174395" data-key=AF75qrEORLyRRtk>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+WHAT IS CLASSIFICATION?
+Learning Outcomes (Week)
+Predict binary outcomes or classes for observed instances
+Evaluate the accuracy of a classification model
+Use Scikit-Learn for predictive modeling
+Photo by Photos Hobby on Unsplash
+Outcome Variables
+Continuous — regression
+Categorical — classification
+Two-level category (or ordinal) is binary classification
+Multi-level ordinal — ordinal regression
+Multi-level categorical — multi-class classification
+
+Sometimes we’ll simplify to binary problem!
+“mostly fresh”: % Fresh greater than 50%
+
+
+
+Groups and Classes
+Inference
+What is the difference?
+t-tests etc.
+
+Classification
+Where does a new animal go?
+Photos by The Lucky Neko and Jametlene Reskp on Unsplash
+Classification and Probability
+Wrapping Up
+Classification allows us to predict discrete outcome variables.
+
+There are many models. We will start with linear ones.
+Photo by Adam Nieścioruk on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Hello and welcome to the tenth week of CSI 533. This video and one introduce our week's topic,</li>
+<li>where we're going to pivot from regression to classifications where learning outcomes for this</li>
+<li>week are for you to be able to predict binary outcomes or classes for observed instances to</li>
+<li>evaluate the accuracy of a model for doing this classification and also to use psychic learn</li>
+<li>for predictive modeling in addition to the stats models code that we've been using so far.</li>
+<li>So if we think about our different outcome variables,</li>
+<li>we talked at the beginning of the class about different types of variables and that applies to outcomes as well as all the other variables.</li>
+<li>What we saw in the last couple of weeks is using is trying to predict continuous outcome variables and we call this regression.</li>
+<li>It also applies to other numeric outcome variables like integers,</li>
+<li>but regressions where we're trying to we're trying to predict these continuous numeric outcome variables.</li>
+<li>We're trying to predict a categorical variable. We typically call it classification.</li>
+<li>And if we have a two level category or a two level ordinal,</li>
+<li>we call this binary classification because our goal is to classify instances into one of two different categories.</li>
+<li>There's also methods for dealing with multi-level ordinals, which are called ordinal regression.</li>
+<li>And if you have multi-level categorically, you have more than two categories.</li>
+<li>Then you then we have what we call multiclass classification.</li>
+<li>We're going to be focusing, particularly for now, on binary classification, where we have a yes or no outcome that we're trying to predict.</li>
+<li>We call it yes, no positive, negative, true, false. We could call it a B. if we don't want to assign positive value to one.</li>
+<li>But our usual classification setup is going to be to estimate. Is this in the positive class?</li>
+<li>Sometimes we'll simplify another problem to a binary problems. We can apply a classification, for example, in the Rotten Tomatoes data.</li>
+<li>We may say we want to we want to classify movies as mostly fresh.</li>
+<li>If they have a percent fresh, greater than 50 percent or some other threshold.</li>
+<li>You might say categorized a rating as positive if it's greater than three or greater than or equal to three other ways in which we</li>
+<li>will sometimes take outcomes that are richer than a binary class and convert them into one for the purposes of using a classifier.</li>
+<li>Now, to relate this to the inference that we saw back in the fourth week.</li>
+<li>So if we've got two different groups or two different classes here,</li>
+<li>an inference that we saw is looking at what what is different about these two groups?</li>
+<li>One's in a basket. One's on stairs. One's kittens. One's puppies.</li>
+<li>We use things like T tests, other pair Y or other tests to look at the difference between two groups.</li>
+<li>But our goal is to understand the groups and their relationships. That's what we're doing with inference.</li>
+<li>Just like with with inference in the regression context,</li>
+<li>trying to understand the structure of the space and what drives changes with classification, which is a type of prediction.</li>
+<li>What we're trying to do is we're given a new animal. We're trying to figure out which group it goes in.</li>
+<li>So inference is, given these groups of animals, what makes them different classification is given a new animal.</li>
+<li>Is it a cat or a dog? Now we're assuming everything is cats or dogs for now.</li>
+<li>If you bring in a rabbit or a ferret or a durable classifier, it's going to have a hard time.</li>
+<li>But. The got the idea here is that the classification is trying to figure out which group it belongs in,</li>
+<li>whereas in France is trying to figure out what is the differences between the groups.</li>
+<li>These are gonna be very related because the differences between the groups are the basis for figuring out which group something belongs in.</li>
+<li>But the outcome is different. And the way we assess what we're doing is different classification, as with prediction.</li>
+<li>We assess on the basis of its ability to correctly predict or classify future unseen data.</li>
+<li>So we often encode our binary classes in zero one where one is the positive class.</li>
+<li>If you use a logical value, if you use a logical and pandas, it will automatically convert to an integer zero one where one is true.</li>
+<li>And remember that when we have a vector or a series of zero ones, then if you can take you take the mean of that,</li>
+<li>you get the fraction of trews or the estimated probability of true.</li>
+<li>It's the probability of drawing an item from your data and it being true.</li>
+<li>But also, if your data is a reasonable as a as a representative sample, it is a estimate of the probability of data being true.</li>
+<li>When you drop in the population so we can think about taking the mean of why for some fixed X.</li>
+<li>So when we're doing a regression, what we do is we compute the the the expected y the expected outcome variable</li>
+<li>for some fixed X regression is gonna find an estimate of the mean outcome.</li>
+<li>And if the regression properly captures the the what's going on in the data, then the output of the regression is going to be the mean outcome.</li>
+<li>Because remember, our residuals are normally distributed. Heteros, you're homeless, get ascetics centered at zero.</li>
+<li>So everywhere along of everywhere along your line, the mean zero, which means that the the lie is the mean residual zero,</li>
+<li>which means that the line is the expected value of the outcome variable for that particular value of X.</li>
+<li>What we do here, well, we often do here as we try to compute the conditional probability.</li>
+<li>What's the probability of Y being true, given a particular value of X?</li>
+<li>So it's gonna have this relationship there to regression. In both cases, we're trying to compute the dis expectation or this probability.</li>
+<li>Fun sidebar fact probability is the expected value of the characteristic function where the characteristic function is one.</li>
+<li>If something is true and zero if it's false. But we're trying to compute this conditional probability, which we as a which.</li>
+<li>Conclusion to this we can also frame as a continuant, as a conditional expectation.</li>
+<li>So to wrap up classification allows us to predict discrete outcome variables.</li>
+<li>There are many different models for doing this. We're gonna start with linear ones as we were using for regression.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="log-odds-and-logistics">
+<h2>🎥 Log-Odds and Logistics<a class="headerlink" href="#log-odds-and-logistics" title="Permalink to this headline">¶</a></h2>
+<p>In this video, I introduce <a class="reference internal" href="../glossary/#term-log-odds"><span class="xref std std-term">log odds</span></a>, along with the <em><a class="reference internal" href="../glossary/#term-logistic-function"><span class="xref std std-term">logistic function</span></a></em> and its inverse,
+the <em><a class="reference internal" href="../glossary/#term-logit-function"><span class="xref std std-term">logit function</span></a></em>.
+Log odds are a useful concept in many situations!</p>
+<div class="resource video docutils container" id="db6b0a05-0cc0-4274-80ba-adc1018645a3">
+<div class="tabbed-set docutils">
+<input checked="checked" id="cdd20ef1-f89c-49c0-8bd3-98a5b941af2a" name="32705b1b-6f2e-460c-beda-a69e9212b170" type="radio">
+</input><label class="tabbed-label" for="cdd20ef1-f89c-49c0-8bd3-98a5b941af2a">
+Video (10m4s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=db6b0a05-0cc0-4274-80ba-adc1018645a3&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="750c0266-5e19-4af2-ad53-8b603a2f96d5" name="32705b1b-6f2e-460c-beda-a69e9212b170" type="radio">
+</input><label class="tabbed-label" for="750c0266-5e19-4af2-ad53-8b603a2f96d5">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2174397" data-key=AOirm2V1uL1GL-8>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+LOG ODDS
+Learning Outcomes
+Convert between probability, odds, and log odds.
+Understand the function of the logistic and logit functions.
+Photo by Madara Parma on Unsplash
+Odds
+Probability and Odds
+Odds
+Logarithms
+Very useful for compute
+Avoid floating point over/underflow
+Be careful though:
+Addition and subtraction can compound errors
+
+
+Odd Logs
+Photo by Jennifer Ekstrand
+Log Odds
+Logistic
+Diagram from Wikipedia
+Wrapping Up
+Odds are another way of representing probabilities.
+
+The logistic and logit functions convert between probabilities and log-odds.
+Photo by Praveen kumar Mathivanan on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Hello. This video, I want to introduce the concept of odds and log odds,</li>
+<li>learning outcomes are to be able to convert between probability odds and log odds</li>
+<li>and understand the role and the purpose of the logistic and logic functions.</li>
+<li>So if we have a probability of success. Probability is not the only way to quantify a probability.</li>
+<li>We can also quantify it. And what's her called? The odds. So if you've heard of odds of like ten to one against odds of two to one.</li>
+<li>This is what it's talking about. So if we have a probability of success.</li>
+<li>And remember, this is going to be in the range zero less than or equal.</li>
+<li>So probability is going to be in the range zero to one.</li>
+<li>We can't actually have probabilities of zero and one when we're talking about odds four.</li>
+<li>I'll get to that in a moment, but the odds is the probability of success.</li>
+<li>Divided by the probability of failure or the probability of success, divided by the probability of one minus success.</li>
+<li>And it gives us this ratio of the likelihood of one outcome versus the other.</li>
+<li>And how much it expresses odds expresses how much more likely.</li>
+<li>Success is than failure or failure is then success if we're quantifying the odds of failure.</li>
+<li>So a couple of examples. Star Wars robots.</li>
+<li>A couple of them talk differently, some in some in probability and some odds.</li>
+<li>K2 Esso says there's a ninety seven point six percent chance of failure.</li>
+<li>So our probability of failure is ninety seven point six. Point nine, seven, six.</li>
+<li>And so our odds are point nine seven six divided by pointing to four.</li>
+<li>Which is equal to forty point six seven. So we affect it.</li>
+<li>We approximately have a forty one to one odds. The odds against success are the odds of failure are forty one to one.</li>
+<li>That if we're going to translate this ninety seven point six percent chance into OD's, we can also translate the other way around.</li>
+<li>See through Apio is being a little imprecise in his speech.</li>
+<li>He should say the odds. The odds against successfully navigating an asteroid field.</li>
+<li>But he says the possibility of successfully navigating will forgive him because he's talking about a ratio 37 20 to one.</li>
+<li>He's clearly talking about odds. And so if the odds are thirty seven, twenty over one, that's equal to P. over one minus P.</li>
+<li>If we solve that equation, what we're going to get is that the probability of failure, if we converting this odds of thirty seven,</li>
+<li>twenty to one, that we get a probability of failure of point nine nine nine seven or ninety nine point nine seven.</li>
+<li>And so we can convert back and forth between probability and odds.</li>
+<li>So long as our probability is not zero or one, we can't.</li>
+<li>If probability is zero, then the odds will be zero.</li>
+<li>But if the probability is one, then the probability of failure will be zero.</li>
+<li>And so the odds will be infinite. Another thing about odds is that P is equal to zero point five, then odds is equal to one.</li>
+<li>So one is even odds. Just as likely as it is unlikely.</li>
+<li>Now, hopefully you may remember from high school algebra, logarithms and logarithms allow us to convert between exponents and.</li>
+<li>In normal numbers, and so if X is the log base B of Y, that means Y is equal to be to the X logarithms undo exponentiation.</li>
+<li>A few common bases. We have E the natural log. That's the one we use.</li>
+<li>By far the most. We have log 10. That's really useful for doing orders of magnitude.</li>
+<li>And when we plot on a log access, that log is almost always log.</li>
+<li>Ten logs and different bases are proportional to each other, just a constant multiplier.</li>
+<li>And so we have the we can have E for a lot of computations based 10 logs for displaying log axes and plots.</li>
+<li>Sometimes you're gonna see base two logs when we're dealing, particularly dealing with low level operations and computer programing.</li>
+<li>NUM Pi has the function log, which is the natural log and log 10, which is the base 10 log.</li>
+<li>So a couple logarithms have a variety of identities.</li>
+<li>If you're going to multiply two numbers, you can that's equivalent to adding their logarithm.</li>
+<li>So log of X Y is equal to log of X plus log of Y. Exponentiation is multiplying the logarithm to the log of X to the Y as Y times the log of X.</li>
+<li>These identities are useful for reasoning about what's happening with your logarithms.</li>
+<li>Logarithms are only defined for X greater than zero.</li>
+<li>And so. In a moment, we're going to get to log odds in which you so your.</li>
+<li>The probability can't be won and allow you to convert to odds, because then you're going to have infinite,</li>
+<li>infinite odds and it can't be zero and convert to law gods because you have zero and you can't take the log of zero.</li>
+<li>One common operation when we do have some zeroes is to take the log of one plus X and this and num PI has a function that does that very,</li>
+<li>very precisely. If you need to do log of one plus X, don't just do log of one plus X two log one P floating point is a weird beast.</li>
+<li>I'm going to post a reading or two free to learn more about what's going on with floating point.</li>
+<li>But logarithms are very useful for compute because they will help us avoid floating point under or overflow.</li>
+<li>And so very, very small probabilities. We'll have logarithms that are still within the reasonable range that we can store.</li>
+<li>Also, though, you have to be a little bit careful because in flooding point arithmetic.</li>
+<li>So in addition and subtraction are more efficient than multiplication and division.</li>
+<li>So if you do the logarithms in your computations, the more efficient they stay in a more useful range of values many times.</li>
+<li>But you have to be a little bit careful with particularly subtraction,</li>
+<li>but also addition and floating point to avoid problems with precision and cancelation.</li>
+<li>Again, I'm going to post a couple of reading or two about that.</li>
+<li>But we have our odds and we have our logarithms, so now we can get to law gods or add logs.</li>
+<li>But we can go to log odds. And so the log odds is the log of the odds.</li>
+<li>And so it's the log of p0 ovei times one minus PMA, which is equal to log of P of a minus the log of one minus P of A.</li>
+<li>Because multiplication is addition. Division is subtraction. This function has a name.</li>
+<li>This log God's function is called the logic and the logic of P is equal to</li>
+<li>log P minus log of one minus P or log the P of log of P over one minus P and.</li>
+<li>This converts odd or this converts probability into odds to go back.</li>
+<li>It would convert K to S.O. indices through Pyo. The logistic function is the inverse of the logic.</li>
+<li>So the logic is the log, the logistic is one over one plus E, the minus X, equivalently, it's either the X over each of the X plus one.</li>
+<li>And it has a curve like this. The logic, the logistic of zero is point five as logistic goes to infinity.</li>
+<li>This approaches one. As it goes to negative infinity, it approaches zero.</li>
+<li>So it maps unbounded real values into the range zero one.</li>
+<li>This is very useful because we have zero one outcomes.</li>
+<li>It allows us to have an unbounded value that predicts it and it gets us into zero</li>
+<li>ones without having to do clamping or anything else that's not differentiable. It also often when you.</li>
+<li>You might have a zero one outcome variable. OK?</li>
+<li>That's not not the 01 isn't normal or Pritam probabilities often aren't normal because they're bounded in this range zero one.</li>
+<li>But it's not uncommon to find a situation where the logic of probabilities is normal.</li>
+<li>And so you can if the logic of your probabilities is normal, then that lets you apply that like the law gods is normal.</li>
+<li>So that lets you apply things that, like normal numbers,</li>
+<li>normally distributed numbers to the log odds and then convert them back into probabilities with the logistic function.</li>
+<li>When you actually need a probability, the logistic function is also an example of what's called a sigmoid curve.</li>
+<li>S shaped curve. As I said, it converts log odds in the probability.</li>
+<li>So odds are another way of representing probabilities and the logistic and logic functions convert between probabilities and the log odds and odds.</li>
+<li>The odds of one is even log odds of zero is even log odds.</li>
+<li>Zero. When odds equals one.</li>
+<li>So and also they're more their balance. So. The odds of two to one is two, odds of one to two is point five.</li>
+<li>Odds of long odds of two to one is just a little under one.</li>
+<li>And the drug odds of one to two is just a little over negative one.</li>
+<li>So it gives you more symmetry, more balance in the law. Become very computationally useful to work with.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="logistic-regression">
+<h2>🎥 Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permalink to this headline">¶</a></h2>
+<p>We’re now ready for our first classification model: <em>logistic regression</em>.</p>
+<div class="resource video docutils container" id="79f3395e-d3b6-4f58-82ce-adc101864664">
+<div class="tabbed-set docutils">
+<input checked="checked" id="f1c0f373-4551-45af-b148-f264ece76e46" name="91fca8fb-70f3-4bec-8450-46f5f53269b3" type="radio">
+</input><label class="tabbed-label" for="f1c0f373-4551-45af-b148-f264ece76e46">
+Video (9m7s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=79f3395e-d3b6-4f58-82ce-adc101864664&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="34ff89de-7ea0-42b2-a6f4-de14409aa236" name="91fca8fb-70f3-4bec-8450-46f5f53269b3" type="radio">
+</input><label class="tabbed-label" for="34ff89de-7ea0-42b2-a6f4-de14409aa236">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2174398" data-key=ABHwqyEEXarz21Q>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+LOGISTIC REGRESSION
+Learning Outcomes
+Compute a logistic regression to predict a binary value
+Understand generalizing linear regression
+Photo by Vishnu Prasad on Unsplash
+Linear Regression
+Classification Setup
+General Linear Models (GLMs)
+Logistic Regression
+Training a GLM
+Generalized linear model
+Binomial family (logit link)
+
+p-values test significance
+
+Predicting with GLM
+scores = lg_res.predict(test)
+
+Results in predicted scores (estimated probabilities)
+
+Convert to binary class w/ threshold:
+
+decisions = preds &gt; 0.5
+Terms
+Outcome — the true outcome of the data we seek to predict
+Called ground truth
+Score — our prediction score (logistic: estimated probability)
+Decision — our binary decision
+Usually done by thresholding score
+Some models &amp; software directly output predictions
+Wrapping Up
+General linear models allow linear predictions of other quantities.
+
+Logistic regression lets us use linear models for binary classification.
+Photo by Michèle Eckert on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, we're going to take the combination, the concept we introduced in the last video,</li>
+<li>the law guides the logistic and introduced the logistic regression learning outcomes are for you to be able to compute logistic,</li>
+<li>which are great aggression, to predict a binary value and understand and generalize logistic regression.</li>
+<li>So recall linear regression where we have we're trying to generate predictions y hatam.</li>
+<li>We do that with an intercept. And then the sum of scalar multiples of our feature values.</li>
+<li>We can generalize this in one way. We can transform feature values with which generally we can think of as applying a</li>
+<li>function F of JD each feature X of IJA rather than just multiplying it by a car,</li>
+<li>by a coefficient. The full version of this is called what's called a generalized additive model.</li>
+<li>But that's it's transforming our input features. We can also do that as a part of our data cleaning process.</li>
+<li>But in addition to transforming input features, we can transform output features.</li>
+<li>We're going to see that as we always we look at our classification setup. So if Y is a zero one logical random variable,</li>
+<li>one is going to be what we call our positive class is admitted is spam is fraud, whatever it is we're trying to detect.</li>
+<li>We're going to say one will get Y equals. One is the positive class and Y equals zero is the negative class in some cases numbers.</li>
+<li>There's not going to be any hierarchy or moral value.</li>
+<li>We just have to pick one and say it's the positive class and then we have our predictive variables X just like we did in the linear regression.</li>
+<li>And our goal is to compute Y hat that predicts y just like we did in linear modeling,</li>
+<li>except now we don't have these continuous values and it's not meaningful.</li>
+<li>Subtract. What happens if you subtract zero like true from false.</li>
+<li>So one way to do this is to rather than estimate the value of why we can estimate the probability that Y is one.</li>
+<li>Now, remember probability of one.</li>
+<li>And when we have zero. One probability of one. And the mean.</li>
+<li>Are the same thing we can try to estimate the probability that Y is one.</li>
+<li>In a way, we can do this as well with what's called a general linear models with general linear model wrapped the whole model and a functions.</li>
+<li>We have a link function G and we wrap the model and its infers inverse G to the minus one.</li>
+<li>And so there's different ways we can do this. We can do this for count data with what's called a Poisson.</li>
+<li>Regression in the link function is the log. We can do it with binary data or zero one outcomes.</li>
+<li>That's what we're going to be focusing on here. This is called a logistic regression and the like function is the logic.</li>
+<li>So G minus one. So this is G. So G to the minus one is the logistic.</li>
+<li>It's called logistic regression, because we wrap call, we wrap.</li>
+<li>The results of our linear model, better zero plus the sum of the better.</li>
+<li>I better JS X JS in the logistic function.</li>
+<li>So we get the probability of Y equals one. For a particular ax.</li>
+<li>Is why hat our predictive value, which is equal to the would?</li>
+<li>Which is equal to the logistic. Made an error in the slide.</li>
+<li>There it is equal to the logistic of BITA zero plus the sum of our beta JS.</li>
+<li>So in this case, why can be our variable admitted grad school X can be and then we have X one, X two, x three as our GRV GPA and school rank.</li>
+<li>I'm going to provide a notebook that does this and we can try to predict that with our Y hats now.</li>
+<li>So we can do this. We can not. We have this code here that we call G.L. AM instead of oh,</li>
+<li>I'll ask for the general linear model we want to predicted met with our three variables and then we tell it that we have a family.</li>
+<li>So general linear models have what are called the code usually caused in families.</li>
+<li>We're going to say it's the family binomial, which gives us the logic link function.</li>
+<li>And then we we fit the bottle when we get the results. And this is going to look kind of familiar.</li>
+<li>We don't have an R squared because we're predicting zero one outcomes. It's not really meaningful to talk about their variance.</li>
+<li>We do have a lot of likelihood. We're going to see in a later video what that means.</li>
+<li>We also have our column of P values, which gives us significant tests on our different coefficients.</li>
+<li>We can use them. We can drop non significant predictor variables like we did and like we would in linear regression.</li>
+<li>But this gives us that. But there's now so then builds up this linear model.</li>
+<li>The coefficient is the coefficients are harder to interpret.</li>
+<li>They're not impossible to interpret and logistic regression, but they're harder to interpret.</li>
+<li>The important the first important thing is that they are all in terms of log odds.</li>
+<li>And so a increase in school. An increase in rank of one decreases the law gods of admission by by point five.</li>
+<li>One point five to. But this is the output of our logistic regression.</li>
+<li>We can then predict with a logistic regression using the predict method, just like we do in with a linear regression stats,</li>
+<li>models that predict method gives us predicted scores which are going to be and these are after calling logistic.</li>
+<li>So these are estimated probabilities and they get. We can then convert them into a binary class so we can actually make a decision with a threshold so</li>
+<li>we can say we're going to accept everything where the predicted accept is greater than point five.</li>
+<li>So it's more likely than not that we're going to accept that we that this one would be.</li>
+<li>Yes, according to our model. Different models and different tasks may require different thresholds because there are going</li>
+<li>to be different costs for false positives and false negatives depending on our application.</li>
+<li>So a couple of terms that are going to be useful as we talk more about these.</li>
+<li>First, the outcome that this is the true outcome of the data we seek to predict as it the linear model.</li>
+<li>We're going to call it Y. We call this the ground truth as well, and this is also why it's called a supervised learning problem,</li>
+<li>because we have this ground truth outcome data that we're trying to learn to predict.</li>
+<li>And for the purposes of building and evaluating our model, we assume the data is correct.</li>
+<li>Ground troops data can be biased in various ways as well, that can affect our that can affect what we.</li>
+<li>That affects what we learn from it, that affects our ability to predict.</li>
+<li>It also is a really, really important to note that the outcome variable, this needs to be the actual outcome we're looking for.</li>
+<li>Because you're predicting your outcome variable and if your outcome variable isn't what you think it is.</li>
+<li>Then you're not predicting the thing you think you're predicting.</li>
+<li>I mentioned this in class at one point, but Cathy O'Neill, author of Weapons of Mass Destruction,</li>
+<li>pointed out on Twitter a few earlier this fall that in most cases we don't actually have crime data if we want to predict crime,</li>
+<li>say, high crime area, or whether a crime is going to happen in a particular area or particular time.</li>
+<li>We don't usually actually have crime data. None of our data tells whether a crime happened or not.</li>
+<li>Our data says whether a crime was reported. Our data says what police do.</li>
+<li>And so if we're trading off of that data, we're not predicting crimes. We're predicting crime reports or police activity, which is not the same thing.</li>
+<li>And so it's important to know what our outcome variable,</li>
+<li>what our observed outcome variable actually is and how that relates the task that we're actually trying to solve.</li>
+<li>We then have a score, which is the prediction score that comes out of our model and the logistic regression.</li>
+<li>It's the estimated probability if we just take the linear part of the logistic regression, that it's the estimated log odds.</li>
+<li>And then we have our decisions. We use the score to make a decision, often by thresholding it.</li>
+<li>And that's what we decide to do.</li>
+<li>So if we got a spam detector, our outcome is whether or not the message is spam, as it's been labeled, maybe by our users, maybe by our spam experts.</li>
+<li>Our decision is whether or not our model says it's spam. And then what we're going to look for when we start to look at the accuracy of these models</li>
+<li>for their predictions is the extent to which those decisions match those outcome variables.</li>
+<li>When we say it's spam, is it spam? So to wrap up general linear models, allow linear predictions of nonlinear quantities such as sometimes counts.</li>
+<li>Such as. Particularly for our purposes. Binary outcomes, yes or no, true or false.</li>
+<li>Logistic regression is the particular way that we use a linear model in order to do binary classification.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="the-confusion-matrix">
+<h2>🎥 The Confusion Matrix<a class="headerlink" href="#the-confusion-matrix" title="Permalink to this headline">¶</a></h2>
+<p>The <em>confusion matrix</em> describes the outcomes of a classification model and is the basis for computing effectiveness metrics.</p>
+<div class="resource video docutils container" id="869681f1-c582-4557-9469-adc801857c9f">
+<div class="tabbed-set docutils">
+<input checked="checked" id="cea3bf4d-cf59-4be3-80d4-c5c773b98450" name="dcc39107-5e1a-4f9b-98be-684f3b40d9a9" type="radio">
+</input><label class="tabbed-label" for="cea3bf4d-cf59-4be3-80d4-c5c773b98450">
+Video (11m48s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=869681f1-c582-4557-9469-adc801857c9f&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="b4ab8485-3017-4c30-8c6b-2997220d2a87" name="dcc39107-5e1a-4f9b-98be-684f3b40d9a9" type="radio">
+</input><label class="tabbed-label" for="b4ab8485-3017-4c30-8c6b-2997220d2a87">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2174396" data-key=AFgC85AYb5JCPxI>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CONFUSION AND ACCURACY
+Learning Outcomes
+Count true and false positives and negatives
+Understand the confusion matrix
+Compute precision, recall, and accuracy
+Photo by marianne bos on Unsplash
+Decisions and Outcomes
+Confusion Matrix
+True positives &amp; negatives — correct decisions.
+
+False positive — incorrectly decide yes
+
+False negative — incorrectly decide no
+False Negative
+True Negative
+False Positive
+True Positive
+1
+0
+Truth
+1
+0
+Decision
+Accuracy
+False Negative
+True Negative
+False Positive
+True Positive
+1
+0
+Truth
+1
+0
+Decision
+Precision
+False Negative
+True Negative
+False Positive
+True Positive
+1
+0
+Truth
+1
+0
+Decision
+Recall
+False Negative
+True Negative
+False Positive
+True Positive
+1
+0
+Truth
+1
+0
+Decision
+Why Not Just Use Accuracy?
+Not all errors have equal costs
+False positive in a preliminary cancer screen: run another test
+False negative: miss a life-threatening illness
+
+Imbalanced classes skew accuracy
+90% cases positive: always guessing 1 has 90% accuracy
+
+Confusion: any of these metrics sometimes called accuracy metrics.
+Precision [P(Y=1|D=1)]
+Captures correctness of positive decisions
+When we say spam, is it spam?
+When we say fraud, is it fraud?
+When we say good loan, is it a good loan?
+
+Also called Positive Predictive Value
+
+Useful when FP cost is high, getting it right is important
+Sensitive to prevalence of positive outcomes
+Recall [P(D=1|Y=1)]
+Captures detection rate of true outcomes
+If it’s spam, do we find it?
+If it’s fraud, do we find it?
+If it’s cancer, do we find it?
+
+Also called Sensitivity or True Positive Rate
+
+Crucial when FN (missed detection) cost is high
+False Positive Rate
+False Negative
+True Negative
+False Positive
+True Positive
+1
+0
+Truth
+1
+0
+Decision
+False Negative Rate
+False Negative
+True Negative
+False Positive
+True Positive
+1
+0
+Truth
+1
+0
+Decision
+Specificity
+False Negative
+True Negative
+False Positive
+True Positive
+1
+0
+Truth
+1
+0
+Decision
+Metrics
+We can derive many metrics from the confusion matrix
+Metrics reflect different needs and consequences
+Metrics reflect different stakeholder perspectives
+FPR: how likely am I to be falsely accused?
+Wrapping Up
+The confusion matrix categorizes classification results and errors.
+
+Ratios of various counts produce metrics for classifier accuracy.
+Photo by Jon Tyson on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+<div class="section" id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Confusion_matrix">Wikipedia article</a> has a very good diagram of the confusion matrix and its derived metrics.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="logistic-regression-demo">
+<h2>📓 Logistic Regression Demo<a class="headerlink" href="#logistic-regression-demo" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../resources/tutorials/LogitRegressionDemo/"><span class="doc std std-doc">demo notebook</span></a> for our initial logistic regression videos.</p>
+</div>
+<div class="section" id="baseline-models">
+<h2>🎥 Baseline Models<a class="headerlink" href="#baseline-models" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="26dae928-b1cd-48af-99c0-adc80180a589">
+<div class="tabbed-set docutils">
+<input checked="checked" id="a8a78bcd-1980-4089-942c-164633eac6ac" name="4387e655-c623-4ddb-a63a-aa33a5e48ae4" type="radio">
+</input><label class="tabbed-label" for="a8a78bcd-1980-4089-942c-164633eac6ac">
+Video (9m44s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=26dae928-b1cd-48af-99c0-adc80180a589&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="bdff1cb3-c4ed-4244-b15c-b181a05eefd1" name="4387e655-c623-4ddb-a63a-aa33a5e48ae4" type="radio">
+</input><label class="tabbed-label" for="bdff1cb3-c4ed-4244-b15c-b181a05eefd1">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2174404" data-key=ABq4SQ8Bj9DwZtk>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+BASELINE MODELS
+Learning Outcomes
+Understand the role of a baseline predictor
+Compare a prediction quality metric against a suitable reference
+Photo by Diana Polekhina on Unsplash 
+Reference Point
+RMSE = 0.8567
+Precision = 0.925
+
+Are these good?
+
+Unknown – we need more information!
+Application specific
+State-of-the-art specific
+Photo by Diana Polekhina on Unsplash 
+How Good is Possible?
+Noise inherent in observable outcomes may limit how good a predictor can get!
+Noise component of bias/variance tradeoff
+Sometimes called “magic barrier”
+May be in:
+Actual outcomes
+Observation of outcomes
+Or both
+May not actually know this value.
+How Bad is Possible?
+Majority-Class Classifier
+Classifies everything as having the most common label
+
+Can you beat it?
+
+If not, maybe use constant policy?
+
+Works well for accuracy – less well for other metrics (depending on which class is majority)
+Photo by Mahmud Ahsan on Unsplash 
+Random classifier
+Randomly picks outcomes
+Uniformly, or
+Proportional to observations in training data
+
+Another example of how bad you can get!
+Works for all our confusion matrix metrics
+More Sophisticated Baselines
+Linear models (w/ a few predictors)
+Decision trees
+Widely-used, “simple” models
+
+Application-specific, but there’s often something between “do nothing” and “state of the art”.
+State of the Art
+Many problems have an existing best practice
+Model currently used to solve the problem
+Good models from the research literature
+
+Can you do better?
+Recommended Comparison Set
+Naïve baseline (mean, majority, or random)
+Simple baseline models
+Current state of the art
+Your thing
+
+Not all levels make sense for all problems
+Wrapping Up
+Most effectiveness metrics need context to be interpreted.
+
+Baselines and state-of-the-art can provide that context.
+Photo by Anne Nygård on Unsplash 
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="floating-point">
+<h2>📃 Floating Point<a class="headerlink" href="#floating-point" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://floating-point-gui.de/">Floating Point Guide</a></p></li>
+</ul>
+<p>This is provided for reference.</p>
+</div>
+<div class="section" id="statsmodels-documentation">
+<h2>📃 StatsModels Documentation<a class="headerlink" href="#statsmodels-documentation" title="Permalink to this headline">¶</a></h2>
+<p>The following StatsModels page documents its logistic regression:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/discretemod.html">Regression with Discrete Dependent Variable</a></p></li>
+</ul>
+<p>This is <strong>not</strong> an assigned reading - it is here for your reference.</p>
+</div>
+<div class="section" id="log-likelihood">
+<h2>🎥 Log Likelihood<a class="headerlink" href="#log-likelihood" title="Permalink to this headline">¶</a></h2>
+<p>This video describes the <em>log likelihood</em> that is the objective function used by logistic regression.</p>
+<div class="resource video docutils container" id="0f819708-8a01-4120-8026-adc1018647f7">
+<div class="tabbed-set docutils">
+<input checked="checked" id="baa2da18-9488-421c-97c2-3b929a9fae6e" name="23d5afff-c98f-4834-82dd-8162042726b5" type="radio">
+</input><label class="tabbed-label" for="baa2da18-9488-421c-97c2-3b929a9fae6e">
+Video (16m54s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=0f819708-8a01-4120-8026-adc1018647f7&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="4aef6566-43aa-49a6-a9e8-9064e22b03dc" name="23d5afff-c98f-4834-82dd-8162042726b5" type="radio">
+</input><label class="tabbed-label" for="4aef6566-43aa-49a6-a9e8-9064e22b03dc">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2174400" data-key=AHAu-VCAtkJlWPY>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+LOG LIKELIHOOD
+Learning Outcomes
+Compute the log likelihood of data from a model estimating probabilities.
+Understand the objective function of logistic regression.
+Photo by Devin Avery on Unsplash
+Logistic Regression
+Probability of Observed
+Conditioning on Parameters
+Likelihood Function
+Proportionality
+Log Likelihood
+Maximum Likelihood Estimator
+Expanded Log Likelihood
+Example
+Can compare on same data
+
+Different data ⇒ different likelihood
+Likelihood and Posterior
+Maximizing
+Wrapping Up
+Logistic function is trained by maximizing the log likelihood of the training data given the model.
+Photo by Geran de Klerk on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Oh, and this video, I'm going to introduce the log likelihood measure that you see when you're training a logistic regression.</li>
+<li>We're going to see how that's computed. And we're going to talk about what it means to to estimate parameters with a maximum likelihood estimate.</li>
+<li>So our our learning outcomes for this video,</li>
+<li>for you to be able to compute the log likelihood of data and understand the objective function of logistic regression.</li>
+<li>So recall and logistic regression, we're learning a model y hat equals the logistic function of a linear model.</li>
+<li>And that's why Hat is trying to predict the probability that our outcome variable will be one or the probability of yes.</li>
+<li>That's what we're doing in our logistic regression. But we can also think about the probability of the data.</li>
+<li>So what if we want to not just compute, what if we want to compute,</li>
+<li>not the probability that Y is one, but the probability that it equals our observed value?</li>
+<li>So what probability does our model, our logistic regression model, assign to the outcomes that we actually observe in the data?</li>
+<li>That's what's being captured in the log likelihood. So we can compute this by computing, by using the scores.</li>
+<li>These estimated probabilities. And the actual values.</li>
+<li>So. We have here. We're going to take the score and we're going to raise it to the power of the outcome variable, which is in zero one.</li>
+<li>We're gonna have one minus the score. And remember, the one minus the probability of something is the probability of not something.</li>
+<li>So if y hat sabai is, the probability of Y is one than one minus Y has survived, the estimated probability of Y is zero.</li>
+<li>We're going to raise that to the power of one minus Y to the eye. So.</li>
+<li>This is a trick where if you're going to multiply things.</li>
+<li>So we saw in previous examples, when we're trying to add things, we can use multiplication by a one or a zero effectively as an.</li>
+<li>If if you multiply something by one, you get something. If you multiply it by zero, you get zero.</li>
+<li>So if you're adding those together, what you get it basically turn the ones and zeros turn on and off.</li>
+<li>Different pieces of the of the computation and multiplication.</li>
+<li>We can use exponentiation to do that or raising something to a power.</li>
+<li>And so because because remember that X to the zero is one no matter what axis.</li>
+<li>So if our power is a one or a zero.</li>
+<li>X to the one equals X. So. If we have, why I as one.</li>
+<li>Then why hat's a bye to the one is why hat survived and one minus Y hats a bye to the one minus Y.</li>
+<li>Is going to be. Zero. So when Y equals one, then this is one.</li>
+<li>And this is zero. See, this is why hat sub I.</li>
+<li>And this is zero. And if. Why have I?</li>
+<li>If Y. Supply equals zero, then we get zero over here and we get why we get.</li>
+<li>One minus Y hats have I here. And so it the zero over the one picks, which of these two scores we actually use.</li>
+<li>Because if the observed value is one, then it's probability as the result of our logistic regression.</li>
+<li>Passes the logic for the logistic function, so it's actually a probability.</li>
+<li>But if the observed value is zero, then we need the negation of that probability one minus it.</li>
+<li>And the exponentiation and the multiplication turns into precisely the switching, the conditional that we need there.</li>
+<li>It's a neat little trick, because if you if you multiply a variable by a one or a zero, you get the additive identity.</li>
+<li>And if you raise a variable to the power of one or zero, you get the multiplicative identity one.</li>
+<li>When the very when. When you raise it to the zero.</li>
+<li>So. We can compute the probability of our observed data.</li>
+<li>We can also condition on probability. So we've been thinking about the probability of Y equals one given X.</li>
+<li>But we can extend that to think about the probability of Y equals one given our parameters, beta two.</li>
+<li>So what our model is really computing if we generalize it over betas.</li>
+<li>So their input as well is the probability of one given X and given our parameter values beta.</li>
+<li>And that is equal to the logistic function of our batur zero plus our sum of better job, better j.s multiplied by the feature values.</li>
+<li>So this gives us given data Y and X, and I'm using boldface here to indicate this is a vector of data values as opposed to individual data values,</li>
+<li>and just to make it a little bit distinct from a random variable.</li>
+<li>The likelihood of the data, given the parameters, is the probability of the data Y and X,</li>
+<li>given our parameters, which is proportional to the in this case, it's proportional to probability of Y,</li>
+<li>A and X given beta is proportional to probability of Y given X and beta,</li>
+<li>which in turn is equal to the product of the probabilities of our individual y excise.</li>
+<li>We are assuming here that they are exchangeable, that there's no difference if we shuffle the order.</li>
+<li>Now this is the probability of the exact sequence that we observed.</li>
+<li>But and we can renormalize it if we want to be able to observe these data in any sequence.</li>
+<li>But this is the likelihood function. And you're talking a little bit more about what likelihood means and how it fits into a bigger picture.</li>
+<li>But I said here that it is proportional. So this operator here is the proportional to operator.</li>
+<li>And what it means is that it is equal to the left hand side is equal to the right hand side, multiplied by some scaling constant.</li>
+<li>And the reason we get this here is that probably by the by the definition of conditional probability, P of Y of X,</li>
+<li>Y and X given be given better is the probability of Y given X and bita times</li>
+<li>the probability of X given bita but X we're not choosing X based on Batur.</li>
+<li>Y y es probability is conditional on beta, but X is is not X is independent of our parameter is better.</li>
+<li>It's just the data that we have. So the probability of X given beta is equal to the probability of X also because X is fixed.</li>
+<li>We just have X, we treat it as an unknown constant or we can treat it as one.</li>
+<li>The probability of having the data we have is one as one as another way to think about it.</li>
+<li>And so. If we think of that as one than this, proud torsional two becomes equals.</li>
+<li>But we get this proportionality so that we can just move we can move the ax to the other side of the given bar here in this specific case,</li>
+<li>because we're not using Beda to choose X, so we can then do the last piece and we can convert this to a log.</li>
+<li>Likelihoods of a log likelihood is the log of the likelihood. So it's the log of P of X times, this big product,</li>
+<li>because we want the probability of of the first outcome and the second outcome and the third outcome and probability of these things.</li>
+<li>Since we're assuming all of our values are are independent, the probability is equal to their product.</li>
+<li>So but then and log is low-Pitched X plus the sum of the logs of the individual probabilities because multiplying values becomes Sum's and log space.</li>
+<li>So we can do this thing as a big sum. We do it as a multiplications value is gonna get vanishingly small.</li>
+<li>The example dataset I've been using like ten to the negative 80.</li>
+<li>But if we use logs, then it's gonna be in a much more reasonable space, like nine minus one hundred and fifty two.</li>
+<li>And so lets us do it with additional lets us keep the probabilities in a much more reasonable range so we can compute with much smaller probabilities.</li>
+<li>The the probability of any specific sequence of a specific set of observations is relatively low.</li>
+<li>We can still talk about finding the data that gives it the most probability, but the probability is small because,</li>
+<li>well, you could have just shuffled them and gotten a very, very different value on the order of N factorial.</li>
+<li>Different times. So we have this log likelihood is the some of the lives of the individual probabilities</li>
+<li>we saw in an earlier slide how to compute those individual probabilities.</li>
+<li>The code that actually does this is in the logistic regression demo notebook.</li>
+<li>So we have this likelihood function. And we can use what's called a maximum likelihood estimate or so logistic regression.</li>
+<li>The way it actually trains what it does is it uses the log likelihood as a as a utility function.</li>
+<li>Utility function is the opposite of a lost function or a cost function. And it maximize it.</li>
+<li>So it finds the parameter values that maximize this log likelihood.</li>
+<li>We can optimize many other models. We could opt out. We can optimize any model that produces a probability or a likelihood.</li>
+<li>By computing this kind of an amax, by maximizing the log likelihood of the training data given the model.</li>
+<li>This gives us what, as I said, this gives us a maximum likelihood estimate or note.</li>
+<li>This is it's maximizing the log likelihood, not the log odds, but the log maximum with the log likelihood,</li>
+<li>a maximum of the log odds are going to have the same parameter values because they're monotonic functions or they have a monotonic relationship.</li>
+<li>So if we expand this log likelihood, though, we get the log likelihood is equal to Y times.</li>
+<li>The log of Y had EI plus the one minus log. Why times the log of one minus Y had I.</li>
+<li>And now I've turned. Because we're now adding in log space.</li>
+<li>And also because of how you expand powers when you're doing a log. We've now moved.</li>
+<li>What was this multiplicative switch or multiplicative conditional that we were using the power as we've now turned it into an additive conditional.</li>
+<li>They said this is applicable to any model, where are y hat is an estimate of the probability of the positive class.</li>
+<li>So to show you an example of computing this, if we have the first data point.</li>
+<li>It's SCOR, why that is. Point one eight to eight 07, and but it's admit it's why a zero, so it's going to be.</li>
+<li>We're going to compute why hat zero? Why hat time to the zero?</li>
+<li>Times one minus Y hat. Which is point eight, seven to the one, and that's going to be point it one seven.</li>
+<li>And we have point eight one seven right here. If you want to compute the log likelihood, you're gonna get negative point, too.</li>
+<li>To sum up all these log likelihoods and we're going to get the total log likelihood of the data for this model.</li>
+<li>We can compare these on the same data. But if one if you have this, if we have the same.</li>
+<li>If we have this model, that fits just as well. But we have different data, even if it's just, say, half of this data.</li>
+<li>It's going to change the likelihood because the likelihood is over the whole data set.</li>
+<li>So you can use the log likelihood to compare models on exactly the same data.</li>
+<li>But as soon as you change the data set. You can't you can't compete.</li>
+<li>You cannot use the log likelihood to compare a model on one data with the same</li>
+<li>model with a with either the same or a different model on a different data set.</li>
+<li>It's only comparable within the exact same set of training data.</li>
+<li>So I said I was gonna tell you a little bit about what it means to a maximum likelihood estimate by sideswiping likelihood function,</li>
+<li>we're going to maximize it. So if we're ever Bayes Theorem. We can break Bayes Theorem down into a few pieces.</li>
+<li>We have the posterior. Which is the probability I'm using here data.</li>
+<li>And why? Because we have some data. Why? And I'm folding X into Y for now.</li>
+<li>And we have some model parameters, STADA, oftentimes we want to be able to ask,</li>
+<li>given the data I have, what's the probability of a particular set of model parameters?</li>
+<li>And this is the heart of what we call Bayesian inference. Not all applications that base theorem are Bayesian inference,</li>
+<li>but Bayesian thinking becomes it's quite common in various machine learning applications.</li>
+<li>So we can think about what's the probability of my parameters, given my particular data.</li>
+<li>And we do that with a few pieces. We have our prior.</li>
+<li>Before I see any data, what's my knowledge of the ah, what's the probability I assigned to different portions of the parameter space?</li>
+<li>This might be uniform, it might be broad, like some broad normal. It might be based on actual information.</li>
+<li>The likelihood function, it tells me, for a particular parameter set.</li>
+<li>How likely is my data? And that's what we just saw computing for a logistic regression for a particular parameter set.</li>
+<li>How likely is the data that we have seen? If it if it's true, if this is the true value of the parameter,</li>
+<li>how likely is the particular data I would have seen then we have probability of y, which effectively for our purposes is a scaling factor.</li>
+<li>Because for a given data set, if the data set is not changing, its probability is not going to change.</li>
+<li>So if our goal is to say find Fada, that either maximizes the likelihood or maximizes the posterior.</li>
+<li>Because multiplying by a scalar doesn't change where the maximum point is, it just changes the value of that maximum point.</li>
+<li>We can ignore it. Most of the time. So we treated the scaling factor, if you need the definition.</li>
+<li>It's the integral overall of the possible parameter values of the numerator there.</li>
+<li>So. Where Maxima in training a logistic regression,</li>
+<li>we maximize the likelihood we call this a maximum likelihood or an MLS demetre because it does exactly what it says,</li>
+<li>it maximizes the likelihood it maximize it finds the parameter values.</li>
+<li>For which the data is as likely as possible with our particular model.</li>
+<li>We can also maximize the posterior. We can find the theta that is the most likely given our model.</li>
+<li>That's often more computationally expensive. And when the prior is, say, uniform.</li>
+<li>They're all constant across parameter space. There's no difference.</li>
+<li>But also with lots and lots of data as the amount of data you have and why increases</li>
+<li>the relative importance of the likelihood increases and outweighs the prior.</li>
+<li>And so when you have a lot of data, the prior doesn't influence the posterior very much so long as it's sufficiently broad over your parameter space.</li>
+<li>And so the parameter values that maximize the likelihood we very close to the parameter values to maximize the posterior.</li>
+<li>The exact relationship between those and when you when in detail, when you can use MRL, when you really need to use map,</li>
+<li>those are you're going to say you should see those in more detail in either machine learning or the computational statistics course.</li>
+<li>For now, we're going to. For our purposes right here, they're going to be very, very similar.</li>
+<li>To wrap up, the logistic function is back trained by maximizing the log likelihood of the training data.</li>
+<li>Given the model with a particular set of parameters, you could implement this yourself.</li>
+<li>And if you want to practice this, you could take what we did in last week's material to optimize linear regression using</li>
+<li>the optimize function and use that to optimize the parameters of a logistic regression.</li>
+<li>Note that you can just tick in negative if you if you maximizing the log likelihood is equivalent to minimizing the negative log likelihood.</li>
+<li>So if you want to see this in action, I encourage you to open up one of the notebooks and go practice and try to use it out,</li>
+<li>optimize to train yourself a logistic regression.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="scikit-learn">
+<h2>🎥 Scikit-Learn<a class="headerlink" href="#scikit-learn" title="Permalink to this headline">¶</a></h2>
+<p>This video introduces SciKit-Learn, and using it for a logistic regression.</p>
+<div class="resource video docutils container" id="45788c7f-5978-4ef8-8d3a-adc1018648af">
+<div class="tabbed-set docutils">
+<input checked="checked" id="cde5ac2e-6105-4bd8-ad73-b0f7e22aa14c" name="f76c24d3-7fcb-4a9d-9715-3f6e1e44db1b" type="radio">
+</input><label class="tabbed-label" for="cde5ac2e-6105-4bd8-ad73-b0f7e22aa14c">
+Video (6m42s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=45788c7f-5978-4ef8-8d3a-adc1018648af&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="18630e8b-eda2-475b-99a5-1d1ad3008358" name="f76c24d3-7fcb-4a9d-9715-3f6e1e44db1b" type="radio">
+</input><label class="tabbed-label" for="18630e8b-eda2-475b-99a5-1d1ad3008358">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2174401" data-key=AF6lavr0XNcAVMA>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SCIKIT-LEARN
+Learning Outcomes
+Train and apply a logistic regression model with scikit-learn
+Understand API differences between scikit-learn and statsmodels
+Photo by Elijah Hail on Unsplash
+Training a Model
+feat_cols = ['gre', 'gpa', 'rank']out_col = 'admit’
+
+train_x = train[feat_cols]train_y = train[out_col]
+
+lg_mod = LogisticRegression(penalty='none')lg_mod.fit(train_x, train_y)
+Using a Model
+test_d = lg_mod.predict(test_x)np.mean(test_d == test_y)  # returned decisions
+
+test_yhat = lg_mod.decision_function(test_x)
+# returned log odds
+
+test_prob = lg_mod.predict_proba(test_x)[:, 1]
+Differences from Statsmodels
+Works with matrices, not data frames
+Data frames are matrices, but SciKit-Learn doesn’t know that
+Column labels not used – everything based on position
+Fit and predict column positions must match
+Single model object updated by fit(…)
+No separate results object
+predict returns predicted class not score
+Use decision_function for log odds ratio
+Use predict_proba for probability
+Use Cases
+Statsmodels is good for inference
+Reports statistical goodness-of-fit measures
+Defaults to unregularized models
+
+SciKit-Learn is good for prediction
+Many models
+APIs output actual predictions by default
+Many data transformation features
+Only saves parameter estimates
+Wrapping Up
+Scikit-learn provides many machine learning models, including logistic (and linear) regression.
+
+It is more difficult to do inference with scikit-learn, but it has a broader selection for prediction.
+Photo by Andy Hall on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>So this video I want to introduce you to, Saikat Learned, which is another tool kit for training models.</li>
+<li>So with this video, I want you to be able to apply a logistic regression model with psychic learn,</li>
+<li>understand and understand the API differences between psychic learning stats, models code to accompany.</li>
+<li>This is in the course notes for this week. You'll be able to go see the psychic learn.</li>
+<li>It's the same problem as I use for the logistics regression demo with stats models.</li>
+<li>You can directly compare a stats model solution and a psychic learned solution.</li>
+<li>So to train a model with psychic learn, we need to do a few things.</li>
+<li>So I'm going to create here a couple of variables that store the names of columns just to make it easy to extract columns,</li>
+<li>the same columns in the same order from both my training data and my test data.</li>
+<li>So I'm going to get my training x my input features by getting the feature column.</li>
+<li>So this. So this is my predictor features.</li>
+<li>Then I'm going to grab the outcome variable. This is my outcome.</li>
+<li>And then I, I set up my logistic regression and I just pass those values to fit Kirilov just to progression model, pass them to fit.</li>
+<li>And it is going to train the models parameters based on my data to fit my logistic regression model.</li>
+<li>And that's all there is to it. Structures just a little bit different here. Notice that fit does not return a new results object.</li>
+<li>It actually just returns to the model. There's not two objects in stats, models, you create a model and then you fit it and you get results.</li>
+<li>And Saikat learn, you create a model and then you fit it.</li>
+<li>And the results are stored in the model object. Lots of other software in the Python ecosystem follows the Saikat Learn API patterns.</li>
+<li>So if you're familiar with them, that's going to also help you with a lot of other software.</li>
+<li>Tenzer flow follows the same patterns. Many other packages follow the same pattern, just like it learn.</li>
+<li>So those who want to use the model we use predict now.</li>
+<li>And Saikat learn to, when stat's models predict, gave us the estimated probability in psychic learn,</li>
+<li>it gives us the actual class, the actual predicted class.</li>
+<li>So it gives us the decision. It makes the decision right away.</li>
+<li>One of the advantages of this is that any of the psychic learn classifier A-P eyes or classifier models do this.</li>
+<li>So you predict is going to return the decision. There's other function to give you.</li>
+<li>The underlying scores decision function gives you the log odds.</li>
+<li>You can use predict Prop eight to get the probabilities. It returns both the probabilities of fail of zero and the probabilities of one.</li>
+<li>So we need to get the second column, the one column to get the probabilities of one.</li>
+<li>This is equivalent to the stats model's output. But the nice advantage of Saikat predict returning your classes is it's easier to use directly.</li>
+<li>You don't have to manage Threshold's yourself.</li>
+<li>And the other thing is that since all of the different psychic classifier models return decisions like that,</li>
+<li>then you can make write code to do classification. They can use any model and you can plug in the different models with the same code.</li>
+<li>And it makes it easier to to exchange models as part of your workflow and to also test the performance of different models in the same data workflow.</li>
+<li>So a few differences from stats models Saikat Learn works with matrices, not data frames.</li>
+<li>A data frame is a matrix. They're compatible. You can treat a data frame as a matrix, but Saikat Learn doesn't know that it's a data frame.</li>
+<li>It just treats it as a matrix. One of the things this means is that your column labels are ignored.</li>
+<li>Everything is based on position. You need to have your columns in the same order for fit and for every call to predict and fit and predict.</li>
+<li>Map require the same column num numbers, the same column positions.</li>
+<li>You also don't have your you have your feature, your input feature matrix and your outcome variable as separate vectors.</li>
+<li>So a matrix of input features a vector of outcome variables. And then.</li>
+<li>And so that's why I when I was doing the training I got our input matrix and I got</li>
+<li>our our outcome vector column as a series which can be treated as an umpire ray,</li>
+<li>which is what syk it does. So you can't cycad it doesn't know anything about your column names.</li>
+<li>Also, Psyche just has a single motto object that's updated by fit. As I said, there's no separate results.</li>
+<li>And then predict returns, the predicted class, not the score.</li>
+<li>So use case wise stats models is good for inference, and it's it's easier to do inference.</li>
+<li>With stats, models am a psychic. Learn it reports a lot of statistical goodness.</li>
+<li>Fitz measures it defaults to UN regularized models, which are often easier for inference.</li>
+<li>It reports. It also say things like when you do your fit, you get your results.</li>
+<li>It also gives you all the residual psychic learning to go back and get those yourself because Saikat learns best for prediction.</li>
+<li>So you don't need the residuals to go to a prediction. You only need the residuals to understand your training process.</li>
+<li>For in France, Saikat learned, though, is really good for prediction. It has many bottles.</li>
+<li>Many more models than Stotz models. And its API is output.</li>
+<li>The actual prediction, not just the underlying score, but a fault.</li>
+<li>It also is a bunch of capabilities for data transformation, preprocessing post-processing,</li>
+<li>etc. and it only saves the parameter estimates when you call the logistic regression that fit.</li>
+<li>It learns coefficients, it learns at intercept, and that's all it saves.</li>
+<li>It doesn't say if you're fitted values, it doesn't save your residuals. You have to go back and get those by having it predict.</li>
+<li>The outcomes for your training is what you have to do yourself.</li>
+<li>If you want to do those. So it's more work if you want to do inference, but it's fantastic for prediction.</li>
+<li>So wrap up Saikat Learn provides a lot of machine learning models, including logistic and linear.</li>
+<li>You can go back into the linear regression things we've been doing with Saikat learn as well.</li>
+<li>It's more difficult to do inference with Saikat learn,</li>
+<li>but it's got a broader selection of models that are useful for prediction and in most production prediction predictive analytics tasks.</li>
+<li>You're probably gonna want Saikat learn instead of stats models.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="scikit-learn-logistic-regression">
+<h2>📓 SciKit-Learn Logistic Regression<a class="headerlink" href="#scikit-learn-logistic-regression" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../resources/tutorials/SciKitLogistic/"><span class="doc std std-doc">SciKit Logistic</span></a> notebook demonstrates training and using
+<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression" title="(in scikit-learn v1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.linear_model.LogisticRegression</span></code></a>.</p>
+</div>
+<div class="section" id="receiver-operating-characteristic">
+<h2>🎥 Receiver Operating Characteristic<a class="headerlink" href="#receiver-operating-characteristic" title="Permalink to this headline">¶</a></h2>
+<p>This video introduces the <em>receiver operating characteristic</em> (ROC) curve, and its use in evaluating classifiers and selecting tradeoffs.</p>
+<div class="resource video docutils container" id="8b4dd455-91ee-45e7-90d8-adc10186494a">
+<div class="tabbed-set docutils">
+<input checked="checked" id="429ff34f-b7e4-4856-a1b9-e5ec887ac628" name="5b6397c2-d861-4560-b8f1-15ed6bffbbb8" type="radio">
+</input><label class="tabbed-label" for="429ff34f-b7e4-4856-a1b9-e5ec887ac628">
+Video (7m25s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=8b4dd455-91ee-45e7-90d8-adc10186494a&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="1e458f2d-c767-47d8-8b8d-db9957178f93" name="5b6397c2-d861-4560-b8f1-15ed6bffbbb8" type="radio">
+</input><label class="tabbed-label" for="1e458f2d-c767-47d8-8b8d-db9957178f93">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2174402" data-key=AHwCfu_0seoXQDM>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+ROC CURVES
+Learning Outcomes
+Plot an accuracy curve
+Compute and interpret a receiver operating characteristic curve.
+Photo by Steve Halama on Unsplash
+Metrics and Tradeoffs
+Metrics from the confusion matrix are hard yes/no.
+
+A single classifier often has tradeoff points.
+Precision Curve
+Plot precision at different thresholds.
+
+See tradeoff.
+
+Can do for any metric.
+Receiver Operating Characteristic
+Plot TPR (Recall) vs. FPR
+
+What FPR must you tolerate for a certain recall?
+
+Diagonal line is random
+Area Under the Curve
+Compute area under curve (AUC)
+0.5 is random
+Greater is good (1 is perfect)
+&lt; 0.5, invert classifier
+AUC and Probability
+Wrapping Up
+ROC curves give us a way to see tradeoffs and compare the tradeoff curves of multiple classifiers.
+Photo by David Talley on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Love this video. I want to introduce you to R.O. curves that we can use to understand and visualize tradeoffs between</li>
+<li>different types of errors as we change the threshold for our our logistic or for classifier.</li>
+<li>So objectives here. Friedberger plot accuracy curve and to compute interprete receiver operating characteristic curve.</li>
+<li>So the matrix metrics from the confusion matrix are hard.</li>
+<li>Are based on hard. Yes no outcomes. They compare your decision. Yes.</li>
+<li>Or one or zero. Yes or no. To the action to the observed outcome in our ground.</li>
+<li>Truth data. One or zero. Yes or no. But a single classifier often has this tradeoff points.</li>
+<li>So you train a logistic regression, the default. This is what Saikat learned does is it uses point five probability or zero log odds as the threshold.</li>
+<li>And if it's more if one is more likely than zero, it returns one.</li>
+<li>But we could have it be more conservative to say require an 80 percent probability of one in order to classify as one.</li>
+<li>Or we could classify as one as soon as that are 20 percent probability,</li>
+<li>depending on the needs we have and depending on the specific costs of false positives and false negatives in our application.</li>
+<li>So we can plot curves for various metrics here, I've done precision, you could do it for recall, you could do it for accuracy at different thresholds.</li>
+<li>So here I have thresholds. And these are in law gods and I. The X axis decreases as you go.</li>
+<li>Right. So as you go from left to right, we're decreasing our threshold and seeing what happens to the physician.</li>
+<li>And it's wobbly up at the top. That's wobbly in the higher end because we make a few more classifications.</li>
+<li>It can wind up being more precise for a little bit.</li>
+<li>And then as we keep it starts stabilizing and as we decrease to as we keep decreasing the threshold,</li>
+<li>we keep decreasing the precision of our system because we're classifying more and more as.</li>
+<li>Yes. And we're deeping digging deeper and deeper into the barrel to find the ones we want to classify as.</li>
+<li>Yes. And we're finding quite a few. And then we wind up classifying quite a few noses.</li>
+<li>Yes. Now, we also do see here that at ah, at our zero cut off about here, we can look at a negative point five and that actually has just as high.</li>
+<li>That actually has a higher precision than the default cutoff. A zero.</li>
+<li>This is useful for actually setting the threshold value, if you can plot your metric, be a precision,</li>
+<li>be it something else at these different thresholds, and and use that to gain insight, to think about where you want to set your threshold.</li>
+<li>Another curve that we use for evaluating classifiers sometimes is the receiver operating characteristic curve.</li>
+<li>And so in the ROIC curve, what we do is we plot the true positive rate on the Y axis and the false positive rate on the x axis.</li>
+<li>And what this lets us see is as we as we decrease R, as we increase our tolerance for false positives,</li>
+<li>what happens to the number of true positives we find? Now, remember, two true positive rate and recall are the same thing.</li>
+<li>So if we want to find half of the Yes cases. How what's the flip, false positive rate?</li>
+<li>Do we have to accept in order to do that, we have to accept the point to.</li>
+<li>And it lets us see it. Well, if we want to find if we want to find 80 percent of the positives, then we have to accept around a point for three or so.</li>
+<li>But it lets us it lets us see here what false positive rate we have to tolerate in order to achieve a certain recall in our classifier.</li>
+<li>You can also do other curves like this for other pairs of metrics, but other pairs of metrics against each other.</li>
+<li>A precision recall curve looks at the relationship between precision and recall.</li>
+<li>As you change your threshold. Another thing that's important to note is that the diagonal line here is random.</li>
+<li>So a random classifier is going to get the diagonal lines performance. If you're if your curve is up over here to the left, then that's doing better.</li>
+<li>One of the things we can do, though, is even for the same precision, we might have a curve that goes like this.</li>
+<li>We might have a curve that goes up more quickly and then dials off.</li>
+<li>We might have a curve that trails off for a while and then gets better. This lets us understand.</li>
+<li>It lets us see the different tradeoff points for different classifiers and determine which one has a curve that</li>
+<li>better aligns with the needs of our application and and generally want to be able to pick up the false positives.</li>
+<li>The true positive quickly. But this curve here, as you see, is as soon as you get over here, if you want to get over about.</li>
+<li>You want to get more than point six recall. So you want point eight.</li>
+<li>Recall, you have to accept a lot more false positives with this one than you do with the blue curve.</li>
+<li>Because it doesn't cross point eight to here as opposed to here.</li>
+<li>Whereas if you want if you want to recall a 50 percent, then you don't have to have as many false positives with this one.</li>
+<li>So it really lets you it lets you know. It characterizes.</li>
+<li>The tradeoffs of the different classifiers and lets you pick one that's going to be better aligned with the needs of your particular application.</li>
+<li>If you wind up with a classifier down here.</li>
+<li>It's worse than random, but in verdict classified, yes.</li>
+<li>When it and when it says no. And then you're going to get a relatively good classifier.</li>
+<li>So we're really paying attention to classifiers in the top left triangle of the ROIC curve.</li>
+<li>We could also compute the area under the ROIC curve. And this gives us a metric, a U.S.</li>
+<li>Put a random classifier, that agonal line is going to have an AUC of point five greater is good because.</li>
+<li>The only way you get greater than point five is you have mass here,</li>
+<li>you have a curve that goes up that gives you more true positives for the false positives than you would with a random classifier.</li>
+<li>It's less than point five again. You can avert your classifier. Also, the area under the curve is the problem, Bill, is equal to the probability of.</li>
+<li>If you pick two items at random that your classifier put them in the correct order.</li>
+<li>So it said it scored Y above J when Y is actually better than J.</li>
+<li>Or its score or vice versa. It scored Y below J. Y is actually below J.</li>
+<li>The probability of that is the same as the area under the curve, which becomes useful in a few applications, especially where your application,</li>
+<li>what you care about is what's the probability that I put you care about the relative classifications of things.</li>
+<li>This becomes important when you're doing systems that rank that rank their outputs.</li>
+<li>And the classification is we're gonna take the top ten as our good ones.</li>
+<li>That's basically what a search engine does. Area under the curve gives you the probability that you stuck two things in the right order.</li>
+<li>So to conclude ROIC,</li>
+<li>Kurz gives us a way to see tradeoffs between false positives and false and true positives and compared to the tradeoff curves of multiple classifiers.</li>
+<li>It also gives us the area under the curve metric that we can use to quantify classifier performance.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="practice">
+<h2>✅ Practice<a class="headerlink" href="#practice" title="Permalink to this headline">¶</a></h2>
+<p>Load the Penguin data, and use a logistic regression to try to classify a penguin as Gentoo or Chinstrap using various measurements.
+Delete the Adelie penguins first, so you have a binary classification problem.</p>
+</div>
+<div class="section" id="biases-and-assumptions">
+<h2>🎥 Biases and Assumptions<a class="headerlink" href="#biases-and-assumptions" title="Permalink to this headline">¶</a></h2>
+<p>This video revisits sources of bias and discusses the assumptions underlying prediction.</p>
+<div class="resource video docutils container" id="74c0f84e-4150-4cbb-8ace-adc1018649c4">
+<div class="tabbed-set docutils">
+<input checked="checked" id="a8d25f1a-0a9e-4856-8267-c59528476f25" name="2055d492-657d-41e7-afa3-1bf744b7bd48" type="radio">
+</input><label class="tabbed-label" for="a8d25f1a-0a9e-4856-8267-c59528476f25">
+Video (22m)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=74c0f84e-4150-4cbb-8ace-adc1018649c4&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="bd10ce7c-1bcf-44af-9849-60b723809ac1" name="2055d492-657d-41e7-afa3-1bf744b7bd48" type="radio">
+</input><label class="tabbed-label" for="bd10ce7c-1bcf-44af-9849-60b723809ac1">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2174399" data-key=AEPNaHyVcJ3ZluU>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+BIASES AND ASSUMPTIONS
+Learning Outcomes
+Reason about potential biases in classification inputs and outputs
+Identify cases where building a classifier is not appropriate
+Assumptions of Most Predictions
+Outcome variable is unbiased
+Features unbiased
+Outcome variable matches target
+Predicting this outcome with these features is reasonable
+Think about what the predictor implies
+A Few Sources of Bias (Week 2)
+Selection bias
+Some people more likely to be contacted
+
+Response bias
+Some people are more likely to respond
+
+Measurement bias
+Measurement skews one way or another
+
+
+
+Error and Bias
+Observations are often erroneous.
+
+Bias is when they are systematically erroneous.
+Tend high or low
+May be different for different groups
+Biased Features
+If features are unbiased ⇒ errors roll into model uncertainty
+
+If they have known bias ⇒ may be able to correct
+Remove bias term
+Normalize by groups?
+
+Unknown bias ⇒ how severe? (may need to abandon!)
+Assumptions
+Example: SAT scores — differ by SES (socio-economic status)
+
+What’s more likely?
+Poor students are less academically capable
+Poor students have less access to academic preparation
+The SAT measures both academic capability and familiarity with middle- to upper-class social conventions
+Outcome/Target Mismatch
+Aren’t predicting what we think we are
+
+Example: crime
+Data: crime reports or arrests
+Goal: predict crime level
+Reality: predict crime report level or police activity
+Photo by Woody Kelly on Unsplash
+Claims and Evidence
+Our claims must be supported by our evidence
+
+Can’t claim a crime detector when our data is crime reports
+
+This is why the goal ⇔ question ⇔ analysis chain is critical!
+Task Reasonableness
+What does trying to predict Y with X inherently assume?
+Predict college GPA with SAT scores
+Performance on a standardized test is legitimate basis for predicting future academic grades
+Classifying ‘criminal’ based on photos
+Facial features are a legitimate predictor of criminality
+This is called ‘physiognomy’, and has been rejected for a century
+Related: ‘phrenology’, connecting personality to skull shape
+Crime/Face Correlation
+What is crime?
+
+Why would it be a physically observable characteristic?
+
+Be careful what you assume
+Theory drives research questions
+Theory drives predictions
+Label Dependencies
+What to Do?
+Assume data is biased (especially social data)
+Understand how the data is collected and what labels actually are
+Study what is known about those biases
+Look for systematic variations in the data
+Clarify and document your assumptions
+Always be critical — does problem or outcome make sense?
+Read broadly and critically
+Wrapping Up
+All analyses are based on assumptions — be clear about what yours are.
+
+Data are biased. Study to see how.
+
+There’s no magic bullet.
+Photo by Parizad Shojaei on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Hello again.</li>
+<li>This video, I want to talk some more about biases we've been talking about a little bit throughout the class and also the assumptions that we make.</li>
+<li>We're doing a predictive modeling task.</li>
+<li>Learning outcomes are for you to build a reason about its potential biases and classification inputs and outputs and</li>
+<li>also identify some cases or building a classifier or a predictor it applies to regression to is not appropriate.</li>
+<li>So I want to talk a little bit about the assumptions of most predictive modeling tasks.</li>
+<li>So we make use that we have an outcome variable and observed I'm biased.</li>
+<li>That's not the same as not erroneous. But we have. But we assume that there's no systematic bias in our outcome variable or in our features that</li>
+<li>are outcome variable actually matches the target of the thing that we're trying to classify.</li>
+<li>And that predicting this outcome with these features is reasonable.</li>
+<li>Think about what you need to think about what the fact that you are trying to do this prediction implies.</li>
+<li>The one of the readings I've assigned is going to talk in more detail about the assumptions of using prediction systems to make decisions.</li>
+<li>So recall from week two, I talked about a few sources of bias. Selection bias is when your there's a there's a discrepancy in who gets selected.</li>
+<li>Your selection is not uniformly at random from the population.</li>
+<li>Some some instances are more likely to be selected than another that others response bias</li>
+<li>is that some some selected instances are more likely to give you a response than others.</li>
+<li>This is super common when we're dealing with human data, because even if you are perfectly unbiased and who you select to ask a survey question,</li>
+<li>people aren't necessarily all are people aren't always going to respond.</li>
+<li>And there may be a correlation between whether or not they respond and what their response would be if they responded.</li>
+<li>One one example of this. That's not a Soviet or refusing to respond is if you ask somebody to tell you they're to</li>
+<li>rate a random movie that they've never seen and you're not having them watch it just hey,</li>
+<li>what did you think of the 5000 fingers of Dr. T? They're more likely to be able to answer that question for movies they watched and</li>
+<li>they're more likely to have watched movies that they think they're going to like.</li>
+<li>And so you can think of this as a selection bias that users selecting movies to rate are more likely to psych movies they want to watch.</li>
+<li>But if you flip it around, so it's you asking a person, what do you think of the 5000 fingers of Dr. T?</li>
+<li>They're going to be more likely to respond if it's Poovey they thought they would have liked and watched.</li>
+<li>You're not going to get very many respondents on the 5000 fingers of Dr. T, and they measure my biases.</li>
+<li>You can get the response and it skews one way or another based in a systematic way,</li>
+<li>possibly based on on sensitive attributes, protected group classification of protected attributes of of the data subjects.</li>
+<li>So. It's important to notice that there's a difference between error and bias.</li>
+<li>Observations often have error in them. But the bias comes in when they are systematically erroneous.</li>
+<li>So when we talk about we talk about an unbiased estimate or statistics,</li>
+<li>an unbiased estimate or is an estimate or whose expected value is equal to the parameter or the expected value,</li>
+<li>the parameter a bias comes in when the the values the estimate is or the actual observations we're making are systematically higher,</li>
+<li>low, or they may trend different for different groups. And maybe the deal for all means is even.</li>
+<li>But one group tends to score higher on on your measurement than another group or or you're mis measuring one group more likely than another group.</li>
+<li>So if you have features or outcome variables that are unbiased, then you can just roll your errors into your model uncertainty.</li>
+<li>Everything's uncertain if the the errors are independent and identically distributed.</li>
+<li>It's more uncertainty in your model. If they have no bias, you may be able to correct.</li>
+<li>You may be able to remove a bias term.</li>
+<li>You may be able to make some assumptions like saying, well, there's a difference in the score between these two groups.</li>
+<li>We're going. But we don't believe the groups are actually different, so we'll just normalize them within groups.</li>
+<li>Some of these things are what happens in some of the election forecasting.</li>
+<li>So the election forecasters, they they pool together polling data from a bunch of polling sources, along with other data that affects their forecast.</li>
+<li>And one of the things they have is they have a model of the bias of different polling houses.</li>
+<li>So some polling houses do their sampling strategy might might be more likely to contact or there</li>
+<li>might be a Republican leaning bias or a Democrat leaning bias in their sampling strategies.</li>
+<li>And they're polling results. You can tell that you can.</li>
+<li>Look, see this in some ways by their agreement with each other, also by their agreement and their historical agreement with election outcomes.</li>
+<li>If you are assuming that the House bias is relatively stable over time and but if you've got good data to estimate how it's biases,</li>
+<li>you can use those to adjust your polling average polling when you're pool pooling together multiple polling sources for election modeling.</li>
+<li>That's one example of a way where you where there's deliberately trying to de bias, where you've got an estimate of the bias.</li>
+<li>There's unknown bias, which this is really common. You need to start to think about how and how severe.</li>
+<li>And first, can you start to try to quantify the bias, but then also what are the downstream applications?</li>
+<li>This is one of the reasons why we always start with our goal and we move to our question because some biases will affect the question.</li>
+<li>And for that, the same bias may render some questions unanswerable and have negligible impact on other questions.</li>
+<li>So the the the problems that arise from bias in our data are not intrinsic, necessarily intrinsic to the data ourselves itself.</li>
+<li>They arise in combination of what we're going to do with it and that that needs to</li>
+<li>inform how we go about understanding the impact of a potential bias in the data.</li>
+<li>We also, though, we need to think about the assumptions we bring to our data and also some assumptions can sometimes help us get out of some problems.</li>
+<li>We need to document them and be clear about them, but assumptions can provide us some guidance.</li>
+<li>So, for example, if we find S.A.T. scores differ by socioeconomic status, that's relatively well established.</li>
+<li>But what's what causes this? What are these is more likely that poor students are intrinsically less academically</li>
+<li>capable or that poor students have had less less access to academic preparation.</li>
+<li>And that can be formal academic preparation, such as S.A.T. prep courses, a greater selection of college prep courses in high school.</li>
+<li>And it may be less formal, such as a greater selection of reading materials when they were in elementary school.</li>
+<li>It's relatively well established that good access to reading,</li>
+<li>which had access to a good quantity of reading materials for young children and engagement with reading,</li>
+<li>can really help them with educational outcomes down the road.</li>
+<li>There's one study that we cite in some of the research that I've been I've been involved</li>
+<li>with that found that if you engage children in what they called authentic literacy tasks,</li>
+<li>but reading things besides a text book,</li>
+<li>when they are in the first or second grade, then later on in junior high around the junior high age or just a little bit younger,</li>
+<li>those students have higher learning outcomes when in in various STEM tasks.</li>
+<li>And so that can be the kind of this informal a student who has early access to good</li>
+<li>reading materials and diverse reading materials is going to do better academically.</li>
+<li>This is a good, good reason to believe they'll do better on the S.A.T.</li>
+<li>And so one of my one one of the research projects I'm involved with is are working on</li>
+<li>is looking at how do we how can we use technology tools to enable to make it easier?</li>
+<li>For teachers to provide more and different reading materials for their students in a way with minimal costs,</li>
+<li>it's accessible in low resource educational settings. Then there's also the question of does the S.A.T. measure some combination of academic</li>
+<li>capability and familiarity with conventions and expectations for middle to upper class?</li>
+<li>So when you see a difference like this. Anything. What's more like is it really more likely that the students are intrinsically different or that?</li>
+<li>There's this difference in access to academic preparation. And that's what we're actually measuring.</li>
+<li>And if that's what we're actually measuring,</li>
+<li>what implications should that have for how we actually use the resulting numbers and what we do with them?</li>
+<li>So I also want to talk a little bit about outcome target mismatch.</li>
+<li>So what I mean by this is you got a Klatt, you're trying to predict X and you have a class label for X Prime.</li>
+<li>That's not really X. And so you're actually training a model to predict one thing when your goal is another.</li>
+<li>Sometimes you have to. Sometimes all we have is a proxy. And that's a reasonable thing to do.</li>
+<li>We need to evaluate the quality and the credibility of our proxy because sometimes it's all we have.</li>
+<li>But sometimes the proxy is too disconnected from the target to be credible.</li>
+<li>For example, if we want to model crime. So if we want to classify neighborhoods, if we want to be able to predict the crime level of a neighborhood.</li>
+<li>And the data we have as crime reports and or arrests.</li>
+<li>What we're trained to predict or to do is predict crime reports and police activity, which is not the same thing as actual crime,</li>
+<li>because an area where crimes go unreported, because there could be a variety of reasons.</li>
+<li>One could be that the people in that neighborhood have less trust for the police, with the police.</li>
+<li>And so they're less likely to report minor crimes or crimes aren't observed because that area isn't as heavily police.</li>
+<li>So crime is happening. But police aren't there to observe it and make arrests and nobody's bothering to report it.</li>
+<li>So if you're trying to predict crime, but your prediction model is trained on.</li>
+<li>Crime reports or police activity? You're not predicting crime. You're predicting crime reports or police activity.</li>
+<li>And so you have to be really careful about the relationship between the labels you have and the actual target variable that you're trying to measure.</li>
+<li>So with that, our claims then need to be supported by our evidence.</li>
+<li>And so we can't claim that we're detecting crime when we are trusting our classifier on crime reports because we're testing its ability to detect.</li>
+<li>They reported crime, which is not the same thing as a crime that actually happened.</li>
+<li>We're missing all of the unreported crimes and we also have the reports of things that weren't actually crimes.</li>
+<li>This is why early on in the semester, I talked with you about this goal question analysis chain.</li>
+<li>And I encourage you to go back and review that material because we need we have a goal.</li>
+<li>We would find that in the research questions and then we connect the research questions to the analysis.</li>
+<li>And at every step, it needs to be clear, the analysis we do needs to directly illuminate the research question and we need</li>
+<li>to revise the analysis and or reframe the research question until we have a match.</li>
+<li>That the analysis is actually addressing the question, can we detect crime reports?</li>
+<li>And then the question needs to advance our goal and breaks anywhere in that chain.</li>
+<li>Reduce the ability of our data analysis to advance the goals that we're trying to use it for.</li>
+<li>We also need to think about the reasonableness of the task,</li>
+<li>because whenever we use acts to predict why, we are assuming that that's a reasonable thing to do.</li>
+<li>Predicting college performance with S.A.T. scores. That's kind of what the S.A.T. is built for.</li>
+<li>There are problems. The S.A.T.,</li>
+<li>but this isn't an inherently unreasonable task performance on a standardized test as a legitimate basis for predicting future academic grades.</li>
+<li>On its face, not a bad assumption, but. Every year or so,</li>
+<li>somebody or another gets the idea that they're going to take a deep learner and they're going to train out of a bunch of photos</li>
+<li>and their outcome variable is going to be some attempted measure of criminality has been arrested or maybe has been convicted.</li>
+<li>And trying to convey trying to trying to predict criminality from photos and what</li>
+<li>this assumes is that facial features are a legitimate predictor of criminality.</li>
+<li>And so the question can arise, why would you assume that? This this mechanism is called physiognomy.</li>
+<li>It's been rejected for a good, solid century, it was kicking around in the eighteen hundreds and then people realized that it was a bad idea.</li>
+<li>It's close cousin. It's phrenology. Physiognomy is when you're trying to predict attributes such as criminality or other personality traits.</li>
+<li>My face fits. Phrenology is when you're trying to do it based on the shape of a skull.</li>
+<li>It involves a lot of calibers and school measurements.</li>
+<li>But you it's it's assuming here that you can use these physical characteristics to predict criminality and you can probably predict arrested.</li>
+<li>You can put you might even be able to predict charged or convicted with a crime because the social process of</li>
+<li>constructing what is a crime and who gets arrested for a crime is going to have correlates to physical attributes.</li>
+<li>But. At its base, we have to think about what is crime and crime is actions.</li>
+<li>That as a society, we have decided are sufficiently aberrant that they deserve criminal treatment.</li>
+<li>Some of those are relatively uncontroversial, like theft. But if crime is an action in violation of our societal laws.</li>
+<li>Why would that be a physically observable characteristic? What's the theory, what's the mechanism there?</li>
+<li>Because you can find all kinds of correlations and theory and thinking about</li>
+<li>as the assumptions and what theoretical constructs could motivate something.</li>
+<li>Are a key. Ah, one of the guiding points we can use to keep away from some of these madrassas.</li>
+<li>So be careful what you assume. Theory drives our research questions. We don't just ask every question willy nilly.</li>
+<li>That's a very inefficient use of science theory either.</li>
+<li>The theory we have that we want to clarify or that we want to apply to a new problem or propose theories that we want to evaluate,</li>
+<li>we should first give them a smell test and see it.</li>
+<li>Is this a reasonable theory to try to evaluate? And theory also drives or drives our predictions.</li>
+<li>We don't want to just throw a bunch of data at Saikat Learn or at Tenzer Flower or whatever and use whatever predictions come out.</li>
+<li>We want to put some thought into the process and we want to think about is this a reasonable prediction task?</li>
+<li>Is this a reasonable set of features? Is it legitimate to try to predict?</li>
+<li>Is this person a criminal? Based on what they look like, based on the picture that you see in the CCTV camera?</li>
+<li>Is that suppose, even suppose we did have a reliable correlation, is that a societally legitimate or useful thing to do?</li>
+<li>So another problem, though, that we also have is we can have problems with labeled dependency, so observations are often incomplete.</li>
+<li>For example, if the bank does not give someone a loan, they don't get to observe whether or not they're going to pay that loan back.</li>
+<li>This is a problem. Machine learning researchers, stative statistics, researchers like to give things clever names.</li>
+<li>This is a problem called the apple tasting problem. Also, though, criminal databases only have those were caught by the justice system in some way,</li>
+<li>it doesn't have the criminals that people who committed crimes and didn't get caught.</li>
+<li>And also, we have to be careful of inverse probabilities. So the probability of A given B and the probability of being given A are not the same thing.</li>
+<li>You have to be careful when you're using this to say if you've got two groups, say the group and you look try to look at their composition.</li>
+<li>That does not. That that that's not enough evidence to make.</li>
+<li>Conclusions in the other direction.</li>
+<li>So if you look at the racial makeup of basketball players, what you get is probability of race given basketball player.</li>
+<li>But that doesn't get give you a probability of skilled basketball player given race.</li>
+<li>And.</li>
+<li>So you have to be really careful about accidentally inverting your probability when you don't have the rest of the pieces of Bayes theorem involved.</li>
+<li>This is a this is one of the traps of common in formal probabilistic reasoning.</li>
+<li>You also have to be careful with pulling from different groups.</li>
+<li>So one example is like if if you're if you're if you have a bunch of mug shots and people getting arrested using those, you're criminal cases.</li>
+<li>Well, what are you using as a non-criminal face?</li>
+<li>If you're getting it from a different set, then are you really learning criminality or are you learning the visual distinct,</li>
+<li>the distinctive visual features of a mug shot? This also comes up in a variety of other settings.</li>
+<li>You need to you need to pay attention to what your learner is actually learning when it's going to try to do a prediction.</li>
+<li>I read of a case a few years ago where a machine learning algorithm for examining X-ray photos</li>
+<li>was trying to learn to to identify X-ray photos that indicated a particular medical condition.</li>
+<li>Had relatively good accuracy, but. Someone went and dug into what it was actually learning and see what parts of the images it looking at.</li>
+<li>And it was looking at over on the side, this code that indicated where the X-ray was taken because some of the X-ray pictures came from.</li>
+<li>A hospital where people were far more likely to have the disease.</li>
+<li>And the other one came for more general hospital or more general X-ray lab.</li>
+<li>And so it wasn't actually learning to identify the disease in the X-ray photo.</li>
+<li>It was learning the X-ray photos taken in a particular hospital's lab were more likely</li>
+<li>to have the disease because it was where the more advanced cases were being sent.</li>
+<li>So you have to be really, really careful, even if you've got a reasonable set of data.</li>
+<li>Oh, I have a bunch of X-ray photos.</li>
+<li>There can be differences that you don't expect that you need to be careful about what your systems actually learning.</li>
+<li>So what do you do about all of this? Unfortunately, there's not just a quick fix solution.</li>
+<li>You can't import psychic psychic lern dot unbias.</li>
+<li>And if someone ever gives us killer and that unbias be very, very skeptical.</li>
+<li>The starting point was we assume that we've got bias problems, we just don't necessarily know what they are, especially if you've got social data.</li>
+<li>The question isn't, are the data biased? The question is how are they biased? How much are they biased?</li>
+<li>And what impact does that have on the conclusions and tasks to which we're trying to apply it?</li>
+<li>We then need to start understanding how the data is collected and what the labels actually are.</li>
+<li>This is why we spent so much time early in the class talking about how do you actually describe data?</li>
+<li>And I have you read things about describing where your data came from, how it was collected, why it was collected,</li>
+<li>because incentive structures can skew the data collection process so that you have the information to start doing the reasoning about it.</li>
+<li>Study what's known about the data biases in your domain. There may be a plethora of radiate a body of existing research.</li>
+<li>You can draw off of to understand what's going on in it.</li>
+<li>Also look for systematic variations in the data, especially if you have data from different groups of people.</li>
+<li>If you have data from different sites, look for systematic variations.</li>
+<li>Those alone aren't necessarily aren't enough to tell you the drivers of different biases, but they give you a starting point where to go looking.</li>
+<li>And then you can go look for research like what might cause this kind of a difference between the groups that I'm seeing.</li>
+<li>Also, clarify a document, all of your assumptions. We want our analysis.</li>
+<li>We want to do a good job with our analysis. Our analysis will never be perfect.</li>
+<li>At some point they need to be done, but clarify and document what you're assuming each step of the pathway document why you're building this model.</li>
+<li>What's your theoretical justification for using these features to predict this outcome?</li>
+<li>What does that theoretical justification have to say about how you should use this features and how you should evaluate your model?</li>
+<li>Always be critical of of your own work and a reasonably critical the work of others as well.</li>
+<li>Does your problem make sense that your outcome makes sense? Are the results too good to be true?</li>
+<li>Too good to be true? They often are. But then also read broadly and critically.</li>
+<li>And this is one that it's hard to give a quick fix on, too.</li>
+<li>But a lot of what I learn about the way biases creep in and how to deal with them and the data that I work</li>
+<li>with and a lot of it's domain specific and contextual is from reading widely and reading deeply sometimes,</li>
+<li>but reading a lot of different things.</li>
+<li>And not just the statistics research, the data science research at the computer science research, but reading, pop science work.</li>
+<li>Good pop science work, reading, legal scholarship, reading,</li>
+<li>various other things to give you a more holistic picture of what is going on in the domains that I'm trying to study.</li>
+<li>So to wrap up all of our analysis are based on assumptions, and you need to be clear what your assumptions are.</li>
+<li>And you just study how your data is biased. And there's no magic bullet for all of this.</li>
+<li>We're gonna be talking about some things. We're going to talk about some measures for how do you measure bias and outcomes of a system.</li>
+<li>But there's no magic bullet. It requires continuous critical thought and reflection on what it is that we're doing and interrogation of what our</li>
+<li>system is doing and how its impacts are distributed and what its underlying data and conceptual theoretical bases are.</li>
+<li>This is also where the place where a few weeks ago we had the video about epistemology is this is one of the sources.</li>
+<li>This is one of the places where critical epistemology is can become very useful because they they give us the starting point for wit,</li>
+<li>the ways in which our system could go wrong and or might be a bad idea.</li>
+<li>That doesn't mean we thwe we just shut it down because someone said something.</li>
+<li>But it's something we need to reflect on it and incorporate what we learned from reading critical scholarship</li>
+<li>and reading critical analysis into how we think about going about the work that we're trying to do.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="prediction-based-decisions">
+<h2>📃 Prediction-Based Decisions<a class="headerlink" href="#prediction-based-decisions" title="Permalink to this headline">¶</a></h2>
+<p id="pdb">Read Sections 1 and 2 of the following paper:</p>
+<blockquote>
+<div><p>Shira Mitchell, Eric Potash, Solon Barocas, Alexander D’Amour, Kristian Lum. 2018.
+<a class="reference external" href="https://arxiv.org/abs/1811.07867">Prediction-Based Decisions and Fairness: A Catalogue of Choices, Assumptions, and Definitions</a>.
+arXiv:1811.07867 [stat.AP].</p>
+</div></blockquote>
+<p>We’ll come back to ideas here, but sections 1 and 2 describe the assumptions underlying most classification problems.
+While the overall topic of the paper is fairness in making these decisions, I am not assigning it because it is a fairness paper;
+rather, those first two sections provide a succinct description of the assumptions that we make when we undertake most
+classification problems.  They apply no matter what properties of a classification problem or model we care about.</p>
+<p>If you would like to learn more, I recommend:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://papers.ssrn.com/abstract=2477899">Big Data’s Disparate Impact</a></p></li>
+<li><p><a class="reference external" href="http://dx.doi.org/10.3389/fdata.2019.00013">Social Data</a></p></li>
+</ul>
+</div>
+<div class="section" id="week-10-quiz">
+<h2>🚩 Week 10 Quiz<a class="headerlink" href="#week-10-quiz" title="Permalink to this headline">¶</a></h2>
+<p>The Week 10 quiz will be posted to Canvas.</p>
+</div>
+<div class="section" id="abolish-the-techtoprison-pipeline">
+<h2>📃 Abolish the #TechToPrison Pipeline<a class="headerlink" href="#abolish-the-techtoprison-pipeline" title="Permalink to this headline">¶</a></h2>
+<p id="tech-to-prison">Read <a class="reference external" href="https://medium.com/&#64;CoalitionForCriticalTechnology/abolish-the-techtoprisonpipeline-9b5b14366b16">Abolish the #TechToPrison Pipeline</a> (the Medium reading time estimate includes the thorough — and valuable — footnotes and list of 2435 signatories).
+This article probes in more detail the assumptions underlying classes of criminal justice data science applications.</p>
+</div>
+<div class="section" id="assignment-5">
+<h2>📩 Assignment 5<a class="headerlink" href="#assignment-5" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../assignments/A5/"><span class="doc std std-doc">Assignment 5</span></a> is due <strong>November 7</strong>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./week10"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../week9/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 9 — Models &amp; Prediction (Oct. 18–22)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../week11/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 11 — More Modeling (11/1–5)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

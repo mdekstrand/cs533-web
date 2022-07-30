@@ -1,0 +1,1452 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bibliography Fetch &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabinsert.js"></script>
+    <script src="../../../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="copyright" title="Copyright" href="../../../copyright/" />
+    <link rel="next" title="Fun with Numbers" href="../FunWithNumbers/" />
+    <link rel="prev" title="Empirical Probabilities" href="../EmpiricalProbabilities/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../">
+   Tutorials
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/resources/tutorials/FetchCHIPapers.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fresources/tutorials/FetchCHIPapers.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/resources/tutorials/FetchCHIPapers.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fetching-the-index">
+   Fetching the Index
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decoding-data">
+   Decoding Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extracting-chi-papers">
+   Extracting CHI Papers
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="bibliography-fetch">
+<h1>Bibliography Fetch<a class="headerlink" href="#bibliography-fetch" title="Permalink to this headline">¶</a></h1>
+<p>A couple of the notebooks use the ‘CHI Papers’ data set.  This notebook creates that data set from the original sources.</p>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>Let’s import libraries:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">html5lib</span> <span class="k">as</span> <span class="nn">html</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="fetching-the-index">
+<h2>Fetching the Index<a class="headerlink" href="#fetching-the-index" title="Permalink to this headline">¶</a></h2>
+<p>The full list of files in the HCI Bibliography is on the <a class="reference external" href="http://hcibib.org/listdir.cgi">index page</a>.  We’ll use that to get our file list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hcibib_root</span> <span class="o">=</span> <span class="s1">&#39;http://hcibib.org&#39;</span>
+<span class="n">file_index</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">hcibib_root</span><span class="si">}</span><span class="s1">/listdir.cgi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idx_html</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">file_index</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Parse the files out of the HTML content itself:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">bib_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^/bibdata/(.*\.bib)&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">idx_html</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;*//{http://www.w3.org/1999/xhtml}a&#39;</span><span class="p">):</span>
+    <span class="n">href</span> <span class="o">=</span> <span class="n">link</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">bib_re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">href</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
+        <span class="n">files</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">href</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1988
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="decoding-data">
+<h2>Decoding Data<a class="headerlink" href="#decoding-data" title="Permalink to this headline">¶</a></h2>
+<p>Let’s get an example file to see what we’re dealing with:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ex_path</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="s1">&#39;CHI10-1.bib&#39;</span><span class="p">]</span>
+<span class="n">ex_file</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">hcibib_root</span><span class="si">}{</span><span class="n">ex_path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ex_file</span><span class="o">.</span><span class="n">text</span><span class="p">[:</span><span class="mi">5000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>%M C.CHI.10.1.1
+%T Estimating residual error rate in recognized handwritten documents using
+artificial error injection
+%S EPIC #FAIL
+%A Lank, Edward
+%A Stedman, Ryan
+%A Terry, Michael
+%B Proceedings of ACM CHI 2010 Conference on Human Factors in Computing Systems
+%D 2010-04-10
+%V 1
+%P 1-4
+%K artificial error, handwriting recognition, residual error
+%* (c) Copyright 2010 ACM
+%W http://doi.acm.org/10.1145/1753326.1753328
+%X Both handwriting recognition systems and their users are error prone.
+Handwriting recognizers make recognition errors, and users may miss those
+errors when verifying output. As a result, it is common for recognized
+documents to contain residual errors. Unfortunately, in some application
+domains (e.g. health informatics), tolerance for residual errors in recognized
+handwriting may be very low, and a desire might exist to maximize user accuracy
+during verification. In this paper, we present a technique that allows us to
+measure the performance of a user verifying recognizer output. We inject
+artificial errors into a set of recognized handwritten forms and show that the
+rate of injected errors and recognition errors caught is highly correlated in
+real time. Systems supporting user verification can make use of this measure of
+user accuracy in a variety of ways. For example, they can force users to slow
+down or can highlight injected errors that were missed, thus encouraging users
+to take more care.
+
+%M C.CHI.10.1.5
+%T Predicting the cost of error correction in character-based text entry
+technologies
+%S EPIC #FAIL
+%A Arif, Ahmed Sabbir
+%A Stuerzlinger, Wolfgang
+%B Proceedings of ACM CHI 2010 Conference on Human Factors in Computing Systems
+%D 2010-04-10
+%V 1
+%P 5-14
+%K cognitive model, error correction, error rate, hand-held devices, mobile
+phone, performance metric, prediction, text entry
+%* (c) Copyright 2010 ACM
+%W http://doi.acm.org/10.1145/1753326.1753329
+%X Researchers have developed many models to predict and understand human
+performance in text entry. Most of the models are specific to a technology or
+fail to account for human factors and variations in system parameters, and the
+relationship between them. Moreover, the process of fixing errors and its
+effects on text entry performance has not been studied. Here, we first analyze
+real-life text entry error correction behaviors. We then use our findings to
+develop a new model to predict the cost of error correction for character-based
+text entry technologies. We validate our model against quantities derived from
+the literature, as well as with a user study. Our study shows that the
+predicted and observed cost of error correction correspond well. At the end, we
+discuss potential applications of our new model.
+
+%M C.CHI.10.1.15
+%T SHRIMP: solving collision and out of vocabulary problems in mobile
+predictive input with motion gesture
+%S EPIC #FAIL
+%A Wang, Jingtao
+%A Zhai, Shumin
+%A Canny, John
+%B Proceedings of ACM CHI 2010 Conference on Human Factors in Computing Systems
+%D 2010-04-10
+%V 1
+%P 15-24
+%K camera phones, dictionary-based disambiguation, gestures, mobile devices,
+mobile phones, multitap, predictive input, t9, text input
+%* (c) Copyright 2010 ACM
+%W http://doi.acm.org/10.1145/1753326.1753330
+%X Dictionary-based disambiguation (DBD) is a very popular solution for text
+entry on mobile phone keypads but suffers from two problems: 1. the resolution
+of encoding collision (two or more words sharing the same numeric key sequence)
+and 2. entering out-of-vocabulary (OOV) words. In this paper, we present
+SHRIMP, a system and method that addresses these two problems by integrating
+DBD with camera based motion sensing that enables the user to express
+preference through a tilting or movement gesture. SHRIMP (Small Handheld Rapid
+Input with Motion and Prediction) runs on camera phones equipped with a
+standard 12-key keypad. SHRIMP maintains the speed advantage of DBD driven
+predictive text input while enabling the user to overcome DBD collision and OOV
+problems seamlessly without even a mode switch. An initial empirical study
+demonstrates that SHRIMP can be learned very quickly, performed immediately
+faster than MultiTap and handled OOV words more efficiently than DBD.
+
+%M C.CHI.10.1.25
+%T Reactive information foraging for evolving goals
+%S Exploratory search
+%A Lawrance, Joseph
+%A Burnett, Margaret
+%A Bellamy, Rachel
+%A Bogart, Christopher
+%A Swart, Calvin
+%B Proceedings of ACM CHI 2010 Conference on Human Factors in Computing Systems
+%D 2010-04-10
+%V 1
+%P 25-34
+%K field study, information foraging theory, programming
+%* (c) Copyright 2010 ACM
+%W http://doi.acm.org/10.1145/1753326.1753332
+%X Information foraging models have predicted the navigation paths of people
+browsing the web and (more recently) of programmers while debugging, but these
+models do not explicitly model users&#39; goals evolving over time. We present a
+new information foraging model called PFIS2 that does model information seeking
+with potentially evolving goals. We then evalua
+</pre></div>
+</div>
+</div>
+</div>
+<p>These files have line prefixes that indicate different fields. Fields can continue across multiple lines. A blank line separates records.  So we need to parse this.</p>
+<p>We’re going to write a function that processes a file to do exactly that. It is going to be a Python <em>generator</em>, so it can be used in a loop but doesn’t build a whole list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_c_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^%([A-Z*]) (.*)&#39;</span><span class="p">)</span>
+<span class="n">_blank_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^\s*$&#39;</span><span class="p">)</span>
+<span class="n">_bib_codes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="s1">&#39;abstract&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="s1">&#39;authors&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;M&#39;</span><span class="p">:</span> <span class="s1">&#39;id&#39;</span>
+<span class="p">}</span>
+<span class="k">def</span> <span class="nf">parse_bib</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">bibrec</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">last_fld</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
+        <span class="n">cm</span> <span class="o">=</span> <span class="n">_c_re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">_blank_re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+            <span class="c1"># end of record, emit</span>
+            <span class="k">if</span> <span class="n">bibrec</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">bibrec</span>
+            <span class="n">bibrec</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">elif</span> <span class="n">cm</span><span class="p">:</span>
+            <span class="c1"># new field</span>
+            <span class="n">code</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">fld</span> <span class="o">=</span> <span class="n">_bib_codes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">fld</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">fld</span> <span class="ow">in</span> <span class="n">bibrec</span><span class="p">:</span>
+                    <span class="n">bibrec</span><span class="p">[</span><span class="n">fld</span><span class="p">]</span> <span class="o">+=</span> <span class="s1">&#39;; &#39;</span> <span class="o">+</span> <span class="n">value</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">bibrec</span><span class="p">[</span><span class="n">fld</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="n">last_fld</span> <span class="o">=</span> <span class="n">fld</span>
+        <span class="k">elif</span> <span class="n">last_fld</span><span class="p">:</span>
+            <span class="c1"># text, add to field</span>
+            <span class="n">bibrec</span><span class="p">[</span><span class="n">last_fld</span><span class="p">]</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">line</span>
+            
+    <span class="c1"># if we have an in-progress record, emit it</span>
+    <span class="k">if</span> <span class="n">bibrec</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">bibrec</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ex_recs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">parse_bib</span><span class="p">(</span><span class="n">ex_file</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
+<span class="n">ex_recs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;id&#39;: &#39;C.CHI.10.1.1&#39;,
+ &#39;title&#39;: &#39;Estimating residual error rate in recognized handwritten documents using artificial error injection&#39;,
+ &#39;authors&#39;: &#39;Lank, Edward; Stedman, Ryan; Terry, Michael&#39;,
+ &#39;date&#39;: &#39;2010-04-10&#39;,
+ &#39;abstract&#39;: &#39;Both handwriting recognition systems and their users are error prone. Handwriting recognizers make recognition errors, and users may miss those errors when verifying output. As a result, it is common for recognized documents to contain residual errors. Unfortunately, in some application domains (e.g. health informatics), tolerance for residual errors in recognized handwriting may be very low, and a desire might exist to maximize user accuracy during verification. In this paper, we present a technique that allows us to measure the performance of a user verifying recognizer output. We inject artificial errors into a set of recognized handwritten forms and show that the rate of injected errors and recognition errors caught is highly correlated in real time. Systems supporting user verification can make use of this measure of user accuracy in a variety of ways. For example, they can force users to slow down or can highlight injected errors that were missed, thus encouraging users to take more care.&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have a file record extracted!</p>
+</div>
+<div class="section" id="extracting-chi-papers">
+<h2>Extracting CHI Papers<a class="headerlink" href="#extracting-chi-papers" title="Permalink to this headline">¶</a></h2>
+<p>Now we want to get <em>all the CHI papers</em>.</p>
+<p>Let’s define a regex to match a CHI paper file name, <code class="docutils literal notranslate"><span class="pre">CHI</span></code> followed by at least a digit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chi_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^CHI\d&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And get the CHI files:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chi_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">files</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">chi_re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span>
+<span class="n">chi_files</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;CHI16-2.bib&#39;,
+ &#39;CHI16-1.bib&#39;,
+ &#39;CHI15-1.bib&#39;,
+ &#39;CHI15-2.bib&#39;,
+ &#39;CHI02-1.bib&#39;,
+ &#39;CHI14-1.bib&#39;,
+ &#39;CHI14-2.bib&#39;,
+ &#39;CHI04-2.bib&#39;,
+ &#39;CHI05-2.bib&#39;,
+ &#39;CHI07-2.bib&#39;,
+ &#39;CHI11-1.bib&#39;,
+ &#39;CHI13-1.bib&#39;,
+ &#39;CHI13-2.bib&#39;,
+ &#39;CHI12-1.bib&#39;,
+ &#39;CHI10-1.bib&#39;,
+ &#39;CHI83.bib&#39;,
+ &#39;CHI12-2.bib&#39;,
+ &#39;CHI11-2.bib&#39;,
+ &#39;CHI82.bib&#39;,
+ &#39;CHI85.bib&#39;,
+ &#39;CHI86.bib&#39;,
+ &#39;CHI87.bib&#39;,
+ &#39;CHI88.bib&#39;,
+ &#39;CHI89.bib&#39;,
+ &#39;CHI90.bib&#39;,
+ &#39;CHI92a.bib&#39;,
+ &#39;CHI92b.bib&#39;,
+ &#39;CHI93a.bib&#39;,
+ &#39;CHI95-2b.bib&#39;,
+ &#39;CHI95-2c.bib&#39;,
+ &#39;CHI96-2b.bib&#39;,
+ &#39;CHI05-1.bib&#39;,
+ &#39;CHI06-1.bib&#39;,
+ &#39;CHI07-1.bib&#39;,
+ &#39;CHI08-1.bib&#39;,
+ &#39;CHI09-1.bib&#39;,
+ &#39;CHI99-2.bib&#39;,
+ &#39;CHI00-1.bib&#39;,
+ &#39;CHI00-2.bib&#39;,
+ &#39;CHI01-1.bib&#39;,
+ &#39;CHI01-2.bib&#39;,
+ &#39;CHI02-2.bib&#39;,
+ &#39;CHI03-1.bib&#39;,
+ &#39;CHI03-2.bib&#39;,
+ &#39;CHI04-1.bib&#39;,
+ &#39;CHI06-2.bib&#39;,
+ &#39;CHI08-2.bib&#39;,
+ &#39;CHI09-2.bib&#39;,
+ &#39;CHI10-2.bib&#39;,
+ &#39;CHI81.bib&#39;,
+ &#39;CHI91.bib&#39;,
+ &#39;CHI92X.bib&#39;,
+ &#39;CHI92Y.bib&#39;,
+ &#39;CHI93X.bib&#39;,
+ &#39;CHI93Y.bib&#39;,
+ &#39;CHI93b.bib&#39;,
+ &#39;CHI94-1.bib&#39;,
+ &#39;CHI94-2a.bib&#39;,
+ &#39;CHI94-2b.bib&#39;,
+ &#39;CHI94-2c.bib&#39;,
+ &#39;CHI94-2d.bib&#39;,
+ &#39;CHI94-2e.bib&#39;,
+ &#39;CHI95-1.bib&#39;,
+ &#39;CHI95-2a.bib&#39;,
+ &#39;CHI96-1.bib&#39;,
+ &#39;CHI96-2a.bib&#39;,
+ &#39;CHI96-2c.bib&#39;,
+ &#39;CHI97-1.bib&#39;,
+ &#39;CHI97-2a.bib&#39;,
+ &#39;CHI97-2b.bib&#39;,
+ &#39;CHI97-2c.bib&#39;,
+ &#39;CHI98-1.bib&#39;,
+ &#39;CHI98-2a.bib&#39;,
+ &#39;CHI98-2b.bib&#39;,
+ &#39;CHI98-2c.bib&#39;,
+ &#39;CHI98-2d.bib&#39;,
+ &#39;CHI99-1.bib&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we’re going to a list of all the records in all the CHI files:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chi_records</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">fk</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">chi_files</span><span class="p">):</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="n">fk</span><span class="p">]</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">hcibib_root</span><span class="si">}{</span><span class="n">path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="n">parse_bib</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">text</span><span class="p">):</span>
+        <span class="n">chi_records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rec</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">chi_records</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "e9bd5fc6662b43439a675cdcae46e3c5", "version_major": 2, "version_minor": 0}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13422
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we’re going to turn that all into a Pandas data series:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">papers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">chi_records</span><span class="p">)</span>
+<span class="n">papers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>title</th>
+      <th>authors</th>
+      <th>date</th>
+      <th>abstract</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>C.CHI.16.2.1</td>
+      <td>TactileVR: Integrating Physical Toys into Lear...</td>
+      <td>Amores, Judith; Benavides, Xavier; Shapira, Lior</td>
+      <td>2016-05-07</td>
+      <td>We present TactileVR, an immersive presence an...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>C.CHI.16.2.2</td>
+      <td>PsychicVR: Increasing mindfulness by using Vir...</td>
+      <td>Amores, Judith; Benavides, Xavier; Maes, Pattie</td>
+      <td>2016-05-07</td>
+      <td>We present PsychicVR, a proof-of-concept syste...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C.CHI.16.2.3</td>
+      <td>Haptic Retargeting Video Showcase: Dynamic Rep...</td>
+      <td>Azmandian, Mahdi; Hancock, Mark; Benko, Hrvoje...</td>
+      <td>2016-05-07</td>
+      <td>Manipulating a virtual object with appropriate...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>C.CHI.16.2.4</td>
+      <td>Reality Editor</td>
+      <td>Heun, Valentin; Stern-Rodriguez, Eva; Teyssier...</td>
+      <td>2016-05-07</td>
+      <td>The Reality Editor is a tool for empowering a ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>C.CHI.16.2.5</td>
+      <td>Access: A Mobile Application to Improve Access...</td>
+      <td>Yang, Yi; Hu, Yunqi; Hong, Yidi; Joshi, Varun;...</td>
+      <td>2016-05-07</td>
+      <td>This video introduces Access, a mobile applica...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>13417</th>
+      <td>C.CHI.99.1.576</td>
+      <td>Mutual Disambiguation of Recognition Errors in...</td>
+      <td>Oviatt, Sharon</td>
+      <td>1999-05-15</td>
+      <td>As a new generation of multimodal/media system...</td>
+    </tr>
+    <tr>
+      <th>13418</th>
+      <td>C.CHI.99.1.584</td>
+      <td>Model-Based and Empirical Evaluation of Multim...</td>
+      <td>Suhm, Bernhard; Waibel, Alex; Myers, Brad</td>
+      <td>1999-05-15</td>
+      <td>Our research addresses the problem of error co...</td>
+    </tr>
+    <tr>
+      <th>13419</th>
+      <td>C.CHI.99.1.592</td>
+      <td>Cooperative Inquiry: Developing New Technologi...</td>
+      <td>Druin, Allison</td>
+      <td>1999-05-15</td>
+      <td>In today's homes and schools, children are eme...</td>
+    </tr>
+    <tr>
+      <th>13420</th>
+      <td>C.CHI.99.1.600</td>
+      <td>Projected Realities: Conceptual Design for Cul...</td>
+      <td>Gaver, William; Dunne, Anthony</td>
+      <td>1999-05-15</td>
+      <td>As a part of a European Union sponsored projec...</td>
+    </tr>
+    <tr>
+      <th>13421</th>
+      <td>C.CHI.99.1.608</td>
+      <td>Customer-Focused Design Data in a Large, Multi...</td>
+      <td>Curtis, Paula; Heiserman, Tammy; Jobusch, Davi...</td>
+      <td>1999-05-15</td>
+      <td>Qualitative user-centered design processes suc...</td>
+    </tr>
+  </tbody>
+</table>
+<p>13422 rows × 5 columns</p>
+</div></div></div>
+</div>
+<p>Next step, we need to extract the years from the dates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">papers</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">papers</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^(\d</span><span class="si">{4}</span><span class="s1">).*&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;i4&#39;</span><span class="p">)</span>
+<span class="n">papers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>title</th>
+      <th>authors</th>
+      <th>date</th>
+      <th>abstract</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>C.CHI.16.2.1</td>
+      <td>TactileVR: Integrating Physical Toys into Lear...</td>
+      <td>Amores, Judith; Benavides, Xavier; Shapira, Lior</td>
+      <td>2016-05-07</td>
+      <td>We present TactileVR, an immersive presence an...</td>
+      <td>2016</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>C.CHI.16.2.2</td>
+      <td>PsychicVR: Increasing mindfulness by using Vir...</td>
+      <td>Amores, Judith; Benavides, Xavier; Maes, Pattie</td>
+      <td>2016-05-07</td>
+      <td>We present PsychicVR, a proof-of-concept syste...</td>
+      <td>2016</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C.CHI.16.2.3</td>
+      <td>Haptic Retargeting Video Showcase: Dynamic Rep...</td>
+      <td>Azmandian, Mahdi; Hancock, Mark; Benko, Hrvoje...</td>
+      <td>2016-05-07</td>
+      <td>Manipulating a virtual object with appropriate...</td>
+      <td>2016</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>C.CHI.16.2.4</td>
+      <td>Reality Editor</td>
+      <td>Heun, Valentin; Stern-Rodriguez, Eva; Teyssier...</td>
+      <td>2016-05-07</td>
+      <td>The Reality Editor is a tool for empowering a ...</td>
+      <td>2016</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>C.CHI.16.2.5</td>
+      <td>Access: A Mobile Application to Improve Access...</td>
+      <td>Yang, Yi; Hu, Yunqi; Hong, Yidi; Joshi, Varun;...</td>
+      <td>2016-05-07</td>
+      <td>This video introduces Access, a mobile applica...</td>
+      <td>2016</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>13417</th>
+      <td>C.CHI.99.1.576</td>
+      <td>Mutual Disambiguation of Recognition Errors in...</td>
+      <td>Oviatt, Sharon</td>
+      <td>1999-05-15</td>
+      <td>As a new generation of multimodal/media system...</td>
+      <td>1999</td>
+    </tr>
+    <tr>
+      <th>13418</th>
+      <td>C.CHI.99.1.584</td>
+      <td>Model-Based and Empirical Evaluation of Multim...</td>
+      <td>Suhm, Bernhard; Waibel, Alex; Myers, Brad</td>
+      <td>1999-05-15</td>
+      <td>Our research addresses the problem of error co...</td>
+      <td>1999</td>
+    </tr>
+    <tr>
+      <th>13419</th>
+      <td>C.CHI.99.1.592</td>
+      <td>Cooperative Inquiry: Developing New Technologi...</td>
+      <td>Druin, Allison</td>
+      <td>1999-05-15</td>
+      <td>In today's homes and schools, children are eme...</td>
+      <td>1999</td>
+    </tr>
+    <tr>
+      <th>13420</th>
+      <td>C.CHI.99.1.600</td>
+      <td>Projected Realities: Conceptual Design for Cul...</td>
+      <td>Gaver, William; Dunne, Anthony</td>
+      <td>1999-05-15</td>
+      <td>As a part of a European Union sponsored projec...</td>
+      <td>1999</td>
+    </tr>
+    <tr>
+      <th>13421</th>
+      <td>C.CHI.99.1.608</td>
+      <td>Customer-Focused Design Data in a Large, Multi...</td>
+      <td>Curtis, Paula; Heiserman, Tammy; Jobusch, Davi...</td>
+      <td>1999-05-15</td>
+      <td>Qualitative user-centered design processes suc...</td>
+      <td>1999</td>
+    </tr>
+  </tbody>
+</table>
+<p>13422 rows × 6 columns</p>
+</div></div></div>
+</div>
+<p>And we can save this data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">papers</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;chi-papers.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./resources\tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../EmpiricalProbabilities/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Empirical Probabilities</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../FunWithNumbers/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Fun with Numbers</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../../../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

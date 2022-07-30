@@ -1,0 +1,2537 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 14 — Workflow (11/29–12/3) &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabinsert.js"></script>
+    <script src="../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="copyright" title="Copyright" href="../copyright/" />
+    <link rel="next" title="Week 15 — What Next? (12/6–10)" href="../week15/" />
+    <link rel="prev" title="Week 13 — Unsupervised (11/15–19)" href="../week13/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../resources/tutorials/">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/week14/index.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fweek14/index.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/week14/index.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#content-overview">
+   🧐 Content Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deadlines">
+   📅 Deadlines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#from-notebooks-to-workflows">
+   🎥 From Notebooks to Workflows
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scripts-and-modules">
+   🎥 Scripts and Modules
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introducing-git">
+   🎥 Introducing Git
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#git-for-data-science">
+   🎥 Git for Data Science
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extract-transform-load">
+   🎥 Extract, Transform, Load
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#split-apply-combine">
+   🎥 Split, Apply, Combine
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tuning-hyperparameters">
+   🎥 Tuning Hyperparameters
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tuning-example">
+   📓 Tuning Example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reproducible-pipelines">
+   🎥 Reproducible Pipelines
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#software-environments">
+   📃 Software Environments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reproducibility-case-study">
+   📃 Reproducibility Case Study
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weekly-quiz-14">
+   🚩 Weekly Quiz 14
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-examples">
+   📓 More Examples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignment-7">
+   📩 Assignment 7
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-14-workflow-11-2912-3">
+<span id="week14"></span><h1>Week 14 — Workflow (11/29–12/3)<a class="headerlink" href="#week-14-workflow-11-2912-3" title="Permalink to this headline">¶</a></h1>
+<p>In this week, we are going to talk more about <em>workflows</em>.
+What does it look like to build a practical data science pipeline?</p>
+<div class="section" id="content-overview">
+<h2>🧐 Content Overview<a class="headerlink" href="#content-overview" title="Permalink to this headline">¶</a></h2>
+<div class="module-content docutils">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><strong>Element</strong></th>
+<th class="head"><strong>Length</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#d7a5f29b-0251-4f54-abc0-adc60183ee32"><span>🎥 From Notebooks to Workflows</span></a></p></td>
+<td><span>3m44s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#b136d345-0519-42d8-967a-adc60183eee4"><span>🎥 Scripts and Modules</span></a></p></td>
+<td><span>15m33s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#e9f2f932-fa3d-4ec8-bb70-adc60183ef95"><span>🎥 Introducing Git</span></a></p></td>
+<td><span>12m2s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#89dff901-0d0d-4d59-b71b-adc60183f030"><span>🎥 Git for Data Science</span></a></p></td>
+<td><span>6m52s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ecd9dac0-c581-4840-975b-adc60183f0f7"><span>🎥 ETL</span></a></p></td>
+<td><span>6m46s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#8b68e4cb-55bb-4ddc-83ae-adc60183f178"><span>🎥 Split Apply Combine</span></a></p></td>
+<td><span>6m45s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#c124b01b-7a38-4e99-b255-adc60183f225"><span>🎥 Tuning Hyperparameters</span></a></p></td>
+<td><span>10m49s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cb96eb79-a05a-4f12-a824-adc60183f2bb"><span>🎥 Reproducible Pipelines</span></a></p></td>
+<td><span>8m28s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#reading-Software-Environments"><span>📃 Software Environments</span></a></p></td>
+<td><span>1068 words</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#reading-Yay-Reproducibility"><span>📃 Yay Reproducibility</span></a></p></td>
+<td><span>1250 words</span></td>
+</tr>
+</tbody>
+</table>
+<p><span>This week has </span><strong>1h11m</strong><span> of video and </span><strong>2318 words</strong><span> of assigned readings.</span><span> This week’s videos are available in a </span><a class="panopto reference external" href="https://boisestate.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22da13b422-df02-491a-bc43-adc601833918%22"><span>Panopto folder</span></a><span> and as a </span><a class="panopto podcast reference external" href="https://boisestate.hosted.panopto.com/Panopto/Podcast/Podcast.ashx?courseid=da13b422-df02-491a-bc43-adc601833918&amp;type=mp4"><span>podcast</span></a><span>.</span></p>
+</div>
+</div>
+<div class="section" id="deadlines">
+<h2>📅 Deadlines<a class="headerlink" href="#deadlines" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Quiz 14, December 2</p></li>
+<li><p>Assignment 7, December 12</p></li>
+</ul>
+</div>
+<div class="section" id="from-notebooks-to-workflows">
+<h2>🎥 From Notebooks to Workflows<a class="headerlink" href="#from-notebooks-to-workflows" title="Permalink to this headline">¶</a></h2>
+<p>In this video, we introduce going beyond notebooks to broader structures for our Python projects.</p>
+<div class="resource video docutils container" id="d7a5f29b-0251-4f54-abc0-adc60183ee32">
+<div class="tabbed-set docutils">
+<input checked="checked" id="623894e5-c8e9-4b22-b1dc-537491ce8fdf" name="a64c7681-b09f-41c4-95d8-39b978cea00f" type="radio">
+</input><label class="tabbed-label" for="623894e5-c8e9-4b22-b1dc-537491ce8fdf">
+Video (3m44s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=d7a5f29b-0251-4f54-abc0-adc60183ee32&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="6d47705d-790e-467e-a675-f7355d0dcdd2" name="a64c7681-b09f-41c4-95d8-39b978cea00f" type="radio">
+</input><label class="tabbed-label" for="6d47705d-790e-467e-a675-f7355d0dcdd2">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173401" data-key=AKrc_UfM5PLb-hc>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+FROM NOTEBOOKS TO WORKFLOWS
+Learning Outcomes (Week)
+Break code into scripts, modules, and notebooks.
+Design a data pipeline to run and reproduce an analysis.
+Use Git to version-control code.
+Photo by Jessica Furtney on Unsplash
+Managing Code and Data
+Notebooks are great
+Interactively test code
+View results with code
+Good visualization capabilities
+Combine discussion, methods, and results
+
+Limitations of Notebooks
+Hard to reuse code from one notebook in another
+Not great for long-running tasks
+Limited running capabilities
+Moving Beyond
+Scripts are Python programs that run on their own.
+
+Modules hold Python code to reuse elsewhere
+Scripts
+Notebooks
+Other Modules
+Pipelines
+Transform / Prepare (ETL)
+Raw Source Data
+Prepared Data
+Inference
+Findings
+Modeling
+Model + Predictions
+Data Description
+Wrapping Up
+Significant data science projects usually have multiple components in a pipeline.
+
+Git is useful for tracking and versioning the code to generate these components.
+Photo by Fran Jacquier on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>So this video, we're going to talk about what we're really looking at this week,</li>
+<li>which is moving beyond what we've been doing in individual notebooks to being able to have a workflow that crosses multiple modules,</li>
+<li>multiple files and is version controlled. So learning outcomes for this week are for you to be able to break code into scripts, modules and notebooks,</li>
+<li>to design a data pipeline, to run and reproduce and analysis and use get to version control your code.</li>
+<li>So. Notebooks are great. We've been using them all semester.</li>
+<li>Been getting a lot of use out of them. They're great for interactive with testing code.</li>
+<li>You can view results right with the code. The notebook is great for displaying charts and visualizations.</li>
+<li>It can display pandas data structures very nicely. We can combine discussion methods and results for.</li>
+<li>For documents where the methods, the computational methods are right there for exactly what we're doing.</li>
+<li>But they don't scale terribly well. There's a few problems with them that we want to try to address.</li>
+<li>Which is one. One is that it's hard to reuse code from one notebook in another.</li>
+<li>There are mechanisms that you import a notebook as a module that are a little weird.</li>
+<li>They're also not great for long running tasks. The notebook you're try to use kick off a job from the browser.</li>
+<li>You lose your Internet connection, you go home, whatever. It's not a great environment for running a long running task.</li>
+<li>Those are better run in a Python script directly without the notebook infrastructure.</li>
+<li>Also, you can there are you can run a notebook from the command line,</li>
+<li>but it's going to be overwrite options and things like that to reuse the code in the sense of a program, not just functions that you reuse.</li>
+<li>The options are a little limited there. So to move beyond this,</li>
+<li>we're gonna look at in this video or in this week are being able to write scripts</li>
+<li>which are Python programs that run on their own and then to take our python code,</li>
+<li>our functions, our classes, et cetera, and put them in the modules that we can then reuse in our scripts, in our notebooks and in our other modules.</li>
+<li>So in this context, we're going to be thinking about data pipelines.</li>
+<li>And so if you've got a you've got we've seen diagrams like this earlier, but if you've got some raw source data,</li>
+<li>if you have a data integration step that's going to get you some prepared data that you analyze,</li>
+<li>then you're going to want to do some descriptive analysis. That's a great use for a notebook right there.</li>
+<li>You want to do descriptive analysis of the results of your data integration, data transformation.</li>
+<li>You also want to be able to do some statistical inference. You want to be able to do some predictive modeling where you're generating predictions,</li>
+<li>classifications, etc. Maybe you're doing inference on their accuracy.</li>
+<li>We can think of each. So far, we'd we would put all of this in one notebook.</li>
+<li>But in practice and a lot of projects, you're actually going to want to split that apart so that you have different stages in their own files.</li>
+<li>You'll have likes a script or more than one script that will do your data transformation.</li>
+<li>You'll have a notebook that does data description. You'll have a script that runs one of your predictive models.</li>
+<li>You might have different scripts for different predictive models, etc.,</li>
+<li>so that you can rerun individual pieces and you don't have everything in one big file that's difficult to edit and maintain.</li>
+<li>So to wrap up significant data science projects usually have multiple components in a pipeline.</li>
+<li>Get is really useful for tracking, for tracking and versioning the code that used to generate these components.</li>
+<li>The rest of the video, this video's this week. We're going to talk about more about how to do these different pieces.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="scripts-and-modules">
+<h2>🎥 Scripts and Modules<a class="headerlink" href="#scripts-and-modules" title="Permalink to this headline">¶</a></h2>
+<p>This video introduces Python scripts and modules, and how to organize Python code outside of a notebook.</p>
+<div class="resource video docutils container" id="b136d345-0519-42d8-967a-adc60183eee4">
+<div class="tabbed-set docutils">
+<input checked="checked" id="4b7edbb1-f744-4940-b05d-f6f488f92e45" name="d3a468ff-0612-4b00-bb48-81e294fd0802" type="radio">
+</input><label class="tabbed-label" for="4b7edbb1-f744-4940-b05d-f6f488f92e45">
+Video (15m33s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=b136d345-0519-42d8-967a-adc60183eee4&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="db8bf34a-2cff-4e41-8373-20f0b327b554" name="d3a468ff-0612-4b00-bb48-81e294fd0802" type="radio">
+</input><label class="tabbed-label" for="db8bf34a-2cff-4e41-8373-20f0b327b554">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173403" data-key=AA0tIVINHt7Z2GE>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SCRIPTS AND MODULES
+Learning Outcomes
+Write a Python script
+Put Python code in a module
+Understand the Python module/package structure
+Photo by Simon Goetz on Unsplash
+Scripts
+A .py file can be run as a script from the command line:python my-script.py
+Runs the code in the file
+‘def’, ‘class’, etc. are just Python statements
+
+Example: read in a file, and write a filtered file
+Starts with a docstring (optional)
+&quot;&quot;&quot;Filter ratings to only real ones&quot;&quot;&quot;import pandas as pdratings = pd.read_csv('ratings.csv')r2 = ratings[ratings['rating'] &gt;0]r2.to_csv('filtered-ratings.csv',          index=False)
+Scripts and Pipelines
+Typical script:
+Reads input files
+Does some processing
+Pandas manipulations
+SciKit-Learn model training/evaluation
+Saves results
+Data frame as CSV, Parquet, etc.
+Model as pickle file
+Docstrings
+A Python code object can start with a docstring
+Script, class, function, module
+
+Documents the code
+Purpose
+Function arguments
+Class fields
+
+Doc renderers &amp; IPython/Jupyter use these
+Configurability
+Scripts can take command line arguments
+python script.py in.csv out.csv
+
+In list sys.argv
+0 is name of the program
+Libraries help parse:
+argparse (in standard lib)
+docopt (uses help message)
+&quot;&quot;&quot;Filter ratings to only real ones&quot;&quot;&quot;import sysimport pandas as pdin_file = sys.argv[1]out_file = sys.argv[2]ratings = pd.read_csv(in_file)r2 = ratings[ratings['rating'] &gt;0]r2.to_csv(out_file, index=False)
+Import Protection
+Python files can be either run as a script or imported as a module
+
+Import-protect your scripts to avoid potential problems &amp; enable code reuse:
+Put all code in functions
+Call main function in ‘if’ statement at end of script
+&quot;&quot;&quot;Filter ratings to only real ones&quot;&quot;&quot;import sysimport pandas as pddef main():    in_file = sys.argv[1]    out_file = sys.argv[2]    ratings = pd.read_csv(in_file)    r2 = ratings[ratings['rating'] &gt;0]    r2.to_csv(out_file, index=False)if __name__ == '__main__':    main()
+Modules
+import foo
+
+Looks for file foo.py
+In script’s directory (or local dir for notebooks / console)
+In PYTHONPATH environment variable
+In Python installation
+Runs file to create definitions
+Exposes definitions under ‘foo’ object
+def bar()… becomes foo.bar
+Exposes all assigned names: variables, functions, classes, other imports…
+Packages
+Modules can be grouped together into packages
+A package is just a directory with a file __init__.py
+Init file can be empty
+Init can have docstring to document package
+Packages can contain other packages
+
+Let's see an example…
+Script Advice
+Write a docstring (quickly glance at script to see purpose)
+With docopt, docstring is also script usage information
+Import-protect scripts
+Provide reasonable configurability
+If script has too many different modes, break apart
+Multiple scripts
+Common code in modules
+
+Disconnected Runs
+What if you lose connection?
+Can we start a process running, go home, and check it later?
+
+The tmux program does this!
+tmux creates a new session
+Ctrl+b d (Ctrl+b followed by ‘d’) detaches
+tmux attach re-attaches to session
+Many other capabilities under Ctrl+b.
+General Principles
+Use packages and modules to organize code for your project
+Layout
+Common utilities
+Presentation themes?
+Always refer to relative paths
+Applies to all code!
+Beware excessive configurability
+In either functions or scripts
+If multiple ways to combine pieces, extract pieces &amp; have different scripts or functions that combine them in different ways.
+Wrapping Up
+Scripts and modules are useful for organizing code in larger projects.
+
+We can reuse code and operations across multiple parts of the project.
+Photo by Klára Vernarcová on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>In this video, we're going to talk about how to use Python scripts and modules to break our analysis apart into smaller pieces and organize our code,</li>
+<li>learning outcomes are for you to be able to write a Python script. Put Python code in a module and understand the Python module in package structure.</li>
+<li>So Adopt Pi file can be run as a script from the command line.</li>
+<li>So if we have if we have a file like this, we can run it.</li>
+<li>And it saved as my script. Scott Pi, we can write it with Python, my scripts, not pi on some systems.</li>
+<li>You might need to run it with Python three, my script dot pi. But what it does is it just runs the code in the file from top to bottom.</li>
+<li>If you define a function, debt in python def in class are actually just python statements that define a</li>
+<li>function or a class and save the resulting function or class object in a variable.</li>
+<li>It runs a script from top to bottom. So this example here, it reads in a file.</li>
+<li>It filters it so we only have the values with the rating is greater than zero, and then it saves the result back out to another file.</li>
+<li>It also starts with a dock string. So a dock string is this.</li>
+<li>It's this string at the top.</li>
+<li>I'm using triple quotes with which allows us to have a multi-line string in Python triple quotes to limit multi-line strings.</li>
+<li>The string at the beginning just tells us that we've got it. What the script is going to do.</li>
+<li>It's going to filter ratings to only real ones. So the script also was an example of the typical kinds of things that we usually do with scripts.</li>
+<li>So a script is often going to read some input files, do some processing,</li>
+<li>and might do Panda's manipulations and might trying to Saikat learn model and make some predictions.</li>
+<li>It might do a statistical inference and then it's gonna save the results data frame it like if the results are a date,</li>
+<li>one or more data frames save them and CSP files. I really like saving data frames and kept files because they're easier.</li>
+<li>They're they're more efficient to read and write.</li>
+<li>If you can also take entire Saikat Learn model that you've trained and use a library called Pikul to save it to a file on disk.</li>
+<li>And then the next stage of the pipeline,</li>
+<li>another script or a notebook is going to read these outputs that you saved from this script and do something with them like.</li>
+<li>You might train a psychic. Learn model and predict some test data and save the results of that.</li>
+<li>And then a notebook will load the test data and load your predictions of it and compute your accuracy metrics so that you can separate</li>
+<li>perhaps a very computationally intensive model training and prediction stage from analyzing the results of running your predictor.</li>
+<li>So any Python code object, a script, a class, a function, a module can start with a dock string.</li>
+<li>It's just a string and it's just a string. All it is, is a string.</li>
+<li>And it's at the beginning of the file. The beginning of the function or the class.</li>
+<li>And what it does is it documents the code, its purpose, its argument, if it's a function, might document class field, et cetera.</li>
+<li>If you've used Java, it's Python, the equivalent to Java doc.</li>
+<li>And both documentation renderers such as Sphynx and eye python and Jupiters.</li>
+<li>So I Python is the python engine that lives inside of Jupiter.</li>
+<li>They use the dock strings when you ask them to document a particular function or a class.</li>
+<li>They're also useful for scripts. Scripts can also take command line arguments.</li>
+<li>So if we run this script with Python script up high and then we give it to command line arguments in that CSB and outdate CSP.</li>
+<li>Then. What it's going to do is it's going to pass in that CSB.</li>
+<li>As Sister RGV one, and it's going to pass out, that's GSV as Sister AAG too.</li>
+<li>And we can access them in2. We can access them in our script so that we can make a script that can do the same operation on different data files.</li>
+<li>And so if you've got a variety, if you have different data sets, you want to do the same operation.</li>
+<li>You have maybe different models that you want to run. And you know how to run them given a name and a command line.</li>
+<li>This allows you to make scripts that are parameter eyes. You can use the same script code to do multiple different tasks.</li>
+<li>The system RTV variable, it's in the system module C, we import that.</li>
+<li>It's a list of command line arguments. ARG V Zero is the name of the program and then ARG V one.</li>
+<li>And following is the are the actual command line arguments that were passed to your script.</li>
+<li>It does not include any of the command line arguments that were passed to the Python interpreter itself.</li>
+<li>Python strips those out and sets it up so that your program just sees its name and its arguments.</li>
+<li>Then there are some libraries that help you pass command line arguments to allow you to build very sophisticated command line interfaces.</li>
+<li>One is AAG parts. It's in the Python standard library. Another that I use a lot is called Doc Opt and it actually uses your help message</li>
+<li>to define what options are available or they are written in your doc string.</li>
+<li>Another thing we need to do when we're writing a script is do what we call import,</li>
+<li>protect it, because Python files can either be run as a script or imported as a module.</li>
+<li>And if we it's a common convention to import protect. And what we do is we put all of the code and function.</li>
+<li>So I've moved all of our code into a main function here.</li>
+<li>And then at the end of the script, you have this kind of a line where if name is May equals Main, then we call the main function.</li>
+<li>And this underscore, underscore name is a python magic variable.</li>
+<li>That that contains the name of the currently of the module that's currently being run or loaded.</li>
+<li>And as a special case, if you run a Python file as a script, what it does is it sets the name to underscore, underscore, main, underscore, underscore.</li>
+<li>So this is this is how you detect that your file is being run as a script.</li>
+<li>And what it does is it only actually runs the code that's going to do your operations if it's being run as a script.</li>
+<li>If it's not being as it's run as a script, it's just gonna define all of the functions. Couple of reasons for this.</li>
+<li>One is it allows you to just import a function from another script.</li>
+<li>I don't really recommend that if two scripts need the same function, I recommend putting that in a module.</li>
+<li>But. Also, there are some situations where Python may need to reimport your script around certain parallelism techniques.</li>
+<li>I haven't taught you how to do any of them, but some libraries may use them.</li>
+<li>And so import protecting your scripts just provides this extra protection in case in case eventually you wind</li>
+<li>up wanting to do something in your code that uses one of these techniques that requires it to be reimported.</li>
+<li>It's standard practice, though. Most Python scripts you're going to find in the wild, particularly in distributed software, are import protected.</li>
+<li>So I've mentioned module's what is a module when you run, when you have the pilot, the Python command, import that food or import food?</li>
+<li>What it does is it looks for the file called food up pie, and it looks in a few different places.</li>
+<li>It first looks in the scripts directory or if you're just running a python interactive interpreter or a notebook notebook,</li>
+<li>it looks in the notebooks current directory for a console.</li>
+<li>It's going to look in your current local or at current working directory.</li>
+<li>It then searches that environment, the directories in an environment variable called python path.</li>
+<li>Environment variables are a mechanism for a process to have information about its environment and then to pass that on to child processes.</li>
+<li>I put just a little bit about them in the glossary online. It also then looks in your Python system directory.</li>
+<li>And then it runs this file to create its definitions and it runs the whole file because a python,</li>
+<li>a python file just runs and all of your things are statements. Def is a statement that defines a function import the statement that imports code.</li>
+<li>And then what it does is all of the definitions get exposed under the few objects.</li>
+<li>So Foo has a death bar that defines a function called bar.</li>
+<li>Then it's available as food bar in the function or in the code that imports Foo and it exposes all of our assigned names,</li>
+<li>variables, functions, classes, other imports. Any variable that's defined gets made available.</li>
+<li>There's no such thing as a truly private variable. Can convention is you prefix it with underscores.</li>
+<li>Anything that's defined in food is available, food, whatever. Pilot modules can also be grouped together into packages,</li>
+<li>so a package is just a directory with a file called underscore, underscore in it, underscore, underscore, dot pie.</li>
+<li>This file can be empty. All it does is signal that the package is there.</li>
+<li>You can also put some code in it to the default setup, some things in the package if you want.</li>
+<li>It can also the dock string to document the package and present packages can contain modules and other packages.</li>
+<li>So if you import food up bar, what it does is it looks for the food module or the food package,</li>
+<li>a food directory with the init file in it, and then it looks for bardock pie or a bar directory with the init file in it within that.</li>
+<li>So let's see an example of this. This is a project I have for doing some experiments with recommender systems.</li>
+<li>And here, this first file that I'm showing you is a script that I created that splits data.</li>
+<li>And in its Doch string, I give the usage to say how how to run the script.</li>
+<li>You run split data, that pie with with partition, you can give it to options.</li>
+<li>Doc Opt will pass this in order to figure out what options to pass out of the command line.</li>
+<li>And then I have my imports. I have my main function, which actually takes the arguments that are already past the main function, does all of the work.</li>
+<li>And then we finally have at the end we have a.</li>
+<li>We have a file that we have the import protections, if the name is made, that we set up a logger.</li>
+<li>We pass the arguments and we call the main function.</li>
+<li>I don't usually do very much like I just have no more than like three lines or so in my import protecting.</li>
+<li>But here I'm making it's that the main function actually takes the pre passed arguments already.</li>
+<li>Now in this project, I also have a directory called LTA Demo that has a file underscore, underscore and it dot pie that's empty and that makes.</li>
+<li>OK. Demo a package. And within that then I have modules. So I have the module log which defines a couple of functions.</li>
+<li>The setup function to setup logging a script function that sets up logging for, for a script.</li>
+<li>And so then. So I've defined this, this module, this, these functions in this module.</li>
+<li>And then over and split data. What I did was from LDK demo.</li>
+<li>I imported the data sets and log modules. And so then I can call log dot script and it's going to do that initialization process.</li>
+<li>I'm linking to this example code that was prepared by me and some of my graduate students in the resources.</li>
+<li>You can go see an actual example of how this kind of code gets laid out.</li>
+<li>So a few pieces of advice for writing a script first. Always with a dark string for your script.</li>
+<li>That way you can quickly just look at the file. Look at the top of the file and see what that script is supposed to do.</li>
+<li>Also, I like using dark ops that then I just write in my dark string how you actually run the script and what its options are.</li>
+<li>And Doc UPT uses that as the ground truth for how to actually pass command line arguments.</li>
+<li>I'd recommend always import protecting your scripts.</li>
+<li>Recommend providing reasonable configurability, so some options like, OK, I want to run on three different data sets.</li>
+<li>Maybe change a parameter like how many partitions of data to create.</li>
+<li>But if you've got if you wind up creating a lot of options that create a lot of different modes.</li>
+<li>So there's different code pads. You've got a lot of extensive conditionals in order to figure out the right code path to the script.</li>
+<li>I often recommend breaking that into multiple scripts, put the common code in the modules,</li>
+<li>and then for each different way, you need to have combine those functions that you defined in the modules.</li>
+<li>You can write a different script and if you put enough code in the module that each script is very simple and straightforward.</li>
+<li>And that way you don't have near as much code complexity that easy to break as you're doing future development and maintenance of your code.</li>
+<li>So another thing I want to mention briefly is we've got these scripts and run them from the command line.</li>
+<li>We can also run them and the disconnect and leave them running on another computer.</li>
+<li>It's like if you're running on Onex or you're running if your research group</li>
+<li>has a computer that you can run things on or you're running on an Amazon node.</li>
+<li>There's a program called Tmax that creates a terminal that you log into a computer, to a machine, to a machine, overassessed age.</li>
+<li>You run Team X, it creates it starts in your shell, but it's within ti max.</li>
+<li>So you can run programs and there you can start your program running.</li>
+<li>You can then detached from t max hit control be followed by D it's team X will detach.</li>
+<li>You can log out your team X is still running and the program you're running is still running.</li>
+<li>So then you can go home. You can log back into the machine. You can run Team X again.</li>
+<li>Team X attach will reattach to an existing T-Mac session.</li>
+<li>And then you can see. You can check on your program.</li>
+<li>So and also it protects if you lose your Internet connection, if you're just running a program over, as I said, you lose your Internet connection.</li>
+<li>It's going to stop. But if you run your program over SSA, it's through T Tmax.</li>
+<li>You lose your connection. When you connect again, you can tarmacked attach. And the program will never know you disconnect it.</li>
+<li>And so it allows you to run your scripts in a much more robust fashion.</li>
+<li>If you've got a script, that's going to take a while.</li>
+<li>So general principles are they want to recommend or use packages and modules to organize code for your project,</li>
+<li>a variety of things that I put in there, I put in code about how to go find other files so that I can I have my file names defined in one place,</li>
+<li>maybe code about like, OK, here are the data sets that might be stored as a variable.</li>
+<li>And one of my modules, common utility functions that I use throughout, like those logging scripts,</li>
+<li>all of my scripts use those logging functions in order to set up the logging framework.</li>
+<li>I often wind up having a module that has code for doing prison, time for doing plot some visualizations particularly that has the theme.</li>
+<li>So it's easy for me to have the same layout and the same ability to save images to desk etc</li>
+<li>throughout all of my notebooks always refer to rule part files by their relative paths.</li>
+<li>You never want to have an absolute path in a script or in a notebook or in a module,</li>
+<li>because then if someone else is working with the code or you just check it out in a different location in or different computer,</li>
+<li>it's not going to run.</li>
+<li>Always have relative paths relative to the top of the working directory or the top of your repository usually is where I have them from.</li>
+<li>If it's a notebook, it needs to be relative to the notebooks location so that you can move code from one place to another and still run it.</li>
+<li>Also, be careful about excessive configurability, either in functions or in scripts.</li>
+<li>If you've got too many different paths to it through a function or through a script,</li>
+<li>then that's a good sign that you need to pull some code off into the functions in a module, make multiple functions or multiple scripts.</li>
+<li>Each one has one of those paths through the code. So to wrap up scrips, the modules are useful for organizing code and larger projects.</li>
+<li>We can reuse code in operations across multiple parts of the project.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/modules.html">Python Modules</a></p></li>
+<li><p><a class="reference external" href="http://docopt.org/">docopt</a>, a very useful tool for processing command-line arguments</p></li>
+<li><p><a class="reference external" href="../../resources/glossary.md#envvar">Environment Variables in glossary</a></p></li>
+<li><p><a class="reference external" href="https://github.com/lenskit/lk-demo-experiment">LK Demo Experiment</a>, which I used in the demo; this also uses DVC</p></li>
+<li><p><a class="reference external" href="https://github.com/tmux/tmux/wiki">tmux</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="introducing-git">
+<h2>🎥 Introducing Git<a class="headerlink" href="#introducing-git" title="Permalink to this headline">¶</a></h2>
+<p>This video introduces version control with Git.</p>
+<div class="resource video docutils container" id="e9f2f932-fa3d-4ec8-bb70-adc60183ef95">
+<div class="tabbed-set docutils">
+<input checked="checked" id="9c8e4327-3b0f-45ae-bdb1-369665623438" name="c5f469cb-138d-438d-8397-ee52eab67da2" type="radio">
+</input><label class="tabbed-label" for="9c8e4327-3b0f-45ae-bdb1-369665623438">
+Video (12m2s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=e9f2f932-fa3d-4ec8-bb70-adc60183ef95&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="b6c7b6b8-c82c-472e-a68c-cf418800bc3c" name="c5f469cb-138d-438d-8397-ee52eab67da2" type="radio">
+</input><label class="tabbed-label" for="b6c7b6b8-c82c-472e-a68c-cf418800bc3c">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173404" data-key=ACF19qqHL2TJnCs>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+INTRODUCING GIT
+Learning Outcomes
+Use Git to save versions of scripts and notebooks
+Share code through GitHub
+Merge code changes from collaborators
+
+This video introduces concepts — see links for hands-on learning.
+Photo by Ula Kuźma on Unsplash
+Problems with Saving Files
+Make a change that didn’t work — get back the old version
+Save work to make sure you don’t lose it
+Making sure you have the right version of the file on multiple computers
+Share changes with collaborators 
+Versions
+Git is a tool for storing versions of software
+Snapshot of current state
+History of versions
+
+A commit is a snapshot with a pointer to the previous commit(s)
+Chain of commits form history
+Can go back to previous commits
+Commits form basis for sharing and merging changes
+Core Concepts
+The working tree is your directory of files, ready to run or edit
+The index is a staging area for changes to be commit
+A repository stores the history
+Local repository is in .git directory in working tree
+Remote repositories (e.g. GitHub) don't have working trees
+Your local copy has the entire history!
+A branch is a is a line of development
+Points to a commit
+Updated as you make new commits
+Default branch is either ‘main’ or ‘master’
+Local and Remote
+You have a local repository where you work and make changes
+It can have configured remotes where you push and pull changes
+GitHub is one service for hosting repositories
+Configure your GitHub repo(s) as remotes on your local
+Other options include BitBucket and GitLab
+Operations
+commit records the current version of your files
+clone creates a repository &amp; working tree by copying another
+push sends commits (and files) to a remote repository
+Updates remote branch to match local branch
+fetch retrieves data from a remote repository
+merge updates one branch to include changes from another
+pull updates local branch to include remote (fetch + merge)
+
+Use Case: Tracking History
+Work on your code and notebooks
+Commit when you have a version you want to save
+Do this very frequently
+It's useful for commits to successfully run
+
+Result: local history to go back and recover old versions
+Use Case: Multiple Computers
+Work on one machine
+Commit your changes
+Push to remote repo (e.g. GitHub)
+Pull on other machine, continue working
+
+Significantly less error-prone than manually copying files
+Cannot directly push between machines (can pull, though)
+Use Case: Collaboration
+Work, committing changes from time to time
+Pull from shared remote to get collaborator's current work
+Merge if necessary
+Push your work to shared remote
+Can only do if your branch is current w/ remote changes
+Collaborator pulls changes
+
+Always commit before merging
+Ignoring Files
+.gitignore files specify files to ignore
+These are committed to Git, to share w/ others
+Should ignore:
+Editor temp files (e.g. ~, .bak, .swp, etc.)
+OS weird files (e.g. .DS_Store on Mac)
+Python bytecode cache (__pycache__ dir, .pyc/.pyo files)
+Compiled files
+Most generated files
+Commit source and generators
+In data science projects, may store results of analysis (or even processing)
+Tools / Interfaces
+git command-line tool
+You’ll need to learn this, even if you primarily use other tools(running code on servers / clusters)
+Sometimes you need to fix things
+Integrated support in editor / IDE
+I use VS Code for almost all code — it has very good Git support
+Dedicated GUI like Tower, SourceTree, or GitKraken
+Free through GitHub Student Developer Pack
+Wrapping Up
+Git allows you to record versions of your code to track history, roll back changes, and share with others.
+
+Commit early and often.
+Photo by Jed Villejo on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>So in this video, I want to introduce using get to save versions of some of your project and share code with others.</li>
+<li>So learning outcomes are for you to be able to use get to save versions of your scripts and notebooks.</li>
+<li>Sherko to get hub and merge code changes from collaborators. This video introduces the concept.</li>
+<li>It's not Hands-On and I'm not going to walk through the specific details of how to do each operation.</li>
+<li>There are a lot of tools of resources online for learning get.</li>
+<li>And I expect a number of you probably already know it, although certainly not all of you.</li>
+<li>So I'm going to fried some links in the resources with this video to more of places where you can do hands on learning of the details of get.</li>
+<li>I'm going to be talking about the concepts that you need to know to put it all together.</li>
+<li>So we save files, we have scripts, you have notebooks, they're saved files.</li>
+<li>But there are a few things we might want to be able to do. Maybe we made a change.</li>
+<li>It didn't work. We want to get an old version of the file back. Maybe you want to make sure that we have the current version saves as we make changes.</li>
+<li>We can't go back. Maybe we want to make sure that you have the right version of the file on multiple computers.</li>
+<li>You've changed it and you changed it at home and you changed it at work. You want to make sure you've got the same version everywhere.</li>
+<li>We also want to be able to share changes to our files and our projects with collaborators if we're working with others on a project.</li>
+<li>And so give us a tool for storing versions of software or versions, a snapshot of the current state of your code.</li>
+<li>And then it has a history of these versions. It's the first version, second version, et cetera.</li>
+<li>So a comet. It does this with what's called a comet.</li>
+<li>And a comet is a snapshot of your correct code with a pointer to the previous commits usually one,</li>
+<li>but it can be two if it's the result of merging two divergent branches of code back together, the chain of commits form a history.</li>
+<li>You can go back to previous commits, commits,</li>
+<li>then form the basis for sharing and merging changes between multiple computers and multiple collaborators.</li>
+<li>Few of the core concepts of Get Out First is the working tree, which is your directory of files ready to run or read it.</li>
+<li>So you've got to work. If you aren't using get yet, you already have a working tree and then get has a repository that stores the history.</li>
+<li>This lives inside a get directory in your working tree.</li>
+<li>There's also remote repositories such as GitHub. You have an index which is a staging area for changes to be committed.</li>
+<li>So you got your working treats, you stage files into the index, and then you commit them to a repository.</li>
+<li>You also then have a branch, which is a line of development that points to a commit.</li>
+<li>So if I've got a first commit A and then I've got a second commit B and a third commit C.</li>
+<li>And I have my main. Main points to see, and that says OKC is the branch and it has its history going back through B and A demerging happens,</li>
+<li>well, maybe somebody else makes a B prime from A,</li>
+<li>and then I say, well, I want both B, NDB Prime and I merge the changes, resolving any places where they conflict and I get my commit c the domain.</li>
+<li>The branch is updated as you make new Kimmet. So if you're on Branch Main and you make a new commit C prime.</li>
+<li>Or as new, commit deth. Then it's going to update Maine to point to D.</li>
+<li>So you have a local repository where you make him work your changes.</li>
+<li>So you're working tree has a guy get directory that get directory contains the entire it contains your local repository.</li>
+<li>It has a complete history. You have a complete copy of the history locally. You can then have configured remotes where you push and pull changes.</li>
+<li>So if you're using GitHub, then GitHub will be a remote that your local is set up for KIPP to push to other options besides GitHub,</li>
+<li>include BitBucket and get lab. You can also run your own server to host get repositories.</li>
+<li>A few of the operations you're going to need to be able to perform and again,</li>
+<li>I'm going to refer you to the resources I'm linking online to learn more detail about each of these operations.</li>
+<li>A commit records that the commit operation or command records, the current version of your files creates and you commit.</li>
+<li>Clone creates a repository and working tree by copying another.</li>
+<li>So if you say if there's a repository on GitHub and you want to work on it, you clone it to your local computer.</li>
+<li>Push sends commits from your repository to a remote, and so if you've made some changes and you want to push them, if you want to share them.</li>
+<li>Either push the new repositories so you can access them on another computer or that your your collaborators can access them.</li>
+<li>You use push and that's make sure that pushes you push a branch.</li>
+<li>And what that does, it is it makes sure that the remote machine, the remote mote repository has all the changes in your branch that you have.</li>
+<li>In fact, retrieves a different remote repository, merge merges two.</li>
+<li>So if you've made some changes and someone else has made some changes and pushed them.</li>
+<li>You need to merge those changes together before you can push your code backup and update your common branch pull fetches,</li>
+<li>emerges together to update your current local branch to include the remote.</li>
+<li>So now to talk through a few use cases here. First, the simple use case is just tracking history and a repository on your local computer.</li>
+<li>You work on your code and notebooks. You commit when you have a version you want to save.</li>
+<li>I recommend doing this very frequently, multiple times a day, possibly even multiple times an hour.</li>
+<li>That way you can always go back and you have the security of if you if you accidently make a mistake, you delete the wrong file, you can get it back.</li>
+<li>The result of this is you've got a local history to go back and recover old versions.</li>
+<li>I also sometimes see I go K through three days, a complete week's worth of work and haven't committed.</li>
+<li>I'd strongly recommend commit early and commit often. So another another use cases.</li>
+<li>You've got multiple computers, you work on one machine.</li>
+<li>You can make your changes, you push through a remote repository, maybe it's GitHub, maybe it's somewhere else.</li>
+<li>Then on the other machine you pull to make sure you have the latest changes and you continue working.</li>
+<li>This is significantly less error prone than manually copying files because GET is tracking your</li>
+<li>versions and it knows that the remote is more current than your current version or vice versa.</li>
+<li>And so if you're just copying files around, you have to keep track of which one is the latest and current version of the file to make sure you</li>
+<li>don't accidentally copy an old file on top of a new one get since it's chaining the commits together.</li>
+<li>It knows old versus new, and it can also merge if you made changes in both places at the same time.</li>
+<li>It can help you merge those together. So it's a much more reliable way to share a code between multiple computers than copying files around.</li>
+<li>You cannot directly push. I can't push from my laptop to my desktop.</li>
+<li>I have to push from my laptop to get up and then pull from GitHub to my desktop.</li>
+<li>I can't. You can't pull like I could pull for my desktop to my laptop.</li>
+<li>I don't do that. I always go to get help. Another then use case is collaboration.</li>
+<li>So you work, you commit changes from time to time when you're ready to share your work with your collaborator, you push to a remote.</li>
+<li>You both have access to. Maybe it's your GitHub repository. Excuse me, first you poll, because you need to make sure you have your collaborators work,</li>
+<li>because if they've pushed changes you don't have, you can't push get will say your branch isn't up to date.</li>
+<li>I can't push. And so you pull from your local.</li>
+<li>You collect your report remote repository to get your collaborator's work.</li>
+<li>You merge if necessary, if you need to merging of tests, run the tests,</li>
+<li>make sure things to work, and then push your work with the merge changes to the shared remote.</li>
+<li>Now your collaborator can get them. They'll need to pull before they can push again.</li>
+<li>But you can only you can only push if your Brant if you have a current copy of everything that's on the remote.</li>
+<li>And so you have to do the pull in the merge before you can push if you have an especially active collaborator.</li>
+<li>And it takes a little while to do your merge, then you might wind up OK.</li>
+<li>I pulled the total merge. I'm ready to push up. They've pushed more code.</li>
+<li>Since I pulled I have to pull again. And then your collaborator can pull down the changes.</li>
+<li>One note here. Always commit before merging.</li>
+<li>You can pull with uncommitted changes. But if something goes wrong in the merge process, if you've committed everything before,</li>
+<li>you start to try to merge your divergent lines of code, then you can always go back and try again if something goes wrong in the merge.</li>
+<li>So another thing you want to pay attention to is ignoring files.</li>
+<li>You don't want to commit every file to get. So a repository usually has a file called get ignore to specify files to ignore.</li>
+<li>You could also have your own settings. You can have a ignore file that's applied to all repositories.</li>
+<li>You work on it. Say if you have a text editor that makes a particular kind of backup file.</li>
+<li>I recommend putting that in your personal get ignore. But the things you some of the things you should ignore editor temp files some times</li>
+<li>like Emacs when backup mode save a file that ends until the VM creates swap files.</li>
+<li>You want to ignore those, you don't actually accidentally commit them. Macko asked, likes to create directories called Dot D.</li>
+<li>S store. You'd never want to commit that to getting share. It's useless to your collaborators.</li>
+<li>Python creates a variety of temporary files.</li>
+<li>That cache transformed versions of Python code.</li>
+<li>You may have a project recompiling some code you don't want to commit.</li>
+<li>The compiled files, in part because you committed compiled on Mac and someone else is going to run on Linux most of your generation.</li>
+<li>In general, if the file is generated from another file, you probably don't want to commit.</li>
+<li>A key exception is notebook's and then some data science project.</li>
+<li>You may store the results of analysis and get. It's not a hard and fast break if you do it.</li>
+<li>It says if you can quickly and easily regenerate the code, it's often a good idea.</li>
+<li>You commit source get a designed for tracking source code, not generated files.</li>
+<li>And so. So these are some of the files you're going to you're going to you often want to ignore in the resources.</li>
+<li>I'm going to give you an example that get ignore file. That's good to toss in a lot of Python data science projects.</li>
+<li>So some of the interfaces and tools that you can use to work with get first the get command</li>
+<li>line tools to get the command line tool you can use in Unix or Windows command show.</li>
+<li>You're really going to need to learn the command line tool, even if in most of your day to day work you use other tools.</li>
+<li>Because if you're running code on a server, on a cluster or something,</li>
+<li>you need to be able to pull at least and probably make some changes and commit sometimes.</li>
+<li>Also, you need your repository getting a state where you need to fix things that aren't easy to fix from the gooey.</li>
+<li>The degrees are getting better and better about that.</li>
+<li>But occasionally I find myself needing to go into surgery or something just faster on the command line.</li>
+<li>But the big reason you really need to learn it is when you've got larger projects,</li>
+<li>you're probably going to be doing some running on a remote server, not just on your local machine with graphical interface.</li>
+<li>And you really need the command line to be able to do that. There's good get support and a lot of editors and I.D.</li>
+<li>I used Visual Studio Code for a lot of my editing. It is very good.</li>
+<li>Get support. And then there's get dedicated. Get DUIs like tower or source tree or get crackin.</li>
+<li>Some of those cost tower and get crackin.</li>
+<li>Both cost money, but they're both also available for free to the GitHub student developer PAC.</li>
+<li>If you register your university email address, so wrap up get allows you to record versions of your code so you can track history,</li>
+<li>rollback changes and you can share with others and with yourself across multiple computer computers.</li>
+<li>I strongly recommend that you commit early and often to prevent lost work as you're working on your projects.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Resources<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="../resources/git-resources/"><span class="doc std std-doc">Git Resources</span></a> (including my example <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file)</p></li>
+<li><p><a class="reference external" href="https://guides.github.com/introduction/git-handbook/">Git Handbook</a></p></li>
+<li><p><a class="reference external" href="https://try.github.io/">Resources to Learn Git</a></p></li>
+<li><p><a class="reference external" href="https://ericsink.com/vcbe/index.html">Version Control by Example</a></p></li>
+<li><p><a class="reference external" href="https://education.github.com/pack">GitHub Student Developer Pack</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="git-for-data-science">
+<h2>🎥 Git for Data Science<a class="headerlink" href="#git-for-data-science" title="Permalink to this headline">¶</a></h2>
+<p>How do you use Git effectively in a data science project?</p>
+<div class="resource video docutils container" id="89dff901-0d0d-4d59-b71b-adc60183f030">
+<div class="tabbed-set docutils">
+<input checked="checked" id="eba55f5b-3fd9-4f36-9b1d-a164400f40fe" name="47fb1056-12b8-461d-8a5c-667595ba7bc9" type="radio">
+</input><label class="tabbed-label" for="eba55f5b-3fd9-4f36-9b1d-a164400f40fe">
+Video (6m52s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=89dff901-0d0d-4d59-b71b-adc60183f030&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="5c37df9d-8820-46ad-a38f-754c2368007b" name="47fb1056-12b8-461d-8a5c-667595ba7bc9" type="radio">
+</input><label class="tabbed-label" for="5c37df9d-8820-46ad-a38f-754c2368007b">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173405" data-key=AGba4PqAto3WUCU>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+GIT FOR DATA SCIENCE
+Learning Outcomes
+Understand limits of git
+Ignore data files
+Know additional tools to look at for managing data files
+Photo by Lianhao Qu on Unsplash
+Git Strengths
+Git is very good at tracking:
+Modestly-sized files (less than a few MB)
+Text files
+
+Not good for:
+Binary files (although small ones are ok)
+Large files (especially binary)
+Hard-to-merge files (e.g. notebooks)
+
+Ignoring Files
+In a data science project, we often ignore more files
+Data files (e.g. *.csv, *.csv.gz)
+Inputs, intermediate files, and large outputs
+Keep the notebooks (and possibly other documents)
+Method 1: Inputs + Recreate
+Ignore data files
+Include script to fetch input data from central server
+File store
+Database
+Reproduce intermediate files locally by re-running scripts
+Optional: commit outputs / summaries
+Optional: save results into database / shared repo
+
+Good if analysis is relatively cheap
+Method 2: Data Data Repository
+Ignore data files
+Include scripts to fetch current inputs + intermediates from another server (file share, Amazon S3, etc.)
+Include scripts to update inputs on other server
+May commit:
+Outputs
+File versions
+Can be bespoke or use standard tools (I use DVC)
+Method 3: Large File Storage
+Git LFS (Large File Storage)
+Manage large media files with Git, looks like they are committed
+Commits stub file with pointer to actual content
+Content stored on separate server, not in git repo
+Stub replaced with content on checkout
+You may commit outputs in this mode!
+If someone changes, re-commit and push
+Caveat: if you use GitHub, limited space + bandwidth
+
+Notebooks
+Notebooks are text, but are complex JSON
+Hard to compare
+Hard to merge
+Change when run!
+2 solutions, roughly:
+Commit as normal
+Merge by just taking one version
+Merge with nbdime
+Coordinate notebook edits
+Commit without outputs
+nbstripout filter
+Wrapping Up
+Git works great for data science, but requires a few new tricks.
+
+Be thoughtful about how you handle data in Git.
+
+Notebooks can be annoying.
+Photo by laura adai on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, I'm going to talk with you a little bit about, you can get specifically for data science projects,</li>
+<li>so learning outcomes are understand some of the limits of get ignore data files and know some additional tools to look out for managing data files.</li>
+<li>So it gets very good at tracking modestly sized files, far smaller than the few megabytes and text files.</li>
+<li>It's not so good for binary files or large files, especially large binary files.</li>
+<li>It also has some difficulties with files that are hard to emerge, such as notebooks.</li>
+<li>A notebook is stored in text, but its text is a lot of Jason merging.</li>
+<li>All of that is really touchy and easy to get wrong. And so it requires a little special care when you commit your notebooks to get really good idea.</li>
+<li>Get Hub lets you view them in line on online, but you have to take a little care if you're going to be needing to be merging them.</li>
+<li>So first, is it a data science project? We often ignore more files.</li>
+<li>So a lot of heads, the data files, input files, intermediate files, large output files, all of those are going to ignore.</li>
+<li>So we're going to have ignore lines for CFS fees. Yes, Fijis. We're usually going to keep the notebooks, quite possibly other documents,</li>
+<li>and that may involve keeping outputs like the notebook source, the source code and the output in the notebook file.</li>
+<li>We may also store other notebook outputs, etc. and get just that.</li>
+<li>We you can view the results without having to rerun everything when you check out the get repository.</li>
+<li>So but for dealing with these large input files, you've got your input file, it's maybe two gigabytes.</li>
+<li>You're going to create a few hundred megabytes of output. There's a few methods.</li>
+<li>One is that you can just expect anyone working with the repository to recreate all the intermediate output files.</li>
+<li>So you ignore all of your data files. You include either a script or instructions on how to fetch the input data.</li>
+<li>Maybe it's a script that downloads data from a database or fetches it from a Web site.</li>
+<li>Then you have scripts that reproduce the intermediate files. You've documented how to run them.</li>
+<li>The read me is a very good place to do this. You may commit outputs or summaries of the files.</li>
+<li>You may save the results into a database or shared repository. But if the analysis is relatively cheap, this can work well.</li>
+<li>Fetch the project. Make sure you have the current input data rerun. But if the data is not so cheap.</li>
+<li>If you've got processes that can take a while to run in there,</li>
+<li>then you also want people to be able to get copies of the intermediate and output files.</li>
+<li>Maybe you've got a classification model that takes four hours to train.</li>
+<li>What you can do then is you can, again,</li>
+<li>ignore your data files and you can include scripts that fetch both the current in inputs and intermediate files from another server.</li>
+<li>Maybe it's a file share on your network. Maybe it's an Amazon s three server or Buckett.</li>
+<li>And then you could also include include scripts to update inputs of you update the input files, you update the intermediate files.</li>
+<li>Sort of the current versions on the other server. You might again commit your outputs.</li>
+<li>You might commit information about the versions of your intermediate files.</li>
+<li>You can do this just by writing about just scripts yourself, or you can use this tool that does a lot of it for you.</li>
+<li>I take this approach to a lot of my own work using a tool called Data Version Control, but I'll talk more about later.</li>
+<li>And then the third method is to use get large file storage, so large file storage is a system for managing large media files.</li>
+<li>And it looks like they're committed when you're working with it and get it just. They act like any other file that's committed to get.</li>
+<li>It's just that all that actually gets committed to get as a short stub that says what the contents are supposed to be.</li>
+<li>And the actual file content gets stored in a separate server, get ELA fast, pushes and pulls that other content to this separate server.</li>
+<li>And when you check out every places the stub with the actual contents, you have the large file.</li>
+<li>It works great for big files. You can commit output. You might want up committing outputs if you use this.</li>
+<li>And if you change it and you recreate your new output files and re push.</li>
+<li>One of the one caveat to this or one of the caveats to this is that if you use if you can run your own get hosting,</li>
+<li>you can run your own get out fast hosting server. All the storage you want.</li>
+<li>But if you use GitHub, their default accounts have limited space and bandwidth and the pricing on expanding that can go up relatively quickly.</li>
+<li>And so it's often not terribly cost effective. You get L-A fast and GitHub for a lot of large data science files, but get off as is an option.</li>
+<li>So I want to talk just a little bit about notebooks. As I said, notebooks are taxed, but they're complex, Jason.</li>
+<li>It's hard to compare and merge them. Also, they change. You run like you rewrite. It changes the images.</li>
+<li>It might be bit forbid, identical. It might be running with a slightly different version of the software.</li>
+<li>So it compresses differently. Also, it has it the Jew Jupiter stores like how many times each cell has been executed in the Jason.</li>
+<li>So there's roughly two solutions for dealing this.</li>
+<li>This one is just committee's normal merge by taking one version or like often merged by taking one version or another or doing manual merges.</li>
+<li>There's a tool called NDB Dime Notebook. Different merge. That gives you support for actually merging notebooks.</li>
+<li>It's a little weird, but it does work. I have used it successfully. Also, you can coordinate, notebook, edit.</li>
+<li>So if you if you're a small pool of collaborators, you can just coordinate, send a message on slack, say hey.</li>
+<li>I'm really working on this and hoping for a little while. Maybe don't change it, we'd have emerged problem.</li>
+<li>You're done. You push it and then the others just stay away. It kind of breaks a little bit of the bird Frehley with get because it's easy.</li>
+<li>But notebooks are a little hard to merge.</li>
+<li>Another option that doesn't fully fix the problem but makes it merges easier is to only commit the notebook without outputs.</li>
+<li>And so there's a program called NDB Strip Out that strips the output from a notebook content.</li>
+<li>You can wire it into gets that anytime you commit. You still have the outputs in the version you're working free.</li>
+<li>But the version that actually gets committed, it's like you ran clear all cells before saving and that can decrease the amount of conflict</li>
+<li>because the only thing that changes your textual descriptions and your source code,</li>
+<li>they're both options. I tend, which when I use really depends on which project I'm working on.</li>
+<li>A lot of my projects I commit as normal and use NDB dime. If I have a notebook murd situation.</li>
+<li>So wrap up. Gil works great for data science but requires a few tricks.</li>
+<li>You need to be thoughtful in how you handle data, notebooks, things like that, and get works great.</li>
+<li>But there's a few things you need to pay attention to. Notebooks can be a little annoying.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Resources<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><a class="reference external" href="https://nbdime.readthedocs.io/en/latest/">NoteBook DIff and MErge (nbdime)</a> — tools for diff/merge of notebooks.  Available in Conda:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install nbdime
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference external" href="https://git-lfs.github.com/">git-lfs</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="extract-transform-load">
+<h2>🎥 Extract, Transform, Load<a class="headerlink" href="#extract-transform-load" title="Permalink to this headline">¶</a></h2>
+<p>The Extract, Transform, Load (ETL) pipeline is a common design pattern for data ingest.
+Sometimes it is adjusted to Extract, Load, Transform.</p>
+<div class="resource video docutils container" id="ecd9dac0-c581-4840-975b-adc60183f0f7">
+<div class="tabbed-set docutils">
+<input checked="checked" id="22c50876-efd1-4ebb-8c01-6f89d3e05334" name="0d5a3d75-8092-4605-973e-99a5092064e7" type="radio">
+</input><label class="tabbed-label" for="22c50876-efd1-4ebb-8c01-6f89d3e05334">
+Video (6m46s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ecd9dac0-c581-4840-975b-adc60183f0f7&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="1b8bdf25-0926-43e7-833f-70728de8e5eb" name="0d5a3d75-8092-4605-973e-99a5092064e7" type="radio">
+</input><label class="tabbed-label" for="1b8bdf25-0926-43e7-833f-70728de8e5eb">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173407" data-key=AEmcmPne5UWF0ts>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+EXTRACT, TRANSFORM, LOAD
+Learning Outcomes
+Use standard design patterns to think about data integration and transformation.
+Photo by Dom Heartley on Unsplash
+Pipelines
+Transform / Prepare (ETL)
+Raw Source Data
+Prepared Data
+Inference
+Findings
+Modeling
+Model + Predictions
+Data Description
+Stages of Transformation
+Input: a source of initial, unprocessed data
+
+Extract data (download, export, scrape, etc.)
+Transform data (into common format, initial cleaning, etc.)
+Load data into system for analysis (store in DB, save in file)
+
+Result: cleaned, integrated data ready for analysis or modeling
+Benefits of Design Patterns
+A design pattern is a common structure for (software) design
+
+Common language for documenting &amp; understanding software
+Context for developing best practices
+Can benefit from automation support
+
+Another example: SKLearn ‘fit’ design
+ETL in Context
+Stand-alone projects: may live in repo
+One or more ETL scripts
+Saves data ready for subsequent stages of analysis
+Organizational resource: may be on its own
+ETL pipeline to prepare data for use across organization
+Many different projects use results of common ETL pipeline
+Data “loaded” into shared database (or data warehouse / data “lake”)
+Variant: Extract, Load, Transform
+Sometimes transformations are done in the database
+
+Extract raw source data
+Load into (initial) database tables
+Transform in-DB (e.g. with SQL queries)
+
+Use layered schema design (load-side and transform-side tables)
+ELT in Practice
+Book Data Tools are a shared ELT pipeline
+Extract from 6–8 input data sources
+Load into PostgreSQL
+Transform (w/ SQL queries) into integrated tables
+
+Any project in group can use this data.
+Wrapping Up
+Design patterns provide a common language for talking about software design.
+
+Extract, Transform, Load and Extract, Load, Transform are patterns for data pre-processing.
+Photo by Arseny Togulev on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, we're going to talk about the extract, transform load pattern for handling data transformations and integration.</li>
+<li>So learning outcomes for you to be able to use standard design patterns that think about your data integration and transformation.</li>
+<li>So we saw the pipeline at the beginning of the week.</li>
+<li>If we have some raw source data and we want to transform it into prepared data of some kind, that's ready for further use.</li>
+<li>Using the techniques that we've discussed earlier in the semester,</li>
+<li>turns out that there is there are standard paradigms for thinking about how we structure that process.</li>
+<li>And it involves breaking it down into three stages.</li>
+<li>So extract the extract, transform load pattern takes as input a source of initial unprocessed data, the extract process or stage.</li>
+<li>Gets the data, it exports it from the database, it scrapes it from the Web site, it downloads it from wherever the data comes from.</li>
+<li>And it's how you get the actual raw data that you're going to be working with.</li>
+<li>Then you transform that data into maybe you transforming data from multiple sources into a common format.</li>
+<li>You're integrating data. You're doing some initial cleaning, like deleting invalid records.</li>
+<li>And then finally, you load the data into a system for analysis.</li>
+<li>And the setups we've been talking about so far that a lot of times this is going to look like saving</li>
+<li>it in the file like a part kept file or CSP file that you then can load in the later stages.</li>
+<li>But you might load it into a database. And the result is that you have cleaned and integrated data ready for analysis or modeling.</li>
+<li>And this may seem certainly fairly straightforward,</li>
+<li>but it's what we call a pattern and a design pattern is a common structure for design in general, but in our purposes for software design.</li>
+<li>And it serves as few useful features if it accomplishes a few useful things.</li>
+<li>First is, it gives its common language for documenting and understanding software.</li>
+<li>So if you document I'm here's my extract my transform my load for this for processing this data,</li>
+<li>then others will know what you're talking about because you're using familiar in standard language.</li>
+<li>It's also provides context for developing best practices because you can document, OK, here's good ways to do extraction.</li>
+<li>Here's good ways to do transformation. It could also in some cases benefit from the automation support.</li>
+<li>There are automate. There are automated tools that provide extensive support for doing various types of extractions, transformations and loads.</li>
+<li>Another example, the design is a little bit tableau between an interface in a design pattern.</li>
+<li>But the pattern we're using this, Kate, learning of a model. You fit the model. It updates in place.</li>
+<li>We can think of that as a design pattern for machine learning models in Python.</li>
+<li>So in context, ECL may live in a standalone instead of a project and may live in your repository.</li>
+<li>So you have one or more scripts to do your EDL stages.</li>
+<li>You might have separate ones like an extract, transform and load stage that save the data in a format that's ready for subsequent stages of analysis.</li>
+<li>You don't have to have getting things into easy to work with format, deleting invalid records,</li>
+<li>making sure you have tabular data in your train, a predictive model stage because that's happened in your E Taliban.</li>
+<li>All of your you can do multiple things with your clean data. And you may also, though,</li>
+<li>have a dedicated ECL pipeline project that to give repository that just does your ECL pipeline for big win</li>
+<li>contexts where the loaded data is going to be used in multiple different projects across an organization.</li>
+<li>And so if you've got if you've got an organization where your processing say you're processing some</li>
+<li>government records in a form that's going to be used for informed decision making across the organization,</li>
+<li>then you might have an ECL pipeline that fetches the current version of the government</li>
+<li>records from the from the the the official source does whatever transformations</li>
+<li>you're going to you need to do with them and then load them in a database so that other people in your organization can go and make use of that data.</li>
+<li>And maybe you rerun this once a day, once a month, once a week, whatever the right timeframe is.</li>
+<li>So that then. Anyone in the organization who needs the data can just go to your database.</li>
+<li>Or sometimes it's called a data warehouse or data warehouse is basically a database that's often larger and capacity</li>
+<li>and not designed to support real time production level systems is designed for more long term querying and analysis.</li>
+<li>But anyone can go to the database and get the data as of the most recent result or the most recent import.</li>
+<li>And you've got this ETF pipeline that takes care of that and you can rerun it from time to time as your source provides new data.</li>
+<li>A variant of ECL is extract, load, transform.</li>
+<li>So sometimes you're actually going to want to do the transformations in whatever place you're storing the data.</li>
+<li>An example of this is if you want to use ask you all queries to do your data transformation.</li>
+<li>So you extract your ross' or your raw source data and then you load it directly into initial database tables and then you use your database system.</li>
+<li>If it's a rescue old database, use ask you all queries, but something else, use it.</li>
+<li>It's native data processing capabilities to do your transformations in the database.</li>
+<li>It's usually good to do a layered schema designed to it's clear what tables in your database get the raw or get the data directly out of the load.</li>
+<li>And then what table store the results of your transformations. But it's a very useful variant of ECL for.</li>
+<li>For situations where you've got the capacity and the desire to do your data transformations in a database.</li>
+<li>The book data tools that I used as an example, we were talking about data integration.</li>
+<li>That's an example of an EMT pipeline because we extracted from several data sources.</li>
+<li>We piped that data directly into PostgreSQL. Well, and as night native a format as we could.</li>
+<li>And then we used escudo queries to transform it into integrated tables.</li>
+<li>And that gives it its own get repositories that we have this database that has our book data and any we can.</li>
+<li>Any student in my research group can use that same set of book data for whatever book related projects that they want to work on.</li>
+<li>And then if they need new data extractions,</li>
+<li>we'll add them to the transform layer in the core projects that others can benefit from those changes as well.</li>
+<li>So wrap up design patterns provide a common language for talking about software design, extract, transform, load and extract,</li>
+<li>load, transform our two patterns for doing the data pre processing stage of a pipeline for a data science project.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Resources<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://medium.com/hashmapinc/etl-understanding-it-and-effectively-using-it-f827a5b3e54d">ETL — Understanding It and Effectively Using It</a></p></li>
+<li><p><a class="reference external" href="https://www.iri.com/blog/data-transformation2/etl-vs-elt-we-posit-you-judge/">ETL vs. ELT</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Extract,_transform,_load">Wikipedia article on ETL</a></p></li>
+<li><p>The <a class="reference external" href="../week7/index.md#example">🎥 Week 7 Example</a> uses an ELT design</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="split-apply-combine">
+<h2>🎥 Split, Apply, Combine<a class="headerlink" href="#split-apply-combine" title="Permalink to this headline">¶</a></h2>
+<p>We’ve seen group-by operations this semester; they’re a specific form of a general paradigm called <em>split, apply, combine</em>.</p>
+<div class="resource video docutils container" id="8b68e4cb-55bb-4ddc-83ae-adc60183f178">
+<div class="tabbed-set docutils">
+<input checked="checked" id="0373c5b0-c477-4a1f-bd07-b405b5ce0f4b" name="696073ac-1dd2-45b9-972e-e9d5b6d2fa25" type="radio">
+</input><label class="tabbed-label" for="0373c5b0-c477-4a1f-bd07-b405b5ce0f4b">
+Video (6m45s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=8b68e4cb-55bb-4ddc-83ae-adc60183f178&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="a40d93dc-b6d0-443b-87b5-a36d95bb7cf9" name="696073ac-1dd2-45b9-972e-e9d5b6d2fa25" type="radio">
+</input><label class="tabbed-label" for="a40d93dc-b6d0-443b-87b5-a36d95bb7cf9">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173408" data-key=AEuwR_CdpmKJj_o>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SPLIT, APPLY, COMBINE
+Learning Outcomes
+Use the split/apply/combine to analyze and transform data.
+Photo by Omar Flores on Unsplash
+GroupBy
+ratings.groupby('movieId')['userId'].count()
+
+Split data by movie ID
+Apply the operation ‘count user IDs’
+Combine results into data frame (of movie rating counts)
+
+This is another pattern!
+Split
+groupby splits data by values of one (or more) columns
+
+Each group results in data frame
+Can see this by iterating over a groupby
+Each iteration yields a grouping key &amp; subset data frame
+Apply
+Programming languages: you ‘apply’ a function to data
+
+Pandas apply operations:
+agg: apply an aggregate function (returns single value)
+transform: apply a 1:1 op (output size matches input size)
+apply: apply arbitrary function
+May return value, series, or data frame
+Should return same type for every partition
+Combine
+Pandas automatically combines results of the applied operation
+
+Value → series indexed by grouping columns
+Series → series indexed by grouping columns + result index
+DataFrame → DF indexed by grouping columns + result index
+Apply should return same columns for every partition
+Why?
+Pandas takes care of split/combine bookkeeping
+
+Easier to understand code in standard paradigm
+
+Trivial to parallelize
+Dask parallelizes with same API
+Runs apply op on multiple processes or machines
+Related: Map/Reduce
+Define two operations:
+Map transforms element to key-value pairs
+Reduce transforms key &amp; set of values to single value
+May have partial / repeated reduce, w/ values from previous
+
+Map/reduce framework (e.g. Hadoop) parallelizes.
+Example: count ratings
+
+def map(rating):    yield rating.movieId, 1
+
+def reduce(id, counts):    return np.sum(counts)
+Wrapping Up
+The split/apply/combine pattern lets us transform groups of data.
+
+It improves understandability, modifiability, and parallelism.
+Photo by Erol Ahmed on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, we're going to talk about another pattern that's useful in building our data science pipelines, split, apply, combine.</li>
+<li>We've actually already seen it a little bit,</li>
+<li>but we're going to talk about the split of I can apply combine a pattern as a general pattern to analyze and transform data.</li>
+<li>And so you've seen group by we we group some ratings by movie idee and then we</li>
+<li>count the user I.D. group by is how you do split a fly combine and pandas and</li>
+<li>we split the data by movie I.D. We apply the Operation Count user I.D. and then</li>
+<li>we combine the results into a data frame or a series of movie rating counts.</li>
+<li>This is another pattern and it's a pattern that does have direct computational support.</li>
+<li>If you can fit your data in the split, apply.</li>
+<li>Combine that pandas will take care of a lot of the bookkeeping for you in order to do a complex data transformation.</li>
+<li>So the split stage, so partition splits or partitions, a data frame into subsets grouped by as how you do this in pandas.</li>
+<li>So you give it a column and it's going to group by distinct values of that column.</li>
+<li>If you want to do something like group by a range of values, then you would create another column that has the original values rounded,</li>
+<li>that each range is represented by one value and then you can group by that. Each group results in a data frame.</li>
+<li>You can see this if you iterate over a group by. So if you just for X or in group by data, frame that group by a column.</li>
+<li>Then you're going to get a tuple of a grouping key.</li>
+<li>There's a distinct set of values that indicate that of your gripping columns that defined that group.</li>
+<li>And then a data frame that is the subset of the original data frame containing the entries for that group.</li>
+<li>You then have the apply stage and the name, this name comes from programing languages, programing, language theory where you call flunked.</li>
+<li>You apply a function to data is what you call it when you call a function. And pandas provide several ways to do apply.</li>
+<li>One is AG. We've seen this many times. You at aggregate function and aggregate function returns a single value.</li>
+<li>A transform applies a one to one operation. So the output size matches the input size.</li>
+<li>If it gets 20 rows, it will be turned 20 rows means entering data would be an example of a trend or subtracting a value.</li>
+<li>Be an example of a transform. So you could make a split of all I combined.</li>
+<li>That means center's data.</li>
+<li>By using transform compute, it takes a series, computes the mean of the series and that subtracts the mean from all the values and returns.</li>
+<li>The result that's gonna be a transform apply applies an arbitrary function that</li>
+<li>can return anything and maybe turn a value a series and maybe turn a data frame.</li>
+<li>The only thing is that if we should return the same type for every partition, it shouldn't return of value sometimes in a series others.</li>
+<li>It always needs to return the same kind of thing, but it can do any of the above.</li>
+<li>If you know you have an aggregate right transform, it's better to use that it's a little more efficient.</li>
+<li>Pandas actually called the apply function twice on the first group.</li>
+<li>The first time to figure out what kind of value it's going to get. And then it goes and does the apply to all of the groups combined.</li>
+<li>Then you've split the data into partitions. You've applied some operation to each partition.</li>
+<li>Combine combines the results back into a final data structure. So if you're if your apply stamp returns of value,</li>
+<li>then pandas combine is going to give you the combined stage of pandas is going to give you a series that's indexed by the group in columns.</li>
+<li>If you're if you return to a series from the aggregate,</li>
+<li>then you're going to get a series that is that indexed by grouping columns and the index of the result series.</li>
+<li>And then if you're a data frame, you're going to get a data frame that if you're apply return to data frame,</li>
+<li>you're going to get a data frame that's indexed by grouping columns. And then the index of your result data frame.</li>
+<li>Apply your fly data frame should generally return the same columns for every partition.</li>
+<li>Now, why do you want. Why do we think about this in these terms? If you if you formulate your data in terms of split, apply combine.</li>
+<li>Then first, you can pandas takes care of a lot of the bookkeeping. All you have to write is your apply stage and pandas will do everything else.</li>
+<li>It's also easier to understand the code that you could write some loops to do some complex things.</li>
+<li>But then you have to pass out what is the Sloup doing? If you write it in terms of split up like mine and then someone reading the code, oh,</li>
+<li>this is applies a split of like a lineup combine operation and it's easier for them to understand what you're doing.</li>
+<li>And split up play combined is not unique to pandas. Pandas implementation is with group by R has support for split apply,</li>
+<li>combine many different platforms in many different environments, have support for some kind of split apply combine operation.</li>
+<li>Also, it's trivial to paralyze because there's no reason you have to do the groups one after another.</li>
+<li>You could apply to multiple groups and parallel pandas doesn't do this.</li>
+<li>But the package called Dask provides an API that's very similar to pandas.</li>
+<li>It is. Well, it's a subset of the Pandas API.</li>
+<li>It does split apply combine and it can run your apply and multiple processes or on multiple machines in a cluster.</li>
+<li>And by putting in a split, a fly combined paradigm, you can take advantage of that parallelism very easily.</li>
+<li>Want to talk very, very briefly about a related paradigm that's also useful for parallelism in some contexts.</li>
+<li>Pandas does not directly support it, but it's the basis of YouTube and it's called Map Reduce, where you define two operations.</li>
+<li>Map transforms the data and an instance into key value pairs.</li>
+<li>One or more or zero or more actually, and then reduce transforms key,</li>
+<li>a key and then a set of values that key to a single value you might need to reduce multiple times</li>
+<li>because it might it might get off of what I do as a map one but one machine do the mapping.</li>
+<li>You reduce everything to the key. Isn't that machine to reduce. So you don't have to trance transmit as much data off the pipe.</li>
+<li>And that can be done parallel across a very large scale systems. If we want to count ratings again, what we would do is in the map stage,</li>
+<li>we would yield the movie I.D. and the number one and then the reduced stage, we would sum up the kouts, we're gonna sum up all of these ones.</li>
+<li>And if one is the result of another reduced, it's going to we're gonna sum that up as well.</li>
+<li>So this is not code for any particular mass-produced framework.</li>
+<li>It's just to show you the flavor of how Mass-produced works. Example of another pattern where if you can make your code fit this pattern,</li>
+<li>there exists tools to automate and enhance your use of this pattern, for example, by paralyzing.</li>
+<li>So to wrap up the split, apply a combined pattern. Let's transform groups of data and fitting code into patterns like this,</li>
+<li>improves the understand the biology modify ability and in some cases parallelism of our code.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Resources<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html">Split, Apply, Combine at Pandas</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="tuning-hyperparameters">
+<h2>🎥 Tuning Hyperparameters<a class="headerlink" href="#tuning-hyperparameters" title="Permalink to this headline">¶</a></h2>
+<p>How can we move beyond <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> in our quest to tune hyperparameters?</p>
+<div class="resource video docutils container" id="c124b01b-7a38-4e99-b255-adc60183f225">
+<div class="tabbed-set docutils">
+<input checked="checked" id="bcb30a50-c4ed-41d2-9002-57fba8f6cd7c" name="0f8bd8c6-6925-4ed6-a9d8-c3822f7e1ec7" type="radio">
+</input><label class="tabbed-label" for="bcb30a50-c4ed-41d2-9002-57fba8f6cd7c">
+Video (10m49s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=c124b01b-7a38-4e99-b255-adc60183f225&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="a681e6c3-c31c-436c-b7e1-b750ac626cea" name="0f8bd8c6-6925-4ed6-a9d8-c3822f7e1ec7" type="radio">
+</input><label class="tabbed-label" for="a681e6c3-c31c-436c-b7e1-b750ac626cea">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173409" data-key=ACJeAazU69nVuOI>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+TUNING HYPERPARAMETERS
+Learning Outcomes
+Apply different techniques to tune hyperparameters
+Understand the principle of random search
+Photo by Marten Newhall on Unsplash
+Selecting Hyperparameters
+Need to pick good values for hyperparameters
+Regularization strength
+Number of trees in the forest
+Number of neighbors
+Latent space dimensionality
+Grid Search
+Characteristics of Grid Search
+Random Search
+Why Does Random Search Work?
+Principle 1: we don’t need best, just good enough
+Principle 2: more than one setting probably good enough
+
+If 5% of the search space is “good enough”
+And you sample 60 points
+Probability you have at least 1 good-enough point: 95%
+G
+Proof
+G
+Random Search Summary
+Only needs 60-100 points, regardless of # of parameters
+Trivially parallelizable (like grid search)
+May not find best solution
+Requires assumption about size of “good enough” set
+
+SciKit Learn: RandomizedSearchCV
+Hyperparameter Search as Optimization
+Bayesian Optimization
+Tests model at a few initial points
+Maintains surrogate model to predict performance at new settings
+Uses model to pick next test points
+
+Implemented by scikit-optimize.
+BayesSearchCV: SciKit-compatible optimizer
+gp_minimize: general-purpose function minimizer
+Bayesian Optimization Characteristics
+Trades off parallelism for optimization ability
+Next search point(s) depend on results so far
+Can batch searches (e.g. try 4 new points instead of 1)
+Useful for complex search spaces if random isn’t good enough
+Can be more efficient than random w/ early stopping
+In a Workflow
+We’ve been using CV to search while we run
+
+I often use a hyperparameter search script
+Runs tuning on training data
+Saves optimal parameter values to a file (e.g. JSON file)
+
+Later scripts read &amp; use settings
+Wrapping Up
+Hyperparameter tuning is an expensive optimization problem.
+
+Several techniques are useful, with good automation for scikit-learn.
+Photo by Clem Onojeghuo on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Let's talk about tuning hyper parameters, learning outcomes are for you to be able to apply different techniques,</li>
+<li>to tune hyper parameters of your model and to understand the principle of random search.</li>
+<li>So as we've seen with some of our models, we need to be able to pick good values for hyper parameters.</li>
+<li>That might be the regularization strength in a regularized linear model. It might be in a random forest.</li>
+<li>The number of trees with the maximum depth in the forest might be the number of neighbors for a canyon classifier.</li>
+<li>Or if we're doing something with a with a matrix factorization or SVOD the dimensionality of the latent embedding space.</li>
+<li>And so we need to pick good values for these. The general principles that we try different values.</li>
+<li>We measure the effectiveness in some way, maybe the classifier accuracy,</li>
+<li>maybe the classifier area under the curve or some other metric on some tuning data.</li>
+<li>Often with cross-validation, we'll split the training data into multiple partitions.</li>
+<li>So we've seen this with logistic regression CV where we try every combination of lists of values,</li>
+<li>where we have some values for our regularization strength. Lambe They hear or see in the.</li>
+<li>And the structure for Saikat learns logistic regression, some values for our L1 ratio row.</li>
+<li>And then we compute the accuracy at each value and we pick the best as we see it.</li>
+<li>It's built into logistic regression CV.</li>
+<li>And then there's also the grid search c.v class that allows us to search any parameter of any Saikat Learn model.</li>
+<li>So long as the model provides it ability to a score function that returns a at</li>
+<li>some kind of an accuracy or performance score that it can try to optimize.</li>
+<li>So grid search has a couple of issues. It was has a couple advantages.</li>
+<li>It's simple and it's trivial to paralyze if you have access to multiple processors.</li>
+<li>But it's expensive. If we've got any parameters, then values mean.</li>
+<li>And then test its combinatorial explodes as particularly as we add more and more parameters.</li>
+<li>It also only test selected values.</li>
+<li>So here where we're selecting rows in intervals of point one, point two, and if the actual best value is point to three, we're not going to find it.</li>
+<li>So random search is a way to speed up grid search.</li>
+<li>It doesn't help with the well. It doesn't help with the.</li>
+<li>Well, maybe the best values between them very much. But it does help with the the time complexity of the comments.</li>
+<li>Horrible explosion as we acquire more and more points to sample.</li>
+<li>The idea is that you randomly pick end points from either grade or from intervals.</li>
+<li>You define that, you define your different parameters and you define a way to pick values,</li>
+<li>to hybrid parameter values to try and you just pick and different combinations.</li>
+<li>You then measure the performance and use the best one you can use.</li>
+<li>That equals 60 the default. And so I could learn as N equals 10. If you want to.</li>
+<li>If you want to do some more, you can do end equals one hundred. The idea though of random searches based on a couple of principles.</li>
+<li>First, the idea that we actually don't need the best hyper parameter values for most applications.</li>
+<li>We need good enough hyper parameter values,</li>
+<li>values that are going to get the model to perform well enough for our business purposes or organizational purposes.</li>
+<li>Another principle is that more than one setting is probably good enough.</li>
+<li>And so if if we have a search space here, let's say this is lambda and this is.</li>
+<li>And this is Roe. And we have this space here that's good enough.</li>
+<li>If five percent of our space is good enough and we sample 60 points at random from the space.</li>
+<li>In this case, it's uniformally up random.</li>
+<li>But the space takes into account your probability mass of five percent of the volume of your probability is good enough.</li>
+<li>Then if you sample 60 points, you probably have at least one good enough point.</li>
+<li>And that set in the probability that probability is point nine five.</li>
+<li>So the reason that's true. So G is the set of good enough points. Then the probability of picking you randomly pick a point.</li>
+<li>The probability of picking one that's good enough is point of five.</li>
+<li>And this is our fundamental assumption. This is.</li>
+<li>The mark,</li>
+<li>this this approach assumes that this particular approach to selecting how many random points you should try assumes that that this is what it means,</li>
+<li>that five percent of the space is good enough.</li>
+<li>The probability of a randomly selected point, according to the distribution you're using being good enough is point five if you select.</li>
+<li>Then if we say that s 60 is this is the event random, 60 randomly selected points have at least one good enough good enough point.</li>
+<li>Actually, completing that probability is a little bit tricky because you need to compute the probability of having one good</li>
+<li>enough point at any one of the positions and the probability of having to good enough points at any pair of positions.</li>
+<li>It's a fairly complex expression, but it turns out we can turn it around.</li>
+<li>So if there's at least one good enough point.</li>
+<li>That means it's not the case that there are no good enough points.</li>
+<li>So the compliment of there is at least one good enough point is there is no good enough points.</li>
+<li>And if we can turn this probability around to get the probability that randomly selected point is not good enough,</li>
+<li>point nine five, we can just take the compliment.</li>
+<li>And so the probability of at least one good enough point is one minus the probability of no good enough points.</li>
+<li>And the probability of no good enough points is the product. Over 60 points of the probability that that point is not good enough,</li>
+<li>because the only way you none of the points can be good enough is if every point is not good enough.</li>
+<li>So this is the probability of not good enough to the 60, which is point nine, five to the 60,</li>
+<li>push that in a calculator, going to get point O four six, which is less than point five.</li>
+<li>So with probability better than point five, at least one of your.</li>
+<li>Sixty randomly selected points is going to be good enough. So random search needs allows you to get away with only 60 to 100 points,</li>
+<li>regardless of the number of parameters that sometimes go to 100 just because it allows us to get away with a smaller fraction of the search space.</li>
+<li>Having that is good enough points. It's trivially paralyzed, but like good search because you can just paralyze over these hundred points.</li>
+<li>It may not find the best solution. It requires us to this assumption about good enough, Saikat learned, does provide randomize search.</li>
+<li>The random I search c.v works just like grid search CB tip. You can give it distributions of your of your points to try.</li>
+<li>And then another one is that we can also think of hyper parameter searches optimization.</li>
+<li>So when we're training a model or fitting a model, we're trying to find some parameters that minimize a lost function.</li>
+<li>Hyper parameter search, we're really trying to do the same thing, we're trying to find hyper parameters that minimize the lost function,</li>
+<li>but the lost function is cross, validate the model and compute a misclassification rate or and accuracy metric or whatever.</li>
+<li>And we're training a model or training one model.</li>
+<li>We've we have all this training data and we can just look up a data point and see its actual outcome and we can see our prediction.</li>
+<li>But if we want to see the outcome of a.</li>
+<li>Hyper parameter, we have to cross validate a model using that hyper parameter.</li>
+<li>That's very expensive. And it also has no derivative.</li>
+<li>And so a lot of the techniques that we use for optimizing models and solving this argument problem don't work anymore.</li>
+<li>Or they're prohibitively expensive. So there's a technique called Bayesian optimization that works by testing the model with a few</li>
+<li>initial points to get a starting point for how the accuracy is reflected in the search space.</li>
+<li>It then maintains what's called a surrogate model that tries to predict the performance of new ABS unobserved hyper parameter settings.</li>
+<li>And it uses this model to pick the next points it wants to test.</li>
+<li>And this allows it to be more targeted in its search than just random search.</li>
+<li>And it can it can sometimes find better solutions. It's implemented by a package called Cycad Optimized.</li>
+<li>They have based search CV that works like randomized search or grid search c.v.</li>
+<li>They also a function called g.P minimize.</li>
+<li>That's a general purpose function, minimize the like psi PI is optimized function that we saw a while ago that uses Bayesian optimization.</li>
+<li>It trades off parallelization for optimization ability, it might find better solutions.</li>
+<li>But the next search points depend on the results so far. You can do some batch searches rather than just trying one new point.</li>
+<li>You can say try four and then you could do that in parallel. But it's useful for complex search spaces if random search isn't good enough.</li>
+<li>And also, you can't like random, doesn't have the ability to early stop because you need in order for the proofs,</li>
+<li>the whole sheet to try to 60 unless you know the threshold for good enough.</li>
+<li>But with Bayesian optimization, since it's continually trying to improve, then you can use of early stopping to say,</li>
+<li>okay, our last five runs haven't gotten us any better, maybe we can go ahead and stop.</li>
+<li>So in a work, I want to talk brief very, very briefly about using hyper parameter tuning in a workflow.</li>
+<li>So far we've just included in our notebooks.</li>
+<li>We have a pipeline that the cross-validation is just part of a model fitting process that can be useful, especially for relatively simple models.</li>
+<li>But. We might want to not redo the hyper parameter search every time, say, we update our data.</li>
+<li>We might want to do it on a less frequent basis. What I often do is I have a script that does hyper parameter search.</li>
+<li>And so it'll take the training data.</li>
+<li>It will cross validate or I'll use a tuning set and it will do hyper parameter searches and that tuning set or the cross validation.</li>
+<li>And then at the end of that, it's going to save the optimal values it learn through the cross validation to a file, often a Jason file.</li>
+<li>Oh, here's my parameter values and then other scripts can read it like my model training or</li>
+<li>my prediction or whatever script can read those optimal values and use those to train.</li>
+<li>The real model that I'm going to use for actually testing on my data.</li>
+<li>Works great. So to wrap up, hyper parameter tuning is an expensive optimization problem.</li>
+<li>That's really what it is. It's it. Each sample is expensive because it's costly to evaluate that loss function.</li>
+<li>Because you have to train models on cross validated data and also it has no derivative.</li>
+<li>And so a lot of our techniques for a lot of the techniques that are used by other</li>
+<li>packages in the fi ecosystem in order to do solve optimization problems don't work.</li>
+<li>But there are several techniques that are useful with good automation for integration into psychedelic.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>Resources<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html">RandomizedSearchCV</a></p></li>
+<li><p><a class="reference external" href="https://scikit-optimize.github.io/stable/">scikit-optimize</a></p></li>
+<li><p><a class="reference external" href="https://scikit-optimize.github.io/stable/auto_examples/sklearn-gridsearchcv-replacement.html">BayesSearchCV example</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="tuning-example">
+<h2>📓 Tuning Example<a class="headerlink" href="#tuning-example" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../resources/tutorials/TuningExample/"><span class="doc std std-doc">Tuning Example</span></a> notebook demonstrates hyperparameter tuning by cross-validation with multiple techniques.</p>
+</div>
+<div class="section" id="reproducible-pipelines">
+<h2>🎥 Reproducible Pipelines<a class="headerlink" href="#reproducible-pipelines" title="Permalink to this headline">¶</a></h2>
+<p>I provide <em>very brief</em> pointers to additional tools you may want for workflow management in more advanced projects.</p>
+<div class="resource video docutils container" id="cb96eb79-a05a-4f12-a824-adc60183f2bb">
+<div class="tabbed-set docutils">
+<input checked="checked" id="62593eb2-e435-4b29-a6dc-114919a14f4f" name="002d94d5-5afb-4a8f-bee4-4f4a9bc6d377" type="radio">
+</input><label class="tabbed-label" for="62593eb2-e435-4b29-a6dc-114919a14f4f">
+Video (8m28s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=cb96eb79-a05a-4f12-a824-adc60183f2bb&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="4172cbd1-1488-4365-81f2-f73fc9c5c92c" name="002d94d5-5afb-4a8f-bee4-4f4a9bc6d377" type="radio">
+</input><label class="tabbed-label" for="4172cbd1-1488-4365-81f2-f73fc9c5c92c">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173410" data-key=ADPxMcuuaI3Kv0w>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+REPRODUCIBLE PIPELINES
+Learning Outcomes
+Understand the value of a reproducible pipeline for both science and industrial application.
+Know where to read more about tools to help build and automate them.
+Photo by Anne Nygård on Unsplash
+Reproducibility
+Cornerstone of current scientific philosophy
+A result only observable once is unlikely to be valid (or at least useful)
+Need to re-run with new data
+Update forecasts / models for the next month
+Check for bugs and sensitivity
+End-to-end re-run catches order-of-operations bugs
+Re-running with new random seed(s) checks for seed-sensitivity
+Helps ensure you actually did what you say you did
+Goal
+Rerun the entire analysis end-to-end with a single command
+Well-documented set of steps acceptable alternative
+
+Possibly with new:
+Data
+Software versions
+Settings
+Requirements
+What steps need to happen?
+What scripts or notebooks?
+What arguments?
+What order do they need to happen in?
+Optional: Is a step up-to-date?
+Only recompute out-of-date steps
+Saves time, energy, money
+Sounds like make?
+Data Version Control (dvc)
+Pipeline has stages, with:
+Input files
+Output files
+Command to produce outputs from inputs
+
+Stages defined in DVC files committed to Git
+Output-only stage just records the presence of a file
+DVC – Reproduce Stage(s)
+Checks if it’s up-to-date
+Inputs, outputs, command match last recorded run
+Re-runs command if out of date
+Recursively updates dependencies first
+Like Make, but uses checksums instead of mtimes
+Commits checksums to Git
+Reproduce entire pipeline by ensuring final stage(s) are current
+DVC – Manage Data
+DVC also manages data
+Stage files contain input/output checksums
+Git ignores all outputs
+DVC copies outputs to/from data server (e.g. Amazon S3)
+
+Easy to insure you have the current copy of the data
+DVC in Practice
+Entire pipeline in DVC
+Experiment with manual commands
+Save to DVC once I have the run figured out
+Run expensive models on university cluster
+Push results to data server
+Pull to other machine for final analysis with notebooks
+Easy to make sure we have current data (just as with Git)
+
+Other Tools
+MLflow
+Make
+Gradle (useful for Java-based environments)
+
+Many others.
+Wrapping Up
+Fully reproducible data science pipelines help science and practice.
+
+Tools such as dvc can help you build them.
+Photo by Possessed Photography on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, I want to talk with you about how to make a reproducible data science pipeline.</li>
+<li>I'm not going to be getting in a lot of the details here. I mean,</li>
+<li>are we talking primarily about concepts and giving you a pointer to some software I use that you might find useful and want to study on your own?</li>
+<li>So learning outcomes are few to understand the value for reproducible pipeline for both science and industrial purposes.</li>
+<li>And nowhere to read more about tools. Help build and automate them.</li>
+<li>So reproducibility, what do we. What we mean by reproducibility is that we can rerun the code and get the same conclusions and results out of it.</li>
+<li>And reproducibility and its related concept replicability are cornerstones of current scientific philosophy, basic ideas.</li>
+<li>If you can only observe things all at once, it's unlikely we Valadares, but we need to be able to rise to observe it multiple times.</li>
+<li>We need to be able to reproduce the observation. And we also, from a practical perspective, in many cases, we need to be able to rerun with new data.</li>
+<li>Maybe you're building a forecasting model for.</li>
+<li>For traffic at your business and you need to be able to update it based on the new data you collected this month and re for next month, you need.</li>
+<li>You've got it, Weldy, but you just need to be able to rerun it each month as new data comes in.</li>
+<li>You need to be able to check for bugs and sensitivity if it's easy to have a stage where maybe some P.C. or pipeline,</li>
+<li>you ran an old version of the data. You you don't have results on the same copy of the data.</li>
+<li>Maybe you have your rerunning things in different orders.</li>
+<li>And so you actually have an artifact of the order in which you ran things.</li>
+<li>Maybe you have sensitive, you random seem unlikely, but it can happen if you can rerun your whole analysis front to back.</li>
+<li>That ensures that your actual final conclusions are based on what you thought you did because you reran all of the steps in order.</li>
+<li>So the goal that the high level ultimate goal, four four four on reproducibility is that you can rerun an entire analysis and end with one command.</li>
+<li>I have achieved this in one or two of my projects where there is one command and I've run it on the AA2 cluster and.</li>
+<li>A day later, I have a fresh copy of the results. Reproduced from the from the input data.</li>
+<li>Including rerunning the notebooks and regenerating the figures that day doesn't include hyper brammer tuning,</li>
+<li>hyper parameter tuning would take another week. But we want to be older, rerun it past with new data, new softer versions, new settings,</li>
+<li>a well-documented set of steps like a read me that says, OK, run these five STAP.</li>
+<li>Do these five steps to reproduce the analysis. That also accomplishes the full one script reproducibility.</li>
+<li>That's kind of the ultimate easy go rerun the whole thing.</li>
+<li>You can get a lot of value out of reproducibility just with documenting of a few steps that a human can run.</li>
+<li>But this is the idea that you can rerun the analysis end to end,</li>
+<li>possibly on another computer, possibly new data, and you're gonna get the same conclusions.</li>
+<li>Requirements to be able to do that is first you need to know what steps need to happen, what scripts or notebooks do you need to run,</li>
+<li>what arguments you need to provide with those scripts, what are their inputs and outputs?</li>
+<li>What order do these script steps need to happen in? And then there's an optional thing for optimization is my step up to date.</li>
+<li>So it might be that one of the steps the step hasn't changed, the inputs haven't changed.</li>
+<li>The outputs are there, so you don't need to run it again. Might sound a lot like make.</li>
+<li>And in fact, you can make these kinds of pipelines with make if you've used that tool before.</li>
+<li>I use a tool called data version control for this. And in data version control, the pipeline is made up of stages, each of which has input files,</li>
+<li>output files in the command that will produce the outputs from the inputs.</li>
+<li>And the stages are defined in DVC files that are committed to get.</li>
+<li>You can also have a stage that only has outputs and that basically just records the presence of a file.</li>
+<li>And then you, DVC can reproduce, stages it or checkoffs stages up to date it check looks,</li>
+<li>it's it records the check sums of the inputs and outputs and the commands so we can see.</li>
+<li>Has anything changed since the stage last run? Am I missing an output file as one of my input files changed.</li>
+<li>And if anything's changed or rerun the command to update the outputs before it does that, though, it first make sure that all of the dependencies,</li>
+<li>all of those input files it looks and sees is is for each input file, it looks, and for a stage that produces it as an output.</li>
+<li>And if there is one at first, make sure that stage is up to date so that you're building off of the current dependencies.</li>
+<li>And then once it's commits the checksums, all these checksums get committed to get as a part of the.</li>
+<li>As a part of the run, so that you get there as a part of the DVC files that at stores you store in get here is the check.</li>
+<li>Here was the input check. Some here was the command that ran and he was the output checksum.</li>
+<li>Then you reproduced the entire pipeline by ensuring the final stages.</li>
+<li>Maybe your notebook, along with all their dependencies, are up to date.</li>
+<li>And that's what the DVC repro command does. DVC can also help manage data because it's committing these checksums to get so it's got an M.D. five.</li>
+<li>Check some of the data file. Then it will.</li>
+<li>What will you do is that you have get ignore all the output files it gets not going to manage them, but DVC will look at those output files.</li>
+<li>Anything that's an output of a stage knows about. And it will copy those outputs to and from a data server like Amazon S3.</li>
+<li>That makes it really easy to ensure you have a current copy of the data because it ensures your current file, the DVC files.</li>
+<li>The DVC file says I need the data output file with this checksum and DVC knows how to</li>
+<li>go get that from your from your data server and make sure you have a local copy of it.</li>
+<li>So all of the things that get gives us for make sure making sure we have the right version</li>
+<li>of the code working across multiple machines when we're working with collaborators.</li>
+<li>DDC gives us for the data files. Some practice.</li>
+<li>I have my entire pipeline and DVC experiment with manual commands, and then once I have the script, I want it.</li>
+<li>I created DVC stage. It's going to run it. And then I've run expensive models on the universe.</li>
+<li>One of the university clusters, either R2 or Bora. And I.</li>
+<li>And so I run that. I come and I. I commit my DVC steps.</li>
+<li>I get push. I DVC push to copy the output files to our data server.</li>
+<li>And then on another machine, either my desktop or are our research group server.</li>
+<li>I will pull down those data files and then I'll do my statistical analysis.</li>
+<li>I'll work with my notebooks and things. Their notebooks are annoying to use in the cluster.</li>
+<li>So I just do the big models in the cluster. DVC saves the data. Make sure I know what version of the data I'm supposed to be working with.</li>
+<li>And then I get pulled DVC pull on our on our research group server,</li>
+<li>which isn't as powerful as the cluster, but it's good enough for Jupiter notebooks.</li>
+<li>And I make sure that I'm running on the current version of the results from the cluster.</li>
+<li>So it makes it easy to make sure that I've got the right version of my data files across all of my different machines.</li>
+<li>And I don't have to worry about accidentally copying a file the wrong direction.</li>
+<li>There's other tools that can do similar things. The tool called M.L. Flow, that's one of DVC competitors.</li>
+<li>You can build your own your own pipelines out of make if you're always in a UNIX environment.</li>
+<li>If you're in a Java Bay, if you're doing a Java based project, Gradle was a really useful integration tool.</li>
+<li>When my before I switched all my source code to Python,</li>
+<li>a lot of my extensive models were in Java and I was using Gradle from my automation at that point.</li>
+<li>There are many other tools as well. You've got this and some of them will just do the pipeline management and you have to take care of the data files.</li>
+<li>The right system that can just do the data management. You have to do pipeline with another system.</li>
+<li>DVC does them together. There's a variety of options, but there are tools that can help you build this pipeline.</li>
+<li>End to end. I'm providing a few links in the resources. So to wrap up fully reproducible data science pipelines,</li>
+<li>help science and practice and tools like DVC and make and things can help you build such reproducible pipelines.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>Resources<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Some software that supports data and/or workflow management:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://dvc.org">Data Version Control</a> — I use this</p></li>
+<li><p><a class="reference external" href="https://mlflow.org/">MLflow</a> — support for machine learning workflows</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="software-environments">
+<h2>📃 Software Environments<a class="headerlink" href="#software-environments" title="Permalink to this headline">¶</a></h2>
+<p id="reading-Software-Environments">Read <a class="reference internal" href="../resources/environments/"><span class="doc std std-doc">software environments</span></a>.</p>
+</div>
+<div class="section" id="reproducibility-case-study">
+<h2>📃 Reproducibility Case Study<a class="headerlink" href="#reproducibility-case-study" title="Permalink to this headline">¶</a></h2>
+<p id="reading-Yay-Reproducibility">Read my <a class="reference external" href="https://md.ekstrandom.net/blog/2021/11/reproducibility">case study on reproducibility and bug-hunting</a>.</p>
+</div>
+<div class="section" id="weekly-quiz-14">
+<h2>🚩 Weekly Quiz 14<a class="headerlink" href="#weekly-quiz-14" title="Permalink to this headline">¶</a></h2>
+<p>Take <strong>Quiz 14</strong> in Canvas.</p>
+</div>
+<div class="section" id="more-examples">
+<span id="w14-more-examples"></span><h2>📓 More Examples<a class="headerlink" href="#more-examples" title="Permalink to this headline">¶</a></h2>
+<p>My <a class="reference external" href="https://github.com/BoiseState/book-author-gender">book author gender</a> project is an example of an advanced workflow with DVC.</p>
+</div>
+<div class="section" id="assignment-7">
+<h2>📩 Assignment 7<a class="headerlink" href="#assignment-7" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../assignments/A7/"><span class="doc std std-doc">Assignment 7</span></a> is due <strong>Sunday, December 12, 2021</strong>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./week14"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../week13/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 13 — Unsupervised (11/15–19)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../week15/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 15 — What Next? (12/6–10)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

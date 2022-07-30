@@ -1,0 +1,1226 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Syllabus &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabinsert.js"></script>
+    <script src="../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="copyright" title="Copyright" href="../copyright/" />
+    <link rel="next" title="Schedule" href="../schedule/" />
+    <link rel="prev" title="CS 533 Homepage" href="../" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../resources/tutorials/">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/syllabus.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fsyllabus.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/syllabus.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-outcomes">
+   Learning Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#course-logistics">
+   Course Logistics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instructor">
+   Instructor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#covid-19-syllabus-notice">
+   COVID-19 syllabus notice
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mutual-guidelines-for-safe-learning-environments">
+     Mutual Guidelines for Safe Learning Environments
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resources-and-readings">
+   Resources and Readings
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#textbook">
+     Textbook
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#online-readings">
+     Online Readings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#software">
+     Software
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#course-structure">
+   Course Structure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grading">
+     Grading
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#class-sessions">
+     Class Sessions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quizzes">
+     Quizzes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assignments">
+     Assignments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exams-and-final">
+     Exams and Final
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#course-policies">
+   Course Policies
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#web-site-and-announcements">
+     Web Site and Announcements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#late-work">
+     Late Work
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cheating-and-academic-integrity">
+     Cheating and Academic Integrity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conduct">
+     Conduct
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#disability-accommodations">
+     Disability Accommodations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#coronavirus">
+   Coronavirus
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="syllabus">
+<h1>Syllabus<a class="headerlink" href="#syllabus" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of this course is for students to learn how to engage in the scientific process using
+data-centric concepts and methods and to <em>think like a data scientist</em> by critically analyzing their
+own work and the work of others.</p>
+<div class="section" id="learning-outcomes">
+<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this headline">¶</a></h2>
+<p>It is my goal that after completing this course successfully, you will be able to:</p>
+<ol class="simple">
+<li><p>Explore a data set to determine whether and how it might illuminate questions of interest.</p></li>
+<li><p>Define and operationalize a research question such that a data analysis could produce meaningful knowledge.</p></li>
+<li><p>Use best practices to carry out analyses in a documented, reproducible, and efficient fashion.</p></li>
+<li><p>Present the results of a data analysis with appropriate visuals and written argument.</p></li>
+<li><p>Identify weaknesses in a data analysis and assess their impact on the correctness and utility of the results.</p></li>
+<li><p>Assess ethical implications of an analysis in terms of both classical human subject research ethics and contemporary concerns such as fairness and bias.</p></li>
+<li><p>Understand the space of data science techniques and applications, and relate future learning to this framework.</p></li>
+</ol>
+</div>
+<div class="section" id="course-logistics">
+<h2>Course Logistics<a class="headerlink" href="#course-logistics" title="Permalink to this headline">¶</a></h2>
+<dl class="simple myst">
+<dt>Course Title</dt><dd><p>CS 533: Introduction to Data Science</p>
+</dd>
+<dt>Credits</dt><dd><p>3</p>
+</dd>
+<dt>In-Person Schedule</dt><dd><p>Tuesdays and Thursdays 9:00–10:15 AM in CCP 221</p>
+</dd>
+<dt>Course Website</dt><dd><p><a class="reference external" href="https://cs533.ekstrandom.net/F21/">https://cs533.ekstrandom.net/F21/</a></p>
+</dd>
+<dd><p>Canvas (private links, grades, and assignments)</p>
+</dd>
+<dt>Course Discussion</dt><dd><p>Piazza</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="instructor">
+<h2>Instructor<a class="headerlink" href="#instructor" title="Permalink to this headline">¶</a></h2>
+<p>I am <a class="reference external" href="https://md.ekstrandom.net">Michael Ekstrand</a>, an assistant professor in the Dept. of Computer
+Science.</p>
+<dl class="simple myst">
+<dt>Office</dt><dd><p>CCP 255</p>
+</dd>
+<dt>E-mail</dt><dd><p><a class="reference external" href="mailto:michaelekstrand&#37;&#52;&#48;boisestate&#46;edu">mailto:michaelekstrand<span>&#64;</span>boisestate<span>&#46;</span>edu</a> (but please use Piazza for non-grade class questions)</p>
+</dd>
+<dt>Office Hours</dt><dd><p>Tue 10:30–11:30 AM</p>
+</dd>
+<dd><p>Fri 10—11 AM</p>
+</dd>
+<dd><p>Online by appointment</p>
+</dd>
+</dl>
+<p>I generally respond to course questions during normal hours (9a–5p M–F).
+I may occasionally reply to a question in an evening or on the weekend, but do not plan on it.</p>
+</div>
+<div class="section" id="covid-19-syllabus-notice">
+<h2>COVID-19 syllabus notice<a class="headerlink" href="#covid-19-syllabus-notice" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section is a required syllabus notice provided by Boise State University.  For information about the plans and accommodations for COVID that I have designed into this specific class, see <a class="reference external" href="#coronavirus">Coronavirus</a>.</p>
+</div>
+<p>Many Boise State classes have resumed face-to-face meetings in the midst of a global pandemic and a recent local surge of infections. Our goal is to have a successful academic year while keeping our students, faculty, and local community healthy and safe. Public health requirements are in place to achieve that goal, the primary mechanism for which includes the mandatory use of facial coverings that protect all of us.</p>
+<p>We have taken health precautions on campus so that you can have the option of a face-to-face course. However, there is still inherent risk associated with face-to-face courses during a pandemic because of proximity to others and length of potential exposure to the virus. Therefore, as members of this learning community, it is imperative that we all engage in behaviors that protect the overall public health.</p>
+<p>You have enrolled in a face-to-face course, and this format offers a number of benefits that appeal to many students. In order to preserve your access to this face-to-face option you are required to</p>
+<ol class="simple">
+<li><p>sit in the same seat all semester (for purposes of contact tracing) and</p></li>
+<li><p>wear facial coverings in all face-to-face learning environments. You must keep your mouth and nose covered at all times throughout class — facial coverings cannot be pulled up or down. <strong>As a health precaution, eating and drinking are NOT permitted in the classroom.</strong></p></li>
+</ol>
+<p>By enrolling in an in-person course, you agree to comply with Boise State’s rules and precautions which include, but are not limited to, facial coverings, frequent hand washing, hand sanitizing, and sitting in the same seat all semester. Failing to comply with these rules and precautions is a violation of Boise State’s <a class="reference external" href="https://www.boisestate.edu/deanofstudents/student-conduct/">Student Code of Conduct</a> and will subject you to university sanctions and discipline.</p>
+<p>Seating assignment will be based on learning teams, and will be effective the second day of class after learning teams are formed.</p>
+<p><strong>University policy states that I am not allowed to begin/continue with instruction unless and until everyone present has a facial covering in place.</strong></p>
+<p>This course is designed to be accessible to all students. A very small percentage of people cannot wear facial coverings for reasons related to medical conditions or disabilities. If this is your experience, please contact the Educational Access Center to document your condition so that we may determine the best accommodation for you. Until an accommodation is in place, you will need to participate remotely. If you need to read lips or facial expressions to understand what people are saying, please let the Educational Access Center and me know via email.</p>
+<p>If you are unwilling to wear a facial covering, you cannot participate in person. If this is the case, please dismiss yourself and either inquire whether you may participate in the class fully remotely, or contact the Registrar’s Office (208-426-4249) to pursue your learning experience in a different remote or online section. Should you refuse to cover your mouth and nose and also refuse to leave the classroom, I have been directed to dismiss the class and you will be reported to and contacted by the Dean of Students Office.</p>
+<div class="section" id="mutual-guidelines-for-safe-learning-environments">
+<h3>Mutual Guidelines for Safe Learning Environments<a class="headerlink" href="#mutual-guidelines-for-safe-learning-environments" title="Permalink to this headline">¶</a></h3>
+<p>While these public health measures are essential to protecting our individual and communal health, they also complicate how we engage in teaching and learning. The following guidelines should ease our comfort and communication with one another:</p>
+<ul class="simple">
+<li><p>In the classroom, we must wear a facial covering that covers our mouth and nose at all times. If you or I let our facial coverings slip, we will politely remind one another to secure our masks.</p></li>
+<li><p>Facial coverings muffle voices. I will use the classroom microphone to amplify my voice through my mask. In addition, I will repeat your questions and summarize comments to ensure we all can follow any discussion.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="resources-and-readings">
+<h2>Resources and Readings<a class="headerlink" href="#resources-and-readings" title="Permalink to this headline">¶</a></h2>
+<p>The <span class="xref myst">Resources page</span> on the course web site has a more complete list of resources that I will update throughout the semester.</p>
+<div class="section" id="textbook">
+<h3>Textbook<a class="headerlink" href="#textbook" title="Permalink to this headline">¶</a></h3>
+<p>Our primary textbooks are:</p>
+<blockquote>
+<div><p><cite>Python for Data Analysis</cite> (2nd Edition) by Wes McKinney (O’Reilly, ISBN 978-1491957660)</p>
+</div></blockquote>
+<blockquote>
+<div><p><cite>Think Like a Data Scientist</cite> by Brian Godsey (Manning, ISBN 978-1633430273)</p>
+</div></blockquote>
+<p>If you want a more thorough treatment of the core Python language traditional book format, I recommend:</p>
+<blockquote>
+<div><p><cite>Learn Python the Hard Way</cite> by Zed Shaw</p>
+</div></blockquote>
+</div>
+<div class="section" id="online-readings">
+<h3>Online Readings<a class="headerlink" href="#online-readings" title="Permalink to this headline">¶</a></h3>
+<p>Throughout the semester, I will assign various readings from the Internet and research papers. These
+will be posted to to the course web site.</p>
+</div>
+<div class="section" id="software">
+<h3>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h3>
+<p>We will be using Python with the PyData tools (Pandas, Numpy, Scipy, matplotlib, Seaborn, etc.). The
+easiest way to install the required software is to install Anaconda Python.  The various Python
+libraries we use each have their own documentation.</p>
+<p>I will not provide support for debugging Python installations other than Anaconda (and other Conda
+distributions, like miniconda and miniforge).</p>
+<p>Further information about software, and links to documentation, can be found in the
+<span class="xref myst">course resources</span>.</p>
+</div>
+</div>
+<div class="section" id="course-structure">
+<h2>Course Structure<a class="headerlink" href="#course-structure" title="Permalink to this headline">¶</a></h2>
+<p>This class uses a flipped-classroom design.  I will primarily not be lecturing in class; instead,
+content delivery is asynchronous through the following resources:</p>
+<ul class="simple">
+<li><p>Video lectures</p></li>
+<li><p>Accompanying notes (on the course web site)</p></li>
+<li><p>The textbook</p></li>
+<li><p>Other readings linked from the lecture notes and course web page</p></li>
+</ul>
+<p>Each week has approximately 75–90 minutes of video material, plus some reading.  There will be a
+short quiz before each Thursday’s class as an initial check on your understanding of the material.
+Weeks with exams will have lower video and reading loads.</p>
+<p>Our in-person class time will be for discussing the course material and topics, additional
+mini-lectures to supplement your understanding of the course, and team-based exercises to practice
+the material with ready access to peer and instructor support.</p>
+<p>Putting these together, along with the larger assignments, results in the following components of
+the class:</p>
+<ul class="simple">
+<li><p>Reading and study</p></li>
+<li><p>Work in class</p></li>
+<li><p>Assignments</p></li>
+<li><p>Exams (in-class)</p></li>
+</ul>
+<div class="section" id="grading">
+<h3>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">¶</a></h3>
+<p>Your final grade will be computed from the course components as follows:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Category</p></th>
+<th class="text-align:center head"><p>%</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>In-Class Work</p></td>
+<td class="text-align:center"><p>10%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Individual Quizzes</p></td>
+<td class="text-align:center"><p>10%</p></td>
+</tr>
+<tr class="row-even"><td><p>Team Quizzes</p></td>
+<td class="text-align:center"><p>10%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Assignments</p></td>
+<td class="text-align:center"><p>40%</p></td>
+</tr>
+<tr class="row-even"><td><p>Exams</p></td>
+<td class="text-align:center"><p>20%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Final</p></td>
+<td class="text-align:center"><p>10%</p></td>
+</tr>
+</tbody>
+</table>
+<p>The standard 70/80/90 scale determines the <em>minimum</em> grade you will receive (that is, if you have 80
+total course points, you will receive at least a B-).</p>
+</div>
+<div class="section" id="class-sessions">
+<h3>Class Sessions<a class="headerlink" href="#class-sessions" title="Permalink to this headline">¶</a></h3>
+<p>I expect you to actively participate in our class sessions.  Since these are interactive working
+sessions, if you have a laptop please bring it to class.</p>
+<p>The in-person class sessions are based on the principles of team-based learning, adapted to this
+class’s needs and role in the graduate curriculum.  You will be working with a group of your peers
+throughout the semester helping each other practice the material, discuss and apply it to small
+exercises and examples, and identify places where you need and want to learn more.</p>
+<p>On <strong>Thursdays</strong>, our class will look like a “normal” team-based learning class — a team quiz (the
+<em>Readiness Assessment Process</em>), supplementary content discussion as needed, and an application
+exercise.  The TBL readiness assessment process normally consists of two parts: an individual quiz,
+followed by re-taking the quiz as a team to discuss and improve your answers.  In this class, we
+will be implementing that with an online individual quiz due before class and an in-person team
+quiz (see <a class="reference external" href="#quizzes">Quizzes</a>).</p>
+<p><strong>Tuesdays</strong> will be more varied.  The first Tuesday will be the class introduction and overview,
+and our exams will be on Tuesdays.  On weeks when an assignment is due (see the
+<a class="reference internal" href="../schedule/"><span class="doc std std-doc">schedule</span></a>), we will use the class period for collaborative problem-solving about the
+assignment.  Other Tuesdays will be for more extended discussion and application exercises depending
+on where we are in the semester.</p>
+<p>In-class work will contribute to your grade.</p>
+<p>One final note on classes: taking care of our health, individually and as a class, is top priority.
+While I aim for every class to be a meaningful, can’t-miss learning experience, I also want us to
+have a general expectation that if we’re ill, we stay home, both to recover ourselves and to protect
+our colleagues’ health.  I’ve designed the grading policies to help with this (see
+<a class="reference external" href="#coronavirus">Coronavirus</a>), but if we need to further adjust to accommodate the semester’s health
+demands, we will.  If you need to miss class, I encourage you to phone in and have a teammate put
+you on speakerphone during your team’s activities, if you are feeling well enough; this will allow
+you to contribute to the team quiz and work.</p>
+</div>
+<div class="section" id="quizzes">
+<h3>Quizzes<a class="headerlink" href="#quizzes" title="Permalink to this headline">¶</a></h3>
+<p>There is a short weekly <strong>individual quiz</strong> in Canvas, due before class on Thursday (at 8AM, so I
+can look at results before class), on the readings and videos.  The purpose of these quizzes is to
+help make sure you are prepared for applying the material, and to give both you and I early and
+frequent checks on your understanding.</p>
+<p>In class on Thursdays, we will take the <strong>team quiz</strong>, which will usually be the same or very
+similar as the individual quiz.  This is an opportunity to refine your understanding of the material
+and collaboratively fill in gaps you may have missed.  Individual and team quizzes are weighted
+equally in your final grade.</p>
+<p>For both individual and team quizzes, only the 10 highest scores will contribute to your grade.</p>
+</div>
+<div class="section" id="assignments">
+<h3>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h3>
+<p>There will be 8 homework assignments practicing data science techniques in Python. Each assignment
+is due at <strong>midnight on Sunday</strong> of the week in which it is due.</p>
+<p>I have scheduled this due date to give you the weekend to finish the assignment if that works best
+with your schedule. However, as documented above, I do not commit to checking Piazza on the weekends
+to watch my time, and therefore you should work on the assignment early enough that you can raise
+questions and have them resolved before the weekend is over.</p>
+<p>The first assignment (A0) is a warm-up assignment to make sure that you can install the software and
+run Python notebooks. You must complete this assignment individually.</p>
+<p>The other assignments (A1–7) are full assignments doing data science with Python. You may do up to
+<strong>3</strong> of these assignments with a partner, and must complete 4 individually. You may choose which
+assignments you solo and which are a group effort. When doing an assignment with a partner, submit
+one copy for both of you, and indicate your partner’s name in the Blackboard submission comments.</p>
+<p>I will drop the lowest assignment grade.</p>
+</div>
+<div class="section" id="exams-and-final">
+<h3>Exams and Final<a class="headerlink" href="#exams-and-final" title="Permalink to this headline">¶</a></h3>
+<p>There will be two midterm exams and a final.</p>
+<p>There will be a makeup exam available the last week of class. If you turn in the makeup exam, your
+grade on it will <strong>replace</strong> your lowest normal exam grade.</p>
+</div>
+</div>
+<div class="section" id="course-policies">
+<h2>Course Policies<a class="headerlink" href="#course-policies" title="Permalink to this headline">¶</a></h2>
+<p>Our work within this structure is governed by the following policies, in addition to applicable
+university policies and regulations and general principles of academic and scholarly integrity.</p>
+<div class="section" id="web-site-and-announcements">
+<h3>Web Site and Announcements<a class="headerlink" href="#web-site-and-announcements" title="Permalink to this headline">¶</a></h3>
+<p>I will use Piazza for all course communication, including announcements. Please make sure your
+Piazza notifications are set correctly, so that you are notified of important announcements.</p>
+<p>I will sometimes need to update assignments after I have issued them. When this is necessary, I will
+include a revision log at the top of the assignment describing the changes, and will make a course
+announcement regarding the change.  I will also state whether the revision changes a requirement
+(this is rare), or clarifies a requirement.</p>
+</div>
+<div class="section" id="late-work">
+<h3>Late Work<a class="headerlink" href="#late-work" title="Permalink to this headline">¶</a></h3>
+<p>For the assignments, you have a budget of 4 late days to use throughout the semester, at your
+discretion. Each late day extends an assignment deadline by 24 hours with no penalty; late days are
+indivisible, so submitting an assignment 12 hours late requires an entire late day. You may use up
+to 3 late days on a single assignment.<a class="footnote-reference brackets" href="#id2" id="id1">1</a>  When submitting an assignment using a late day, state
+with your submission the number of days you are using.  I appreciate it if you notify the TA and I
+(via a Piazza private message) prior to the deadline that you are planning to submit late, but do
+not require you to do so.</p>
+<p>This policy, combined with dropping the lowest assignment grade, is designed to accommodate most
+ordinary need for extensions or late submissions. Therefore, exceptions beyond this policy will not
+generally be granted; any requests for individual exceptions must be submitted in writing (by e-mail
+or Piazza) so that I have a record of the request and my response.</p>
+<p>Exams will be at the published times.  The makeup exam is the ordinary accommodation for not being
+able to take the exam when scheduled.</p>
+</div>
+<div class="section" id="cheating-and-academic-integrity">
+<h3>Cheating and Academic Integrity<a class="headerlink" href="#cheating-and-academic-integrity" title="Permalink to this headline">¶</a></h3>
+<p>As both a scientist and a student, you are expected to do your own work, attribute sources, and
+respect the legal and moral rights of others with respect to their work; as a student, you are also
+required to abide by the Boise State University <a class="reference external" href="https://www.boisestate.edu/deanofstudents/student-conduct/">Student Code of Conduct</a>. While I aim to allow you to
+make reasonable use of resources, cheating (including copying code, using unauthorized resources
+during tests, etc.) is not ok. If you are found to be cheating, the penalty may range from an F on
+the assignment to an F on the course and will generally be reported to the university.</p>
+</div>
+<div class="section" id="conduct">
+<h3>Conduct<a class="headerlink" href="#conduct" title="Permalink to this headline">¶</a></h3>
+<p>I expect you to behave in a civil, respectful manner in all class interactions and to contribute to
+a constructive learning environment.</p>
+<p>The <a class="reference external" href="https://recurse.com/manual#sub-sec-social-rules">Recurse Center Social Rules</a> are a good source
+of guidance on how to maintain a constructive and educational environment.</p>
+<p>If you experience or witness harassment of any form, please let me know.</p>
+</div>
+<div class="section" id="disability-accommodations">
+<h3>Disability Accommodations<a class="headerlink" href="#disability-accommodations" title="Permalink to this headline">¶</a></h3>
+<p>If you need particular accommodations or support to be able to fully participate in this course,
+please talk with me as soon as possible by e-mail or in office hours.  If you have documentation
+from Disability Services authorizing specific accommodations, please bring it; however, a documented
+disability is not necessary for me to be willing to talk with you about how to make the course work
+for you.</p>
+</div>
+</div>
+<div class="section" id="coronavirus">
+<h2>Coronavirus<a class="headerlink" href="#coronavirus" title="Permalink to this headline">¶</a></h2>
+<p>While we are partly back to “normal”, this semester is difficult, with an unknown set of risks
+hanging over us and massive disruption in our work, study, and outside lives. I have designed the
+content, assessment plan, and policies of this class to try to be as flexible and accommodating of
+the various pressures and difficulties as possible while providing our intended learning outcomes.
+If there are things that are not working, or challenges arise that affect how you can engage with
+the class, please let me know — I want to make this work for you.</p>
+<p>One specific risk is that one of you (or I) contract COVID-19 or another serious illness during the
+semester.  I hope this does not happen to any of us, but I have attempted to account for this risk
+by setting the design parameter that you should be able to miss two full weeks of the semester (or
+perhaps even three) with minimal impact on learning outcomes and grades, possibly with the need to
+do some catch-up work. The following policies are specifically designed to accommodate this:</p>
+<ul class="simple">
+<li><p>Asynchronous content delivery through video lectures and readings, so you can watch them at your
+convenience and catch up with course content later.</p></li>
+<li><p>Dropping the lowest assignment score, so you can miss an entire assignment window with no effect
+on grade.  If you need to do this, I encourage you to still do the missed assignment for your own
+study purposes, but you can do that on a timetable that works with your schedule and health needs.</p></li>
+<li><p>Grading in-class work and quizzes on 10 out of 15 weeks.</p></li>
+<li><p>A makeup exam to replace your lowest midterm grade, so you can miss a midterm and compensate with
+the makeup.</p></li>
+</ul>
+<p>If you need to miss more than 2–3 weeks of class due to illness, it is likely that you will need to
+take an incomplete on the course. I am happy to work with you on this if it becomes necessary.</p>
+<p>While COVID-19 is the direct impetus for much of this design, these class features are not limited
+to that specific illness.  I want us to take care of our own and each others’ health, which may
+include staying home from class, and while doing so will result in missed practice and discussion
+(and the design of in-class activities is not amenable to recording), I am designing the grading
+policies to avoid formal penalties for taking care of yourself.</p>
+<p><strong>Communication</strong> will be the key to making this semester work. I welcome your feedback in general,
+and particularly around things that are or are not working for the course structure, both generally
+and for your particular situation.</p>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>The purpose of this rule is so that we can discuss assignment solutions on Thursday after they
+are due.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">CS 533 Homepage</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../schedule/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Schedule</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

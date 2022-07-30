@@ -1,0 +1,2054 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Correlation and Basic Linear Model &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabinsert.js"></script>
+    <script src="../../../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"E": "\\mathrm{E}", "Field": "\\mathcal{F}", "P": "\\mathrm{P}", "Cov": "\\mathrm{Cov}", "Cor": "\\mathrm{Cor}", "Var": "\\mathrm{Var}", "log": "\\operatorname{log}", "Odds": "\\operatorname{Odds}", "OR": "\\operatorname{OR}", "IND": "\\mathbb{I}", "Reals": "\\mathbb{R}"}}, "HTML-CSS": {"fonts": ["TeX"]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="copyright" title="Copyright" href="../../../copyright/" />
+    <link rel="next" title="Charting Movie Scores" href="../CriticScores/" />
+    <link rel="prev" title="Clustering Example" href="../ClusteringExample/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../">
+   Tutorials
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/resources/tutorials/Correlation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fresources/tutorials/Correlation.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/resources/tutorials/Correlation.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup-and-data">
+   Setup and Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scatterplots">
+   Scatterplots
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#joint-plot">
+     Joint Plot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trend-line">
+     Trend Line
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scatterplot-matrix">
+     Scatterplot Matrix
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correlation-and-covariance">
+   Correlation and Covariance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bootstrapping-the-correlation">
+   Bootstrapping the Correlation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression">
+   Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#predictive-accuracy">
+   Predictive Accuracy
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="correlation-and-basic-linear-model">
+<h1>Correlation and Basic Linear Model<a class="headerlink" href="#correlation-and-basic-linear-model" title="Permalink to this headline">¶</a></h1>
+<p>This notebook shows how to draw scatter plots, compute correlations, and fit a basic linear model.</p>
+<p>It accompanies Week 6 and Week 8.</p>
+<div class="section" id="setup-and-data">
+<h2>Setup and Data<a class="headerlink" href="#setup-and-data" title="Permalink to this headline">¶</a></h2>
+<p>Let’s load our Python modules. We’re adding two new ones:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">statsmodels.api</span></code> — the core Statsmodels APIs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">statsmodels.formula.api</span></code> — convenience APIs for Statsmodels that let us specify models with formulae</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And load our data - this is the HetRec data we’ve been using a lot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;hetrec2011-ml/movies.dat&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">N&#39;</span><span class="p">)</span>
+<span class="n">movies</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>title</th>
+      <th>imdbID</th>
+      <th>spanishTitle</th>
+      <th>imdbPictureURL</th>
+      <th>year</th>
+      <th>rtID</th>
+      <th>rtAllCriticsRating</th>
+      <th>rtAllCriticsNumReviews</th>
+      <th>rtAllCriticsNumFresh</th>
+      <th>...</th>
+      <th>rtAllCriticsScore</th>
+      <th>rtTopCriticsRating</th>
+      <th>rtTopCriticsNumReviews</th>
+      <th>rtTopCriticsNumFresh</th>
+      <th>rtTopCriticsNumRotten</th>
+      <th>rtTopCriticsScore</th>
+      <th>rtAudienceRating</th>
+      <th>rtAudienceNumRatings</th>
+      <th>rtAudienceScore</th>
+      <th>rtPictureURL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Toy story</td>
+      <td>114709</td>
+      <td>Toy story (juguetes)</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMTMwNDU0...</td>
+      <td>1995</td>
+      <td>toy_story</td>
+      <td>9.0</td>
+      <td>73.0</td>
+      <td>73.0</td>
+      <td>...</td>
+      <td>100.0</td>
+      <td>8.5</td>
+      <td>17.0</td>
+      <td>17.0</td>
+      <td>0.0</td>
+      <td>100.0</td>
+      <td>3.7</td>
+      <td>102338.0</td>
+      <td>81.0</td>
+      <td>http://content7.flixster.com/movie/10/93/63/10...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Jumanji</td>
+      <td>113497</td>
+      <td>Jumanji</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMzM5NjE1...</td>
+      <td>1995</td>
+      <td>1068044-jumanji</td>
+      <td>5.6</td>
+      <td>28.0</td>
+      <td>13.0</td>
+      <td>...</td>
+      <td>46.0</td>
+      <td>5.8</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>40.0</td>
+      <td>3.2</td>
+      <td>44587.0</td>
+      <td>61.0</td>
+      <td>http://content8.flixster.com/movie/56/79/73/56...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Grumpy Old Men</td>
+      <td>107050</td>
+      <td>Dos viejos gruñones</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMTI5MTgy...</td>
+      <td>1993</td>
+      <td>grumpy_old_men</td>
+      <td>5.9</td>
+      <td>36.0</td>
+      <td>24.0</td>
+      <td>...</td>
+      <td>66.0</td>
+      <td>7.0</td>
+      <td>6.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>83.0</td>
+      <td>3.2</td>
+      <td>10489.0</td>
+      <td>66.0</td>
+      <td>http://content6.flixster.com/movie/25/60/25602...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Waiting to Exhale</td>
+      <td>114885</td>
+      <td>Esperando un respiro</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMTczMTMy...</td>
+      <td>1995</td>
+      <td>waiting_to_exhale</td>
+      <td>5.6</td>
+      <td>25.0</td>
+      <td>14.0</td>
+      <td>...</td>
+      <td>56.0</td>
+      <td>5.5</td>
+      <td>11.0</td>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>45.0</td>
+      <td>3.3</td>
+      <td>5666.0</td>
+      <td>79.0</td>
+      <td>http://content9.flixster.com/movie/10/94/17/10...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Father of the Bride Part II</td>
+      <td>113041</td>
+      <td>Vuelve el padre de la novia (Ahora también abu...</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMTg1NDc2...</td>
+      <td>1995</td>
+      <td>father_of_the_bride_part_ii</td>
+      <td>5.3</td>
+      <td>19.0</td>
+      <td>9.0</td>
+      <td>...</td>
+      <td>47.0</td>
+      <td>5.4</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>20.0</td>
+      <td>3.0</td>
+      <td>13761.0</td>
+      <td>64.0</td>
+      <td>http://content8.flixster.com/movie/25/54/25542...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>10192</th>
+      <td>65088</td>
+      <td>Bedtime Stories</td>
+      <td>960731</td>
+      <td>Más allá de los sueños</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMjA5Njk5...</td>
+      <td>2008</td>
+      <td>bedtime_stories</td>
+      <td>4.4</td>
+      <td>104.0</td>
+      <td>26.0</td>
+      <td>...</td>
+      <td>25.0</td>
+      <td>4.7</td>
+      <td>26.0</td>
+      <td>6.0</td>
+      <td>20.0</td>
+      <td>23.0</td>
+      <td>3.5</td>
+      <td>108877.0</td>
+      <td>63.0</td>
+      <td>http://content6.flixster.com/movie/10/94/33/10...</td>
+    </tr>
+    <tr>
+      <th>10193</th>
+      <td>65091</td>
+      <td>Manhattan Melodrama</td>
+      <td>25464</td>
+      <td>El enemigo público número 1</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMTUyODE3...</td>
+      <td>1934</td>
+      <td>manhattan_melodrama</td>
+      <td>7.0</td>
+      <td>12.0</td>
+      <td>10.0</td>
+      <td>...</td>
+      <td>83.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>50.0</td>
+      <td>3.7</td>
+      <td>344.0</td>
+      <td>71.0</td>
+      <td>http://content9.flixster.com/movie/66/44/64/66...</td>
+    </tr>
+    <tr>
+      <th>10194</th>
+      <td>65126</td>
+      <td>Choke</td>
+      <td>1024715</td>
+      <td>Choke</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMTMxMDI4...</td>
+      <td>2008</td>
+      <td>choke</td>
+      <td>5.6</td>
+      <td>135.0</td>
+      <td>73.0</td>
+      <td>...</td>
+      <td>54.0</td>
+      <td>4.9</td>
+      <td>26.0</td>
+      <td>8.0</td>
+      <td>18.0</td>
+      <td>30.0</td>
+      <td>3.3</td>
+      <td>13893.0</td>
+      <td>55.0</td>
+      <td>http://content6.flixster.com/movie/10/85/09/10...</td>
+    </tr>
+    <tr>
+      <th>10195</th>
+      <td>65130</td>
+      <td>Revolutionary Road</td>
+      <td>959337</td>
+      <td>Revolutionary Road</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMTI2MzY2...</td>
+      <td>2008</td>
+      <td>revolutionary_road</td>
+      <td>6.7</td>
+      <td>194.0</td>
+      <td>133.0</td>
+      <td>...</td>
+      <td>68.0</td>
+      <td>6.9</td>
+      <td>36.0</td>
+      <td>25.0</td>
+      <td>11.0</td>
+      <td>69.0</td>
+      <td>3.5</td>
+      <td>46044.0</td>
+      <td>70.0</td>
+      <td>http://content8.flixster.com/movie/10/88/40/10...</td>
+    </tr>
+    <tr>
+      <th>10196</th>
+      <td>65133</td>
+      <td>Blackadder Back &amp; Forth</td>
+      <td>212579</td>
+      <td>Blackadder Back &amp; Forth</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMjA5MjU4...</td>
+      <td>1999</td>
+      <td>blackadder-back-forth</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>http://content7.flixster.com/movie/34/10/69/34...</td>
+    </tr>
+  </tbody>
+</table>
+<p>10197 rows × 21 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movies</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 10197 entries, 0 to 10196
+Data columns (total 21 columns):
+ #   Column                  Non-Null Count  Dtype  
+---  ------                  --------------  -----  
+ 0   id                      10197 non-null  int64  
+ 1   title                   10197 non-null  object 
+ 2   imdbID                  10197 non-null  int64  
+ 3   spanishTitle            10197 non-null  object 
+ 4   imdbPictureURL          10016 non-null  object 
+ 5   year                    10197 non-null  int64  
+ 6   rtID                    9886 non-null   object 
+ 7   rtAllCriticsRating      9967 non-null   float64
+ 8   rtAllCriticsNumReviews  9967 non-null   float64
+ 9   rtAllCriticsNumFresh    9967 non-null   float64
+ 10  rtAllCriticsNumRotten   9967 non-null   float64
+ 11  rtAllCriticsScore       9967 non-null   float64
+ 12  rtTopCriticsRating      9967 non-null   float64
+ 13  rtTopCriticsNumReviews  9967 non-null   float64
+ 14  rtTopCriticsNumFresh    9967 non-null   float64
+ 15  rtTopCriticsNumRotten   9967 non-null   float64
+ 16  rtTopCriticsScore       9967 non-null   float64
+ 17  rtAudienceRating        9967 non-null   float64
+ 18  rtAudienceNumRatings    9967 non-null   float64
+ 19  rtAudienceScore         9967 non-null   float64
+ 20  rtPictureURL            9967 non-null   object 
+dtypes: float64(13), int64(3), object(5)
+memory usage: 1.6+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<p>Following <a class="reference external" href="https://cs533.ekstrandom.net/resources/tutorials/missingdata/">Missing Data</a>, we’re going to clear out the critic &amp; audience ratings that are clearly incorrectly-coded missing data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movies</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">movies</span><span class="p">[</span><span class="s1">&#39;rtAllCriticsRating&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;rtAllCriticsRating&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">movies</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">movies</span><span class="p">[</span><span class="s1">&#39;rtTopCriticsRating&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;rtTopCriticsRating&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">movies</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">movies</span><span class="p">[</span><span class="s1">&#39;rtAudienceRating&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;rtAudienceRating&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="scatterplots">
+<h2>Scatterplots<a class="headerlink" href="#scatterplots" title="Permalink to this headline">¶</a></h2>
+<p>Our fundamental way to show two numeric variable is a <em>scatterplot</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="s1">&#39;rtAllCriticsRating&#39;</span><span class="p">,</span> <span class="s1">&#39;rtAudienceRating&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">movies</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Correlation_9_0.png" src="../../../_images/Correlation_9_0.png" />
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">relplot</span></code> does the same thing, but is a Seaborn <em>figure-level</em> plot (meaning it controls the entire matplotlib drawing process, including figure size):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="s1">&#39;rtAllCriticsRating&#39;</span><span class="p">,</span> <span class="s1">&#39;rtAudienceRating&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">movies</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Correlation_11_0.png" src="../../../_images/Correlation_11_0.png" />
+</div>
+</div>
+<div class="section" id="joint-plot">
+<h3>Joint Plot<a class="headerlink" href="#joint-plot" title="Permalink to this headline">¶</a></h3>
+<p>If we also want to show the marginal distributions (the distributions of individual variables), we can use a <code class="docutils literal notranslate"><span class="pre">jointplot</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="s1">&#39;rtAllCriticsRating&#39;</span><span class="p">,</span> <span class="s1">&#39;rtAudienceRating&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">movies</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Correlation_13_0.png" src="../../../_images/Correlation_13_0.png" />
+</div>
+</div>
+<p>These plots are exceptionally useful in exporatory analysis.</p>
+</div>
+<div class="section" id="trend-line">
+<h3>Trend Line<a class="headerlink" href="#trend-line" title="Permalink to this headline">¶</a></h3>
+<p>And we can draw a scatterplot with a trend line using <code class="docutils literal notranslate"><span class="pre">regplot</span></code> (here I am specifying additional line options, <code class="docutils literal notranslate"><span class="pre">line_kws</span></code>, to make the line visibile as a different color):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="s1">&#39;rtAllCriticsRating&#39;</span><span class="p">,</span> <span class="s1">&#39;rtAudienceRating&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">movies</span><span class="p">,</span> <span class="n">line_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x20f967224c0&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/Correlation_16_1.png" src="../../../_images/Correlation_16_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="scatterplot-matrix">
+<h3>Scatterplot Matrix<a class="headerlink" href="#scatterplot-matrix" title="Permalink to this headline">¶</a></h3>
+<p>If we want to view relationships between more than 2 variables, we can look at the individual pairwise potential relationships through a <em>scatterplot matrix</em> (Seaborn pairplot):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">movies</span><span class="p">[[</span><span class="s1">&#39;rtAllCriticsRating&#39;</span><span class="p">,</span> <span class="s1">&#39;rtTopCriticsRating&#39;</span><span class="p">,</span> <span class="s1">&#39;rtAudienceRating&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x20f9684f1c0&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/Correlation_18_1.png" src="../../../_images/Correlation_18_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="correlation-and-covariance">
+<h2>Correlation and Covariance<a class="headerlink" href="#correlation-and-covariance" title="Permalink to this headline">¶</a></h2>
+<p>The Pandas <code class="docutils literal notranslate"><span class="pre">cov</span></code> method computes covariance between two series:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movies</span><span class="p">[</span><span class="s1">&#39;rtAllCriticsRating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">movies</span><span class="p">[</span><span class="s1">&#39;rtTopCriticsRating&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.1505561772886375
+</pre></div>
+</div>
+</div>
+</div>
+<p>Covariance is symmetric:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movies</span><span class="p">[</span><span class="s1">&#39;rtTopCriticsRating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">movies</span><span class="p">[</span><span class="s1">&#39;rtAllCriticsRating&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.1505561772886375
+</pre></div>
+</div>
+</div>
+</div>
+<p>By default, it also ignores observations with missing values.</p>
+<p>The <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.corr.html#pandas.Series.corr" title="(in pandas v1.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.Series.corr()</span></code></a> method computes the <em>correlation coefficient</em> <span class="math notranslate nohighlight">\(-1 \le r \le 1\)</span>, that is independent of the variance or scale of the data (1 always means perfect correlation):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movies</span><span class="p">[</span><span class="s1">&#39;rtAllCriticsRating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">movies</span><span class="p">[</span><span class="s1">&#39;rtTopCriticsRating&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.934600465561324
+</pre></div>
+</div>
+</div>
+</div>
+<p>That is a high correlation for almost any purpose.</p>
+<p>We can also compute a <em>correlation matrix</em> by calling <code class="docutils literal notranslate"><span class="pre">.corr</span></code> on a data frame:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">movies</span><span class="p">[[</span><span class="s1">&#39;rtAllCriticsRating&#39;</span><span class="p">,</span> <span class="s1">&#39;rtTopCriticsRating&#39;</span><span class="p">,</span> <span class="s1">&#39;rtAudienceRating&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rtAllCriticsRating</th>
+      <th>rtTopCriticsRating</th>
+      <th>rtAudienceRating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>rtAllCriticsRating</th>
+      <td>1.000000</td>
+      <td>0.934600</td>
+      <td>0.718364</td>
+    </tr>
+    <tr>
+      <th>rtTopCriticsRating</th>
+      <td>0.934600</td>
+      <td>1.000000</td>
+      <td>0.627785</td>
+    </tr>
+    <tr>
+      <th>rtAudienceRating</th>
+      <td>0.718364</td>
+      <td>0.627785</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This shows the correlation between each pair of variables.  The correlation of a variable with itself is always 1 (and the <em>covariance</em> of a variable with itself is its variance — do the algebra to convince yourself why!).  Audience and top critics are not as well-correlated as the two critic sources, or audience with all critics.</p>
+</div>
+<div class="section" id="bootstrapping-the-correlation">
+<h2>Bootstrapping the Correlation<a class="headerlink" href="#bootstrapping-the-correlation" title="Permalink to this headline">¶</a></h2>
+<p>We can use the bootstrap to compute a confidence interval for the correlation between two variables.  Let’s do that for audience and top-critics ratings.</p>
+<p>We’ll start by making a frame that just has those columns, with NAs removed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crit_movies</span> <span class="o">=</span> <span class="n">movies</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)[[</span><span class="s1">&#39;rtTopCriticsRating&#39;</span><span class="p">,</span> <span class="s1">&#39;rtAudienceRating&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And compute the correlation, for reference:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crit_movies</span><span class="p">[</span><span class="s1">&#39;rtTopCriticsRating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">crit_movies</span><span class="p">[</span><span class="s1">&#39;rtAudienceRating&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6277851818091278
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s bootstrap that.  We’ll bootstrap 10000 times.  This time we will use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, just to demonstrate that.  We’re also going to use the Pandas <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sample.html"><code class="docutils literal notranslate"><span class="pre">sample</span></code></a> method, to sample <em>rows of a data frame</em> (and thus pairs of observations).  To bootstrap a correlation, we can’t just sample individual values!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NBOOT</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">boot_corrs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">NBOOT</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NBOOT</span><span class="p">):</span>
+    <span class="n">samp</span> <span class="o">=</span> <span class="n">crit_movies</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">crit_movies</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">boot_corrs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">samp</span><span class="p">[</span><span class="s1">&#39;rtTopCriticsRating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">samp</span><span class="p">[</span><span class="s1">&#39;rtAudienceRating&#39;</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">boot_corrs</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.025</span><span class="p">,</span> <span class="mf">0.975</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.60939528, 0.64571617])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also see the approximated sampling distribution:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">boot_corrs</span><span class="p">)</span>
+<span class="n">lb</span><span class="p">,</span> <span class="n">ub</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">boot_corrs</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.025</span><span class="p">,</span> <span class="mf">0.975</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">lb</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">ub</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Bootstrap Distribution of r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Density&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Correlation&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Correlation_35_0.png" src="../../../_images/Correlation_35_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="regression">
+<h2>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h2>
+<p>Finally, I want to show you how to fit the regression model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mod</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;rtAudienceRating ~ rtTopCriticsRating&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">movies</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>    <td>rtAudienceRating</td> <th>  R-squared:         </th> <td>   0.394</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.394</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   3012.</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Sat, 10 Oct 2020</td> <th>  Prob (F-statistic):</th>  <td>  0.00</td> 
+</tr>
+<tr>
+  <th>Time:</th>                 <td>12:28:47</td>     <th>  Log-Likelihood:    </th> <td> -1701.8</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>  4632</td>      <th>  AIC:               </th> <td>   3408.</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>  4630</td>      <th>  BIC:               </th> <td>   3421.</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+           <td></td>             <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>Intercept</th>          <td>    2.2847</td> <td>    0.021</td> <td>  111.441</td> <td> 0.000</td> <td>    2.245</td> <td>    2.325</td>
+</tr>
+<tr>
+  <th>rtTopCriticsRating</th> <td>    0.1838</td> <td>    0.003</td> <td>   54.879</td> <td> 0.000</td> <td>    0.177</td> <td>    0.190</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td> 3.451</td> <th>  Durbin-Watson:     </th> <td>   1.825</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.178</td> <th>  Jarque-Bera (JB):  </th> <td>   3.414</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td>-0.053</td> <th>  Prob(JB):          </th> <td>   0.181</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 3.079</td> <th>  Cond. No.          </th> <td>    25.1</td>
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
+</div>
+<p>For now, we need to <strong>ignore</strong> the <em>p</em>-value.</p>
+<p>Fitting this model has resulted in “learining” the following line, where <span class="math notranslate nohighlight">\(y\)</span> is the audience rating and <span class="math notranslate nohighlight">\(x\)</span> the critic rating:</p>
+<div class="math notranslate nohighlight">
+\[\hat{y} = 2.2847 + 0.1838 \times x\]</div>
+<p>This means that we have used the data to “learn” the parameters (coefficient and intercept) for a linear model to predict the data. That’s all (supervised) machine learning is!</p>
+<p>Later we’re going to see why, but we want check the residuals for normality:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sm</span><span class="o">.</span><span class="n">qqplot</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="s1">&#39;45&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Correlation_40_0.png" src="../../../_images/Correlation_40_0.png" />
+</div>
+</div>
+<p>Looks good! One outlier.</p>
+<p>Let’s also look at the residuals vs. fitted plot, to test for equal variance:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span> <span class="n">line_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span><span class="p">})</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Fitted Value&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Residuals&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Correlation_42_0.png" src="../../../_images/Correlation_42_0.png" />
+</div>
+</div>
+<p>I’m also going to plot the regression line ourselves:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">movies</span><span class="p">[</span><span class="s1">&#39;rtTopCriticsRating&#39;</span><span class="p">],</span> <span class="n">movies</span><span class="p">[</span><span class="s1">&#39;rtAudienceRating&#39;</span><span class="p">])</span>
+<span class="n">l_xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">l_ys</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">res</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">l_xs</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">l_xs</span><span class="p">,</span> <span class="n">l_ys</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Top Critics Rating&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Audience Rating&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/Correlation_44_0.png" src="../../../_images/Correlation_44_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="predictive-accuracy">
+<h2>Predictive Accuracy<a class="headerlink" href="#predictive-accuracy" title="Permalink to this headline">¶</a></h2>
+<p>Now, we should have done this <strong>before</strong> we started fitting any models.  We will adopt proper splitting in the future.</p>
+<p>We’re going to make <em>train</em> and <em>test</em> sets:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predictable</span> <span class="o">=</span> <span class="n">movies</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rtTopCriticsRating&#39;</span><span class="p">,</span> <span class="s1">&#39;rtAudienceRating&#39;</span><span class="p">])</span>
+<span class="n">predictable</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 4632 entries, 0 to 10195
+Data columns (total 21 columns):
+ #   Column                  Non-Null Count  Dtype  
+---  ------                  --------------  -----  
+ 0   id                      4632 non-null   int64  
+ 1   title                   4632 non-null   object 
+ 2   imdbID                  4632 non-null   int64  
+ 3   spanishTitle            4632 non-null   object 
+ 4   imdbPictureURL          4603 non-null   object 
+ 5   year                    4632 non-null   int64  
+ 6   rtID                    4603 non-null   object 
+ 7   rtAllCriticsRating      4632 non-null   float64
+ 8   rtAllCriticsNumReviews  4632 non-null   float64
+ 9   rtAllCriticsNumFresh    4632 non-null   float64
+ 10  rtAllCriticsNumRotten   4632 non-null   float64
+ 11  rtAllCriticsScore       4632 non-null   float64
+ 12  rtTopCriticsRating      4632 non-null   float64
+ 13  rtTopCriticsNumReviews  4632 non-null   float64
+ 14  rtTopCriticsNumFresh    4632 non-null   float64
+ 15  rtTopCriticsNumRotten   4632 non-null   float64
+ 16  rtTopCriticsScore       4632 non-null   float64
+ 17  rtAudienceRating        4632 non-null   float64
+ 18  rtAudienceNumRatings    4632 non-null   float64
+ 19  rtAudienceScore         4632 non-null   float64
+ 20  rtPictureURL            4632 non-null   object 
+dtypes: float64(13), int64(3), object(5)
+memory usage: 796.1+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sample 20% of movies as test data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">predictable</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create a <em>mask</em> and use it to pick the rest as training data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_mask</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">predictable</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">train_mask</span><span class="p">[</span><span class="n">test</span><span class="o">.</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">train</span> <span class="o">=</span> <span class="n">predictable</span><span class="p">[</span><span class="n">train_mask</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Fit the model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pmod</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;rtAudienceRating ~ rtTopCriticsRating&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">train</span><span class="p">)</span>
+<span class="n">pfit</span> <span class="o">=</span> <span class="n">pmod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">pfit</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>    <td>rtAudienceRating</td> <th>  R-squared:         </th> <td>   0.389</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.389</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   2359.</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Sat, 10 Oct 2020</td> <th>  Prob (F-statistic):</th>  <td>  0.00</td> 
+</tr>
+<tr>
+  <th>Time:</th>                 <td>12:28:48</td>     <th>  Log-Likelihood:    </th> <td> -1400.3</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>  3706</td>      <th>  AIC:               </th> <td>   2805.</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>  3704</td>      <th>  BIC:               </th> <td>   2817.</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+           <td></td>             <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>Intercept</th>          <td>    2.2852</td> <td>    0.023</td> <td>   98.873</td> <td> 0.000</td> <td>    2.240</td> <td>    2.331</td>
+</tr>
+<tr>
+  <th>rtTopCriticsRating</th> <td>    0.1832</td> <td>    0.004</td> <td>   48.567</td> <td> 0.000</td> <td>    0.176</td> <td>    0.191</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td> 2.666</td> <th>  Durbin-Watson:     </th> <td>   1.837</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.264</td> <th>  Jarque-Bera (JB):  </th> <td>   2.606</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td>-0.062</td> <th>  Prob(JB):          </th> <td>   0.272</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 3.042</td> <th>  Cond. No.          </th> <td>    25.0</td>
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preds</span> <span class="o">=</span> <span class="n">pfit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<span class="n">test</span><span class="p">[</span><span class="s1">&#39;predAud&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">preds</span>
+<span class="n">test</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>title</th>
+      <th>imdbID</th>
+      <th>spanishTitle</th>
+      <th>imdbPictureURL</th>
+      <th>year</th>
+      <th>rtID</th>
+      <th>rtAllCriticsRating</th>
+      <th>rtAllCriticsNumReviews</th>
+      <th>rtAllCriticsNumFresh</th>
+      <th>...</th>
+      <th>rtTopCriticsRating</th>
+      <th>rtTopCriticsNumReviews</th>
+      <th>rtTopCriticsNumFresh</th>
+      <th>rtTopCriticsNumRotten</th>
+      <th>rtTopCriticsScore</th>
+      <th>rtAudienceRating</th>
+      <th>rtAudienceNumRatings</th>
+      <th>rtAudienceScore</th>
+      <th>rtPictureURL</th>
+      <th>predAud</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9775</th>
+      <td>58029</td>
+      <td>It's a Free World...</td>
+      <td>807054</td>
+      <td>En un mundo libre...</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMjEzMjY3...</td>
+      <td>2007</td>
+      <td>its_a_free_world</td>
+      <td>6.6</td>
+      <td>18.0</td>
+      <td>15.0</td>
+      <td>...</td>
+      <td>6.2</td>
+      <td>6.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>66.0</td>
+      <td>3.6</td>
+      <td>1788.0</td>
+      <td>70.0</td>
+      <td>http://content7.flixster.com/movie/10/49/04/10...</td>
+      <td>3.421068</td>
+    </tr>
+    <tr>
+      <th>8367</th>
+      <td>27741</td>
+      <td>Tasogare Seibei</td>
+      <td>351817</td>
+      <td>El ocaso del samurái</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMTgzMTA1...</td>
+      <td>2002</td>
+      <td>twilight_samurai</td>
+      <td>8.2</td>
+      <td>68.0</td>
+      <td>67.0</td>
+      <td>...</td>
+      <td>7.9</td>
+      <td>22.0</td>
+      <td>22.0</td>
+      <td>0.0</td>
+      <td>100.0</td>
+      <td>4.2</td>
+      <td>3512.0</td>
+      <td>93.0</td>
+      <td>http://content9.flixster.com/movie/10/92/29/10...</td>
+      <td>3.732509</td>
+    </tr>
+    <tr>
+      <th>9343</th>
+      <td>49644</td>
+      <td>Off the Black</td>
+      <td>479965</td>
+      <td>Off the Black</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMTc1NzIw...</td>
+      <td>2006</td>
+      <td>off_the_black</td>
+      <td>6.2</td>
+      <td>40.0</td>
+      <td>27.0</td>
+      <td>...</td>
+      <td>6.4</td>
+      <td>17.0</td>
+      <td>13.0</td>
+      <td>4.0</td>
+      <td>76.0</td>
+      <td>3.3</td>
+      <td>1007.0</td>
+      <td>57.0</td>
+      <td>http://content8.flixster.com/movie/36/98/94/36...</td>
+      <td>3.457708</td>
+    </tr>
+    <tr>
+      <th>8915</th>
+      <td>39390</td>
+      <td>The Gospel</td>
+      <td>451069</td>
+      <td>The Gospel</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMTQ1Njkw...</td>
+      <td>2005</td>
+      <td>gospel</td>
+      <td>4.9</td>
+      <td>37.0</td>
+      <td>12.0</td>
+      <td>...</td>
+      <td>5.1</td>
+      <td>13.0</td>
+      <td>5.0</td>
+      <td>8.0</td>
+      <td>38.0</td>
+      <td>3.5</td>
+      <td>1967.0</td>
+      <td>78.0</td>
+      <td>http://content8.flixster.com/movie/25/02/25029...</td>
+      <td>3.219547</td>
+    </tr>
+    <tr>
+      <th>6799</th>
+      <td>7192</td>
+      <td>Only the Strong</td>
+      <td>107750</td>
+      <td>Sólo el más fuerte</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMTY3MDQx...</td>
+      <td>1993</td>
+      <td>only_the_strong</td>
+      <td>2.8</td>
+      <td>7.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>2.5</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>3.7</td>
+      <td>1259.0</td>
+      <td>79.0</td>
+      <td>http://content9.flixster.com/movie/10/86/99/10...</td>
+      <td>2.743225</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>10050</th>
+      <td>62293</td>
+      <td>The Duchess</td>
+      <td>864761</td>
+      <td>La duquesa</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMTU1MTQz...</td>
+      <td>2008</td>
+      <td>10009493-duchess</td>
+      <td>6.3</td>
+      <td>161.0</td>
+      <td>98.0</td>
+      <td>...</td>
+      <td>6.6</td>
+      <td>35.0</td>
+      <td>24.0</td>
+      <td>11.0</td>
+      <td>68.0</td>
+      <td>3.5</td>
+      <td>22537.0</td>
+      <td>69.0</td>
+      <td>http://content8.flixster.com/movie/10/85/97/10...</td>
+      <td>3.494348</td>
+    </tr>
+    <tr>
+      <th>4975</th>
+      <td>5296</td>
+      <td>The Sweetest Thing</td>
+      <td>253867</td>
+      <td>La cosa más dulce</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMTMzNDA1...</td>
+      <td>2002</td>
+      <td>sweetest_thing</td>
+      <td>4.2</td>
+      <td>104.0</td>
+      <td>26.0</td>
+      <td>...</td>
+      <td>4.2</td>
+      <td>26.0</td>
+      <td>7.0</td>
+      <td>19.0</td>
+      <td>26.0</td>
+      <td>3.0</td>
+      <td>21858.0</td>
+      <td>68.0</td>
+      <td>http://content9.flixster.com/movie/58/56/24/58...</td>
+      <td>3.054667</td>
+    </tr>
+    <tr>
+      <th>4001</th>
+      <td>4300</td>
+      <td>Bread and Roses</td>
+      <td>212826</td>
+      <td>Pan y rosas</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMjM5MzQ2...</td>
+      <td>2000</td>
+      <td>bread_and_roses</td>
+      <td>6.1</td>
+      <td>62.0</td>
+      <td>40.0</td>
+      <td>...</td>
+      <td>6.3</td>
+      <td>21.0</td>
+      <td>15.0</td>
+      <td>6.0</td>
+      <td>71.0</td>
+      <td>3.7</td>
+      <td>1038.0</td>
+      <td>76.0</td>
+      <td>http://content9.flixster.com/movie/74/96/53/74...</td>
+      <td>3.439388</td>
+    </tr>
+    <tr>
+      <th>9043</th>
+      <td>43560</td>
+      <td>Nanny McPhee</td>
+      <td>396752</td>
+      <td>La niñera mágica</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BMTIzOTU4...</td>
+      <td>2005</td>
+      <td>1153987-nanny_mcphee</td>
+      <td>6.6</td>
+      <td>130.0</td>
+      <td>95.0</td>
+      <td>...</td>
+      <td>6.4</td>
+      <td>29.0</td>
+      <td>19.0</td>
+      <td>10.0</td>
+      <td>65.0</td>
+      <td>3.2</td>
+      <td>48480.0</td>
+      <td>63.0</td>
+      <td>http://content7.flixster.com/movie/10/92/77/10...</td>
+      <td>3.457708</td>
+    </tr>
+    <tr>
+      <th>6595</th>
+      <td>6985</td>
+      <td>La passion de Jeanne d'Arc</td>
+      <td>19254</td>
+      <td>La pasión de Juana de Arco</td>
+      <td>http://ia.media-imdb.com/images/M/MV5BNzExMjgz...</td>
+      <td>1928</td>
+      <td>passion_of_joan_of_arc</td>
+      <td>8.9</td>
+      <td>31.0</td>
+      <td>30.0</td>
+      <td>...</td>
+      <td>8.1</td>
+      <td>6.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>83.0</td>
+      <td>4.4</td>
+      <td>3362.0</td>
+      <td>94.0</td>
+      <td>http://content9.flixster.com/movie/10/92/71/10...</td>
+      <td>3.769149</td>
+    </tr>
+  </tbody>
+</table>
+<p>926 rows × 22 columns</p>
+</div></div></div>
+</div>
+<p>And now we’re going to compute the <strong>root mean squared error</strong> (RMSE):</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{RMSE} = \sqrt{\frac{1}{n}\sum_i (y - \hat{y})^2}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;rtAudienceRating&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;predAud&#39;</span><span class="p">]</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3343906896473175
+</pre></div>
+</div>
+</div>
+</div>
+<p>And the <strong>mean absolute error</strong> (MAE):</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{MAE} = \frac{1}{n}\sum_i |y - \hat{y}|\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2635027350646757
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./resources\tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../ClusteringExample/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Clustering Example</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../CriticScores/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Charting Movie Scores</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../../../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

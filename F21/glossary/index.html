@@ -1,0 +1,1170 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glossary &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabinsert.js"></script>
+    <script src="../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"E": "\\mathrm{E}", "Field": "\\mathcal{F}", "P": "\\mathrm{P}", "Cov": "\\mathrm{Cov}", "Cor": "\\mathrm{Cor}", "Var": "\\mathrm{Var}", "log": "\\operatorname{log}", "Odds": "\\operatorname{Odds}", "OR": "\\operatorname{OR}", "IND": "\\mathbb{I}", "Reals": "\\mathbb{R}"}}, "HTML-CSS": {"fonts": ["TeX"]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="copyright" title="Copyright" href="../copyright/" />
+    <link rel="next" title="Week 0 — Pre-Class Welcome" href="../week0/" />
+    <link rel="prev" title="Schedule" href="../schedule/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../resources/tutorials/">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/glossary.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fglossary.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/glossary.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="glossary">
+<h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
+<p>We’re going to learn many terms and concepts this semester.
+This page catalogs many of the important ones, with pointers to the resources in which they are introduced.</p>
+<dl class="glossary">
+<dt id="term-ablation-study">ablation study<a class="headerlink" href="#term-ablation-study" title="Permalink to this term">¶</a></dt><dd><p>A study in which we turn off different components of a complex model to see how much each one contributes to the overall model’s performance.</p>
+<p>Introduced in <a class="reference internal" href="../week11/#589628b2-30ce-4c38-ba45-ac66003f5163" title="week11:ablation"><span>🎥 Inference and Ablation</span></a>.</p>
+</dd>
+<dt id="term-aggregate">aggregate<a class="headerlink" href="#term-aggregate" title="Permalink to this term">¶</a></dt><dd><p>A function that computes a single value from a series (or matrix) of values.
+Often used to compute a <a class="reference internal" href="#term-statistic"><span class="xref std std-term">statistic</span></a>.</p>
+<p>Introduced in <a class="reference internal" href="../week2/#4c5b7bbb-dc57-4484-b160-ad9000efd740" title="week2:group-aggregate"><span>🎥 Groups and Aggregates</span></a>.</p>
+</dd>
+<dt id="term-arithmetic-mean">arithmetic mean<a class="headerlink" href="#term-arithmetic-mean" title="Permalink to this term">¶</a></dt><dd><p>The most common type of <a class="reference internal" href="#term-mean"><span class="xref std std-term">mean</span></a>, computed from a sequence of observations as <span class="math notranslate nohighlight">\(\bar{x} = \frac{1}{n} \sum_i x_i\)</span>.
+When using the term “mean” without an additional qualifier, this is the type of mean we mean.</p>
+</dd>
+<dt id="term-Bayesianism">Bayesianism<a class="headerlink" href="#term-Bayesianism" title="Permalink to this term">¶</a></dt><dd><p>A school of thought for statistical inference and the interpretation of probability that is concerned with using probability to quantify <em>uncertainty</em> or <em>coherent states of belief</em>.
+In statistical inference, this results in methods that quantify knowledge with probability distributions, and update those distributions based on the results of an experiment or data analysis.</p>
+<p>Not to be confused with <a class="reference internal" href="#term-Bayes-theorem"><span class="xref std std-term">Bayes’ Theorem</span></a>, which is a fundamental building block of Bayesian inference but has many other uses as well.</p>
+</dd>
+<dt id="term-Bayes-theorem">Bayes’ theorem<a class="headerlink" href="#term-Bayes-theorem" title="Permalink to this term">¶</a></dt><dd><p>A theorem or identity in probability theory that allows us to reverse a <a class="reference internal" href="#term-conditional-probability"><span class="xref std std-term">conditional probability</span></a>:</p>
+<div class="math notranslate nohighlight">
+\[\P[B|A] = \frac{\P[A|B] \P[B]}{\P[A]}\]</div>
+<p>Statisticians of all schools of thought make use of Bayes’ theorem — all it does is relate <span class="math notranslate nohighlight">\(\P[A|B]\)</span> to <span class="math notranslate nohighlight">\(\P[B|A]\)</span>, allowing us to (with additional information) reverse a conditional probability.</p>
+<p>Introduced in <a class="reference internal" href="../week4/#fb3a5f34-8677-432a-a91f-ad9c0183c801" title="week4:joint-conditional"><span>🎥 Joint and Conditional</span></a>.</p>
+</dd>
+<dt id="term-bootstrap">bootstrap<a class="headerlink" href="#term-bootstrap" title="Permalink to this term">¶</a></dt><dd><p>A technique for estimating sampling distributions by repeatedly resampling the available sample with replacement.</p>
+<p>Introduced in <a class="reference internal" href="../week4/#5967c655-f4de-4c57-bb85-ad9c0183e2ed" title="week4:bootstrap"><span>🎥 The Bootstrap</span></a>.</p>
+</dd>
+<dt id="term-central-limit-theorem">central limit theorem<a class="headerlink" href="#term-central-limit-theorem" title="Permalink to this term">¶</a></dt><dd><p>The theorem that describes the sampling distribution of the sample mean.
+If we take a random sample <span class="math notranslate nohighlight">\(X\)</span> from (most) populations with mean <span class="math notranslate nohighlight">\(\mu\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>, the sample mean <span class="math notranslate nohighlight">\(\bar{x} \sim \mathrm{Normal}(\mu, \sigma/\sqrt{n})\)</span>.</p>
+</dd>
+<dt id="term-classification">classification<a class="headerlink" href="#term-classification" title="Permalink to this term">¶</a></dt><dd><p>A <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-supervised-learning" title="(in scikit-learn v1.1)"><span class="xref std std-term">supervised learning</span></a> problem where the goal is to predict a discrete class for an instance.
+This is often <em>binary classification</em>, where instances are categorized into one of two classes.</p>
+<p>This is the major topic of <a class="reference internal" href="../week10/#week10" title="week10"><span>📅 Week 10 — Classification (10/25–29)</span></a>.</p>
+</dd>
+<dt id="term-conditional-probability">conditional probability<a class="headerlink" href="#term-conditional-probability" title="Permalink to this term">¶</a></dt><dd><p>The conditional probability <span class="math notranslate nohighlight">\(\P[B|A]\)</span> (read “the probability of <span class="math notranslate nohighlight">\(B\)</span> given <span class="math notranslate nohighlight">\(A\)</span>”) is the probability of <span class="math notranslate nohighlight">\(B\)</span>, given that we know <span class="math notranslate nohighlight">\(A\)</span> occurred.
+We can also discuss conditional expectation <span class="math notranslate nohighlight">\(\E[X|A]\)</span>, the expected value of <span class="math notranslate nohighlight">\(X\)</span> for those occurrences where <span class="math notranslate nohighlight">\(A\)</span> occurred.</p>
+<p>Introduced in <a class="reference internal" href="../week4/#fb3a5f34-8677-432a-a91f-ad9c0183c801" title="week4:joint-conditional"><span>🎥 Joint and Conditional</span></a> and discussed in <a class="reference internal" href="../resources/probability/#prob-conditional"><span class="std std-ref">Notes on Probability</span></a>.</p>
+</dd>
+<dt id="term-confidence-interval">confidence interval<a class="headerlink" href="#term-confidence-interval" title="Permalink to this term">¶</a></dt><dd><p>An interval used to estimate the precision of an estimate.
+A 95% confidence interval is an interval computed from a procedure (including both taking a sample and computing a statistic from that sample) that, when repeated, will return an interval containing the true parameter value 95% of the time.
+Discussed in <a class="reference internal" href="../week4/#7ff79b12-d2cd-4326-8882-ad9c0183c9b6" title="week4:confidence"><span>🎥 Confidence</span></a>, <a class="reference internal" href="../week4/#confidence-in-confidence" title="week4:confidence-in-confidence"><span>📃 Having confidence in confindence intervals</span></a>, and <a class="reference external" href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm">Handbook section 1.3.5.2</a>.</p>
+<p>A confidence interval is <strong>not</strong> a probabilistic statement about either the population mean <span class="math notranslate nohighlight">\(\mu\)</span> or the sample mean <span class="math notranslate nohighlight">\(\bar{x}\)</span>.</p>
+</dd>
+<dt id="term-correlation">correlation<a class="headerlink" href="#term-correlation" title="Permalink to this term">¶</a></dt><dd><p>The extent to which two variables change <em>with each other</em>.
+If one variable usually increases when the other one increases, the variables are <em>correlated</em>; if one decreases when the other increases, they are <em>anticorrelated</em>.</p>
+<p>Correlation is measured with the correlation coefficient:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{\sum(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum(x_i - \bar{x})^2}\sqrt{\sum(y_i - \bar{y})^2}}\]</div>
+<p>This is equivalent to the <strong><a class="reference internal" href="#term-covariance"><span class="xref std std-term">covariance</span></a></strong> scaled by the <a class="reference internal" href="#term-standard-deviation"><span class="xref std std-term">standard deviations</span></a> of the variables:</p>
+<div class="math notranslate nohighlight">
+\[\Cor(X, Y) = \frac{\mathrm{Cov}(X, Y)}{\sigma_X \sigma_Y}\]</div>
+<p>Defined in <a class="reference internal" href="../week6/#ad3579d3-fac2-440a-8289-adb80127b713" title="week6:correlation"><span>🎥 Correlation</span></a> and <a class="reference internal" href="../resources/probability/#prob-variance"><span class="std std-ref">Notes on Probability</span></a>. Used extensively in <a class="reference internal" href="../assignments/A4/#a4-covariance"><span class="std std-ref">Assignment 4</span></a>.</p>
+</dd>
+<dt id="term-covariance">covariance<a class="headerlink" href="#term-covariance" title="Permalink to this term">¶</a></dt><dd><p>A non-normalized measure of the extent to which two variables change with each other:</p>
+<div class="math notranslate nohighlight">
+\[\Cov(X, Y) = \E[(X - \E[X]) (Y - \E[Y])]\]</div>
+<p>Defined in <a class="reference internal" href="../week6/#ad3579d3-fac2-440a-8289-adb80127b713" title="week6:correlation"><span>🎥 Correlation</span></a> and <a class="reference internal" href="../resources/probability/#prob-variance"><span class="std std-ref">Notes on Probability</span></a>. Used extensively in <a class="reference internal" href="../assignments/A4/#a4-covariance"><span class="std std-ref">Assignment 4</span></a>.</p>
+</dd>
+<dt id="term-degrees-of-freedom">degrees of freedom<a class="headerlink" href="#term-degrees-of-freedom" title="Permalink to this term">¶</a></dt><dd><p>The number of observations in a series that can independently vary to affect a calculation.
+This is usually the number of observations, minus the number of intermediate statistics.
+For example, the degrees of freedom for the sample standard deviation for <span class="math notranslate nohighlight">\(n\)</span> observations is <span class="math notranslate nohighlight">\(n-1\)</span>, because one DoF is “used up” by the mean:</p>
+<div class="math notranslate nohighlight">
+\[s = \sqrt{\frac{\sum_i (x_i - \bar{x})^2}{n - 1}}\]</div>
+<p>Introduced in <a class="reference internal" href="../week5/#359a56a7-0e20-4085-bf80-ad9c0183fe36" title="week5:t-test"><span>🎥 T-tests</span></a>.</p>
+</dd>
+<dt id="term-disaggregation">disaggregation<a class="headerlink" href="#term-disaggregation" title="Permalink to this term">¶</a></dt><dd><p>When we take something that is usually aggregated over the total population (e.g. the completion rate for students at a school) and
+instead aggregate it over subsets of the population (e.g. computing a completion rate for each racial group).  Practiced in
+<a class="reference internal" href="../assignments/A6/"><span class="doc std std-doc">Assignment 6</span></a>.</p>
+</dd>
+<dt id="term-elementary-event">elementary event<a class="headerlink" href="#term-elementary-event" title="Permalink to this term">¶</a></dt><dd><p>In probability theory, an individual distinct outcome of a process we are modeling as random.</p>
+<p>Introduced in <a class="reference internal" href="../week4/#86d6d830-e88d-4d33-90fa-ad9c0183c772" title="week4:probability"><span>🎥 Probability</span></a> and <a class="reference internal" href="../resources/probability/"><span class="doc std std-doc">Notes on Probability</span></a>.</p>
+</dd>
+<dt id="term-embedding">embedding<a class="headerlink" href="#term-embedding" title="Permalink to this term">¶</a></dt><dd><p>As a noun, a vector-space representation of a data point or instance.
+This is often a lower-dimensional representation produced through some form of matrix decomposition such as SVD.
+Introduced in <a class="reference internal" href="../week13/#week13" title="week13"><span>📅 Week 13 — Unsupervised (11/15–19)</span></a>.</p>
+<p>As a verb, to convert an instance to such a representation.</p>
+</dd>
+<dt id="term-entropy">entropy<a class="headerlink" href="#term-entropy" title="Permalink to this term">¶</a></dt><dd><p>A measure of the “uninformitiveness” or uncertainty represented by a probability distribution.  For a discrete distribution,
+it is computed as:</p>
+<div class="math notranslate nohighlight">
+\[H(X) = - \sum_x \P[x] \log_2 \P[x]\]</div>
+<p>The entropy is the expected number of bits required to record a draw from the distribution (or a message resolving the uncertainty)
+using an efficient encoding, assuming the recipient knows the distribution and the encoding.</p>
+<p>Introduced in <a class="reference internal" href="../week13/#2c3c3aab-643d-4b2c-b18b-addf00076faf" title="week13:entropy"><span>🎥 Information and Entropy</span></a>.</p>
+</dd>
+<dt id="term-environment-variable">environment variable<a class="headerlink" href="#term-environment-variable" title="Permalink to this term">¶</a></dt><dd><p>A string variable associated with a process by the operating system.
+Often used for configuring the behavior of software, such as the number of threads to use in parallel computation.
+Child processes inherit their parents’ environment variables.</p>
+<p>Environment variables for the current process can be accessed and set in Python via the dictionary <code class="docutils literal notranslate"><span class="pre">os.environ</span></code>.</p>
+<p>In the Unix shell, set an environment variable with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export MY_VAR=&quot;contents&quot;
+</pre></div>
+</div>
+<p>In PowerShell, set it with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$env:MY_VAR=&quot;contents&quot;
+</pre></div>
+</div>
+<p>Set an environment variable <em>before</em> running commands that need to be governed by it.</p>
+</dd>
+<dt id="term-Euclidean-norm">Euclidean norm<a class="headerlink" href="#term-Euclidean-norm" title="Permalink to this term">¶</a></dt><dd><p>See <a class="reference internal" href="#term-L2-Norm"><span class="xref std std-term">L₂ Norm</span></a>.</p>
+</dd>
+<dt id="term-event">event<a class="headerlink" href="#term-event" title="Permalink to this term">¶</a></dt><dd><p>In probability theory, an outcome that for which we want to estimate the probability.
+Formally, given a set <span class="math notranslate nohighlight">\(E\)</span> of elementary outcomes, an event is a set <span class="math notranslate nohighlight">\(A \subseteq E\)</span>, and the set of possible events <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> forms a <em>sigma field</em>.</p>
+<p>Introduced in <a class="reference internal" href="../week4/#86d6d830-e88d-4d33-90fa-ad9c0183c772" title="week4:probability"><span>🎥 Probability</span></a> and <a class="reference internal" href="../resources/probability/"><span class="doc std std-doc">Notes on Probability</span></a>.</p>
+</dd>
+<dt id="term-estimand">estimand<a class="headerlink" href="#term-estimand" title="Permalink to this term">¶</a></dt><dd><p>An unknown quantity that we try to estimate.  See <em>Estimator</em>.</p>
+</dd>
+<dt id="term-estimate">estimate<a class="headerlink" href="#term-estimate" title="Permalink to this term">¶</a></dt><dd><p><em>n.</em> A value computed to approximate the value of some estimand.  See <em>Estimator</em>.</p>
+<p><em>v.</em> The process of computing an estimate for an estimand.</p>
+</dd>
+<dt id="term-estimator">estimator<a class="headerlink" href="#term-estimator" title="Permalink to this term">¶</a></dt><dd><p>A computation (or computed value) that we use to try to estimate an unknown value.
+Formally, an <em>estimator</em> is a computation to produce an <em>estimate</em> of an <em>estimand</em>.
+The sample mean <span class="math notranslate nohighlight">\(\bar{x}\)</span>, as an abstract concept, is an estimator of the population mean, also as an abstract concept.
+Any <em>particular</em> sample mean we compute, such as <span class="math notranslate nohighlight">\(\bar{x} = 3.2\)</span>, is an <em>estimate</em> of the population mean (estimand) <em>for that sample</em>.</p>
+<p>Introduced in <a class="reference internal" href="../week4/#8388f5d0-e1da-43ec-a972-ad9c0183c6ef" title="week4:introduction"><span>🎥 Inference Intro</span></a>.</p>
+</dd>
+<dt id="term-expected-value">expected value<a class="headerlink" href="#term-expected-value" title="Permalink to this term">¶</a></dt><dd><p>The mean of a <a class="reference internal" href="#term-random-variable"><span class="xref std std-term">random variable</span></a> <span class="math notranslate nohighlight">\(X\)</span>: <span class="math notranslate nohighlight">\(\E[X] = \sum x \P[x]\)</span> or <span class="math notranslate nohighlight">\(\E[X] = \int x p(x) dx\)</span>.</p>
+<p>Discussed in <a class="reference internal" href="../week4/#55bc41ca-eafa-47cc-8be6-ad9c018526f8" title="week4:continuous"><span>🎥 Continuous Probability</span></a> and <a class="reference internal" href="../resources/probability/"><span class="doc std std-doc">Notes on Probability</span></a>.</p>
+</dd>
+<dt id="term-frequentism">frequentism<a class="headerlink" href="#term-frequentism" title="Permalink to this term">¶</a></dt><dd><p>A school of thought for statistical inference and the interpretation of probability that is concerned with probabilities as descriptions of the long-run behavior of a random process: how frequent would various outcomes be if the process were repeated infinitely many times?
+In statistical inference, this results in methods that are characterized by their behavior if a sampling procedure or experiment were repeated, such as confidence intervals (defined in terms of the behavior of calculating them over multiple samples) and <em>p</em>-values (the probability that a random sample would produce a statistic at least as large as the observed statistic if the sampling procedure were repeated).</p>
+</dd>
+<dt id="term-geometric-mean">geometric mean<a class="headerlink" href="#term-geometric-mean" title="Permalink to this term">¶</a></dt><dd><p>A measure of central tendency where sums are replaced by products. It is less sensitive to large outliers than the <a class="reference internal" href="#term-arithmetic-mean"><span class="xref std std-term">arithmetic mean</span></a> (the usual kind of mean).  It is computed by:</p>
+<div class="math notranslate nohighlight">
+\[\sqrt[n]{\prod_i x_i}\]</div>
+<p>Or alternatively (so long as <span class="math notranslate nohighlight">\(\forall i. x_i \ne 0\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[e^{\frac{1}{n}\sum_i \operatorname{log}(x_i)}\]</div>
+</dd>
+<dt id="term-HARKing">HARKing<a class="headerlink" href="#term-HARKing" title="Permalink to this term">¶</a></dt><dd><p>“Hypothesizing After Results are Known”, a statistical error where we formulate our hypotheses to test <em>after</em> looking
+at the data.  A <a class="reference internal" href="#term-null-hypothesis-significance-test"><span class="xref std std-term">null hypothesis significance test</span></a> computes the probability
+<span class="math notranslate nohighlight">\(P(t' \ge t | H_0 \text{ is true})\)</span>; if we have already looked at the data, what we are computing is
+<span class="math notranslate nohighlight">\(P(t' \ge t | H_0 \text{ is true}, H_0 \text{ looks false})\)</span>.
+See <a class="reference internal" href="../week5/#e453ccba-6d33-4d7d-be1f-ad9c0183fcfc" title="week5:hypotest"><span>🎥 Testing Hypotheses</span></a>.</p>
+</dd>
+<dt id="term-heteroskedasticity">heteroskedasticity<a class="headerlink" href="#term-heteroskedasticity" title="Permalink to this term">¶</a></dt><dd><p>Having unequal <a class="reference internal" href="#term-variance"><span class="xref std std-term">variance</span></a>.  The opposite of <a class="reference internal" href="#term-homoskedasticity"><span class="xref std std-term">homoskedasticity</span></a>.</p>
+</dd>
+<dt id="term-homoskedasticity">homoskedasticity<a class="headerlink" href="#term-homoskedasticity" title="Permalink to this term">¶</a></dt><dd><p>Having the same <a class="reference internal" href="#term-variance"><span class="xref std std-term">variance</span></a>.  The opposite of <a class="reference internal" href="#term-heteroskedasticity"><span class="xref std std-term">heteroskedasticity</span></a>.</p>
+</dd>
+<dt id="term-hyperparameter">hyperparameter<a class="headerlink" href="#term-hyperparameter" title="Permalink to this term">¶</a></dt><dd><p>A value that controls a model’s training or prediction behavior that is <strong>not</strong> learned from the data.
+Examples include learning rates, iteration counts, and regularization terms.
+These hyperparameters usually control one of three things:</p>
+<ul class="simple">
+<li><p>A configurable aspect of the model’s <em>structure</em>, such as the number of dimensions in a <span class="xref std std-term">dimensionality reduction</span>.</p></li>
+<li><p>A configurable aspect of the model’s <em>objective function</em>, such as the regularization strength.</p></li>
+<li><p>A configurable aspect of the model’s <em>optimization process</em>, such as the number of iterations to run for an <a class="reference internal" href="#term-iterative-method"><span class="xref std std-term">iterative method</span></a>.</p></li>
+</ul>
+<p>In programming, we would usually call these “parameters”, but that term is taken by the statistical or machine learning notion of a
+<a class="reference internal" href="#term-parameter"><span class="xref std std-term">parameter</span></a>, so we call these “hyperparameters”.</p>
+</dd>
+<dt id="term-inference">inference<a class="headerlink" href="#term-inference" title="Permalink to this term">¶</a></dt><dd><p>As we primarily use it in this class, inference is the act of learning from the data; in particular, when we are trying to learn something about the world or the data generating process from the data we observe.  It contrasts with <a class="reference internal" href="#term-prediction"><span class="xref std std-term">prediction</span></a>, discussed in <a class="reference internal" href="../week8/#79719da0-ac88-4bfc-acf7-ac4e011f9777" title="week8:pred-inf"><span>🎥 Prediction and Inference</span></a> and at length in <a class="reference internal" href="../week4/#week4" title="week4"><span>📅 Week 4 — Inference (9/13–17)</span></a>.</p>
+<p>In machine learning deployment, inference is often used to refer to using the model to score or classify new instances at runtime, as opposed to the training stage of the model.</p>
+<p>Inference can also be used to refer to learning the model parameters itself, but we won’t be using it this way to avoid confusion.</p>
+</dd>
+<dt id="term-instance">instance<a class="headerlink" href="#term-instance" title="Permalink to this term">¶</a></dt><dd><p>One entity of the data for a modeling or prediction problem.  Typically one row of the training or testing data; each row is an observation of an
+instance.  In general, however, it is one entity about which we are trying to learn or predict, such as one transaction.</p>
+</dd>
+<dt id="term-iterative-method">iterative method<a class="headerlink" href="#term-iterative-method" title="Permalink to this term">¶</a></dt><dd><p>An computational method that works by computing an initial solution (or guess) and iteratively refining it, usually until some stopping condition is met (often
+the number of iterations, or a convergence criteria such as the change from one iteration to the next dropping below a threshold).</p>
+<p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize" title="(in SciPy v1.9.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.optimize.minimize()</span></code></a> as demonstrated in <a class="reference internal" href="../week9/#22c0bc92-d86a-4611-8df1-adc20162fd56" title="week9:optimizing-loss"><span>🎥 Optimizing Loss</span></a> is an example of an iterative method.</p>
+</dd>
+<dt id="term-joint-probability">joint probability<a class="headerlink" href="#term-joint-probability" title="Permalink to this term">¶</a></dt><dd><p>The joint probability <span class="math notranslate nohighlight">\(\P[A, B]\)</span> is the probability of both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> occurring (in terms of underlying events, it’s the probability that the elementary event <span class="math notranslate nohighlight">\(\zeta\)</span> is in both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>).
+Equivalent to <span class="math notranslate nohighlight">\(\P[A \cap B]\)</span>.
+Related to the conditional and marginal probabilities by <span class="math notranslate nohighlight">\(\P[A, B] = \P[A|B] \P[B]\)</span>.
+Symmetric (<span class="math notranslate nohighlight">\(\P[A, B] = \P[B, A]\)</span>).</p>
+<p>Introduced in <a class="reference internal" href="../week4/#fb3a5f34-8677-432a-a91f-ad9c0183c801" title="week4:joint-conditional"><span>🎥 Joint and Conditional</span></a> and <a class="reference internal" href="../resources/probability/"><span class="doc std std-doc">Notes on Probability</span></a>.</p>
+</dd>
+<dt id="term-L1-Norm">L₁ Norm<a class="headerlink" href="#term-L1-Norm" title="Permalink to this term">¶</a></dt><dd><p>A measure of the magnitude of a vector, sometimes called the <em>Manhattan distance</em>.  It is the sum of the absolute values of the elements in the vector:</p>
+<div class="math notranslate nohighlight">
+\[\| \mathbf{x} \|_1 = \sum_i |x_i|\]</div>
+</dd>
+<dt id="term-L2-Norm">L₂ Norm<a class="headerlink" href="#term-L2-Norm" title="Permalink to this term">¶</a></dt><dd><p>A measure of the magnitude of a vector, also called the <em>Euclidean norm</em> or <em>Euclidean length</em>.  It is square root of the sum of squares of the elements in the vector:</p>
+<div class="math notranslate nohighlight">
+\[\| \mathbf{x} \|_2 = \sqrt{\sum_i x_i^2}\]</div>
+</dd>
+<dt id="term-label">label<a class="headerlink" href="#term-label" title="Permalink to this term">¶</a></dt><dd><p>An observed outcome for an <a class="reference internal" href="#term-instance"><span class="xref std std-term">instance</span></a>, used for supervized learning.  Sometimes called a <a class="reference internal" href="#term-supervision-signal"><span class="xref std std-term">supervision signal</span></a>.</p>
+</dd>
+<dt id="term-leakage">leakage<a class="headerlink" href="#term-leakage" title="Permalink to this term">¶</a></dt><dd><p>When your predictive model benefits from information that would not be available when the model is in actual use.
+Setting aside test data until the model is ready for final evaluation helps reduce leakage.</p>
+</dd>
+<dt id="term-linear-model">linear model<a class="headerlink" href="#term-linear-model" title="Permalink to this term">¶</a></dt><dd><p>A model of the form <span class="math notranslate nohighlight">\(\hat{y} = \beta_0 + \sum_i \beta_i x_i\)</span>: it is the sum of scalar products.</p>
+<p>Linear models are introduced in <a class="reference internal" href="../week8/#week8" title="week8"><span>📅 Week 8 — Regression (Oct. 11–15)</span></a>.</p>
+</dd>
+<dt id="term-logistic-function">logistic function<a class="headerlink" href="#term-logistic-function" title="Permalink to this term">¶</a></dt><dd><p>A <em>sigmoid</em> function that maps unbounded real values to the range <span class="math notranslate nohighlight">\((0,1)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{logistic}(x) = \frac{1}{1 + e^{-x}} = \frac{e^x}{e^x + 1}\]</div>
+<p>The logistic function is the invert of the <a class="reference internal" href="#term-logit-function"><span class="xref std std-term">logit function</span></a>.</p>
+<p>Logistic regressions are introduced in <a class="reference internal" href="../week10/#week10" title="week10"><span>📅 Week 10 — Classification (10/25–29)</span></a>.</p>
+</dd>
+<dt id="term-logit-function">logit function<a class="headerlink" href="#term-logit-function" title="Permalink to this term">¶</a></dt><dd><p>The inverse of the <a class="reference internal" href="#term-logistic-function"><span class="xref std std-term">logistic function</span></a>:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{logit(x)} = \mathrm{logistic}^{-1}(x) = \operatorname{log} \frac{x}{1-x} = \operatorname{log} x - \operatorname{log} (1-x)\]</div>
+<p>Applying <em>logit</em> to a probability yields the <a class="reference internal" href="#term-log-odds"><span class="xref std std-term">log odds</span></a>.</p>
+</dd>
+<dt id="term-log-odds">log odds<a class="headerlink" href="#term-log-odds" title="Permalink to this term">¶</a></dt><dd><p>The logarithm of the <a class="reference internal" href="#term-odds"><span class="xref std std-term">odds</span></a>.  Introduced in <a class="reference internal" href="../week10/#db6b0a05-0cc0-4274-80ba-adc1018645a3" title="week10:logistic"><span>🎥 Log-Odds and Logistics</span></a>.</p>
+</dd>
+<dt id="term-majority-class-classifier">majority-class classifier<a class="headerlink" href="#term-majority-class-classifier" title="Permalink to this term">¶</a></dt><dd><p>A classifier that classifies every data point with the most common class from the training data.
+If 72% of the training data is in class A, the majority-class classifier will classify every test point as A, no matter what its input feature values are.</p>
+</dd>
+<dt id="term-marginal-probability">marginal probability<a class="headerlink" href="#term-marginal-probability" title="Permalink to this term">¶</a></dt><dd><p>The probability of a single event, or distribution of a single dimension, <span class="math notranslate nohighlight">\(P(A)\)</span>.
+Primarily used when we are talking about the probability of events (or expectation of variables) along one dimension of a <em>product space</em>, such as the suit or number of a card from a deck of playing cards.</p>
+<p>Described in <a class="reference internal" href="../week4/#fb3a5f34-8677-432a-a91f-ad9c0183c801" title="week4:joint-conditional"><span>🎥 Joint and Conditional</span></a> and <a class="reference internal" href="../resources/probability/"><span class="doc std std-doc">Notes on Probability</span></a>.</p>
+</dd>
+<dt id="term-matrix">matrix<a class="headerlink" href="#term-matrix" title="Permalink to this term">¶</a></dt><dd><p>A two-dimensional array of numbers.
+Alternatively, a linear map between vector spaces.</p>
+</dd>
+<dt id="term-matrix-decomposition">matrix decomposition<a class="headerlink" href="#term-matrix-decomposition" title="Permalink to this term">¶</a></dt><dd><p>A decomposition of a matrix into other matrices, such that multiplying the decomposition back together yields the original matrix or an approximation thereof.
+An example is the <em>singular value decomposition</em> (SVD):</p>
+<div class="math notranslate nohighlight">
+\[M = P \Sigma Q^T\]</div>
+<p>where <span class="math notranslate nohighlight">\(P \in \Reals^{m \times k}\)</span> and <span class="math notranslate nohighlight">\(Q \in \Reals^{n \times k}\)</span> are orthogonal, and <span class="math notranslate nohighlight">\(\Sigma \in \Reals^{k \times k}\)</span> is diagonal.</p>
+<p>Introduced in <a class="reference internal" href="../week13/#3d617c61-5cb1-48d9-ba65-adc60183d1b2" title="week13:decomp"><span>🎥 Decomposing Matrices</span></a>.</p>
+</dd>
+<dt id="term-mean">mean<a class="headerlink" href="#term-mean" title="Permalink to this term">¶</a></dt><dd><p>A measure of central tendency; the expected value of a random variable.  Without any further specifier, such as geometric or harmonic, the mean is taken to refer to the <em>arithmetic mean</em>.  The sample mean <span class="math notranslate nohighlight">\(\bar{x}\)</span> is computed as:</p>
+<div class="math notranslate nohighlight">
+\[\bar{x} = \frac{1}{n} \sum_i x_i\]</div>
+<p>The mean of a vector or data series can be computed with <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean" title="(in NumPy v1.23)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.mean()</span></code></a> or <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.mean.html#pandas.Series.mean" title="(in pandas v1.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.Series.mean()</span></code></a>.</p>
+<p>Introduced in <a class="reference internal" href="../week2/#fd7d2c53-752b-4844-9919-ad9000efd7f2" title="week2:descriptive-statistics"><span>🎥 Descriptive Statistics</span></a>.</p>
+</dd>
+<dt id="term-naive-Bayes">naïve Bayes<a class="headerlink" href="#term-naive-Bayes" title="Permalink to this term">¶</a></dt><dd><p>A classification technique that uses Bayes’ theorem to classify instances given (counts of) discrete features.  Given a sequence of tokens <span class="math notranslate nohighlight">\(T\)</span>,
+it computes:</p>
+<div class="math notranslate nohighlight">
+\[\P[Y=y|T] \propto \P[T|Y=y] P[Y=y]\]</div>
+<p>The “naïve” term comes from the simplifying assumption that tokens are conditionally independent of each other given the class, so that <span class="math notranslate nohighlight">\(\P[T|Y=y]\)</span> can be
+computed from <span class="math notranslate nohighlight">\(\P[t|Y=y]\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\P[T|Y=y] = \prod_{t \in T} \P[t | Y=y]\]</div>
+<p>Naïve Bayes is a good baseline model for many text classification tasks.
+It is implemented (for arbitrarily many classes) by <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html#sklearn.naive_bayes.MultinomialNB" title="(in scikit-learn v1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.naive_bayes.MultinomialNB</span></code></a>, and introduced in <a class="reference internal" href="../week12/#f9571ba1-0629-47a3-bf8a-adc60183b986" title="week12:classifying-text"><span>🎥 Classifying Text</span></a>.</p>
+</dd>
+<dt id="term-null-hypothesis">null hypothesis<a class="headerlink" href="#term-null-hypothesis" title="Permalink to this term">¶</a></dt><dd><p>A formalization of the idea of “no effect”, used for <a class="reference internal" href="#term-null-hypothesis-significance-test"><span class="xref std std-term">null hypothesis significance testing</span></a> and typically
+denoted <span class="math notranslate nohighlight">\(H_0\)</span>. See <a class="reference internal" href="#term-p-value"><span class="xref std std-term">p-value</span></a>.</p>
+</dd>
+<dt id="term-null-hypothesis-significance-test">null hypothesis significance test<a class="headerlink" href="#term-null-hypothesis-significance-test" title="Permalink to this term">¶</a></dt><dd><p>A significance test that assesses whether the data provide evidence to reject the <a class="reference internal" href="#term-null-hypothesis"><span class="xref std std-term">null hypothesis</span></a> <span class="math notranslate nohighlight">\(H_0\)</span> in favor of an alternate hypothesis
+<span class="math notranslate nohighlight">\(H_a\)</span>.  This is typically done by computing a <a class="reference internal" href="#term-p-value"><span class="xref std std-term">p-value</span></a>, the probability of seeing an effect at least as large as the one observed if the
+null hypothesis is true, and rejecting the null hypothesis if this probability is sufficiently small.</p>
+</dd>
+<dt id="term-objective-function">objective function<a class="headerlink" href="#term-objective-function" title="Permalink to this term">¶</a></dt><dd><p>A function describing a model’s performance that is used as the goal for learning its parameters.
+This can be a <strong>loss function</strong> (where the goal is to minimize it) or a <strong>utility function</strong> (which should be maximized).</p>
+<p>Defined in <a class="reference internal" href="../week11/#40a41051-8c07-443c-b7d1-ac66002b3208" title="week11:eval-intro"><span>🎥 Intro and Context</span></a>, and introduced in <a class="reference internal" href="../week9/#22c0bc92-d86a-4611-8df1-adc20162fd56" title="week9:optimizing-loss"><span>🎥 Optimizing Loss</span></a>.</p>
+</dd>
+<dt id="term-operationalization">operationalization<a class="headerlink" href="#term-operationalization" title="Permalink to this term">¶</a></dt><dd><p>The mapping of a goal or question to a specific, measurable quantity (or measurement procedure).
+When we operationalize a question, we translate it into the precise computations and measurements we will use to attempt to answer it.</p>
+<p>Introduced in <a class="reference internal" href="../week1/#1b19dc1f-fee8-4505-9294-ad7501796f97" title="week1:asking-questions"><span>🎥 Asking Questions</span></a>.</p>
+</dd>
+<dt id="term-odds">odds<a class="headerlink" href="#term-odds" title="Permalink to this term">¶</a></dt><dd><p>An alternative way of framing probability, as the ratio of the likelihood for or against an event:</p>
+<div class="math notranslate nohighlight">
+\[\Odds(A) = \frac{\P[A]}{\P[A^c]}\]</div>
+<p>The <a class="reference internal" href="#term-log-odds"><span class="xref std std-term">log odds</span></a> is a particularly convenient way of working with odds, and is <span class="math notranslate nohighlight">\(\log \P[A] - \log (1 - \P[A])\)</span>.
+See the <a class="reference internal" href="../resources/probability/#prob-odds"><span class="std std-ref">📝 probability notes</span></a>.</p>
+</dd>
+<dt id="term-odds-ratio">odds ratio<a class="headerlink" href="#term-odds-ratio" title="Permalink to this term">¶</a></dt><dd><p>The ratio of the odds of two different outcomes.</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{OR}(A, B) = \frac{\Odds(A)}{\Odds{B}}\]</div>
+<p>See the <a class="reference external" href="resources/probability.md#odds">📝 probability notes</a>.</p>
+</dd>
+<dt id="term-overfitting">overfitting<a class="headerlink" href="#term-overfitting" title="Permalink to this term">¶</a></dt><dd><p>When a model learns too much from its training data, so it cannot do an effective job of predicting future unseen data.</p>
+<p>Introduced in <a class="reference internal" href="../week9/#20efc4ea-3a6e-4e1f-806e-adc1018628e3" title="week9:overfitting"><span>🎥 Overfitting</span></a>.</p>
+</dd>
+<dt id="term-parameter">parameter<a class="headerlink" href="#term-parameter" title="Permalink to this term">¶</a></dt><dd><p>In <em>inferential statistics</em>: a “true” value in the population, such as the mean flipper length of Chinstrap penguins.
+The goal of inferential statistics is often to estimate parameters, because we typically do not have direct access to them.</p>
+<p>Introduced in <a class="reference internal" href="../week4/#7d69ede0-5d1d-4880-9a92-ad9c0183c927" title="week4:sampling"><span>🎥 Sampling and the DGP</span></a>.</p>
+<p>In <em>model fitting</em>: a variable in a statistical or machine learning model whose value is learned from the data.
+Contrast <a class="reference internal" href="#term-hyperparameter"><span class="xref std std-term">hyperparameter</span></a>, a variable that controls the model or the model-fitting process but is not learned from the data.</p>
+</dd>
+<dt id="term-p-hacking"><span class="math notranslate nohighlight">\(p\)</span>-hacking<a class="headerlink" href="#term-p-hacking" title="Permalink to this term">¶</a></dt><dd><p>Computing hypothesis tests of multiple things in hopes that one of them will be statistically significant.
+See <a class="reference external" href="https://xkcd.com/882/">XKCD #882: Significant</a> and <a class="reference internal" href="../week5/#p-hacking-cartoon"><span class="std std-ref">Week 4</span></a>.</p>
+</dd>
+<dt id="term-population">population<a class="headerlink" href="#term-population" title="Permalink to this term">¶</a></dt><dd><p>The complete set of entities we want to study.  This is not only all entities that <em>do</em> exist, but under some philosophies, all entities that <em>could</em> exist.
+For example, the set of all possible adult Chinstrap penguins would be the population.</p>
+<p>Discussed in more detail in <a class="reference internal" href="../week4/#7d69ede0-5d1d-4880-9a92-ad9c0183c927" title="week4:sampling"><span>🎥 Sampling and the DGP</span></a>.</p>
+</dd>
+<dt id="term-prediction">prediction<a class="headerlink" href="#term-prediction" title="Permalink to this term">¶</a></dt><dd><p>Using a model to estimate or predict a score or label from explanatory variables for instances that were not seen during training.
+Contrasts with <a class="reference internal" href="#term-inference"><span class="xref std std-term">inference</span></a> as one of the major goals of modeling, discussed in <a class="reference internal" href="../week8/#79719da0-ac88-4bfc-acf7-ac4e011f9777" title="week8:pred-inf"><span>🎥 Prediction and Inference</span></a>.</p>
+</dd>
+<dt id="term-p-value"><span class="math notranslate nohighlight">\(p\)</span>-value<a class="headerlink" href="#term-p-value" title="Permalink to this term">¶</a></dt><dd><p>In hypothesis testing, the probability that the null hypothesis (<span class="math notranslate nohighlight">\(H_0\)</span>) would produce a value as large as the observed value; if the observed statistic is <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(X\)</span> is a random variable representing the sampling and analysis process, this is <span class="math notranslate nohighlight">\(\P[X &gt; x | H_0 \text{ is true}]\)</span>.</p>
+<p>Typically the null hypothesis is an appropriate formalization of “nothing interesting”, so the <em>p</em>-value is the probability of seeing an effect as large as the one observed if there is no true effect to observe.</p>
+<p>Discussed in <a class="reference internal" href="../week5/#e453ccba-6d33-4d7d-be1f-ad9c0183fcfc" title="week5:hypotest"><span>🎥 Testing Hypotheses</span></a>.</p>
+</dd>
+<dt id="term-random-variable">random variable<a class="headerlink" href="#term-random-variable" title="Permalink to this term">¶</a></dt><dd><p>A variable that takes on random values, usually as the result of a random process or because we are using randomness and probability to model uncertainty about the variable’s actual value in any particular case.  For our purposes, random variables may be discrete (integer-valued) or continuous (real-valued), but are always numeric.  We denote random variables with capital letters (<span class="math notranslate nohighlight">\(X\)</span>).  A single sample is an observation of a random variable.</p>
+<p>The probability distribution of a continous random variable is defined by a distribution function <span class="math notranslate nohighlight">\(F_X(x) = \P[X &lt; x]\)</span>.
+Two common operations on a random variable are to take its <a class="reference internal" href="#term-expected-value"><span class="xref std std-term">expected value</span></a> or compute its <a class="reference internal" href="#term-variance"><span class="xref std std-term">variance</span></a>.</p>
+<p>Formally, a random variable is a function <span class="math notranslate nohighlight">\(f_X: E \to \Reals\)</span>, where <span class="math notranslate nohighlight">\(E\)</span> is the set of <a class="reference internal" href="#term-elementary-event"><span class="xref std std-term">elementary events</span></a> from a probability space <span class="math notranslate nohighlight">\((E, \Field, \P)\)</span>, and <span class="math notranslate nohighlight">\(F_X(x) = \P[F_X(e) &lt; x]\)</span>.  For the purposes of this class, we will not need this distinction.</p>
+<p>Discussed in <a class="reference internal" href="../resources/probability/"><span class="doc std std-doc">Notes on Probability</span></a> and <a class="reference internal" href="../week4/#55bc41ca-eafa-47cc-8be6-ad9c018526f8" title="week4:continuous"><span>🎥 Continuous Probability</span></a>.</p>
+</dd>
+<dt id="term-regression">regression<a class="headerlink" href="#term-regression" title="Permalink to this term">¶</a></dt><dd><p>A modeling or prediction problem where we try to estimate or predict a continuous variable <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p>This is the focus of <a class="reference internal" href="../week8/#week8" title="week8"><span>📅 Week 8 — Regression (Oct. 11–15)</span></a>.</p>
+</dd>
+<dt id="term-regularization">regularization<a class="headerlink" href="#term-regularization" title="Permalink to this term">¶</a></dt><dd><p>A penalty term added to a loss function, typically penalizing large values.  Used to encourage sparsity or to require coefficients to be supported by larger quantities of data.</p>
+<p>Introduced in <a class="reference internal" href="../week11/#fa457314-7344-48cd-af1f-ac660039cbc4" title="week11:regularization"><span>🎥 Regularization</span></a>.</p>
+</dd>
+<dt id="term-residual">residual<a class="headerlink" href="#term-residual" title="Permalink to this term">¶</a></dt><dd><p>The error in estimating a variable with a model.  For a model fitting an estimator <span class="math notranslate nohighlight">\(\hat{Y}\)</span> for a variable <span class="math notranslate nohighlight">\(Y\)</span>, the residuals are <span class="math notranslate nohighlight">\(\epsilon_i = y - \hat{y}\)</span>.
+This is reflected in the full linear model: <span class="math notranslate nohighlight">\(y_i = \beta_0 + \sum_j \beta_j x_{ij} + \epsilon_i\)</span>.</p>
+<p>Introduced in <a class="reference internal" href="../week8/#6974f533-c84a-425f-85c6-ac4e011f97ae" title="week8:single-regression"><span>🎥 Single Regression</span></a>.</p>
+</dd>
+<dt id="term-sample">sample<a class="headerlink" href="#term-sample" title="Permalink to this term">¶</a></dt><dd><p>A subset of the population, for which we have observations.</p>
+<p>Discussed in more detail in <a class="reference internal" href="../week4/#7d69ede0-5d1d-4880-9a92-ad9c0183c927" title="week4:sampling"><span>🎥 Sampling and the DGP</span></a>.</p>
+</dd>
+<dt id="term-sample-size">sample size<a class="headerlink" href="#term-sample-size" title="Permalink to this term">¶</a></dt><dd><p>The number of items in the sample.  Often denoted <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</dd>
+<dt id="term-sampling-distribution">sampling distribution<a class="headerlink" href="#term-sampling-distribution" title="Permalink to this term">¶</a></dt><dd><p>The distribution of a statistic when it is computed over many repeated samples of the same size from the same population.
+The sampling distribution of the sample mean from a population with mean <span class="math notranslate nohighlight">\(\mu\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2\)</span> is <span class="math notranslate nohighlight">\(\mathrm{Normal}(\mu, \sigma/\sqrt{n})\)</span>.</p>
+<p>Discussed in <a class="reference internal" href="../week4/#7d69ede0-5d1d-4880-9a92-ad9c0183c927" title="week4:sampling"><span>🎥 Sampling and the DGP</span></a>.</p>
+</dd>
+<dt id="term-statistic">statistic<a class="headerlink" href="#term-statistic" title="Permalink to this term">¶</a></dt><dd><p>A value computed from a set of observations.
+For example, the sample mean <span class="math notranslate nohighlight">\(\bar{x} = n^{-1} \sum_i x_i\)</span> is a statistic of a sample <span class="math notranslate nohighlight">\(X = \langle x_i, \dots, x_n \rangle\)</span>.</p>
+<p>Discussed in <a class="reference internal" href="../week4/#8388f5d0-e1da-43ec-a972-ad9c0183c6ef" title="week4:introduction"><span>🎥 Inference Intro</span></a>.</p>
+</dd>
+<dt id="term-standard-deviation">standard deviation<a class="headerlink" href="#term-standard-deviation" title="Permalink to this term">¶</a></dt><dd><p>A measure of the spread of a <a class="reference internal" href="#term-random-variable"><span class="xref std std-term">random variable</span></a>.  It is the square root of the mean squared deviation from the mean:</p>
+<div class="math notranslate nohighlight">
+\[\sigma_X = \sqrt{\frac{\sum_i (x_i - \bar{x})^2}{n}}\]</div>
+<p>When computing the standard deviation from a sample, we instead compute the <strong>sample standard deviation</strong>:</p>
+<div class="math notranslate nohighlight">
+\[s = \sqrt{\frac{\sum_i (x_i - \bar{x})^2}{n - 1}}\]</div>
+<p>The standard deviation is the square root of the <a class="reference internal" href="#term-variance"><span class="xref std std-term">variance</span></a>.</p>
+<p>Standard deviations can be computed with:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.std.html#pandas.Series.std" title="(in pandas v1.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.Series.std()</span></code></a> (computes sample <span class="math notranslate nohighlight">\(s\)</span>, pass <code class="docutils literal notranslate"><span class="pre">ddof=0</span></code> to compute population <span class="math notranslate nohighlight">\(\sigma\)</span>)</p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.std.html#numpy.std" title="(in NumPy v1.23)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.std()</span></code></a> (computes population <span class="math notranslate nohighlight">\(\sigma\)</span>, pass <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code> to compute sample <span class="math notranslate nohighlight">\(s\)</span>)</p></li>
+</ul>
+<p>Introduced in <a class="reference internal" href="../week2/#fd7d2c53-752b-4844-9919-ad9000efd7f2" title="week2:descriptive-statistics"><span>🎥 Descriptive Statistics</span></a>.</p>
+</dd>
+<dt id="term-standard-error">standard error<a class="headerlink" href="#term-standard-error" title="Permalink to this term">¶</a></dt><dd><p>The standard deviation of the <em>sampling distribution</em> of a statistic.  The standard error of the mean (Pandas method <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.sem.html#pandas.Series.sem" title="(in pandas v1.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.Series.sem()</span></code></a>) is <span class="math notranslate nohighlight">\(s/\sqrt{n}\)</span>.</p>
+<p>Discussed in <a class="reference internal" href="../week4/#7ff79b12-d2cd-4326-8882-ad9c0183c9b6" title="week4:confidence"><span>🎥 Confidence</span></a>.</p>
+</dd>
+<dt id="term-standardization">standardization<a class="headerlink" href="#term-standardization" title="Permalink to this term">¶</a></dt><dd><p>Normalizing a variable to be in units of ``standard deviations from the mean’’, instead of the original units.  This is done by
+subtracting the mean and dividing by the standard deviation (in this formula, <span class="math notranslate nohighlight">\(\tilde{x}_i\)</span> is the standardized value of observation <span class="math notranslate nohighlight">\(x_i\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\tilde{x}_i = \frac{x_i - \bar{x}}{s}\]</div>
+<p>Demonstrated in <a class="reference internal" href="../resources/tutorials/OneSample/"><span class="doc std std-doc">One Sample notebook</span></a>.</p>
+</dd>
+<dt id="term-supervision-signal">supervision signal<a class="headerlink" href="#term-supervision-signal" title="Permalink to this term">¶</a></dt><dd><p>The label or outcome observations used for supervised machine learning.  See <a class="reference internal" href="#term-label"><span class="xref std std-term">label</span></a>.</p>
+<p>This term is introduced in <a class="reference internal" href="../week13/#7fb7ef35-8f6d-482b-8dfd-adc60183d110" title="week13:unsupervised-intro"><span>🎥 No Supervision</span></a>.</p>
+</dd>
+<dt id="term-supervized-learning">supervized learning<a class="headerlink" href="#term-supervized-learning" title="Permalink to this term">¶</a></dt><dd><p>Training a model to predict an observed outcome or <a class="reference internal" href="#term-label"><span class="xref std std-term">label</span></a>.  We use this when we have known outcomes for training and evaluation data,
+and want to build a model that will predict those outcomes for future data before they are observed (or when they cannot be observed).</p>
+<p>Contrast <a class="reference internal" href="#term-unsupervised-learning"><span class="xref std std-term">unsupervised learning</span></a>.</p>
+</dd>
+<dt id="term-test-set">test set<a class="headerlink" href="#term-test-set" title="Permalink to this term">¶</a></dt><dd><p>A portion of your data set that is held back to evaluate the effectiveness of the <strong>final</strong> model.
+Contrast with <a class="reference internal" href="#term-training-set"><span class="xref std std-term">training set</span></a>.
+Sometimes erroneously called the <a class="reference internal" href="#term-validation-set"><span class="xref std std-term">validation set</span></a>.</p>
+<p>Data is typically split into three pieces:</p>
+<ol class="simple">
+<li><p>The test set</p></li>
+<li><p>The tuning or validation set</p></li>
+<li><p>The training set</p></li>
+</ol>
+<p>Once model tuning is done, the model may be retrained on the union of the training and tuning sets, or it may be used as-is.
+We can think of these either as three separate sets, or as a sequence of splits:</p>
+<ul class="simple">
+<li><p>Split the initial data into train and test data</p></li>
+<li><p>Re-split the training data into tuning data a “train’” set</p></li>
+</ul>
+<p>Introduced in <a class="reference internal" href="../week8/#5ba717f5-1c46-4118-a89e-ac51001564cd" title="week8:prediction-accuracy"><span>🎥 Prediction Accuracy</span></a> and discussed in more detail in <a class="reference internal" href="../week11/#71b1aa35-8435-4eae-ae32-ac660033ee09" title="week11:workflow"><span>🎥 Workflow</span></a>.
+See also <a class="reference external" href="https://en.wikipedia.org/wiki/Training,_validation,_and_test_sets">Training, validation, and test sets</a> on Wikipedia, and
+<a class="reference external" href="https://stats.stackexchange.com/a/96869/389">this answer on Cross Validated</a>.</p>
+</dd>
+<dt id="term-training-set">training set<a class="headerlink" href="#term-training-set" title="Permalink to this term">¶</a></dt><dd><p>The portion of your data set on which you train your model.
+Contrast with <a class="reference internal" href="#term-test-set"><span class="xref std std-term">test set</span></a> and <a class="reference internal" href="#term-tuning-set"><span class="xref std std-term">tuning set</span></a>.
+See <a class="reference internal" href="#term-test-set"><span class="xref std std-term">test set</span></a> for more details.</p>
+</dd>
+<dt id="term-t-test"><em>t</em>-test<a class="headerlink" href="#term-t-test" title="Permalink to this term">¶</a></dt><dd><p>A statistical test for means of normally-distributed data.  T-tests come in three varieties:</p>
+<ol class="simple">
+<li><p>One-sample <em>t</em>-test that tests whether a single mean is different from zero (or another fixed value <span class="math notranslate nohighlight">\(\mu_0\)</span>).  <span class="math notranslate nohighlight">\(H_0: \mu=0\)</span></p></li>
+<li><p>Two-sample independent <em>t</em>-test that tests whether the means of two independent samples are the same.  <span class="math notranslate nohighlight">\(H_0: \mu_1 = \mu_2\)</span></p></li>
+<li><p>Paired <em>t</em>-test that tests, for a sample of paired observations, whether the mean difference between observations for each sample is zero (the measurements are, on average, the same).  <span class="math notranslate nohighlight">\(H_0: \mu_{x_{i1} - x_{i2}} = 0\)</span></p></li>
+</ol>
+<p>Discussed in <a class="reference internal" href="../week5/#e453ccba-6d33-4d7d-be1f-ad9c0183fcfc" title="week5:hypotest"><span>🎥 Testing Hypotheses</span></a>, <a class="reference internal" href="../week5/#359a56a7-0e20-4085-bf80-ad9c0183fe36" title="week5:t-test"><span>🎥 T-tests</span></a>, and associated readings.</p>
+</dd>
+<dt id="term-tuning-set">tuning set<a class="headerlink" href="#term-tuning-set" title="Permalink to this term">¶</a></dt><dd><p>A portion of your data set that you use to compare the performance of different candidate models, for hyperparameter tuning, feature selection, and similar tasks.
+Distinct from the <a class="reference internal" href="#term-test-set"><span class="xref std std-term">test set</span></a>, which is only used <strong>once</strong> to test the performance of your final model.
+Often called a <em>validation set</em>, but I avoid this term because it is ambiguous.</p>
+<p>See <a class="reference internal" href="#term-test-set"><span class="xref std std-term">test set</span></a> for more details.</p>
+</dd>
+<dt id="term-unbiased-estimator">unbiased estimator<a class="headerlink" href="#term-unbiased-estimator" title="Permalink to this term">¶</a></dt><dd><p>An <a class="reference internal" href="#term-estimator"><span class="xref std std-term">estimator</span></a> whose expected value is the population parameter.</p>
+</dd>
+<dt id="term-unsupervised-learning">unsupervised learning<a class="headerlink" href="#term-unsupervised-learning" title="Permalink to this term">¶</a></dt><dd><p>Learning when we do not have a specific observed outcome to predict; this typically tries to learn patterns or structure in the training data,
+but no external ground truth is available to know if the patterns it learns are “correct”.  Contrast <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-supervised-learning" title="(in scikit-learn v1.1)"><span class="xref std std-term">supervised learning</span></a>.  Introduced in
+<a class="reference internal" href="../week13/#7fb7ef35-8f6d-482b-8dfd-adc60183d110" title="week13:unsupervised-intro"><span>🎥 No Supervision</span></a>.</p>
+</dd>
+<dt id="term-validation-set">validation set<a class="headerlink" href="#term-validation-set" title="Permalink to this term">¶</a></dt><dd><p>A widely-used name for the <a class="reference internal" href="#term-tuning-set"><span class="xref std std-term">tuning set</span></a>.  Sometimes validation and test are switched, so an author will talk about trying out different models with their test set and doing the final evaluation with a validation set.  I avoid the term due to this confusion.</p>
+<p>See <a class="reference internal" href="#term-test-set"><span class="xref std std-term">test set</span></a> for more details.</p>
+</dd>
+<dt id="term-variance">variance<a class="headerlink" href="#term-variance" title="Permalink to this term">¶</a></dt><dd><p>A measure of the spread of a random variable (which may be observable quantities in the population).</p>
+<div class="math notranslate nohighlight">
+\[\Var(X) = \E[(X - \E[X])^2]\]</div>
+<p>Variance is the square of the <a class="reference internal" href="#term-standard-deviation"><span class="xref std std-term">standard deviation</span></a>, and is sometimes written <span class="math notranslate nohighlight">\(\sigma^2\)</span>.  It is also related to the <a class="reference internal" href="#term-covariance"><span class="xref std std-term">covariance</span></a>: <span class="math notranslate nohighlight">\(\Var(X) = \Cov(X, X)\)</span>.</p>
+<p>Variance can be computed with:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.var.html#pandas.Series.var" title="(in pandas v1.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.Series.var()</span></code></a> (computes sample variance, pass <code class="docutils literal notranslate"><span class="pre">ddof=0</span></code> to compute population variance)</p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.var.html#numpy.var" title="(in NumPy v1.23)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.var()</span></code></a> (computes population variance, pass <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code> to compute sample variance)</p></li>
+</ul>
+</dd>
+<dt id="term-vector">vector<a class="headerlink" href="#term-vector" title="Permalink to this term">¶</a></dt><dd><p>A sequence or array of numbers; <span class="math notranslate nohighlight">\(\mathbf{x} = [x_1, x_2, \dots, x_n]\)</span> is an <span class="math notranslate nohighlight">\(n\)</span>-dimensional vector.</p>
+</dd>
+<dt id="term-vectorization">vectorization<a class="headerlink" href="#term-vectorization" title="Permalink to this term">¶</a></dt><dd><p>Writing a computation so that mathematical operations are done across entire arrays at a time, rather than looping over individual data points in Python code.</p>
+</dd>
+</dl>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../schedule/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Schedule</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../week0/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 0 — Pre-Class Welcome</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

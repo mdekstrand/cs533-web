@@ -1,0 +1,2187 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 5 — Filling In (9/20–24) &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabinsert.js"></script>
+    <script src="../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="copyright" title="Copyright" href="../copyright/" />
+    <link rel="next" title="Week 6 — Two Variables (Sep. 27–Oct. 1)" href="../week6/" />
+    <link rel="prev" title="Week 4 — Inference (9/13–17)" href="../week4/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../resources/tutorials/">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/week5/index.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fweek5/index.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/week5/index.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#content-overview">
+   🧐 Content Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deadlines">
+   📅 Deadlines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignment-1-solution">
+   📓 Assignment 1 Solution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#course-glossary">
+   📃 Course Glossary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#writing-functions">
+   📓 Writing Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparing-distributions">
+   🎥 Comparing Distributions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testing-hypotheses">
+   🎥 Testing Hypotheses
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cartoon">
+   💥 Cartoon
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#t-tests">
+   🎥 T-tests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#epistemology">
+   🎥 Epistemology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-5-quiz">
+   🚩 Week 5 Quiz
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#one-sample-notebook">
+   📓 One Sample Notebook
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-errors">
+   🎥 Python Errors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-libraries">
+   🎥 Python Libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-more">
+   🎥 Learning More
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practice">
+   ✅ Practice
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-examples">
+   📓 More Examples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tutorials">
+   📓 Tutorials
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignment-2">
+   📩 Assignment 2
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-5-filling-in-9-2024">
+<span id="week5"></span><h1>Week 5 — Filling In (9/20–24)<a class="headerlink" href="#week-5-filling-in-9-2024" title="Permalink to this headline">¶</a></h1>
+<p>This week introduces one new statistical concept — the <span class="xref std std-term">hypothesis test</span> — and is otherwise about <strong>practice</strong> and <strong>solidifying concepts</strong>.
+I’m also going to take a step back and give some more context to some of the things we’re talking about.</p>
+<p>Our learning outcomes are:</p>
+<ul class="simple">
+<li><p>Compute and interpret hypothesis test</p></li>
+<li><p>Avoid <a class="reference internal" href="../glossary/#term-p-hacking"><span class="xref std std-term">p-hacking</span></a> and <a class="reference internal" href="../glossary/#term-HARKing"><span class="xref std std-term">HARKing</span></a></p></li>
+<li><p>Understand how to read and interpret Python errors</p></li>
+<li><p>Understand how the quantitative techniques we are learning in this class fit in a broader landscape of epistemologies</p></li>
+</ul>
+<div class="section" id="content-overview">
+<h2>🧐 Content Overview<a class="headerlink" href="#content-overview" title="Permalink to this headline">¶</a></h2>
+<div class="module-content docutils">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><strong>Element</strong></th>
+<th class="head"><strong>Length</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#7ccac51a-7082-4968-b2a1-ad9c0183fd94"><span>🎥 Comparing Distributions</span></a></p></td>
+<td><span>5m6s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#e453ccba-6d33-4d7d-be1f-ad9c0183fcfc"><span>🎥 Testing Hypotheses</span></a></p></td>
+<td><span>14m51s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#359a56a7-0e20-4085-bf80-ad9c0183fe36"><span>🎥 T-tests</span></a></p></td>
+<td><span>12m24s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#1b8b3195-8667-42b2-b9e9-ad9c0183ffe9"><span>🎥 Epistemology</span></a></p></td>
+<td><span>25m44s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#97cc782e-69c4-48b2-b622-ad9c0183fec0"><span>🎥 Python Errors</span></a></p></td>
+<td><span>7m28s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#d4157cb9-54e4-412b-aeff-ad9c0183ff63"><span>🎥 Python Libraries</span></a></p></td>
+<td><span>3m43s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#35f85942-169f-4f7e-986a-ad9c01840084"><span>🎥 Learning More</span></a></p></td>
+<td><span>5m10s</span></td>
+</tr>
+</tbody>
+</table>
+<p><span>This week has </span><strong>1h14m</strong><span> of video and </span><strong>0 words</strong><span> of assigned readings.</span><span> This week’s videos are available in a </span><a class="panopto reference external" href="https://boisestate.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222ecc3b3f-df3b-437c-a5d0-ad9c018388de%22"><span>Panopto folder</span></a><span> and as a </span><a class="panopto podcast reference external" href="https://boisestate.hosted.panopto.com/Panopto/Podcast/Podcast.ashx?courseid=2ecc3b3f-df3b-437c-a5d0-ad9c018388de&amp;type=mp4"><span>podcast</span></a><span>.</span></p>
+</div>
+</div>
+<div class="section" id="deadlines">
+<h2>📅 Deadlines<a class="headerlink" href="#deadlines" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Week 5 Quiz is due on <strong>Thursday</strong> at 8AM.</p></li>
+<li><p><a class="reference internal" href="../assignments/A2/"><span class="doc std std-doc">Assignment 2</span></a> is due on <strong>Sunday, Sep. 26</strong> at 11:59 PM.</p></li>
+<li><p>Midterm A is next week, on <strong>Tuesday, Sep. 28</strong>.</p></li>
+</ul>
+</div>
+<div class="section" id="assignment-1-solution">
+<h2>📓 Assignment 1 Solution<a class="headerlink" href="#assignment-1-solution" title="Permalink to this headline">¶</a></h2>
+<p>I will post the Assignment 1 solution to Canvas (sorry, I’m not posting it to the entire Internet).</p>
+</div>
+<div class="section" id="course-glossary">
+<h2>📃 Course Glossary<a class="headerlink" href="#course-glossary" title="Permalink to this headline">¶</a></h2>
+<p>If you haven’t yet, I highly recommend consulting the <span class="xref myst">course glossary</span>.
+Please post on Piazza if you have suggested additions!</p>
+<p>The midterm is also likely to be useful in studying for the exam.</p>
+</div>
+<div class="section" id="writing-functions">
+<h2>📓 Writing Functions<a class="headerlink" href="#writing-functions" title="Permalink to this headline">¶</a></h2>
+<p>I’ve used Python <em>functions</em> in a few of my example notebooks.
+<a class="reference internal" href="../resources/tutorials/Functions/"><span class="doc std std-doc">The function notebook</span></a> talks more about them, how to write them, and how to use them.</p>
+</div>
+<div class="section" id="comparing-distributions">
+<h2>🎥 Comparing Distributions<a class="headerlink" href="#comparing-distributions" title="Permalink to this headline">¶</a></h2>
+<p>This video describes how to use Q-Q plots to compare data against a distribution.</p>
+<div class="resource video docutils container" id="7ccac51a-7082-4968-b2a1-ad9c0183fd94">
+<div class="tabbed-set docutils">
+<input checked="checked" id="0166b2b7-4453-46a7-9dac-6ba9082830c6" name="acbb4323-2248-4360-8b01-552e42cea7e3" type="radio">
+</input><label class="tabbed-label" for="0166b2b7-4453-46a7-9dac-6ba9082830c6">
+Video (5m6s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=7ccac51a-7082-4968-b2a1-ad9c0183fd94&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="d405918a-3e62-41fa-a0f7-0eadd4d5241c" name="acbb4323-2248-4360-8b01-552e42cea7e3" type="radio">
+</input><label class="tabbed-label" for="d405918a-3e62-41fa-a0f7-0eadd4d5241c">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173769" data-key=AKXI4cSSPrZmlgk>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+COMPARING DISTRIBUTIONS
+Learning Outcomes
+Draw a Q-Q plot to compare two distributions
+Assess distribution fit with a Q-Q plot
+Photo by Wesley Tingey on Unsplash
+Distribution
+Normal?
+The Q-Q Plot
+Points: quantiles
+Y-axis: quantile in data
+X-axis: quantile from distribution
+
+Straight line indicates match
+
+X can be:
+Values from a theoretical
+2nd data set
+Plotting
+Statsmodels: qqplot
+line=45 shows ‘match’ line
+fit=True aligns data to work w/ line
+Notebook demonstrates
+Also shows how to build your own
+Don’t do that
+
+Wrapping Up
+Q-Q plots let us compare data against a distribution (or other data)
+
+Data is on a straight line when the distribution matches.
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video and one to interest. Introduce us to ways of comparing distributions visually so our outcomes are to be able to draw.</li>
+<li>Q Q Plot to compare two distributions and assess fit with one of these plots.</li>
+<li>So we get some data points, we can draw them with a histogram. We know how to do this and we can look at them.</li>
+<li>And we want to if we want to ask, say, are these points normally distributed? That's hard to tell from the histogram.</li>
+<li>These look like they're probably normal. If I could envision drawing a curve that looks approximately normal through those.</li>
+<li>OK. But that's not a very good. That's not a very good test.</li>
+<li>And it also. Particularly because with the beaning and also with random.</li>
+<li>Little clusters here and there. It's difficult to accurately tell from a histogram of what we're looking at as normal,</li>
+<li>but histograms are not the only ways we can show distributions if we want to compare to distributions.</li>
+<li>We can use something called a Q cue plot and a Q Q plot gives us an easy way to compare whether the data are likely drawn from the same distribution.</li>
+<li>So each point is each point corresponds to a data point.</li>
+<li>But. On the on the x axis, we are showing that the quantity of corresponding to that point.</li>
+<li>In the theoretical distribution, so the reference distribution, so the theoretical Quantrill's in this case might want to test for normality.</li>
+<li>This is a standard normal distribution. So the first point in the data set, where would the first point be?</li>
+<li>Probably be if I drew this at this many points from a normal distribution.</li>
+<li>And the y axis is the the value in the actual data.</li>
+<li>In this case, normalized or standardized have a mean of zero and a standard deviation of one.</li>
+<li>But otherwise unchanged. And if the data come from the reference and reference distribution of the same distribution.</li>
+<li>So we're using normal as our reference and the data are normal. Then we're going to see.</li>
+<li>Fist straight line. That we see through the data points.</li>
+<li>Because when we align up the data points and where we would expect them to be, what we would expect them to be if they were normal.</li>
+<li>Those match the data, match what we would expect if this data were drawn from a normal distribution.</li>
+<li>If we see some points over here doing this. And something like that.</li>
+<li>Then that would indicate that we don't have a normal distribution and we see a few points here that are kind of off the line a little bit.</li>
+<li>That's OK. Especially out of the tails. It's it's common to see a couple of points at each side that that aren't quite on the line.</li>
+<li>But the fact that in the middle of the plot. That line is lining up.</li>
+<li>That gives us confidence that what we're looking at is a normal distribution and.</li>
+<li>This this plot design allows us to directly compare to distributions in a way that's much, much more precise than trying to eyeball a histogram.</li>
+<li>The X coordinates can be values from the theoretical distribution, such as a normal. You can use this for any kind of distribution.</li>
+<li>You can use it for an exponential a T, a wible pick your distribution.</li>
+<li>And but they can also be from a second datasets. We have if we have two data sets and we want to see if they were drawn from the same distribution.</li>
+<li>We can do that with a Q Q plot as well. So the plot one of these the stats that's models package provides the coocoo plot function and.</li>
+<li>There's a couple of options. There's one, the line equals forty five options going to show a match line.</li>
+<li>It's going to draw that red line that we saw. And there's another option that aligns the data to standardizes the data.</li>
+<li>That drawing the 45 degree line, that straight line from corner to corner is going to be the line where a match that data match falls.</li>
+<li>I'm writing a notebook, the one sample notebook in this week's material. It demonstrates how to draw.</li>
+<li>Q Cube plot. And it also shows how to build your own Kyuki plot. So we use stats, models, Kyuki plot in there.</li>
+<li>But then I also work through the pieces just using standard num pi a matplotlib features in order to get us to a cute, cute plot.</li>
+<li>Hopefully that I hope make a little more sense, but most of the time I just draw the queue.</li>
+<li>I use just use stats, models, Kyuki plot to get my Kyuki plots.</li>
+<li>So to conclude Q Q plots, let us compare data between two to see compare data from two different distributions.</li>
+<li>It might be observed data and a theoretical distribution, or it might be two different, two different samples of data points.</li>
+<li>And on the Q Q plot, when the distributions match the data are in a straight line.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.itl.nist.gov/div898/handbook/eda/section3/qqplot.htm">NIST Handbook on quantile-quantile plots</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="testing-hypotheses">
+<h2>🎥 Testing Hypotheses<a class="headerlink" href="#testing-hypotheses" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="e453ccba-6d33-4d7d-be1f-ad9c0183fcfc">
+<div class="tabbed-set docutils">
+<input checked="checked" id="6edddcfa-6264-4bff-9008-c4ea569ded48" name="960d9326-a8a1-4e08-ba85-310001b06e72" type="radio">
+</input><label class="tabbed-label" for="6edddcfa-6264-4bff-9008-c4ea569ded48">
+Video (14m51s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=e453ccba-6d33-4d7d-be1f-ad9c0183fcfc&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="07364ce2-e9af-465d-842f-a517d55cea68" name="960d9326-a8a1-4e08-ba85-310001b06e72" type="radio">
+</input><label class="tabbed-label" for="07364ce2-e9af-465d-842f-a517d55cea68">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173767" data-key=ALiGpaO2UAkD8JE>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+TESTING HYPOTHESES
+Learning Outcomes
+Define null and alternative hypotheses
+Carry out a T-test for a hypothesis
+Bootstrap a p-value
+Photo by Amplitude Magazin on Unsplash
+Flippers
+Do Gentoo penguins have longer flippers than Chinstrap penguins?
+
+What we can do:
+Measure difference in average flipper length
+Compute probability we would see that big a difference if they didn’t have longer flippers
+
+This is called a “p-value”.
+Hypotheses
+Tests
+Assumptions
+Each test makes assumptions.
+
+These are often quite strong!
+T-test: data are i.i.d. normal
+Pretty robust to violations
+
+ANOVA
+Data are i.i.d. normal
+NOT so robust
+Bootstrapping the p-value
+Flippers
+Multiple Comparisons
+Pitfalls to p-values
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, I want to talk with you now about testing hypotheses.</li>
+<li>So we've talked about estimating values and computing the precision of an estimate by looking at the width of a confidence interval.</li>
+<li>We've seen how to do that, both param metrically using the standard error for the mean and also doing it with the bootstrap.</li>
+<li>In this video, we're going to talk about no and alternative hypotheses to test for hypotheses and bootstrapping P values.</li>
+<li>So if we had the question, do pet Gentoo penguins have longer flippers than chinstrap penguins?</li>
+<li>We can what we can do to try to assess this question is measured the difference in average flipper length.</li>
+<li>And then we can ask.</li>
+<li>Suppose they didn't have different length that Jeonju penguins and chinstrap penguins are the same in terms of their flipper length.</li>
+<li>How likely would I be to find this big of a difference in flipper length?</li>
+<li>Under those conditions, this probability, we call that the null hypothesis.</li>
+<li>For most statistical tests, the null hypothesis is everything's the same.</li>
+<li>There's no actual difference. And this probability that we see this big of a difference, given that there's no difference, is called a P value.</li>
+<li>So. We're doing the test. We define two hypotheses.</li>
+<li>The null hypothesis in this case that the mean flipper account or the mean flipper length for a Gentoo is the same as for a chinstrap.</li>
+<li>And the alternative hypothesis, they aren't. And then we use we can use in this case,</li>
+<li>we can use what's called a two sample t test that computes the probability that our that we see this big of a difference in our sample means,</li>
+<li>given that there is no difference. H0 The true means are the same.</li>
+<li>If P is low, a common threshold is point zero five. Then we read say that the data reject that.</li>
+<li>We reject the null hypothesis. If it's if P is large, then we say the data could not reject the null hypothesis.</li>
+<li>This bias is our discovery procedure into towards not claiming things.</li>
+<li>But we. We. We say here, if it's small, that we reject the null.</li>
+<li>So there's many different tests, each with their own H zero H.</li>
+<li>Not that the null hypothesis.</li>
+<li>The one sample T test is the null hypothesis is that the mean is zero, or we can set it to mean as any other particular constant.</li>
+<li>The two sample T test asks. So we've got sample two different samples and we have their sample means.</li>
+<li>The null hypothesis is that the means are the same. The paired t test, we have, again, two measurements, but in the two sample T tests,</li>
+<li>we have measurements from one sample of measurements from another sample in the paired T test.</li>
+<li>We have one sample and we take two measurements for each for each element in the sample.</li>
+<li>And this can be one way this comes up is in what we call between subjects or within subjects experiment.</li>
+<li>So when it between subjects experiment you. Take say, if you're trying to test a the effectiveness of a computer interface or your.</li>
+<li>You're trying to test whether the new widget you stuck on your Web site is improving sales.</li>
+<li>You have a sample of your users, half of them. You have used the new widget.</li>
+<li>Half of them, you have used the old widget. You compute the sales and then used you test.</li>
+<li>It's between subjects, but you have different subjects in each condition or within subjects.</li>
+<li>Experiment. The subjects are in both conditions.</li>
+<li>So if you have two different, maybe you have two different widgets for two different boxes for how you want to finish checking out.</li>
+<li>A shopping cart. And you're doing a study in a lab and you have you want everybody to try both.</li>
+<li>And you have them. So you have everybody. Put the shopping experience with one interface.</li>
+<li>Complete it with another. You measure maybe the speed, maybe the error rate.</li>
+<li>When you do this, you do what's called counterbalancing.</li>
+<li>You have half of them, have them in one order and half of them in the other in case there's an order or learning effect.</li>
+<li>But the idea here is that for each user, you have their speed with one interface in their speed with another interface.</li>
+<li>So they're paired in that case. You do the paired t test.</li>
+<li>And what you're tactically want to test is your testing. It's it's a one sample t test.</li>
+<li>The test, if the me if the mean of the difference between two measurements for the same person, the same idea when the sample is zero.</li>
+<li>If it's zero then they came from the same. Then there's no actual difference.</li>
+<li>So that's our that's our null hypothesis. ANOVA extends it beyond one level.</li>
+<li>So to one sample, two sample pairs. What if we have.</li>
+<li>Five samples. Then we use Enova. What if we have?</li>
+<li>Five measurements. Then we use what's called repeated measures, Enova. But the H.</li>
+<li>The null hypothesis for Enova is that all means are equal.</li>
+<li>So each of these tests, though, they make assumptions and they're often quite strong, the T test makes them assumptions about the data.</li>
+<li>It's relatively robust to violations of its normality assumptions.</li>
+<li>Independence is a killer in any of these tests.</li>
+<li>And this is why you have to use the paired t test when you have paired data because the samples are not independent.</li>
+<li>If I do, I if I am particularly slow at using of doing a kind of task,</li>
+<li>then even if the new interface makes me faster at it than the old interface, I will.</li>
+<li>My speeds will be lower than they would someone else.</li>
+<li>And so by pairing it controls for that, because it's just looking at the difference between the speed.</li>
+<li>How much did it speed me up? How much did it speed up?</li>
+<li>Enova also depends on quite a few assumptions getting into the details of a nova are beyond the scope of what we have time to get to,</li>
+<li>particularly this week. But we can also bootstrap a P value in.</li>
+<li>The idea here is that we have some statistic. I'm going to call it T. But I might be the mean.</li>
+<li>It might be some kind of a normalized statistic. It might be whatever statistic we're trying to compute and what we do.</li>
+<li>So the goal of the bootstrap lots is resample. But the goal here is to simulate the distribution of the statistic under the null hypothesis.</li>
+<li>So we transform the data to follow the null hypothesis in some way.</li>
+<li>We bootstrap the transform data and we compute a statistic from each bootstrap sample.</li>
+<li>And then we look at what's the probability that this bootstrapped statistic exceeds.</li>
+<li>Or is at least as large as our sample statistic. The tricky part of doing this is properly sampling from the null hypothesis.</li>
+<li>And this you're gonna have to figure out for each bootstrap that you want to do. But if we're going to test if we're gonna do the two sample test.</li>
+<li>So the T-test, the the H not is that this means are the same.</li>
+<li>We can also think about a somewhat richer no hypothesis that chinstrap it Gentoo instant's strap Flipper's have the same distribution.</li>
+<li>But here we're only going to measure the mean. So the no bootstrap, though not since the null hypothesis is they have the same distribution.</li>
+<li>What I can do is I can pool all the measurements.</li>
+<li>So it is going to take all of the Gentoo chinstrap, penguin flipper length, stick them all together in one big list.</li>
+<li>And then I'm going to. Because if if there's no difference in flipper length between a Gentoo, an entrenched chinstrap,</li>
+<li>then if I'm sampling of flipper length, it shouldn't matter which penguin I'm sampling it from.</li>
+<li>So. We compute our bootstrap samples, one that's the length of our chinstraps sample ones that that's the length of our Gentoo sample.</li>
+<li>And we compute the P value. That's the fraction of the bootstrap runs where the magnitude, the difference exceeds our observed difference.</li>
+<li>And so if our observed value is if the observed value we have and the difference is common, then the penguins are probably not that different.</li>
+<li>But if it's very difficult to boots, if it's very rare for this bootstrap procedure to give us the value we saw,</li>
+<li>then that's evidence that there's a difference in the flipper lengths of the penguins.</li>
+<li>The notebook I'm going to give you to go with this video shows the code for how to actually do the bootstrap of the P value in addition to the T test.</li>
+<li>Another issue we run into is when we have multiple usually we don't just run one test in a paper or another report.</li>
+<li>We have many if we call the. So the threshold we use, we compare this p value, the probability of seeing this, of seeing a result that's extreme.</li>
+<li>If the null hypothesis is true.</li>
+<li>We compare that to what we called the significance level alpha, which is our threshold for saying, and probably it's more likely to be true.</li>
+<li>So if we have Alpha is O point five, then if we run 20 tests.</li>
+<li>That. And the null hypothesis is true and all of them.</li>
+<li>We will probably find one that sticks statistically significant. If we run 100, we'll probably find five.</li>
+<li>And so you get what's called a false discovery. There are ways to correct for this the bond ferrone correction is a conservative but</li>
+<li>sound correction that scales down our significance level by the number of tests we run.</li>
+<li>Not not just the ones that are reported in the paper.</li>
+<li>And there's other corrections that work in various situations to be able to correct for these multiple comparisons is the Benjamina family,</li>
+<li>the Benjamina Horsburgh, which works if all of our tests are independent.</li>
+<li>There's another variant that works that can deal with non independence between dependency relationships, between our different tests.</li>
+<li>So, for example, if we if we compare all pairs of penguin species, chinstrap to Gentoo,</li>
+<li>chinstrap to a deli Chinh strapped to their skewes, you just accidentally chinstrap to a deli.</li>
+<li>Adelita Gentoo. Those aren't all independent. But one thing we need to think about is what the results are for.</li>
+<li>If this is our threshold and we're saying, OK, P less than point zero five,</li>
+<li>we found something and that's our evidence, then we need to be scaling and most of the time.</li>
+<li>But as I said back in the first video this week, my perspective on this topic is multi evidentiary.</li>
+<li>A P value is not a conclusive judgment that we found something.</li>
+<li>A P-value is one piece of evidence that this is worth continuing to look at and in support of of the results that we're finding.</li>
+<li>It's if the P value is high. So the results we're seeing are completely consistent with the null hypothesis.</li>
+<li>Then that means we probably haven't found something. But if it's low, there's a bunch of other reasons why why we might have seen what we've seen.</li>
+<li>We should have some skepticism. It's one piece of evidence among many of the uncorrected p value is still evidence we have.</li>
+<li>So depending on how we treat it in the process of drawing our conclusions.</li>
+<li>So a few pitfalls, the P values of the multiple comparison ones.</li>
+<li>There's also the issue of what we're doing, experiments on the same data set over and over.</li>
+<li>Should we be correcting for all of the P values ever run on that data set?</li>
+<li>They're also designed for prospective experiments. So the mathematics around P values, also the mathematics around confidence intervals, et cetera.</li>
+<li>They came out of this sampling theory where we're thinking about things prospectively.</li>
+<li>So I'm going to go and I'm going to take a sample and computer statistic and I want to know what the distribution of that is.</li>
+<li>But in data science, we're often in retrospect, if we have an existing data set,</li>
+<li>even if we're gonna sample from it, we're often looking at the whole data set before we do our sampling.</li>
+<li>That doesn't mean they're not useful. The statistic, they're really, really P-value.</li>
+<li>We can still compute it. It's still a piece of evidence. It's just not.</li>
+<li>The judge's final sentence also full validity for what he values telling us requires us to plan the whole analysis before we look at the data.</li>
+<li>The P-value computes the probability of our statistic being this large, given the null hypothesis, is true.</li>
+<li>But when we look at our data, first we do an exploratory analysis. We plot some charts.</li>
+<li>I say, oh, this looks like a relationship. This looks like looks like these means are different.</li>
+<li>And then we go to our hub. Then we go do a T test.</li>
+<li>What we're actually computing is the probability of the statistic,</li>
+<li>given that the null hypothesis is true and that the null hypothesis looks false because our choice of what to test is influenced by this information.</li>
+<li>And so the p value is not measuring what the process that we actually use to drive it.</li>
+<li>Also, the null hypothesis is usually not precisely true. Paying mean penguins might be slightly different, just not different enough to matter.</li>
+<li>Again, I said this is not this does not mean we should not compute the P values.</li>
+<li>This does not mean they're useless. This means they need to be. Taken as one piece of evidence in the context that the totality of the evidence</li>
+<li>that we bring to understanding what it is that we're trying to understand,</li>
+<li>statistics and actual application is a lot of reasoned judgment calls.</li>
+<li>There's bad call there. There's there's many, many ways to do statistics poorly.</li>
+<li>I have a book on my shelf called Statistics Done Wrong The Woefully Complete Guide.</li>
+<li>The reason judgment's doesn't mean anything goes,</li>
+<li>but it does mean that we need to there's not gonna be the bright line rule to say, yes, we found something.</li>
+<li>We have our pieces of evidence who have our confidence intervals. We have our P values. We have the other things we compute from the bootstrap.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Resources<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://timdraws.net/files/StatisticalTestFinder.pdf">Statistical test selection flowchart</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="cartoon">
+<span id="p-hacking-cartoon"></span><h2>💥 Cartoon<a class="headerlink" href="#cartoon" title="Permalink to this headline">¶</a></h2>
+<p>Read <a class="reference external" href="https://xkcd.com/882/">XKCD #882: Significant</a>.</p>
+<p>This is called <strong><em>p</em>-hacking</strong>: running tests until we find one that is significant.</p>
+</div>
+<div class="section" id="t-tests">
+<h2>🎥 T-tests<a class="headerlink" href="#t-tests" title="Permalink to this headline">¶</a></h2>
+<p>This video discusses the <em>t</em>-test in more detail, and the different kinds of <em>t</em>-tests that we can run.
+It also introduces <a class="reference internal" href="../glossary/#term-degrees-of-freedom"><span class="xref std std-term">degrees of freedom</span></a>.</p>
+<div class="resource video docutils container" id="359a56a7-0e20-4085-bf80-ad9c0183fe36">
+<div class="tabbed-set docutils">
+<input checked="checked" id="2e1a4691-85cd-4a1b-9d2e-29afebbe7863" name="6fcc3427-6954-4ad6-888a-da631fbefcb6" type="radio">
+</input><label class="tabbed-label" for="2e1a4691-85cd-4a1b-9d2e-29afebbe7863">
+Video (12m24s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=359a56a7-0e20-4085-bf80-ad9c0183fe36&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="155f0035-94bd-4d0d-9b0f-0a6410a2ca37" name="6fcc3427-6954-4ad6-888a-da631fbefcb6" type="radio">
+</input><label class="tabbed-label" for="155f0035-94bd-4d0d-9b0f-0a6410a2ca37">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173768" data-key=AFlrOAZCDwQPeow>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+T-TESTS
+Learning Outcomes
+Select the appropriate form of T-test for a value
+Understand what the T-test does
+Photo by Jonathan Farber on Unsplash
+Single Variable
+Distribution Under the Null
+Degrees of Freedom
+Two-Sample T-test
+Penguin T-test Results
+Paired T-tests
+Tests
+One sample, mean: one-sample t-test
+Scipy ttest_1samp
+Paired measurements: paired t-test
+Scipy ttest_rel, or use 1samp on differences
+Two independent samples: two-sample independent t-test
+Scipy ttest_ind
+Warning: assumes equal variance by default – turn off with equal_var=False
+Other Tests
+This is the usual practice for a significance test:
+Compute statistic
+Compare to distribution under null hypothesis
+
+Can bootstrap them too
+Wrapping Up
+Significance tests compute the probability of a statistic under the null hypothesis.
+
+The T-test does this with the t-statistic, a standardized mean.
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, I'm going to talk with you a little bit more about t tests. Give us some more ideas of what they do, how they work.</li>
+<li>And also, when you need to use the different kinds and their python functions,</li>
+<li>learning outcomes are for you to be able to select the appropriate form of t test for some data that you have.</li>
+<li>And understand what the T test does. So if we have.</li>
+<li>So we have some idea normal's so they're independent and identically distributed in their normal observations of a variable.</li>
+<li>And we want to test the null hypothesis that the true mean is equal to some fixed value.</li>
+<li>Often this is going to be we're going to see if it's equal to zero. But we can see if it's equal to any other particular value.</li>
+<li>And so the null hypothesis is the day, the mean, the true mean of the population is equal to to our value, say zero.</li>
+<li>And we want to see, does the data support or reject the null hypothesis.</li>
+<li>So what we do is we calculate a test statistic called a T statistic,</li>
+<li>which is the difference between the sample mean and the the target mean divided by the standard error.</li>
+<li>And what this gives us is it gives us a normalized version of the difference in the difference and means that's</li>
+<li>normalized by the natural variance from the sampling distribution that we would expect in the for computing the mean.</li>
+<li>And the idea here is that if the MI so that the sampling, the standard error gives us the standard deviation of our sampling distribution.</li>
+<li>Remember, the sampling distribution of the sample mean is normal with variance of the standard error.</li>
+<li>And so we. If the meet the difference in means is small with respect to that width, that that error, then it's going to be.</li>
+<li>Then the difference in means is probably due to sampling error. But if the difference is big,</li>
+<li>then it's substantially less likely that that's due to the sampling and more likely that the mean the population doesn't actually equal our target,</li>
+<li>such as zero. So what we do with this T statistic is we compute the probability that doing this a bunch of times.</li>
+<li>So repetitions. We compute the probability that doing this a bunch of times is going to give T.</li>
+<li>T statistics that are at least as large in their magnitude as the observed one that we have.</li>
+<li>If the null hypothesis is true. This is a probability given age zero.</li>
+<li>So we're trying to see what's the probability that we have a T with this size of absolute value.</li>
+<li>This is called a two sided T test that the common ones we're just seeing, the magnitude of T is going to be this large.</li>
+<li>If the means are actually equal, the code for this is to use the T test one sample function from Saipov.</li>
+<li>What happens if we get this T statistic and it follows a distribution called a T distribution with N minus one degrees of freedom?</li>
+<li>And so if the distribution and so we can look and we can see where does the T statistic, where does the observed T value fall in this distribution?</li>
+<li>And it might be that, oh, there's a lot. So it's it's here. And if we consider it where, it would be on the left as well.</li>
+<li>OK. There's a lot of probability mass outside those values.</li>
+<li>So a value, this extreme value of this about point five under this particular distribution.</li>
+<li>That's got to be common. Just do the sampling variation. That value is completely expected.</li>
+<li>But if we go all the way out here to a T statistic of point of three point five.</li>
+<li>There is not much probability mass outside the three point fives.</li>
+<li>And that means that if the no hypothesis were true, seeing a T statistic of three point five would be very unlikely.</li>
+<li>Which means that the data it's the data probably didn't come from the null hypothesis.</li>
+<li>They probably came from something else. And so we would reject the null hypothesis.</li>
+<li>But that's what happened with the tease, with the T test. You compute this T statistic from your data, which is this standardized difference in means.</li>
+<li>And you compare that to the distribution, the t distribution gives us the distribution of T statistics under the null hypothesis,</li>
+<li>which is that there is no difference in means. And as the degrees of freedom go to infinity, the T statistic approaches normal.</li>
+<li>It's an adjusted normal, basically. So I want to talk just a moment about these degrees of freedom.</li>
+<li>So the degrees of freedom are the number of ABB's observations in a series.</li>
+<li>We have a series of observations we have and observations. How many of them can freely vary for the purposes of computing a statistic?</li>
+<li>If we if we're just trying to if we're trying to compute the mean all of our values can change.</li>
+<li>Change any value in our dataset. It's going to change the mean.</li>
+<li>But if we have the mean, the sample mean and we're trying to compute the standard deviation.</li>
+<li>Then we can't. Not all of them can vary.</li>
+<li>Only out of end data points only and minus one can vary.</li>
+<li>Because if we have X one directs event X squared minus one and we have the mean, we can compute the last value.</li>
+<li>So for the purpose of the standard deviation, effectively, one way we can see it is that computing the intermediate statistic,</li>
+<li>the mean we're gonna compute the standard deviation if we can, to compute this T statistic.</li>
+<li>It uses up one degree of freedom. Can you fix it?</li>
+<li>Only N minus one of our samples can vary, and so that lead.</li>
+<li>So we have N minus one degrees of freedom or computing standard error, which then goes into the T statistic.</li>
+<li>So for the the one sample t test, the degrees of freedom and minus one,</li>
+<li>we use that to compute the T distribution, we see where the C which T distribution we're going to use.</li>
+<li>We see where our value lies on it. The two sample T test it take so that one simple T test test is my saying is the mean of my source population.</li>
+<li>My sample came from equal to some fixed value. The two sample team test asks, I have two samples.</li>
+<li>Did they come from a population with the same mean? So let's say we have the we have the Adelie penguins and the Gentoo penguins.</li>
+<li>We have the mean flipper length of these two samples of penguins. And we want to see, do they come from the same man or they come from?</li>
+<li>Does the population of Adelie penguins and Gentoo penguins probably have the same mean?</li>
+<li>Or does it probably have different means that this depends on the samples being independent?</li>
+<li>No relationship between data points in each sample data point is in one of the two categories.</li>
+<li>If you have relationships, then we're going to see the paired T test.</li>
+<li>But this makes sense of how a penguin is either in a deli or a Gentoo.</li>
+<li>So we're gonna use the the independent, the independent T test.</li>
+<li>The null hypothesis is mbewe one equals mbewe to the means of the two populations that are represented by these two samples are the same.</li>
+<li>And our T statistic is we subtract the means and then we divide by a combination of their standard deviations and sample sizes.</li>
+<li>This is the degrees of freedom for this are significantly more complicated if we</li>
+<li>allow the two populations to have the two samples to have different variances.</li>
+<li>Are we allowed? Excuse me? We assume the two part. We allow the two populations of different variances.</li>
+<li>If we assume they have the same variance, we get a much simpler version of the two sample T test.</li>
+<li>But in general, they might have different variances. If this is the T statistic, the degrees of freedom are relatively complicated.</li>
+<li>I don't recommend actually calculating this yourself. We have tea test functions that are going to help us calculate the T test.</li>
+<li>This just gives you an idea of what those are doing so that you can better understand when you run a T test what's actually happening.</li>
+<li>So we do our Adelie penguins, we get a T statistic of minus five point seven eight.</li>
+<li>We can plot that on our on our T distribution. We get a P value of six point oh five times 10 to the negative eight.</li>
+<li>This data would be very, very shocking to find if.</li>
+<li>A deli and Gentoo penguins had the same flipper like. So we reject the null a paired t test is when we have two measurements from the same samples.</li>
+<li>So each data point appear, rather we have two measurements,</li>
+<li>but rather than having a measurement from one sample on a measurement from another sample like the penguins, what we have is they're paired.</li>
+<li>So each measurement in one group hat is paired with a measurement and the other, for example, we've got two tests in this class.</li>
+<li>Your score on test one in your score on test two would be paired sample of paired observations.</li>
+<li>And what we do then is we compute the difference between these observations, say your test to score minus your test one score.</li>
+<li>And that gives us one sample and we compare them that mean to zero.</li>
+<li>So apparently test is a one sample T test that the mean difference is not with the null hypothesis that the mean difference is equal to zero.</li>
+<li>And this is really useful for testing if there is a difference. When you take the same student and you give them two tests, you take the same.</li>
+<li>The same patient and you give them two treatments, one week one and one week two.</li>
+<li>This is a way of testing if there's a difference between the two observations of the two treatments on the same patient or the same research subject.</li>
+<li>You're going to use this in assignment to to compare ratings from two different sources.</li>
+<li>For the same movies. So to run these tests, the one if you have one sample and you want to test it, mean use the one sample T test.</li>
+<li>If you have paired measurements. So you've got the movies and you have the all critics score and you have the top critics star.</li>
+<li>Those are two measurements for the same movie. And you want to see if they're different than you use a paired T test.</li>
+<li>Saipov gives you a paired T test function. But you can also compute the differences and use the one sample T test.</li>
+<li>You can test two independent sample. So.</li>
+<li>The four, if you see the four, two independent samples, you use the two sample T test the independent tests.</li>
+<li>So sci fi calls this T test end by default. Both sigh pie and Stach models to independent two sample T test functions assume equal variance.</li>
+<li>You can turn this off and say pi by setting equal var equal to false.</li>
+<li>When you're calling the T test ion d function and it'll use the more sophisticated T statistic and the more sophisticated degrees of freedom.</li>
+<li>So there are a lot of other tests. This is the usual practice for test.</li>
+<li>A significant test. You compute a statistic and then you compare that statistic to a known distribution</li>
+<li>that describes how it would be distributed under the null hypothesis.</li>
+<li>In these cases, we compute a T statistic and the T distribution describes how that statistic is distributed when the null hypothesis is true.</li>
+<li>We can also use these statistics then to bootstrap,</li>
+<li>although sometimes we might we might not use the standardized Verd like the T statistic and we can directly bootstrap with the means.</li>
+<li>To wrap up significance tests, compute the probability of a statistic under the null hypothesis.</li>
+<li>Fundamentally under the hood. That's what they do.</li>
+<li>The tricky parts are you need to have the statistic and you need to know its distribution under the null hypothesis.</li>
+<li>The T test does this with the T statistic and with the standard I. Or with the T statistic, which is a standardized version of the vet of the.</li>
+<li>The difference of the mean observed from the mean that you're trying to compare.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="epistemology">
+<h2>🎥 Epistemology<a class="headerlink" href="#epistemology" title="Permalink to this headline">¶</a></h2>
+<p>In this video, I talk about how the quantitative data science methods we are learning fit into a broader picture of source of knowledge.</p>
+<div class="resource video docutils container" id="1b8b3195-8667-42b2-b9e9-ad9c0183ffe9">
+<div class="tabbed-set docutils">
+<input checked="checked" id="a031f62a-b86e-4d8e-8525-ad84cb941fcc" name="a6646f22-e46b-45ca-8486-7f7dab8e4692" type="radio">
+</input><label class="tabbed-label" for="a031f62a-b86e-4d8e-8525-ad84cb941fcc">
+Video (25m44s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=1b8b3195-8667-42b2-b9e9-ad9c0183ffe9&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="55629437-d177-41ef-9d02-b7422ab6b099" name="a6646f22-e46b-45ca-8486-7f7dab8e4692" type="radio">
+</input><label class="tabbed-label" for="55629437-d177-41ef-9d02-b7422ab6b099">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173770" data-key=AGRuoe417VqPA54>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+WAYS OF KNOWING
+Learning Outcomes
+Understand different sources of knowledge
+Identify sources of knowledge appropriate to a question
+Photo by Jaredd Craig on Unsplash
+Some Types of Knowledge
+Quantitative
+Qualitative
+Analytical / Proof
+Theory
+Critical
+
+No form is the “best”.  And, we often need multiple together!
+These are both empirical
+Quantitative Methods
+Numeric measurements and estimates.
+How many?
+What fraction?
+Predicting numeric outcomes
+Quantitative Submethods
+Observational studies – what can we see?
+
+Experimental studies – what happens when we act?
+
+Simulation studies – what happens in synthetic environments?
+Numbers. What Are They Good For?
+We can:
+How often does X happen?
+When X happens, is Y likely to happen?
+
+We can’t:
+Why does X happen?
+What do the situations where X happens look like?
+What new X should we look for?
+Qualitative Methods
+Interpretation and analysis.
+Why did someone do X?
+What do people want?
+
+Engages directly with source material.
+
+Note: surveys are not qualitative.
+
+Example Problem
+Goal: identify employee concerns and opportunities to improve
+Method: semi-structured interviews
+Resulting Data: interviews with employees
+
+Don’t have time to interview them all.
+
+Goal is not statistical representation.
+
+Example Method: Grounded Theory
+Break interviews into distinct statements / observations
+Group observations together into themes
+If it is like an existing theme: add it
+If it is not like an existing theme: start a new one
+Merge themes if/as necessary
+
+Stop at saturation – more data does not produce more concepts
+
+Outcome: themes with illustrative quotations
+Qualitative Empiricism
+Qualitative methods are empirical
+Conclusions are grounded in and supported by data
+The data is just analyzed differently!
+
+Qualitative can demonstrate:
+Existence of phenomena
+Mechanisms for phenomena
+
+Data is “thick”, but low in quantity
+Mixing Methods
+Qual and quant can work together
+
+Qual first:
+Qualitative study with small group to identify concerns
+Quantitative survey to measure prevalence
+
+Quant first:
+Quantitative analysis to identify stores with low employee retention
+Qualitative interviews to see what is happening at those stores
+A Number
+30
+Numbers Have No Meaning
+What does 30 mean?
+
+We need context to interpret the meaning
+Typical size of this class
+High for graduate classes, average for department
+Class size affects student-teacher engagement
+Context
+We need context to
+
+Interpret quantities
+Identify quantities of interest
+
+Analytical Methods
+Mathematical proofs and derivations.
+
+Usually quantitative
+Always true (given assumptions)
+May be probabilistic
+
+Example: law of large numbers
+On average, the average of a random sample is approximately the true average
+Critical Methods
+Analyze and explicate power structures.
+
+Who has power in a situation?
+What are the effects of that power?
+How does perspective &amp; power affect questions and conclusions?
+
+Example: employer-employee power dynamic affects response to survey.
+One Application
+Who is making decisions?
+What to ask
+Who to ask
+What to do with the results
+
+Asking employees is not sharing power
+Theory
+Merriam-Webster:
+A plausible or scientifically acceptable general principle or body of principles offered to explain phenomena.
+
+Theory drives analysis – what questions do we ask?
+
+Theory comes from all these sources
+
+Data refines, confirms, and rejects theory
+Social Construction
+Knowledge is said to be socially constructed.
+
+Knowledge comes through processes
+These processes are social
+And therefore have biases, etc.
+
+Does not mean knowledge is fake, made up, or unreliable.
+Wrapping Up
+Quantitative measurements and analysis are not the only, or the best, way to produce knowledge.
+
+Multiple sources together give us knowledge and insight.
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Hello again, this video. I want to talk to you about ways of knowing what's called epistemology in our learning outcomes for this video,</li>
+<li>for us to understand different sources of knowledge and identify saw sources of knowledge that are appropriate to a question,</li>
+<li>because the way that we're going about work in this class, we said at the very beginning,</li>
+<li>data science is the practice of using data to gain quantitative insight in the questions of social, scientific or business interest.</li>
+<li>It is not the only way to obtain knowledge is not the only source of knowledge.</li>
+<li>And so I want us in this video to think a little bit about some of these other sources of knowledge and how they relate to each other.</li>
+<li>So some types of knowledge we can can encounter are quantitative knowledge that we've been working on in this class.</li>
+<li>I'm going to work on for the rest of the class. And that's around numbers and quantities, qualitative knowledge,</li>
+<li>which looks at the actual content and we aren't doing quantitative count like we aren't counting things.</li>
+<li>We are computing statistics. We're looking at say what taxed or what videos or what images actually say analytical or knowledge or proofs.</li>
+<li>These are these are mathematical derivations.</li>
+<li>There's no there's no data in them that's driving them.</li>
+<li>For example, the fact that the T statistic is distributed under the T distribution, under the null hypothesis.</li>
+<li>That's mathematically proven. We didn't do a bunch of simulations or experiments to figure that out.</li>
+<li>There's theory building to put together knowledge from a variety of sources and from a variety</li>
+<li>of experiments or studies or investigations into a coherent theory of how a subject works.</li>
+<li>And then there's critical knowledge that pokes at and investigates the structure, particularly the power structures.</li>
+<li>But the structure of how something how a process for producing knowledge or how a thing we're studying is put</li>
+<li>together and what how it got to where it is and what impact that may have on the results that we get from it.</li>
+<li>One thing that's important to note is both quantitative and qualitative forms of knowledge are empirical.</li>
+<li>They're getting from the data to the conclusions or to the insights that we have on</li>
+<li>the question of quantitative methods do not have a monopoly on being data driven.</li>
+<li>No one form of knowledge is the best.</li>
+<li>And we often need multiple forms of knowledge together to gain a full understanding of something that we're trying to study.</li>
+<li>So a quantitative measure methods are the things that we've been doing this semester, numeric methods and estimates.</li>
+<li>We could ask how many of us there are, if something, what fraction and have some property.</li>
+<li>We can try to predict numeric outcomes, lots of different things we can do with numbers.</li>
+<li>And there's various sub methods. For example, observational studies.</li>
+<li>They look at what we can see. We have data that we've collected.</li>
+<li>Either we've gone and collected it in the field.</li>
+<li>We have it from a dataset and we can see we've observed some process and we can look for correlations,</li>
+<li>we can look for connections, and we can try to gain insight based on what we can observe in the world.</li>
+<li>Experimental studies look at what happens when we intervene, when we act, when we change something.</li>
+<li>How does what we're studying respond to it? So the observational studies can be so we look at our penguins and we can see their flipper lengths.</li>
+<li>We can see their body masses. Experimental studies can let us get at.</li>
+<li>Well, what happens when we give some penguins one diet and then other penguins another diet to understand it,</li>
+<li>to isolate the impact of diet on, say, penguin growth?</li>
+<li>And a simulation study looks at what happens in synthetic environments,</li>
+<li>and these allow us to run a lot more analysis and studies than we can in an experiment because we don't have to collect data.</li>
+<li>We don't have to use experimental resources in order to to create and observe changes.</li>
+<li>We can just turn read a bunch of random numbers.</li>
+<li>According to some structured process, and these are really good for understanding, particularly what have our made her methods.</li>
+<li>So. If we have a method for studying what would happen in an experiment, we can simulate a bunch of different experiments,</li>
+<li>maybe with different outcomes to see what our method would do when we got to control the experimental results because we made them up.</li>
+<li>This is a really powerful tool for studying the statistical properties themselves.</li>
+<li>And one of the things, especially those of you who are in the data science P.</li>
+<li>D program, but also as you get deeper in your data science knowledge,</li>
+<li>that's something that's going to be be very important for you to be able to go to to level up</li>
+<li>from using the methods that we were developing and that we're learning to study phenomenon.</li>
+<li>We're going to use we're gonna use our linear models to study something about penguins, maybe to being able to study the methods themselves.</li>
+<li>Can what can we say about how a linear model works or about how a T test works or or the bootstrap simulation studies are really useful for that.</li>
+<li>But these quantitative methods, they can ask some really useful.</li>
+<li>They can address some really useful questions. We can see how often something happens.</li>
+<li>We can see when it happens. How likely is it when X happens?</li>
+<li>How likely is it for Y to happen? We can get these kinds of how often, how many, how likely kinds of questions.</li>
+<li>What's hard to answer is why does X happen or when X happens?</li>
+<li>What do those situations actually look like?</li>
+<li>So an example, I'm going to talk a little bit more about it as we go through the slide, but we're trying to understand.</li>
+<li>So we've got we've got a large company with a number of locations, B, where a supermarket chain.</li>
+<li>And we want to understand employee retention. We can look at, say, how often employees leave or say, leave within their first year.</li>
+<li>We can ask. When some particular change happened to the store, change happens in personnel policies.</li>
+<li>How likely are employees to leave or if one employee leaves?</li>
+<li>Are there more that are likely to follow? But, well, we don't really what the numbers can't give us is for any given employee leaving.</li>
+<li>What was the situation? Why did they leave? It also doesn't give us insight into what new phenomenon should we look for.</li>
+<li>The numbers can't tell us on their own and the quantitative methods can't tell us on their own.</li>
+<li>What questions to even ask of the data. So this gets us to qualitative methods.</li>
+<li>And qualitative methods are about interpretation and analysis.</li>
+<li>And it lets us look at questions like why did someone do X quantitative?</li>
+<li>Lets us ask how often it happened. Qualitative. Let's start to get at.</li>
+<li>Why did they do it? Why did it happen? Or what do people want?</li>
+<li>And the key thing about qualitative methods is that they engage directly with some kind of source material,</li>
+<li>written text images, interviews and interview transcripts.</li>
+<li>But you've got some source material, often textual.</li>
+<li>But sometimes it's visual, sometimes it's video, and you're engaging directly with it and interpreting it.</li>
+<li>Humans ever. You can't import pandas that qualitative, that's not a thing.</li>
+<li>There's a very human process of engaging with the material in order to derive knowledge.</li>
+<li>One quick note is that surveys where they get data from humans are not on their own qualitative.</li>
+<li>If you ask someone a Likert Stiles survey strongly disagree to strongly agree and a bunch of questions.</li>
+<li>You're getting quantitative data. If you have open free form text and you start to go analyze what they said.</li>
+<li>That's qualitative data.</li>
+<li>So in our example problem, if we want to understand employee concerns and opportunities to improve how our organization is treating employees,</li>
+<li>we could go do some structured interviews and a semi structured interview.</li>
+<li>Is it interview where you have a plan going into it, but it's not a rigorous answer.</li>
+<li>These questions in a row and we're done kind of plan. You have goals for the interview.</li>
+<li>You have key questions thought of in advance.</li>
+<li>But the conversation, an interview can also go in the directions that seem natural as the interviewer is leading through it.</li>
+<li>And the resulting data is you've got all of these interviews with employees. You.</li>
+<li>You're probably going to transcribe them because we're doing the analysis as often a</li>
+<li>lot easier to work with the transcribed text rather than the actual than the audio.</li>
+<li>But you don't. It's expensive. And if you're going to sit down and have a half hour interview with each employee, that takes a long time.</li>
+<li>You don't have time to interview them all.</li>
+<li>One key thing, when we're doing quantitative methods or goals, statistical representations that the statistics we computer,</li>
+<li>accurate estimates of the underlying parameters, the goal and qualitative analysis is not statistical representation.</li>
+<li>The goal is to make sure that the different.</li>
+<li>Subgroups and sex and characteristics and dynamics that you might try to be look, be able to find in the data are all represented at least once.</li>
+<li>We're not going to be getting statistical counts out of this.</li>
+<li>And so the statistical representation is just not the right way to frame thinking about qualitative responses.</li>
+<li>So one particular method, there's many methods for qualitative analysis.</li>
+<li>You can spend. I have spent my research career of 10 plus years now getting very good at a lot of quantitative methods.</li>
+<li>You can spend that much time and then the entire rest of your career getting very good at qualitative methods.</li>
+<li>There is skill just as much as the quantitative methods. There are no easier really to do them well.</li>
+<li>But one particular qualitative method is called grounded theory,</li>
+<li>and the idea of grounded theory is to start from the text itself and build up to ideas and figure out what themes are in the text</li>
+<li>and how they connect to each other in a way that is as close to the text as possible and is derived from the text as possible.</li>
+<li>And to get the ideas and the concepts from the text rather than from your preconceived ideas going into it of what should be in the text.</li>
+<li>So what you do when you're doing grounded theory, if you're going to do grounded theory on these interviews,</li>
+<li>is that you would break them into distinct statements or observations and then you would group these observations together into themes.</li>
+<li>So you would take an observation. And if it's like an existing theme that you have, you would add it.</li>
+<li>And if it's not like any any of the existing themes, you would start a new theme taking observations.</li>
+<li>See, is this like any of the five kinds of things I've seen so far? Yes.</li>
+<li>Put it in the pile. Like actually physically moving things around the piles is useful for this.</li>
+<li>And if not, we're going to start a new one. So you have this this matching thing going on.</li>
+<li>And then as you're going through the process, or once you get to the end of the process, you may merge.</li>
+<li>Themes may say, oh, these things were really they were seeming separate.</li>
+<li>I am coding, but they really do seem like they're together or maybe they're subthemes of another theme.</li>
+<li>Now, in statistics, we have this notion of, OK, we have a statistically significant sample or a statistically significant results.</li>
+<li>We know if we found it, we can talk about our sample size and things with this kind of a method.</li>
+<li>What you use as your stopping condition is what's called saturation. And here, like stopping early to get statistical significance, not valid.</li>
+<li>Saturation is. And the idea of saturation is that more data does not reveal more concepts.</li>
+<li>So you've grouped your things together. You found 12 themes and doing this grounded theory process with another trend.</li>
+<li>Another few interviews does not generate any new themes.</li>
+<li>And this, if you're doing the process, if you got confidence in the process, then what this means is that you've hit conceptual saturation.</li>
+<li>You have identified the themes that are coming from your data. More data isn't adding new themes.</li>
+<li>So we have the themes. Our goal here is to extract themes. Now we have them.</li>
+<li>The outcome of this process is our themes with illustrative quotations.</li>
+<li>So we've put these observations in cities into the additional into the different themes and these observations themselves,</li>
+<li>the things that our our interviewees, our employees said.</li>
+<li>Those are quotations that illustrate the dynamic going on in that theme.</li>
+<li>As I said before, qualitative methods are empirical. The conclusions are grounded in and supported by data.</li>
+<li>The data is just analyzed differently. To get to those conclusions. Qualitative is very useful for demonstrating the existence of a phenomenon.</li>
+<li>People do this because people say they they give or there's this reason why people leave.</li>
+<li>Yes, we have at least one who said that was the reason they leaved in our in our data set.</li>
+<li>And they can also help us elucidate the mechanisms for phenomenon because they allow us to dove much more deeply into each</li>
+<li>specific example to understand what were the factors that caused this employee to leave or that causes them to continue to stay.</li>
+<li>And the data is is what's called sometimes thick but low in quantity.</li>
+<li>We don't have very many of these interviews. Relatively speaking, we might have 10 or 20.</li>
+<li>We might even have 50. But we're not going to have the hundreds of data points we might have from a survey or from some other quantitative method.</li>
+<li>But each of those individual data points,</li>
+<li>an interview with a with an employee is much richer and gives us much more detail on it, on individual samples.</li>
+<li>You can also mix methods, what's called mixed methods, research.</li>
+<li>There's a variety of ways that you can combine quantitative and qualitative methods together.</li>
+<li>I'm going to talk briefly about two.</li>
+<li>One is where you do a qualitative study first so you can do a qualitative study with a small group to identify what concerns people have.</li>
+<li>You may do some interviews with employees to understand some of their concerns around workplace safety or workplace environment.</li>
+<li>And then you can follow that up with a quantitative study to see how widely held these different</li>
+<li>concerns that came up in your qualitative study or qualitative demonstrates existence.</li>
+<li>Quantitative measures, prevalence. Another one you can do as quantitative first.</li>
+<li>You could do a quantitative analysis to identify the stores with low employee retention.</li>
+<li>That's something quantitative analysis can do well. And then a qualitative analysis can help you understand why.</li>
+<li>So go to some of those stores, interview some of the employees,</li>
+<li>interview some of the managers and understand what's happening at the stores that have low employee retention.</li>
+<li>These are just two ways that we can use qualitative methods and quantitative methods together, either to have the qualitative methods,</li>
+<li>generate the hypotheses that we're going to go test quantitatively and measure the prevalence of quantitatively</li>
+<li>or to better understand the dynamics and the nuances of what's happening in an effect that we see quantitatively.</li>
+<li>So 30. What is 30 mean?</li>
+<li>Numbers on their own don't mean anything. We have to have context to interpret this meaning.</li>
+<li>Thirty is the typical size of this class. This fall, we only have twenty three.</li>
+<li>But the typical size, this class is 30. OK, that give me a little more meaning.</li>
+<li>At least know what we're talking about now in our department.</li>
+<li>That's large for an art, for a graduate class, but it's about average for the department's classes overall.</li>
+<li>OK. That helps. Gives me context to understand that we're looking at a large graduate class.</li>
+<li>Why do we care about graduate classes as well? Class size affects teacher student engagement.</li>
+<li>So this gives us. There's many other reasons why we might care about class size.</li>
+<li>But it's easier to individually engage with students when the class size is relatively small.</li>
+<li>That gives us more context for understanding why we even care about this value.</li>
+<li>So we need context to interpret quantities and identify quantities of interest.</li>
+<li>Qualitative methods can give us a lot of that context and a really, really rich way.</li>
+<li>Now I want to talk briefly about analytical methods. Analytical methods are dealing with mathematical proofs and derivations.</li>
+<li>As I said, they're usually quantitative, but they're not empirical. We're not looking at what data is telling us.</li>
+<li>We're looking at the intrinsic fundamental properties of computation of method, etc. They're always true, given their assumptions that they.</li>
+<li>If we have a proof that given some assumptions X follows, that's not something that depends on the condition.</li>
+<li>When the assumptions hold, assuming that the proof is correct, it holds it may be probabilistic.</li>
+<li>The proof we have may be something about how often something happens, like confidence intervals.</li>
+<li>Confidence intervals don't always contain the mean. But we have a probability.</li>
+<li>We have a proof about how often they do contain the mean.</li>
+<li>Then another method is I want to bring up to you a little bit is critical methods, including what's called critical theory.</li>
+<li>And the key idea of these methods is to analyze and explicate the power structures that</li>
+<li>are at play and the thing that we're studying or in our process of studying in itself.</li>
+<li>Who has power in a given situation? What are the effects of that power and that distribution of power?</li>
+<li>Can also ask, how does perspective and the power or lack thereof that comes with it affect the questions and the can we equip.</li>
+<li>The questions we ask and the conclusions that we come to from those?</li>
+<li>For example, if we're trying to understand employee retention, the fact that it's employer or the employer's agent talking to the employee,</li>
+<li>that creates a power dynamic that can affect the employees response to the survey if they think</li>
+<li>things they say might be might affect their employment or the terms of their employment,</li>
+<li>that might affect what they say. But that power dynamic can, in a very direct way, affect the data.</li>
+<li>The results that we get out of it. So one way that one application for thinking about power is to look at who is making the decisions.</li>
+<li>This looks at the overall process itself.</li>
+<li>What we're doing this study to understand employee retention and what is causing low employee retention or what's caused it,</li>
+<li>what's what's making our employees want to stay with the organization. But.</li>
+<li>Credit one thing. Critical methods are going to get at is. Who is making the study about the decisions about the study?</li>
+<li>Who's deciding what questions to ask in our survey or or our interviews?</li>
+<li>Who is deciding who to talk to in this? And who's going to be deciding what to do with the results?</li>
+<li>Because. If it is a collection of employees that are deciding what to do with the results,</li>
+<li>that's very different than efforts, organization management that's deciding what to do with the results.</li>
+<li>One thing also that's important to note is asking employees and questions about retention,</li>
+<li>even very, very good, even if it's done very, very good faith.</li>
+<li>We want to make the organization a good place to work. For going to ask our employees what.</li>
+<li>What they see going on. How they think about their their work.</li>
+<li>Asking the poor ye employees on its own is not sharing power in the way that critical methods.</li>
+<li>Think about who has power and how it's distributed.</li>
+<li>So then I want to talk then a little bit about theory, not in the critical theory sense, but in the theory building sense,</li>
+<li>some dictionary defines theory as a plausible or scientifically acceptable general principle or body of principles offered to explain phenomena.</li>
+<li>It's a it's a kahir is a framework. That links together our findings from a lot of different studies, from a lot of different experiments,</li>
+<li>from different sources of knowledge into a coherent explanation or way of thinking about a phenomenon or a set of problems and theory drives analysis.</li>
+<li>Because if we're doing good data science, if we're doing good quantitative analysis, our questions aren't just made up.</li>
+<li>They come from a reason we have from theory why that's a relevant question to ask.</li>
+<li>And theory in turn, comes from all of these sources because data.</li>
+<li>And analytical and query and critical inquiry, they refine their confirm and confirm and sometimes they reject theories.</li>
+<li>The process by which that happens is long and complicated and is the the subject of study</li>
+<li>of both the philosophy of science and the discipline called science and technology studies.</li>
+<li>But. Feary and our defriended are different modes of inquiry, have this.</li>
+<li>This interactive relationship. That we have a theory that tells us things to go look for, we go look for them.</li>
+<li>Those in turn come back and help us refine our general understanding of how the thing we're studying works.</li>
+<li>Lastly, I want to say a little bit about our science and technology studies concept.</li>
+<li>So often said that knowledge is socially constructed and it becomes relevant, particularly when we start thinking about as relevant in general,</li>
+<li>being to try to understand how our tools work and their limitations and their possibilities.</li>
+<li>It also becomes very important to start to think about the social ramifications</li>
+<li>of data science and the ramifications of social structures on data science.</li>
+<li>But what this means is that knowledge comes through processes and those processes are social.</li>
+<li>Social construction does not mean that knowledge is fake or made up or unreliable or like, oh, it's socially constructed so we can dismiss it.</li>
+<li>No, that's not what it means. All it means is that what we know about the world we know is through social processes.</li>
+<li>Because you're in this class learning how to do data analysis.</li>
+<li>I am teaching you a particular way of approaching data, a particular way of applying statistical tests and interpreting the results.</li>
+<li>That is a social process. We're having these dialogs and conversations about it.</li>
+<li>I learned these through a social process. I subject when we go and we publish papers.</li>
+<li>We subject them to a peer review process. This is a social process, our peers look at it and assess it.</li>
+<li>And as a as a community. We come to our notion, sometimes agreed upon, sometimes contested, about what kinds of questions we should ask,</li>
+<li>how we should go about answering them, how do we know if what we've found is true?</li>
+<li>Well, with our tools for doing that may be very reliable in the sense that they produce knowledge that's useful for for predicting future behavior,</li>
+<li>for understanding what's going on around us.</li>
+<li>There's still there's social processes and they were developed socially and</li>
+<li>they therefore have the various biases and limitations of a social process.</li>
+<li>And understanding that I find helps me.</li>
+<li>Respect science and statistics and the quantitative methods we're studying.</li>
+<li>More. Because rather than putting them on a pedestal that they can never achieve of, they are the ultimate, for example.</li>
+<li>They are the ultimate source of knowledge. Some who basically go there were like,</li>
+<li>if we can't show it with a randomized controlled trial and a statistic and a statistical test, not going to believe it.</li>
+<li>And it puts them in what they can actually do. They can generate a lot of quantitative insight that can help us understand the world better.</li>
+<li>We have processes that we think are probably pretty good.</li>
+<li>Understanding the social nature of these processes is a useful tool for us to be able to think about how to make them better.</li>
+<li>And so it's it's it's important to recognize this the social nature of our methods, but not to let that paralyze us.</li>
+<li>And they said not to let that dismiss them. It doesn't mean we're not finding useful knowledge.</li>
+<li>It just means there's social processes that got us to where we are today.</li>
+<li>So to wrap up quantitative measurements and analysis are not the only or the best way to produce knowledge.</li>
+<li>There is no best way to produce knowledge. Multiple sources of knowledge together give multiple sources of knowledge together.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="week-5-quiz">
+<h2>🚩 Week 5 Quiz<a class="headerlink" href="#week-5-quiz" title="Permalink to this headline">¶</a></h2>
+<p>The Week 5 quiz is about material <strong>through this point</strong>.
+The subsequent videos are to help you better understand and contextualize material.</p>
+</div>
+<div class="section" id="one-sample-notebook">
+<h2>📓 One Sample Notebook<a class="headerlink" href="#one-sample-notebook" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../resources/tutorials/OneSample/"><span class="doc std std-doc">One Sample notebook</span></a> demonstrates how to compute a one-sample <em>t</em>-test, and draw a Q-Q plot to compare a distribution with normal.</p>
+<div class="section" id="id2">
+<h3>Resources<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda35.htm">NIST Handbook on quantitative meaures</a> (has info on 1-sample and 2-sample <em>t</em>-tests)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="python-errors">
+<h2>🎥 Python Errors<a class="headerlink" href="#python-errors" title="Permalink to this headline">¶</a></h2>
+<p>This video discusses common Python errors and how to read errors.</p>
+<div class="resource video docutils container" id="97cc782e-69c4-48b2-b622-ad9c0183fec0">
+<div class="tabbed-set docutils">
+<input checked="checked" id="f23743dd-333a-4ba3-8868-3741a3ebae0f" name="42fe2282-00eb-4045-9673-a01911a62045" type="radio">
+</input><label class="tabbed-label" for="f23743dd-333a-4ba3-8868-3741a3ebae0f">
+Video (7m28s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=97cc782e-69c4-48b2-b622-ad9c0183fec0&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="6ac3937d-cc17-4d99-8582-5f6629288235" name="42fe2282-00eb-4045-9673-a01911a62045" type="radio">
+</input><label class="tabbed-label" for="6ac3937d-cc17-4d99-8582-5f6629288235">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173765" data-key=ANiMAsd6K7ZII7o>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PYTHON ERRORS
+Learning Outcomes
+Read a Python error message
+Understand common kinds of Python errors
+Photo by Wesley Tingey on Unsplash
+Stack Trace
+Stack Trace Components
+Error type
+Location in the code
+Error information (type + message)
+Common Error Types
+NameError – trying to use a variable that does not exist
+AttributeError – trying to use a class member (method or field) that does not exist
+KeyError – trying to look up a key (in a dictionary or Pandas index) that does not exist
+Sometimes arises when Pandas doesn’t correctly figure out how to process the thing you’re using to index
+IndexError – accessing an item by a position (in a list or with Pandas .iloc) that is out of bounds
+Common Error Types
+FileNotFoundError – trying to access a file that does not exist
+Reading: the file does not exist
+Writing: usually the directory doesn’t exist
+OSError – other error reading/writing a file
+Reading an Error
+What kind of thing went wrong? (error type)
+What specifically went wrong? (message sometimes helps)
+Where did it go wrong? (stack trace)
+
+Key is to understand what went wrong, in your code.
+Copying errors into Google often doesn’t help.
+Need to understand problem, and translate back to your context
+Understanding helps you learn, but sometimes hard
+Wrapping Up
+Python errors are reported by exceptions.
+
+The stack trace shows you where in the code the exception occurred.
+raise WatercraftInversionError
+Photo by Quino Al on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Hello, and this video, I want to talk with you just a little bit about how to read and interpret Python error messages,</li>
+<li>learning outcomes are to be able to read a Python error message and understand</li>
+<li>common kinds of python errors and the things that tend to cause them so.</li>
+<li>You get a Python exception, so Python reports errors typically through exceptions.</li>
+<li>And so we write in a lot of code and it gives us an error. So how do we read this?</li>
+<li>There's a few things we want to look at. First. It's going to tell us near the top.</li>
+<li>The type of error. This is an attribute error. Then at the bottom, it tells us, again, the error type.</li>
+<li>And it gives us a message that often tells it gives us more information about what precisely went wrong in this case.</li>
+<li>It tells us the data frame object has no attribute DFA. So I ran this in a notebook or ratings as a data frame.</li>
+<li>There is no attribute DFA and that to the attribute errors telling us that.</li>
+<li>So starting at the bottom here. This is one of the most important things to look at.</li>
+<li>This is going to tell you what went wrong. And understanding what went wrong is the first piece to being able to understand why your code broke.</li>
+<li>But then the last piece we have is the traceback. And it's so it's code says traceback and it says most recent call last.</li>
+<li>So this tells you where that error happened. And the most recent call it, as it says, is last.</li>
+<li>So if we go from the bottom up, we're going to find this happened in the.</li>
+<li>Pandas core generic code and get atter that's deep in pandas.</li>
+<li>And then it happened in our code. Ratings that DFA a good place to start and understanding a stack trace is to look</li>
+<li>for the last entry since that's the innermost one that's in code you wrote,</li>
+<li>because that's where your that's where in your code the error happened.</li>
+<li>But the stack trace lets us work back up to understand why we got the error that we did and will often give us insight into.</li>
+<li>So data frame has no attribute DFA, but where did we try to access that actually?</li>
+<li>Oh, we access that in our code for saying ratings that DFA and there's no such attributes.</li>
+<li>That's giving us the error. Being able to read the error message gives us a lot of useful information about what went wrong and being able to read the</li>
+<li>error message and think about what that means in terms of your code is a crucial skill to being able to debug your python.</li>
+<li>So a few components here, as we've seen, there's the error type. There's the location of the code where it happened.</li>
+<li>And then there's additional information to go with the error.</li>
+<li>Not all error types and not all code that throws errors or a particular type is going to put very useful information in the type error in the message.</li>
+<li>It really varies from error to error and from library to library. But a lot of them do put useful information into that error message.</li>
+<li>Once you know how to interpret it, so common type you there's a number of types of errors that you're going to see rather commonly.</li>
+<li>The first one is a name error and a name error means you're trying to use a variable that doesn't exist.</li>
+<li>So it's several different kinds of errors for referencing things that don't exist.</li>
+<li>A name errors. You just try use a variable X at X does not exist and attribute error means you're trying to use a class member,</li>
+<li>a method or a field on a classman object that does not exist.</li>
+<li>Python calls those attributes. So when we say DOT, we have already a data frame.</li>
+<li>We say dot act. When we say dot mean, what we're doing is we're getting the attribute mean,</li>
+<li>which happens to be a function because that's how Python implements methods. But attribute error means we're trying to access one of these methods.</li>
+<li>It can be a method. It can be a data field. But it doesn't actually exist.</li>
+<li>A key error happens when we try to look up a key either in a dictionary or in a panda's index.</li>
+<li>So using dot lock key area will come up. And the key doesn't exist.</li>
+<li>So sometimes this arises. One way this arises is when pandas when you're passing something to dot lock.</li>
+<li>Or just to the square brackets on a data frame and PANDAS isn't correctly interpreting the type of object that you're giving it.</li>
+<li>That that's one way that can be caused, that this can be caused.</li>
+<li>But the key here means it can't find the thing it's looking for in something that's looked up by key.</li>
+<li>Pendas indexes.</li>
+<li>If you're if you're passing in or a list or an array of index values, all of them have to be in the index or you're going to get a clear it index.</li>
+<li>Error happens when you're accessing item by position, zero through and minus one,</li>
+<li>either in a list or with Pande as I lock or something else that that uses this kind of zero based indexing.</li>
+<li>And the index is out of bounds. It could be an umpire rate as well.</li>
+<li>Index. So these are all different kinds of doesn't exist. Name error means the variable doesn't exist.</li>
+<li>Attribute error means the class member doesn't exist. Key error means the key in the dictionary or index doesn't exist.</li>
+<li>An index error means you've given it a numeric position that's out of bounds.</li>
+<li>A few other errors you're going to see are file not found error. That means you're trying to access a file that doesn't exist.</li>
+<li>If this happens, when you're reading a file, that usually means the file doesn't exist.</li>
+<li>File is not found. If you get this when writing a file, what that usually means is you're trying to write it to a directory that does not yet exist.</li>
+<li>The file doesn't have to exist for you to write it, but the directory you're writing it into does.</li>
+<li>OS error often happens when we're reading and writing a file,</li>
+<li>and that happens when there are other errors in the process, either of opening the file or of actually reading its data.</li>
+<li>One way you might see this is if you're trying to write to a file on windows that you already have open somewhere else.</li>
+<li>So to read an error, you want to understand three things, you want to understand what kind of thing went wrong.</li>
+<li>So look at the air type RBD. Have a namer. You have a key air-to-air file not found.</li>
+<li>Are these are all different. These all have different causes. Then you want to see what specifically went wrong.</li>
+<li>The error message might tell you for a file not found error, it will usually tell you what file was not found.</li>
+<li>And then you want to ask where it went wrong from the stack trace.</li>
+<li>The key thing here is to understand what went wrong in your code so you can fix it.</li>
+<li>Understanding this can really help you learn as you understand not how do I fix the error, but why did the error occur?</li>
+<li>Oftentimes that gives more insight into how the code in the libraries that we're using in Python itself actually work.</li>
+<li>Copying errors into Google can help you find useful resources.</li>
+<li>But it's often not a good strategy for solving the problem because.</li>
+<li>Someone else may have encountered that error. And good resources will give you the kinds of things that are going to help you fix that kind of error.</li>
+<li>But there's a good chance no one else has counted that exact error.</li>
+<li>And the solution that worked for them might not be applicable in your context.</li>
+<li>And so it's important when we get an error message to understand why it went wrong so we can understand how to fix it in our particular context.</li>
+<li>So to conclude, Python errors are reported by exceptions.</li>
+<li>When we get an exception, we get a stack trace that includes a lot of useful information about what exception happened, where in the code it occurred.</li>
+<li>And learning to read these is going to help us better understand the system that we're using and be able to fix and debug our code.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="python-libraries">
+<h2>🎥 Python Libraries<a class="headerlink" href="#python-libraries" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="d4157cb9-54e4-412b-aeff-ad9c0183ff63">
+<div class="tabbed-set docutils">
+<input checked="checked" id="8b6e90d9-e2ba-4a84-92ce-3e16b3f45815" name="ab5529e8-e454-4143-ae55-e6aae0dacf9f" type="radio">
+</input><label class="tabbed-label" for="8b6e90d9-e2ba-4a84-92ce-3e16b3f45815">
+Video (3m43s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=d4157cb9-54e4-412b-aeff-ad9c0183ff63&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="4ee48249-1979-4708-9e87-2fd354527547" name="ab5529e8-e454-4143-ae55-e6aae0dacf9f" type="radio">
+</input><label class="tabbed-label" for="4ee48249-1979-4708-9e87-2fd354527547">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173766" data-key=APxOPcdlKzJcyWw>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PYTHON LIBRARIES
+Learning Outcomes
+Know the relationships between key libraries in Python
+Photo by Shunya Koide on Unsplash
+NumPy
+NumPy provides array features
+ndarray (n-dimensional array
+Vector
+Matrix
+Many manipulation functions
+Array broadcasting support
+Backbone of vectorization
+More Libraries
+NumPy
+SciPy
+Pandas
+StatsModels
+matplotlib
+Seaborn
+If You Need
+Array functions – NumPy
+Advanced array / basic stats – SciPy
+Signal processing, etc.
+Distributions
+Labeled data management – Pandas
+Statistical Models - statsmodels
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>In this video, I'm going to briefly talk to you about the relationships between some of the different Python libraries that</li>
+<li>we've been using since learning outcome as to know the relationships between these key data science libraries.</li>
+<li>So NUM Pi is the foundation of most of what we're doing. And it provides the array features it built.</li>
+<li>It has the Endi array n dimensional array data structure that we use to represent vectors matrices.</li>
+<li>You can also use it for Tensas, which are three dimensional. They have rows and rows, columns in depth.</li>
+<li>You can there's many of manipulation functions to do.</li>
+<li>Vector operations. Vector vector vector matrix vector scalar matrix matrix to reshape, manipulate data frames.</li>
+<li>All of the data frames make arrays and matrices. It also has what's called a ray broadcasting support.</li>
+<li>So you can multiply a matrix by a vector in that doesn't do a matrix vector multiply.</li>
+<li>But it if the matrix is as tall as the excuse me at the vector is, as long as the matrix is tall, it'll apply at it.</li>
+<li>It'll apply it down the columns and apply this the same vector to every row and num pi really is the backbone of vector ization.</li>
+<li>And spending some time, the textbook talks a lot more about how to use num pis various factorization capabilities.</li>
+<li>But it's the it gives us the victimization operations and it's the backbone then of the rest of the libraries.</li>
+<li>So we put them together. Cyb High builds on top of num pi and adds additional scientific capabilities, some primitive statistical capabilities.</li>
+<li>Pandas builds on top of num pi to give us the data structures that allow us to assign labels to columns and rows.</li>
+<li>So we have our column names, we have a row names. A num pi matrix has to be homogenous.</li>
+<li>Every element has to be the same type. Abandons data frame from each column can have a different type.</li>
+<li>The columns have names. We can have a row indexes.</li>
+<li>It also gives us some additional data types, such as it has a categorical data type that NUM Pi does not natively support.</li>
+<li>It provides additional date time capabilities, stats, models,</li>
+<li>builds on top of Pan doesn't PSI Pi to give much more sophisticated statistical modeling capabilities?</li>
+<li>There's overlap. There's some functions that appear both num pi and PSI, Pi, num pi and pandas, CI pilots, stats, models.</li>
+<li>But that's, that's models builds on all of these to give us relatively sophisticated statistical modeling capabilities.</li>
+<li>If you're coming from our stats models is where you're gonna find a lot of the linear models,</li>
+<li>a lot of the hypothesis tests and things that you might be looking at looking for from R, then I'm plotting.</li>
+<li>Matplotlib is the low level plotting library that most other, particularly static plotting infrastructure.</li>
+<li>A python is built. It works directly with num pi seabourne builds on top of matplotlib.</li>
+<li>It also uses side pi and pandas and stats models to draw some of its more sophisticated plots, but it pulls all of it together.</li>
+<li>I'll let you do some of your data visualization. So if you need basic array functions, you're gonna get those from num pi.</li>
+<li>You need to do more advanced things with a raise and some basic statistical functions.</li>
+<li>Then you're gonna reach for PSI, Pi, PSI, Pious signal processing.</li>
+<li>It's got a whole bunch of different things and it also has sparse matrices, which you're going to see later.</li>
+<li>And it has a whole bunch of statistical distributions if you need to work with label data and basically</li>
+<li>any of our any of our observation data that we're gonna be pulling in for our work in this class,</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="learning-more">
+<h2>🎥 Learning More<a class="headerlink" href="#learning-more" title="Permalink to this headline">¶</a></h2>
+<p>In this video I talk about how I go about expanding my own data science knowledge and techniques, with the goal
+of giving you ideas for how you can continue learning beyond this class.</p>
+<div class="resource video docutils container" id="35f85942-169f-4f7e-986a-ad9c01840084">
+<div class="tabbed-set docutils">
+<input checked="checked" id="16b76250-cbc1-407b-a9ee-b7859a2e3b6f" name="d32e1538-cf8c-4b2a-bc9b-a29d920ace0e" type="radio">
+</input><label class="tabbed-label" for="16b76250-cbc1-407b-a9ee-b7859a2e3b6f">
+Video (5m10s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=35f85942-169f-4f7e-986a-ad9c01840084&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Hi, no slides this time. Want to talk to you for just a few minutes about where to learn more, so we've introduced a number of Python things.</li>
+<li>We're going to see more python things. We've introduced some basic inferential techniques.</li>
+<li>We're going to see more inferential techniques. We're going to see more techniques of other kinds.</li>
+<li>But this class, I'm not certainly not able to cover everything you're going to ever need to know.</li>
+<li>You're not going to cover everything you're ever going to need to know and a master's degree or an APHC.</li>
+<li>So where do you go to learn more? One immediate thing is to take more classes for many of you.</li>
+<li>This is your first class in a data science oriented master's or HD program.</li>
+<li>You're going to take, say, the machine learning class in the spring.</li>
+<li>You're going to take maybe natural language processing, maybe recommender systems.</li>
+<li>Maybe you're going to take one of the information retrieval classes or social network analysis.</li>
+<li>The variety of classes you can go take classes in mathematics and statistics and econometrics and the econ department.</li>
+<li>You can go look for econometrics. There's a variety of classes that you can take that can help fill in some knowledge.</li>
+<li>But beyond that, there's a lot you can do to study and learn more.</li>
+<li>There's lots of books I'm referencing some in this class.</li>
+<li>I'm going to be adding links to more as we go through the class further and get get to more techniques that are worth pointing you to a book for.</li>
+<li>But also, some of the things that I do is, for one, I read a lot, particularly when I'm reading a lot of papers.</li>
+<li>I read a lot of things on the Internet. And I pay attention to the statistical methods.</li>
+<li>So I'm very active on Twitter, for example, and I follow a number of people who tweet about statistical methodology.</li>
+<li>Some of them are very advanced and sophisticated statisticians, and I pay attention to what they have to say.</li>
+<li>What are they saying about statistical methods? Oftentimes I need a lot more background to fully understand the argument that they're weighing in on.</li>
+<li>But I'll see if it seems relevant to anything I'm working on and maybe go and get some of that background.</li>
+<li>And so that's one sources is seeking out.</li>
+<li>Blogs, social media feeds, etc, from people who are regularly posting information about statistical techniques or data science techniques.</li>
+<li>You have to be careful. There's a lot of bad information out there. But there's a lot of quite good.</li>
+<li>There's a lot of quite good and well-informed statisticians and data scientists who are posting things that you might want to pay attention to.</li>
+<li>And some of them are also very, very funny. I also, as I'm reading research papers, I pay attention to their method.</li>
+<li>Sometimes it's just to better understand the methods.</li>
+<li>Sometimes a paper was going to have an interesting method that might be useful for me to add and adapt to my own research.</li>
+<li>I also reflect on my processes as I'm working on a project.</li>
+<li>They ask what's working, what's not? Where are the holes?</li>
+<li>Whereas this project at the edge of my knowledge and I really need to understand something else to push it forward.</li>
+<li>I pay attention when I'm at conferences to what methods do people seem to be applying?</li>
+<li>What methods do I maybe need to add to my tool box?</li>
+<li>Because people are getting a lot of value out of them and doing the kinds of research that I try to do.</li>
+<li>I also spend time trying to understand my tools, reading the documentation for things like pandas and num pi, trying things out.</li>
+<li>Oftentimes I'll spin up a notebook just to try something out, to see how it works and how it works in my data.</li>
+<li>Looking at examples, I'm pretty opinionated in my programing, so there's a lot of examples I don't like,</li>
+<li>but but looking at examples and trying to understand how other people did things and</li>
+<li>why they did them that way and seeing what I can incorporate into my own process.</li>
+<li>But a lot of it is practice. And also, I think as I'm working.</li>
+<li>Is there a better way I can do this? Is there a way I can do this more efficiently?</li>
+<li>Sometimes I don't care. Like, OK, that was fast enough. But paying attention to and reflecting on.</li>
+<li>OK, how about how is this working? How am I actually doing?</li>
+<li>This computation really goes a long ways towards identifying the places where I might need to go level up my skills.</li>
+<li>So at the end of the day, what I do to keep learning more of this material is I pay attention to the work, both my work and the work of others.</li>
+<li>Pay attention to the details. How are we getting these results?</li>
+<li>What assumptions is this making? Are those assumptions valid? Can I apply this method in another technique, in another context?</li>
+<li>It's question of all of that asking myself and then reflecting my own practice.</li>
+<li>And as I'm working on a project. What am I happy about and how this project worked out?</li>
+<li>What am I dissatisfied with?</li>
+<li>What do I need to go learn in order to address the point of the project that this dissatisfied me and continually learn more things?</li>
+<li>Spend time thinking, try the mountain new projects and building up my skills incrementally over time.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="practice">
+<h2>✅ Practice<a class="headerlink" href="#practice" title="Permalink to this headline">¶</a></h2>
+<p>There are a few things you can do to keep practicing the material:</p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://grouplens.org/datasets/hetrec-2011/">HETREC data</a> contains two data sets besides the movie data: Delicious bookmarks and <a class="reference external" href="http://Last.FM">Last.FM</a> listening records.
+Download this data set and apply some of our exploratory techniques to it.</p></li>
+<li><p>Download the SBA data from Week 4’s activity and describe the distributions of more of the variables.</p></li>
+<li><p>Apply the inference techniques from Week 4 to statistically test the differences you observed in <a class="reference internal" href="../assignments/A1/"><span class="doc std std-doc">Assignment 1</span></a>.</p></li>
+</ul>
+</div>
+<div class="section" id="more-examples">
+<h2>📓 More Examples<a class="headerlink" href="#more-examples" title="Permalink to this headline">¶</a></h2>
+<p>Some more examples from my own work (these are <em>not</em> all cleaned up to our checklist standards):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/BoiseState/book-author-gender/blob/master/DataSummary.ipynb">Data summary from book gender paper</a> - shows a number of descriptive things, including a stacked area chart; it also uses Plotnine.</p></li>
+<li><p><a class="reference external" href="https://github.com/BoiseState/bookdata-tools/blob/master/LinkageStats.ipynb">Linkage statistics from book data</a> - shows some matploblib things, and computing data linking statistics.</p></li>
+</ul>
+</div>
+<div class="section" id="tutorials">
+<h2>📓 Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../resources/tutorials/#tutorials"><span class="std std-ref">tutorial notebooks</span></a> include many useful things, and have a couple of additions moved over from <a class="reference internal" href="../week4/#week4" title="week4"><span>📅 Week 4 — Inference (9/13–17)</span></a>.</p>
+</div>
+<div class="section" id="assignment-2">
+<h2>📩 Assignment 2<a class="headerlink" href="#assignment-2" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../assignments/A2/"><span class="doc std std-doc">Assignment 2</span></a> is due on <strong>September 26</strong>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./week5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../week4/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 4 — Inference (9/13–17)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../week6/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 6 — Two Variables (Sep. 27–Oct. 1)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

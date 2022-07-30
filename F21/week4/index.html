@@ -1,0 +1,2418 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 4 — Inference (9/13–17) &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabinsert.js"></script>
+    <script src="../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"E": "\\mathrm{E}", "Field": "\\mathcal{F}", "P": "\\mathrm{P}", "Cov": "\\mathrm{Cov}", "Cor": "\\mathrm{Cor}", "Var": "\\mathrm{Var}", "log": "\\operatorname{log}", "Odds": "\\operatorname{Odds}", "OR": "\\operatorname{OR}", "IND": "\\mathbb{I}", "Reals": "\\mathbb{R}"}}, "HTML-CSS": {"fonts": ["TeX"]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="copyright" title="Copyright" href="../copyright/" />
+    <link rel="next" title="Week 5 — Filling In (9/20–24)" href="../week5/" />
+    <link rel="prev" title="Drawing Charts" href="../week3/3-6-ChartsFromTheGroundUp/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../resources/tutorials/">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/week4/index.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fweek4/index.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/week4/index.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#revision-log">
+   Revision Log
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#content-overview">
+   🧐 Content Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deadlines">
+   📅 Deadlines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   🎥 Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probability">
+   🎥 Probability
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#joint-and-conditional-probability">
+   🎥 Joint and Conditional Probability
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#continuous-probability">
+   🎥 Continuous Probability
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notes-on-probability">
+   📃 Notes on Probability
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distributions">
+   🎥 📓 Distributions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sampling-and-the-data-generation-process">
+   🎥 Sampling and the Data Generation Process
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#confidence">
+   🎥 Confidence
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#confidence-in-confidence">
+   📃 Confidence in Confidence
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-bootstrap">
+   🎥 The Bootstrap
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-4-quiz">
+   🚩 Week 4 Quiz
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#penguin-inference">
+   📓 Penguin Inference
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading">
+   📚 Further Reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extra-reading-philosophy">
+   📚 Extra Reading (Philosophy)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignment-2">
+   📩 Assignment 2
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-4-inference-9-1317">
+<span id="week4"></span><h1>Week 4 — Inference (9/13–17)<a class="headerlink" href="#week-4-inference-9-1317" title="Permalink to this headline">¶</a></h1>
+<p>These are the learning outcomes for the week:</p>
+<ul class="simple">
+<li><p>Understand the elements of probability</p></li>
+<li><p>Interpret and write conditional probabilities for events</p></li>
+<li><p>Understand the key relationships between discrete and continuous probability</p></li>
+<li><p>Compute and interpret a confidence interval</p></li>
+</ul>
+<div class="section" id="revision-log">
+<h2>Revision Log<a class="headerlink" href="#revision-log" title="Permalink to this headline">¶</a></h2>
+<dl class="simple myst">
+<dt>Thu, Sep. 16</dt><dd><p>updated quiz to reflect changed release/deadline</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="content-overview">
+<h2>🧐 Content Overview<a class="headerlink" href="#content-overview" title="Permalink to this headline">¶</a></h2>
+<div class="module-content docutils">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><strong>Element</strong></th>
+<th class="head"><strong>Length</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#8388f5d0-e1da-43ec-a972-ad9c0183c6ef"><span>🎥 Inference Intro</span></a></p></td>
+<td><span>10m36s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#86d6d830-e88d-4d33-90fa-ad9c0183c772"><span>🎥 Probability</span></a></p></td>
+<td><span>13m46s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fb3a5f34-8677-432a-a91f-ad9c0183c801"><span>🎥 Joint and Conditional</span></a></p></td>
+<td><span>11m50s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#55bc41ca-eafa-47cc-8be6-ad9c018526f8"><span>🎥 Continuous Probability</span></a></p></td>
+<td><span>11m48s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#reading-Notes-on-Probability"><span>📃 Notes on Probability</span></a></p></td>
+<td><span>349 words</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#d836f67d-307a-408d-9423-ad9c0183c891"><span>🎥 Distributions</span></a></p></td>
+<td><span>9m24s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#7d69ede0-5d1d-4880-9a92-ad9c0183c927"><span>🎥 Sampling and the DGP</span></a></p></td>
+<td><span>17m53s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#7ff79b12-d2cd-4326-8882-ad9c0183c9b6"><span>🎥 Confidence</span></a></p></td>
+<td><span>13m6s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#confidence-in-confidence"><span>📃 Having confidence in confindence intervals</span></a></p></td>
+<td><span>225 words</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#5967c655-f4de-4c57-bb85-ad9c0183e2ed"><span>🎥 The Bootstrap</span></a></p></td>
+<td><span>7m26s</span></td>
+</tr>
+</tbody>
+</table>
+<p><span>This week has </span><strong>1h36m</strong><span> of video and </span><strong>574 words</strong><span> of assigned readings.</span><span> This week’s videos are available in a </span><a class="panopto reference external" href="https://boisestate.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%228a5c2081-e745-4084-ad98-ad9c018384ea%22"><span>Panopto folder</span></a><span> and as a </span><a class="panopto podcast reference external" href="https://boisestate.hosted.panopto.com/Panopto/Podcast/Podcast.ashx?courseid=8a5c2081-e745-4084-ad98-ad9c018384ea&amp;type=mp4"><span>podcast</span></a><span>.</span></p>
+</div>
+<p>This week is at the upper end for total video of any week in the course, and also has some of the
+trickier concepts.  The next week — Week 5 — is significantly lighter in terms of new material, and
+we’ll take a step back to try to solidify the things we’ve learned so far in the class before
+proceeding to Week 6.</p>
+</div>
+<div class="section" id="deadlines">
+<h2>📅 Deadlines<a class="headerlink" href="#deadlines" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Week 3 Quiz on <strong>Monday, Sep. 20</strong> at 12PM</p></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2>🎥 Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="8388f5d0-e1da-43ec-a972-ad9c0183c6ef">
+<div class="tabbed-set docutils">
+<input checked="checked" id="ac2ed000-7aa4-4196-b06f-9379827606d5" name="867e685b-8f5f-4544-8e28-98f2bdfb2404" type="radio">
+</input><label class="tabbed-label" for="ac2ed000-7aa4-4196-b06f-9379827606d5">
+Video (10m36s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=8388f5d0-e1da-43ec-a972-ad9c0183c6ef&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="a588f965-ba2b-46ce-9cc7-ec89794db9de" name="867e685b-8f5f-4544-8e28-98f2bdfb2404" type="radio">
+</input><label class="tabbed-label" for="a588f965-ba2b-46ce-9cc7-ec89794db9de">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173758" data-key=AHkkW4DKbara2Os>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PROBABILITY AND INFERENCE
+Learning Outcomes (Week)
+Understand probability notation
+Express formulas with probability notation
+Understand the difference between estimation and testing
+Compute confidence intervals and other estimates of the precision and significance of an effect
+Photo by William Warby on Unsplash
+Statistics
+Inference
+Inference is learning about data.
+
+Estimating the value of a parameter
+Testing the data’s support for an hypothesis
+
+Estimates
+An estimate is an estimated value of some underlying quantity
+Often has a confidence interval or similar (e.g. credible interval)
+
+An estimator is a procedure for computing an estimate.
+
+An estimand is a thing we try to estimate.
+
+Often use a statistic from a sample to estimate a parameter, which is the estimand.
+Effect Size
+The effect size is the size of the difference between two groups or treatments.
+Perspective
+Few bright-line rules – multiple pieces of evidence increase confidence
+Probability is meaningful even without a random process – can quantify degrees of belief
+Effect size and estimates are usually more important than hypothesis tests (but I’ll teach those anyway)
+Wrapping Up
+We’re going to move beyond computing and comparing statistics to reasoning about their impact and implications.
+
+The foundations of this will be probability theory.
+Photo by Celpax on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>In this video, I'm going to introduce this week's topic of probability and inference.</li>
+<li>So we're learning outcomes. This we could understand probability notation to be able to express formulas using probability.</li>
+<li>Understand the difference to an estimation and testing and to be able to compute</li>
+<li>confidence intervals and other estimates of precision and significance of an effect.</li>
+<li>So to review just a little bit, we've talked about the concept of a statistic, a measurement that we take from a collection of data,</li>
+<li>for example, and the Penguins dataset, which we're going to be using a lot this week.</li>
+<li>The Gentoo penguins have an average weight of five thousand seventy grams of mean weight.</li>
+<li>So but we have the question of we're trying to see how averaged how heavy on average are adult Gentoo penguins?</li>
+<li>One of the things we want to know is how precise is this estimate of five thousand seventy six?</li>
+<li>Is this likely to be close to the the actual average way far off?</li>
+<li>How can we measure how precise this estimate is? We can also start to look at comparisons.</li>
+<li>The Gentoo penguins in our data have longer flippers than the chinstrap penguins.</li>
+<li>But does this mean Gentoo penguins have longer flippers than chinstrap penguins usually?</li>
+<li>Or do we randomly get some long flipper Gentoo penguins and some short flipper.</li>
+<li>Chinstrap penguins? And our data doesn't actually tell us anything about the relative flipper length of chinstrap and Gentoo penguins.</li>
+<li>So what we're going to be developed, one of the things we're going to be developing this week is some tools to be able</li>
+<li>to start to answer some of these kinds of questions and go from this statistic,</li>
+<li>we call it. We have some data.</li>
+<li>We compute a statistic over it to being able to say things about the underlying constructs from which the data are collected in this case.</li>
+<li>The body size characteristics of different species of penguin.</li>
+<li>So inference is learning about data to be able to go from the data that we have and learn things about</li>
+<li>its structure to learn the values of different parameters that describe its underlying existence.</li>
+<li>And so there's a couple of thing.</li>
+<li>There's a variety of things you can do it this, too, things are going to be doing is estimating the value of a parameter.</li>
+<li>So if there's an underlying parameter, which is the average length of a Gentoo penguin slipper,</li>
+<li>can we estimate the value of that parameter by observing penguins in the wild?</li>
+<li>And then the testing, the data support for a hypothesis, maybe the hypothesis that.</li>
+<li>Gentoo penguins have longer flippers than chinstrap penguins. To define a term, though, an estimate is an estimated value of some underlying quantity.</li>
+<li>Often we talk about a point estimate. So if we take our penguins and we compute the mean of our penguins flipper lengths.</li>
+<li>That gives us a point estimate for the mean flipper length.</li>
+<li>But often we'll have a confidence interval or something similar that describes how precise and how confident we are in this estimate.</li>
+<li>And estimates [INAUDIBLE] is a procedure which is the metric and the mechanism that we're gonna use for applying that metric,</li>
+<li>for computing an estimate and an s demand is a thing we're trying to estimate.</li>
+<li>So an estimate. So we have an estimate. And that's the estimate of an S demand.</li>
+<li>And if we're using a statistic from a sample to estimate a parameter.</li>
+<li>So we're where we have our penguins and we compute the mean mass of our Gentoo penguins.</li>
+<li>And we say, well, we're gonna use that to estimate. The typical mass of a Gentoo penguin.</li>
+<li>Then with the typical mass as a parameter and the parameter or the statistic in this case is the estimate and the parameter is the estimate.</li>
+<li>The value of this statistic is the estimate, the process of computing.</li>
+<li>The statistic itself as an object like meet the mean of five point of five thousand seventy six is the estimate.</li>
+<li>The mean as a concept is the estimate here. And the parameter in this case is the estimate and.</li>
+<li>So, in effect, size is the size of the difference between two groups or treatments.</li>
+<li>A lot of the things that a lot of the basic principles of statistical tests and statistical analysis come from the idea of controlled experiments.</li>
+<li>So if in a controlled experiment, if if we had a bunch of penguins, I'm not going to try to draw penguins.</li>
+<li>But I'll say penguins. Still a bunch of penguins.</li>
+<li>And we want to see if penguins who eat one kind of fish have better growth.</li>
+<li>Maybe we have baby penguins, baby penguins who have won access to one kind of food.</li>
+<li>Have better growth than access to another. So we'll take our penguins randomly split them into two groups.</li>
+<li>We'll have food. One. We'll have food to.</li>
+<li>And then we will measure growth. And then we want to compare.</li>
+<li>The growth of these two of penguins that are given the two different kinds of food.</li>
+<li>There's much more sophisticated experimental designs. But the effect size is how much more or less the food one penguins grew.</li>
+<li>And the food to penguins because we want to see it.</li>
+<li>We can see, OK. Did they grow more? But the effect size as well. How big is that growth?</li>
+<li>And. Even when we're not actually performing a controlled experiment like this,</li>
+<li>a randomized controlled trial, we're using the statistical tools and other contexts.</li>
+<li>This is the this is the underlying theoretical construct in which they're easiest to understand.</li>
+<li>And we're going to understand a lot of them in other contexts in terms of.</li>
+<li>This kind of a treatment setup, maybe we just have two groups like this.</li>
+<li>This penguin is a June Gentoo and this penguin is a chinstrap.</li>
+<li>We can't assign those conditions. We can't take a bunch of penguins and say, OK, this half, we're going to make them Gentoo.</li>
+<li>In this half, we're going to make them chinstrap. We're gonna use the same math to compare, say, the flipper size of the chinstrap and the Gentoo.</li>
+<li>But this is the kind of experimental construct in which it's which a lot of these kinds of all of these statistical techniques arise.</li>
+<li>So a little bit about my perspective. So, I mean, we all come to these topics with our prospect, with our own perspectives.</li>
+<li>I'm going to provide access. I'm going to provide links to know a couple of articles about my that have informed my perspective.</li>
+<li>These are not required reading. And you're not going to be tested on those articles. But one is that there are few bright line rules.</li>
+<li>So it's not as simple as we computer test p less than two point zero five.</li>
+<li>Great. We know he found an effect instead. Multiple pieces of evidence.</li>
+<li>The statistical significance from a test in one experiment. The confidence interval, the precision of the estimate in another context.</li>
+<li>Together increase our confidence in the.</li>
+<li>In what we're understanding from the data. No one experiment or analysis is the end of the story.</li>
+<li>I'm going to be teaching you how to do all of the classical statistical well, not all.</li>
+<li>I'm going to be teaching you how to do some of the classical statistical techniques,</li>
+<li>like how to do a test and compute its p value, how to compute P values in other ways.</li>
+<li>But there is not.</li>
+<li>These individual pieces on their own are evidence that we used to paint a bigger picture and gain car, increasing confidence in our results.</li>
+<li>Second is that probability is meaningful, even without a specific random process to discuss.</li>
+<li>So some take the approach that we can only.</li>
+<li>That the problem, the mathematics of probability, only apply when we're talking about actual random processes and the outcomes of random processes.</li>
+<li>I do not take that approach. I take an approach in which probability can also quantify degrees of belief.</li>
+<li>And so we can talk about the probability. We can talk about probabilities of actual parameters, not just the values that arise from them.</li>
+<li>But I'll probably make some more sense later. Also effect size.</li>
+<li>It estimates in the seat the. Precision of our estimates are often more important and more useful than hypothesis tests.</li>
+<li>We're gonna do hypothesis tests, but in many cases.</li>
+<li>The questions we ask are better answered by estimates, by estimates.</li>
+<li>These are not universally held perspectives and I'm going to be teaching you tools.</li>
+<li>Regardless of my perspective, but I just wanted to be upfront with some of the perspective that I bring to the</li>
+<li>table and how I think about this material and it's informed how I present it.</li>
+<li>And the choice of the which material I've chosen to present to you.</li>
+<li>So to wrap up,</li>
+<li>we're going to go move beyond just computing and comparing statistics to actually be able to start reasoning about the magnitude of the differences.</li>
+<li>We see the significance of those differences if they are for lack of a better term,</li>
+<li>real or if just they're just artifacts of the data and the data collection process.</li>
+<li>The foundations of this are going to be probability theory, which I'm going to get into in the next video.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="probability">
+<h2>🎥 Probability<a class="headerlink" href="#probability" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="86d6d830-e88d-4d33-90fa-ad9c0183c772">
+<div class="tabbed-set docutils">
+<input checked="checked" id="e83ef4d3-c9a8-446e-8a7f-2f75ed6f434a" name="67f67cdf-54da-4cdf-81af-6d03fc1fa044" type="radio">
+</input><label class="tabbed-label" for="e83ef4d3-c9a8-446e-8a7f-2f75ed6f434a">
+Video (13m46s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=86d6d830-e88d-4d33-90fa-ad9c0183c772&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="413ecb3d-f1e1-4497-9159-f0b6a1d11f3d" name="67f67cdf-54da-4cdf-81af-6d03fc1fa044" type="radio">
+</input><label class="tabbed-label" for="413ecb3d-f1e1-4497-9159-f0b6a1d11f3d">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173760" data-key=AFAGF9fwIsw7ioo>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PROBABILITY
+Learning Outcomes
+Know the fundamental set operations
+Know the fundamental concepts of probability theory for single events
+Photo by Tengku Nadia on Unsplash
+Sets
+Set Operations
+Events
+Logic
+Event Space
+Amazing Events
+“Something amazing” is an event
+The set of all elementary events that are amazing
+Therefore, something not-amazing is also an event
+Something boring?
+6-sided Die
+A First Theorem
+Probability (Axioms - Kolmogorov)
+Probability
+Consequences
+Some Probability Facts
+What does Probability Mean?
+Deep philosophical question…
+
+Expected or long-run outcome of a random process
+Degree of belief or expectation
+Wrapping Up
+We can use sets to describe events or outcomes, and logical combinations.
+
+Probability quantifies likelihood of different events.
+
+Probabilities follow several rules, with rich emergent properties.
+Photo by ÉMILE SÉGUIN 🇨🇦 on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Also in this video, I went to talk with you about the basic principles of probability to lay a foundation for some</li>
+<li>of the reasoning we're going to need to do this week and throughout the rest of the semester.</li>
+<li>So we're learning outcomes for this video are for you to know the fundamentals, set operations.</li>
+<li>We're going to use sets to discuss logical events that become the basis of probability</li>
+<li>and to know the fundamental public concepts of probability theory for single events.</li>
+<li>So to introduce a set, a set is an unordered collection of distinct elements.</li>
+<li>There's no duplicates in it. So if A were to somehow be twice in a collection, it's not a set.</li>
+<li>And also the elements have no intrinsic order. We can impose an order for Elst from elsewhere.</li>
+<li>But if we have a set, there's no intrinsic order to the elements in it by default.</li>
+<li>We then in a few relationships around sets, if we can say that an element A is a member of a set.</li>
+<li>We can say that one set is a subset of or another. We can also compute the size or the cardinality of a set.</li>
+<li>Now, sets can be infinite. That is, they can contain infinitely many elements.</li>
+<li>There are also multiple types or sizes of infinity.</li>
+<li>The smallest infinity is what we call countable infinity.</li>
+<li>And the countable infinity is the cardinality of the set of natural numbers.</li>
+<li>So zero one or one, two, three, four or five on forever.</li>
+<li>There are accountably, many such numbers. That's the smallest infinity.</li>
+<li>There are larger infinities. The details of that aren't going to be superimportant. They're going to come up once or twice.</li>
+<li>But this is not an advanced. We're not going to dove deep. But I.</li>
+<li>I might need the word accountably occasionally. We then have several operations onsets.</li>
+<li>So A Union B is the number is the set of items.</li>
+<li>That's an either A or B or both. It can be a both. Can be an either of them.</li>
+<li>The intersection is the items that are in both of the sets. And then we have the set difference.</li>
+<li>The items that are in A but not in B Union, an intersection are both symmetrical.</li>
+<li>You can swap the the sets around. Difference is not symmetrical.</li>
+<li>And then we have the complement.</li>
+<li>If A is a subset of some larger set, some universe than the set of all items, not in a universe minus A is a complement.</li>
+<li>Now, with these sets, we can then start to talk about what we call events.</li>
+<li>So probability is the probability theory.</li>
+<li>We talk about the probability of events. And so we have a set of elementary events and these are the distinct individual outcomes.</li>
+<li>For example, if we flip a coin, are elementary events are heads and tails.</li>
+<li>If we roll a six sided die or elementary events are one, two, three, four, five, six.</li>
+<li>But then an event is a set that is a subset of our set of elementary events and the elementary events themselves.</li>
+<li>We don't treat those as events. We make Singleton sets. So we just have the set that just contains H.</li>
+<li>And that's going to be the coin is heads. But this way we can talk about events that are combinations of others,</li>
+<li>such as E itself, the set of all the elementary events that mean something happened.</li>
+<li>It doesn't matter what happened, just something happened.</li>
+<li>And the also we can talk about, for example, two four six is the event if we're have our dice, two four six,</li>
+<li>the SEC containing those three dicer die rolls is the event road even number because the hole at the elementary events.</li>
+<li>So the individual rolls. One, two, three, four, five, six. There are three of them that are even two, four and six.</li>
+<li>And so we can say the set of those three is the event rolled even number.</li>
+<li>So we think about events. We're going to talk about events in terms of these sets.</li>
+<li>And you set notation to talk about the combinations of events.</li>
+<li>This is going to build up the basis of our probability theory. So then set operations described logical events.</li>
+<li>So A, Intersect B means both A and B happened at the same time.</li>
+<li>We have a A as a set of elementary events where some property is true,</li>
+<li>say even B is a set where some other property is true, say divisible by three, A Intersect.</li>
+<li>B is the set or both properties are true. This set may be empty.</li>
+<li>But in this case, even in divisible by three is gonna be a six.</li>
+<li>A Union B is either a C, so intersection is equivalent to logical and a union B is either A or B happened or both.</li>
+<li>If it's possible for them to both have it at the same time, it might be that both happen, but at least one of them happened.</li>
+<li>This is logical. Or we can also we also have A happened, but not B, so if A is even and B is divisible by three A but not B would be three.</li>
+<li>Excuse me, A, but not B would be two and four because two and four of the even numbers that are not divisible by three.</li>
+<li>As I said, these are equivalent to the logical operators, so A and B, A or B and then A and not B.</li>
+<li>So we have these these individual outcomes, the elementary events.</li>
+<li>We have the events themselves that are subsets of it. We then decide this D.</li>
+<li>Define a set F. That is going to be the set of all possible events.</li>
+<li>These are subsets of E! So this is a set of stats. And this set has to has an important property.</li>
+<li>It's closed under. So first E is in it. So E is is an F.</li>
+<li>And it is closed under complement and countable unions. So if.</li>
+<li>If set A is in this field F. Then its complement is as well.</li>
+<li>So E minus A is in it. The way we think of that, if a as say, even if even as an event, while odd, is an event to.</li>
+<li>Also, if we have. Solemn events, then their union is also an event.</li>
+<li>So if and also if if it is infinite, then this is count what accountable union?</li>
+<li>Any count? Any any collection of counterplay many events. Their union is an event.</li>
+<li>The details of that ring will save for a probability theory course.</li>
+<li>But to be complete, there it is. We call this this field f a sigma field or a sigma algebra.</li>
+<li>But. But F, is this the setup?</li>
+<li>This collection of events? So we the in The Incredibles, you have the guy, the father, he comes home and the kids waiting there and.</li>
+<li>What are you waiting for? I know something amazing, I guess. Well, something amazing.</li>
+<li>It is an event that set off all elementary events that are amazing for whatever amazing means.</li>
+<li>But then that also means that something not amazing, maybe something boring is also an event.</li>
+<li>So you get this compliment thing. Like if. If, if. The set of all monetary events with some property say amazing is an event.</li>
+<li>Well, the set of all of them that don't have that property also is.</li>
+<li>So if we have our six sided die, we have the elementary events of the three or the six different values.</li>
+<li>All of the singletons are events. They're all in our field and also all subsets of e wind up being events.</li>
+<li>This we call this the powers. The power set is the set of all subsets. So there's any subset of E is an event.</li>
+<li>And if you have it, so long as our set of elementary events is discrete and finite, all of the subsets are going to be events.</li>
+<li>So let's I want to show you quick a theorem that we can prove already with the values that we have so far.</li>
+<li>So if we have two events, a one and a two. The axioms told us it's usually the definition of a sigma field.</li>
+<li>Told us that their union is an event,</li>
+<li>but also their intersection is an event because the intersection can be turned into a compliment of a union of compliments by the Morgens laws.</li>
+<li>If you've taken the logic class, you might remember those.</li>
+<li>The compliments are in the hour in the field by club because the field has all the compliments in it.</li>
+<li>The union of Compliments, therefore, is also in the field since it's in the field, its complement.</li>
+<li>The intersection is in the field. So from the axioms we have, we can prove that the intersection is is an event.</li>
+<li>So with these fields, we can now define probability and a probability is a measure of we call it actually a measure.</li>
+<li>So it's a probability measure. But it's a measure of how likely the different events are.</li>
+<li>So a probability distribution. It's a function over this field F and it obeys a few rules.</li>
+<li>The probability of E the set of all elementary events is one. Basically, if we got something happening.</li>
+<li>Well, the probability of something happening again, observe something happening is one.</li>
+<li>Also, probabilities are not negative. All probabilities are at least zero.</li>
+<li>And then if we have a disjoint sets or disjoint events.</li>
+<li>So two events are disjoint. If they're mutually exclusive, they can't both happen at the same time.</li>
+<li>Their intersection is empty. If we have to decide if we have disjoint events, then the probability of their union.</li>
+<li>So if A and B are disjoint, the probability of A or B happening is the probability of A plus.</li>
+<li>The probability of B. So for disjoint events, events, that cannot happen.</li>
+<li>At the same time, we sum up their individual property probabilities to get the probability of any of them happening.</li>
+<li>So if we're going to apply this to our DI, the problem, if we have all our singletons sets set containing just the value one,</li>
+<li>two, three, four, five, six, the probability of each of these is one sixth.</li>
+<li>The Dyas is fair. All values are equally likely. So the probability of even we're going to stay.</li>
+<li>Even the set of even dice is one half because three of the six equally likely values one, two, three, four, five, six are even.</li>
+<li>So we have when all the values are equally likely, we can count up to par.</li>
+<li>The number of possibilities where our action, where our property happens, divided by the total number of possibilities.</li>
+<li>And that gives us the probability. If they're not all equally likely, then things quickly get more subtle.</li>
+<li>One consequence of this, another theorem that we can prove is that probabilities are not greater than one.</li>
+<li>So. And I'm going to let you study the proof here in the slides, Off-line.</li>
+<li>But we can prove from those axioms that probabilities are not greater than one.</li>
+<li>And so this gives us a few different facts about probability. Probabilities are in the range zero to one.</li>
+<li>If we have the union of two probability of two events there,</li>
+<li>the probability of the union is the sum of the individual probabilities, minus the probability of A and B.</li>
+<li>I'm going to let you think about why this is true. And we can talk about it in the discussion.</li>
+<li>This also gives us that the probability of. A or B?</li>
+<li>Is less than or equal to the probability of a plus the probability of B.</li>
+<li>You can see that because the probabilities are at least zero, then P of A plus P, a,</li>
+<li>B plus P of A or B or minus P of A and B is going to be no more than P of A plus people P plus P of beef.</li>
+<li>The probability of a compliment is one minus the probability of the original thing.</li>
+<li>We can compute the probability of of a difference. And we can also have an inequality relationship for subsets of fey as a subset of B.</li>
+<li>It's probability is no greater than the probability of B. So what does probability mean so far, I've given you these rules.</li>
+<li>It's just a function from sets of values. It turns out this is a surprisingly deep philosophical question,</li>
+<li>but the depth of the philosophical question doesn't have to stop us from using it basically in two broad views,</li>
+<li>which for our purposes are not going to conflict that much are that it's the expected or long run outcome of a random process.</li>
+<li>And so. Probability of a Diab being one six means if we go, we roll six, the dice six hundred times.</li>
+<li>We expect about a hundred of those to be one. It also can describe a degree of belief or expectation.</li>
+<li>So that then that is a more subjective view on it that connects to the probability is is</li>
+<li>describing what I know about what's going to happen when I roll the dice to wrap up,</li>
+<li>though, we can use we can use sets to describe events or outcomes in their logical combinations.</li>
+<li>We can then use probability to quantify the likelihood of different events and probabilities, follow a number of rules with rich emergent properties.</li>
+<li>We're going to see more notions of probability and things we can do with it in the subsequent videos.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="joint-and-conditional-probability">
+<h2>🎥 Joint and Conditional Probability<a class="headerlink" href="#joint-and-conditional-probability" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="fb3a5f34-8677-432a-a91f-ad9c0183c801">
+<div class="tabbed-set docutils">
+<input checked="checked" id="f63f2e54-29e1-415f-86e7-55ba9cc4249e" name="1977c240-a601-4382-8557-571c5714b751" type="radio">
+</input><label class="tabbed-label" for="f63f2e54-29e1-415f-86e7-55ba9cc4249e">
+Video (11m50s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=fb3a5f34-8677-432a-a91f-ad9c0183c801&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="36dd5842-9db3-439d-ac71-6b7d83049253" name="1977c240-a601-4382-8557-571c5714b751" type="radio">
+</input><label class="tabbed-label" for="36dd5842-9db3-439d-ac71-6b7d83049253">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173761" data-key=ANqEIT7W3k_rXUA>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+JOINT, CONDITIONAL, AND MARGINAL PROBABILITY
+Learning Outcomes
+Understand the definitions of and relationship between joint, conditional, and marginal probability
+Apply Bayes’ theorem to invert a conditional probability
+Describe what it means for two variables to be independent
+Photo by Mika Baumeister on Unsplash
+Joint Probability
+Two-Dimensional Spaces
+Dice
+Cards
+Conditional Probability
+Conditional and Joint
+Marginal Probability
+Marginalization
+Independence
+Bayes’ Theorem
+Wrapping Up
+Joint probability: multiple events.
+
+Conditional probability describes an event conditioned on other information.
+
+These are building blocks for more reasoning. We will use them a lot.
+Photo by Mika Baumeister on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>So, again, in this video, I want to introduce joint conditional and marginal probability.</li>
+<li>The previous video we talked about probability in general, particularly the probability of one event at a time.</li>
+<li>We're going to start talking about probabilities of that.</li>
+<li>Would that involve more than one event?</li>
+<li>So are learning outcomes understand the definitions and of the relationship between joint conditional marginal probability?</li>
+<li>We're going to introduce Bayes Theorem. I want you to be able to apply it to invert the probability.</li>
+<li>And also then we're going to introduce the concept of what it means for two events to be independent.</li>
+<li>So to start out, joint probability is the probability of both A and B occurring simultaneously.</li>
+<li>And we write it with A and B in columns. And so and it's the same as the and.</li>
+<li>So remember, from the previous video, the set Intersect Operator means.</li>
+<li>And so we just write P of A Khabab B, that's the joint probability of A and B occurring at the same time.</li>
+<li>Sometimes this is written with a semicolon instead of a comma.</li>
+<li>That's mean. The same thing. And sometimes you use both because your your events, they fall naturally into different groups.</li>
+<li>And so you use commas to separate individual events and use a semicolon to separate the groups.</li>
+<li>Not going to see it super often, but if you see a semicolon, that means the same thing as a comma.</li>
+<li>It's a joint probability, but it.</li>
+<li>It's just used to provide some clarity and grouping.</li>
+<li>So, for example, if I roll, if I roll to die, two dice and the problem, the probability that the first one is four and the second one is five.</li>
+<li>That's a joint probability. I could roll.</li>
+<li>I could just compute the probability of the first one, and that's doesn't it. Second, I have no impact on it, but this joint probability is due.</li>
+<li>One is for. And if two is five. Probability of that is one thirty sixth.</li>
+<li>This is not the same as rolling a four and a five. Because there is an order here.</li>
+<li>If I if the first dice diez five in the second Dice's four dayas for this event didn't happen because we are talking about this order.</li>
+<li>If we want a four and a five, I'm going to let you think about what the probability of that would be.</li>
+<li>So we can start to think about two dimensional spaces. Probability spaces.</li>
+<li>In the last video we saw one dimensional probability where we can think about the role of a single die.</li>
+<li>So I rolled a four. We can also think about drawing a single card from a shuffled deck.</li>
+<li>Where I can draw an ace. Now, a key difference here, if I want to start thinking about two, I can roll two dice.</li>
+<li>I get a one and a five. And they have nothing to do with each other.</li>
+<li>Or I can roll one die and I get a five, I can roll it again and I get another five.</li>
+<li>But if I draw another card from my deck. I can't draw another ace.</li>
+<li>So for the dice, the each. Each one had the same probability, the probability of rolling a one and one on day one.</li>
+<li>And the five. On day two is one out of 36. But if I have the probability of drawing.</li>
+<li>A jack of hearts on my next draw is different because I've already drawn an ace of spades.</li>
+<li>It's going to be one over 50 two. Excuse me, one over fifty one instead of one over fifty three.</li>
+<li>drawCard knitted native diamonds. Further, the probability of drawing a diamond now is different from the probability of drawing a club.</li>
+<li>Because I've drawn one diamond and I haven't drawn any clubs. So if I want to say the probability of clubs, there's still 13 left in the deck.</li>
+<li>But there's only 12 diamonds left. So. The the the cards they change.</li>
+<li>Well, since I'm not putting the cards back between draws, the cards change as much as I progressed through.</li>
+<li>And there's a relationship between one sample and another. So the conditional probability P of be given a.</li>
+<li>That's how we read. That is the probability that B happened. Given that we know A happen.</li>
+<li>So when our dice five roll one die for.</li>
+<li>That tells you absolutely nothing about what the second die is going to be. It can be a two.</li>
+<li>It can be whatever. But if I shuffle my cards. And I draw a card, and that's eight of hearts.</li>
+<li>That changes what the next probability is the probability of of a heart, the first time was 13, over 52.</li>
+<li>But the probability of a heart the second time is twelve over fifty one because a heart is gone and a card is gone.</li>
+<li>The probability of a spade the next time is thirteen over fifty one because I have a heart.</li>
+<li>I haven't taken any spades but I have taken a card so close in 13. Over 52 to 13.</li>
+<li>Over fifty one. Next card it turns out, is actually a heart.</li>
+<li>But we have knowing the first card tells us something about what the next card is going to be.</li>
+<li>And we call this a conditional probability. We can decompose joint probabilities into conditional probabilities.</li>
+<li>So the probability of A and B is the probability of A given B.</li>
+<li>Times the probability of B. And likewise, we can it also works the other way around.</li>
+<li>It's been given eight times the probability of a. We can use this to breakdown a joint probability into a conditional.</li>
+<li>We sometimes call this a factor, joint probability, but it starts to establish relationships.</li>
+<li>The probability of drawing an eight of hearts, followed by a three of hearts is the same as that is the probability of drawing an eight of hearts,</li>
+<li>followed by the times, the probability of drawing a three of hearts.</li>
+<li>Given that, I have already drawn an eight of hearts.</li>
+<li>We can also talk about the marginal probabilities of the marginal probability is the probability of a single event.</li>
+<li>And if we know the joint distribution, we can compute the probability by doing what's called marginalizing the joint distribution.</li>
+<li>So if we we can think of a card probabilities also as a joint probability.</li>
+<li>So the three of hearts is the joint probability of a three and of a heart.</li>
+<li>And so we can say, well, the probability of a three.</li>
+<li>We can compute that with the sum over our suits of the probability of us three.</li>
+<li>And that of or six. And that suit. And this computes this will be called this marginal probability.</li>
+<li>The reason it's called a marginal probability is because if we draw out a table of the joint distribution.</li>
+<li>So in the rose, we have the first the first value or event set of the set of possible events in the first case,</li>
+<li>the set of possible events in the second case.</li>
+<li>And this this hat, this requires us to have events where we have a set, I say a set of mutually exclusive events that span each.</li>
+<li>So we need to be able to have events that cover everything. And they need to be mutually exclusive.</li>
+<li>In order for this sum to work. But the second to die will be one of these six value.</li>
+<li>Will be one of these six values. So. We can we have the values of each individual pair.</li>
+<li>So the value of one being a six and two being a five is one over thirty six.</li>
+<li>And then the margin. So if we sum this row.</li>
+<li>We get one over six, which is the probability of the first die being a two.</li>
+<li>And that's why it's called the marginal probabilities. It's what happens if we if we compute the margin of this table of the joint probabilities.</li>
+<li>And I want to get to independents. I've talked about how the DICER Independent ruling one tells us nothing about the second.</li>
+<li>So formally, two events are independent. If no one tells you nothing about another, the other.</li>
+<li>So the probability of A given B, so the probability of rolling a set of five on my second day,</li>
+<li>given that I wrote a two in the first, is the same thing as just rolling a five.</li>
+<li>And so B tells us knowing B happened tells us nothing about A equivalently goes the other way probability knowing A happened tells us nothing about B.</li>
+<li>And if two events are independent, then that are joint probability is the product of their marginal probabilities.</li>
+<li>I can take A if A and B are independent, then the probability of A and B is the probability of A times the probability of B.</li>
+<li>I'm going to let you as an exercise to get more familiarity with these with these distributions.</li>
+<li>Prove that they are or with these definitions is to prove that these two definitions are equivalent.</li>
+<li>So now then finally, I want to introduce something called Bayes Theorem.</li>
+<li>So conditional probabilities have a direction. The probability of being given A and A given B are not the same thing.</li>
+<li>But. We can they are related.</li>
+<li>So. The probability of a penguin having a flipper length of 217 millimeters,</li>
+<li>given that it's a Gentoo penguin, is not the same thing as the probability of that.</li>
+<li>It is a Gentoo penguin. Given that it has a flipper length of 270 millimeters.</li>
+<li>But if we know the probability of flipper length,</li>
+<li>given that it's a Gentoo and we know the probability that it's the marginal probability that it's a Gentoo and that it has that flipper length,</li>
+<li>then we can compute the probability that it's a Gentoo. Given the flipper length.</li>
+<li>So if a. Gentoo. B.</li>
+<li>Flip. Of, I'll say approximately to 17 millimeters.</li>
+<li>We can read if we know one, we can add the marginals, we can reverse it and get the other.</li>
+<li>This becomes very useful for a lot of kinds of probabilistic inference.</li>
+<li>So to wrap up. Joint probability is the simultaneous is the probability of multiple events happening simultaneously.</li>
+<li>These can be multiple overlapping descriptions of the same thing.</li>
+<li>For example, the probability that my card is a three and the probability that it's a heart.</li>
+<li>They can also be probabilities that relates to individual dimensions of a multidimensional space,</li>
+<li>like the probability for different die or the probability of of different cards in a sequence.</li>
+<li>Conditional probability describes the probability of an event condition and that other information we may have and these things,</li>
+<li>these probabilistic building blocks. There's a building blocks for more reasoning.</li>
+<li>We're going to use them quite a bit as we start to reason and as we start to describe other things throughout the cement's.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="continuous-probability">
+<h2>🎥 Continuous Probability<a class="headerlink" href="#continuous-probability" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="55bc41ca-eafa-47cc-8be6-ad9c018526f8">
+<div class="tabbed-set docutils">
+<input checked="checked" id="cc4ade12-696b-4df1-9f78-c1b6adc081f0" name="09751caf-38a4-4b01-85bb-d0d0c3e2c6d6" type="radio">
+</input><label class="tabbed-label" for="cc4ade12-696b-4df1-9f78-c1b6adc081f0">
+Video (11m48s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=55bc41ca-eafa-47cc-8be6-ad9c018526f8&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="0a86d420-7985-497e-a227-3e61225c3c3a" name="09751caf-38a4-4b01-85bb-d0d0c3e2c6d6" type="radio">
+</input><label class="tabbed-label" for="0a86d420-7985-497e-a227-3e61225c3c3a">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173763" data-key=AIVdgUGuZF0IoBw>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CONTINUOUS PROBABILITY AND RANDOM VARIABLES
+Learning Outcomes
+Compute an expected value
+Understand why continuous events have probability densities, and the relationship to distribution functions
+Photo by Roepers on Wikimedia Commons. CC-BY 3.0.
+Random Variable
+Expectation and Mean
+Continuous Variables
+Continuous Variables
+Continuous Probability
+Figure from Wikipedia.
+Continuous Probability
+Probability Density
+Figure from Wikipedia.
+Probability Density
+Continuous Expectation
+Wrapping Up
+The probability of any single value of a continuous variable is effectively zero.
+
+Instead, we use probability density, distribution functions, and assign probability to intervals.
+
+Expectation is the mean of a random variable.
+Photo by Andrés Dallimonti on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>In this video, I'm going to introduce continuous probability.</li>
+<li>So far, we've been talking about probability over discrete variables, dice rolls, et cetera,</li>
+<li>but we're going to now talk about continuous probability and introduce the concept of a random variable.</li>
+<li>Learning outcomes are for you to be able to compute an expected value and to understand why continuous events have</li>
+<li>probability densities and the relationship between these densities and distribution functions and actual probabilities.</li>
+<li>So if X is the value of a six sided Deyrolle, so we roll it, I has six sides,</li>
+<li>X is the value one through six of that result, we call X a random variable.</li>
+<li>It's a variable that has a random numeric value. Technically of random variable is actually a function from elementary events to real values,</li>
+<li>but for our purposes that nuance is not generally going to be very important.</li>
+<li>The expected value of the variable is the sum.</li>
+<li>Of the different values it can take of the value.</li>
+<li>Times the probability of that value. So it's one times the probability of a one and you add two times the probability of a two.</li>
+<li>This is equivalent to the mean over many roles. If we roll the dice a thousand times, what would it mean?</li>
+<li>Approximately B and also we can think of it in a gambling kind of a gambling or betting setting of the expected return from a roll,</li>
+<li>the expectation in the meet. So the expectation is the mean over many points, but it's also in the mean of the random variable.</li>
+<li>The random variable has a mean, even if we don't have any observations for it.</li>
+<li>And the expected value is that mean. One way to see this,</li>
+<li>if we've got a sequence of data points in our process is pick one of them uniformly at random probability one over N and we have it's value,</li>
+<li>then we can compute. The expected value is the probability value times.</li>
+<li>There is the sum value times, the probability of that. But this probability is one over N.</li>
+<li>So when we pull that outside we get one over ten times the sum, which is exactly the sample mean.</li>
+<li>That's the formula for the mean. So we can see the expectation and the mean are equivalent concepts here.</li>
+<li>But that's a discrete variable, one through six. Rove is excited.</li>
+<li>I don't happen to have a continuously value to die, but what's the probability that so we randomly pick agenda Penguin,</li>
+<li>what's the probability that it's flipper length is two hundred seventeen. Mm.</li>
+<li>It's a continuous variable, so two hundred and seventeen millimeters, there's very values on both sides of it.</li>
+<li>What if it's 217 17? But we find a penguin and it's flipper length is to seventeen point one millimeters.</li>
+<li>It's 217 plus 10 to the negative 10 mm, I don't have a ruler that precise, but the value these values are continuous values.</li>
+<li>There's a value between 217 and 217, plus ten, the minus 10.</li>
+<li>So the probability of any individual value of a continue of a truly continuously</li>
+<li>valued random variable is zero because it's it's it's effectively never.</li>
+<li>Going to be exactly this value might be pretty close, but it's but the probability of it being exactly that value is effectively zero.</li>
+<li>So we need a different way to approach probability for continuous variables.</li>
+<li>And the way we do this is that we assign probabilities not to individual values of the variable, but to intervals or ranges.</li>
+<li>And so are elementary. Events are still real numbers. The penguin that we randomly picked has a flipper length.</li>
+<li>Those are the elementary events. But we don't have the singletons. The singletons are not in our set of actual events we care about.</li>
+<li>The events we care about are intervals, the sets of the set of intervals and their complements and their countable unions.</li>
+<li>There's a lot of different sets in here. Any real value is in.</li>
+<li>Actually, infinitely many of any real value we can pick is actually an infinitely many different events</li>
+<li>because the intervals are all events and it contains infinitesimally small intervals.</li>
+<li>And no matter how small an interval you pick, there's one smaller in there,</li>
+<li>but it does not contain the individual singleton values and we assign probability to these intervals.</li>
+<li>We do that through a thing called a distribution function.</li>
+<li>And so the distribution function F is the probability that the random variable takes on a value</li>
+<li>less than or so F of X is the probability that the random variable takes on a value less than X.</li>
+<li>And so at X equals zero, so this and this is sometimes called accumulative distribution function or a CDF C D,</li>
+<li>I'm going to write that down for you, CDF.</li>
+<li>Cumulative distribution function, so what X equals zero, it takes on the value, the probability that the random variable,</li>
+<li>it has a value less than X, which for the first three curves, these are the CDs for different parameters of what's called the normal distribution.</li>
+<li>It's the probability that it's less than that. We go up to one. X equals one, and the probability that it's less that is higher,</li>
+<li>the cumulative distribution function is monotonic, non decreasing, and it has a maximum value.</li>
+<li>The limit as X goes to infinity is one.</li>
+<li>So the probability is excuse to infinity. The probability that's less than X is one.</li>
+<li>And as X goes to negative infinity, the probability is zero.</li>
+<li>But this this is the basis for establishing the probability of continuous values is we say,</li>
+<li>well, what's the probability that it's less than some value?</li>
+<li>And then if we have an interval, so we want to say X, the probability that X one is less than X,</li>
+<li>which is less than X to what we can do is we can subtract these two probabilities.</li>
+<li>So what we say is so. The what we have here is the events X is less than X two, and we have the event not.</li>
+<li>Or X is less than X one compliment, X is not less than one, so it's greater than X one.</li>
+<li>And we take the union of those two events excuse me, the intersection of those two events.</li>
+<li>What's the probability that they both happen and we get that we need F of X to minus F of X one.</li>
+<li>So we call the probability on an overall probability mass how much probability the mass is on this interval.</li>
+<li>Also, when we have a discrete event, it's probability is also called a probability mass.</li>
+<li>So if you have discrete variable, then the function of what the probability is of different values is called a probability mass function.</li>
+<li>How much probability is on this discrete value? But we we can't have mass on discussing on individual discrete values of a continuous variable.</li>
+<li>We can have probability mass on an interval and we can have a probability density on an individual value.</li>
+<li>So a distribution is often defined.</li>
+<li>So I've got us to the distributions of the probability of a of a variable having a particular value through the distribution function.</li>
+<li>But the distribution function is often actually defined as the integral of a density</li>
+<li>function in the density function is therefore the derivative of the distribution function.</li>
+<li>We have a density functions that the distribution function is the integral from negative infinity to X of the density,</li>
+<li>and that gives us the probability that it's less than or equal to X.</li>
+<li>And the this is the graph of the density function and these are the densities for the same distribution functions you just saw.</li>
+<li>So they go back down. They're not monotonic and they're showing how much density is at different values.</li>
+<li>So X the purple one has the most density at X, the mean of the the mean of these three.</li>
+<li>Is all the same, the expected values, the same, the distribution function at zero point five is the same, but the densities are different,</li>
+<li>which means the purple one is more strongly concentrated around zero than the red one or the orange one.</li>
+<li>Densities can exceed unlike probability, unlike probabilities,</li>
+<li>a density can actually exceed one, they're not going to be negative, but they can exceed one.</li>
+<li>You can have density. I've seen densities of 10 and some of my analyzes because the density is not a probability.</li>
+<li>Instead, the density is the limit. As we see if we pick a point, the density at that point is the limit.</li>
+<li>Of the so we we have a point here, so we've got our curve.</li>
+<li>We've got a point, we have a window around it. Of wealth to Epsilon.</li>
+<li>And it is the limit as that window gets smaller and smaller of the probability mass in that window divided by the width of the window,</li>
+<li>the density because the density is the mass, divided by how much length the mass is spread over.</li>
+<li>If you're going to compute the density of the weight of an object, you'd be the the weight over the amount of area.</li>
+<li>We're dealing with one dimension here. So the limit as this window gets smaller and smaller of.</li>
+<li>The mass divided by the width and because we're dividing by that width, the densities can exceed one.</li>
+<li>You might remember this definition of that as the definition of the derivative from calculus that and that that's the relationship here.</li>
+<li>The density is the derivative of the distribution function. The distribution function is the integral of the density.</li>
+<li>We can also compute continuous expectation and continuous expectation is an integral.</li>
+<li>So as the as the the expectation of a discrete variable was the sum of the values, timeliness,</li>
+<li>the probabilities, the continuous expectation is just the integral of the values times their probabilities.</li>
+<li>When we go from the script, from continuous, we have to go from segments to integrals. But the concept is the same.</li>
+<li>It's still the mean. So to wrap up the probability of any individual value of a continuous variable is effectively zero.</li>
+<li>It is zero. But so instead we use probability density, distribution functions and we assign probability mass,</li>
+<li>not individual points of a continuous variable, but to intervals of it.</li>
+<li>And the expectation also then that the expected value is the mean of a random variable.</li>
+<li>Couple of things I haven't shown you.</li>
+<li>We can also talk about conditional expectation, which is the expectation of the random variable, given some other information.</li>
+<li>We're going to be building on this as we go forward. I'm also going to be posting some notebooks that work through computationally.</li>
+<li>How do we actually start to compute and how do we count frequencies of events to start to estimate probability from data that we have?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="notes-on-probability">
+<h2>📃 Notes on Probability<a class="headerlink" href="#notes-on-probability" title="Permalink to this headline">¶</a></h2>
+<p id="reading-Notes-on-Probability">My <a class="reference internal" href="../resources/probability/"><span class="doc std std-doc">notes on probability</span></a> provide a linear, summary treatment of the
+concepts of probability that we have discussed, along with pointers for further reading.</p>
+<p>I expect you will likely need to return to the probability material as we progress through the semester
+and use it more and more.  A few particularly important things you need to be able to understand are:</p>
+<ul class="simple">
+<li><p>What does a probability <span class="math notranslate nohighlight">\(\P[A]\)</span> mean?</p></li>
+<li><p>What does a conditional probability <span class="math notranslate nohighlight">\(\P[A|B]\)</span> mean?</p></li>
+<li><p>What does a joint probability <span class="math notranslate nohighlight">\(\P[A,B]\)</span> mean?</p></li>
+<li><p>What does an expected value <span class="math notranslate nohighlight">\(\E[X]\)</span> mean?</p></li>
+</ul>
+<p>In my teaching of later material, I use probability notation a lot, as it is a concise but
+(relatively) unambiguous way to communicate many important concepts.  Also, while the philosophy of
+probability is largely out of scope of this course, my own philosophy of probability (roughly,
+instrumentalism) means that I use probabilities to describe things that a strict philosophical
+frequentist likely would not.  One of the most practical implications for this class is that I will use
+conditional probability as a shorthand for fractions of events or observations:</p>
+<div class="math notranslate nohighlight">
+\[
+\P[A|B] = \frac{|A \cap B|}{|B|}
+\]</div>
+<p>You can derive this fraction yourself from <span class="math notranslate nohighlight">\(\P[A] = \frac{|A|}{n}\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the total number of
+possible events or observations, and cancelling the <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</div>
+<div class="section" id="distributions">
+<h2>🎥 📓 Distributions<a class="headerlink" href="#distributions" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="d836f67d-307a-408d-9423-ad9c0183c891">
+<div class="tabbed-set docutils">
+<input checked="checked" id="8879ff0d-2b17-4cc2-bfcc-a05d18980951" name="a1d0e936-bef7-4115-9c55-45a69a5f0db2" type="radio">
+</input><label class="tabbed-label" for="8879ff0d-2b17-4cc2-bfcc-a05d18980951">
+Video (9m24s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=d836f67d-307a-408d-9423-ad9c0183c891&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="8a5613ef-a3be-4d89-84c0-c86d9ece89f0" name="a1d0e936-bef7-4115-9c55-45a69a5f0db2" type="radio">
+</input><label class="tabbed-label" for="8a5613ef-a3be-4d89-84c0-c86d9ece89f0">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173755" data-key=AKAwVZG63FX_nKw>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+DISTRIBUTIONS
+Learning Outcomes
+Understand the idea of a distribution
+Identify parameters and statistics of a distribution
+
+Notebook has details!
+Photo by Emiliano Vittoriosi on Unsplash
+Numeric Distributions
+We’re going to focus on distributions of numeric variables
+Both discrete and continuous
+Categorical: encoded to 0, 1, etc.
+
+Bernoulli Distribution
+Characterizing Distributions
+Parameters:
+location, scale, shape
+Characterizing Distributions
+Parameters:
+location, scale, shape
+
+Density or mass function
+
+Support (range it’s defined over)
+
+Underlying random process
+Key Statistics
+Mean (first moment)
+Standard deviation or variance
+Variance is second central moment
+Median (50th %ile)
+Binomial
+Binomial(10, 0.3)
+Normal (Gaussian)
+Wrapping Up
+Random variables are often described by probability distributions, which may have parameters.
+
+There are many standard probability distributions.
+
+See notebook + resources for more!
+Photo by JOSHUA COLEMAN on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Hello, in this video, I want to talk about the concept of distribute, particularly named distributions, we introduced the fundamentals of probability.</li>
+<li>We've gotten the continuous variables and random variables.</li>
+<li>I want to talk about what it means when we talk about something, say, having the normal distribution.</li>
+<li>And so our learning outcomes for this video were to understand the idea of a distribution,</li>
+<li>to be able to identify parameters and statistics of a distribution.</li>
+<li>The notebook and the linked reading have the linked material, has more information, more information on these distributions, many more distributions.</li>
+<li>So I encourage you to spend some time exploring that particular distribution.</li>
+<li>Families are one place where Wikipedia is a rather fantastic resource.</li>
+<li>I've included a link to Wikipedia's list of probability distributions, which is organized by by distribution type.</li>
+<li>And it each of the pages provides rather mathematically dense but useful detail on how the distribution is defined.</li>
+<li>Some of its key properties and relationships to other distributions.</li>
+<li>So but to get started, this idea of working me, focusing on distributions of numeric variables.</li>
+<li>These can be both discrete and continuous. So discrete. We might have a distribution of accounts.</li>
+<li>It can also be categorical so long as we encode them as a numbers.</li>
+<li>So we may encode a a success or failure outcome as zero for failure and one for success.</li>
+<li>Speaking of which, the banali distribution does exactly like it does exactly that.</li>
+<li>If we have binary outcomes. Success and failure, which we code as one and zero respectively by convention.</li>
+<li>And we have a parameter, the success probability. Then we have we can then also compute some statistics of this distribution.</li>
+<li>Its mean, which is since the outcomes are just zero and one, it would be the fraction in the long run, run it infinitely many times.</li>
+<li>What fraction would you expect to be successes? And then it'll also have a mode, which is the value that's going to occur more often.</li>
+<li>For example, when Theta is point three, the mode is failure.</li>
+<li>There are a few things we want to do to characterize the distribution. So we have its parameters.</li>
+<li>So in the Bernoulli distribution, the parameter was the success probability. There are other parameters as well,</li>
+<li>and some of the parameters come in particular types such as location and location</li>
+<li>is a parameter that controls where on the x axis the distribution is located.</li>
+<li>Sometimes it is the mean, but not always. The key thing is that the location parameter controls where on the x axis.</li>
+<li>So it slides it back and forth in the x axis, some distribution. It's also going to change the shape somewhat as it slides.</li>
+<li>But the location parameter controls where on the x axis it is the scale parameter controls,</li>
+<li>how far, how wide it is, how far out it spreads out its density.</li>
+<li>Some distributions called location scale distributions are controlled by location and scale parameters.</li>
+<li>And the shape of the distribution doesn't change it at all, doesn't changes all at all as you move it around,</li>
+<li>the location just shifts the same curve back and forth on the x axis.</li>
+<li>And the the scale just spreads it out or contracts it on the x axis.</li>
+<li>And so if you if you do a simple way of plotting it, the curve is gonna be exactly the same.</li>
+<li>The X axis is just going to be shifted and smushed or spread out underneath the curve.</li>
+<li>And then a shape parameter controls the shape of the distribution.</li>
+<li>So this distribution, which is a normal distribution, doesn't have a shape parameter,</li>
+<li>but there's a skewed normal which adds a shape parameter to let you get shapes like this.</li>
+<li>And in it, that shape parameter allows you to shift between the normal, the traditional normal and this skewed normal.</li>
+<li>And so there's other types of parameters as well. But three common kinds of these location, scale and shape parameters,</li>
+<li>locations where scale is how wide and then shape is what it's actually shaped like there.</li>
+<li>We then to characterize the distribution,</li>
+<li>we have a density or a mass function that use probability density or probability mass function that uses these parameters to assign probability,</li>
+<li>mass or density to different values. We then have what's called the support, which is the range of values the distribution is defined over.</li>
+<li>Not all distributions are defined over the same range.</li>
+<li>And there's often we want to it's useful to think about the underlying random process.</li>
+<li>Most distributions are described as the result of a particular random process.</li>
+<li>It does not mean those processes are the only things they're useful for describing,</li>
+<li>but it's mathematically the distribution arises from analyzing that particular process.</li>
+<li>We then can compute some statistics of a distribution.</li>
+<li>It's mean the expected value of a very of a random variable with that distribution is one of them.</li>
+<li>It's also called the first moment of the distribution. Then we can compute the standard deviation or variance.</li>
+<li>For some distributions, for example, normal, though,</li>
+<li>it has location and scale parameters that are the mean and standard deviation, the variance is called the second central moment.</li>
+<li>We can also compute other things, such as the median or the fiftieth percentile of the distribution in other and quintiles.</li>
+<li>So the binomial distribution is we take that Bernoulli and we stretch.</li>
+<li>We do it multiple times. The binomial distribution is it has the parameters and which is the number of trials.</li>
+<li>The number of Bernoulli trials we're going to run. And Theta is the success probability of each individual trial.</li>
+<li>The trials are assumed to be independent and the burn the binomial distribution describes the distribution of how many successes.</li>
+<li>We'll see if we run that many trials with that success probability.</li>
+<li>It's mass function is. The probability of success times the number of successes.</li>
+<li>The probability of failure times the number of failures and then multiplied by end, choose why and choose why.</li>
+<li>Is the number of possible ways to arrange why failures out of any successes so.</li>
+<li>So that's a probability mass function I show here. Also, the DI a graph of it's you can see where how the mass is distributed for N equals 10.</li>
+<li>And Theta equals zero point three.</li>
+<li>So you can see three. That's the mode, and that's also the mean and the median.</li>
+<li>Three. If we flip awaited coin, that comes up heads 30 percent of the time.</li>
+<li>Ten times three will be the most common number of heads.</li>
+<li>But there's quite a bit of spread. We're going to see a lot of twos and a lot of fours as well.</li>
+<li>And we'll see some runs with zero heads. We're not going to it's.</li>
+<li>There is going to be very, very few runs that wind up having 10 heads with a coin with that bias.</li>
+<li>The normal or the Gaussian distribution that I just showed you has mean and look, has its scale parameter or excuse me,</li>
+<li>its location parameter is the means at scale parameter is the standard deviation.</li>
+<li>When the mean is zero and the standard deviation is one, we call this a standard normal.</li>
+<li>And the stand I'm showing here, the standard normal with both the probability density function and the the distribution function, the CTF.</li>
+<li>So you can see how those relate to each other of align them vertically.</li>
+<li>The code to generate all of these plots is in their notebooks. You can see how I did them.</li>
+<li>You will see we see here that the cumulative probability goes from zero to one.</li>
+<li>Cumulative probability always does that. The density, the bell curve goes out to zero on both sides.</li>
+<li>The density is concentrated in a particular window. And the.</li>
+<li>And it's a density. So it goes up to whatever that the maximum density is.</li>
+<li>If we if we contracted that, if if we decreased the scale, the density would increase, the maximum density would increase.</li>
+<li>So to wrap up, random variables are often described where probability distributions, which are in turn governed by parameters.</li>
+<li>There's quite a few different standard probability distributions.</li>
+<li>I encourage you to spend some time with the notebook and the linked resources to learn more about different distributions.</li>
+<li>And we're going to be introducing more as they come up for various things throughout the rest of the class.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The <a class="reference internal" href="../resources/tutorials/Distributions/"><span class="doc std std-doc">Probability Distribution notebook</span></a></p></li>
+<li><p>Wikipedia has a good <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_probability_distributions">list of probability distributions</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="sampling-and-the-data-generation-process">
+<h2>🎥 Sampling and the Data Generation Process<a class="headerlink" href="#sampling-and-the-data-generation-process" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="7d69ede0-5d1d-4880-9a92-ad9c0183c927">
+<div class="tabbed-set docutils">
+<input checked="checked" id="5f75b159-dbf4-4741-9e98-9cc871db3bf5" name="eeb93e59-4ba4-48fd-8326-3e51b77c8541" type="radio">
+</input><label class="tabbed-label" for="5f75b159-dbf4-4741-9e98-9cc871db3bf5">
+Video (17m53s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=7d69ede0-5d1d-4880-9a92-ad9c0183c927&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="c584e47c-65dc-41df-92df-cc80464aaf79" name="eeb93e59-4ba4-48fd-8326-3e51b77c8541" type="radio">
+</input><label class="tabbed-label" for="c584e47c-65dc-41df-92df-cc80464aaf79">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173756" data-key=ADr_rZ-epoSdAWg>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SAMPLING AND THE DATA GENERATION PROCESS
+Learning Outcomes
+Understand the relationship between a sample and a population
+Identify when we can make an inference about the population and when it’s just a statistic of the data
+Determine whether data is likely to be independent and identically distributed
+Photo by Dan Meyers on Unsplash
+Sampling
+The inferential logic of statistics is based on samples
+
+From a distribution
+Generate random numbers!
+From a population
+Select them with a representative sampling strategy
+
+Sampling the Population
+Sample of Penguins
+Statistic
+Is the sample representative?
+Does it teach us about population?
+Ideal Penguin
+Representative Samples
+We need a couple of things for a sample:
+Representative of the population (w.r.t. parameter of interest)
+Biases affect this (sampling, selection, response, etc.)
+Large enough to allow inference of parameter of interest
+This size does not depend on population size!
+
+Better data often better than more data!
+Historically, much statistics concerned w/ efficiently using samples
+Uniform Sampling
+All population members equally likely to be sampled
+Harder than it sounds in practice
+Resulting statistical analysis relatively straightforward
+Small subgroups easy to omit!
+More Strategies
+Stratified Sampling
+Make sure different groups are represented, possibly equally
+
+Oversampling
+Sample more from a minority group for in-group data
+Correct (resample or reweight) for whole-sample inference
+Penguins
+We have:
+3 species of penguin
+Measurements for a sample within each
+
+What is the population?
+
+Can we answer:
+Distribution of penguin species?
+Typical measurements within a species?
+Two Sampling Strategies
+sample
+Spec. 1
+Spec. 2
+Analysis
+Spec. 1
+Spec. 2
+Analysis
+Sample 1
+Sample 2
+The Data Generating Process
+How did we get our data?
+People and movies exist
+People find movies and watch them
+Netflix recommends more movies
+People maybe watch them (feed back into 2)
+
+Reasoning about DGP helps identify sample status, 
+I.I.D.
+Common desiderata for values, and samples:
+independent and identically distributed
+
+Independent: one value does not affect another
+Identically distributed: all drawn from the same distribution
+Equal mean, variance, distribution family
+
+Uniform at random from large pop is i.i.d.
+Small pop: sampling removes items! (unless with replacement)
+German Tank Problem
+You capture a tank.
+
+It has serial number 2089.
+
+How many tanks does the enemy have?
+
+This is inference for the max.
+Wrapping Up
+Our data comes by some process.
+
+Classically, we think about this in terms of sampling – how did we pick these items to analyze?
+
+The data generation process is how our data comes into existence.
+Photo by Museums Victoria on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video I want to talk with you about sampling and the data generation process,</li>
+<li>we've talked about probability and that's going to give us the foundations to be able</li>
+<li>to start reasoning about the process of sampling and how we get the data that we have.</li>
+<li>So our learning outcomes are to understand the relationship between a sample and a population we've mentioned.</li>
+<li>I've mentioned that before, but we're going to get into it a little bit more on this video,</li>
+<li>identify when we can make an inference about a population and when it's just something that we can say</li>
+<li>about the data and determine whether the data is likely to be independent and identically distributed.</li>
+<li>I'm going to introduce that concept today. So the inferential logic of statistics is based on sampling and samples.</li>
+<li>A lot of many of our statistical techniques are designed based on analysis of</li>
+<li>what happens if you apply them repeatedly with certain randomization structure.</li>
+<li>That randomization structure comes in our sampling to select which data we're going to be analyzing.</li>
+<li>We can sample from a couple of different things. We can sample from a distribution.</li>
+<li>So we've introduced distributions. I can sample from a normal distribution and I'll get a bunch of values that will be normally distributed.</li>
+<li>That's really useful for doing simulation studies and for probing how our statistical techniques work.</li>
+<li>We can also sample from a population and if we want to understand something about a population,</li>
+<li>we can sample from it with with a sampling strategy that's going to ensure that we have representative sample.</li>
+<li>So if we think about the penguin data set we've been working with a little bit and we're going to see more this week.</li>
+<li>If we have the population of penguins and they have some flipper length mew fouls, we've got our penguins, they have a flipper length.</li>
+<li>And it's important. This is this is this is the population of penguins that exist.</li>
+<li>And really, it's the population of hypothetical penguins that could exist.</li>
+<li>But we have this population of penguins. We then take a sample of the penguins.</li>
+<li>So we have it, but there's a bunch of Gentoo penguins out there or chinstrap penguins.</li>
+<li>We take a sample of penguins and then we compute a statistic from the sample.</li>
+<li>And there's one key thing we need to know about the sample is whether it is representative.</li>
+<li>And by that, we mean that. Studying the sample is going to teach us about the population.</li>
+<li>There's not parts of the population that are systematically excluded from the sample.</li>
+<li>There's not parts that are disproportionately more likely to appear in a way that we can't control for, etc.</li>
+<li>What we want is that the populace, looking at the sample,</li>
+<li>gives us things that look gives us results that look like the population scaled down to our sample size.</li>
+<li>Particularly for like, if we're going to infer the mean flipper length,</li>
+<li>then we want the sample to have the same distribution of flipper lengths as the population.</li>
+<li>If there was something that caused longer flipper penguins to be easier for us to pass in our sample, then it would not be representative.</li>
+<li>With respect to studying flipper length, depending on our philosophy of statistics and of science,</li>
+<li>we may consider that the penguins themselves are instantiations of a distribution governed by some ideal penguin.</li>
+<li>In which case we're trying to understand the properties of Penguin Enis.</li>
+<li>Platonic ideal penguin.</li>
+<li>Not just the population of penguins that happen to exist on Earth, but for the purposes of the vast majority of what we're doing.</li>
+<li>Whether or not the ideal penguin is a thing that's that exists and or is reasonable to talk about won't much matter.</li>
+<li>But it sometimes might come up as a conceptual entity. So representative sampling mean a couple of things for a sample.</li>
+<li>We need to be representative of the population, particularly with respect to the parameters of interest.</li>
+<li>It doesn't necessarily have to be representative in every possible way, so long as it's representative for the things we're inferring.</li>
+<li>But if it's not representative in some way, identifiable way, that usually should give us pause about the quality of our sample.</li>
+<li>It also used to be large enough to allow us to properly and for the do rigorous inference of the parameters that we're interested in.</li>
+<li>One crucial thing to note is that the size of the sample does not depend on the sample size or excuse me, on the population size.</li>
+<li>Once we start seeing the tools for quantifying the precision of an estimate based on sampling theory.</li>
+<li>The size of the population is not going to be a variable in the precision of our estimate.</li>
+<li>This is a common. This is a common misunderstanding of sampling.</li>
+<li>You'll see it comes up poor sometimes, particularly around political polling.</li>
+<li>Raising the question of, well, how is a poor 15 hundred people represented to get accurate representation of of.</li>
+<li>US with the opinion of the U.S. populace. But the accuracy, so long as they're sampling strategy, is good.</li>
+<li>The accuracy and the precision of the estimate does not depend on the sample size so long as your sample is big.</li>
+<li>So does not depend on the population size, so long as your sample is big enough.</li>
+<li>So also, better data is often better than more data.</li>
+<li>Historically, a lot of that has because it takes time to get data.</li>
+<li>It takes time to run experiments. It's expensive. There's a lot of statistical inference.</li>
+<li>It's concerned with how do we make efficient use of modestly sized samples.</li>
+<li>This is one of the areas where. Data science diverges a little bit from classical statistics.</li>
+<li>I don't want to say that they're different, though. What we. The tools of statistics are the building blocks for it.</li>
+<li>And it's statistician's that really are leading the way in figuring out what we actually need to do here.</li>
+<li>But we have such vast quantities of data. What how we have to handle it changes because we're no longer dealing with relatively small samples.</li>
+<li>Uniform sampling is an easy if you can actually do a uniform sample.</li>
+<li>It's a good way to do a representative sample for a lot of purposes. All population members are equally likely actually achieving.</li>
+<li>This is not as easy as it sounds, but uniform sampling has a lot of nice properties.</li>
+<li>The resulting statistical analysis is relatively straightforward as the analysis go.</li>
+<li>But one one downside of uniform sampling, if you have a large population, is that your uniform?</li>
+<li>There might be subgroups and there might be subgroups of interest that just never show up in your sample.</li>
+<li>And so you need if you want to make sure that those subgroups are reflected,</li>
+<li>especially if you're looking at at the subgroups, the preference within subgroups.</li>
+<li>So if you read the details, say a say a Pew Research survey or poll.</li>
+<li>You'll have they'll have their high order results and they'll break them down by a bunch of subgroups.</li>
+<li>You have to make sure that your samples. The samples from each of the subgroups are representative in addition to the whole.</li>
+<li>So additional strategies are stratified sampling, which can make sure that different groups are represented.</li>
+<li>So you have you might sample a fixed number.</li>
+<li>You might make sure that you sample and people from each state to make sure you can.</li>
+<li>You have data and relatively comparable data on each state. You may over samples.</li>
+<li>You may have your first order sample and then go get more samples from a smaller community to</li>
+<li>make sure you have enough data to do robust inferences about their particular preferences.</li>
+<li>And either these strategy areas you have to re sample or reweight.</li>
+<li>You have to somehow correct. To be able to do inference from the whole sample.</li>
+<li>But that certainly doable over sampling does not mean that.</li>
+<li>The results, the conclusions from the overall sample are biased towards the over the over sampled groups opinion,</li>
+<li>because you're going to correct for that when you do the top level, the top level analysis.</li>
+<li>This is another thing I see.</li>
+<li>I come up with with Ill-founded complaints on political polling is using the fact that a poll oversampled to discredit its top</li>
+<li>level conclusions without investigating whether they corrected for the oversampling when they were computing those conclusions.</li>
+<li>But if we go back to our penguins, we have three species of penguins. And then we have a set of penguins from each species.</li>
+<li>And a key question we want to think about here is what is the population?</li>
+<li>And then there's other questions we want to be able to think about.</li>
+<li>Can we answer the questions to answer the questions about the distribution of penguin species?</li>
+<li>And can we answer any questions about typical measurements within a species?</li>
+<li>So if we think about our penguins, there's two different ways the data can come to us.</li>
+<li>The sampling strategies we could have the universe of all possible penguins.</li>
+<li>And then we sample some penguins and we see, OK, what species? One, what species to take their measurements.</li>
+<li>And then we put it in our analysis.</li>
+<li>The other one is we have penguins and the penguins have different species and we sample from each species of penguin.</li>
+<li>And then we go and we take their measurements, information and smuggled into our analysis and the.</li>
+<li>The second one is probably what was happening with this data, because they have a particular place,</li>
+<li>they're going and collecting the penguins, they're collecting them by a particular species.</li>
+<li>I mean, this this this island or this beach on the island has a particular penguin that's going gonna be more common.</li>
+<li>They're getting a global uniform sample of penguins is difficult.</li>
+<li>And so if we think about it in terms of having we have samples from each species,</li>
+<li>we have a sample of chinstrap, a sample of Idalia and a sample of Gentoo penguins.</li>
+<li>Then we can infer about the.</li>
+<li>Within the species distribution site, how is the flipper length of a chinstrap distributed this upper length of a deli?</li>
+<li>How do those compare? But assuming that our samples are representative of the species of penguin,</li>
+<li>but what we probably can't do with this data is say chinstrap or more adult common than Adelie or vice versa,</li>
+<li>depending on which one is more common in the data set. The.</li>
+<li>By understanding the sampling strategy. And here to make rigorous conclusions, we need to go spend time with the paper documenting the data.</li>
+<li>But by thinking about an understanding the sampling strategy, we can start to get out,</li>
+<li>what can we actually use to try to infer about the data and what's just a statistic or excuse me?</li>
+<li>What can we use to try to infer about the population and what's just a statistic of the data?</li>
+<li>We have like we have data on this many of penguins of each species.</li>
+<li>But that doesn't mean that's how many penguins there are of each species.</li>
+<li>So we need to think about that, what we call the data generating process or the DGP.</li>
+<li>And this has this is around how everything that goes into how the data came to us.</li>
+<li>And oftentimes what we're trying to do is infer parameters of the data generating process.</li>
+<li>And so if we think about the movie data, people and movies exist, we could think about the process by which they come into existence.</li>
+<li>We have to scope our investigation so we can say we assume people in the movies exist.</li>
+<li>People find movies and watch them somehow. Netflix recommends more movies.</li>
+<li>People maybe watch them. This feeds back into two with the but understanding the data generating process and identifying.</li>
+<li>Oh, Netflix is recommender. Is in the loop on Netflix's data.</li>
+<li>Lets us understand. Well, actually, when someone recommend read when someone decides to watch a movie.</li>
+<li>That choice is not entirely what we call exoticness from outside the system.</li>
+<li>It's affected by the system because it's in response to recommendations,</li>
+<li>because we start to think about what is the debt data generating process that gives us a bunch of data about what movies people watch.</li>
+<li>Reasoning about the data's generating process allows us to understand our sample strengths and weaknesses and capabilities and to.</li>
+<li>And to find opportunities to do our inference and check where it may have gone wrong.</li>
+<li>So I now want to introduce briefly this concept of independent and identically distributed.</li>
+<li>A lot of. A lot of. A lot of statistical techniques required data to be either the data itself or the data after</li>
+<li>some processing or the errors in the data to be independently and identically distributed.</li>
+<li>And what this means is that the values do not affect one another in any way, and they're all drawn from the same distribution.</li>
+<li>Particularly, we don't have changes in the mean or the variance as the distribution, as we say, move through time.</li>
+<li>If we sample uniformly at random from a large population,</li>
+<li>it's we can generally treat it as I.D. Each at each sample is independent of each other as well,</li>
+<li>unless there is some some mechanism that causes them particularly to be linked.</li>
+<li>If we have a small population and we're sampling a large fraction of it, then they're not necessarily independent because if you sample one,</li>
+<li>you're not going to sample that again unless you're sampling with replacement as opposed to if you have a very large population,</li>
+<li>you sample your you're not reducing the pool very much at all.</li>
+<li>One last thing I want to mention, I'm not going to get into the details of it as an illustration for the power of thinking about</li>
+<li>sampling and what it can let us do in our inference is a problem known as the German tank problem.</li>
+<li>And this problem arose in the Second World War when the allied military forces were trying to estimate axis production capacity.</li>
+<li>And so you capture a tank. And you find a serial number on it, and it's serial number would say two zero eight nine.</li>
+<li>You want to know how many tanks have been produced? You want to know how many tanks have been produced?</li>
+<li>And so. It turns out if the serial numbers are being assigned sequentially, which they were.</li>
+<li>And you have observations of a bunch of, say, tanks,</li>
+<li>you can applying sampling theory and the statistics that come about reasoning about how we get samples.</li>
+<li>You can infer how many tanks probably exist.</li>
+<li>Effectively, what you're doing is you're inferring the max. Oftentimes we infer for the mean, you can infer from many different statistics.</li>
+<li>They figured out how to infer from the max based on a number of observations.</li>
+<li>And the max of those observations to figure out how many tanks were likely produced after the war,</li>
+<li>comparing the statistical analysis to the actual production records recovered from Nazi factories.</li>
+<li>The statistical estimates were far closer to the actual production records than traditional intelligence</li>
+<li>estimates that were using spies and surveillance to try to figure out how many tanks were being produced.</li>
+<li>But the reasoning about the sampling process and pushing through the math of sampling allows us to</li>
+<li>then be able to make probabilistic statements that can infer some relatively remarkable things,</li>
+<li>such as the number of tanks produced based on the serial numbers that we've seen so far.</li>
+<li>There are then countermeasures for that, such as randomizing your serial number so they don't show up in order and you have a much larger pool</li>
+<li>of serial numbers and then you can't just use serial numbers to infer how many have been built.</li>
+<li>So to wrap up, our data comes to us by some process. And classically, we think about this in terms of sampling.</li>
+<li>How did we pick these items to analyze and then what would happen if we did that sample multiple times?</li>
+<li>A lot of the properties of our statistical techniques are defined in terms of</li>
+<li>what would happen if we ran the sample and computed the statistic many times.</li>
+<li>And the data generating process is the mechanism by which our data comes into existence.</li>
+<li>And we may model it in some way in order to be able to try to do inference about the human or physical processes that our data reflect.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Resources<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="../resources/tutorials/SamplingDists/"><span class="doc std std-doc">Sampling notebook</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="confidence">
+<h2>🎥 Confidence<a class="headerlink" href="#confidence" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="7ff79b12-d2cd-4326-8882-ad9c0183c9b6">
+<div class="tabbed-set docutils">
+<input checked="checked" id="ebe85102-cbbe-40ce-9a2b-ebf2efbc4715" name="5336a57e-e996-497f-a0d2-2ca6e6bad9a2" type="radio">
+</input><label class="tabbed-label" for="ebe85102-cbbe-40ce-9a2b-ebf2efbc4715">
+Video (13m6s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=7ff79b12-d2cd-4326-8882-ad9c0183c9b6&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="56c3bac3-fe61-47e3-8a64-0f5f728a8b12" name="5336a57e-e996-497f-a0d2-2ca6e6bad9a2" type="radio">
+</input><label class="tabbed-label" for="56c3bac3-fe61-47e3-8a64-0f5f728a8b12">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173757" data-key=AFVzxfZMjgPb_SM>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SAMPLING DISTRIBUTIONS AND CONFIDENCE INTERVALS
+Learning Outcomes
+Compute a confidence interval for the mean using the standard error
+Correctly interpret a confidence interval
+Photo by Ashim D’Silva on Unsplash
+Sampling the Population
+Sample of Penguins
+Statistic
+Sampling Distributions
+How does a statistic relate to the underlying parameter?
+
+Classical frequentist statistics considers the outcome of repeating the experiment.
+
+This gives us the sampling distribution of the statistic.
+Sampling Distributions
+Sampling Distribution of the Sample Mean
+Confidence Interval
+Aside: Pop and Sample SD
+Comparing Confidence
+The confidence intervals do not overlap.
+
+This is evidence that the species have different flipper lengths.
+
+We’ll see a direct comparison later.
+Interpreting Confidence
+Wrapping Up
+Taking a sample and computing a statistic is a random process that results in a sampling distribution.
+
+We can use the sampling distribution to estimate the precision of an estimate (e.g. statistic estimating a parameter).
+Photo by Joshua Rawson-Harris on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, we're going to start to getting to actually being able to augment our statistic with come</li>
+<li>up with a measure of the confidence we have with regards to how it relates to the mean.</li>
+<li>These are going to be extremely subtle to interpret correctly,</li>
+<li>but they do get us towards being able to say things more robustly about the relationship of our estimate,</li>
+<li>the statistic and the parameter that we're trying to estimate.</li>
+<li>So our goals with for this lecture are for you to be able computer confidence interval for the mean,</li>
+<li>using the standard error and correctly interpret a confidence interval. So let's return to our sample of the populations.</li>
+<li>We've got our penguins and and we've got we're sampling our penguins and we're computing a statistic.</li>
+<li>One question we can ask is, how does the statistic relate to the underlying parameter?</li>
+<li>So this is important to be able to do inferences that can compute the mean flipper length of chinstrap penguins.</li>
+<li>But how does that relate to the main flipper length of chinstrap penguins?</li>
+<li>Well, the chinstrap penguins in the world world,</li>
+<li>so classical frequenters statistics does this by thinking about what would happen if we repeated the experiment multiple times.</li>
+<li>So let's say you want to measure penguins and I'm a penguin measuring robot.</li>
+<li>And you tell me to go man, to go collect a measure that the flipper thinks and 50 penguins.</li>
+<li>And you tell me to do that a hundred a hundred times each time taking a different random sample of penguins.</li>
+<li>This allows us to the.</li>
+<li>The mean flipper lengths I come back to you with are going to have a distribution.</li>
+<li>So we have the flipper lengths, have a distribution. We go and we've you go have your your penguin measuring robot.</li>
+<li>Go sample 50 penguins could measure the flipper lengths and give you the mean hundred times.</li>
+<li>That also was going to have a distribution and we call this the sampling distribution of the statistic,</li>
+<li>because it's what happens when we compute the sample, the statistic of our sample.</li>
+<li>And we do it repeatedly.</li>
+<li>And so this chart shows us the blue line, which you kind of can't see very well, because it's right up with the orange line is getting at the.</li>
+<li>There you can see they're slightly different. The blue line is the true population.</li>
+<li>So here are my samples are being drawn from a random number generator that I've configured.</li>
+<li>So I know the population distribution. Precisely. We have the sample.</li>
+<li>The sample is the orange histograms and there's an orange density estimate on top of them, so.</li>
+<li>That's the sample itself. That's the distribution of values in my sample. And this is this is with 50 a sample size of 50, this green distribution.</li>
+<li>That is the sampling distribution of the sample mean.</li>
+<li>And so if I were to take one hundred of these orange samples or a thousand of these orange samples.</li>
+<li>The green curve is the distribution, the means of those samples.</li>
+<li>What have. So, yeah, as I said, we take a sample, we compute the experiment,</li>
+<li>and we think about what the distribution is of the statistic from compute, from repeatedly doing this experiment.</li>
+<li>So the sampling distribution of the sample mean. So we take a sample of size N and we compute the sample mean X bar.</li>
+<li>This the sampling distribution is normal and it has a mean of the population mean.</li>
+<li>And a standard deviation. Of the population, standard deviation divided by the square root of the sample size.</li>
+<li>So. And also, for this to be true, X does not need to be normal.</li>
+<li>And this is starting to get at what I mentioned in the previous video about the</li>
+<li>precision and the accuracy of our estimate does not depend on the population size.</li>
+<li>So. If the population has a standard deviation of one and we take sample sizes of size one hundred.</li>
+<li>Then there's the means from those samples is going are going to be normally distributed with standard deviation.</li>
+<li>One tenth, regardless of how big the population is.</li>
+<li>The only variable to compute how far our our sample mean is likely to be the only things we need to compute.</li>
+<li>How far our sample mean is likely to be from the true mean.</li>
+<li>Are this this standard deviation of the population and the size of the sample?</li>
+<li>We don't actually need the size of the population.</li>
+<li>So but we don't have the population mean and the population standard deviation to be able to use that distribution directly.</li>
+<li>But what we do compute is a confidence interval. And so while the sampling distribution lets us say things about the distribution</li>
+<li>of the sampling mean and what happens if I compute a thousand of those means?</li>
+<li>The confidence interval is also something that we understand in terms of what were to happen</li>
+<li>wouldn't if we did it in infinitely many or sufficiently close to infinitely many times.</li>
+<li>And so you compute a confidence dance interval with this statistic.</li>
+<li>And this piece here asks over the square root of N is the standard error.</li>
+<li>So. And our distribution here,</li>
+<li>we have the standard deviation over the square root of N and that is that's really the error that what that's doing is it's bounding the error.</li>
+<li>We're going to have and trying to estimate the mean or it's not bounding.</li>
+<li>It's characterizing the error. We're going to how we expect to have when we're using the sample, mean to estimate the true mean.</li>
+<li>So we call an estimate of that statistic using the sample standard deviation, we call this the standard error.</li>
+<li>And the standard error is approximately the sample standard deviation of the sampling distribution,</li>
+<li>one point nine six comes from the definition of it comes from the normal distribution in a standard normal.</li>
+<li>Ninety five percent of the probability Nasse is between plus and minus one point nine six.</li>
+<li>But if we computer confidence interval in this way. So we. So if we say X bar, the mean plus or minus one point nine, six times the standard error.</li>
+<li>That gives us an interval upper and lower bounds. So for our chinstrap penguins, we have a mean of one in nine five point eight.</li>
+<li>Two, we have a standard deviation sample size. And we can computer standard error so that we can say that that was a standard error.</li>
+<li>And the confidence interval,</li>
+<li>so we can say our chinstrap penguin confidence interval is one point nine five point eight two plus or minus one point six nine.</li>
+<li>And what the confidence interval means is it's the result of a procedure that we can perform.</li>
+<li>And remember our little penguin measuring robot?</li>
+<li>Well, if we had the penguin measuring robot returned the confidence interval instead of the the mean itself.</li>
+<li>And we have it go measure confident, we have it go measure penguins, sample penguins and measure them a thousand times.</li>
+<li>Nine hundred and fifty of the confidence intervals that it gives us approximately.</li>
+<li>This is all probabilistic, so it might be a little more, a little less,</li>
+<li>but approximately ninety five percent of the confidence intervals that it gives us contain the true mean flipper length for a chinstrap penguin.</li>
+<li>That's what the confidence interval means. And so the width of this interval is an estimate of our precision.</li>
+<li>It's really important to understand a couple of things. It's really important to understand a couple of things.</li>
+<li>One, the it is not we are not 95 percent confident the mean Lise's in the interval.</li>
+<li>Then it is not that the mean lies within the interval with probability point nine five.</li>
+<li>That would be another thing related thing called a baozi incredible interval.</li>
+<li>It also isn't precisely a statement about X Bar itself. What the confidence interval means is.</li>
+<li>It's an interval generated from a using a procedure that ninety five percent of the time will include the mean with the true mean within the interval.</li>
+<li>So a brief aside, I mentioned the population standard deviation,</li>
+<li>which we usually don't know because we don't have the population and the sample standard deviation,</li>
+<li>and there's actually a slight difference in how we compute them in the samples that we're computing, the standard deviation from a sample.</li>
+<li>We divide by N minus one instead of N.</li>
+<li>And this is the key reason for this is that the samples to the standard sample standard deviation has what we call N minus one degrees of freedom.</li>
+<li>Because we've already computed X bar. This is an intermediate statistic.</li>
+<li>That we've already computed.</li>
+<li>Given X bar and X one through N minus one, you can solve for X and only and minus one of the of the sample values are allowed to vary.</li>
+<li>And still have the same X bar. And so because we have this is called degrees of freedom, because we have N minus one degrees of freedom.</li>
+<li>We. We can.</li>
+<li>We have to divide back and minus one. No, they think of it since X Bar is computed from the X's.</li>
+<li>The Xs are not independent of X Bar in the population.</li>
+<li>The the the the instances are independent of each other, given the mean.</li>
+<li>But in this in the sample they aren't because we could given we can compute the last one.</li>
+<li>If we had the mean and we have the first ten minus one. So we can start to compare values based on confidence intervals.</li>
+<li>So I computed here the confidence intervals for the flipper lengths for our three types of penguins.</li>
+<li>And there's no overlap in the confidence intervals. This is evidence that the flipper that the penguins have different flipper lengths.</li>
+<li>If they had the same if they tended to have the same flipper length, then of the confidence interval would probably overlap.</li>
+<li>We're gonna see later methods for directly comparing two means.</li>
+<li>But we can start by using the confidence interval to see. OK.</li>
+<li>Do they overlap? And the confidence interval also allows us to estimate if it's different.</li>
+<li>If it if it's far away from a value. If we've.</li>
+<li>If. The confidence interval, the low or high end of it, is pretty far from zero.</li>
+<li>Then a reasonably far from zero, then zeroes. Probably not.</li>
+<li>I mean. So but as I said, we have to be really, really careful about how we interpret confidence intervals.</li>
+<li>We take us. The procedure is take a sample of size n compute the statistic infinitely many times.</li>
+<li>Ninety five percent. In this case, the statistic is the upper and lower bounds of the confidence interval.</li>
+<li>Ninety five percent of the time, the Trumaine will be in this interval.</li>
+<li>Ninety five percent of the time this procedure will return an interval that contains the true mean.</li>
+<li>We could also have other confidence interval, such as a ninety nine percent one.</li>
+<li>But as I said, the confidence interval is not where we're 95 percent sure that parameter is.</li>
+<li>We also have a couple of outstanding issues with the confidence interval.</li>
+<li>So to wrap up, taking a sample and computing a statistic is a random process that results in a sampling distribution.</li>
+<li>And this is the sampling distribution is the probability distribution from the process.</li>
+<li>Take a sample and computer statistic. We can use this to try to start estimating the precision of our of our estimates.</li>
+<li>So we have the X bar, which is Selke. This is my estimate for the main.</li>
+<li>Mina, the penguins I saw were gonna use that as the estimate for the mean of penguins.</li>
+<li>But we can use knowledge of the sampling process to develop techniques that let us not only estimate but estimate how far off our estimate is.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="confidence-in-confidence">
+<h2>📃 Confidence in Confidence<a class="headerlink" href="#confidence-in-confidence" title="Permalink to this headline">¶</a></h2>
+<p id="confidence-in-confidence">Read <a class="reference external" href="https://medium.com/&#64;EpiEllie/having-confidence-in-confidence-intervals-8f881712d837">Having confidence in confidence intervals</a> by Ellie Murray.</p>
+</div>
+<div class="section" id="the-bootstrap">
+<h2>🎥 The Bootstrap<a class="headerlink" href="#the-bootstrap" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="5967c655-f4de-4c57-bb85-ad9c0183e2ed">
+<div class="tabbed-set docutils">
+<input checked="checked" id="43938b5e-eb37-405c-8656-e5e22ad64784" name="060ff5dc-30dd-43b3-be96-17f02cf3112e" type="radio">
+</input><label class="tabbed-label" for="43938b5e-eb37-405c-8656-e5e22ad64784">
+Video (7m26s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=5967c655-f4de-4c57-bb85-ad9c0183e2ed&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="acdbeee3-f9eb-4487-98fa-4f5c0a8cf1e3" name="060ff5dc-30dd-43b3-be96-17f02cf3112e" type="radio">
+</input><label class="tabbed-label" for="acdbeee3-f9eb-4487-98fa-4f5c0a8cf1e3">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173759" data-key=AEMzgMVZ6p7zfkE>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+THE BOOTSTRAP
+Learning Outcomes
+Approximate a sampling distribution using the bootstrap
+Compute a bootstrapped confidence interval for a statistic
+Photo by Ashim D’Silva on Unsplash
+Sampling the Population
+Sample of Penguins
+Statistic
+Repeat
+Sampling
+Distribution
+Going Beyond
+The Bootstrap
+Bootstrapping a CI
+Compute bootstrap means
+
+boot_means = [np.mean(rng.choice(xs, n))              for i in range(10000)]np.quantile(boot_means, [0.025, 0.975])
+
+Result: array([194.10294118, 197.52941176])
+This is what Seaborn catplot does for error bars!
+Bootstrap Distribution
+Fun and Games with the Bootstrap
+Estimate the sampling distribution for any statistic
+Estimate arbitrary properties of the sampling distribution
+Mean?
+Median?
+Quantiles?
+Variance?
+
+Wrapping Up
+The sampling distribution requires taking multiple samples from the population.
+
+The bootstrap allows us to approximate sampling distributions by resampling a sample.
+Image from Disney’s “Club Penguin”, taken from Club Penguin Wiki
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, we're going to talk about the bootstrap,</li>
+<li>a technique for understanding properties of sampling distributions and we can't take a bunch of samples.</li>
+<li>Our goals for this video are to be able to approximate the sampling distribution,</li>
+<li>using the bootstrap and compute a bootstrapped confidence interval for a statistic.</li>
+<li>So let's go back to our penguins. We've got a population of penguins. We sample of penguins.</li>
+<li>The sampling that we compute a statistic over the sample. We repeat this a bunch of times.</li>
+<li>And doing so gives us the sampling distribution of the statistic.</li>
+<li>So the sampling distribution for the means really well understood, normal with particular parameters.</li>
+<li>Estimating this depends on the accuracy of of the standard of the sample standard deviation, usually pretty good.</li>
+<li>It's a parametric mach estimate. So it's estimating in terms of distribution with parameters.</li>
+<li>Other statistics have other distributions. And we may not know cleanly what all of them are or they might be quite complex.</li>
+<li>So or we may violate the assumptions of a statistical method.</li>
+<li>So using the the the standard 95 percent confidence interval for the mean is not to going to get you too far off.</li>
+<li>But what if you want to compute a confidence interval for a median or you want</li>
+<li>to compute the confidence interval of a new statistic that you developed?</li>
+<li>So you can do a lot of difficult probability, theoretic calculus.</li>
+<li>But what you're trying to get at is what's gonna happen if we take many samples and compute the sampling distribution.</li>
+<li>But if we do that, it's very expensive. Going and measuring 50 penguins and computing their mean flipper length a thousand times costs a lot of money.</li>
+<li>So. We can cheat, kind of.</li>
+<li>We can sample from our sample. And re sampling from the sample allows us to approximate the sampling distribution.</li>
+<li>So if we have a sample, we can construct a new sample by sampling from the original with the key thing here is with replacement.</li>
+<li>So just because we picked X to our new sample, X one is X two from the old sample, doesn't mean we can't reuse X two.</li>
+<li>The idea is that if the sample is drawn evenly and representatively from the distribution, the population distribution,</li>
+<li>then the relative frequencies of different items in the sample reflects the relative frequencies of of approximately those values in the population.</li>
+<li>And so if we sample from this, if we. Sample each data point from the sample.</li>
+<li>The whole sample, then that's comparable to sampling it from the whole distribution.</li>
+<li>So we do that multiple times to get an entire new sample, we want to have the same length as the old sample.</li>
+<li>We compute from the statistics, from our new sample. Then we do this a bunch of times, a thousand times, 10000 times.</li>
+<li>And the distribution of this statistic from doing the boot.</li>
+<li>This and this technique is called the bootstrap. The distribution of the statistic from the bootstrap approximates the sampling distribution.</li>
+<li>It's not perfect because there's stuff in the population that might not have made it into the sample,</li>
+<li>but it's going to approximate the sampling distribution well enough to use it to start to estimate confidence and other properties of sampling.</li>
+<li>The statistic. So to bootstrap a confidence interval, one way we can do it.</li>
+<li>This is called the percentile method. Is to compute the mean of a bunch of samples.</li>
+<li>So the mean we're computing a mean and this I'm doing all this with no high.</li>
+<li>So if X is our sample. This can be a panda series.</li>
+<li>The choice, the choice random number generator method is going to draw a sample of size N.</li>
+<li>And the num pi choice function by default samples with replacements.</li>
+<li>We're going to draw a sample of size N where N is the same length as as the Xs so and equals one of X.</li>
+<li>S. We're going to do this ten thousand times, this is Arby.</li>
+<li>And then we can compute. The two point five percentile and the ninety seven point five percentile to get</li>
+<li>a window of where is 95 percent of the probability mass in this distribution.</li>
+<li>And so we do this with our penguins and we get with one of our species of penguins and we get a confidence interval.</li>
+<li>When you ask seabourne cap plot to plot the mean of the values grouped by category.</li>
+<li>The error bars it gives you or the confidence bars it gives you are done using a 95 percent bootstrapped confidence interval like this.</li>
+<li>It's the bootstrap itself is very simple. Its power is that we can replace mean with basically any statistic.</li>
+<li>And we use Rie's sampling from the sample in order to estimate the sampling distribution.</li>
+<li>Also, this syntax I'm using here. This square brackets is how we make a list.</li>
+<li>Remember this syntax where we have an expression.</li>
+<li>And then we have for I in range or I n anything that's iterable is what's called a list comprehension.</li>
+<li>It's a very convenient way to build up a list from a loop. This is a place where we do use a loop.</li>
+<li>It might be possible to vectorized the bootstrap. Doing so is difficult.</li>
+<li>And also, so long as we vectorized each individual bootstrap vectorized in the bootstrap process</li>
+<li>itself isn't as important because the bulk of the computation is within the iterations.</li>
+<li>So we're gonna go ahead, do a for loop over our bootstrap intervals and then the bootstrapped the actual.</li>
+<li>Bootstrapping itself. What we do within each bootstrap iteration.</li>
+<li>That's thoroughly vectorized. So this gives. But doing this process, this boot means this is a distribution of the boot means.</li>
+<li>And it shows that we've got the sample mean and it shows it matches up with those Quantico's that we just saw in the previous slide.</li>
+<li>So we can estimate the sampling distribution for any statistic and we can estimate arbitrary properties of the sampling distribution,</li>
+<li>which notes Quantrill's wants to know its variance. Lots of different things we can do with the sampling distribution by doing the bootstrap.</li>
+<li>It's not a perfect method,</li>
+<li>but it's a remarkably powerful method that allows us to do quite a few different things to understand the sampling behavior of our statistics.</li>
+<li>To wrap up the sampling distribution requires taking multiple sample to the sampling.</li>
+<li>Distribution is about what happens. We take a lot of samples from the population.</li>
+<li>We can simulate this by re sampling the sample itself using a technique called the bootstrap.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="week-4-quiz">
+<h2>🚩 Week 4 Quiz<a class="headerlink" href="#week-4-quiz" title="Permalink to this headline">¶</a></h2>
+<p>The Week 4 quiz is on Canvas, and is due at 12pm (noon) on Monday, Sep. 20.</p>
+</div>
+<div class="section" id="penguin-inference">
+<h2>📓 Penguin Inference<a class="headerlink" href="#penguin-inference" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../resources/tutorials/PenguinSamples/"><span class="doc std std-doc">Penguin Inference notebook</span></a> shows confidence intervals and hypothesis tests on the penguin data.</p>
+</div>
+<div class="section" id="further-reading">
+<h2>📚 Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<p>If you want to dive more deeply into probability theory, Michael Betancourt’s case studies are rather mathematically dense but quite good:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://betanalpha.github.io/assets/case_studies/probability_theory.html">Probability Theory (For Scientists and Engineers)</a></p></li>
+<li><p><a class="reference external" href="https://betanalpha.github.io/assets/case_studies/conditional_probability_theory.html">Conditional Probability</a></p></li>
+<li><p><a class="reference external" href="https://betanalpha.github.io/assets/case_studies/probability_on_product_spaces.html">Product Placement</a> (probability over product spaces)</p></li>
+</ul>
+<p>For a book:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.dartmouth.edu/~chance/teaching_aids/books_articles/probability_book/amsbook.mac.pdf">Introduction to Probability</a> by Grinstead and Snell</p></li>
+<li><p><a class="reference external" href="https://bookdown.org/kevin_davisross/probbook/">An Introduction to Probability and Simulation</a> - a hands-on online book using Python simulations</p></li>
+</ul>
+</div>
+<div class="section" id="extra-reading-philosophy">
+<h2>📚 Extra Reading (Philosophy)<a class="headerlink" href="#extra-reading-philosophy" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://dx.doi.org/10.1080/00031305.2019.1583913">Moving to a World Beyond “p &lt; 0.05”</a>, by Wasserstein, Schirm, and Lazar.</p></li>
+<li><p><a class="reference external" href="http://www.stat.columbia.edu/~gelman/research/unpublished/abandon.pdf">Abandon Statistical Significance</a>, by McShane, Gal, Gelman, Robert, and Tackett.
+While the title is provocative, this article is not advocating against computing statistical significance measures.
+It advocates using them as one piece of evidence among many, instead of as an end-of-the-story bright-line rule for establishing discovery.</p></li>
+<li><p><a class="reference external" href="https://plato.stanford.edu/entries/probability-interpret/">Interpretations of Probability</a>.
+I primarily operate from somewhere in the subjective school, with a strong dose of instrumentalism.</p></li>
+</ul>
+</div>
+<div class="section" id="assignment-2">
+<h2>📩 Assignment 2<a class="headerlink" href="#assignment-2" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../assignments/A2/"><span class="doc std std-doc">Assignment 2</span></a> is due on <strong>September 26</strong>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./week4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../week3/3-6-ChartsFromTheGroundUp/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Drawing Charts</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../week5/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 5 — Filling In (9/20–24)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

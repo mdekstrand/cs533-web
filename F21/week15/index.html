@@ -1,0 +1,2402 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 15 — What Next? (12/6–10) &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabinsert.js"></script>
+    <script src="../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="copyright" title="Copyright" href="../copyright/" />
+    <link rel="next" title="Assignments" href="../assignments/" />
+    <link rel="prev" title="Week 14 — Workflow (11/29–12/3)" href="../week14/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../resources/tutorials/">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/week15/index.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fweek15/index.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/week15/index.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#content-overview">
+   🧐 Content Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deadlines">
+   📅 Deadlines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recap">
+   🎥 Recap
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#makeup-exam">
+   🚩 Makeup Exam
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-and-concept-drift">
+   🎥 Data and Concept Drift
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-series-operations">
+   🎥 Time Series Operations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-series-example">
+   📓 Time Series Example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correlated-errors">
+   🎥 Correlated Errors
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#publishing-projects">
+   🎥 Publishing Projects
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#production-applications">
+   🎥 Production Applications
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topics-to-learn">
+   🎥 Topics to Learn
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-tips">
+   🎥 General Tips
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#no-quiz-15">
+   🚩 No Quiz 15
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#farewell">
+   📃 Farewell
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignment-7">
+   📩 Assignment 7
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final-exam">
+   🚩 Final Exam
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#format">
+     Format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exam-rules">
+     Exam Rules
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#study-tips">
+     Study Tips
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-15-what-next-12-610">
+<span id="week15"></span><h1>Week 15 — What Next? (12/6–10)<a class="headerlink" href="#week-15-what-next-12-610" title="Permalink to this headline">¶</a></h1>
+<p>This is the last week of class. We’re going to recap, and talk about what’s next, both for learning and for putting what you’ve learned to practical use.</p>
+<div class="section" id="content-overview">
+<h2>🧐 Content Overview<a class="headerlink" href="#content-overview" title="Permalink to this headline">¶</a></h2>
+<div class="module-content docutils">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><strong>Element</strong></th>
+<th class="head"><strong>Length</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#f90d0dd6-cae8-43d9-be25-adc601840b88"><span>🎥 Recap</span></a></p></td>
+<td><span>6m23s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#a36c7508-5dfd-4026-a3d7-adc601840c2f"><span>🎥 Drift</span></a></p></td>
+<td><span>7m13s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#935d2a9a-6098-416a-bbae-adc601840cd0"><span>🎥 Time Series Operations</span></a></p></td>
+<td><span>11m16s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#9f0a16d9-9481-4aa3-83e8-adc601840d7c"><span>🎥 Correlated Errors</span></a></p></td>
+<td><span>13m50s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#a5c56a70-5d6a-4c51-957e-adc601840e0c"><span>🎥 Publishing Projects</span></a></p></td>
+<td><span>9m55s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#f7408aa2-a802-40fa-94c9-adc601840ea8"><span>🎥 Production Applications</span></a></p></td>
+<td><span>7m28s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#5dcb2ce6-94df-4c6a-ac9b-adc601840f81"><span>🎥 Topics to Learn</span></a></p></td>
+<td><span>6m25s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#21b096fc-2779-47b6-b492-adc601841000"><span>🎥 General Tips</span></a></p></td>
+<td><span>10m25s</span></td>
+</tr>
+</tbody>
+</table>
+<p><span>This week has </span><strong>1h13m</strong><span> of video and </span><strong>0 words</strong><span> of assigned readings.</span><span> This week’s videos are available in a </span><a class="panopto reference external" href="https://boisestate.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%2273a9b45b-25d2-4ad0-a25c-adc601833e0b%22"><span>Panopto folder</span></a><span> and as a </span><a class="panopto podcast reference external" href="https://boisestate.hosted.panopto.com/Panopto/Podcast/Podcast.ashx?courseid=73a9b45b-25d2-4ad0-a25c-adc601833e0b&amp;type=mp4"><span>podcast</span></a><span>.</span></p>
+</div>
+</div>
+<div class="section" id="deadlines">
+<h2>📅 Deadlines<a class="headerlink" href="#deadlines" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#midterm-m"><span class="std std-ref">Makeup Midterm</span></a>, December 7</p></li>
+<li><p>Quiz 14, December 9</p></li>
+<li><p><a class="reference internal" href="../assignments/A7/"><span class="doc std std-doc">Assignment 7</span></a>, December 12</p></li>
+</ul>
+</div>
+<div class="section" id="recap">
+<h2>🎥 Recap<a class="headerlink" href="#recap" title="Permalink to this headline">¶</a></h2>
+<p>This video reviews the concepts we have discussed this term and puts them into the broader context of data science.</p>
+<div class="resource video docutils container" id="f90d0dd6-cae8-43d9-be25-adc601840b88">
+<div class="tabbed-set docutils">
+<input checked="checked" id="9d1f3acb-0e30-4c8f-842a-ef39e9b570d0" name="b5b377d1-d3d1-4465-906e-f2325c5aad18" type="radio">
+</input><label class="tabbed-label" for="9d1f3acb-0e30-4c8f-842a-ef39e9b570d0">
+Video (6m23s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=f90d0dd6-cae8-43d9-be25-adc601840b88&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="bfbd203a-5f18-4098-a5a2-311ea54128c7" name="b5b377d1-d3d1-4465-906e-f2325c5aad18" type="radio">
+</input><label class="tabbed-label" for="bfbd203a-5f18-4098-a5a2-311ea54128c7">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173432" data-key=AHfNFdGccgu4HVE>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+RECAP
+Learning Outcomes (Week)
+Wrapping up!
+Tie together the class content again
+Apply Pandas time series operations and model correlated regression errors
+Take the results of data science analysis in production or publication
+Know some topics to study further to expand your data science skills
+Photo by Lumitar on Unsplash
+The Data Science Workflow
+Transform / Prepare (ETL)
+Raw Source Data
+Prepared Data
+Inference
+Findings
+Modeling
+Model + Predictions
+Data Description
+What is Data Science?
+The use of data to provide quantitative insights on questions of scientific, business, or social interest.
+Data Management
+Reading from static files
+Processing and integrating with Pandas
+
+To learn more:
+CS 510 Databases
+Application- and type-specific data in other classes
+Mathematical Fundamentals
+Probability Theory
+Linear algebra (a little)
+
+To learn more:
+Math 562 (Probability and Statistics)
+Math 503 (Advanced Linear Algebra)
+Inference
+Basic parametric pairwise comparisons (t-tests)
+Bootstrapping
+Sampling theory
+Linear regression models (OLS &amp; logistic)
+
+To learn more:
+Math 562 (Probability and Statistics)
+
+Prediction
+Regression: continuous outcomes
+Classification: categorical (esp. binary) outcomes
+
+To learn more:
+CS 534 (Machine Learning)
+Many other data science classes
+Evaluation and Tuning
+Train/test splits
+Classification and continuous prediction metrics
+Hyperparameter tuning
+
+To learn more:
+CS 534 (Machine Learning)
+Unsupervised Learning
+Lower-dimensional embedding (matrix decomposition)
+Clustering
+
+To learn more:
+CS 534 (Machine Learning)
+Will appear in other data science classes
+Workflows
+Data science pipeline
+Breaking code into separate scripts &amp; modules
+Design patterns for code workflows
+
+You will apply this throughout your classes!
+Wrapping Up
+This class is designed to lay a conceptual foundation for your future data science studies.
+
+Other classes will build on these concepts and ideas!
+
+
+Photo by Dave Heere on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Welcome. This is the last week of CSI 533. I want to start us off by doing some recap of what we've learned this semester.</li>
+<li>The point to where we're gonna go in the last week or so are learning outcomes for this week or to tie up the class content together.</li>
+<li>Give you a brief summary of what we've done, how it fits into the broader,</li>
+<li>how it forms a broader picture into which the further topics you're going to study throughout your graduate degree will fit.</li>
+<li>We're also going to tie up a couple of loose ends. We're going to talk about time, serious operations and modeling correlated regression errors.</li>
+<li>And we're going to talk about how some of the things you need to do to take data science analysis,</li>
+<li>results and outputs into publication or into production.</li>
+<li>And then finally, I'm going to talk about some topics to study further to expand your data science skills.</li>
+<li>So we've talked about the data science where I want to bring up the state of the science workflow again,</li>
+<li>because it provides a context in which a lot of the things that we've been talking about fit.</li>
+<li>We talk about how to describe data. We talk about how to integrate it, source it and transform it.</li>
+<li>We talk about the various kinds of biases and you have to pay attention to throughout this workflow.</li>
+<li>We have different kinds of tasks, such as modeling and inference.</li>
+<li>I also want to return us, though, to our question at the beginning of this semester or our definition from the beginning of this semester,</li>
+<li>that data science is the use of data to provide quantitative insights on questions of scientific business or social interest.</li>
+<li>So the goal of all of this, what we're doing with data science, is to produce insights.</li>
+<li>Now, there's a lot of overlap.</li>
+<li>There's a lot of predictive predictive tools that are not necessarily being used to provide insights back to the operators,</li>
+<li>but are being used to, say, generate predictions about customer transactions,</li>
+<li>about whether something is fraud, whether something is a cybersecurity attack,</li>
+<li>that the the action itself is not necessarily the model itself is not necessarily providing insights.</li>
+<li>But we need to gain insights about whether it's working, how effective it is, where we need to go, try to improve it.</li>
+<li>But also the techniques that we're using are applicable to other purposes as well,</li>
+<li>such as training, machine learning models that can do various types of predictions.</li>
+<li>We've talked about data management, so we've put primarily focused on reading from static files.</li>
+<li>We do a little bit with obtaining data from the web. We've been processing and integrating our data with pandas.</li>
+<li>Really useful utility skill. To take this a step further is to actually to be able to work with a database.</li>
+<li>And so in the CSA five 10 class databases, you learn how to design data models and relational databases, how to query them, how to put data in them.</li>
+<li>You're also going to see in other classes information about managing data that is particular to different applications and types of data.</li>
+<li>We talked about some mathematical fundamentals, probability theory.</li>
+<li>We talked a little bit about some linear algebra and we've used bits and pieces of it throughout the class.</li>
+<li>You can learn a lot more about these taking math 562 and taking the linear algebra class as well.</li>
+<li>Four. We've talked about statistical inference. We did some basic parametric pairwise comparisons with T tests.</li>
+<li>We learned how to bootstrap confidence intervals and P values.</li>
+<li>We learned some sampling theory that underlies a lot of statistical inference and underlies the bootstrap.</li>
+<li>And we talked about doing inference with regression models to learn a lot.</li>
+<li>You'll learn a lot more about this and the probability and statistics class. We've done some predictions.</li>
+<li>We've predicted continuous outcomes with regression models. We've predicted binary outcomes with classification models.</li>
+<li>You will learn a lot more about different models for doing. For doing these kinds of predictions in the machine learning class.</li>
+<li>And they're also going to come up throughout a number of your other data science classes,</li>
+<li>such as recommender systems, natural language processing, information retrieval and social media mining.</li>
+<li>We talked about evaluating your your predictive model, your classifier or your regression based predictor.</li>
+<li>We talked about how to do. How to do train test splits, why we need those.</li>
+<li>We talked about metrics for assessing the effectiveness of your model.</li>
+<li>We talked about strategies that set up to choose your models, hyper parameters. Again, you're going to see a lot more of this in C.S. 534.</li>
+<li>We also introduced unsupervised learning.</li>
+<li>We've looked at two different unsupervised learning techniques where we don't oppose the predictions that we're trying to do,</li>
+<li>the supervised learning where we have a classification outcome or a label.</li>
+<li>We're trying to predict the classifier. We have a value. We're trying to predict with a regression model.</li>
+<li>We don't have a supervisions ignore a label that we're trying to predict. We're trying to allow the model to obtain.</li>
+<li>To learn structure just from the input features,</li>
+<li>we've seen how to do this with lower dimensional embedding with Matrix composition, and we've seen how to do this with clustering.</li>
+<li>Again, you'll see more about this in machine learning and it'll appear in other classes.</li>
+<li>We talked about workflows. We talked about the data science pipeline.</li>
+<li>We talked about how to break code into scripts and modules, how to use get how to design, has some design pattern for your code workflows.</li>
+<li>You're going to use this throughout your data science work, both in your studies and in your applied work when you're done.</li>
+<li>I encourage you to take what you've learned here, refer back to the material in order to structure your assignments for other classes.</li>
+<li>So to wrap up, this class has been designed to lay a conceptual foundation for the rest of your data science studies.</li>
+<li>So do you take other classes? You have these concepts. You know what a classifier is.</li>
+<li>You know how to evaluate one. You know how predictive models and statistical inference fit in the broader space.</li>
+<li>You have a good working base to start to work with data, be able to ask questions, be able to think about how.</li>
+<li>How to answer them and represent their answers. Other classes are going to build on these concepts and ideas.</li>
+<li>And there's a number that you can take in the computer science department,</li>
+<li>the math department and other departments as you complete either your master's degree or your HD.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="makeup-exam">
+<span id="midterm-m"></span><h2>🚩 Makeup Exam<a class="headerlink" href="#makeup-exam" title="Permalink to this headline">¶</a></h2>
+<p>The makeup midterm is <strong>December 7</strong> in class.  It covers the entire semester, with an emphasis on material since the 2nd midterm.
+The rules and format are the same as for <a class="reference internal" href="../week6/#midterm-a"><span class="std std-ref">Midterm A</span></a>.</p>
+<p>I encourage you to come and take the exam, as it is the single best way to prepare for the final.  You can at any time leave the exam, and take it with you; I will only grade it if you turn it in, and there is no problem with showing up, looking at it, even filling it out, and deciding you like your current grades well enough to not turn it in.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you turn in the makeup exam to be graded, its grade will replace the lower of your Midterm A and B grades, <strong>even if that lowers your final grade</strong>.
+Only turn it in if you think you did better than your worst normal midterm!</p>
+</div>
+</div>
+<div class="section" id="data-and-concept-drift">
+<h2>🎥 Data and Concept Drift<a class="headerlink" href="#data-and-concept-drift" title="Permalink to this headline">¶</a></h2>
+<p>This video introduces a fundamental assumption of predictive modeling and the way <em>drift</em> can affect it.</p>
+<div class="resource video docutils container" id="a36c7508-5dfd-4026-a3d7-adc601840c2f">
+<div class="tabbed-set docutils">
+<input checked="checked" id="265086e8-500e-4b4f-af73-cdc3eaeab186" name="901a9ff9-30f7-44d1-a86c-93570b3fd28e" type="radio">
+</input><label class="tabbed-label" for="265086e8-500e-4b4f-af73-cdc3eaeab186">
+Video (7m13s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=a36c7508-5dfd-4026-a3d7-adc601840c2f&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="c8d2f8cd-0d38-42eb-9146-20574b6c8db0" name="901a9ff9-30f7-44d1-a86c-93570b3fd28e" type="radio">
+</input><label class="tabbed-label" for="c8d2f8cd-0d38-42eb-9146-20574b6c8db0">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173435" data-key=AE55Qg7-c1ba2sg>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CONCEPT AND DATA DRIFT
+Learning Outcomes
+Know crucial assumptions of machine learning evaluation and deployment
+Understand how models can degrade over time
+
+Photo by guille pozzi on Unsplash
+Fundamental Assumption
+Deployment Assumption
+Drifts and Shifts
+Offline Solution: Temporal Splitting
+Random train-test split ensures train/test comparable
+Assumes test is uniformly drawn from same distribution!
+Alternative: temporal split
+Select temporally-contiguous test data (e.g. 1 month)
+Train on data before test data (no time travel!)
+
+Benefit: simulates actual use
+Drawback: temporal data no longer random, inference harder
+Online Solution: Continuous Monitoring
+Instrument your system in production
+Watch key metrics over time
+Click-through rate
+Classification rate
+Regularly re-train and re-evaluate
+Train model on new data
+Evaluate model on new data
+Wrapping Up
+ML training and evaluation assumes that the training and test data match real life.
+
+You can’t always rely on that.
+Photo by Jackson Douglas on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video I want to introduce to concepts you need to be on the lookout for when you're trying to do models and particularly in production abound.</li>
+<li>Caught the drift of your data and your concepts. Learning outcomes are few to know critical assumptions of machine learning,</li>
+<li>evaluation and deployment and understand how models can direct degrade over time.</li>
+<li>So a fundamental assumption that our machine learning evaluation makes or that machine learning makes.</li>
+<li>Excuse me, is that the test data?</li>
+<li>Looks like the training data. The test of specifically the test of the training data are drawn from the same distribution.</li>
+<li>And one of the really crucial parts of this is that the conditional probability.</li>
+<li>So the probability of y given a particular set of covariates or features X is the same.</li>
+<li>Between the two. Otherwise you couldn't do machine learning because the idea is to learn that conditional probability.</li>
+<li>Remember that we're trying to do estimates of just conditional expectation or estimates of conditional probability.</li>
+<li>If it's not the same and the training gave it to the test data, then you can't learn.</li>
+<li>The training data to predict the test data. But also, if the probability of Y is not consistent, then it's we're gonna be looking at different data.</li>
+<li>The class weights may be wrong.</li>
+<li>If the probability of the covariates are different, effectively, we're learning from data that's distributed differently.</li>
+<li>It might work, but it very well may not. We have this fundamental assumption.</li>
+<li>If you're trying to learn from Trinny data to predict to predict test data, you're assuming the test data looks like the training data.</li>
+<li>There's also then another assumption when you're trying to when your purpose of your talent testing</li>
+<li>your model is to determine if the model is going to work well when you actually go try to deploy it.</li>
+<li>So if you're trying to test a spam filters, accuracy you what your goal is not to build a better spam filter that works well on a test dataset.</li>
+<li>The goal is to build a spam filter that's going to correctly classify spams as they come into your system.</li>
+<li>And so they're we're making the crucial assumption that the probability of data, it's actually going to see the live data that the live data.</li>
+<li>Strong from the same distribution as our test data. Because if it's not, then what we've tested it on isn't what it's actually going to run on.</li>
+<li>And so we haven't actually evaluated the model for the perforates task,</li>
+<li>if the the actual data is going to see come from a different distribution than the data that we're testing on.</li>
+<li>So a few different ways that this can drift. So the crap class private lens can change.</li>
+<li>It might just be that spams become more likely. The feature distributions can change.</li>
+<li>So emails start using Pertti, messages start using more of a particular kind of text or the geographic</li>
+<li>distribution of the sender changes or other features that you're using changes, but also the relationship changes.</li>
+<li>What, like the way people write spams may change. And so then how you predict a spam from the features changes.</li>
+<li>One particular example. So examples like December purchasing is different.</li>
+<li>A model that is trained on January through November.</li>
+<li>You try to predict December, December looks different because the holiday season.</li>
+<li>Also, if you've got a model that was working great, you had seasonal effects, you had cyclical effects.</li>
+<li>You are doing really good at forecasting. Your sales revenues for four years.</li>
+<li>Kofod has so fundamentally changed how we go about purchasing both in person and online,</li>
+<li>that you have a massive distribution shift in your model is no longer gonna be valid.</li>
+<li>So how do you deal with this? I'm going to talk briefly about two ways to start trying to deal with it.</li>
+<li>The first thing zero to do is to be aware of the proof of the assumptions that</li>
+<li>you're making and the potential problems of a violation of those assumptions.</li>
+<li>You even noted, go look for them. But then off line, one thing we can do is we can temporal if our data have timestamps, we can temporarily split it,</li>
+<li>because in production, your goal isn't to predict a randomly selected set of data points from the other data points.</li>
+<li>Your goal is to predict the next data point from historical data points.</li>
+<li>So what you can do is you can simulate that. You can say. You're trying to predict sales.</li>
+<li>You can set as your test data November and use trading data everything before November.</li>
+<li>You'll want to use the Sambor because you don't want your if you like your model to look into the future.</li>
+<li>You're violating the simulation stuff. Fidelity. And but this is the basic idea.</li>
+<li>You train on the data before the test data and you test on on that day.</li>
+<li>You need to hyper print are tuning. You can test on. You can use the month before as tuning data or because of seasonal effects.</li>
+<li>You may want to use the same month, the year before. As for your hyper parameter tuning, but this is the idea.</li>
+<li>You do this temporal split upside, you get this increased fidelity of your what you're actually trying to soft new salt.</li>
+<li>Can you predict next data?</li>
+<li>Given the historical data, drawback is that we're not randomly sampling the results and so we have to be a lot more careful.</li>
+<li>But the statistical inference of the results. But. The trade off is often worth it for understanding problems that are going to be things that are</li>
+<li>going to be deployed in a temporal setting where we expect data distributions to change over time.</li>
+<li>Then when you go online, need to continuously monitor what your system is doing.</li>
+<li>If you have the ability to measure its online accuracy, its making its predictions of whether incoming messages on your platform are spam.</li>
+<li>And you can test whether that was right or not. Watch that.</li>
+<li>But even just watching other metrics, like the frequency with which it's classifying something as spam.</li>
+<li>If that jumps or if that drops. That doesn't necessarily mean your model performance is different, but it means something's changed.</li>
+<li>So if. Fifty percent of your messages are spam on usually.</li>
+<li>Or the spam reporter spam classifier flags 50 percent of that spam. And suddenly it starts only flacking 40 percent of spam.</li>
+<li>You should look into. That's a signal that you need to look into. Why?</li>
+<li>To see if you've got a data set shift, a status shift that's causing your model to no longer perform properly.</li>
+<li>Also, you need to regularly retrain and reevaluate your model.</li>
+<li>You can't just say, oh, I've got a model. It's got this accuracy. Good. Let's put it production.</li>
+<li>Let's run it for two years. You need to retrain the model frind with new data.</li>
+<li>And then also, you need to periodically reevaluate your model to see is it still giving the accuracy.</li>
+<li>So we're running it for a year, collecting more data. If we tested out some new data, is it still giving the accuracy that that we expect for it?</li>
+<li>So to wrap up. Machine learning, training and evaluation assumes that the training data and test data match each other and match real life.</li>
+<li>You can't always rely on that. You need to pay attention to shifts in your data and in its distributions.</li>
+<li>That makes your that either cause the model not to be able to learn from training to predict test data,</li>
+<li>or that cause the test data to no longer be an accurate assessment of what's going to happen when you try to use your model for real use.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://doi.org/10.1016/j.patcog.2011.06.019">A unifying view on dataset shift in classification</a> (available through Boise State library)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="time-series-operations">
+<h2>🎥 Time Series Operations<a class="headerlink" href="#time-series-operations" title="Permalink to this headline">¶</a></h2>
+<p>Time is an important kind of data that we haven’t spent much time with — this video discusses the fundamental Pandas operations for working with time-series data.</p>
+<div class="resource video docutils container" id="935d2a9a-6098-416a-bbae-adc601840cd0">
+<div class="tabbed-set docutils">
+<input checked="checked" id="a0c3a1a8-86d4-4f2f-bce6-9dfbcfa70f34" name="f9b359b4-5311-4e4c-b7e8-255f2090c12c" type="radio">
+</input><label class="tabbed-label" for="a0c3a1a8-86d4-4f2f-bce6-9dfbcfa70f34">
+Video (11m16s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=935d2a9a-6098-416a-bbae-adc601840cd0&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="e89d4f0c-4404-456e-b5c3-bc118557ea67" name="f9b359b4-5311-4e4c-b7e8-255f2090c12c" type="radio">
+</input><label class="tabbed-label" for="e89d4f0c-4404-456e-b5c3-bc118557ea67">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173433" data-key=AOYczBP6aJFAe9Q>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+TIME SERIES
+Learning Outcomes
+Summarize and plot time series data with Pandas
+Understand that time series data is often not independent
+Photo by Bruno Figueiredo on Unsplash
+Time Series
+Time Series
+Time Representation
+Many representations:
+String dates
+Years &amp; months
+Timestamps (seconds, ms, etc.)
+
+Pandas: must convert to a datetime
+pd.to_datetime
+Pandas Setup Steps
+Create/convert datetime column with instance times
+Index data frame by timestamp
+Sort index
+
+ratings['timestamp'] = pd.to_datetime(ratings['timestamp'], unit='s')rts = ratings.set_index('timestamp').sort_index()
+
+Time series exception to “prefer unique indexes” guideline
+Operation: Resampling
+Like groupby, but on time intervals
+Compute aggregate functions for time intervals
+‘on’ option allows a non-index column
+
+monthly_ratings = rts.resample('1M')['rating'].count()
+Operation: Plotting
+Matplotlib &amp; Seaborn render timestamp X axes well
+
+sns.lineplot(data=monthly_ratings)
+Operation: Range Select
+Time series indexes support range operations
+Select by range: rts.loc['2010-01-01':'2010-12-31']
+Includes end point (unlike normal slice!)
+Select by period: rts.loc['2010-07']
+Operation: Diff and Shift
+Time Effects
+Autocorrelation
+Wrapping Up
+Repeated data over time requires particular handling and has distinct operations.
+
+Pandas provides these through datetime columns and indexes.
+Photo by Javier Esteban on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>And this video, I want to introduce the concept of a time series, some basic time series operations in pandas.</li>
+<li>There's a notebook also in the resources that gives you a demonstration of the PANDAS code that actually works with Time series.</li>
+<li>Learning outcomes are for you to be able to summarize and plot time series data</li>
+<li>with pandas and understand that Time series data is often not independent.</li>
+<li>So at times, serious is a sequence of observations over time,</li>
+<li>these observations may be periodically sampled, like maybe having one measurement for each day.</li>
+<li>Or they may they may not be. You might be that you record a sequence of events like every time someone uses the card scanner at a door.</li>
+<li>Typically, their observations are the same kind of thing. Like we have our instances in a normal data frame, the same kind of thing.</li>
+<li>The observations we're looking at a time series are homogenous,</li>
+<li>like the price of a stock or revenue of a country or some kind of user activity and mathematical notation.</li>
+<li>We typically refer to a time with the letter T. And we have the current time as T t t minus one T plus one.</li>
+<li>We often speak of times steps. So we might time as in years or months, days, seconds, whatever is appropriate to our particular application.</li>
+<li>And it is. And we can talk about the value at time T X of T.</li>
+<li>We can talk about X, T, minus one, etc. for the previous value, the value of the previous timestamp.</li>
+<li>This particularly applies when we have a periodically type sample time step.</li>
+<li>So to show you an example of a time series, this is from the movie lens data that we've been working with.</li>
+<li>And it is by month the number of each ratings in the month.</li>
+<li>So our time steps are months. And our value.</li>
+<li>Is the number of ratings. For movies in time are in month t.</li>
+<li>We can see those values. There were some spikes of growth. There were some spikes of activity here.</li>
+<li>We've got a few one month spikes. We had a significant jump there.</li>
+<li>And we've there's been declining month over month activity as we go into 2000 or in 2018, 2019.</li>
+<li>So there are many ways, as we talked earlier, that are many ways we can represent time, we can have string dates, years, months.</li>
+<li>We can have timestamps to work with a time series, though, and PAN does.</li>
+<li>We have to convert it to a time to a date time.</li>
+<li>We can't use pandas time serious operations without converting our time into a date time somehow first from whatever format it's in.</li>
+<li>So the setup steps to be able to start working with time, serious data and pandas are to first create or convert a date time column.</li>
+<li>It might be that you need to put it together multiple columns.</li>
+<li>It might just be the you need to convert an existing column so that you have a timestamp</li>
+<li>column of type date time for each for each of your instances in your data frame.</li>
+<li>Then typically you're going to want to index the data frame by timestamp and then sort it by index using the sort index method.</li>
+<li>And you can use it. There's a lot you can use a lot of date time operations without setting an index.</li>
+<li>But setting an index is often the most convenient way to work with time.</li>
+<li>Serious data in Pandas and Time series data is an exception to our general guideline to prefer unique indexes because pandas will have some memory,</li>
+<li>can have memory and performance problems with non-unique indexes. You might have multiple events that happened at the same time.</li>
+<li>The utility of a time series index around looking up things by time and by date over what that overrides.</li>
+<li>The general concern of don't use duplicate and of avoid indexes.</li>
+<li>A duplicate keys. So if you operations that we can perform at this time series, data one is re sampling and re sampling works like group by.</li>
+<li>But it works on time intervals. And so in this in this code here, what we're doing is we are re sampling by interval one month.</li>
+<li>We could sample by day, we could sample. By week.</li>
+<li>But this is telling us that we want to group the data by one week or by one month periods so our groups will be or it's indexed by a timestamp.</li>
+<li>But our groups are going to be October of 2000. 13.</li>
+<li>November of 2013, and then within that, we're going to do exactly the same thing we do with any group.</li>
+<li>We're going to pick a column and we're gonna count it. And this is going to count the number of ratings in each month.</li>
+<li>So after the recent the results of a resample work, exactly like your group, buy into all your Google group,</li>
+<li>I think that's just rather than being grouped by the distinct values of a column.</li>
+<li>They're grouped by a time period of the index. Or you can also group by a column.</li>
+<li>There's an on option for every sample that allows you to specify the column that you want</li>
+<li>to do the re sampling on if you have not indexed your data frame by its time stamp column.</li>
+<li>So this is our first operation. We can take it. We can sample our day.</li>
+<li>If we have this particularly works for data that is. If this works well for data that is events, it works well for data, that is.</li>
+<li>It can also work well for it, for data that is already sampled,</li>
+<li>that if you've got daily measurements of something and you want to take it by month, you can re sample that by month.</li>
+<li>You can also up sample and have it fill in missing values for time period that you're missing.</li>
+<li>If you want to increase the resolution of data.</li>
+<li>So another thing we can do is plot and matplotlib and Seabourne both render timestamps on their x axis relatively well.</li>
+<li>So if I just do X and that's that line plot and I give it a series, it's going to mark the x axis by an appropriate time,</li>
+<li>derive value in this case because my data starts in two thousand or nineteen ninety six and runs until relatively recently.</li>
+<li>It is it's, it's, it's marking the X axis by year.</li>
+<li>So they, they know what to do with time data, with timestamp columns.</li>
+<li>And they will the air, they will render the x axis with appropriate labels for time, serious data.</li>
+<li>Another operation is to be able to do a range select so time series indexes, support range operations and so we can select by range,</li>
+<li>you can say every we want everything from January 1st through December thirty first.</li>
+<li>Now, one key thing to note is that when you're doing a range selection of a time series column,</li>
+<li>unlike basically every other slicing context in Python, it includes the end point.</li>
+<li>So this this query is going to include December thirty, first all and it's going to include all day on December thirty first.</li>
+<li>It's not going to be the usual stop right before.</li>
+<li>We can also just pass in a partial date time in order to select by a period.</li>
+<li>So if we want to select July 2010, we can you do that lock.</li>
+<li>And we can look up 2010, Dasch 07. It's going to give us the ratings that are in July.</li>
+<li>Another operation we can perform a set of operations, we can perform our diff and shift.</li>
+<li>So the diff operation computes X sub T minus X, T, minus one.</li>
+<li>So what it does is it computes. So we've got our it's basically the opposite of cume.</li>
+<li>So we've got our data points. And what it does is it computes each one minus the one before it.</li>
+<li>The first one gets narm. So your first value becomes more than your second value becomes the second minus the first et cetera.</li>
+<li>Shift is an operation that just shifts data points by one or more time steps.</li>
+<li>And so a shift of one which is the default, if you don't specify parameter is what we call a lag operator.</li>
+<li>It move points down once that each one has its previous value. So def is just X minus X that shift or it's it's X minus the lag of X.</li>
+<li>Shift of minus one is lead. So each one has the next value, if you want to compare each value with the one that's gonna come after it.</li>
+<li>But so these are this. This diff operation and then shift, which is its building block, allow you to compare data to the previous data point.</li>
+<li>This is particularly useful for data that is periodically sampled to its day by days or by seconds.</li>
+<li>It doesn't it's not quite as useful by events, but. You can convert event timestamped event data into period data.</li>
+<li>Just the library sampling. So there's a few different effects that we want to think about in Time series data.</li>
+<li>One is a trend, which is a period over period change in values.</li>
+<li>So if the price of something is going up and it'll be noisy around that,</li>
+<li>but often noisy around that, but the overall trend is up as you go through time.</li>
+<li>You can have linear trends. You can have exponential trends. When you have an.</li>
+<li>You might hear the value are not being used sometimes in discussing disease, transmit disease transmission epidemiology.</li>
+<li>That's a multiplier for an exponential trend.</li>
+<li>We can have seasonal and cyclic effects with our periodic effects in the data and seasonal ones are are around this time of year.</li>
+<li>So like holiday, if you're in a commerce setting, holidays look really, really differently than June.</li>
+<li>There can also be cyclical effects like on a week cycle, et cetera, that does that affect your data?</li>
+<li>People behave differently on weekends than during the week, etc.</li>
+<li>There's also shocks which are impact events that impact the time series and change data going forward.</li>
+<li>And these can have short term effects or they can have continued effects. But a shock is like an outside event.</li>
+<li>Like if your time series is, say, the the price of a stock, a shock would be an event that affects the stock price.</li>
+<li>One thing that's important to know about time, serious data, is that as often what we call auto correlated, which means correlated with itself.</li>
+<li>Because it's X, sub T plus one at exit two, plus one, an exit T are not independent.</li>
+<li>Today's weather is probably more likely correlated with tomorrow's weather than it is weather in three months.</li>
+<li>So if you have observations of a variable over time, especially that you're trying to predict the future with today.</li>
+<li>It usually violates independence. And so we're going to need to take special care in order to model what's going on when we have data.</li>
+<li>And even if we have other predictive variables.</li>
+<li>There's a non independence between from one step to another that we need to account for when we're doing statistical modeling.</li>
+<li>So to wrap up repeated data over time requires particular handling and are distinct operations to work for it.</li>
+<li>PANDAS provides access to daytime columns, daytime indexes to allow you to do various times serious operations.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Resources<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html">Pandas time series analysis</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="time-series-example">
+<h2>📓 Time Series Example<a class="headerlink" href="#time-series-example" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../resources/tutorials/MLTimeSeries/"><span class="doc std std-doc">MovieLens Time Series notebook</span></a> demonstrates basic time series operations in Pandas.</p>
+</div>
+<div class="section" id="correlated-errors">
+<h2>🎥 Correlated Errors<a class="headerlink" href="#correlated-errors" title="Permalink to this headline">¶</a></h2>
+<p>Regression models require that the data be <em>independent</em>. This video introduces two kinds of non-independence and methods for addressing them: grouped observations addressed with a mixed-effects model and temporal auto-correlation addressed with ARIMA models.</p>
+<div class="resource video docutils container" id="9f0a16d9-9481-4aa3-83e8-adc601840d7c">
+<div class="tabbed-set docutils">
+<input checked="checked" id="1ae92711-6f19-4cce-806d-cd636aa8d190" name="700553be-50b1-45da-a7c7-c090b18027db" type="radio">
+</input><label class="tabbed-label" for="1ae92711-6f19-4cce-806d-cd636aa8d190">
+Video (13m50s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=9f0a16d9-9481-4aa3-83e8-adc601840d7c&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="bb50b575-4829-4ae0-a469-ac359b11bfbc" name="700553be-50b1-45da-a7c7-c090b18027db" type="radio">
+</input><label class="tabbed-label" for="bb50b575-4829-4ae0-a469-ac359b11bfbc">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173434" data-key=AM4VHU5-GJ5MWCQ>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CORRELATED ERRORS
+Learning Outcomes
+Understand the idea of correlated errors and how they can be addressed.
+Know when you need to look for a model that can handle correlated error.
+Know two models to study further when needed.
+Photo by Tyler Nix on Unsplash
+Correlated Errors
+Observations are not necessarily independent:
+Time series: autocorrelated
+Within-subjects designs: grouped
+Other data may also be grouped
+Medical data collected by hospital
+Grouping Example
+Example problem: measuring search engine effectiveness
+Two search algorithms
+Users issue queries
+Results are assessed for relevance (experts or click logs)
+
+Problem: results are not independent
+* Some queries are harder than others
+Naïve Solution
+Stratified Errors / Group Effects
+Fixed and Random Effects
+Basic Idea: Modeling Additional Effects
+Random effects capture natural sources of variance shared between observations
+Performance: system effectiveness + query difficulty
+Remaining variance (residuals) hopefully i.i.d. normal!
+Our linear model works again
+
+This applies generally – if we know an effect in the variance structure, we can remove it (“control for” it).
+When To Use Stratified Errors
+Any time your data points come in groups
+Multiple measurements for the same object
+Trying to understand difference between measurements
+Understanding diff. between objects, they are fixed effects!
+
+When you have an external feature shared between instances
+
+Autocorrelation
+Autoregression
+Moving Average
+ARIMA
+Auto Regression Integrated Moving Average: ARIMA(p, q, r)
+AR(p) model
+MA(r) model
+Applied to q-order diffs (1 = diff, 2 = diff of diffs)
+
+AR &amp; I can be viewed as a type of feature engineering
+Integration with Prediction
+Wrapping Up
+We often have structured errors in a regression problem.
+
+In some cases, modeling that structure yields a valid model.
+Photo by Pawel Janiak on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, we're going to talk about correlated errors,</li>
+<li>so the previous video we talked about time serious and we talked about autocorrelation where its value is correlated with the value before it.</li>
+<li>This video, we're going to talk more generally about the idea of correlated errors and how they can be addressed.</li>
+<li>Now,</li>
+<li>I want you to be able to know when you need to look for a model that can handle correlated errors and know a few of the models you need to go study.</li>
+<li>So observations, linear regression has this assumption that we've particularly our errors are independent, but often they aren't.</li>
+<li>So if we've got time series data, we have this autocorrelation that will manifest in non-independent errors.</li>
+<li>We don't control for it within subjects, designs and experimental design, where you have each participant gets more than one treatment.</li>
+<li>And you want to compare how the treatment performed within the same person. You're not independent because.</li>
+<li>Do you have. There's a person level effect and the the the person has a certain propensity to the outcome that you're trying to measure.</li>
+<li>And then the treatments also go into effect. You can have other data that can be grouped as well.</li>
+<li>If you're trying to to study medical outcomes and you're assigning people to a treatment or a control group, even though within the same hospital,</li>
+<li>like people that are being treated by the same medical staff,</li>
+<li>might have different outcomes than people who are being treated by different medical staff.</li>
+<li>And so if you just pull all of the participants together, you can have this non-independent,</li>
+<li>that student that participants at one hospital are more likely to look like each other than they are likely to look like participants,</li>
+<li>more random other hospital.</li>
+<li>And so, for an example, to talk about this more concretely, I want to talk about you're trying to measure search engine effectiveness.</li>
+<li>So you have to search algorithms. Maybe you're working for Google or you're working for for Microsoft on being working for some</li>
+<li>other somewhere else where you have a search setting and you've got to search algorithms,</li>
+<li>maybe ones your current one and one's your proposed new one, or you're trying out two different possibilities.</li>
+<li>Users issue queries and you're trying to measure and the search systems return results and</li>
+<li>you measure the accuracy of the result list that you get back from each search system.</li>
+<li>And so your data point, your instance consists of a query and it consists of the responses from one of the search systems,</li>
+<li>along with which system generated those responses. And it might be that we somehow have experts assessing how good the results are.</li>
+<li>It might be that we're looking at quick click logs to collect. We actually have users. They issue a query.</li>
+<li>One of our systems returns results. So we see how likely they are to click a result and how high up in this is in the search list.</li>
+<li>The result they click is that we use that as the basis to measure how good the searches are.</li>
+<li>The problem is that these results are not independent.</li>
+<li>We have these queries and if the same a query appears multiple times, not all queries are easy to are as easy to answer.</li>
+<li>Maybe one query has more documents that are relevant.</li>
+<li>Maybe one query has no documents that are relevant. Maybe queries have language that matches your documents or matches too many documents, too.</li>
+<li>It's hard to figure out which one in particular the user is looking for.</li>
+<li>There are many different reasons for query difficulty. You can take the information retrieval class to learn about a lot more about that.</li>
+<li>But this is the setup for that. I'm going to use as an example here we have queries.</li>
+<li>Query might happen multiple times, like people will probably search Google for Pendas Time series a lot.</li>
+<li>And so you're trying to measure the effectiveness of your two systems at these repeated queries.</li>
+<li>So a naive solution without taking into account the correlated errors is what you</li>
+<li>might try to build a linear model where you might try to try to do a T test,</li>
+<li>but you might try to build a linear model where you have Alfa's your intercept and you</li>
+<li>have a variable that says whether it's provided by the new system or the old system,</li>
+<li>if you have more than one more than two systems, it will be a dummy coding of which system is as providing the results.</li>
+<li>And we have our errors and we're trying to predict our outcome outcome as some metric doesn't really matter which one for our purposes right now.</li>
+<li>And so beedis of new is going to be greater than zero if the new system performs better than the old one.</li>
+<li>We're gonna want to check the confidence interval of this. But the problem is, as I just said,</li>
+<li>these epsilon's are not going to be idee normal because the Epsilon's for the same</li>
+<li>query are going to be more like each other than the Epsilon's for a different query.</li>
+<li>That's a lack of independence. So the solution to this is to use what's called stratified errors or group effects.</li>
+<li>There's a lot of different names for a similar concept, but the idea is to allow the query to be a predictor variable, too.</li>
+<li>Now, one way to do this is something called repeated measures.</li>
+<li>Enova or repeated never measures in other requires you have a very balanced and matched design.</li>
+<li>The next effect's model is a little more flexible. And what it does is we've got our model before.</li>
+<li>We've got our intercept. We've got our Beda. But then we also have this query effect.</li>
+<li>And so this is a per query value and you're talking to Wilma about how you actually find it's actually coefficients.</li>
+<li>On the one hot encoding of query as a categorical variable.</li>
+<li>And then we have our error. So what this.</li>
+<li>This is called a mixed effects model because it combines two types of effects.</li>
+<li>The fix effects, which are what we control, the experimental condition.</li>
+<li>The thing we're wanting to test, we are looking for the coefficients on the fixed effects.</li>
+<li>In our example, it's which search algorithm we're using.</li>
+<li>And then we have the random effects, which are the experiments, natural sources of variance in this case.</li>
+<li>It's the queries. They said this is what this is actually coefficients on a one hot encoding the query.</li>
+<li>And so we're effectively we're making a query as a predictor.</li>
+<li>And what's going to happen is the intrinsic difficult relative.</li>
+<li>Difficulty, your years of the query is going to be encoded here.</li>
+<li>And this is going to capture the concept of given a query of a particular difficulty.</li>
+<li>Does the new system perform better than the old one,</li>
+<li>and that's going to give us a much more accurate picture of the performance of the new search system.</li>
+<li>And ideally, once this is done, we saw you always check your assumptions.</li>
+<li>We have a much better chance that the epsilons of eyes are going to be idee normal.</li>
+<li>Not necessarily. Still might not be enough to capture everything that's going on in the model.</li>
+<li>But if your primary source of variance that you have a problem with or your primary</li>
+<li>source of structure or correlation in your errors is effects within a group.</li>
+<li>You have your observations come in groups and there can be a group level effect.</li>
+<li>The mixed effects model allows you to control for those group level effects to get a much more accurate estimate of your actual experimental effect.</li>
+<li>So the basic idea here is that when you've got correlation or structure in your residuals, you can.</li>
+<li>You can try to model that directly. So random effects capture these natural but known sources of variance between observations.</li>
+<li>And then the performance becomes the system effectiveness, plus or minus the query difficulty.</li>
+<li>And then, as I said, hopefully you're a man who wears the jewels or idee normal. And now you're linear model interpretation works again.</li>
+<li>So we've taken something that didn't work as a linear model. You've got structure in your errors because you've got this within query correlation.</li>
+<li>Or non-independent. But you can. We've now taken that effect out and now our errors are just the remaining error.</li>
+<li>So when do you need to use this kind of an analysis design?</li>
+<li>Basically, any time your data points come in groups, you need to think about using this kind of an analysis design.</li>
+<li>Well, any time you trying to do a regression and your data points come in groups,</li>
+<li>you want to think about this kind of analysis design, you might have multiple measurements for the same object.</li>
+<li>The key thing, though, is that if you're trying to assign understand the difference between measurements,</li>
+<li>you're trying to understand the difference between objects.</li>
+<li>You're just measuring them with multiple devices, then the object would be a fixed effect and the measurement device would be a random effect.</li>
+<li>Remember, the fixed effect is the thing you're trying to study is the thing you're controlling and manipulating in your experiment.</li>
+<li>And the random effect is the other sources of variance that you need to account for.</li>
+<li>Also, if you have an extra feature that's being shared, you've got a feature that's being shared between instances.</li>
+<li>You might want to model that as a random effect as well.</li>
+<li>If you don't care about learning the effect of the feature, you just need to control for the effect of the feature,</li>
+<li>then it can work as a random effect of the mixed effects model.</li>
+<li>You can also have nonlinear mixed effects models for doing categorical regression, buisson regression, etc.</li>
+<li>So now to go back to the autocorrelation that we talked about in the TIME series, video time series data that says correlated with itself.</li>
+<li>So it raises the question, can we predict exit time T with X at time T minus one?</li>
+<li>Also, if we removing that prediction, removing the autocorrelation may let a linear model work for other effects in the data.</li>
+<li>And so the idea of auto regression is that you predict data point with history, so X sub T,</li>
+<li>we try to predict it with a linear model vadis of zero and Y Gamma one, x T minus one.</li>
+<li>So basically each one is a linear function of the previous value. You can generalize this to more than one previous value.</li>
+<li>So.</li>
+<li>If the aiyah k auto regressive category or the auto regressive model of order K is going to look at the K previous points, I'm summing one Dekay here.</li>
+<li>And what this does is that it me, it was a shock or a change and it changes the value of your time series.</li>
+<li>That effect will accumulate and carry forwards. If you got a change, then that changes.</li>
+<li>That changes at time, T. So then time T plus one since that has the odds is based on time t it key.</li>
+<li>It carries the value forward and then carries it forward and the T plus two etc.</li>
+<li>A moving average uses the area from the previous prediction to predict the next point.</li>
+<li>So X of T is our intercept, plus a coefficient times the error at T minus one, and then it has its own error.</li>
+<li>And then likewise, we can have a K which looks at the previous K errors.</li>
+<li>What this does is that an adjustment or a shock wears off.</li>
+<li>So it'll affect it for the first few points and then it will its effect will wear off in the.</li>
+<li>And the data will regress back to its mean. Now we can put the auto regressive model in the moving average model together into a model Koldo Rhema.</li>
+<li>And so it is an A.R of P model. So the Rhema peak you are is a R of P and a moving average of R,</li>
+<li>so we can model can capture both long term effects of a change and short term wearing off effects of a change.</li>
+<li>And then also it's applied to diffs.</li>
+<li>So Q If Q is one, then rather than modeling the time series data itself, we're applying the ARMM models to the diff of the Time series data.</li>
+<li>If it's two, then if the diff of the diffs oftentimes that the auto regression in moving average acquire the model to be what's</li>
+<li>called stationary and sometimes duffing that often defining your time series can bake it at least stationary enough.</li>
+<li>We can also think of the auto regression and the integration parts as a type of feature engineering.</li>
+<li>So if our data points and we've got these X values, we're engineering the feature, the value with the previous timestamp or we're X of we're.</li>
+<li>We're engineering the feature difference from the previous timestep or.</li>
+<li>The difference at the previous timestep, so time t we have the feature X, T minus one, minus X, T, minus two.</li>
+<li>That's one way you can think about the auto regressive part and the integration part of the Arima model.</li>
+<li>Now, we can integrate then this with prediction, because we can use a rhema to model the natural time series behavior of the data,</li>
+<li>and then we can combine that with additional variable from features,</li>
+<li>maybe is during a holiday or you've got a feature that it turns one at some point in time</li>
+<li>and then stays one throughout the rest to capture a change that happened in the system.</li>
+<li>And you can use it with this design, then beedis of one is going to be the in fact,</li>
+<li>the influence of that feature after we've controlled for the normal temporal behavior of the data.</li>
+<li>And then hopefully our Epsilon's some Ts might be idee normal now.</li>
+<li>And we can get back to the point where our linear model works again.</li>
+<li>Now, I've tried to give you the rough shape in the rough structure, which is that you know what, you need to go study and you have a starting point.</li>
+<li>What I told you was not enough to go effectively apply a rhema.</li>
+<li>There are resources. I'm pointing to you to one extended slide deck that that talks a lot more about Rhema.</li>
+<li>If you need to use Erina four times serious modeling, you do need to go do some more study.</li>
+<li>There's also a time series, analysis class that you can take in the math department and spend an entire semester learning how to do time,</li>
+<li>serious analysis with models like a rhema.</li>
+<li>So to wrap up, we often have structured errors in a regression problem and in some cases modeling that structure.</li>
+<li>This is a structured. Errors mean our errors aren't. Independents were violating a key assumption for the inferential validity of linear regression.</li>
+<li>But in some cases, we can model that structure. Either the rant, the random effects of a mixed effects model,</li>
+<li>modeling the effect of which group a data point is in eurema model modeling temporal</li>
+<li>effects of the data in order to yield a model that is inferentially valid.</li>
+<li>Again.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Resources<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/mixed_linear.html">Linear Mixed Effects in statsmodels</a></p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/tsa.html">Time Series Analysis in statsmodels</a></p></li>
+<li><p><a class="reference external" href="http://people.cs.pitt.edu/~milos/courses/cs3750/lectures/class16.pdf">Time Series Analysis slides</a> — much more in-depth treatment</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="publishing-projects">
+<h2>🎥 Publishing Projects<a class="headerlink" href="#publishing-projects" title="Permalink to this headline">¶</a></h2>
+<p>This video talks about going from an analysis and its notebooks to a publishable paper.</p>
+<div class="resource video docutils container" id="a5c56a70-5d6a-4c51-957e-adc601840e0c">
+<div class="tabbed-set docutils">
+<input checked="checked" id="555327a4-06fd-4c7d-b15e-fd3fc3ad34dd" name="0987b13d-b294-43f0-aeeb-d3777722944a" type="radio">
+</input><label class="tabbed-label" for="555327a4-06fd-4c7d-b15e-fd3fc3ad34dd">
+Video (9m55s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=a5c56a70-5d6a-4c51-957e-adc601840e0c&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="2e72626b-617e-4be5-bd5c-5df2a503d97e" name="0987b13d-b294-43f0-aeeb-d3777722944a" type="radio">
+</input><label class="tabbed-label" for="2e72626b-617e-4be5-bd5c-5df2a503d97e">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173436" data-key=AADUJlRHFQaO_HA>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PUBLISHING PROJECTS
+Learning Outcomes
+Understand what is needed to go from analysis to publishable reports.
+Outline a research paper.
+Photo by Good Good Good on Unsplash
+Publication Audiences
+Data science document products can be for:
+Collaborators
+Decision-makers
+Other organizations
+Scientific community
+Lay public
+
+Formats
+Written document (electronic or printed)
+Presentation (live or recorded)
+Interactive online demo/dashboard
+Publication Goals
+Reader needs to understand:
+What you did
+What you learned
+What they should do / take away
+
+(In general. Not everything is actionable.)
+Typical Outline
+Introduction
+Background &amp; Related Work
+Methods
+Results
+Discussion
+Conclusion
+Variants:
+Some communities put related work at the end
+Institutional reports often lead with Executive Summary
+1-2 page summary w/ key points
+Discussion may be merged w/ Results or Conclusion
+Methods may split
+Rendering Plots
+High-quality images
+When practical: vector images (PDF good for LaTeX)
+Otherwise: high-resolution images (at least 300dpi, 600 better)
+Complex images can overwhelm PDF
+Clean and clear labels and captions
+Distinct colors, shapes, etc.
+Experiment with dimensions &amp; aspect ratio
+E.g. 5”-wide image, scale down to 3.75” columns
+Step Outside Yourself
+Forget you did the work and wrote the document.
+
+Can you understand it? Could you reproduce it? Is info missing?
+
+Applies everywhere:
+Reports
+Papers
+README
+Wrapping Up
+Internal and external publications require special attention to writing and visual presentation.
+Photo by Kari Shea on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>We've talked a lot about how to do the analysis part of data science.</li>
+<li>I now want to take this a little bit of time to talk about what do you need to do in order to take that and actually put it into a publication.</li>
+<li>So we're going to talk about you.</li>
+<li>I want you to understand what's needed to go from analysis to a published report and also to be able to outline a research paper.</li>
+<li>So a lot of different audiences that a document that comes out of a data science project can before it might be an internal document.</li>
+<li>Just for our collaborators to update them on some analysis you're doing as part of a project.</li>
+<li>It might be a report that's intended to be used by decision makers in order to make a data informed decision.</li>
+<li>It might be a report for other elsewhere in your organization or else other organizations.</li>
+<li>It might be a scientific publication for the scientific community and or it might be a document intended to educate the lay public.</li>
+<li>So there are a variety of formats that these can come in. One is that it could be a written document that's either electronic or printed.</li>
+<li>It can be a presentation that you're giving live or that you're recording as a prerecorded video.</li>
+<li>It could be an interactive online demo or dashboard. These happens for product dashboards and internal monitoring all the time.</li>
+<li>They also happen sometimes in journalism where a.</li>
+<li>A news organization will make an interactive data visualization to allow people to explore the data that underlies some of their reporting.</li>
+<li>The goals of a publication of any of these forms, any of these audiences is that the reader needs to be able to understand what you did,</li>
+<li>what you learned, and then what they should do or take away with it.</li>
+<li>This is in general, not every analysis is going to have actionable. Here's what you need to do.</li>
+<li>Kinds of insights, but your readers need to understand what the takeaways are and why they should believe them.</li>
+<li>That's the part of the being able to communicate your methods is to show.</li>
+<li>The evidence behind showing your work at showing the evidence behind the conclusions that you're drawing.</li>
+<li>So the typical outline for a lot of publications, particularly scientific publications.</li>
+<li>But a lot of other publications are going to have so many of these same outline elements</li>
+<li>is that you first have an introduction that sets the stage for why you're doing this.</li>
+<li>Oftentimes an introduction will also for.</li>
+<li>Foreshadow the conclusions of the report of a data analysis, particularly a scientific publication, is not a mystery novel.</li>
+<li>You should not keep your reader guessing until the end. What the conclusion is, you can just say it and need action.</li>
+<li>We're trying to solve this problem. Here's the bullet point summary of what we found.</li>
+<li>And then you get into the details, then you've got background and related work and background and related work are not the same thing,</li>
+<li>but they're often put together in one section. Background is background information that people need to understand what you did.</li>
+<li>Background on the problem. Background on the methods that you're using to apply it.</li>
+<li>You know, there is common knowledge that you can assume. And what that common knowledge is varies from audience to audience.</li>
+<li>But the background is there to the background is the material that they need to understand.</li>
+<li>On top of the common assumed knowledge in order to understand what it is that you did.</li>
+<li>Related work is other work working on similar related problems that might be working on the same problem with different scope, different methods, etc.</li>
+<li>It might be using the same methods for a different problem,</li>
+<li>but it fills in the place of the other knowledge that we have about the problem space that you're trying to study.</li>
+<li>So people have a context for how your Rinella assess is filling in a gap in our current knowledge.</li>
+<li>So the background is the prerequisite knowledge and the related work is the adjacent knowledge.</li>
+<li>And between them, your readers will be able to understand what you did and understand how what you did contributes to knowledge.</li>
+<li>The methods are where you explain what you did. What's the data? What's the statistical methods you did?</li>
+<li>What's the machine learning methods you did? As I say, in the variant side, methods may sometimes be split.</li>
+<li>So if you've got something where maybe you have a new algorithm and then you're doing experiments on it.</li>
+<li>Those who usually be separate methods, you've got your. Here's my new algorithm.</li>
+<li>And then maybe as an experimental result section, you'll have methods and then results.</li>
+<li>Then you have your result. So the methods are here's the experiment, I'm going to run the data, I'm going to use Hymes setting up the experiment.</li>
+<li>Results are OK. So I did that. What do we learn?</li>
+<li>It's where you have your key figures and charts, et cetera. You're presenting the results and run the experiment.</li>
+<li>Discussion, then, is where you talk about what the results mean.</li>
+<li>So you have the individual results of a chart that shows the accuracy of a model, you have a chart.</li>
+<li>You have a chart that shows what's happening in some data over time.</li>
+<li>Discussion is where you pull it together and you connect the results that you have</li>
+<li>back to the original problem context that you put forward in your introduction.</li>
+<li>And then finally, in the conclusion you summarize takeaways of the paper and you often point to what some future work, maybe some variance on this.</li>
+<li>Some research communities put related work at the end right before the conclusion.</li>
+<li>Here's everything I did, by the way. Here's what other people did. Now we conclude.</li>
+<li>If you're doing something that's not not a scientific publication, but it's an institutional report.</li>
+<li>A lot of those often lead with an executive summary. That's one to two pages with the key points and takeaways.</li>
+<li>And it does not get into all of the methodological details, but it summarizes.</li>
+<li>OK, here's the key. Here's what you need to know. If you trust me that I did all the details.</li>
+<li>Right. Well, the analysis. Right. Here's what you need to know, where here's the recommended course of action.</li>
+<li>And then the rest of the report. Backs that up.</li>
+<li>And so if they have a question of how you know, the things you're telling them,</li>
+<li>they need to know why they're where their recommendations are coming from, they can go read the rest of the report.</li>
+<li>And some writing you might merge discussion with results, you might talk about the results and talk about what they mean together.</li>
+<li>You might merge discussion with conclusion. We have a longer conclusion that does the discussion integrated.</li>
+<li>But these are the key pieces usually in this order for the typical kinds of research papers,</li>
+<li>but also other kinds of documents that come out of data science projects.</li>
+<li>Another point you need to pay attention to when you're going into publication is rendering your plots,</li>
+<li>especially if you're going to a publication, they might be printed or anything.</li>
+<li>That's where you're delivering as PBS. And so this key thing is that you want high quality images.</li>
+<li>And when practical vector images are good. Python plotting software can export an image to PDAF low tech and pull in the PDAF.</li>
+<li>And there's nope, it's not rendered to pixels, it's actually includes all of the paths, the circles, the letters.</li>
+<li>And so you can zoom in that PDAF as far as you want and you're never hitting pixelation.</li>
+<li>If you have very complex image, it can overwhelm pdaf,</li>
+<li>you wind up with a PDAF that just takes forever to render because you've got an image that's trying to render five million data points.</li>
+<li>So in those cases, or if you're working with software that you were, you don't have a good vector image path,</li>
+<li>high resolution images, PMG, you don't want to use JPEG, never use JPEG for a figure because J.</li>
+<li>Peg loses information in the compression use PMG or TIFF and at least 300 Deepthi.</li>
+<li>Six hundred is better. Your typical printer is around 300 S.P.I.</li>
+<li>And so if your image is 300 DPN, most people will be able to print it.</li>
+<li>Well if it's six hundred GPI, basically anyone can print it.</li>
+<li>Well and also look very good on high resolution screens. You want to make sure you have clear labels and captions, distinct colors, shapes, et cetera.</li>
+<li>So the image is clear, readable, self-contained.</li>
+<li>Oftentimes we'll have it like outdraw seven different versions, image or holle a bunch of different figures.</li>
+<li>But then I'll combine them together. I'll have the one clean picture that has all the pieces, all the bells and whistles.</li>
+<li>Everything's very, very.</li>
+<li>I pay particular attention to the precise wording and consistency of the labels and everything that's gonna go into the final publication.</li>
+<li>Then you also are going to want to experiment with dimensions in aspect ratio.</li>
+<li>So if I've got a two column paper so that my columns are about three in that three point seventy five or so inches wide,</li>
+<li>I might have a five inch wide image and then I'll scale down a little bit to fit in that column and it'll look really good in the final paper.</li>
+<li>Another thing, though, that you need to be able to do is to check the writing in the presentation, step outside yourself.</li>
+<li>Forget that you did all of the work and wrote the document.</li>
+<li>Forget all of the knowledge you have or set aside all of the knowledge you have as the person who did the work and read what you wrote and ask.</li>
+<li>Do I understand this is if I was not the one who created this?</li>
+<li>Can I understand it? Could I reproduce it? Is there information that's missing?</li>
+<li>Other readers help you with this. And you should get input from other people who weren't you.</li>
+<li>But as a first pass, in order to make the most use of the time, the best use of their time as you can.</li>
+<li>You need to be able to to set aside your knowledge as the creator and evaluate whether what you wrote is clear and complete.</li>
+<li>And in a coherent order. And this applies to any kind of writing you're doing,</li>
+<li>both presenting the results in a report from a paper, but also in other writing like documentation.</li>
+<li>Writing a read me about how to run your experiment.</li>
+<li>You need to be able to step back and ask if I followed the instruction, the steps of these instructions, one after another.</li>
+<li>What I get the result or is there a piece? Is there are there steps that are missing?</li>
+<li>Are there pieces or knowledge that are missing?</li>
+<li>So if I just read this, these instructions say in this read me file, I would not have enough information in order to complete the expected activity.</li>
+<li>So to wrap up internal and external publications require special attention to writing and the visual presentation.</li>
+<li>Hopefully this gives you a little bit of a start for learning how to do that.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Resources<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://plotnine.readthedocs.io/en/stable/api.html">PlotNine</a> is a good plotting library for preparing consistent, publication-ready graphics.</p></li>
+<li><p>The <a class="reference internal" href="../week14/#w14-more-examples"><span class="std std-ref">book gender example</span></a> also demonstrates the current evolution of my own practices for preparing for publication.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="production-applications">
+<h2>🎥 Production Applications<a class="headerlink" href="#production-applications" title="Permalink to this headline">¶</a></h2>
+<p>How do you put the results of your data science project into product?</p>
+<div class="resource video docutils container" id="f7408aa2-a802-40fa-94c9-adc601840ea8">
+<div class="tabbed-set docutils">
+<input checked="checked" id="0b68d37e-7813-4f51-82fc-b14d21090bff" name="3fc3d33d-8b3d-4a52-b069-61cb9688ea1f" type="radio">
+</input><label class="tabbed-label" for="0b68d37e-7813-4f51-82fc-b14d21090bff">
+Video (7m28s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=f7408aa2-a802-40fa-94c9-adc601840ea8&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="7333d193-b8c0-4151-9ef3-f7a6464f7905" name="3fc3d33d-8b3d-4a52-b069-61cb9688ea1f" type="radio">
+</input><label class="tabbed-label" for="7333d193-b8c0-4151-9ef3-f7a6464f7905">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173437" data-key=ADSmmu5pFo5O0Ks>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PRODUCTION APPLICATIONS
+Learning Outcomes
+Understand how data science outcomes can be used.
+Think about how to put mdoels and outcomes into production.
+Photo by C D-X on Unsplash
+Using Data Science
+Data-driven reports to inform decisions
+Regular forecasts for internal purposes
+Data science outputs for real-time decisions
+Internal
+Customer-facing
+Reproducibility
+Reproduction is crucial:
+Regular reports / predictions re-run
+Daily / weekly / monthly reports
+Retraining models for online use
+Online Use
+Many modalities: web, mobile app, desktop app, server infra
+Mobile &amp; desktop often use web tech to connect to models
+HTTP (often REST) API
+Some low-latency exceptions
+Multiple audiences
+Internal reporting
+Internal decision-making
+Customer decision-making
+Service-Oriented Architecture
+Client
+Web Server
+Services
+Databases
+Deployment
+Predictions made available via a web service
+E.g. TensorFlow Serving
+Model trained offline on other hardware
+Model-training script saves trained model to disk
+Web service loads trained model &amp; serves predictions
+Useful Infrastructure Capabilities
+Train models on live or freshly-exported data
+Hold out test data to evaluate new model before deployment
+Version your models (including retrain w/ same hyperparams!)
+Roll back to old model version
+
+Details depend on institution &amp; infrastructure.
+Skills to Learn
+Web back-end programming (to build services)
+Web front-end programming (to build dashboards)
+Performance measurement &amp; tuning
+Wrapping Up
+Many data science projects result in online production capabilities.
+
+Often done by training a model and deploying it in a web service.
+Photo by Massimo Botturi on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, I want to talk with you a little bit about what you some of the things you need to consider in the</li>
+<li>design patterns in order to be able to take your data science results and then put them in production.</li>
+<li>So the learning outcomes are for you to understand how data science outcomes can be used in</li>
+<li>business settings and think about what you need to do to put models and outcomes into production.</li>
+<li>So variety of purposes, data science, conservative business.</li>
+<li>We can use data driven reports to inform decisions we can do forecasting for internal purposes to inform internal decision making,</li>
+<li>internal planning purposes.</li>
+<li>We can also have data set out science outputs for Real-Time, decisions either internal for making internal business decisions or customer facing.</li>
+<li>Part of your e-commerce platform, providing recommendations, doing fraud detection,</li>
+<li>various things in order to make your customer product, your customer experience, work smoothly.</li>
+<li>So one of the first things is that reproducibility is crucial.</li>
+<li>If you've got if you've maybe if you're running regular forecasts of future business activity or future demands,</li>
+<li>you can do inventory planning to be able to rerun those reports.</li>
+<li>You need to have a reproducible pipeline so you can rerun this week's report quickly and easily without having to do a bunch of manual labor.</li>
+<li>You also need if you're if you have something that's online, making online decisions, you need to be able to retrain it as new data comes in.</li>
+<li>So for online use, we're building an app or building a data science product that's going to be making decisions</li>
+<li>in an online fashion as as new users come in or as new decision requirements come in.</li>
+<li>There's a variety of modalities for delivering. It might be a Web app, a mobile app, a desktop app.</li>
+<li>It might be something that just lives in server side infrastructure, like the spam filter that's built into email, infrastructure, etc.</li>
+<li>But in terms of the technology structures, there are some exceptions. But mobile and desktop apps often use Web technology to connect to models.</li>
+<li>So even if you're targeting mobile apps, even if you're targeting desktop apps,</li>
+<li>learning to build Web based services for data science outputs is going to be a really useful skill.</li>
+<li>Multiple audiences can try to use these. You might have an internal recording dashboard that talks about your customer volume or it talks about the</li>
+<li>throughput on your assembly line or other aspects of the of the functioning and health of of your factory setting.</li>
+<li>You can use it for internal decision making and then also either to help your customers make</li>
+<li>decisions or as you're making decisions about your customers in an online interactive setting.</li>
+<li>So one architecture that's common for these kinds of applications is what's called a service oriented architecture.</li>
+<li>And what a service oriented architecture means is that your infrastructure is split in the different services, different individual pieces.</li>
+<li>So you've got a Web server and you're your customers or your users come in with a computer,</li>
+<li>with Web browser, maybe with a mobile platform, talks to a Web server that serves up the application.</li>
+<li>The mobile, the mobile platform might talk directly to backend.</li>
+<li>Then the Web server talks of various other services in order to complete in order to fill out.</li>
+<li>It's the user experience.</li>
+<li>Those services then go and they get data from various databases in your back end in order to serve up the responses to the requests.</li>
+<li>So a lot of organizations use this.</li>
+<li>Amazon uses service oriented architectures extensively.</li>
+<li>So when you go to a page on Amazon.com, there's one service that's providing product details and other services,</li>
+<li>providing people also bought recommendation and other services handling the shopping cart.</li>
+<li>And so each of these services are working and are working independently and the Web server is putting them together into a composite experience.</li>
+<li>So from a data science perspective, a lot of what happening is you need two pieces, you need a UI.</li>
+<li>And in the Web server, it might the UI might come from the service itself,</li>
+<li>but you need a user interface component and then you need the service itself is going to serve up the data science.</li>
+<li>Usually it's going to be some kind of a prediction.</li>
+<li>It's going to serve up the results of running the model that you've trained, the machine learning model that you've built and trained on the new data.</li>
+<li>To answer that particular request. So a lot of your work is going to be building up service.</li>
+<li>And one way to design it.</li>
+<li>And this goes well with the service oriented architecture is each different model that you have can live in a different service.</li>
+<li>So to deploy, the predictions are made available with a Web service like your Web server.</li>
+<li>Might it you might use other things. You might use something like zero MQ or some other or thrift our or some other RBOC</li>
+<li>protocol or you might use it HDP rest API for the Web server to talk to these services.</li>
+<li>One example is tensor flow serving if you're building your machine learning model with Tenzer flow.</li>
+<li>There's a program called Tensor Flow Serving that allows you to upload your saved model and and service requests based on that model.</li>
+<li>So you got to train the model offline and other hardware so that your your online system can just keep running.</li>
+<li>You're not using it. C.P.E. power to train the model.</li>
+<li>It's just dedicated for serving up responsive, serving up recommendations, making decisions about new incoming messages, etc.</li>
+<li>On other hardware, you train your model on your model you like, you save that train model to disk somehow.</li>
+<li>Well, or you might actually upload the model directly. Some have a model server, but you save it somehow and you make it available to the service,</li>
+<li>which will then reload the model and start serving up predictions from the new model that you just trained.</li>
+<li>So a few useful capabilities for building out this kind of infrastructure are to be able to train</li>
+<li>models and live or freshly exported data CENI be able to get your current data from the database.</li>
+<li>So you've got all the current customer transactions and then you train your statistical model on them.</li>
+<li>Part of that process, it's useful to be able to hold out test status.</li>
+<li>You can train this model, you can test it again before you to fly it to make sure you didn't accidentally train a model that performs badly.</li>
+<li>It can be useful to version your models so that you have the ability, particularly in the rollback to old model version.</li>
+<li>Maybe you train the model, you test the model. It doesn't work. You and you find out you can put it in production and suddenly your spam filter</li>
+<li>metrics change to be able to as a stopgap rollback to the previously train model.</li>
+<li>So you can then go figure out what went wrong with your model without leaving your customers at the new bad experience.</li>
+<li>The exact details of this depend a lot on your institution, your product, your infrastructure.</li>
+<li>But these are some of the things that you need to be able to keep in mind skills that are useful to learn in order to build this.</li>
+<li>So Web back end programing to build the service web front end programing, you know, better build dashboards to build the user interface.</li>
+<li>It's pieces that are going to make your service visible and available to users in some organizations</li>
+<li>that kids are going to be handled by other people on your team or by a completely different team.</li>
+<li>But in some many cases, it can be useful.</li>
+<li>You at least need to be able to talk with those people and then also be able to do performance measurement and tuning to understand.</li>
+<li>To be able to debug if your model's performing too slowly. So to wrap up many data science projects,</li>
+<li>result in online production capabilities is often done by training a model and deploying as a Web services or some other kind of network service.</li>
+<li>And it's useful to be able to learn at least some of the skills in order to do that,</li>
+<li>or at least be able to talk with the other folks in your organization that are handling that deployment and monitoring.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="topics-to-learn">
+<h2>🎥 Topics to Learn<a class="headerlink" href="#topics-to-learn" title="Permalink to this headline">¶</a></h2>
+<p>This video goes over some useful topics to learn to fill out more of your data science education.</p>
+<div class="resource video docutils container" id="5dcb2ce6-94df-4c6a-ac9b-adc601840f81">
+<div class="tabbed-set docutils">
+<input checked="checked" id="de973774-79a8-4b70-95b9-f96537e7286d" name="ec8a2c27-e0e0-4b51-9964-6262e3f897ca" type="radio">
+</input><label class="tabbed-label" for="de973774-79a8-4b70-95b9-f96537e7286d">
+Video (6m25s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=5dcb2ce6-94df-4c6a-ac9b-adc601840f81&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="464dd68b-223f-4d7f-a448-25e8ac89ca89" name="ec8a2c27-e0e0-4b51-9964-6262e3f897ca" type="radio">
+</input><label class="tabbed-label" for="464dd68b-223f-4d7f-a448-25e8ac89ca89">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173438" data-key=AJKQaSqNcdTrWcc>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+THINGS TO LEARN
+Learning Outcomes
+Know topics and software to study for expanding your data science skills.
+Select the classes to take to complete your graduate degree.
+Photo by Reinhart Julian on Unsplash
+Machine Learning and Statistics
+CS 534: Machine Learning
+Math 562: Probability and Statistics II
+Math 572: Computational Statistics
+Math 573: Time Series Analysis
+Working with Text
+CS 536: Natural Language Processing
+CS 537: Introduction to Information Retrieval
+Read about NLP and IR
+Application Areas
+Social media: CS539, read papers in ICWSM &amp; CSCW
+Information retrieval: CS 537 &amp; 637
+Recommendation &amp; personalization: CS 538
+Software Development
+CS 573: Advanced Software Engineering
+Study programming practices &amp; software engineering
+Practice, practice, practice
+Think about your code’s readability &amp; effectiveness
+Advanced ML
+CS 633: Deep Learning
+Software: TensorFlow, PyTorch
+“Modular differentiable programming”
+Bayesian Inference
+I’m a Bayesian. Mostly.
+Book: Statistical Rethinking (McElreath)
+Software: STAN or PyMC3
+Causal Inference
+Book: Counterfactuals and Causal Inference (Morgan &amp; Winship)
+ECON 522: Advanced Econometrics
+Critical Perspectives
+Book: Data Feminism (D’Ignazio &amp; Klein)
+Book: Data, Now Bigger And Better
+Book: Introduction to Science and Technology Sudies (Sismondo)
+Keyword: Critical Data Studies
+Wrapping Up
+This class lays a foundation for you to integrate further knowledge.
+
+Never stop learning new things.
+Photo by Annie Spratt on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>So you've learned a lot this semester, I hope this video I want to talk with you some briefly overview,</li>
+<li>some more things to go learn and give you pointers to places where you might be able to go learn them,</li>
+<li>learning outcomes or which you used to know some topics and some software to study for expanding your data science skills.</li>
+<li>You do not need to study all of this to be a competent data scientist, but also to have some input,</li>
+<li>some data points to be able to help select the classes you want to take to complete your graduate degree.</li>
+<li>So to learn more about machine learning and statistics, we've just introduced the basics.</li>
+<li>As I said early in the semester, basically every almost every week of this class could be an entire class on its own.</li>
+<li>So six, five thirty for the machine learning class.</li>
+<li>You're going to learn a lot more about different machine learning models, how to build them, how to optimize them, how to evaluate them.</li>
+<li>We've learned that the concepts, what they do, what they are, how a couple of them work.</li>
+<li>534 is going to teach you a lot more about the insides of machine learning model math, 562 probability and statistics, too.</li>
+<li>If you want to learn a lot more about statistical inference, that class will teach you five.</li>
+<li>Seventy two is going to teach you a lot more about computational sides of statistics, particularly a lot of simulation things,</li>
+<li>Monte Carlo simulations that are useful, the kinds of things you do with simulation, the kinds of things you're doing with bootstrapping.</li>
+<li>That class is going to go into a lot more detail on Time series analysis.</li>
+<li>If you want to learn a lot more about that, we have an entire class on it.</li>
+<li>If you want to learn more about working with text to key topics, to be looking at our natural language processing and information retrieval,</li>
+<li>computer science class has a department, has classes on both of those.</li>
+<li>For working on specific application areas, if you want to do work on social media, you can take CSI 539, the social media mining class.</li>
+<li>If you want to do work on information retrieval, we have two classes on it.</li>
+<li>Five thirty seven, which is the how information retrieval works in six thirty seven, which is an advanced research class on information retrieval.</li>
+<li>If you want to one about recommendation and personalization, you can take C.S. 538,</li>
+<li>which discusses how to build recommended building, evaluate recommender systems to recommend products to people.</li>
+<li>Software engineering skills are really useful for be able to take data to take your data science and connect it into product.</li>
+<li>So to that end there, CSPI 73, the advanced software engineering class, it's useful for learning the process of software engineering.</li>
+<li>It's also studying programing practices in software engineering in general on your own and practicing practice,</li>
+<li>practice, practice, write code, do modeling, build web applications around or build applications around your data science analysis that you're doing,</li>
+<li>but also then reflect and think about things as you write code.</li>
+<li>Think is this readable? How can I learn? What do I know? What could I do to try to make this more readable, more efficient?</li>
+<li>What do I think I need to go learn in order to expand my ability to do that advanced machine learning.</li>
+<li>So we have a class on deep learning. See a six thirty three also learning software.</li>
+<li>So Tensor Flow, Pi Torch are both useful for each useful pieces of software to learn to go beyond what you can do in Saikat learn.</li>
+<li>And they are often associated with deep learning and they're used extensively for deep learning.</li>
+<li>But they're not just deep learning packages. What they really are is it is very effective optimization engines that are useful for</li>
+<li>modular differentiable like you set up a differentiable model and they optimize it.</li>
+<li>So a lot of those models are deep neural nets. But there's a lot of other kinds of models.</li>
+<li>I've used a tensor flow, for example, to build advanced matrix factorization.</li>
+<li>There's nothing neural going on.</li>
+<li>It's just a matrix composition, but it's taking advantage of tensor flows optimizers to build a recommendation engine around that.</li>
+<li>And so either Tenzer flow or PI Torture's very useful software as you're trying to build your own machine learning models.</li>
+<li>And it's a lot easier to use one of those pieces of software than to build your entire optima, your own optimizer from scratch.</li>
+<li>I personally do a lot of work with Bayesian inference. That's a useful statistical paradigm and philosophy to learn.</li>
+<li>Unfortunately, we don't have a class here that teaches it really.</li>
+<li>But the books, Statistical Rethinking by Richard McIlwraith is a good book for learning that also software standard software is really good for doing.</li>
+<li>It used a lot for Bayesian inference. That's not the only thing you can do.</li>
+<li>It's useful for a lot of scenarios where you're trying to do what it is, isn't it?</li>
+<li>It's it allows you to draw from arbitrarily complex distribution, not arbitrarily complex,</li>
+<li>but allows you to draw from complex distributions connected to data.</li>
+<li>PMC three, a similar software that works directly in Python Stand, has a good bridge to Python as well.</li>
+<li>It's also really useful to learn causal inference and we don't have a dedicated causal inference class.</li>
+<li>But you will learn a lot of causal material in the advanced econometrics class, in the economics department.</li>
+<li>Also, there's the book counterfactuals and causal inference that you may wish to read and ordered learn causal inference techniques.</li>
+<li>If you want to learn more about critical perspectives on data science, it's a variety of resources I can point you to.</li>
+<li>So the book data feminism that I listed in the Class Resources is a good primer on critical thinking on data.</li>
+<li>There's also if you want to get an example of some of the kinds of things that critical data scholars think about.</li>
+<li>There's a short little book called Data Now Bigger and Better.</li>
+<li>That is a selection of essays on data from a critical and a particularly from an anthropological perspective.</li>
+<li>Also, if you want to learn more,</li>
+<li>if you want to learn more about the underlying philosophies and mechanisms by which science in general, not just data science works,</li>
+<li>Sergius is Mondo's introduction to science and technology studies is very good and a keyword that you can go look for to find much,</li>
+<li>much more reading as critical data studies. So to wrap up, this class has laid a foundation for you to integrate further knowledge.</li>
+<li>Never stop learning new things. There is so much more to learn as a student and as a practitioner to be able to do good and effective data science</li>
+<li>and bring data to bear on questions that you have and decisions that you or your organization needs to make.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="general-tips">
+<h2>🎥 General Tips<a class="headerlink" href="#general-tips" title="Permalink to this headline">¶</a></h2>
+<p>Some final closing tips and suggestions for you to think about as you take the next steps in your data science career.</p>
+<div class="resource video docutils container" id="21b096fc-2779-47b6-b492-adc601841000">
+<div class="tabbed-set docutils">
+<input checked="checked" id="326a2047-dd0c-424e-af8f-386a5672e2df" name="212d1f25-bbb2-4cd5-a4c9-2aef3f70a189" type="radio">
+</input><label class="tabbed-label" for="326a2047-dd0c-424e-af8f-386a5672e2df">
+Video (10m25s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=21b096fc-2779-47b6-b492-adc601841000&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="80928c8d-4828-4b71-b6cf-d3e8a53e0e0b" name="212d1f25-bbb2-4cd5-a4c9-2aef3f70a189" type="radio">
+</input><label class="tabbed-label" for="80928c8d-4828-4b71-b6cf-d3e8a53e0e0b">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173439" data-key=AMQPBtshRrNaHoc>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+GENERAL TIPS
+Learning Outcomes
+Some concluding tips for your data science work.
+Photo by Sam Dan Truong on Unsplash
+Questions
+Good questions are fundamental
+Tukey:
+Far better an approximate answer to the right question, which is often vague, than an exact answer to the wrong question, which can always be made precise.
+
+Photo by Jon Tyson on Unsplash
+Work Reproducibly
+For many, many reasons.
+
+But accurate description is easier if work is reproducible (and internally reproduced).
+Never Lose Context
+Keep the big picture in mind
+Goals — Questions — Analysis — Data
+Keeping the goal in mind helps with:
+Contextualizing results
+Identifying limitations
+Generating next ideas
+Photo by Adrian Dascal on Unsplash
+Don’t Overlook Detail
+Be precise and specific in specifying questions and results
+Always know what, precisely, you are measuring
+Communicate precise results &amp; definitions
+Put them in context
+Photo by dorota dylka on Unsplash
+Be Curious
+Learn more about statistics
+Learn more about applications
+Learn more about anything interesting
+Photo by Siora Photography on Unsplash
+Pause and Reflect
+Photo by Lukasz Saczek on Unsplash
+Wrapping Up
+Good data science requires ongoing reflection, study, and practice.
+
+Try to do better science tomorrow than you did yesterday.
+Photo by Jan Tinneberg on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, I want to give you a few general tips,</li>
+<li>wrap up the semester with some suggestions and some advice for doing data science and for learning more.</li>
+<li>So that's our learning outcome. Some concluding tips for your data science work.</li>
+<li>The first is to never take your eye off of questions. Good questions are fundamental.</li>
+<li>John Tukey, who developed a lot of important statistical concepts.</li>
+<li>Is quoted as saying that it's far better to have an approximate answer to the right question than an exact answer to the wrong question.</li>
+<li>If you have a good question that you can get insight into, even if you don't have a crisp and precise answer for it, you can often refine the answer.</li>
+<li>But that's also often more illuminating for what you want to learn and for</li>
+<li>what you want to what you need to do than a very precise answer to a question.</li>
+<li>That is not ultimately the question you want to ask. So.</li>
+<li>Focus a lot of energy on defining your question properly and appropriately and understanding.</li>
+<li>Understanding its relationship to contacts and to talk about that just a bit. And what your answer means to it and its limitations.</li>
+<li>The second piece of advice is to work reproducibly. I've talked about this a little bit.</li>
+<li>As we've been wrapping up, there's many reasons that you should make your analysis reproducible.</li>
+<li>One, though, really important.</li>
+<li>One is that when you go when you write up your results, either for a publication, for your thesis, for for a report, you need to know what you did.</li>
+<li>And if you've been doing a bunch of different things, writing scripts, processing data here and there,</li>
+<li>it's easy to lose track of exactly what steps got you from source data to conclusions.</li>
+<li>And if you put it into a reproducible pipeline where it's automated, ideally you can rerun the whole thing with one command or a few commands.</li>
+<li>Then it's easy to make sure that you have accurately described all of the steps because you can check.</li>
+<li>Do I describe the steps that are in my pipeline? And then you can try every running the pipeline to make sure it still works.</li>
+<li>Do you still get the same conclusions? And if not. Either you missed the step or what you read.</li>
+<li>What you reporting is the results of running a different set of steps or a set of steps in a different order.</li>
+<li>So in addition to all of the the external scientific benefits of reproducibility,</li>
+<li>the benefits of reproducibility for being able to maintain your model in the long run in production settings,</li>
+<li>just for documentation purposes, the reproducibility helps you make sure that you've correctly described what it is that you did.</li>
+<li>You never lose sight of the context of what you're doing.</li>
+<li>There's a reason why when we talk to the very beginning of the semester about developing questions,</li>
+<li>we start with goals and we have questions that are going to advance those goals, analysis to answer the questions.</li>
+<li>And the analysis is of data.</li>
+<li>We don't we we focus on a question, we're trying to answer the question that the question has to be precise in order for us to answer it.</li>
+<li>But that question, as with the TOOKEY quote, it may well be an approximation for something we really care about.</li>
+<li>And so. We don't want to. Once we define the question, we don't want to just focus on the question.</li>
+<li>We need to keep the big picture in mind to remember why.</li>
+<li>If we need to do further refinements of the question, we have a touchstone to look to to figure out how we need to revise the question.</li>
+<li>If we need to adjust it, because our data can't answer that question.</li>
+<li>Well, when your new question will, what new question is going to bridge between the data and our goals?</li>
+<li>So we have some where we're going. It also helps. It's crucial for being able to contextualize our results.</li>
+<li>Why do we care about the answer to this question? What does it mean for what we know about the world or for what we're trying to do in the world?</li>
+<li>It's crucial for helping identify limitations. If you know the goal and then you have a cutoff of goal, you've a question you can.</li>
+<li>Having the goal gives you a place to context to talk about.</li>
+<li>OK. So our question can do this. But there's these other things that are important to our goal that we can't do right now.</li>
+<li>That's fine. It gives you a way to document them. It's also then super useful for generating next ideas.</li>
+<li>Our question has taken us two steps towards our goal. Our goal goals still 10 steps away.</li>
+<li>That's a lot of future work that's already written for us. But then also, we don't want to overlook detail.</li>
+<li>So when we're specifying our questions and results, we need to be precise and specific about what exactly were measuring.</li>
+<li>And this might seem that it's. This might at first glance seem to contradict the two key quote at the beginning is he said,</li>
+<li>better to have the vague question than the precise wrong question.</li>
+<li>But they're they're not really in conflict because whenever we're measuring something, we're measuring something very precise.</li>
+<li>Computers and measurements are very precise things. We need to understand precisely what that is.</li>
+<li>And we need to understand the relationship between the precise thing we computed.</li>
+<li>A measurement of. How many people?</li>
+<li>Clicked. I've never seen this number before in our interface for dealing with incoming calls.</li>
+<li>And we need to connect that to the vaguer question that we're trying to answer so we understand the approximation.</li>
+<li>It's not enough to say, well, OK, I have I have the right question and I have an approximate answer to it.</li>
+<li>We need to understand the approximation and the best of our ability, the relationship of that approximate of the precise thing we measured.</li>
+<li>How what's an approximation of the question we're trying to answer and how that's then going to advance the goal we have?</li>
+<li>We can't we can't overlook the details to understand precisely what it is that we're doing and different people approach.</li>
+<li>Connecting data and goals in different ways. Some are very top down thinkers.</li>
+<li>They start with the big picture goals. They're very focused on big picture things.</li>
+<li>That's often my default mode of operation. I'm a relatively big picture person.</li>
+<li>But in order to be a big picture person, effectively, you have to be able to connect that big picture with specific,</li>
+<li>concrete, measurable things that are going to advance the big picture.</li>
+<li>You can't if you don't do that, then you're going to wind up either not being able to make progress because you can't</li>
+<li>actually define something actionable that's going to advance the big picture or</li>
+<li>you're going to not have a clear sense of whether you're advancing it or going to make</li>
+<li>a lot of unsubstantiated statements because you're not connecting to the details.</li>
+<li>Some people start from the details, more bottom up development of ideas.</li>
+<li>Neither of these are wrong. Different faculty in the department tend to start from top down or bottom up places.</li>
+<li>You need to learn to be able to learn from people who communiqu, who structure ideas in both ways.</li>
+<li>But bottom up, you start more with the data and the details of the problem, and you build that into a big picture.</li>
+<li>And there you need to be able to connect to to see the context and not lose the context for what it is that you're doing.</li>
+<li>Both are good ways to approach problems and are complementary perspectives that can work very well together.</li>
+<li>But it's something to be aware of. You can't lose sight of either the context why you're doing the thing that you're doing or of the details to</li>
+<li>understand what precisely it is did to be able to reason about how that relates to your context and your goals.</li>
+<li>Be curious. There's so much to learn.</li>
+<li>I am continually learning new things about programing, about statistics, about the problems that I'm trying to solve with with these techniques.</li>
+<li>And so learn about that. I've given you some pointers of some things to read in these videos.</li>
+<li>I've given you pointers elsewhere in the course materials. There's so much to go study.</li>
+<li>This class is intended to open the door to the world of data science that you can walk through and have.</li>
+<li>A basic framework in which to fit all the new information that you're going to need to be acquiring over the next years.</li>
+<li>Pause and reflect. And this applies to a lot of things. It applies to the work you're doing, reflect on what does this result mean?</li>
+<li>Reflect on is my code efficient, is my code readable?</li>
+<li>Does this chart makes sense? Reflect on your practices of work.</li>
+<li>How am I organizing my work to go from my goals to my analysis?</li>
+<li>How my organizing my to do list something I also tell my students is to take time to reflect on their practices.</li>
+<li>How do you organize just overall your work as a student and to reflect?</li>
+<li>Is this working for me? Am I having problems with my productivity, problems with getting things done?</li>
+<li>Problems with communication problems? Or are maybe not.</li>
+<li>Problems might be a harsh way to frame it. Are there places I can improve?</li>
+<li>What's working about how I'm doing my work as a student? What's not working and how can I improve?</li>
+<li>There's a there's a risk of spending so much time in your process for getting things done.</li>
+<li>You never get things done. But it's important to reflect on our work, on its outcomes.</li>
+<li>How could this paper be better? How could this report be better?</li>
+<li>How can I do this kind of project better the next time it is done, it's published, it's good.</li>
+<li>How can I do even better the next time? So to wrap up, good state of science requires ongoing reflection, study and practice.</li>
+<li>Never stop learning, never stop paying attention to the various things like.</li>
+<li>Ideas. Don't live well in little boxes.</li>
+<li>There may be someone working on some completely different problem, but they're using.</li>
+<li>They had an insight into their problem, which you can go apply to yours.</li>
+<li>So take advantage of the opportunity to go to a wide range of talks, to read or write a wide range of papers and a wide range of books,</li>
+<li>etc., to get ideas for how you can do better work and how you can better understand your problems.</li>
+<li>Space, the world around you, your customers, the needs of your organization in order to do better data science tomorrow than you did yesterday.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="no-quiz-15">
+<h2>🚩 No Quiz 15<a class="headerlink" href="#no-quiz-15" title="Permalink to this headline">¶</a></h2>
+<p>There is no quiz for this week.</p>
+</div>
+<div class="section" id="farewell">
+<h2>📃 Farewell<a class="headerlink" href="#farewell" title="Permalink to this headline">¶</a></h2>
+<p>It’s been grand!</p>
+<p>I would love to hear feedback on how to further improve the course; I have tried to make some corrections as a result of the midterm assessment process, and will be keeping those notes for next year, but further suggestions either in the course evaluations or by Piazza are welcome.</p>
+<p>I hope to see many of you in future courses!</p>
+</div>
+<div class="section" id="assignment-7">
+<h2>📩 Assignment 7<a class="headerlink" href="#assignment-7" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../assignments/A7/"><span class="doc std std-doc">Assignment 7</span></a> is due <strong>Sunday, December 12, 2021</strong>.</p>
+</div>
+<div class="section" id="final-exam">
+<h2>🚩 Final Exam<a class="headerlink" href="#final-exam" title="Permalink to this headline">¶</a></h2>
+<p>The final exam will be on <strong>Tuesday, Dec. 14, 2021</strong> at 9:30 AM.</p>
+<div class="section" id="format">
+<h3>Format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h3>
+<p>The exam follows the same format as the midterms. It will be a written in-person exam with a variety of questions to assess your ability to understand and apply concepts from the class.  Question formats include:</p>
+<ul class="simple">
+<li><p>Multiple-choice</p></li>
+<li><p>True/false</p></li>
+<li><p>Matching</p></li>
+<li><p>Fill-in-the-blank</p></li>
+<li><p>Short answer</p></li>
+<li><p>Computation</p></li>
+</ul>
+<p>I may ask you to do a range of things on the exam, including (but not limited to):</p>
+<ul class="simple">
+<li><p>Define a concept</p></li>
+<li><p>Compute a metric from a small quantity of data</p></li>
+<li><p>Interpret a chart</p></li>
+</ul>
+<p>The final exam will be a little less than twice as long as the midterms, to fit in the scheduled period.</p>
+</div>
+<div class="section" id="exam-rules">
+<h3>Exam Rules<a class="headerlink" href="#exam-rules" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>You may have <strong>1 note sheet</strong>, letter- or A4-sized, <strong>two-sided</strong>.</p></li>
+<li><p>You should not need a calculator, but may bring one if you wish.</p></li>
+<li><p>You may answer in either pen or pencil.</p></li>
+</ul>
+</div>
+<div class="section" id="study-tips">
+<h3>Study Tips<a class="headerlink" href="#study-tips" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Review the previous quizzes, assignments, and midterms.</p></li>
+<li><p>Sit for the makeup midterm, even if you do not plan to turn it in.</p></li>
+<li><p>Review lecture slides to see where you are unclear on concepts and need to review.</p></li>
+<li><p>Skim assigned readings, particularly the section headings to remind yourself what was in them.</p></li>
+<li><p>Review the <a class="reference internal" href="../glossary/"><span class="doc std std-doc">course glossary</span></a>, keeping in mind that it does contain terms we haven’t gotten to yet.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./week15"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../week14/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 14 — Workflow (11/29–12/3)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../assignments/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Assignments</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

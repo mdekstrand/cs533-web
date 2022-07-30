@@ -1,0 +1,1884 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 7 — Getting Data (Oct. 4–8) &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabinsert.js"></script>
+    <script src="../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="copyright" title="Copyright" href="../copyright/" />
+    <link rel="next" title="Week 8 — Regression (Oct. 11–15)" href="../week8/" />
+    <link rel="prev" title="Week 6 — Two Variables (Sep. 27–Oct. 1)" href="../week6/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../resources/tutorials/">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/week7/index.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fweek7/index.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/week7/index.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#content-overview">
+   🧐 Content Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deadlines">
+   📅 Deadlines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   🎥 Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finding-data">
+   🎥 Finding Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-formats">
+   🎥 Data Formats
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integrating-data">
+   🎥 Integrating Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#values-and-types">
+   🎥 Values and Types
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-text-operations">
+   📃 Pandas Text Operations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ethical-issues-in-data">
+   🎥 Ethical Issues in Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-belmont-report">
+   📃 The Belmont Report
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-acm-code-of-ethics">
+   📃 The ACM Code of Ethics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-7-quiz">
+   🚩 Week 7 Quiz
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-real-example">
+   🎥 A Real Example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#workflow-advice">
+   🎥 Workflow Advice
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading">
+   📃 Further Reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignment-3">
+   📩 Assignment 3
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-7-getting-data-oct-48">
+<span id="week7"></span><h1>Week 7 — Getting Data (Oct. 4–8)<a class="headerlink" href="#week-7-getting-data-oct-48" title="Permalink to this headline">¶</a></h1>
+<p>This week has the following learning outcomes:</p>
+<ul class="simple">
+<li><p>Locate data sources</p></li>
+<li><p>Integrate data from multiple sources</p></li>
+<li><p>Reason about bias and social effects of data</p></li>
+</ul>
+<div class="section" id="content-overview">
+<h2>🧐 Content Overview<a class="headerlink" href="#content-overview" title="Permalink to this headline">¶</a></h2>
+<div class="module-content docutils">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><strong>Element</strong></th>
+<th class="head"><strong>Length</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#5df204cb-b66f-42dc-b5ea-adb80127dbe5"><span>🎥 Data</span></a></p></td>
+<td><span>8m22s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#4e646f04-d8de-41e7-8ac5-adb80127dc9f"><span>🎥 Finding Data</span></a></p></td>
+<td><span>7m25s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bfdf4740-dd39-4911-9a51-adb80127dd91"><span>🎥 Data Formats</span></a></p></td>
+<td><span>13m55s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#a44ad89e-99d9-4dae-9656-adb80127de53"><span>🎥 Integrating Data</span></a></p></td>
+<td><span>11m40s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bfce7f1e-0c58-423a-99bf-adb80127df23"><span>🎥 Values and Types</span></a></p></td>
+<td><span>8m15s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#reading-Working-with-Text-Data"><span>📃 Working with Text Data</span></a></p></td>
+<td><span>4200 words</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#6dc4371e-2c10-4ce0-bf30-adb80127dfc3"><span>🎥 Ethics</span></a></p></td>
+<td><span>14m10s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#reading-The-Belmont-Report"><span>📃 The Belmont Report</span></a></p></td>
+<td><span>5500 words</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#reading-ACM-Code-of-Ethics-and-Professional-Responsibility"><span>📃 ACM Code of Ethics and Professional Responsibility</span></a></p></td>
+<td><span>3500 words</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#a18400b1-88e2-4d05-a4e4-adb80127e07f"><span>🎥 Real Example</span></a></p></td>
+<td><span>48m57s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#1e014827-786c-4462-a8c3-adb80127e12d"><span>🎥 Workflow Advice</span></a></p></td>
+<td><span>5m24s</span></td>
+</tr>
+</tbody>
+</table>
+<p><span>This week has </span><strong>1h58m</strong><span> of video and </span><strong>13200 words</strong><span> of assigned readings.</span><span> This week’s videos are available in a </span><a class="panopto reference external" href="https://boisestate.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%223e59e9f-4955-4cea-a709-adb8012572f7%22"><span>Panopto folder</span></a><span> and as a </span><a class="panopto podcast reference external" href="https://boisestate.hosted.panopto.com/Panopto/Podcast/Podcast.ashx?courseid=3e59e9f-4955-4cea-a709-adb8012572f7&amp;type=mp4"><span>podcast</span></a><span>.</span></p>
+</div>
+</div>
+<div class="section" id="deadlines">
+<h2>📅 Deadlines<a class="headerlink" href="#deadlines" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Week 7 Quiz <strong>Thursday Oct. 7 at 8AM</strong></p></li>
+<li><p>Assignment 3 <strong>Sunday Oct. 10 at 11:59 PM</strong></p></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2>🎥 Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>What are we talking about this week?  I also discuss general principles that will drive the week’s material.</p>
+<div class="resource video docutils container" id="5df204cb-b66f-42dc-b5ea-adb80127dbe5">
+<div class="tabbed-set docutils">
+<input checked="checked" id="5c3a8938-77dd-4c5d-9332-e0e7d9b3d0c2" name="154bbf22-2605-491c-af4e-3a07a1f235a8" type="radio">
+</input><label class="tabbed-label" for="5c3a8938-77dd-4c5d-9332-e0e7d9b3d0c2">
+Video (8m22s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=5df204cb-b66f-42dc-b5ea-adb80127dbe5&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="1a78d4f2-56ae-4f6c-9323-f83eb321fb8a" name="154bbf22-2605-491c-af4e-3a07a1f235a8" type="radio">
+</input><label class="tabbed-label" for="1a78d4f2-56ae-4f6c-9323-f83eb321fb8a">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173225" data-key=APts3vR7Lc59NkI>
+</div></div>
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="finding-data">
+<h2>🎥 Finding Data<a class="headerlink" href="#finding-data" title="Permalink to this headline">¶</a></h2>
+<p>Where do we go to find data?</p>
+<div class="resource video docutils container" id="4e646f04-d8de-41e7-8ac5-adb80127dc9f">
+<div class="tabbed-set docutils">
+<input checked="checked" id="43cdc619-9795-45ce-b30f-b154e94179a1" name="330aad1a-9599-4bd9-bdda-df2b255bd060" type="radio">
+</input><label class="tabbed-label" for="43cdc619-9795-45ce-b30f-b154e94179a1">
+Video (7m25s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=4e646f04-d8de-41e7-8ac5-adb80127dc9f&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="2922c42c-b907-4f16-9c2e-a4f49d1abcad" name="330aad1a-9599-4bd9-bdda-df2b255bd060" type="radio">
+</input><label class="tabbed-label" for="2922c42c-b907-4f16-9c2e-a4f49d1abcad">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173227" data-key=AIXRrNdcFNGB7sE>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+FINDING DATA
+Learning Outcomes
+Identify potential sources for data
+Think about the data needed to answer a question
+Photo by elCarito on Unsplash
+Questions
+What do you want to learn?
+
+Need for data flows from what you want to learn.
+
+Sometimes in practice we will start with data, but that shouldn’t be our default.
+Example
+Q: Does poverty correlate with adverse health outcomes?
+
+Need:
+Wealth/poverty data
+Census
+Health data
+Public health agencies
+Global health data exchange
+Locating Existing Data
+Lists of data sets
+UCI Machine Learning Repository
+Various lists on GitHub
+Governmental operations
+US federal: data.gov
+Individual government agencies
+Government data portals
+Your organization
+Searching on the Web
+Purchasing
+Asking data owners
+Scraping from web sites
+Large repositories
+Common Crawl
+Semantic Scholar
+Seeing what other papers use
+Wrapping Up
+We sometimes need to be creative when locating data for a problem.
+
+There is a lot of data available, but our question should drive our data.
+
+
+
+
+Photo by Garrett Sears on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+<div class="section" id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://data.gov">Data.gov</a></p></li>
+<li><p><a class="reference external" href="https://archive.ics.uci.edu/ml/index.php">UCI Machine Learning Repository</a> — quality of documentation varies widely</p></li>
+<li><p><a class="reference external" href="https://github.com/awesomedata/awesome-public-datasets">Awesome Public Datasets</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="data-formats">
+<h2>🎥 Data Formats<a class="headerlink" href="#data-formats" title="Permalink to this headline">¶</a></h2>
+<p>In this video I describe different formats in which you may find data.</p>
+<div class="resource video docutils container" id="bfdf4740-dd39-4911-9a51-adb80127dd91">
+<div class="tabbed-set docutils">
+<input checked="checked" id="ae8bbf7e-dc8b-43bd-a6aa-8e2c210dcc70" name="c2f8c15e-d8c2-418b-bd50-4e8dc3ef0d0b" type="radio">
+</input><label class="tabbed-label" for="ae8bbf7e-dc8b-43bd-a6aa-8e2c210dcc70">
+Video (13m55s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=bfdf4740-dd39-4911-9a51-adb80127dd91&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="5b3ef8de-8247-4a56-854d-595436b6c661" name="c2f8c15e-d8c2-418b-bd50-4e8dc3ef0d0b" type="radio">
+</input><label class="tabbed-label" for="5b3ef8de-8247-4a56-854d-595436b6c661">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173229" data-key=AL8FsyUoRQ7_NXs>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+DATA TYPES AND FORMATS
+Learning Outcomes
+Understand broad categories of data formats
+Know where to look for particular data formats
+Read data in different encodings
+Photo by Joshua Newton on Unsplash
+Types of Data
+Tabular is organized into columns and rows like a spreadsheet.
+Each row has the same shape &amp; attributes.
+Semi-Structured data has structure, like labeled fields, but different objects can have different fields.
+Unstructured data has no defined structure. Includes raw text and images.
+Tabular Data
+Delimited text
+Comma-separated (CSV)
+Tab-separated (TSV)
+Spreadsheet files
+Excel (xlsx or xls)
+Sometimes actually TSV 🤦‍♂️
+
+“.dat” means nothing
+Binary formats
+HDF
+NetCDF
+Parquet
+Other
+Matlab
+STATA
+…
+
+Delimited Text
+One record per line (usually)
+Delimiter: comma, tab (\t), |, …
+Escape:
+Quotes: &quot;field&quot;
+Double-up quotes to escape inside
+Backslashes
+Header: usually first row
+Pandas read_csv / to_csv pretty portable (though watch index!)
+Semi-Structured Data
+JSON: dictionaries, lists, strings, numbers, true/false, null
+
+XML: trees of nodes with text and attributes
+
+YAML: JSON ++
+MSGPACK
+RDF, SQL
+Others…
+{ &quot;fit&quot;: &quot;fit&quot;, &quot;user_id&quot;: &quot;420272&quot;, &quot;bust size&quot;: &quot;34d&quot;, &quot;item_id&quot;: &quot;2260466&quot;, &quot;weight&quot;: &quot;137lbs&quot;, &quot;rating&quot;: &quot;10&quot;, &quot;rented for&quot;: &quot;vacation&quot;, &quot;review_text&quot;: &quot;An adorable romper! Belt and zipper were a little hard to navigate in a full day of wear/bathroom use, but that's to be expected. Wish it had pockets, but other than that-- absolutely perfect! I got a million compliments.&quot;, &quot;body type&quot;: &quot;hourglass&quot;, &quot;review_summary&quot;: &quot;So many compliments!&quot;, &quot;category&quot;: &quot;romper&quot;, &quot;height&quot;: &quot;5' 8\&quot;&quot;, &quot;size&quot;: 14, &quot;age&quot;: &quot;28&quot;, &quot;review_date&quot;: &quot;April 20, 2016&quot;}
+Unstructured Data
+Raw text — (usually) human-written text 
+
+Images — we can try to get data from images
+
+Can appear as a field in tabular or semi-structured data.
+More Data
+A table…
+… in a PDF
+… in an image in a PDF
+… in a photograph in a PDF
+
+Corrupt data
+Syntactically invalid XML
+Incorrect JSON syntax
+Weird nonprinting characters
+Encodings
+Text data is encoded (more on this later)
+UTF-8: modern standard
+Many older encodings, both single-byte and double-byte
+XML declares encoding
+JSON almost always UTF-8
+Text (delimited or unstructured): ???
+
+Encodings are not self-describing.
+Look at Data
+Mac/Linux: less
+Windows: Notepad++ (or other text editor)
+
+Data may be compressed, usually indicated in extension
+.gz
+.xz
+.7z
+.zip	
+Unix: zless, etc.
+Wrapping Up
+Data comes in many formats.
+
+Sometimes it is tabular, semi-structured, or unstructured.
+
+Some formats are nice. Others are not.
+Photo by Wesley Tingey on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Resources<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">Pandas IO tools</a> describes Pandas support for reading and writing various data formats</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="integrating-data">
+<h2>🎥 Integrating Data<a class="headerlink" href="#integrating-data" title="Permalink to this headline">¶</a></h2>
+<p>This video talks about the key ideas of integrating multiple data sources.</p>
+<div class="resource video docutils container" id="a44ad89e-99d9-4dae-9656-adb80127de53">
+<div class="tabbed-set docutils">
+<input checked="checked" id="29394008-e4b7-41d6-9f15-02c8cd5e9960" name="1d0722ca-0049-4b14-8aa3-07b425f192d6" type="radio">
+</input><label class="tabbed-label" for="29394008-e4b7-41d6-9f15-02c8cd5e9960">
+Video (11m40s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=a44ad89e-99d9-4dae-9656-adb80127de53&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="c9ef986b-01a1-449e-ba2e-3836f3ead70b" name="1d0722ca-0049-4b14-8aa3-07b425f192d6" type="radio">
+</input><label class="tabbed-label" for="c9ef986b-01a1-449e-ba2e-3836f3ead70b">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173230" data-key=AKZU3thNfrXQ1v0>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+INTEGRATING DATA
+Learning Outcomes
+Combine two data sources
+Identify the kinds of data useful to make a link
+Photo by Sandy Millar on Unsplash
+Data Integration
+?
+Types of Integration
+Linking records – matching records in one set with another
+Best case: we have a linking identifier shared between data sets.
+
+Pooling records — taking records of the same kind from different sources
+Convert each into common format, and stack!
+Identifiers?
+XKCD 927: Standards. © Randall Monroe. CC-BY-NC 2.5. Modified by me.
+identifiers
+identifier
+identifiers
+identifiers
+Example: Linking US Geopolitical Data
+State name (unique, fine)
+Postal code (2-character state abbreviation, unique, also fine)
+FIPS code (Federal Information Processing Standard Series)
+States and counties!
+Withdrawn but still in use
+Great when you have them!
+ZIP codes
+Legislative districts
+Census tracts
+Geographic position (lat, long) (ugggh)
+
+Linking Challenges
+Corrupt identifiers
+Clean and correct them
+Duplicate identifiers
+Measure frequency of occurrence, try to measure impact
+Missing identifiers
+Find alternate linking strategies
+
+
+Alternate linking strategies
+Names?
+Often not unique
+Often take different forms
+Locations?
+Require complex geographic matching
+Or address matching / normalization
+
+Linking takes creativity and care
+Recommended Approach
+Take a conservative, incremental approach
+Prefer identifiers
+Minimize munging
+Look at unlinked records, see what rules need to be added
+Measure success of every linked step
+Successfully-linked records
+Unlinked records
+Sometimes: use rate of different link strategies
+Document and justify
+Technical Pieces (for linking with Pandas)
+Cleaning up individual columns
+Series operations (esp. string ops!)
+
+Merge data frames
+pd.merge or pd.DataFrame.join (for linking records)
+Pooling Records
+Convert into common structure
+Stack on top of each other
+Sometimes: de-duplicate
+
+Usually good to keep a field identifying record source.
+
+pd.concat is your friend
+Wrapping Up
+We often need to combine data from multiple sources; sometimes linking, sometimes pooling.
+
+Linking identifiers make this easy (sometimes).
+
+We don’t always have them.
+
+
+Photo by Joshua Hoehne on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="values-and-types">
+<h2>🎥 Values and Types<a class="headerlink" href="#values-and-types" title="Permalink to this headline">¶</a></h2>
+<p>This video discusses how to deal with and clean up various data types.</p>
+<div class="resource video docutils container" id="bfce7f1e-0c58-423a-99bf-adb80127df23">
+<div class="tabbed-set docutils">
+<input checked="checked" id="243a7a9a-8658-48d7-9b12-b45858f9cbe2" name="95e3e072-5b88-4526-8d30-7b900d3a11a2" type="radio">
+</input><label class="tabbed-label" for="243a7a9a-8658-48d7-9b12-b45858f9cbe2">
+Video (8m15s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=bfce7f1e-0c58-423a-99bf-adb80127df23&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="b5aa8c51-3360-416d-884c-bc35184be1b4" name="95e3e072-5b88-4526-8d30-7b900d3a11a2" type="radio">
+</input><label class="tabbed-label" for="b5aa8c51-3360-416d-884c-bc35184be1b4">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173233" data-key=AHyCBqpfJRcrq68>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CLEANING VALUES
+Learning Outcomes
+Clean up individual values or columns
+Identify useful Pandas operations for cleaning values
+Photo by Daiga Ellaby on Unsplash
+Types of Operations
+Convert data types
+Standardize data codes
+Remove or clean corrupt data
+Fill missing data (with care)
+Basic Data Type Conversion
+.astype()
+Converts data from one type to another
+Parses strings w/ simple rules
+
+df['column'].astype('i4')
+Common NumPy data types:
+Integer: i1, i2, i4, i8
+Unsigned: u1, u2, u4, u8
+Float: f4, f8
+
+Also have bit-based sizes:
+i4 = int32
+f8 = float64 (double-precision)
+
+Parsing Strings
+pd.to_datetime — parse strings to date/time objects
+Can specify format!
+pd.to_timedelta — parse strings to difference between times)
+
+Making Categoricals
+Categorical variables save memory and can improve presentation.
+
+String: series.astype('category')
+Integer: pd.Categorical
+After initialization: rename/reorder etc.
+Standardizing Data
+Normalize missing data
+String encoding like ‘NA’?
+Numeric sentinel values like -999?
+Reassign to NA
+Unify case (upper, lower, title, casefold) [series.str.upper]
+Replace substrings [series.str.replace]
+Trim whitespace [strip/rstrip/lstrip]
+Rename codes [cat.rename_categories]
+Merge codes [reassign, then cat.remove_unused_categories]
+Cleaning Data
+Strings are often corrupt – excess characters, etc.
+Drop leading/trailing whitespace [strip and friends]
+Match with regular expressions
+Expression to match expected data &amp; keep
+Expression to match invalid data &amp; delete
+series.str.replace(regex, replace)
+Extract specific columns [series.str.slice]
+Clearing Data
+Sometimes values are unrecoverably corrupt
+Delete value (replace with NA or INVALID code)
+May separate UNKNOWN from INVALID
+Or just use one UNKNOWN code
+Depends on question – I often separate early, combine later
+Delete record (if unusable)
+Don’t delete from underlying files – in memory, or in new files
+Pandas Features to Study
+Series methods
+Top-level
+Category methods under ‘.cat’
+String methods under ‘.str’
+Date-time methods under ‘.dt’
+Wrapping Up
+Data is messy.
+
+Pandas gives us a number of tools for working with individual values or columns.
+
+
+Photo by Ashim D’Silva on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Resources<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>In addition to the next reading, you may find these useful:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/howto/regex.html">Regular Expression HOWTO</a></p></li>
+<li><p><a class="reference external" href="https://kanoki.org/2019/11/12/how-to-use-regex-in-pandas/">How to use Regex in Pandas</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="pandas-text-operations">
+<h2>📃 Pandas Text Operations<a class="headerlink" href="#pandas-text-operations" title="Permalink to this headline">¶</a></h2>
+<p id="reading-Working-with-Text-Data">Read <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/text.html">Working with Text Data</a>.</p>
+</div>
+<div class="section" id="ethical-issues-in-data">
+<h2>🎥 Ethical Issues in Data<a class="headerlink" href="#ethical-issues-in-data" title="Permalink to this headline">¶</a></h2>
+<p>This video provides a <strong>very brief</strong> overview of some of the ethical issues in data collection and use.</p>
+<div class="resource video docutils container" id="6dc4371e-2c10-4ce0-bf30-adb80127dfc3">
+<div class="tabbed-set docutils">
+<input checked="checked" id="01e80244-9558-4cdf-9157-3e74e3f59381" name="498ddfb3-9ee1-486f-af9c-4ba04b11b1c5" type="radio">
+</input><label class="tabbed-label" for="01e80244-9558-4cdf-9157-3e74e3f59381">
+Video (14m10s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=6dc4371e-2c10-4ce0-bf30-adb80127dfc3&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="aef0a74c-d926-4f3b-831b-7f6f779538ae" name="498ddfb3-9ee1-486f-af9c-4ba04b11b1c5" type="radio">
+</input><label class="tabbed-label" for="aef0a74c-d926-4f3b-831b-7f6f779538ae">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173240" data-key=AHtpuXAGUcIYFNI>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+HUMAN SUBJECTS ETHICS
+Learning Outcomes
+Know the pillars of classical human subjects research ethics 
+Apply these principles to data science applications
+Know when to get IRB approval
+Understand boundaries and some concerns not covered by classic ethics
+
+Photo by Joel &amp; Jasmin Førestbird on Unsplash
+Principles of Human Subjects Ethics
+Respect for Persons
+Individuals should be treated as autonomous agents
+Persons with diminished autonomy are entitled to protection
+Beneficence
+Avoid harm, provide benefit
+Justice
+How are costs and benefits of research distributed?
+See the Belmont Report
+Informed Consent
+Research subjects should
+Be informed about the research
+In terms they can understand
+So they can voluntarily choose whether to participate
+Photo by Philipp Wüthrich on Unsplash
+Compliance
+Ethics is about doing the right thing
+
+Compliance is about following rules and regulations
+
+Some rules are to enforce a baseline of ethical behavior, but compliance is not ethics.
+Regulation in US Federal Funding
+Common Rule regulates federally-funded human subjects research
+Organizations must have an Institutional Review Board (IRB)
+IRB must approve human subjects research
+Uses Belmont principles
+Reviews consent procedures, analysis, etc.
+Weighs risks and benefits
+
+IRB approval does not mean something is ethical.
+Human Subjects
+U.S. Common Rule:
+Human subject means a living individual about whom an investigator (whether professional or student) conducting research:
+(i) Obtains information or biospecimens through intervention or interaction with the individual, and uses, studies, or analyzes the information or biospecimens; or
+(ii) Obtains, uses, studies, analyzes, or generates identifiable private information or identifiable biospecimens.
+
+Additional Relevant Concerns
+Data protection regulation, law, and rights
+EU GDPR
+California, many jurisdictions have similar laws
+Principles are broader than implementation
+Contextual integrity — people may not expect data to be reused
+Anti-discrimination (both law and principle)
+Further development of respect and justice concerns
+Pushing further on racial and gender justice
+Wrapping Up
+Our work has ethical implications.
+
+It is our responsibility as scientists and as human beings to work through the ethics of our work and be accountable.
+
+Rules and regulations can provide some guidance.
+Photo by Tiago Felipe Ferreira on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="the-belmont-report">
+<h2>📃 The Belmont Report<a class="headerlink" href="#the-belmont-report" title="Permalink to this headline">¶</a></h2>
+<p id="reading-The-Belmont-Report">Read <a class="reference external" href="https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/read-the-belmont-report/index.html">the Belmont Report</a>.</p>
+<p>Additional information, including a video, is available at the <a class="reference external" href="https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html">HHS Office of Human Research Protections</a>.</p>
+</div>
+<div class="section" id="the-acm-code-of-ethics">
+<h2>📃 The ACM Code of Ethics<a class="headerlink" href="#the-acm-code-of-ethics" title="Permalink to this headline">¶</a></h2>
+<p id="reading-ACM-Code-of-Ethics-and-Professional-Responsibility">Read <a class="reference external" href="https://www.acm.org/code-of-ethics">the ACM code of ethics</a>.</p>
+</div>
+<div class="section" id="week-7-quiz">
+<h2>🚩 Week 7 Quiz<a class="headerlink" href="#week-7-quiz" title="Permalink to this headline">¶</a></h2>
+<p>Take the Week 7 quiz in Canvas.</p>
+</div>
+<div class="section" id="a-real-example">
+<h2>🎥 A Real Example<a class="headerlink" href="#a-real-example" title="Permalink to this headline">¶</a></h2>
+<p>This video describes the data cleaning and integration in a real example from my own research group.
+I am providing it so you can see the principles in this week’s material applied to an actual problem; details of this specific data set will not be on exams.</p>
+<div class="resource video docutils container" id="a18400b1-88e2-4d05-a4e4-adb80127e07f">
+<div class="tabbed-set docutils">
+<input checked="checked" id="c50a722c-60bb-4959-afde-c6c33fb4ebf7" name="5c4d7067-21fe-445a-8cc0-23e7cba5a371" type="radio">
+</input><label class="tabbed-label" for="c50a722c-60bb-4959-afde-c6c33fb4ebf7">
+Video (48m57s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=a18400b1-88e2-4d05-a4e4-adb80127e07f&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="9c1b6099-b6f7-49de-a2dd-698fb6fc1bb8" name="5c4d7067-21fe-445a-8cc0-23e7cba5a371" type="radio">
+</input><label class="tabbed-label" for="9c1b6099-b6f7-49de-a2dd-698fb6fc1bb8">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173242" data-key=AF1TnxA02bYHuSA>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+A REAL EXAMPLE
+Integrating Book Data
+Learning Outcomes
+See some of the data cleaning and integration decisions in a real data science project
+Photo by Sharon McCutcheon on Unsplash
+Question
+Are book authors of different genders well-represented in user ratings and reviews ratings in online book platforms?
+Data Requirements
+Books
+“Easy” public data:
+Library of Congress Open MARC Data (10.5M records)
+OpenLibrary (26.7M records)
+GoodReads (crawled by UCSD; limited data)
+MARC
+Standard format for book and author data
+Stores data in fields and subfields with numeric tags
+Available in XML format
+Same structure and tags
+Easier to parse w/ standard tools
+Still must know MARC fields!
+Leader/00-23	*****nam##22*****#a#4500
+001	&lt;control number&gt;
+003	&lt;control number identifier&gt;
+005	19920331092212.7
+007/00-01	ta
+008/00-39	820305s1991####nyu###########001#0#eng##
+020	##$a0845348116 :$c$29.95 (£19.50 U.K.)
+020	##$a0845348205 (pbk.)
+040	##$a[organization code]$c[organization code]
+050	14$aPN1992.8.S4$bT47 1991
+082	04$a791.45/75/0973$219
+100	1#$aTerrace, Vincent,$d1948-
+245	10$aFifty years of television :$ba guide to series and pilots, 1937-1988 /$cVincent Terrace.
+246	1#$a50 years of television
+260	##$aNew York :$bCornwall Books,$cc1991.
+300	##$a864 p. ;$c24 cm.
+500	##$aIncludes index.
+650	#0$aTelevision pilot programs$zUnited States$vCatalogs.
+650	#0$aTelevision serials$zUnited States$vCatalogs.
+What is a Book?
+LoC catalogs many things:
+Books
+Periodicals
+Government records
+Music
+Films
+A “book” is:
+Textual (MARC format ‘t’)
+Also included ‘a’ (Map) to catch atlases
+Not a government record
+International Standard Book Number (ISBN)
+Identifies books across publishers
+Defined to identify a single edition of a book
+Come in 10- and 13-digit formats
+13-digit is variant of EAN
+Can convert 10 to 13
+Problems:
+Many formats, surrounding text, etc.
+Corrupt ISBNs
+Extra digits
+Missing digits
+Incorrect check digit
+Non-ISBNs in ISBN field
+$15
+
+
+Other Identifiers
+Library of Congress Control Number (LCCN)
+OpenLibrary edition &amp; work IDs
+GoodReads book &amp; work IDs
+Our own table primary keys
+Amazon Standard Identification Number (ASIN)
+
+Define unified book code – number identifying a book record
+Real “ISBNs”
+0836932722
+013027190X (v. 2)
+8719359022. ISBN 8719359004 (pbk.)
+2890401448 : $5.00
+$10.00
+978-963-87472-2-8
+0981482295 (978-0-9814822-9-3 : alk. paper)
+0877030863 lib. bdg. (from label mounted on verso of t.p. correcting printed ISBN) (v. 1)
+
+
+Cleaning ISBNs
+Process ISBN fields:
+Extract things that look like ISBNs
+Digits, with allowable separators and terminating X
+Long enough to be an ISBN
+Extract “tags” (e.g. ‘pbk’)
+Define allowable prefixes, postfixes, and separators
+Clean junk and separators from inside ISBNs to standardize
+
+Recursive descent parser driven by regular expressions (CS 361 &amp; 354!)
+Development Process
+Start with simple rules
+Manually verify some matches
+Look for patterns not yet matched
+Add to matcher!
+Make ignore patterns for known-unparsable patterns
+Iterate until everything is matched, ignored, or unusable
+OpenLibrary
+JSON – much easier to work with
+Shares many ISBN problems – used same logic
+What is a Book?
+Books have multiple editions
+Different publishers
+Different ISBNs
+Ratings / reviews usually attached to a single edition
+OpenLibrary, GoodReads group into “work”
+Not complete
+Some records more complete than others
+Best to recommend works
+Grouping by Connected Components
+Work
+Work
+Book
+Book
+Book
+Book
+ISBN
+ISBN
+ISBN
+Each connected component gets a cluster identifier
+Problems with Grouping
+Miss groups when we don’t have records to link them
+ISBN that never appears in any book data
+Over-grouping when ISBNs are mislinked
+ISBN erroneously recorded for wrong book
+Two books’ ISBNs corrupted to same value
+ISBN reuse
+Combined volumes
+
+Not yet good solutions – documented as limitation
+Integration So Far
+Book data from 3 sources
+ISBNs (and ASINs) extracted 
+Book records mapped into clusters
+ISBN ⇔ cluster mapping (what ISBNs are in a cluster?)
+
+This is (complex) pooling, but w/o standardization
+Next: linking!
+Book Ratings and Reviews
+Collected from online platforms:
+BookCrossing [BX] (collected from an old book rating site, often used for recommender systems research)
+Amazon [AZ] (public ratings and reviews, collected by UCSD in 2014)
+GoodReads [GR] (ratings, reviews, and add-to-shelf actions by users with public profiles, collected by UCSD in 2017)
+BookCrossing and Amazon Linking
+BX: user ID, ISBN, rating
+ISBNs can be corrupt – remove invalid chars
+Link to book clusters
+
+AZ: user ID, ASIN, rating, review text
+Treat as ISBNs
+Link to book clusters
+
+GoodReads Linking
+GoodReads contains:
+User adds book to shelf (user ID, book ID, shelf ID, timestamp)
+Shelf IDs not meaningful
+“Is Read” flag for adding to the Read shelf
+5-star rating (accompanying some add-to-shelf actions)
+Review text (with user ID, item ID, timestamp, rating)
+
+All have GoodReads book IDs – directly link to cluster
+Integration So Far
+Book Cluster
+LoC Book Records
+OpenLib Edition Records
+GoodReads Book Records
+OpenLib Work Records
+BookCrossing Ratings
+Amazon Ratings &amp; Reviews
+GoodReads Ratings, Adds, Reviews
+GoodReads Work Records
+Author Data
+Book data includes list of authors
+OpenLibrary &amp; GoodReads have author entries
+Linked identifiers
+
+But we want author gender — missing!
+
+Let’s not guess from names.
+Authority Records
+Librarians create two kinds of records:
+Bibliographic records about books
+Name authority records about authors
+
+More MARC, and… MARC Authority field 375 is “gender”!
+Recording Gender
+MARC Authority Field 375:
+Defined as gender identity
+Uses an open vocabulary
+Allows for multiple gender records per author with validity dates
+
+Program for Cooperative Cataloging Working Group provides guidance on filling the field
+
+Un-Recording Gender
+Library of Congress
+PCC coordinates contributing libraries
+Some contributors do not record gender
+Only covers LoC collections
+
+Virtual Internet Authority File
+Combines LoC with other national libraries
+Smashes all gender records into male/female without dates
+
+Linking Authority
+MARC records do not have linking identifiers
+Bibliographic record stores author name
+Authority record has control number, but it isn’t referenced
+
+OpenLibrary records VIAF control numbers for a few authors
+Linking by Name
+Find VIAF record(s) with names matching first author’s name
+Extract gender identity field
+
+Assumption: it is unlikely for two authors to have the same full name and different genders.
+Combine all matching gender records into male, female, ambiguous, or unknown
+Only reasonable because of goal/question
+Names
+Authority records list multiple name variants for an author
+OpenLibrary also lists multiple names for author
+Book only lists one
+Inconsistent on “Family, Given” or “Given Family”
+
+Solution:
+If authority record has “B, A”, generate additional “A B” name
+Accept match on any name
+Integration
+Book Cluster
+LoC Book Records
+OpenLib Edition Records
+GoodReads Book Records
+OpenLib Work Records
+BookCrossing Ratings
+Amazon Ratings &amp; Reviews
+GoodReads Ratings, Adds, Reviews
+GoodReads Work Records
+First Author Gender
+Measuring
+Representation
+Limitations
+Over-links authors, which can cause some gender errors
+Over-links books, causing some gender and book errors
+Only records binary gender
+Unknown gender distribution of unknown books
+Presence of the label is probably biased, we don’t know how
+
+LoC has linked data that should help; not yet publicly available
+Software
+Rust program
+Parses raw data files
+Loads into SQL database
+Cleans ISBNs
+
+Rust:
+Compiled language (fast like C)
+High-level features (memory management, types, strings, XML parsers, etc.)
+PostgreSQL
+Stores data
+Extracts desired fields from natural objects
+Integrates data sources
+
+Python
+Clusters books
+Computes statistics
+DVC controls whole process
+Wrapping Up
+Many decisions go into a serious data integration project.
+
+Document and justify them all.
+
+Design workflow to make it transparent and reproducible.
+
+
+Photo by Erol Ahmed on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Resources<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://bookdata.piret.info/">Data set documentation</a></p></li>
+<li><p><a class="reference external" href="https://github.com/BoiseState/bookdata-tools">Data integration code</a></p></li>
+<li><p><a class="reference external" href="https://md.ekstrandom.net/pubs/bag-extended">Paper using this data</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="workflow-advice">
+<h2>🎥 Workflow Advice<a class="headerlink" href="#workflow-advice" title="Permalink to this headline">¶</a></h2>
+<p>This video talks about general principles for processing and integration workflows.</p>
+<div class="resource video docutils container" id="1e014827-786c-4462-a8c3-adb80127e12d">
+<div class="tabbed-set docutils">
+<input checked="checked" id="902fce37-555a-43ec-85d6-67a63e011b4b" name="aebf9a77-faa9-4695-9226-68bc13543c9c" type="radio">
+</input><label class="tabbed-label" for="902fce37-555a-43ec-85d6-67a63e011b4b">
+Video (5m24s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=1e014827-786c-4462-a8c3-adb80127e12d&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="3f1d7d6f-5a9f-4ce6-9885-c3f9edb22c68" name="aebf9a77-faa9-4695-9226-68bc13543c9c" type="radio">
+</input><label class="tabbed-label" for="3f1d7d6f-5a9f-4ce6-9885-c3f9edb22c68">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173241" data-key=AMRLqk4xIA_OSL0>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+WORKFLOW ADVICE
+Learning Outcomes
+Understand basic principles for data processing workflows
+Design a workflow that preserves data as much as possible
+Photo by Ivan Bandura on Unsplash
+Workflow
+Single-Source Cleaning
+Standardize representations
+Delete corrupt data
+De-duplicate if appropriate
+Preserve information for downstream use
+To evaluate impact of decisions
+Keep goals and questions in mind
+Integration
+Link or pool records
+De-duplicate (if appropriate)
+Unify representations (if not done in per-source cleaning)
+Describe integration results &amp; resulting data set
+Preserve information for downstream use
+Analysis
+Now you get to drop data, etc.
+
+Select &amp; reprocess the subset of data for a particular analysis
+Different analyses may have different requirements
+Multiple analyses and variants from the same data
+Still may need to iterate w/ cleaning &amp; integration
+Wrapping Up
+Data processing is an iterative, multi-stage process.
+
+Preserving information for downstream use gives flexibility and helps us assess impact of upstream decisions.
+Photo by Ravi Pinisetti on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="further-reading">
+<h2>📃 Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<p>These aren’t part of the assigned reading, but are for you to learn more.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2886526">Social Data: Biases, Methodological Pitfalls, and Ethical Boundaries</a> — <strong>strongly recommended</strong></p></li>
+<li><p><a class="reference external" href="https://www.boisestate.edu/research-compliance/citi-training/">CITI Training on Human-Subjects Research</a> — free for Boise State students, faculty, and staff; this training is required if you are involved in carrying out human-subjects research at Boise State</p></li>
+<li><p><a class="reference external" href="https://www.dataisbeauty.com/data-cleansing-best-practices-strategy/">Data Cleansing Best Practices &amp; Strategy Plan</a></p></li>
+<li><p><a class="reference external" href="https://boisestate.on.worldcat.org/oclc/796466994"><cite>Principles of Data Integration</cite></a></p></li>
+</ul>
+</div>
+<div class="section" id="assignment-3">
+<h2>📩 Assignment 3<a class="headerlink" href="#assignment-3" title="Permalink to this headline">¶</a></h2>
+<p>Assignment 3 is due on <strong>Oct. 10</strong> at the end of the day.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./week7"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../week6/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 6 — Two Variables (Sep. 27–Oct. 1)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../week8/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 8 — Regression (Oct. 11–15)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

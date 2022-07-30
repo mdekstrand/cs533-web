@@ -1,0 +1,1937 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SciKit Logistic Regression Demo &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabinsert.js"></script>
+    <script src="../../../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"E": "\\mathrm{E}", "Field": "\\mathcal{F}", "P": "\\mathrm{P}", "Cov": "\\mathrm{Cov}", "Cor": "\\mathrm{Cor}", "Var": "\\mathrm{Var}", "log": "\\operatorname{log}", "Odds": "\\operatorname{Odds}", "OR": "\\operatorname{OR}", "IND": "\\mathbb{I}", "Reals": "\\mathbb{R}"}}, "HTML-CSS": {"fonts": ["TeX"]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="copyright" title="Copyright" href="../../../copyright/" />
+    <link rel="next" title="SciKit Pipeline and Transform Demo" href="../SciKitPipeline/" />
+    <link rel="prev" title="Sampling Distributions" href="../SamplingDists/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../">
+   Tutorials
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/resources/tutorials/SciKitLogistic.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fresources/tutorials/SciKitLogistic.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/resources/tutorials/SciKitLogistic.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-data">
+   Read Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-the-model">
+   Train the Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-with-test-data">
+   Analysis with Test Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#roc-curve">
+   ROC Curve
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#precision-vs-threshold">
+   Precision vs. Threshold
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="scikit-logistic-regression-demo">
+<h1>SciKit Logistic Regression Demo<a class="headerlink" href="#scikit-logistic-regression-demo" title="Permalink to this headline">¶</a></h1>
+<p>This notebook shows the <a class="reference internal" href="../LogitRegressionDemo/"><span class="doc std std-doc">logistic regression demo</span></a> with SciKit-Learn’s <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression" title="(in scikit-learn v1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogisticRegression</span></code></a> instead of StatsModels.</p>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>Let’s import some packages:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">logit</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">20201024</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="read-data">
+<h2>Read Data<a class="headerlink" href="#read-data" title="Permalink to this headline">¶</a></h2>
+<p>Load the UCLA grad admissions data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">students</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://stats.idre.ucla.edu/stat/data/binary.csv&quot;</span><span class="p">)</span>
+<span class="n">students</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>admit</th>
+      <th>gre</th>
+      <th>gpa</th>
+      <th>rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>380</td>
+      <td>3.61</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>660</td>
+      <td>3.67</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>800</td>
+      <td>4.00</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>640</td>
+      <td>3.19</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>520</td>
+      <td>2.93</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Let’s train and test:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">students</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">rng</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_mask</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">students</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">train_mask</span><span class="p">[</span><span class="n">test</span><span class="o">.</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">train</span> <span class="o">=</span> <span class="n">students</span><span class="p">[</span><span class="n">train_mask</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">train</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>admit</th>
+      <th>gre</th>
+      <th>gpa</th>
+      <th>rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>380</td>
+      <td>3.61</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>660</td>
+      <td>3.67</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>640</td>
+      <td>3.19</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0</td>
+      <td>400</td>
+      <td>3.08</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1</td>
+      <td>540</td>
+      <td>3.39</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="train-the-model">
+<h2>Train the Model<a class="headerlink" href="#train-the-model" title="Permalink to this headline">¶</a></h2>
+<p>Let’s create our logistic regression model.  <code class="docutils literal notranslate"><span class="pre">penalty='none'</span></code> will turn off regularization:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lg_mod</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we need to train (or <code class="docutils literal notranslate"><span class="pre">fit</span></code>) the model.  SciKit-Learn doesn’t know about Pandas; it works on NumPy arrays and matrices.  Fortunately, a Pandas data frame is a matrix, but we need to separate out the predictors and outcome:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feat_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gre&#39;</span><span class="p">,</span> <span class="s1">&#39;gpa&#39;</span><span class="p">,</span> <span class="s1">&#39;rank&#39;</span><span class="p">]</span>
+<span class="n">out_col</span> <span class="o">=</span> <span class="s1">&#39;admit&#39;</span>
+<span class="n">train_x</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="n">feat_cols</span><span class="p">]</span>
+<span class="n">train_y</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="n">out_col</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can call <code class="docutils literal notranslate"><span class="pre">fit</span></code>.  Unlike Statsmodels, SciKit-Learn doesn’t have separate model and results objects.  We just call <code class="docutils literal notranslate"><span class="pre">fit</span></code>, which trains the model in-place:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lg_mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression(penalty=&#39;none&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can get the coefficients from it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lg_mod</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.00201959,  0.88632881, -0.57805603]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>And the intercept:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lg_mod</span><span class="o">.</span><span class="n">intercept_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-3.60332028])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The SciKit-Learn convention is that parameters estimated by the <code class="docutils literal notranslate"><span class="pre">fit</span></code> process are stored in fields ending in <code class="docutils literal notranslate"><span class="pre">_</span></code>.</p>
+<p>Let’s quick train one with statsmodels just to see that it’s training the same thing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="n">smf</span><span class="o">.</span><span class="n">glm</span><span class="p">(</span><span class="s1">&#39;admit ~ gre + gpa + rank&#39;</span><span class="p">,</span> <span class="n">train</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">Binomial</span><span class="p">())</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>Generalized Linear Model Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>         <td>admit</td>      <th>  No. Observations:  </th>  <td>   320</td> 
+</tr>
+<tr>
+  <th>Model:</th>                  <td>GLM</td>       <th>  Df Residuals:      </th>  <td>   316</td> 
+</tr>
+<tr>
+  <th>Model Family:</th>        <td>Binomial</td>     <th>  Df Model:          </th>  <td>     3</td> 
+</tr>
+<tr>
+  <th>Link Function:</th>         <td>logit</td>      <th>  Scale:             </th> <td>  1.0000</td>
+</tr>
+<tr>
+  <th>Method:</th>                <td>IRLS</td>       <th>  Log-Likelihood:    </th> <td> -184.48</td>
+</tr>
+<tr>
+  <th>Date:</th>            <td>Sat, 24 Oct 2020</td> <th>  Deviance:          </th> <td>  368.97</td>
+</tr>
+<tr>
+  <th>Time:</th>                <td>21:11:55</td>     <th>  Pearson chi2:      </th>  <td>  318.</td> 
+</tr>
+<tr>
+  <th>No. Iterations:</th>          <td>4</td>        <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>     <td>nonrobust</td>    <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+      <td></td>         <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>Intercept</th> <td>   -3.6033</td> <td>    1.286</td> <td>   -2.802</td> <td> 0.005</td> <td>   -6.124</td> <td>   -1.083</td>
+</tr>
+<tr>
+  <th>gre</th>       <td>    0.0020</td> <td>    0.001</td> <td>    1.620</td> <td> 0.105</td> <td>   -0.000</td> <td>    0.004</td>
+</tr>
+<tr>
+  <th>gpa</th>       <td>    0.8863</td> <td>    0.372</td> <td>    2.384</td> <td> 0.017</td> <td>    0.158</td> <td>    1.615</td>
+</tr>
+<tr>
+  <th>rank</th>      <td>   -0.5781</td> <td>    0.144</td> <td>   -4.022</td> <td> 0.000</td> <td>   -0.860</td> <td>   -0.296</td>
+</tr>
+</table></div></div>
+</div>
+<p>Let’s compute our training set accuracy.  SciKit-Learn’s <code class="docutils literal notranslate"><span class="pre">predict</span></code> method outputs the <em>class</em>, not the score, so it is directly 1/0.  Let’s compute that, and compare to <code class="docutils literal notranslate"><span class="pre">train_y</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_d</span> <span class="o">=</span> <span class="n">lg_mod</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">train_x</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">train_d</span> <span class="o">==</span> <span class="n">train_y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7125
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s using a probability of 0.5 - more likely than not - as the decision boundary.  More formally, it is using the <em>log odds</em>: <span class="math notranslate nohighlight">\(\operatorname{log} \operatorname{Odds}(A) &gt; 0\)</span></p>
+<p>It returns the positive class (1 in our case) if that quantity is greater than 0.</p>
+<p>If we want the probabilities, we can call <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lg_mod</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">train_x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.79744403, 0.20255597],
+       [0.67955536, 0.32044464],
+       [0.85761431, 0.14238569],
+       [0.77236289, 0.22763711],
+       [0.77595587, 0.22404413],
+       [0.46787112, 0.53212888],
+       [0.68017007, 0.31982993],
+       [0.60796732, 0.39203268],
+       [0.28929082, 0.71070918],
+       [0.64926804, 0.35073196],
+       [0.7890339 , 0.2109661 ],
+       [0.71303456, 0.28696544],
+       [0.91225083, 0.08774917],
+       [0.45512696, 0.54487304],
+       [0.42895462, 0.57104538],
+       [0.82024802, 0.17975198],
+       [0.55209187, 0.44790813],
+       [0.9006386 , 0.0993614 ],
+       [0.33664913, 0.66335087],
+       [0.43280414, 0.56719586],
+       [0.55358476, 0.44641524],
+       [0.69707229, 0.30292771],
+       [0.75254157, 0.24745843],
+       [0.54401017, 0.45598983],
+       [0.66178295, 0.33821705],
+       [0.77700399, 0.22299601],
+       [0.53231559, 0.46768441],
+       [0.84773499, 0.15226501],
+       [0.72619966, 0.27380034],
+       [0.87123671, 0.12876329],
+       [0.81510723, 0.18489277],
+       [0.65598571, 0.34401429],
+       [0.68042809, 0.31957191],
+       [0.80122093, 0.19877907],
+       [0.67697604, 0.32302396],
+       [0.79423431, 0.20576569],
+       [0.62746801, 0.37253199],
+       [0.90664576, 0.09335424],
+       [0.94421386, 0.05578614],
+       [0.65106381, 0.34893619],
+       [0.90488435, 0.09511565],
+       [0.80754187, 0.19245813],
+       [0.61959104, 0.38040896],
+       [0.73966299, 0.26033701],
+       [0.57387359, 0.42612641],
+       [0.79885067, 0.20114933],
+       [0.87699062, 0.12300938],
+       [0.67183458, 0.32816542],
+       [0.9006386 , 0.0993614 ],
+       [0.66569059, 0.33430941],
+       [0.86318032, 0.13681968],
+       [0.68828659, 0.31171341],
+       [0.63455267, 0.36544733],
+       [0.59043287, 0.40956713],
+       [0.50108564, 0.49891436],
+       [0.43523051, 0.56476949],
+       [0.32293726, 0.67706274],
+       [0.62237298, 0.37762702],
+       [0.93828843, 0.06171157],
+       [0.87451512, 0.12548488],
+       [0.51068643, 0.48931357],
+       [0.80275483, 0.19724517],
+       [0.77354727, 0.22645273],
+       [0.54401017, 0.45598983],
+       [0.58065172, 0.41934828],
+       [0.87341255, 0.12658745],
+       [0.79375072, 0.20624928],
+       [0.9288318 , 0.0711682 ],
+       [0.75711137, 0.24288863],
+       [0.7442132 , 0.2557868 ],
+       [0.64681399, 0.35318601],
+       [0.61378519, 0.38621481],
+       [0.48777163, 0.51222837],
+       [0.42240076, 0.57759924],
+       [0.59327694, 0.40672306],
+       [0.6165724 , 0.3834276 ],
+       [0.81804031, 0.18195969],
+       [0.65154402, 0.34845598],
+       [0.68849424, 0.31150576],
+       [0.86516757, 0.13483243],
+       [0.7314378 , 0.2685622 ],
+       [0.89994589, 0.10005411],
+       [0.68021755, 0.31978245],
+       [0.48138388, 0.51861612],
+       [0.65306421, 0.34693579],
+       [0.40427821, 0.59572179],
+       [0.87354875, 0.12645125],
+       [0.67528622, 0.32471378],
+       [0.85964292, 0.14035708],
+       [0.88543467, 0.11456533],
+       [0.52887802, 0.47112198],
+       [0.6338775 , 0.3661225 ],
+       [0.69274338, 0.30725662],
+       [0.59733506, 0.40266494],
+       [0.80589106, 0.19410894],
+       [0.85336765, 0.14663235],
+       [0.84375425, 0.15624575],
+       [0.60931278, 0.39068722],
+       [0.86166305, 0.13833695],
+       [0.45810237, 0.54189763],
+       [0.75141526, 0.24858474],
+       [0.69877311, 0.30122689],
+       [0.8997631 , 0.1002369 ],
+       [0.66766018, 0.33233982],
+       [0.72988405, 0.27011595],
+       [0.63981229, 0.36018771],
+       [0.83171045, 0.16828955],
+       [0.73376108, 0.26623892],
+       [0.7619676 , 0.2380324 ],
+       [0.86213019, 0.13786981],
+       [0.59350087, 0.40649913],
+       [0.62099314, 0.37900686],
+       [0.44931528, 0.55068472],
+       [0.49590498, 0.50409502],
+       [0.79930412, 0.20069588],
+       [0.76337273, 0.23662727],
+       [0.75998651, 0.24001349],
+       [0.82199675, 0.17800325],
+       [0.68492723, 0.31507277],
+       [0.85870364, 0.14129636],
+       [0.43859354, 0.56140646],
+       [0.32100237, 0.67899763],
+       [0.4936894 , 0.5063106 ],
+       [0.7501525 , 0.2498475 ],
+       [0.80137506, 0.19862494],
+       [0.58254078, 0.41745922],
+       [0.63134613, 0.36865387],
+       [0.68427027, 0.31572973],
+       [0.5901876 , 0.4098124 ],
+       [0.54745314, 0.45254686],
+       [0.78407363, 0.21592637],
+       [0.31482547, 0.68517453],
+       [0.63225909, 0.36774091],
+       [0.68619193, 0.31380807],
+       [0.71447559, 0.28552441],
+       [0.80512456, 0.19487544],
+       [0.85274858, 0.14725142],
+       [0.70676829, 0.29323171],
+       [0.52588903, 0.47411097],
+       [0.85532682, 0.14467318],
+       [0.62723091, 0.37276909],
+       [0.80012274, 0.19987726],
+       [0.77250279, 0.22749721],
+       [0.75655142, 0.24344858],
+       [0.88733065, 0.11266935],
+       [0.67590521, 0.32409479],
+       [0.81256919, 0.18743081],
+       [0.45026522, 0.54973478],
+       [0.56595064, 0.43404936],
+       [0.91930117, 0.08069883],
+       [0.4882454 , 0.5117546 ],
+       [0.73796929, 0.26203071],
+       [0.71247395, 0.28752605],
+       [0.70288731, 0.29711269],
+       [0.67092054, 0.32907946],
+       [0.8772    , 0.1228    ],
+       [0.60981602, 0.39018398],
+       [0.78304946, 0.21695054],
+       [0.71266404, 0.28733596],
+       [0.80261514, 0.19738486],
+       [0.31482547, 0.68517453],
+       [0.38267737, 0.61732263],
+       [0.38918776, 0.61081224],
+       [0.41859643, 0.58140357],
+       [0.61914402, 0.38085598],
+       [0.81164066, 0.18835934],
+       [0.71327725, 0.28672275],
+       [0.74061288, 0.25938712],
+       [0.59684708, 0.40315292],
+       [0.80617405, 0.19382595],
+       [0.50653111, 0.49346889],
+       [0.64819235, 0.35180765],
+       [0.60981602, 0.39018398],
+       [0.79244863, 0.20755137],
+       [0.63070859, 0.36929141],
+       [0.65616529, 0.34383471],
+       [0.63954805, 0.36045195],
+       [0.68594502, 0.31405498],
+       [0.89550516, 0.10449484],
+       [0.67916107, 0.32083893],
+       [0.56809418, 0.43190582],
+       [0.86154211, 0.13845789],
+       [0.77181234, 0.22818766],
+       [0.73030981, 0.26969019],
+       [0.36284433, 0.63715567],
+       [0.69082537, 0.30917463],
+       [0.58254078, 0.41745922],
+       [0.91457703, 0.08542297],
+       [0.70389972, 0.29610028],
+       [0.43887584, 0.56112416],
+       [0.79259365, 0.20740635],
+       [0.65775483, 0.34224517],
+       [0.59781175, 0.40218825],
+       [0.56371842, 0.43628158],
+       [0.74290994, 0.25709006],
+       [0.67654242, 0.32345758],
+       [0.8387374 , 0.1612626 ],
+       [0.86035964, 0.13964036],
+       [0.54089045, 0.45910955],
+       [0.84270528, 0.15729472],
+       [0.78603132, 0.21396868],
+       [0.74568817, 0.25431183],
+       [0.68661862, 0.31338138],
+       [0.64206564, 0.35793436],
+       [0.64525103, 0.35474897],
+       [0.52247959, 0.47752041],
+       [0.65240452, 0.34759548],
+       [0.74628102, 0.25371898],
+       [0.81151895, 0.18848105],
+       [0.69648534, 0.30351466],
+       [0.83337031, 0.16662969],
+       [0.87134079, 0.12865921],
+       [0.57918053, 0.42081947],
+       [0.49147407, 0.50852593],
+       [0.78506525, 0.21493475],
+       [0.53327108, 0.46672892],
+       [0.47647543, 0.52352457],
+       [0.71988621, 0.28011379],
+       [0.71226615, 0.28773385],
+       [0.45932863, 0.54067137],
+       [0.86798211, 0.13201789],
+       [0.65552782, 0.34447218],
+       [0.48359698, 0.51640302],
+       [0.84711353, 0.15288647],
+       [0.82124092, 0.17875908],
+       [0.8926151 , 0.1073849 ],
+       [0.70394522, 0.29605478],
+       [0.85446255, 0.14553745],
+       [0.42842545, 0.57157455],
+       [0.78637226, 0.21362774],
+       [0.81875467, 0.18124533],
+       [0.61050829, 0.38949171],
+       [0.6636857 , 0.3363143 ],
+       [0.5620791 , 0.4379209 ],
+       [0.75201525, 0.24798475],
+       [0.63800146, 0.36199854],
+       [0.70471704, 0.29528296],
+       [0.63227911, 0.36772089],
+       [0.69291275, 0.30708725],
+       [0.7612707 , 0.2387293 ],
+       [0.46468871, 0.53531129],
+       [0.8425708 , 0.1574292 ],
+       [0.56982394, 0.43017606],
+       [0.61705182, 0.38294818],
+       [0.7098472 , 0.2901528 ],
+       [0.8590724 , 0.1409276 ],
+       [0.65952993, 0.34047007],
+       [0.54330948, 0.45669052],
+       [0.65995559, 0.34004441],
+       [0.83620457, 0.16379543],
+       [0.83704178, 0.16295822],
+       [0.80436205, 0.19563795],
+       [0.75452383, 0.24547617],
+       [0.8399504 , 0.1600496 ],
+       [0.5457806 , 0.4542194 ],
+       [0.83553884, 0.16446116],
+       [0.65866748, 0.34133252],
+       [0.82156374, 0.17843626],
+       [0.34329824, 0.65670176],
+       [0.61120011, 0.38879989],
+       [0.63275058, 0.36724942],
+       [0.65197439, 0.34802561],
+       [0.90960354, 0.09039646],
+       [0.57387359, 0.42612641],
+       [0.6947955 , 0.3052045 ],
+       [0.67031571, 0.32968429],
+       [0.76534996, 0.23465004],
+       [0.41118901, 0.58881099],
+       [0.81688193, 0.18311807],
+       [0.87265493, 0.12734507],
+       [0.56329437, 0.43670563],
+       [0.71687134, 0.28312866],
+       [0.88522875, 0.11477125],
+       [0.86503378, 0.13496622],
+       [0.80293629, 0.19706371],
+       [0.70597215, 0.29402785],
+       [0.78886503, 0.21113497],
+       [0.83782249, 0.16217751],
+       [0.64071621, 0.35928379],
+       [0.55478368, 0.44521632],
+       [0.72582248, 0.27417752],
+       [0.72735549, 0.27264451],
+       [0.41067717, 0.58932283],
+       [0.73985824, 0.26014176],
+       [0.80230725, 0.19769275],
+       [0.55622092, 0.44377908],
+       [0.57896556, 0.42103444],
+       [0.53889636, 0.46110364],
+       [0.59658231, 0.40341769],
+       [0.39792269, 0.60207731],
+       [0.49937692, 0.50062308],
+       [0.64635048, 0.35364952],
+       [0.68599204, 0.31400796],
+       [0.51807675, 0.48192325],
+       [0.8703536 , 0.1296464 ],
+       [0.85954686, 0.14045314],
+       [0.65284485, 0.34715515],
+       [0.65996455, 0.34003545],
+       [0.48557889, 0.51442111],
+       [0.56908929, 0.43091071],
+       [0.57197412, 0.42802588],
+       [0.40093793, 0.59906207],
+       [0.78238201, 0.21761799],
+       [0.78172776, 0.21827224],
+       [0.52762582, 0.47237418],
+       [0.64004598, 0.35995402],
+       [0.63595194, 0.36404806],
+       [0.81272968, 0.18727032],
+       [0.65845878, 0.34154122],
+       [0.46100513, 0.53899487],
+       [0.64794141, 0.35205859],
+       [0.65863775, 0.34136225],
+       [0.58804217, 0.41195783],
+       [0.54575926, 0.45424074],
+       [0.70516645, 0.29483355],
+       [0.49049325, 0.50950675],
+       [0.81936864, 0.18063136],
+       [0.8174811 , 0.1825189 ],
+       [0.52762582, 0.47237418],
+       [0.66327264, 0.33672736]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>It returns the probability of <em>each class</em>.  Since this is binary, each row will sum to 1.</p>
+<p>Let’s make sure the classes are in the order we expect:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lg_mod</span><span class="o">.</span><span class="n">classes_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1], dtype=int64)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can just get the probability of 1 and save it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lg_mod</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">train_x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.37039542e+00, -7.51729186e-01, -1.79561494e+00, -1.22170176e+00,
+       -1.24225261e+00,  1.28692834e-01, -7.54553462e-01, -4.38775908e-01,
+        8.98830850e-01, -6.15823364e-01, -1.31911185e+00, -9.10168099e-01,
+       -2.34143256e+00,  1.79976401e-01,  2.86117553e-01, -1.51802873e+00,
+       -2.09126306e-01, -2.20434038e+00,  6.78262841e-01,  2.70419364e-01,
+       -2.15165319e-01, -8.33394940e-01, -1.11221364e+00, -1.76497429e-01,
+       -6.71249784e-01, -1.24829162e+00, -1.29442793e-01, -1.71694562e+00,
+       -9.75425854e-01, -1.91193796e+00, -1.48354363e+00, -6.45455808e-01,
+       -7.55739813e-01, -1.39394270e+00, -7.39909397e-01, -1.35064045e+00,
+       -5.21369775e-01, -2.27335053e+00, -2.82882732e+00, -6.23718606e-01,
+       -2.25271360e+00, -1.43411629e+00, -4.87812784e-01, -1.04421769e+00,
+       -2.97673108e-01, -1.37912648e+00, -1.96423572e+00, -7.16494339e-01,
+       -2.20434038e+00, -6.88758055e-01, -1.84195977e+00, -7.92121079e-01,
+       -5.51798108e-01, -3.65755138e-01, -4.34256625e-03,  2.60541882e-01,
+        7.40305858e-01, -4.99632573e-01, -2.72158590e+00, -1.94148432e+00,
+       -4.27522197e-02, -1.40360188e+00, -1.22845058e+00, -1.76497429e-01,
+       -3.25449323e-01, -1.93147461e+00, -1.34768395e+00, -2.56888161e+00,
+       -1.13690735e+00, -1.06798328e+00, -6.05063915e-01, -4.63251306e-01,
+        4.89232410e-02,  3.12925722e-01, -3.77528780e-01, -4.75024948e-01,
+       -1.50312643e+00, -6.25833072e-01, -7.93089126e-01, -1.85889045e+00,
+       -1.00192964e+00, -2.19662351e+00, -7.54771766e-01,  7.44989119e-02,
+       -6.32535747e-01,  3.87670495e-01, -1.93270711e+00, -7.32192528e-01,
+       -1.81232732e+00, -2.04493342e+00, -1.15640764e-01, -5.48887754e-01,
+       -8.12976314e-01, -3.94373388e-01, -1.42352900e+00, -1.76126206e+00,
+       -1.68643121e+00, -4.44424458e-01, -1.82917193e+00,  1.67984454e-01,
+       -1.10617463e+00, -8.41462339e-01, -2.19459513e+00, -6.97621343e-01,
+       -9.94034397e-01, -5.74549504e-01, -1.59779833e+00, -1.01378936e+00,
+       -1.16349721e+00, -1.83309648e+00, -3.78456894e-01, -4.93765718e-01,
+        2.03437607e-01,  1.63804428e-02, -1.38195075e+00, -1.17126023e+00,
+       -1.15260554e+00, -1.52993460e+00, -7.76508969e-01, -1.80456431e+00,
+        2.46872080e-01,  7.49169146e-01,  2.52437308e-02, -1.09942581e+00,
+       -1.39491075e+00, -3.33212339e-01, -5.37996079e-01, -7.73466389e-01,
+       -3.64740944e-01, -1.90385537e-01, -1.28956548e+00,  7.77655171e-01,
+       -5.41920627e-01, -7.82375824e-01, -9.17221306e-01, -1.41863640e+00,
+       -1.75632332e+00, -8.79739767e-01, -1.03648817e-01, -1.77700640e+00,
+       -5.20355582e-01, -1.38706165e+00, -1.22249765e+00, -1.13386477e+00,
+       -2.06376027e+00, -7.35016804e-01, -1.46679131e+00,  1.99599138e-01,
+       -2.65348615e-01, -2.43288971e+00,  4.70270804e-02, -1.03544048e+00,
+       -9.07429903e-01, -8.61085076e-01, -7.12351487e-01, -1.96617803e+00,
+       -4.46538924e-01, -1.28352647e+00, -9.08358018e-01, -1.40271991e+00,
+        7.77655171e-01,  4.78199537e-01,  4.50727705e-01,  3.28537833e-01,
+       -4.85916623e-01, -1.46070615e+00, -9.11354451e-01, -1.04915643e+00,
+       -3.92345002e-01, -1.42533908e+00, -2.61259158e-02, -6.11102928e-01,
+       -4.46538924e-01, -1.33974878e+00, -5.35257883e-01, -6.46251697e-01,
+       -5.73403084e-01, -7.81229405e-01, -2.14825030e+00, -7.49919105e-01,
+       -2.74079677e-01, -1.82815774e+00, -1.21857310e+00, -9.96195010e-01,
+        5.63040096e-01, -8.03980800e-01, -3.33212339e-01, -2.37084670e+00,
+       -8.65937738e-01,  2.45725660e-01, -1.34063075e+00, -6.53304903e-01,
+       -3.96355628e-01, -2.56267022e-01, -1.06114838e+00, -7.37927158e-01,
+       -1.64886359e+00, -1.81828026e+00, -1.63927899e-01, -1.67849603e+00,
+       -1.30116697e+00, -1.07574630e+00, -7.84358064e-01, -5.84340906e-01,
+       -5.98229014e-01, -8.99790141e-02, -6.29625393e-01, -1.07887496e+00,
+       -1.45991026e+00, -8.30616812e-01, -1.60970419e+00, -1.91286607e+00,
+       -3.19410311e-01,  3.41070189e-02, -1.29543234e+00, -1.33281261e-01,
+        9.41677959e-02, -9.43897249e-01, -9.06415710e-01,  1.63045714e-01,
+       -1.88323363e+00, -6.43427422e-01,  6.56356238e-02, -1.71213910e+00,
+       -1.52477756e+00, -2.11773589e+00, -8.66156043e-01, -1.77003927e+00,
+        2.88278166e-01, -1.30319535e+00, -1.50793295e+00, -4.49449278e-01,
+       -6.79762541e-01, -2.49604278e-01, -1.10938937e+00, -5.66700409e-01,
+       -8.69862285e-01, -5.42006706e-01, -8.13772203e-01, -1.15965874e+00,
+        1.41480669e-01, -1.67748184e+00, -2.81132883e-01, -4.77053335e-01,
+       -8.94642068e-01, -1.80760689e+00, -6.61200145e-01, -1.73673154e-01,
+       -6.63096306e-01, -1.63025505e+00, -1.63638014e+00, -1.41378374e+00,
+       -1.12288701e+00, -1.65785910e+00, -1.83636714e-01, -1.62540238e+00,
+       -6.57361677e-01, -1.52697810e+00,  6.48630397e-01, -4.52359632e-01,
+       -5.44035092e-01, -6.27729232e-01, -2.30880368e+00, -2.97673108e-01,
+       -8.22635491e-01, -7.09613290e-01, -1.18223798e+00,  3.59052245e-01,
+       -1.49536342e+00, -1.92463971e+00, -2.54543019e-01, -9.28994948e-01,
+       -2.04290504e+00, -1.85774403e+00, -1.40474830e+00, -8.75901298e-01,
+       -1.31809766e+00, -1.64211477e+00, -5.78474051e-01, -2.20017981e-01,
+       -9.73529693e-01, -9.81246562e-01,  3.61166710e-01, -1.04523189e+00,
+       -1.40077760e+00, -2.25838689e-01, -3.18528343e-01, -1.55900431e-01,
+       -3.91244730e-01,  4.14128134e-01,  2.49233513e-03, -6.03035529e-01,
+       -7.81447709e-01, -7.23385168e-02, -1.90408886e+00, -1.81153143e+00,
+       -6.31567701e-01, -6.63136237e-01,  5.77004502e-02, -2.78136450e-01,
+       -2.89910092e-01,  4.01558603e-01, -1.27960192e+00, -1.27576345e+00,
+       -1.10615944e-01, -5.75563697e-01, -5.57837121e-01, -1.46784544e+00,
+       -6.56433562e-01,  1.56296891e-01, -6.10002656e-01, -6.57229451e-01,
+       -3.55877656e-01, -1.83550635e-01, -8.72022898e-01,  3.80315663e-02,
+       -1.51207580e+00, -1.49937404e+00, -1.10615944e-01, -6.77912528e-01])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lg_mod</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">train_x</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">train</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>admit</th>
+      <th>gre</th>
+      <th>gpa</th>
+      <th>rank</th>
+      <th>score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>380</td>
+      <td>3.61</td>
+      <td>3</td>
+      <td>0.202556</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>660</td>
+      <td>3.67</td>
+      <td>3</td>
+      <td>0.320445</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>640</td>
+      <td>3.19</td>
+      <td>4</td>
+      <td>0.142386</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0</td>
+      <td>400</td>
+      <td>3.08</td>
+      <td>2</td>
+      <td>0.227637</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1</td>
+      <td>540</td>
+      <td>3.39</td>
+      <td>3</td>
+      <td>0.224044</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>395</th>
+      <td>0</td>
+      <td>620</td>
+      <td>4.00</td>
+      <td>2</td>
+      <td>0.509507</td>
+    </tr>
+    <tr>
+      <th>396</th>
+      <td>0</td>
+      <td>560</td>
+      <td>3.04</td>
+      <td>3</td>
+      <td>0.180631</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>0</td>
+      <td>460</td>
+      <td>2.63</td>
+      <td>2</td>
+      <td>0.182519</td>
+    </tr>
+    <tr>
+      <th>398</th>
+      <td>0</td>
+      <td>700</td>
+      <td>3.65</td>
+      <td>2</td>
+      <td>0.472374</td>
+    </tr>
+    <tr>
+      <th>399</th>
+      <td>0</td>
+      <td>600</td>
+      <td>3.89</td>
+      <td>3</td>
+      <td>0.336727</td>
+    </tr>
+  </tbody>
+</table>
+<p>320 rows × 5 columns</p>
+</div></div></div>
+</div>
+<p>We can get the log odds ratio itself with <code class="docutils literal notranslate"><span class="pre">decision_function</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lg_mod</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">train_x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.37039542e+00, -7.51729186e-01, -1.79561494e+00, -1.22170176e+00,
+       -1.24225261e+00,  1.28692834e-01, -7.54553462e-01, -4.38775908e-01,
+        8.98830850e-01, -6.15823364e-01, -1.31911185e+00, -9.10168099e-01,
+       -2.34143256e+00,  1.79976401e-01,  2.86117553e-01, -1.51802873e+00,
+       -2.09126306e-01, -2.20434038e+00,  6.78262841e-01,  2.70419364e-01,
+       -2.15165319e-01, -8.33394940e-01, -1.11221364e+00, -1.76497429e-01,
+       -6.71249784e-01, -1.24829162e+00, -1.29442793e-01, -1.71694562e+00,
+       -9.75425854e-01, -1.91193796e+00, -1.48354363e+00, -6.45455808e-01,
+       -7.55739813e-01, -1.39394270e+00, -7.39909397e-01, -1.35064045e+00,
+       -5.21369775e-01, -2.27335053e+00, -2.82882732e+00, -6.23718606e-01,
+       -2.25271360e+00, -1.43411629e+00, -4.87812784e-01, -1.04421769e+00,
+       -2.97673108e-01, -1.37912648e+00, -1.96423572e+00, -7.16494339e-01,
+       -2.20434038e+00, -6.88758055e-01, -1.84195977e+00, -7.92121079e-01,
+       -5.51798108e-01, -3.65755138e-01, -4.34256625e-03,  2.60541882e-01,
+        7.40305858e-01, -4.99632573e-01, -2.72158590e+00, -1.94148432e+00,
+       -4.27522197e-02, -1.40360188e+00, -1.22845058e+00, -1.76497429e-01,
+       -3.25449323e-01, -1.93147461e+00, -1.34768395e+00, -2.56888161e+00,
+       -1.13690735e+00, -1.06798328e+00, -6.05063915e-01, -4.63251306e-01,
+        4.89232410e-02,  3.12925722e-01, -3.77528780e-01, -4.75024948e-01,
+       -1.50312643e+00, -6.25833072e-01, -7.93089126e-01, -1.85889045e+00,
+       -1.00192964e+00, -2.19662351e+00, -7.54771766e-01,  7.44989119e-02,
+       -6.32535747e-01,  3.87670495e-01, -1.93270711e+00, -7.32192528e-01,
+       -1.81232732e+00, -2.04493342e+00, -1.15640764e-01, -5.48887754e-01,
+       -8.12976314e-01, -3.94373388e-01, -1.42352900e+00, -1.76126206e+00,
+       -1.68643121e+00, -4.44424458e-01, -1.82917193e+00,  1.67984454e-01,
+       -1.10617463e+00, -8.41462339e-01, -2.19459513e+00, -6.97621343e-01,
+       -9.94034397e-01, -5.74549504e-01, -1.59779833e+00, -1.01378936e+00,
+       -1.16349721e+00, -1.83309648e+00, -3.78456894e-01, -4.93765718e-01,
+        2.03437607e-01,  1.63804428e-02, -1.38195075e+00, -1.17126023e+00,
+       -1.15260554e+00, -1.52993460e+00, -7.76508969e-01, -1.80456431e+00,
+        2.46872080e-01,  7.49169146e-01,  2.52437308e-02, -1.09942581e+00,
+       -1.39491075e+00, -3.33212339e-01, -5.37996079e-01, -7.73466389e-01,
+       -3.64740944e-01, -1.90385537e-01, -1.28956548e+00,  7.77655171e-01,
+       -5.41920627e-01, -7.82375824e-01, -9.17221306e-01, -1.41863640e+00,
+       -1.75632332e+00, -8.79739767e-01, -1.03648817e-01, -1.77700640e+00,
+       -5.20355582e-01, -1.38706165e+00, -1.22249765e+00, -1.13386477e+00,
+       -2.06376027e+00, -7.35016804e-01, -1.46679131e+00,  1.99599138e-01,
+       -2.65348615e-01, -2.43288971e+00,  4.70270804e-02, -1.03544048e+00,
+       -9.07429903e-01, -8.61085076e-01, -7.12351487e-01, -1.96617803e+00,
+       -4.46538924e-01, -1.28352647e+00, -9.08358018e-01, -1.40271991e+00,
+        7.77655171e-01,  4.78199537e-01,  4.50727705e-01,  3.28537833e-01,
+       -4.85916623e-01, -1.46070615e+00, -9.11354451e-01, -1.04915643e+00,
+       -3.92345002e-01, -1.42533908e+00, -2.61259158e-02, -6.11102928e-01,
+       -4.46538924e-01, -1.33974878e+00, -5.35257883e-01, -6.46251697e-01,
+       -5.73403084e-01, -7.81229405e-01, -2.14825030e+00, -7.49919105e-01,
+       -2.74079677e-01, -1.82815774e+00, -1.21857310e+00, -9.96195010e-01,
+        5.63040096e-01, -8.03980800e-01, -3.33212339e-01, -2.37084670e+00,
+       -8.65937738e-01,  2.45725660e-01, -1.34063075e+00, -6.53304903e-01,
+       -3.96355628e-01, -2.56267022e-01, -1.06114838e+00, -7.37927158e-01,
+       -1.64886359e+00, -1.81828026e+00, -1.63927899e-01, -1.67849603e+00,
+       -1.30116697e+00, -1.07574630e+00, -7.84358064e-01, -5.84340906e-01,
+       -5.98229014e-01, -8.99790141e-02, -6.29625393e-01, -1.07887496e+00,
+       -1.45991026e+00, -8.30616812e-01, -1.60970419e+00, -1.91286607e+00,
+       -3.19410311e-01,  3.41070189e-02, -1.29543234e+00, -1.33281261e-01,
+        9.41677959e-02, -9.43897249e-01, -9.06415710e-01,  1.63045714e-01,
+       -1.88323363e+00, -6.43427422e-01,  6.56356238e-02, -1.71213910e+00,
+       -1.52477756e+00, -2.11773589e+00, -8.66156043e-01, -1.77003927e+00,
+        2.88278166e-01, -1.30319535e+00, -1.50793295e+00, -4.49449278e-01,
+       -6.79762541e-01, -2.49604278e-01, -1.10938937e+00, -5.66700409e-01,
+       -8.69862285e-01, -5.42006706e-01, -8.13772203e-01, -1.15965874e+00,
+        1.41480669e-01, -1.67748184e+00, -2.81132883e-01, -4.77053335e-01,
+       -8.94642068e-01, -1.80760689e+00, -6.61200145e-01, -1.73673154e-01,
+       -6.63096306e-01, -1.63025505e+00, -1.63638014e+00, -1.41378374e+00,
+       -1.12288701e+00, -1.65785910e+00, -1.83636714e-01, -1.62540238e+00,
+       -6.57361677e-01, -1.52697810e+00,  6.48630397e-01, -4.52359632e-01,
+       -5.44035092e-01, -6.27729232e-01, -2.30880368e+00, -2.97673108e-01,
+       -8.22635491e-01, -7.09613290e-01, -1.18223798e+00,  3.59052245e-01,
+       -1.49536342e+00, -1.92463971e+00, -2.54543019e-01, -9.28994948e-01,
+       -2.04290504e+00, -1.85774403e+00, -1.40474830e+00, -8.75901298e-01,
+       -1.31809766e+00, -1.64211477e+00, -5.78474051e-01, -2.20017981e-01,
+       -9.73529693e-01, -9.81246562e-01,  3.61166710e-01, -1.04523189e+00,
+       -1.40077760e+00, -2.25838689e-01, -3.18528343e-01, -1.55900431e-01,
+       -3.91244730e-01,  4.14128134e-01,  2.49233513e-03, -6.03035529e-01,
+       -7.81447709e-01, -7.23385168e-02, -1.90408886e+00, -1.81153143e+00,
+       -6.31567701e-01, -6.63136237e-01,  5.77004502e-02, -2.78136450e-01,
+       -2.89910092e-01,  4.01558603e-01, -1.27960192e+00, -1.27576345e+00,
+       -1.10615944e-01, -5.75563697e-01, -5.57837121e-01, -1.46784544e+00,
+       -6.56433562e-01,  1.56296891e-01, -6.10002656e-01, -6.57229451e-01,
+       -3.55877656e-01, -1.83550635e-01, -8.72022898e-01,  3.80315663e-02,
+       -1.51207580e+00, -1.49937404e+00, -1.10615944e-01, -6.77912528e-01])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="analysis-with-test-data">
+<h2>Analysis with Test Data<a class="headerlink" href="#analysis-with-test-data" title="Permalink to this headline">¶</a></h2>
+<p>Now we’ll predict our test data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_x</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="n">feat_cols</span><span class="p">]</span>
+<span class="n">test_y</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="n">out_col</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_d</span> <span class="o">=</span> <span class="n">lg_mod</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What’s the accuracy?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">test_y</span> <span class="o">==</span> <span class="n">test_d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Practice:</strong> compute the precision and recall.</p>
+</div>
+<div class="section" id="roc-curve">
+<h2>ROC Curve<a class="headerlink" href="#roc-curve" title="Permalink to this headline">¶</a></h2>
+<p>We can plot the <em>receiver operating characteristic</em> by using the SciKit <code class="docutils literal notranslate"><span class="pre">roc_curve</span></code> function to compare outcomes and the decision function. It returns the <code class="docutils literal notranslate"><span class="pre">tpr</span></code> and <code class="docutils literal notranslate"><span class="pre">fpr</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_lo</span> <span class="o">=</span> <span class="n">lg_mod</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">test_x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresh</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">test_lo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;False Positive Rate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;True Positive Rate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;ROC&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/SciKitLogistic_42_0.png" src="../../../_images/SciKitLogistic_42_0.png" />
+</div>
+</div>
+<p>What’s the area under that curve?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">test_lo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7170909090909092
+</pre></div>
+</div>
+</div>
+</div>
+<p>I’m going to fill it now for the slide demo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgrey&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;False Positive Rate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;True Positive Rate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;ROC&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/SciKitLogistic_46_0.png" src="../../../_images/SciKitLogistic_46_0.png" />
+</div>
+</div>
+<p>Let’s see a <em>precision-recall curve</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_recall_curve</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">test_lo</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">recall</span><span class="p">,</span> <span class="n">precision</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Recall&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Precision&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/SciKitLogistic_48_0.png" src="../../../_images/SciKitLogistic_48_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="precision-vs-threshold">
+<h2>Precision vs. Threshold<a class="headerlink" href="#precision-vs-threshold" title="Permalink to this headline">¶</a></h2>
+<p>What if we decrease the threshold?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">precision_at_threshold</span><span class="p">(</span><span class="n">thresh</span><span class="p">):</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">test_lo</span> <span class="o">&gt;=</span> <span class="n">thresh</span>
+    <span class="c1"># mask will select for positive class</span>
+    <span class="c1"># mean is fraction</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">test_y</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">thresh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">precs</span> <span class="o">=</span> <span class="p">[</span><span class="n">precision_at_threshold</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">thresh</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">thresh</span><span class="p">,</span> <span class="n">precs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Threshold (Log Odds)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Precision&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Precision&#39;)
+</pre></div>
+</div>
+<img alt="../../../_images/SciKitLogistic_52_1.png" src="../../../_images/SciKitLogistic_52_1.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./resources\tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../SamplingDists/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Sampling Distributions</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../SciKitPipeline/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">SciKit Pipeline and Transform Demo</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../../../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

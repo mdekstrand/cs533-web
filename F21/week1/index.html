@@ -1,0 +1,2358 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 1 — Questions (8/23–27) &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabinsert.js"></script>
+    <script src="../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="copyright" title="Copyright" href="../copyright/" />
+    <link rel="next" title="Demo Notebook" href="DemoNotebook/" />
+    <link rel="prev" title="Week 0 — Pre-Class Welcome" href="../week0/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../resources/tutorials/">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/week1/index.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fweek1/index.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/week1/index.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#content-overview">
+   🧐 Content Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deadlines">
+   📅 Deadlines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   🎥 Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#asking-questions">
+   🎥 Asking Questions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further Reading
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questioning-questions">
+   🎥 Questioning Questions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#textbook-chapters-questions">
+   📖 Textbook Chapters - Questions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tuesday-class">
+   👨‍🏫 Tuesday Class
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-class-inventory">
+   ✅ Pre-Class Inventory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-software">
+   ✅ Install Software
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-1-quiz">
+   🚩 Week 1 Quiz
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#our-first-python-notebook">
+   🎥 📓 Our First Python Notebook
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thursday-class">
+   👨‍🏫 Thursday class
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#textbook-chapters-python">
+   📖 Textbook Chapters - Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-types-and-control-flow">
+   🎥 Data Types and Control Flow
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#control-structures">
+   🎥 Control Structures
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scientific-python">
+   🎥 Scientific Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignment-0">
+   📩 Assignment 0
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-1-questions-8-2327">
+<span id="week1"></span><h1>Week 1 — Questions (8/23–27)<a class="headerlink" href="#week-1-questions-8-2327" title="Permalink to this headline">¶</a></h1>
+<p>The key learning outcomes for this week are:</p>
+<ul class="simple">
+<li><p>Ask and refine questions that can be answered with data</p></li>
+<li><p>Install and run the software required for the course</p></li>
+<li><p>Write and run basic Python code in a Jupyter notebook</p></li>
+<li><p>Begin to think about the complexity of meaningful questions</p></li>
+</ul>
+<p>This week draws from chapters 1–4 from <a class="reference internal" href="../resources/documentation/#book-p4da" title="p4da"><cite>📖 Python for Data Analysis</cite></a> and chapters 1-2 of <a class="reference internal" href="../resources/documentation/#book-tlds" title="tlds"><cite>📖 Think Like a Data Scientist</cite></a>.
+If you already know Python, the Python parts should mostly be review.</p>
+<div class="section" id="content-overview">
+<h2>🧐 Content Overview<a class="headerlink" href="#content-overview" title="Permalink to this headline">¶</a></h2>
+<div class="module-content docutils">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><strong>Element</strong></th>
+<th class="head"><strong>Length</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#52f6698f-a7dd-4943-86eb-ad7501790760"><span>🎥 Introduction</span></a></p></td>
+<td><span>12m34s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#1b19dc1f-fee8-4505-9294-ad7501796f97"><span>🎥 Asking Questions</span></a></p></td>
+<td><span>10m35s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#564e8ea0-13c3-4722-aeca-ad7501798e69"><span>🎥 Questioning Questions</span></a></p></td>
+<td><span>8m54s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#e87e6ac9-4313-4943-87b1-ad75015b95bb"><span>🎥 Our First Python</span></a></p></td>
+<td><span>9m30s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#76daa00b-e512-4b20-9f63-ad75015afb57"><span>🎥 Data Types and Operations</span></a></p></td>
+<td><span>19m17s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fb58d0e3-0e42-41ee-b5a6-ad75015afcbf"><span>🎥 Control Structures</span></a></p></td>
+<td><span>6m56s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bb427c78-988a-4d4a-b671-ad75015afbf6"><span>🎥 Scientific Python</span></a></p></td>
+<td><span>13m20s</span></td>
+</tr>
+</tbody>
+</table>
+<p><span>This week has </span><strong>1h21m</strong><span> of video and </span><strong>0 words</strong><span> of assigned readings.</span><span> This week’s videos are available in a </span><a class="panopto reference external" href="https://boisestate.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%221e48c469-9c8b-4a4b-bd18-ad75015aad5d%22"><span>Panopto folder</span></a><span> and as a </span><a class="panopto podcast reference external" href="https://boisestate.hosted.panopto.com/Panopto/Podcast/Podcast.ashx?courseid=1e48c469-9c8b-4a4b-bd18-ad75015aad5d&amp;type=mp4"><span>podcast</span></a><span>.</span></p>
+</div>
+</div>
+<div class="section" id="deadlines">
+<h2>📅 Deadlines<a class="headerlink" href="#deadlines" title="Permalink to this headline">¶</a></h2>
+<p>This week has the following deadlines:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#pre-class-inventory">Pre-class inventory</a> at <strong>11:59 pm on Tuesday</strong></p></li>
+<li><p><a class="reference external" href="#week-1-quiz">Week 1 quiz</a> at <strong>8am on Thursday</strong></p></li>
+<li><p><a class="reference external" href="#assignment-0">Assignment 0</a> at <strong>11:59 pm on Sunday</strong></p></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2>🎥 Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This video introduces the course and our learning outcomes for the term.</p>
+<div class="resource video docutils container" id="52f6698f-a7dd-4943-86eb-ad7501790760">
+<div class="tabbed-set docutils">
+<input checked="checked" id="d47446ac-8e01-47c7-a987-73846aebb113" name="7f155d09-4b7e-4cb8-acfa-38344104a96a" type="radio">
+</input><label class="tabbed-label" for="d47446ac-8e01-47c7-a987-73846aebb113">
+Video (12m34s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=52f6698f-a7dd-4943-86eb-ad7501790760&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/RexP2ZyVNfU3/info/https52f6698f-a7dd-4943-86eb-ad7501790760-fc4269eb-1399-4a33-9140-ad8c0105606bmp4invocationid08872c6d-6303-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="dbe100e7-06a1-4543-b2c7-1f5f12296db5" name="7f155d09-4b7e-4cb8-acfa-38344104a96a" type="radio">
+</input><label class="tabbed-label" for="dbe100e7-06a1-4543-b2c7-1f5f12296db5">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173705" data-key=AP_wALvN9RZhibw>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+INTRODUCTION
+Video Outcomes
+Introduce the class subject
+Understand course learning outcomes
+Understand structure of this class
+Know where to get help
+What is Data Science?
+The use of data to provide quantitative insights on questions of scientific, business, or social interest.
+Data and Meaning
+
+“By itself, some piece of data has no meaning. Data is only given meaning – as evidence – by the people who make use of it.”
+
+Sergio Sismondo, An Introduction to Science and Technology Studies, 2nd Edition. Wiley-Blackwell, 2010, page 133.
+Learning Outcomes
+Explore a data set to determine whether and how it might illuminate questions of interest.
+Define and operationalize a research question such that a data analysis could produce meaningful knowledge.
+Use best practices to carry out analyses in a documented, reproducible, and efficient fashion.
+Present the results of a data analysis with appropriate visuals and written argument.
+Identify weaknesses in a data analysis and assess their impact on the correctness and utility of the results.
+Assess ethical implications of an analysis in terms of both classical human subject research ethics and contemporary concerns such as fairness and bias.
+Understand the space of data science techniques and applications, and relate future learning to this framework.
+Course Components
+Videos and readings – this is the primary content delivery
+Web site is your guide!
+In-class meetings – application, discussion, exercises
+Quiz before class on Thursday
+Assignments
+Exams
+2 midterm + final
+Getting Help
+In-class from peers and instructor
+Course forum on Piazza – encouraged!
+Office hours
+Remote office hours available by appointment
+Please use Piazza for course inquiries
+Use the Internet
+Documentation and resources
+Public Q&amp;A sites (within reason)
+Wrapping Up
+This class is designed to:
+Provide flexibility in learning
+Use each modality to its best advantage
+
+to achieve our learning outcomes.
+
+Let’s learn!
+We’re in the Internet!
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Hello and welcome to see us five thirty three, introduction to data science.</li>
+<li>This is the introduction video that's going to give you an overview of what it is going to we're going</li>
+<li>to be talking about this semester and provide you with guidance for how to get started with the course.</li>
+<li>Are learning outcomes for this video are to introduce the class subject.</li>
+<li>What is data science for our purposes?</li>
+<li>For you to understand the learning outcomes of the course, for you to understand how this class is structured at a high level,</li>
+<li>we'll be supplementing this with discussion in class and then also to know where to get help throughout the semester as you're in the course.</li>
+<li>To get started, though, I want to talk about what data science is.</li>
+<li>And there are many different people are going to have many different definitions of data science.</li>
+<li>But one of the things that. But the definition I've been using as I've built out this class is that data science is the use</li>
+<li>of data to provide quantitative insights on questions of scientific business or social interest.</li>
+<li>There may be many different things to which we want to apply the science we may have maybe in a business context,</li>
+<li>but we want to gain understanding about the effectiveness of our business processes.</li>
+<li>We may want to evaluate a change to some aspect of how we carry out our business or how we manufacture, provide our products.</li>
+<li>We may want to understand the impacts of some of our business decisions.</li>
+<li>We may have a scientific question. What we are trying to produce generalizable knowledge to understand the world around us.</li>
+<li>We may have a social interest,</li>
+<li>particularly if we're deploying data science in the context of a nonprofit or of a government agency or of an educational institution.</li>
+<li>What we're trying to understand, social dynamics of human behavior. We're trying to understand maybe the impact of a policy on on.</li>
+<li>For example. We may have social interest where particularly if we are deploying.</li>
+<li>We may have social interest, particularly if we are deploying data science in a nonprofit or a government agency</li>
+<li>or an educational setting where we're trying to understand social dynamics,</li>
+<li>we're trying to understand the effectiveness and the impact of policies and programs</li>
+<li>and various other purposes to inform our social mission with quantitative insights.</li>
+<li>To give you some more about how I go about thinking about this and some more of the background of how I've been designing the class,</li>
+<li>I find this quote from Sergios Mondo's Introduction to science and Technology Studies useful in a book.</li>
+<li>He says, By itself, some piece of data has no meaning.</li>
+<li>Data is only given meaning as evidence by the people who make use of it.</li>
+<li>And this means that we can't just go find a bunch of data.</li>
+<li>And, oh, we have the answer. We have to do work to get our data into a form where it can actually provide answers to the questions we care about.</li>
+<li>We need to do work to frame our questions in a way that we can actually.</li>
+<li>Answer them with the data that we have available or that we can obtain, and this is a human process and it's also a social process,</li>
+<li>which is one of the reasons why we're going to be using our own class time for</li>
+<li>discussion and application exercises is because we need the data of the data,</li>
+<li>gains its meaning and becomes evidence for particular conclusions of particular answers.</li>
+<li>Because we go through the process of interpretation and we go through the process of presenting our</li>
+<li>interpretations for other to others and discussing and debating how we came to the conclusions,</li>
+<li>the conclusions. We came to the level of support they have from the data.</li>
+<li>So we're going to be practicing that a lot in this class of going from data to evidentiary meaning as a human process and pursuit of all of this.</li>
+<li>There are a number of learning outcomes for this course. The first one is that I want you to be able to explore a data set.</li>
+<li>Someone gives you some data and you first need to be able to get your bearings and understand what data you have,</li>
+<li>be able to assess whether or not it would answer particular questions and what questions you might be able to answer with it.</li>
+<li>You need to be able to define a question that we can answer.</li>
+<li>So this is a. This is not an easy process when you're talking about quite a bit more about it in the next two videos.</li>
+<li>But taking a goal that we have and turning it into a question that we can actually answer</li>
+<li>through a data analysis is a process that takes work and we're going to be learning that.</li>
+<li>I want you to be able to then actually carry out your analysis in a way that is documented so other people can understand what you did,</li>
+<li>it's reproducible, so others can do the same analysis. And it also doesn't unnecessarily waste computing resources to come to the answers.</li>
+<li>You make efficient use of the resources we have available to us. And also then we can scale to being doing analysis on very large data sets.</li>
+<li>It's not enough to just do an analysis, I want you to be able to present the results of your analysis both through visuals,</li>
+<li>charts and graphics and the written argument to be able to communicate to other people,</li>
+<li>your peers and the class myself in the future, your advisers, your supervisors at work,</li>
+<li>what it is that you learn from the data and why your conclusions are a reliable and defensible interpretation of the data.</li>
+<li>I want you to be able to identify weaknesses in data analysis.</li>
+<li>No data analysis is perfect.</li>
+<li>There are going to be weaknesses and downsides and we'll have to make tradeoffs when we make decisions of how we analyze the data,</li>
+<li>but also not all weaknesses are created equal. I want you to be able to assess whether the impact a weakness has on the correctness and utility.</li>
+<li>The result? Some weaknesses are fatal flaws, so we can no longer trust the results we get.</li>
+<li>Other weaknesses, however, are.</li>
+<li>Caveats that we need to acknowledge and account for when we apply the results, but they don't fundamentally undermine their validity.</li>
+<li>I also want you to be able to reason about the ethical implications of your work.</li>
+<li>There's a variety of different frameworks and perspectives that we can take on the</li>
+<li>ethics of data science work that we're going to be talking about this semester.</li>
+<li>But I want you to be able to think about and account for and assess the ethical implications of data science work.</li>
+<li>And then finally, I want you to understand how various the broader picture of data science,</li>
+<li>the various techniques and applications fit into a framework to give you a map of the of the space,</li>
+<li>and particularly with the role this class plays in Boise State's graduate curriculum.</li>
+<li>I want you I want to give you a framework that you can use to relate what you're going to learn in other classes,</li>
+<li>such as machine learning or large scale data analysis or recommender systems or social</li>
+<li>media mining together and develop a coherent picture of what it is to do data science.</li>
+<li>Support these outcomes, there are a number of components of the class. The first is the videos and readings.</li>
+<li>You're watching one of those videos right now. This is going to be the primary mechanism for content delivery.</li>
+<li>I'm not planning to lecture live in class. I'll be doing a little bit of lecture style things here and there as we need to</li>
+<li>clear up things that that are confusing or things you have questions about.</li>
+<li>But our primary content delivery is going to be through these prerecorded lecture videos.</li>
+<li>The website is your guide to all of this. Each week is going to have a page that lays out the videos,</li>
+<li>the readings that you need to do in order to be prepared for class, prepared for the assignments and to learn the material.</li>
+<li>Are in class, meetings are going to be focused on discussing and applying the materials, some of that will be open discussion,</li>
+<li>some of that will be guided application exercises particularly carried out with your classmates.</li>
+<li>We're going to be having some quizzes, particularly each Thursday.</li>
+<li>There's going to be a quiz before class that assesses your understanding of the material and give both</li>
+<li>you and I an initial check on how well your understanding it and whether you're ready to apply it.</li>
+<li>In our work and in the assignment,</li>
+<li>we're going to have assignments that come at a relatively steady pace throughout the semester, one every other week.</li>
+<li>They give you more extended place to practice and develop your skills and demonstrate</li>
+<li>your mastery of the material that we're going to be covering this semester. And then finally,</li>
+<li>we have two midterm exams that a final exam to give an additional check of your conceptual knowledge of what it is that we're doing in this class.</li>
+<li>As we go through the semester,</li>
+<li>I expect you're probably going to have questions and you're going to need some help and there's a variety of places you can get it.</li>
+<li>You can get it in our class meetings, both from your peers in the class and from me.</li>
+<li>You can get it at any time through the class forum on Piazza.</li>
+<li>I strongly encourage you to ask questions and answer each other's questions on Piazza when you ask a question,</li>
+<li>I'm probably not going to answer it immediately. I'm going to give some time in order to see if others have an answer first.</li>
+<li>Oftentimes, helping other people answer questions strengthens our own understanding of the material.</li>
+<li>So I encourage you to make use of Piazza both to answer your get your questions answered</li>
+<li>and to develop and practice your understanding of the material through helping each other.</li>
+<li>I am going to be having office hours. I'm going to be having them physically in my office so long as health permits.</li>
+<li>And I will also be able to have remote office hours by appointment.</li>
+<li>I do ask that if you have any inquiries about the class that you direct them through Piazza.</li>
+<li>If it's something that's just for me, perhaps about grades or something,</li>
+<li>you can send a private message to the instructors on Piazza that's going to let me keep all</li>
+<li>my course communications in one place so I don't accidentally lose something in my email.</li>
+<li>And finally, you can use the Internet as a resource where there's a lot of documentation, resources.</li>
+<li>Many of our readings are going to come from various places on the Internet. There's many more sites where you can search for solutions and help also.</li>
+<li>I encourage you to make use of public Q&amp;A sites when you're a practicing data scientist after this class.</li>
+<li>The Internet is at your disposal for getting your work done.</li>
+<li>There's no reason not to go ahead and practice, make use of the resources that are available to you in this class.</li>
+<li>I just ask that you do it in a way that's in keeping with the principles of academic integrity,</li>
+<li>you can go to a public Q&amp;A site and you can ask, I'm trying to do this thing.</li>
+<li>I'm having a problem. And ask a specific question about the problem that you're getting stuck on.</li>
+<li>I don't want you to just copy copying a piece of the assignment description pasted in a question answer site and ask, how do I do this?</li>
+<li>Demonstrate your learning of the material and how you go about identifying where it is that you're stuck and</li>
+<li>asking a question that's going to help uncover the missing piece that you need in order to move forward.</li>
+<li>So it's all of that. This class is designed to provide flexibility in learning and to use each modality to its best advantage.</li>
+<li>There are tradeoffs. I'm not going to pretend like there's no trade off the how I've designed this class.</li>
+<li>But with this design, we can do the content delivery me lecturing in a way where you can go back and watch videos later.</li>
+<li>You can catch up. If you have to miss some material, you can speed up the video.</li>
+<li>If I talk to slow. And we're going to focus our in class time on things that can only be done through Synchronoss discussion.</li>
+<li>Where we're actually engaging with the material together and talking to each</li>
+<li>other about it and these things together with the various parts of the class,</li>
+<li>I hope are going to allow us to achieve our learning outcomes for the semester. I hope you have a great semester.</li>
+<li>I hope you learn a lot. I also expect to learn from you every time I teach.</li>
+<li>It's a learning experience for me as well. And I learn more about the subject and about how to teach and communicate about it from my students.</li>
+<li>So let's learn together.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="asking-questions">
+<h2>🎥 Asking Questions<a class="headerlink" href="#asking-questions" title="Permalink to this headline">¶</a></h2>
+<p>In this video, I introduce <em>questions</em> in their broader context of using data to advance goals.
+I also introduce the idea of <strong>operationalization</strong>, which will be a key concept throughout the class.</p>
+<div class="resource video docutils container" id="1b19dc1f-fee8-4505-9294-ad7501796f97">
+<div class="tabbed-set docutils">
+<input checked="checked" id="2a100bf1-4ead-4b21-bc87-e5062a29ee6c" name="ee5499d0-4dfd-4734-95f2-035999b1a7ba" type="radio">
+</input><label class="tabbed-label" for="2a100bf1-4ead-4b21-bc87-e5062a29ee6c">
+Video (10m35s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=1b19dc1f-fee8-4505-9294-ad7501796f97&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/ChlYL843WN78/info/https1b19dc1f-fee8-4505-9294-ad7501796f97-4e0a033c-d7ab-4c00-a03e-ad8c010d5105mp4invocationid1644c8dc-6503-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="72280108-041a-4ab7-a207-66685e11ac37" name="ee5499d0-4dfd-4734-95f2-035999b1a7ba" type="radio">
+</input><label class="tabbed-label" for="72280108-041a-4ab7-a207-66685e11ac37">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2172944" data-key=AFZ_21-M4BmFQyE>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+ASKING QUESTIONS
+Learning Outcomes
+Understand components of a good question
+Understand how questions relate to goals and analyses
+Think about data for a question
+
+Key term: operationalization
+
+What is Data Science?
+The use of data to provide quantitative insights on questions of scientific, business, or social interest.
+Example: Department Interest
+Context: changed assignment structures in CS121
+Goal: Assess whether new change improved CS121
+
+What does ‘improve’ mean?
+What data could inform the assessment?
+What could we do with that data to measure improvement?
+Operationalization
+We call this operationalization
+
+Start with a goal
+Refine through intermediate questions
+Define a specific measurement to take
+What, precisely, is collected
+How, precisely, it is computed
+operationalize, v.:
+The process of doing this.
+
+operationalization, n.:
+The result of this process.
+Example: Department Interest
+Goal: Assess whether new change improved CS121
+
+Question: Are students better prepared to excel at work?
+Question: Are students better prepared for the next class?
+Goals, Questions, and Analysis
+Questions do not have 1 level
+May be multiple levels
+Answering the question should advance the goal.
+Or higher-level question
+
+Carrying out the analysis should answer the question.
+Operationalized Questions
+They are specific
+They are answerable
+They can be answered with available data
+Questions that fail this are not bad!
+
+Example: Department Interest
+Goal: Assess whether new change improved CS121
+
+Question: Are students better prepared for next class?
+Question: Are students more likely to pass CS 221?
+
+Data: student grades for CS121 &amp; 221
+
+Caveats: many
+Clarifying Questions
+Your boss, client, etc. sets goals, may have questions
+
+But they need to be refined before meeting data!
+
+Refine this through clarifying questions!
+Wrapping Up
+Multiple layers to translate between data and high-level goals or objectives.
+
+Questions bridge this gap.
+
+Multiple levels of questions may be needed.
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>So this video, we're want to talk about asking questions.</li>
+<li>What makes a good question? How does a question relate to the broader context of what we're trying to do in this class?</li>
+<li>The learning outcomes for this video are few to understand what makes a good question.</li>
+<li>Understand how it relates to goals and analysis and start to think about data for a question.</li>
+<li>We're also going to introduce a key term operationalization that is going to come up throughout the rest of the class.</li>
+<li>To set the stage, I want to review our definition of data science that I introduced in the class introduction video that we're learning</li>
+<li>about how to use data to provide quantitative insights on questions of scientific business or social interest.</li>
+<li>But in order to do that effectively, we need to be able to write good questions, refine those questions,</li>
+<li>connect them both to the data we might be able to use to shed these quantitative insights and to the goals,</li>
+<li>the business purposes or scientific purposes for which we're asking the questions in the first place.</li>
+<li>So I want to work through this with you with an example.</li>
+<li>So suppose in the Boys State Computer Science Department, we have our introductory classes.</li>
+<li>Yes. One twenty one to twenty one. Three twenty one. Suppose we make some change to see.</li>
+<li>Yes. Twenty one. Like we change the way we do the assignments. And we want to assess whether this new change improved.</li>
+<li>C. S 121. So we have a business purpose here of we're making a change to one of our courses.</li>
+<li>And we want to see if that change is improving the course in some way.</li>
+<li>But in order to do that, we need to identify a number of things, such as what does it mean to improve C.</li>
+<li>S one twenty one? What data could we use to try to inform this assessment of whether we improved?</li>
+<li>Yes, 121. And what could we do with that data to measure improvement?</li>
+<li>And. So this process is called operationalization.</li>
+<li>We have a goal. Assess whether we improved 121. That, in turn is in service of the broader goal of delivering a high quality undergraduate education.</li>
+<li>Then we've refined through intermediate questions. I'm going to show some of those in a bit to determine a specific measurement to take.</li>
+<li>And at the end of the day, if we are fully operationalize the goal or a question,</li>
+<li>we know precisely what data we're going to collect or has been collected and how what measurement</li>
+<li>or measurements we're going to compute over that data in order to try to answer our question,</li>
+<li>we use the term in a couple of senses. First, operationalize can be a verb.</li>
+<li>It's the process of doing this operationalization. Then, as a tense of the verb operationalization is also a noun.</li>
+<li>And it's the result of this process.</li>
+<li>So the specific measurement and analysis that we're going to do over specific data can be called an operationalization of the question.</li>
+<li>So we have our goal of assessing whether some change improves.</li>
+<li>Yes, 121. We can ask an intermediate question.</li>
+<li>OK, so what does it mean to improve it? Well, students are better prepared to go excel in the workplace.</li>
+<li>Well, it's a while until this is the freshman class. It's a while until the students are going out and the job market.</li>
+<li>Or we have for information on how well equipped they were. So can we ask a shorter term question?</li>
+<li>That's going to help us get to that. Are students better prepared for the next class?</li>
+<li>And we call this intermediate question a proxy.</li>
+<li>So if our goal is better, prepare them for doing their work, they're doing the work we're training them for the proxy can be.</li>
+<li>Well, are they better prepared for the next class?</li>
+<li>So questions don't have one level and there's a there's a path here between goal our goal, improve education, deliver a high quality education,</li>
+<li>the subgoal of assess whether this change that was intended to improve the educational effectiveness of our introductory</li>
+<li>programing class actually did so to get all the way down to the data that we can use in order to try to measure it.</li>
+<li>We can also have multiple levels of questions, as we've already seen well.</li>
+<li>Are they prepared for for their work? Well, we can't. That's a long timeframe.</li>
+<li>It's difficult to measure that on the timeframe we need in order to iterate on the on class structures.</li>
+<li>So we use this that we step down one level. We use this proxy.</li>
+<li>Are they better prepared for the next class?</li>
+<li>So if we want to think about the quality of our questions, like we need a way to assess whether a question is good.</li>
+<li>And there's a couple of ways we do that. One is looking upward.</li>
+<li>So the question should advance the goal and we should be able to look at the goal and look at the question and say yes.</li>
+<li>Answering this question does move us forward in this goal.</li>
+<li>No one question is going to be the complete answer to our goal.</li>
+<li>But our students, better prepared for the next class, moves us one step closer.</li>
+<li>We can say yes, if we if students are better prepared for the next class,</li>
+<li>that is probably evidence that we have improved the effectiveness of the introductory class.</li>
+<li>Also, though, carrying out the analysis should answer the question.</li>
+<li>We want to work our questions down to the point where we have a question that's specific.</li>
+<li>We we can it's clear that the question will advance either the top level goal or a higher level question that in turn advances the goal.</li>
+<li>But also it's specific enough that we can look at a data analysis plan.</li>
+<li>Here's the data we're going to use. Here's the measurements we're going to take. Here's the analysis we're going to perform and we can say, yes,</li>
+<li>doing this data analysis plan will answer this question or at least answer the question in a useful sense.</li>
+<li>And so if we can make those connections that we can see, doing the analysis will answer the question, answer the question.</li>
+<li>Answering the question will advance the goal. Then we have a connection.</li>
+<li>We have a connectedness between the analysis and the data that we can actually do.</li>
+<li>And. The question or the goal that we're trying to advance through this data analysis.</li>
+<li>So a fully operationalized question is going to be specific and it's going to be answerable and with the available data.</li>
+<li>Now, there are lots of useful questions that we can't answer with available data.</li>
+<li>That does not mean they're bad or we should ignore them. They're incredibly useful for contextualizing the limits of a data analysis that we do.</li>
+<li>We have a data analysis. It can answer one question that will advance the goal.</li>
+<li>There are three other questions related to the goal that cannot be answered by our analysis.</li>
+<li>Well, that's useful in our report to talk about the limitations. Well, we can answer this question.</li>
+<li>We can't answer these others. Maybe we can think about how to how to answer those others questions.</li>
+<li>But when we're trying to get down to a question that we can answer with data.</li>
+<li>And remember, we're talking about data sciences, quantitative insights into these questions.</li>
+<li>We want to see, can we actually answer the question with data? And can we match the analysis plan to the question to the goal.</li>
+<li>So to go back to our example of trying to measure the effectiveness of improving one twenty one, are students better prepared for the next class?</li>
+<li>Well, we can make that more specific. Are they more likely to pass?</li>
+<li>Yes. To twenty one. Now we have a very specific question.</li>
+<li>We can answer it with the student grades from six to twenty one. We can look at students who took our class.</li>
+<li>Our new C. S one twenty one and took our old C as one.</li>
+<li>And we can compare the pass rates. Now there are many caveats.</li>
+<li>There are a lot of challenges to doing this properly. It can only measure one piece of what's going on.</li>
+<li>But it's a specific question that we can answer with data.</li>
+<li>Our students in the new version of our intro class more or less likely to pass the next class,</li>
+<li>will get to talk more about this question in the next video.</li>
+<li>Now, to get to this kind of a question, I've given you the example and work through it here.</li>
+<li>In practice, you're going to need to work with your boss, your client, your advisor, other stakeholders,</li>
+<li>whoever is going to be acting on the results of your data analysis, which may be yourself.</li>
+<li>To get to these operation, to get to these fully operationalized questions, they're going to have goals.</li>
+<li>They may have some some high level questions, they may have some specific questions that can't map to the data.</li>
+<li>One of the key ways to be able to do this refinement is through clarifying questions such as.</li>
+<li>So if if the department chair came to you and said,</li>
+<li>I would like you to help me measure the effect of this improvement to see us one twenty one, well, then we can ask questions.</li>
+<li>What do we mean by improve? What would be evidence that we did improve?</li>
+<li>Six one twenty one. And so we're gonna have practice in the synchronous time.</li>
+<li>That's one of the things we're gonna do this week in thinking about clarifying questions.</li>
+<li>But these clarifying questions that you can ask to your client.</li>
+<li>We're going to use the term client generally for whoever is you're doing the data</li>
+<li>analysis for to figure out what they actually want and what you can do with the data.</li>
+<li>That's going to advance their goals. So to wrap up, there are multiple layers to translate between our high level goals,</li>
+<li>deliver a high quality undergraduate education and what we can actually do with data</li>
+<li>measure whether this change increased students ability to pass the next class.</li>
+<li>Questions bridge this gap and we can have multiple layers of questions in order to get from high level goal to something we can do with data.</li>
+<li>You're gonna be doing this a lot through the rest of the semester.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="further-reading">
+<h3>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://towardsdatascience.com/how-to-ask-the-right-questions-as-a-data-scientist-913621907411">How to Ask the Right Questions</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="questioning-questions">
+<h2>🎥 Questioning Questions<a class="headerlink" href="#questioning-questions" title="Permalink to this headline">¶</a></h2>
+<p>We make our <a class="reference internal" href="../glossary/#term-operationalization"><span class="xref std std-term">operationalizations</span></a> better by questioning them.  What do they capture?  Who or what do they prioritize?</p>
+<div class="resource video docutils container" id="564e8ea0-13c3-4722-aeca-ad7501798e69">
+<div class="tabbed-set docutils">
+<input checked="checked" id="b6c5a954-bdac-4771-a88e-b512ed2c0831" name="64fabe22-41d7-44a5-b972-29f90e23d7e0" type="radio">
+</input><label class="tabbed-label" for="b6c5a954-bdac-4771-a88e-b512ed2c0831">
+Video (8m54s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=564e8ea0-13c3-4722-aeca-ad7501798e69&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/ON0uD7esRCyo/info/https564e8ea0-13c3-4722-aeca-ad7501798e69-8faeb2ce-79d2-480f-b337-ad8c0110cfc1mp4invocationid7b7b05c5-6603-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="5f5108d4-36f3-4b95-be1b-f64856520e73" name="64fabe22-41d7-44a5-b972-29f90e23d7e0" type="radio">
+</input><label class="tabbed-label" for="5f5108d4-36f3-4b95-be1b-f64856520e73">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2172946" data-key=ADgXZwd15GxB2yo>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+QUESTIONING QUESTIONS
+Learning Outcomes
+Identify stakeholders and subgroups for a problem
+Evaluate the operationalization of a question to see who and what it prioritizes
+
+Key concept: understand a metric by asking what makes it improve
+Example from Last Video
+Goal: Assess whether new change improved CS121
+
+Question: Are students better prepared for next class?
+Question: Are students more likely to pass CS 221?
+
+Data: student grades for CS121 &amp; 221
+
+Caveats: many
+Measuring the Question
+Option 1: Pass Rate
+What fraction of students pass CS221?
+Does the new 121 method improve it?
+
+Option 2: Grade
+What is the average grade in CS221?
+Does the new 121 method improve it?
+Letter or course points?
+Understanding Measurements
+How do I improve this measurement?
+Improving Metrics
+Option 1: Pass Rate
+Increase the number of people who pass the class
+The only way to improve it is helping those w/ the most difficulty
+
+Option 2: Grade
+Make students do better
+Can be improved at the top (A- → A)
+Measurement
+You get what you measure.
+Stakeholders
+Students
+Faculty
+Department
+Employers
+University
+High-performing students
+Underprepared students
+Marginalized students
+How Do I Improve This?
+Clarifies metric behavior
+
+What changes to improve it?
+What can remain the same while it is improved?
+How can it be gamed or manipulated?
+
+Metrics are always lossy and reductive, but this question helps evaluate and improve.
+Wrapping Up
+It is crucial to appropriately define measurements, and question our definitions.
+
+How do we improve a metric?
+
+Who or what does a metric prioritize?
+Photo: Nicolos Tissot on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Welcome back. And this video, I want to talk with you about what I'm going to call questioning questions I want us to dig deeper into.</li>
+<li>We have a question. We have a candidate operationalization. How do we understand what it's actually going to be doing and how do we evaluate it?</li>
+<li>So we're learning outcomes here are to be able to identify stakeholders and subgroups for a</li>
+<li>problem and to evaluate the operationalization of a question to see who and what it prioritizes.</li>
+<li>A key concept I want you to take away from this lecture is that we can understand</li>
+<li>a metric or a measurement by asking what it takes to make it improve.</li>
+<li>So to return to the example from the previous video, we want to assess whether a new change is improved.</li>
+<li>Our introductory computer science class.</li>
+<li>We can't one way we can go try to do that is to look at students who have taken their grades in the next class,</li>
+<li>see us to twenty one and see if they're more likely to pass the next class.</li>
+<li>We can measure this by looking at the grades. But this is not the only way that we can.</li>
+<li>We can try to measure whether we've improved since to twenty or one twenty one.</li>
+<li>So this option, I'm going to call it option one. We're looking at the pass rate. What fraction of students pass.</li>
+<li>Yes. To twenty one for whatever definition of pass they get a C minus or better.</li>
+<li>We could, we could up get. We could say what fraction get a B or get a B minus or better.</li>
+<li>But what fraction of students pass. And does the Nusi as 121 method improve it.</li>
+<li>Another way we could go try to look at it would be to look at the grades students receive in to twenty one.</li>
+<li>So what is the average grade for students? For first students with the new intro.</li>
+<li>With the previous intro and C two twenty one. Does the new, does the new technique in intro improve it.</li>
+<li>We then have a question. Do we want to look at letter grades and, and maybe compute the average with the same formula used for GPA.</li>
+<li>Do we want to look at coarse points. So actually look at what did they get in ninety five and ninety nine.</li>
+<li>But we can look at the movement in the average grades now to evaluate what we have to figure out.</li>
+<li>Which of these do we want to do. And a key tool that I want you to become familiar with for evaluating and understanding different measurements,</li>
+<li>metrics, statistics, etc., is to ask how do I improve this measurement?</li>
+<li>So we're computing's that. They were computing a pass rate, were computing an average grade.</li>
+<li>How do I make this measurement better or worse? And this is going to give us a lot of insight into how the measurement works, what it prioritizes.</li>
+<li>This this way of thinking about a measurement or a problem,</li>
+<li>I think is going to serve you well throughout this class and throughout the rest of your education and work.</li>
+<li>So let's talk about what these measurements and how to improve these measurements.</li>
+<li>So if we want to improve the pass rate and we're not changing six to twenty one itself,</li>
+<li>we can improve the pass rate by just passing everybody in to twenty one.</li>
+<li>But if we're leaving to twenty one alone and we're changing, we're trying to improve the pass rate.</li>
+<li>By making a change to the class that prepares students for it,</li>
+<li>the only way to improve this is by helping those students who are going to have the most difficulty with C.</li>
+<li>S one to one with C. S two one. If a student goes through one twenty one and they're going to get A, B and A and C.</li>
+<li>S one twenty one. No change that we make to their excuse me to twenty one.</li>
+<li>No change that we make to their one twenty one experience is going to improve our metric.</li>
+<li>The only way to improve it is by helping more students move.</li>
+<li>From a D to a C minus. Option two, why measuring the grade, we can improve this by making students do better at.</li>
+<li>But we make do it by enabling students to do better.</li>
+<li>If a student that would have gotten an A minus under the previous one twenty one is now prepared to the point where they'll get an A.</li>
+<li>We improve it and we improve it just as much as if we move from a C minus to a C.</li>
+<li>And so we there's more opportunity to make the grade better.</li>
+<li>But we can improve this metric only by helping the students who were already well-prepared for C to twenty one.</li>
+<li>So this brings us to a key point you get, which you measure.</li>
+<li>If you set something up as the evaluation criteria, we're gonna see this really clearly once we start optimizing machine learning models.</li>
+<li>When you set something up as your optimization criteria, that's what you get.</li>
+<li>If you evaluate 120, what if you evaluate changes to the introductory class by people passing the next class, then you?</li>
+<li>That's going to. That structures the pedagogy because design and the teaching evaluations to favor preparing students to pass the next class.</li>
+<li>If you measure if you measure increased in average grade, that structure did to improve average grades.</li>
+<li>But it might but it might focus the attention more on helping the students who were going to get a pretty good grade.</li>
+<li>Anyway.</li>
+<li>So going beyond, though, just just so we're looking here at two subgroups, one metric clearly favors the students who are on the edge pass rate.</li>
+<li>You can only improve it by helping the students who are on the edge. The average grade, you can help across the board.</li>
+<li>There are a variety of different stakeholders in the in the design of of an introductory class.</li>
+<li>There's the students themselves who are going to be learning. There's the faculty who have to teach it.</li>
+<li>Either they teach it themselves, they teach it directly, or they depend on students being prepared by that class as a prerequisite for the class.</li>
+<li>They do teach the department, obviously, as a stakeholder because it has an interest in students producing a good education</li>
+<li>that that students are want to come for and that employers want to hire for.</li>
+<li>Employers want students to come out of the program well-prepared.</li>
+<li>The university wants one has an interest in having programs that that produce well-prepared students.</li>
+<li>And there also are attractive to students to be it to increase enrollment numbers.</li>
+<li>But then even within within stake, the broad stakeholder categories, we have different subgroups.</li>
+<li>So just within students, we can talk about high performing students.</li>
+<li>We can talk about students who are underprepared for one or another class.</li>
+<li>We can talk about students who are in some way or another marginalized.</li>
+<li>And they may experience changes in the class structure of the class, delivery of the class assessment differently.</li>
+<li>So even even once we've identified a stakeholder group, not every subset of that stakeholder group is going to experience.</li>
+<li>What we're trying to study or is going to be reflected in the data in the same way,</li>
+<li>we need to be able to identify these different groups to understand what it is that we're actually measuring.</li>
+<li>So I want to return, though, this key question ask how do I improve this more?</li>
+<li>Faced with a metric that really helps us clarify how a metric or a measurement behaves.</li>
+<li>What changes to improve it? What also what can remain the same?</li>
+<li>While it is improved. And then another important question is, how can it be gamed or manipulated?</li>
+<li>Metrics are always what we call Lawsie and reductive.</li>
+<li>Which means what that means is that no measurement captures everything about a phenomenon we care about.</li>
+<li>And reductive means that we're we're taking a complex virts phenomenon.</li>
+<li>We're reducing it down to one or a handful of measurements. We always lose something there.</li>
+<li>But the results. But this question helps us evaluate what we're losing and iterate and improve our metrics and also assess and</li>
+<li>assess whether those those weaknesses are actual challenges to validity or just something we need to keep in mind.</li>
+<li>So to wrap up, it's crucial to appropriately define our measurements and then to question our definitions and a good import.</li>
+<li>A useful way to do that is to ask how do we improve a metric that we're thinking about using?</li>
+<li>And then also we want to look at who or what does a metric prioritize?</li>
+<li>And is that prioritization is consistent with what we want to accomplish through organizational business or scientific goals.</li>
+</ul>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this video, I talk about asking what it takes to <em>improve</em> a metric.  It would be more
+precise to ask what would <em>change</em> a metric; whether increasing or decreasing a metric is
+an improvement depends on the metric and application context.  The metric itself does not
+improve or get worse without that context.</p>
+<p>When I re-record this video for a future revision, I’ll change my language.</p>
+</div>
+</div>
+<div class="section" id="textbook-chapters-questions">
+<h2>📖 Textbook Chapters - Questions<a class="headerlink" href="#textbook-chapters-questions" title="Permalink to this headline">¶</a></h2>
+<p>The first videos of this class go with chapters 1 and 2 of <a class="reference internal" href="../resources/documentation/#book-tlds" title="tlds"><cite>📖 Think Like a Data Scientist</cite></a>.</p>
+</div>
+<div class="section" id="tuesday-class">
+<h2>👨‍🏫 Tuesday Class<a class="headerlink" href="#tuesday-class" title="Permalink to this headline">¶</a></h2>
+<p>On Tuesday, we will:</p>
+<ul class="simple">
+<li><p>Introduce the class</p></li>
+<li><p>Start working on defining and clarifying questions</p></li>
+<li><p>Set expectations for the week and semester</p></li>
+</ul>
+</div>
+<div class="section" id="pre-class-inventory">
+<h2>✅ Pre-Class Inventory<a class="headerlink" href="#pre-class-inventory" title="Permalink to this headline">¶</a></h2>
+<p>Fill out the <a class="reference external" href="https://forms.gle/mNgETf37Sr2RqdTd7">pre-class skill inventory and survey</a> by <strong>11:59 pm on Tuesday</strong>.</p>
+</div>
+<div class="section" id="install-software">
+<h2>✅ Install Software<a class="headerlink" href="#install-software" title="Permalink to this headline">¶</a></h2>
+<p>Make sure you have <a class="reference internal" href="../resources/software/"><span class="doc std std-doc">installed the course software</span></a> so you can complete the assignment.</p>
+</div>
+<div class="section" id="week-1-quiz">
+<h2>🚩 Week 1 Quiz<a class="headerlink" href="#week-1-quiz" title="Permalink to this headline">¶</a></h2>
+<p>The Week 1 individual quiz (in Canvas) is due at <strong>8am Thursday</strong>.
+It is only over material prior to this point.</p>
+<p>You will have <strong>30 minutes</strong> from when you start the quiz to complete it.
+These quizzes are never going to be terribly long; this one is particularly designed to be pretty easy, as an
+initial quick check and to give you experience with the quiz process.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>I recommend watching the remaining videos before class Thursday as well, but they will not
+be tested over in the quiz.</p>
+</div>
+</div>
+<div class="section" id="our-first-python-notebook">
+<h2>🎥 📓 Our First Python Notebook<a class="headerlink" href="#our-first-python-notebook" title="Permalink to this headline">¶</a></h2>
+<p>This video shows you how to start Jupyter, create a notebook, and run Python code.
+It also shows you how to prepare a notebook to submit as an assignment.</p>
+<div class="resource video docutils container" id="e87e6ac9-4313-4943-87b1-ad75015b95bb">
+<div class="tabbed-set docutils">
+<input checked="checked" id="9f524094-7df5-4e4d-8581-0f8803939e84" name="77927fa2-8b23-425d-864d-53634621e502" type="radio">
+</input><label class="tabbed-label" for="9f524094-7df5-4e4d-8581-0f8803939e84">
+Video (9m30s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=e87e6ac9-4313-4943-87b1-ad75015b95bb&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/LUWU3QdwyY0u/info/httpse87e6ac9-4313-4943-87b1-ad75015b95bb-6042448d-66e9-47b4-8b32-ad8c0111f3d4mp4invocationid2e65da02-6d03-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="eb8e2fad-43d7-4910-bcf9-c68bb7f8e3ff" name="77927fa2-8b23-425d-864d-53634621e502" type="radio">
+</input><label class="tabbed-label" for="eb8e2fad-43d7-4910-bcf9-c68bb7f8e3ff">
+Onyx Video</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=dbd531fb-904f-4b2f-b0a3-ad75015afd4c&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/7pm0dwa8XK45/info/httpsdbd531fb-904f-4b2f-b0a3-ad75015afd4c-7ee12dfe-0986-47af-b8df-ad8c011dfdd5mp4invocationid242d7851-6e03-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+OUR FIRST PYTHON NOTEBOOK
+Learning Outcomes
+Start Jupyter
+Run Python code
+Prepare a notebook for submission
+
+USINNG ONYX
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>In this video, I'm going to show you how to start up the Jupiter environment that we're going</li>
+<li>to be using for our Python program and write some of our first Python code.</li>
+<li>Also up to the steps needed to turn a notebook into a PDAF.</li>
+<li>You can submit on blackboard for one of the assignments. So I've already installed Anaconda.</li>
+<li>You can find the instructions for that on the course Web site. On Windows, when we've installed in a condo, we get.</li>
+<li>A new kind of prompt available in the START menu, so I can going to start the anaconda power shall prompt.</li>
+<li>And this starts up a power shell command line.</li>
+<li>That has Anaconda activated the process for doing this on Linux or on Windows is slightly different, although excuse me,</li>
+<li>on Linux or on Mac is slightly different, although you can also start the prompt from the Anaconda navigator.</li>
+<li>I will show you in another video how to activate Anaconda when we have it installed on Onyx, which will also apply to other Linux systems.</li>
+<li>So I'm in my anaconda, prompted to my home directory. I'm going to go to the directory I've created for working on C.S. 533.</li>
+<li>So I'm going to c.D into documents. Yes, 533 assignments, and here I'm going to start the Jupiter environment with Jupiter notebook.</li>
+<li>So we're gonna be doing our work in what we call notebooks. They're a part of Jupiter. We can start this at the command line with Jupiter notebook.</li>
+<li>And it's going to start up the Jupiter system and open it up in our Web browser.</li>
+<li>The Web browser is the interface that we use to interface with Jupiter and interact with notebooks.</li>
+<li>So if I had some notebook files in here, they would be listed in the notebook list and we could open them.</li>
+<li>So in the assignment, you'll download the starter notebook. Save it in the directory you're working in.</li>
+<li>When you run Jupiter notebook, it will appear. But right now, I'm one to create a new notebook.</li>
+<li>I'm going to create a new Python three notebook because Python three is what we're using in this class.</li>
+<li>And it's a new notebook and it's untitled. So I'm going to given a name here.</li>
+<li>I'm just going to call it demo notebook because it's the notebook that I'm using to demonstrate.</li>
+<li>If I go back to our notebook list, we now see it and its demo notebook that I pay NDB the I pay NDB file as the source filed for the notebook.</li>
+<li>You're going to be submitting those as one of the things you submit in your assignment. So now a notebook is made up of cells.</li>
+<li>And right now we have one cell here. So I want to put some code in it.</li>
+<li>I'm just going to write the string hello, world. The string isn't close in case, and it's enclosed in double quotes.</li>
+<li>And I am going to hit shift enter. And that run shift enter runs the cell that we're currently in.</li>
+<li>And now it's labeled in one. It's the first cell that we ran. And it has an output out, one that says, hello, world.</li>
+<li>When you run a cell and the last line of the cells and expression that has some value, what Jupiter will do is it will show you that value.</li>
+<li>So because the last and only line of the cell is the string value.</li>
+<li>Hello, world. It shows me the value. Hello, world.</li>
+<li>If I put in a value a number five, it will show me the number five.</li>
+<li>It only prints the value of the last line, but it lets us very quickly just see an object.</li>
+<li>We don't even need to worry about print statements. If we do want to create output, we can.</li>
+<li>Called print, and it will print the output for the way Python would usually print it.</li>
+<li>It shows up as a as as text. Jupiter is going to show the output of our program here.</li>
+<li>It's formatted a little differently because its output. It's not just showing the results of an expression.</li>
+<li>These code cells are not the only cells that we can have in a notebook.</li>
+<li>So I'm going to insert a new cell above the above this one.</li>
+<li>And I am going to change its type to markdown.</li>
+<li>And in a markdown cell, we don't write python code, but we write text.</li>
+<li>So I wrote the text, this is the demonstration node to show notebook to show you how to run Python code.</li>
+<li>And if I run this notebook, it just renders it as text.</li>
+<li>Now I can edit it. I'm going to double click to edit it again.</li>
+<li>This supports all markdown features so we can give this notebook a heading.</li>
+<li>We always want to begin our notebook with a level one heading, which is done with a single hash that gives the title of the notebooks,</li>
+<li>that then when we convert it to another format, we're gonna have the title right there.</li>
+<li>Markdown sells. Support a variety of formatting features.</li>
+<li>Such as bold and I tell Lex.</li>
+<li>Also, Bullethead Leth. Lists and numbered.</li>
+<li>Blasts. I'm going to stick another cell in here, why I use the menu.</li>
+<li>I can also hit the A key and it will add a new cell above and M changes it to mark down.</li>
+<li>There's keys that will that will let us navigate the notebook quickly.</li>
+<li>Also, the notebook is what we call modal.</li>
+<li>If the if the interface has two modes, if the cell is surrounded in green, I'm editing the contents of this cell.</li>
+<li>We can also show Mathen that. Tickle expressions like Y equals X plus B, you put them in dollar signs and they're going to be rendered.</li>
+<li>I'm going to shift enter again. And now the math is showing up like math.</li>
+<li>When it's blue, when the cell is highlighted in blue, we're not editing the contents of the cell, but rather we are moving around cells.</li>
+<li>So the up and down arrows, keys like a will add a cell instead of typing a in the cell.</li>
+<li>Once we're on a cell, we can hit enter to edit the cell and escape to change back to the mode where we navigate cells.</li>
+<li>So now we have this notebook control as saves the notebook. Jupiter has its own set of menus so we can do a variety of things like again, save.</li>
+<li>Save the notebook with a new name. We can make a copy of The Notebook.</li>
+<li>We can also we're going to go submit the notebook in order to give you feedback.</li>
+<li>I want a PDAF of your notebook so that I can use blackboards, PDAF markup tools to give you feedback on your assignments.</li>
+<li>So. Jupiter has the direct ability to create a PDAF, but unfortunately requires an entire low tech installation.</li>
+<li>An additional software on top of that in order to go from a notebook to a PDAF.</li>
+<li>So what instead we're going to do is we're going to go into the notebooks print preview.</li>
+<li>So I clicked file on the notebook interface. I go to print preview.</li>
+<li>This shows a trimmed down version of The Notebook that's not interactive.</li>
+<li>It doesn't have any in the interface. And now we can print this version of The Notebook.</li>
+<li>And we can print your browser is going to let you save as a PDAF when you go to print.</li>
+<li>So we're just going to use that save as PDAF. I'm going to go put it in my assignment's directory.</li>
+<li>Demo not booked up PDAF. Close this window.</li>
+<li>Now, if I go to that directory, I'm going to see both my IP and B file.</li>
+<li>That's the actual notebook file itself and the PDA file I just exported.</li>
+<li>I can look at the contents of that PDA file and it looks like we expected.</li>
+<li>We see the notebook title at the top where he wrote that level one heading.</li>
+<li>We see all of our output when you're submitting an assignment.</li>
+<li>What I want you to submit is both the IP JMB file and the notebook file.</li>
+<li>So now. So when we're done with a notebook, then we go what it was file menu and we close and halt.</li>
+<li>And this closes the notebook tab. But it also shuts down the python instance that's running in the background to let us run the code in the notebook.</li>
+<li>If you don't close a halt, you're going to wind up with a bunch of python instances kicking around that you may not want.</li>
+<li>We're gonna see more features of Jupiter as we go through the class, including things to manage the python processes that are running.</li>
+<li>But now you've seen the first steps to how you can open Jupiter.</li>
+<li>You can create a notebook. You've seen notebook cells and you've seen how we can take this notebook and create output.</li>
+<li>You're going to submit when you submit the results of an assignment.</li>
+</ul>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I have seen cases where the instructions to export to a PDF do not work correctly in Firefox; they result in a mangled
+PDF file that does not correctly display charts.  If you encounter this problem, I have documented some fixes over in
+the <a class="reference internal" href="../resources/problems/#prob-mangled-pdf"><span class="std std-ref">common problems</span></a> page.</p>
+</div>
+<div class="section" id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="DemoNotebook/"><span class="doc std std-doc">Notebook</span></a></p></li>
+<li><p><a class="reference internal" href="../resources/tutorials/"><span class="doc std std-doc">Tutorial notebooks</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="thursday-class">
+<h2>👨‍🏫 Thursday class<a class="headerlink" href="#thursday-class" title="Permalink to this headline">¶</a></h2>
+<p>In class on Thursday, we will:</p>
+<ul class="simple">
+<li><p>Meet our teams</p></li>
+<li><p>Take the Week 1 team quiz (over the same material as the individual quiz)</p></li>
+<li><p>Debug software installations</p></li>
+<li><p>Activity to dive deeper into defining problems and questions</p></li>
+</ul>
+</div>
+<div class="section" id="textbook-chapters-python">
+<h2>📖 Textbook Chapters - Python<a class="headerlink" href="#textbook-chapters-python" title="Permalink to this headline">¶</a></h2>
+<p>The Python material we are working on this week is a subset of the material in chapters <strong>1–4</strong> of
+the <a class="reference external" href="../../resources/index.md#books">textbook</a>. I don’t expect to you get through all 3 chapters
+thoroughly this week, and we will be introducing more Python features as we need them throughout the
+semester. I will note specific chapters and sections relevant to videos in their <em>Resources</em>
+subsections.</p>
+</div>
+<div class="section" id="data-types-and-control-flow">
+<h2>🎥 Data Types and Control Flow<a class="headerlink" href="#data-types-and-control-flow" title="Permalink to this headline">¶</a></h2>
+<p>This video introduces fundamental Python data types and operations, along with variables and basic control flow.</p>
+<div class="resource video docutils container" id="76daa00b-e512-4b20-9f63-ad75015afb57">
+<div class="tabbed-set docutils">
+<input checked="checked" id="2a422b2c-5130-4070-b456-6fe26842a093" name="253a2bb6-0ff6-49b4-9ce4-bcd1eba7a49c" type="radio">
+</input><label class="tabbed-label" for="2a422b2c-5130-4070-b456-6fe26842a093">
+Video (19m17s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=76daa00b-e512-4b20-9f63-ad75015afb57&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/cI0umOhazm8A/info/https76daa00b-e512-4b20-9f63-ad75015afb57-119d4d43-a18a-418e-a2fd-ad8c0121c100mp4invocationid2b13d876-6f03-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="9dd19566-f351-49fa-b08d-cc254687fd7e" name="253a2bb6-0ff6-49b4-9ce4-bcd1eba7a49c" type="radio">
+</input><label class="tabbed-label" for="9dd19566-f351-49fa-b08d-cc254687fd7e">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173701" data-key=AI5lDPc6EWsxjEE>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+DATA TYPES AND OPERATIONS
+Learning Outcomes
+Understand basic Python data types and operations
+Store Python objects in variables
+Write simple Python code to do arithmetic
+Perform basic operations with lists and dictionaries
+
+More resources linked!
+
+Numbers
+Python supports numbers like other programming languages
+
+Integers: 1, 2, 47
+Floating-point (decimal-ish): 3.5, 1.9, 2.4492
+Can write in scientific notation: 6.02214e23
+Can be negative: -3.14
+Numeric Operations
+Normal arithmetic operations behave how you expect:
+
++ - / *
+Power: 2**5
+
+Division is always floating-point: 5 / 2 is 2.5
+Floor (integer) division: 5 // 2 is 2
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, we're going to talk about data types and operations in Python to get you started,</li>
+<li>more on being able to write some of your own Python code,</li>
+<li>are learning outcomes for this video or for you to understand basic python data types of operations,</li>
+<li>to be able to work with python variables, storing objects in them, to write some simple python code,</li>
+<li>to do arithmetic and perform basic operations with lists and dictionaries. Also, this slide deck is a notebook.</li>
+<li>And so rather than the little embedded slides widget like we have for a lot of the videos, for this one, there will be a link to the notebooks.</li>
+<li>You can download it and run the code yourself.</li>
+<li>There's also going to be more resources linked in the class notes that I'll talk about briefly at the end of this video.</li>
+<li>Python supports couple primary types of numbers. First, we can write integers just by writing the number.</li>
+<li>There's no decimal point in there. And if we run, that is just a it's a python line.</li>
+<li>So a python line is called a statement. A statement can have something like an F or something like that.</li>
+<li>Or it can just be what we call an expression. And an expression is a set of operations that results in a value.</li>
+<li>And so a number just writing the number itself is an expression. So we can we can write an integer.</li>
+<li>We can write a floating point number with a decimal point. These are stored in floating point format.</li>
+<li>There are a couple of nuances about that. We'll talk about when we talk more in detail about different types of data.</li>
+<li>We can also use scientific notation with the E notations,</li>
+<li>the six point O to each of the twenty three Avogadro's number a mole and we write E twenty three and that means times ten to twenty third power.</li>
+<li>So we can also do arithmetic on these numbers, so the usual arithmetic operations, addition, subtraction, etc., they work as we would expect.</li>
+<li>They were just like they do.</li>
+<li>And when you're writing them in math, when they work in other programing languages, we can add five in to order of operation disrespected.</li>
+<li>So three times six at plus two.</li>
+<li>We can also then use parentheses to change the groupings so we can add two and three before multiplying by six.</li>
+<li>It works like you would expect from almost any other programing language.</li>
+<li>No surprises here if you're familiar with Java or Perl or something else.</li>
+<li>Those are our basic arithmetic operations.</li>
+<li>If we want to raise something to a power, the star star operator is what Python uses to raise something to a power.</li>
+<li>So two to the fifth power is two star star five.</li>
+<li>We can also get a number of other mathematical operations from two different python modules math and num pi num.</li>
+<li>Pi has duplicates of most of the math ones, so I usually just work with num pi.</li>
+<li>You have to import a module before you can use its function. So I'm going to import the num pi module here and I want to give it a shorter alias enpi.</li>
+<li>This is very common in Jupiter notebook's that we that we import num pi S&amp;P so then</li>
+<li>we can just write n.p. dot log to compute the natural logarithm of the number twenty.</li>
+<li>We can also store values in variables.</li>
+<li>Let's just give them a name so X equals seven stores, the value seven in the variable X, there is no declaration necessary, unlike an JARBOE.</li>
+<li>Just assign the value to a variable. Then we can use it.</li>
+<li>So X is plus five is going to return a 12 because X currently stores the value seven.</li>
+<li>Now if we change the variable, so we say X equals two.</li>
+<li>OK. It's changed the variable. Python. So the variables are all stored in a commons memory space.</li>
+<li>And the Jupiter notebook runs the cells in the order we ran them.</li>
+<li>And it shows us here that number. But in in. Is the order in which that cell was run nine, 10, 11, if we so we've changed the value of of X here.</li>
+<li>If we go back up and rerun this cell, it's going to use the new value of X.</li>
+<li>This is important to keep in mind, and it's an easy way to get your notebook very confused if you've been running cells out of order.</li>
+<li>When we're developing a notebook we're working on, a data analysis will often run things out of order, try things out.</li>
+<li>But it's important to keep things clear and consistent in your notebook so that if you were to rerun the notebook from top to bottom,</li>
+<li>it runs and produces the correct results. You can do experiments, but before you go,</li>
+<li>say to submit your notebook to me in an assignment or before you go to to submit it to your client or use it for your final analysis.</li>
+<li>Make sure that if you rerun it from top to bottom,</li>
+<li>you get the right results so that you can be confident that you're actually computing the results you want.</li>
+<li>And there's not something that's just an artifact of the order in which you happened to run the cells.</li>
+<li>So we've seen numbers do seem variables that we can also write strings.</li>
+<li>We can put them in quotes. Python takes both double and single quotes.</li>
+<li>There's no difference between them. The backslash is an escape character.</li>
+<li>So if we want to have double quotes and a double coded string, we can we can do that with by by prefixing them with a backslash.</li>
+<li>We can one of the fundamental string operations is to contaminate two strings, and if you have strings,</li>
+<li>the plus operator, it's the same operator we use for additions and with numbers, it can cat Nates the two strings.</li>
+<li>So hello. Plus world is Hello World. There's a bunch of other operations.</li>
+<li>For example, split separates a string into a list by default.</li>
+<li>If you don't tell it how to split it, it uses whitespace. So this is going to split the string.</li>
+<li>Hello Space World into a list of two items.</li>
+<li>Hello and world. So Python is strict about types, every object, every value has a type.</li>
+<li>And it won't auto convert them. So if you've programed in Perl or JavaScript or P HP and you take a string and a number and you can cabinet them,</li>
+<li>it tries to convert the number to a string. Python won't do that.</li>
+<li>So if we do this, we try to add a number to a string. It's going to give us a type error and a type error and tells us what's going on.</li>
+<li>One of the skills you're going to need to develop in this class is the ability to read error messages.</li>
+<li>And this error message tells us a cup, a few important things. It tells us that the error is a type error.</li>
+<li>Other errors you're going to see are value errors, index errors, key errors, et cetera.</li>
+<li>But this is telling us a type error, which means that we're trying to do something with the wrong type of data.</li>
+<li>It then tells us two other things. It gives us this trace back of the code.</li>
+<li>So it shows us where in the code it went wrong. The only thing we're doing here, we're not calling in many library functions or anything like that.</li>
+<li>We're just trying to add a string in a number. We have our line of code. So it's showing us that it happened on line one, Maroon plus five,</li>
+<li>and then it tells us a little bit more about the error can only concatenate stir, not end to stir.</li>
+<li>So what this is telling us is that and Cat Nation only works on strings.</li>
+<li>You can't concatenate things that aren't strings to a string.</li>
+<li>And what we have here, we have a string and we have a number.</li>
+<li>So if we want to if we want to to put five at the end of our our string, we can convert it with the Sturr function.</li>
+<li>So Sturr is a function that takes an object and returns a string representation of that object intended for human consumption.</li>
+<li>So if we do this, then we get our strength, then that will concatenate correctly and we get the string Maroon five.</li>
+<li>So we've now seen three different kinds of operations that we can perform on python values.</li>
+<li>We've seen an operator like Plasty Duck, the binary operators that go between their two operands so we can say six plus seven.</li>
+<li>There's quite a few of these operators. We've seen a function which in this case, the function comes from a module.</li>
+<li>So ENPI dialog and a function takes a value in return some other values.</li>
+<li>We can compute the natural log of 10. And we've seen a method which is a function that's attached to an object.</li>
+<li>So speed up. So the log function isn't attached to any particular object.</li>
+<li>It's just a function hanging around. But the method. Hello.</li>
+<li>So split is going to work on the hello world. String and.</li>
+<li>And split it. So we've seen a method. If you're familiar with Java, they're like methods in Java and they operate on a particular.</li>
+<li>They operate on a particular object. The Java equivalent of a python function would be a static method.</li>
+<li>We've seen these three different kinds of operations in this class. We're going to learn how to write functions.</li>
+<li>Eventually, we're going to learn how to write our own methods. But we aren't going to need that for the vast majority of this class.</li>
+<li>You can also define how operators work on custom, on custom data types in Python.</li>
+<li>We're not going to do that. It's learning to do that is outside the scope of this class.</li>
+<li>But it is how some of the libraries that we're gonna be using work on the inside.</li>
+<li>So we've got these different kinds of operations. There's a few other things that we can do.</li>
+<li>So a few other data types you can work with. So now that split method, it returns a list.</li>
+<li>Hello, World. And in Python, we write lists with square brackets and commas separating the values and we can write them.</li>
+<li>So I can make a list that consists of these three values. Martin Cross and Grip's.</li>
+<li>I can also save a list of variables. Now I have the variable Rowdy three.</li>
+<li>That contains a list of these three names. We can then, though, add to the list.</li>
+<li>So if too rowdy three that append Vogul. And we're going to now have a list that contains Martin Cross scripts and vocal.</li>
+<li>Now, notice that in this code I did Rowdy three at a pen and then I just wrote Rowdy three.</li>
+<li>That's because if you remember from the previous video. Jupiter shows the value of the last expression in your cell.</li>
+<li>Rowdy three A doesn't return anything. The list append method.</li>
+<li>Add something to the end of a list and actually it modifies that particular list.</li>
+<li>We don't have a new list here. It modified our list object and and stuck Voegele at the end of it.</li>
+<li>And it doesn't return anything.</li>
+<li>So instead, what we're gonna do, what I often like to do when I do an operation like this is then at the end of the cell,</li>
+<li>I just put the variable that I've been modifying so that it'll then show me what's currently in the variable.</li>
+<li>So we can see that after we appended Voegele to the list stored in the variable Rowdy three, that list now consists of four items.</li>
+<li>And yet the list now consists of four items and includes our new entry at the end.</li>
+<li>So lists are indexed, starting with zero so rowdy, three of zero gives us Martin.</li>
+<li>We can index backwards from the end, rowdy three negative one gives us voegele a slice, takes multiple elements from a list.</li>
+<li>So rowdy three one Colen three gives us element the element that one and two.</li>
+<li>What it does is it gives you it starts at the first index of the slice and gives</li>
+<li>you all of the elements up to but not including the last element to the slice.</li>
+<li>So. Zero is the first item, one is the second item.</li>
+<li>So it's giving us items one and two and then three is one past the end.</li>
+<li>These kinds of half open intervals. We call this a half open interval because it includes the left side and not the right side.</li>
+<li>They're very, very common when we're using zero based indexing in a data structure because it's a very convenient way to express a range.</li>
+<li>Also, the length of the range is. The end, minus the beginning, three, minus one.</li>
+<li>It's going to give us a list of length to. One more thing we can do here is the land function.</li>
+<li>Is a standard python function that will give you the length of anything that has a length like a list.</li>
+<li>A number of other data structures have links. Most data structures that can contain other data structures will have a length.</li>
+<li>It will also work on a string. But the length of rowdy three is currently four.</li>
+<li>So we can also loop over a list. So this list, this loop here is going to loop for each person in the list.</li>
+<li>Stored and rowdy three. It's going to print the person. So we get our four people.</li>
+<li>Martin Cross scripts and vocal. What if we want to know the position of each item in the list as we go through the loop?</li>
+<li>The enumerate function wraps a list and returns the list, but also the position in the list as we go through the loop.</li>
+<li>And then this string here, this. That's prefixed with an F. We call this an F string.</li>
+<li>And when you put a F right before the opening quote of a string,</li>
+<li>you can then use squiggly braces and variable names to include variable values in the string.</li>
+<li>It's one of the ways that Python lets you easily build up strings that contain additional data.</li>
+<li>And so we're going to we're going to run this loop.</li>
+<li>And now we see each. Each person is now prefixed with their member number.</li>
+<li>And it's starting from zero because as we saw before, Python always starts from zero.</li>
+<li>So the first one is members zero. And this enumerate function is just giving us the positions along with each item.</li>
+<li>Python for loops operate over what what it calls iterable, something that iterable just feeds an object that you can use in a for loop.</li>
+<li>Lists are iterable, but if you want to loop over a sequence of numbers like you might in Java.</li>
+<li>So you want to go from zero one and two, you use a range.</li>
+<li>So this is going to print zero one and two, because, again, the python does not include upper bounds of ranges and slices by default.</li>
+<li>So we're going to go zero, one and two. So a tuple is another container.</li>
+<li>It's like a list, except its size can't be changed. It's used for representing things like pairs.</li>
+<li>So I'm going to create a variable called coords and I'm going to store the tuple three five in it coords.</li>
+<li>Sub-Zero, then, is the first element of the tuple three chords.</li>
+<li>One is five. If we did the Len of this tuple, we would we would get would get to a tuple can be unpacked by unpacking the tuple we take it.</li>
+<li>So this tuple has two elements and we can say X, comma, Y to unpack the tuple into two different variables and then X is going to be three.</li>
+<li>So the parentheses with the comma packs the tuple and assigning it to variable separated with a comma unpacks the tuple.</li>
+<li>The tuple size has to match. So if we say X, Y, Z of coords and try to run that, it's going to tell us not enough values to unpack.</li>
+<li>It expects three values X, Y and Z. But coords only has two values.</li>
+<li>A dictionary is another data structure that maps, keys, often strings, but not always you can.</li>
+<li>You can use numbers, tuples, any data structure that can't be changed, you can use as the key for a string or for a dictionary.</li>
+<li>And so we're going to map some different animals to what they eat here. We created a variable.</li>
+<li>Assigning to a variable doesn't return a value, so there's nothing to print here.</li>
+<li>And then we can look up a value by its key. So we say Dietze of rabbit equals plants.</li>
+<li>And that gives there like lists, except we can look them up by any key we want instead of having to look them up by a position.</li>
+<li>So everything in Python is an object which has a type. We saw this when we saw the type error.</li>
+<li>We try to to try to add the number five to the string maroon.</li>
+<li>The Sipes we've seen in this video are integers, strings, lists, tuples and dictionaries.</li>
+<li>There's a lot more to do with these.</li>
+<li>I refer to you to the readings and also we're going to be introducing a various features of them as we go throughout the class.</li>
+<li>Now, another thing that's important to understand is that in Python variables, store references to objects.</li>
+<li>This is how Java works as well. But this matters, particularly for mutable objects.</li>
+<li>So we have our list. Rowdy three. Now, if we assign the list to another variable, rowdy five and then we add Amanda and we print routing.</li>
+<li>We show the result of rowdy five. OK. We have our list. Now we've added Amanda to the end of it.</li>
+<li>The rowdy five and rowdy three variables are references to the same list objects.</li>
+<li>We only look at Rowdy three. It's now going to show five elements, including Amanda.</li>
+<li>Because when we assign the variable, it doesn't make a copy of the list.</li>
+<li>All it does is it creates another variable that also refers to the list, too.</li>
+<li>We modify this list, object and append modifies the object, what we call in place.</li>
+<li>That means it modifies the object itself. It does not return a new object.</li>
+<li>It the object changes and any variable that's referring to that object gets the change of this in-place</li>
+<li>distinction is going to be important throughout the semester because some of the libraries we use,</li>
+<li>they they offer options to whether you want to modify something in place or whether you want to return a new object that has the new data.</li>
+<li>So there's a variety of ways. Resources to learn Python.</li>
+<li>I'm going to be making some videos, but we're not going to have time in the videos to go into every piece of python you might need.</li>
+<li>The tech chapters two, and I'm going to be writing some resources, chapters two and three in the text book are going to.</li>
+<li>They talk about basic python operations and data structures. There's the Python tutorial that I'm providing you a link to.</li>
+<li>That's a relatively comprehensive tutorial from the Python developers about the key Python language features.</li>
+<li>If you really want to dove in depth, there's a book, Learn Python the Hard Way, which is quite comprehensive.</li>
+<li>I'm also going to be providing in the resources section of the class site some additional notebook's that walk</li>
+<li>through and demonstrate different Python features and give you information about the different operations.</li>
+<li>For example, I'm planning on one such notebook that goes over a bunch of different things you</li>
+<li>can do with lists more than I've had a chance to get into in in this video.</li>
+<li>So to wrap up, Python supports many different data types. Everything's that object and variable store references to objects.</li>
+<li>If you do an operation that modifies an object, all variables that refer to the same object are going to get are going to see the change.</li>
+<li>You can perform a number of standard arithmetic operations on python variables.</li>
+<li>And there's many, many more operations that we're going to be seeing as we go throughout the semester.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Resources<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="1-7-types-operations/"><span class="doc std std-doc">Slide deck notebook</span></a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/index.html">Python tutorial</a></p></li>
+<li><p>Textbook 2.3, 3.1</p></li>
+<li><p>Tutorial notebook <a class="reference internal" href="../resources/tutorials/FunWithNumbers/"><span class="doc std std-doc">Fun with Numbers</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="control-structures">
+<h2>🎥 Control Structures<a class="headerlink" href="#control-structures" title="Permalink to this headline">¶</a></h2>
+<p>This video introduces Python control structures and code layout.</p>
+<div class="resource video docutils container" id="fb58d0e3-0e42-41ee-b5a6-ad75015afcbf">
+<div class="tabbed-set docutils">
+<input checked="checked" id="1fce8881-3ffc-432e-aeb9-867d77a2e5d8" name="b57e574d-116c-4783-ace0-6021775e4864" type="radio">
+</input><label class="tabbed-label" for="1fce8881-3ffc-432e-aeb9-867d77a2e5d8">
+Video (6m56s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=fb58d0e3-0e42-41ee-b5a6-ad75015afcbf&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/d5SOz7zmqbxC/info/httpsfb58d0e3-0e42-41ee-b5a6-ad75015afcbf-2bbdb9c5-cb09-436f-9ff5-ad8c0120ab50mp4invocationid1a5223d2-6e03-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="d0df9dba-72be-4240-9be9-e943156c2829" name="b57e574d-116c-4783-ace0-6021775e4864" type="radio">
+</input><label class="tabbed-label" for="d0df9dba-72be-4240-9be9-e943156c2829">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2172965" data-key=ABwaNR_XOZeDHwo>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CONTROL STRUCTURES
+Learning Outcomes
+Write basic Python control structures
+Understand Python block syntax
+Know standard practice for whitespace
+
+Key concept: Python uses whitespace to detect blocks, such as the bodies of loops or conditionals.
+Photo by gryffyn m on Unsplash
+For Loops
+for i in range(5):    print(f'iteration {i}')print('done')
+
+Iterate over an iterable
+range(5) iterates 0, 1, 2, 3, 4
+Whitespace delimits blocks
+Blocks
+Python blocks begin with ‘:’ at the end of a line
+if, else, elif, for, while, def, class
+
+Block content is indented one level
+Standard practice is 4 spaces (Jupyter defaults to this)
+
+Block ends when indentation returns to previous level
+for i in range(5):    print(f'iteration {i}’)print('done')
+Comments
+Python comments
+Begin with ‘#’
+Continue until end of line
+
+# this is a comment
+print('foo')  # can comment here too
+If Statements
+x = 5if x &gt;= 10:    print('big')elif x &gt;= 5:    print('medium')else:    print('small')
+These are false:
+False (Boolean value)
+None (equiv. to null)
+0
+Empty list, set, or tuple ([])
+Empty string('')
+
+Most other things are true.
+While Loops
+while condition:    # do something    pass
+Iterates until condition is false
+‘pass’ does nothing
+Here only to make it valid Python
+Wrapping Up
+Python provides the usual control structures (if, for, while)
+
+Blocks are based on indentation
+
+'#' starts a comment
+Photo by Erik Kroon on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Well, in this video, I'm going to talk with you about some of the basic control structures that we have</li>
+<li>in Python and the syntax that Python uses for indicating different pieces of code.</li>
+<li>The learning outcomes for this video are for you to be able to write basic python control structures.</li>
+<li>Understand the python block syntax. No, the standard practice for using whitespace in Python.</li>
+<li>One of the key concepts here is that Python uses whitespace to detect blocks such as the bodies of loops or conditionals.</li>
+<li>Unlike other languages such as Java, JavaScript, HPC, etc., all use squiggly braces.</li>
+<li>Python uses indentation as syntactically significant indicator of what a block is, such as the body of a loop.</li>
+<li>So in the first Python intro video, we saw a for loop in the for loop iterates over it iterable.</li>
+<li>So you the, the, the syntax is that we have for ie the variable name in.</li>
+<li>Range of music range here, but this is the iterable expression.</li>
+<li>That's something that we can we can loop over and then within within that loop, we are going to we're gonna print and we're using an F string.</li>
+<li>Remember the F string that says use variables in the string.</li>
+<li>And so we are we're printing out the iteration number through each iteration of this loop.</li>
+<li>And then at the end of the loop, we're gonna print done, and that's gonna happen once.</li>
+<li>Because whitespace still limits blocks.</li>
+<li>The colon and the and the indentation, they indicate that we're in a new block.</li>
+<li>And then when the indentation stops and it goes back out to the same level.</li>
+<li>As the for loop started, that indicates the end of the block.</li>
+<li>So, as I said, the python block begins with a colon at the end of the line.</li>
+<li>And there's several different python keywords that. Are something that can start a block the if family f.</li>
+<li>Else L.F., the loop's foreign while and then the keywords for defining functions and classes, def and class block contents indented one level.</li>
+<li>The standard practice here is to use force bases.</li>
+<li>Jupiter, along with most modern python editing environments, default their configuration to force spaces for you automatically.</li>
+<li>But this convention, while Python does not strictly mandate this.</li>
+<li>All it mandates is that you are consistent. You can't say mixed tabs and spaces in the same file.</li>
+<li>This almost universally standard python practice is to indent with four spaces</li>
+<li>and then the block ends when the indentation returns to the previous level.</li>
+<li>You can also have comments in Python, a comment begins with a hash and continues until the end of the line.</li>
+<li>You can have a car line where all it is is a comment. You can also put a comment at the end of a line that contains some code.</li>
+<li>When we're writing Jupiter notebooks,</li>
+<li>we're going to put a lot of the discussion and the explanation in markdown cells in the Jupiter notebook rather than in comments.</li>
+<li>But comments are very useful when you're when you start writing Python scripts.</li>
+<li>They're also useful when you want when you want to write.</li>
+<li>Just really briefly, why a particular line in one of your code cells is working the way that it's working?</li>
+<li>The if statement is structure.</li>
+<li>It works like the fourth statement in terms of how the blocks work.</li>
+<li>And we open with if we don't need any parentheses, we have F and we have an expression in this case,</li>
+<li>we're gonna say if X is greater than or equal to 10, then we're one to print big if Elif is the python else.</li>
+<li>If you can have as many of these as you want and if you don't have to have one, you don't have to have an else either.</li>
+<li>But it's not else F or else, if it's just L.F. e-Life is the python syntax for else F.</li>
+<li>So if it's not greater than 10 but it is greater than or equal to five, it's going to print medium.</li>
+<li>And that's the one we're actually going to run in this case because X is equal to five.</li>
+<li>And then finally. Else we're going to print small. So in Python there are several things that are considered false.</li>
+<li>For the purpose. Most for the purposes of. Of an if statement.</li>
+<li>The bout valued the boolean value false, which you write with an uppercase F, is considered false as is none, which is a special python value.</li>
+<li>That is the python's version of a no means no data here.</li>
+<li>Zero is false. Empty containers, empty lists, sets, tuples and empty strings are all also false.</li>
+<li>Most other things are true. But those are the.</li>
+<li>Those are the. That's how ifs work in Python. They aren't strict like in Java.</li>
+<li>It has to be a boolean python does not require it to be a billion.</li>
+<li>It requires to be something that can be converted to a boolean. And then these are the things that.</li>
+<li>These are the things that Python converts to false when it's doing that boolean conversion a while loop iterates until a condition becomes false.</li>
+<li>I'd put a past statement here. The past is not part of the while loop. The past is just here to make the syntactically valid python.</li>
+<li>Because while loops can't be empty in general, Bloks cannot be empty.</li>
+<li>So passe is a python statement that does nothing.</li>
+<li>It's just needed when you need to make something syntactically valid. Maybe you're in the middle of testing some code.</li>
+<li>Maybe you're working on an F and you don't have all that figured out yet. So you just want to make one of the branches of the F.</li>
+<li>Do nothing. For now, you can just say pass. So to wrap up, Python provides the usual control control structures for a programing language.</li>
+<li>If for while blocks crucially are based on indentation and the standard there is to use for spaces.</li>
+<li>The hash sign starts a comment. There is some limitations to working with for loops.</li>
+<li>We're not going to use for work to working with, well, any loops in Python.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="scientific-python">
+<h2>🎥 Scientific Python<a class="headerlink" href="#scientific-python" title="Permalink to this headline">¶</a></h2>
+<p>This video introduces NumPy <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, the fundamental numeric array data structure for scientific computing.</p>
+<div class="resource video docutils container" id="bb427c78-988a-4d4a-b671-ad75015afbf6">
+<div class="tabbed-set docutils">
+<input checked="checked" id="bacde3c0-0692-43fb-a84b-ad1a62ba100b" name="eb8bf6a7-2d08-4aaf-85ca-d950413764fc" type="radio">
+</input><label class="tabbed-label" for="bacde3c0-0692-43fb-a84b-ad1a62ba100b">
+Video (13m20s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=bb427c78-988a-4d4a-b671-ad75015afbf6&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/tOInHEcE0n64/info/httpsbb427c78-988a-4d4a-b671-ad75015afbf6-951fa520-04d5-48a8-a858-ad8c0122cddemp4invocationidcef9e109-7003-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="c24aac80-b5cd-481e-938f-3dbc2b751732" name="eb8bf6a7-2d08-4aaf-85ca-d950413764fc" type="radio">
+</input><label class="tabbed-label" for="c24aac80-b5cd-481e-938f-3dbc2b751732">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2172967" data-key=AMuE85znE-djS3E>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SCIENTIFIC PYTHON
+Learning Outcomes
+Understand the limitations of core Python data types for data science
+Know the three key array data types:
+ndarray
+Series
+DataFrame
+Perform basic vectorized operations
+Photo by Faris Mohammed on Unsplash
+Lists of Numbers
+Python:
+numbers = [0.3, 9.2, 1.0, 6.7]
+
+Remember that everything is an object?
+List of 4 pointers (8 bytes each), with header (16 bytes)
+To 4 objects: 8 bytes (double) + 16 bytes (object header)
+Total: 144 bytes
+Elements can have different types!
+Sum our Numbers
+total = 0for x in numbers:    total = total + x
+
+What’s wrong?
+Python is slow – convenient, but slow
+Interpreted
+Dynamically typed
+Pointers to objects cause cache misses
+Enter NumPy
+NumPy provides efficient numeric array types (‘ndarray’s)
+
+import numpy as npnumbers = np.array([0.3, 9.2, 1.0, 6.7])
+
+All elements have the same type
+Stored directly in the array – no indirection, contiguous
+Many ways to load or create arrays without going through lists
+Sum our Numbers
+	sum = np.sum(numbers)
+
+Shorter (although we could have used Python’s sum earlier)
+Implemented in compiled language
+NumPy array internal layout is compatible with C and/or Fortran
+
+Don’t loop over arrays.
+Vectorization
+NumPy lets us perform operations on arrays:
+scale = np.linspace(0, 1, 4)numbers + scale
+Result:
+array([0.3       , 9.53333333, 1.66666667, 7.7       ])
+linspace creates an array from 0 to 1 (both inclusive), evenly spaced into 4 elements (same size as numbers)
++ does elementwise addition: adds corresponding elements
+Efficiently in compiled code
+About Arrays
+Each array has 3 key things:
+
+A data type (dtype) – what kind of elements?
+A shape (tuple of ints) – how big?
+May be multidimensional, e.g. (100,50) for 100x50 matrix
+Elements – the data itself
+Pandas
+Pandas builds on NumPy with two new data types:
+
+Series – an array with an associated index (element labels)
+DataFrame - a table where each column is a series
+
+You’ll see these briefly in A0, and more next week!
+Use of Lists and Loops
+We’ll still sometimes use lists and loops
+
+Lists of arrays or data frames
+Looping over input files or groups of data
+
+But we avoid looping over individual data points.
+Wrapping Up
+NumPy provides efficient arrays
+
+These are the backbone of our data processing
+
+Prefer ‘vectorized’ operation whenever possible
+
+Practice: put these in a notebook!
+Fortak, Lord High Researcher of Clan Urdnot; Mass Effect 2
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, I'm going to introduce some of the fundamental structures and principles of doing scientific computing in Python.</li>
+<li>Since the last couple of videos, I've briefly introduced Python's core structures and core data types.</li>
+<li>But a lot of our work is going to be working with an additional set of structures,</li>
+<li>a set of libraries known as scientific python or as the pie data stack.</li>
+<li>So learning outcomes of this video are to understand limitations of core python data types for data science to know.</li>
+<li>Three key rate data types particularly. Are we focusing primarily on the number high end the array?</li>
+<li>Also briefly introduce serious and data frame. We're going to see a lot more about those next week and the.</li>
+<li>To be able to perform basic vectorized operations. So in Python, we can write a list of numbers like this.</li>
+<li>So numbers equals I'm using the list syntax that we talked about in the earlier video.</li>
+<li>And I've got four numbers in here that I'm storing in this list and the variable numbers.</li>
+<li>Now. This seems like a perfectly natural thing to do.</li>
+<li>But remember, we said I said in the previous video that everything in Python is an object.</li>
+<li>So this isn't just a list of numbers. If we wrote this in Java or C, we would have an array of numbers where system array.</li>
+<li>And it's the stores, the numbers, one after the other. But in Python, that's not how it works because everything is an object.</li>
+<li>What our list stores is, it stores pointers to numbers.</li>
+<li>So we've got a list. And it's got a pointer to O point three and a pointer to nine point two, et cetera.</li>
+<li>So what we store is the list itself has these pointers, which are eight bytes each.</li>
+<li>And it has the. Numbers themselves.</li>
+<li>A flooding point. A double precision flooding point number takes eight bites. But the numbers aren't just numbers, they're objects.</li>
+<li>And every python object has at least 16 bites.</li>
+<li>This is all on a 64 bit system, has at least 16 bytes of header information.</li>
+<li>And so this whole list of numbers takes 144 bytes because we've the list has a header.</li>
+<li>It has pointers. The pointers are the objects that have headers in addition to the data.</li>
+<li>Also, the elements of a list can be different types. So when you go over the list, there's no guarantee that everything is a number.</li>
+<li>So if we if we want to sum our numbers, there is a python function called some that will double do a sum.</li>
+<li>But it's basically doing this. So we'll initialize a variable called total.</li>
+<li>Well, then loop over all of our numbers and we'll add each one to the total.</li>
+<li>And that's gonna make the total equal the total of the numbers. This works, it works just fine.</li>
+<li>And for a list of four numbers, it's completely fine. But Python.</li>
+<li>There's a couple of issues here. One python is Python. The language itself is rather slow.</li>
+<li>It's quite convenient, but it's slow and it's slow for two reasons.</li>
+<li>One is that it is interpreted the python code is compiled to an internal data structure,</li>
+<li>but then there's C code that runs in a loop interpreting that data structure.</li>
+<li>It's also dynamically typed. So remember, I said there's the the values and the numbers are in the list can have different types.</li>
+<li>We wrote a set of numbers there. But Python isn't guaranteed that they're all numbers.</li>
+<li>And so rather than saying, okay, I have a number, I'm going to keep adding it.</li>
+<li>What it says is I have a thing and I'm going to try to add it to the thing I already have.</li>
+<li>And it has to go look up how to do that, and it does that every time for each number.</li>
+<li>This is all very slow. Also, since it's pointers, if you've taken the computer architecture class.</li>
+<li>That may ring a few alarm bells for you because rather than just having an array of numbers which will be loaded into our cash very quickly accessed,</li>
+<li>we have an array of pointers and each pointer has to go off and look up the number in memory.</li>
+<li>And those numbers might be stored next to each other, but they might be stored all over the heap.</li>
+<li>We're gonna have cash misses which make these slow process even slower so we can write code like this and it works fine,</li>
+<li>but it's not an efficient way to do computation. And as we get to larger and larger data sets, you get a few hundred.</li>
+<li>You got a few thousand numbers. You're gonna be fine. When you've got a million numbers, when you have a hundred million or a billion numbers.</li>
+<li>Then things start to really get slow. So none PI is a python package that provides efficient data types for doing numeric computation.</li>
+<li>And NUM Pi underlies almost all of the rest of the scientific python and data science and machine learning for Python software.</li>
+<li>It has a data type called an NDA array. There's a variety of different ways you can create one,</li>
+<li>but here we're going to just create one using the array constructor and then we're going to pass it our list.</li>
+<li>So we're creating the list in this case. We are going to see later many ways to load arrays without having to go through a list.</li>
+<li>I'm just doing this here so I can demonstrate how the array works.</li>
+<li>But all the elements are of the same type in an array and they're also stored directly in the array.</li>
+<li>So this ENDI array, it's the stores, the floats, one right after each other.</li>
+<li>Eight bytes each. And so we don't have the indirection, three pointers. We don't have all of the overhead of storing all of these different objects.</li>
+<li>It's just storing the numbers, one right after each other. You can have an Endi array of objects and that's going to store the pointers.</li>
+<li>And that's useful in a few cases, especially for treating strings consistently with numbers.</li>
+<li>But it really shines when we're dealing with arrays of numbers for various scientific computing applications.</li>
+<li>So if you want to sum our numbers, we can use the num pi some function and it it's much shorter.</li>
+<li>A little python has a some function, as I mentioned, that we could have used, but also it's implemented in a compiled language.</li>
+<li>And when you have a num high array that's storing numbers, whether the integers,</li>
+<li>whether they're floating point numbers, it's stored internally in a format that's compatible with C or Fortran.</li>
+<li>And so a lot of num pi. Functions.</li>
+<li>What they're doing is they're passing the array to see code or Fortran code or</li>
+<li>C++ code that has a comp. loop that works on that data type and is able to very,</li>
+<li>very efficiently sum up those numbers. We don't have a cast mate cash issues from the indirection.</li>
+<li>We don't have the overhead of Python's interpreted code.</li>
+<li>We don't have the overhead of having to deal with the the elements of the array might be of different types.</li>
+<li>They're all the same type. We can work over them in in a loop, in comp.</li>
+<li>Machine code. So in general, don't loop. You can loop over a number high end the array.</li>
+<li>It's iterable just like a list. But in general, you don't want to do that.</li>
+<li>You want to set up your code so that num pi can do the looping for you.</li>
+<li>And effectively what we wind up using Python as is a scripting language to tell the underlying C, C++ and Fortran code.</li>
+<li>What to do.</li>
+<li>And the fact that Python is a slow language doesn't matter very much because the vast majority of our processing time won't be spent in Python.</li>
+<li>So I thought none pile. So has a feature called Vector Ization.</li>
+<li>There are a lot of operations that operate on an entire array at a time.</li>
+<li>So if I get it, I can create another array. The Linn's base function here.</li>
+<li>It. The land space function here.</li>
+<li>It creates an array of four values that are evenly spaced from zero to one inclusive.</li>
+<li>And then the plus operator here, remember, plus between two numbers is going to add it between two strings.</li>
+<li>It's going to concatenate them plus between two arrays requires them to be of compatible shapes.</li>
+<li>And it adds the the corresponding elements of the arrays to each other and returns a new array.</li>
+<li>So what if we have a bunch of number one array of numbers and we have another array of numbers?</li>
+<li>We want to add them together. We just add the two arrays and it does that addition again in a loop written in C or Fortran.</li>
+<li>And it does it very, very quickly.</li>
+<li>You can also add an integer or an integer or a floating point, single number to an array, and it'll add it to every element of the array.</li>
+<li>But this is the key point to be able to make scientific computing with Python fast.</li>
+<li>We setup our code and throughout. We're gonna be trying to set it up so that we use vectorized nation as much as possible.</li>
+<li>And we vectorized over as much data at a time as possible so we can allow the optimized loops and in num pi,</li>
+<li>in Pandas and Sai Pi and psychic learn to do the work and to put as much of the work as possible into those compile loops.</li>
+<li>So we're not spending a lot of time in slow python code. Each array has three key things.</li>
+<li>It has a data type called a D type, and that says what kind of elements are in the array?</li>
+<li>PI has data types for your standard integers of various sizes.</li>
+<li>Single and double precision floating point numbers. It also has D types for working with.</li>
+<li>Date. Date. Times. Strings and then storing arrays.</li>
+<li>That's where pointers to arbitrary python objects.</li>
+<li>The data type or the array also has a shape which is a tuple of integers that says how big the array is.</li>
+<li>The array may be multidimensional. So Endi array stands for N Dimensional Array.</li>
+<li>And it can be one, two, three, four, whatever dimensional. So if we have a 100 by 50 matrix, it's stored in a in a number PI in the array of shape.</li>
+<li>One hundred, comma 50. And then there's the data. It's stealth.</li>
+<li>That's the elements of the array. The data points themselves that are stored in the array.</li>
+<li>So then pandas, which we're going to see next week, builds on top of a raise with two new data types,</li>
+<li>a series is an array with an associated index that allows us to look up.</li>
+<li>So an ENDI array, like a python list is indexed using numbers starting from zero zero one, two, three, four, five.</li>
+<li>But sometimes for a lot of times we're gonna have some other natural index. If you've taken databases, it's equivalent to the primary key.</li>
+<li>So a series is an array with an associated index that might be other numbers.</li>
+<li>That might be strings. But some other way of accessing the points.</li>
+<li>It also has an efficient representations that you can have a series that's indexed zero through and minus one where N is the length of the series.</li>
+<li>And it does not take up a lot of space to do that. And then a data frame is a table where each column is a series.</li>
+<li>And they all share the same index. And we're gonna see those a lot because we load in a set of data points that's gonna be in a data frame.</li>
+<li>Now, an assignment zero, you're going to briefly see both of these data structures.</li>
+<li>I walk you through everything you have to do with them in assignment zero. And we're going to introduce them a lot more.</li>
+<li>Woomera's talking about how to describe data next week.</li>
+<li>But. Endi Arae, the number higher radiata structure is the fundamental core that all of these others are built on.</li>
+<li>The series augments it with an index. The data frame collects multiple series together with column names like a spreadsheet table.</li>
+<li>So we're still going to sometimes use Python native lists and loops.</li>
+<li>Oftentimes, it's going to be because for some reason, we need a list of arrays or data frames.</li>
+<li>Also, if we need to loop, if we have, say,</li>
+<li>20 input files that we need to put together to to to be our data set or we got different groups of data, we're going to loop over those.</li>
+<li>But the big thing we avoid doing is looping over individual data points.</li>
+<li>We load in a few hundred thousand records. They're going to be in a data frame.</li>
+<li>We don't loop over the rows of a data frame. If we can avoid it, because there's almost always a more efficient way to do that computation,</li>
+<li>that pushes a lot of it into the C and C++ code and Fortran code that underlies NUM, Pi, pandas, et cetera.</li>
+<li>So wrap up num pi provides efficient to ray data structures that are more memory compact's.</li>
+<li>They don't take up nearly as much space and they're also much more efficient to compute over.</li>
+<li>These are going to be the backbone of our data processing throughout the rest of the class.</li>
+<li>And we want to prefer vectorized operations that perform these loops in native comp. machine code whenever possible for a little bit of practice.</li>
+<li>I encourage you to take the example code from this from these slides and go and try them</li>
+<li>in a notebook so you can get a little more practice creating notebooks and running code.</li>
+<li>I will see you in class.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Resources<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Textbook Ch. 4</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="assignment-0">
+<h2>📩 Assignment 0<a class="headerlink" href="#assignment-0" title="Permalink to this headline">¶</a></h2>
+<p>Complete and submit <a class="reference internal" href="../assignments/A0/"><span class="doc std std-doc">Assignment 0</span></a> by <strong>midnight on Sunday, August 29</strong>.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./week1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../week0/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 0 — Pre-Class Welcome</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="DemoNotebook/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Demo Notebook</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,1245 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 6 — Two Variables (Sep. 27–Oct. 1) &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabinsert.js"></script>
+    <script src="../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="copyright" title="Copyright" href="../copyright/" />
+    <link rel="next" title="Week 7 — Getting Data (Oct. 4–8)" href="../week7/" />
+    <link rel="prev" title="Week 5 — Filling In (9/20–24)" href="../week5/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../resources/tutorials/">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/week6/index.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fweek6/index.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/week6/index.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#content-overview">
+   🧐 Content Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deadlines">
+   📅 Deadlines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#midterm-a">
+   🚩 Midterm A
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#format">
+     Format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exam-rules">
+     Exam Rules
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#study-tips">
+     Study Tips
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   🎥 Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#displaying-variables">
+   🎥 Displaying Variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correlation">
+   🎥 Correlation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression">
+   🎥 Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correlation-notebook">
+   📓 Correlation Notebook
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#features">
+   🎥 Features
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-6-quiz">
+   🚩 Week 6 Quiz
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignment-3">
+   📩 Assignment 3
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-6-two-variables-sep-27oct-1">
+<span id="week6"></span><h1>Week 6 — Two Variables (Sep. 27–Oct. 1)<a class="headerlink" href="#week-6-two-variables-sep-27oct-1" title="Permalink to this headline">¶</a></h1>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The first midterm exam is on Tuesday.</p>
+</div>
+<p>This week’s learning outcomes are:</p>
+<ol class="simple">
+<li><p>Display two potentially-related numeric variables for exploratory analysis.</p></li>
+<li><p>Compute correlation coefficients between variables</p></li>
+<li><p>Run a linear regression</p></li>
+</ol>
+<p>Since we have the exam this week, the lecture load is significantly reduced.</p>
+<div class="section" id="content-overview">
+<h2>🧐 Content Overview<a class="headerlink" href="#content-overview" title="Permalink to this headline">¶</a></h2>
+<div class="module-content docutils">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><strong>Element</strong></th>
+<th class="head"><strong>Length</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#285e6728-9dbe-4e14-83fc-adb80127b525"><span>🎥 Two Variables Intro</span></a></p></td>
+<td><span>4m36s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#083d7d33-e201-4a71-b9c3-adb80127b600"><span>🎥 Displaying Variables</span></a></p></td>
+<td><span>3m45s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ad3579d3-fac2-440a-8289-adb80127b713"><span>🎥 Correlation</span></a></p></td>
+<td><span>11m12s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#6088a550-4821-461c-bc95-adb80127b798"><span>🎥 Regression</span></a></p></td>
+<td><span>6m3s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#b4157241-24cd-4195-b7f9-adb80127b84a"><span>🎥 Features</span></a></p></td>
+<td><span>4m20s</span></td>
+</tr>
+</tbody>
+</table>
+<p><span>This week has </span><strong>0h30m</strong><span> of video and </span><strong>0 words</strong><span> of assigned readings.</span><span> This week’s videos are available in a </span><a class="panopto reference external" href="https://boisestate.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%222265c95a-2338-4021-8276-adb801256fe9%22"><span>Panopto folder</span></a><span> and as a </span><a class="panopto podcast reference external" href="https://boisestate.hosted.panopto.com/Panopto/Podcast/Podcast.ashx?courseid=2265c95a-2338-4021-8276-adb801256fe9&amp;type=mp4"><span>podcast</span></a><span>.</span></p>
+</div>
+</div>
+<div class="section" id="deadlines">
+<h2>📅 Deadlines<a class="headerlink" href="#deadlines" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Midterm A <strong>Tuesday 9:00–10:15 AM</strong> (in class)</p></li>
+<li><p>Quiz 6 <strong>Thursday by 8AM</strong></p></li>
+</ul>
+</div>
+<div class="section" id="midterm-a">
+<span id="id1"></span><h2>🚩 Midterm A<a class="headerlink" href="#midterm-a" title="Permalink to this headline">¶</a></h2>
+<p>The first midterm is on Tuesday.  It is written to take about an hour, and covers material
+up through and including Week 5.</p>
+<div class="section" id="format">
+<h3>Format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h3>
+<p>The exam is a written in-person exam.  It will contain a variety of questions to assess your ability
+to understand and apply concepts from the class.  Question formats include:</p>
+<ul class="simple">
+<li><p>Multiple-choice</p></li>
+<li><p>True/false</p></li>
+<li><p>Matching</p></li>
+<li><p>Fill-in-the-blank</p></li>
+<li><p>Short answer</p></li>
+</ul>
+<p>I may ask you to do a range of things on the exam, including (but not limited to):</p>
+<ul class="simple">
+<li><p>Define a concept</p></li>
+<li><p>Compute a metric from a small quantity of data</p></li>
+<li><p>Interpret a chart</p></li>
+</ul>
+</div>
+<div class="section" id="exam-rules">
+<h3>Exam Rules<a class="headerlink" href="#exam-rules" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>You may have <strong>1 note sheet</strong>, letter- or A4-sized, single-sided.  (For the final, you will be allowed a two-sided note sheet.)</p></li>
+<li><p>You should not need a calculator, but may bring one if you wish.</p></li>
+<li><p>You may answer in either pen or pencil.</p></li>
+</ul>
+</div>
+<div class="section" id="study-tips">
+<h3>Study Tips<a class="headerlink" href="#study-tips" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Review the previous quizzes and assignments.</p></li>
+<li><p>Review lecture slides to see where you are unclear on concepts and need to review.</p></li>
+<li><p>Skim assigned readings, particularly the section headings to remind yourself what was in them.</p></li>
+<li><p>Review the <a class="reference internal" href="../glossary/"><span class="doc std std-doc">course glossary</span></a>, keeping in mind that it does contain terms we haven’t gotten to yet.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="introduction">
+<h2>🎥 Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This video introduces the week’s topic.</p>
+<div class="resource video docutils container" id="285e6728-9dbe-4e14-83fc-adb80127b525">
+<div class="tabbed-set docutils">
+<input checked="checked" id="8b65fa06-f02d-4230-a50c-c8acf5565708" name="eb02d6ff-ccc7-4f1e-b9ed-14afb38a187f" type="radio">
+</input><label class="tabbed-label" for="8b65fa06-f02d-4230-a50c-c8acf5565708">
+Video (4m36s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=285e6728-9dbe-4e14-83fc-adb80127b525&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="01cb09d9-f31e-44c4-ab00-bc898b4ef5dd" name="eb02d6ff-ccc7-4f1e-b9ed-14afb38a187f" type="radio">
+</input><label class="tabbed-label" for="01cb09d9-f31e-44c4-ab00-bc898b4ef5dd">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173206" data-key=AJD3MdV51KonnCA>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+TWO VARIABLES
+Learning Outcomes (Week)
+Explore relationships between two variables
+Understand correlation and covariance
+Photo by Sonny Ravesteijn on Unsplash
+We’ve Seen
+Computing within a group
+Paired t-tests
+Two-sample t-tests
+
+Both relate a numeric outcome to a categorical predictor.
+Paired Observations
+Observe more than one variable for the same object
+Top Critics rating
+All Critics rating
+# of MovieLens ratings
+
+Relating Observations
+Observations happen at different levels
+A student graduated, or did not
+The students at a school graduated at some rate
+The students of a particular race at a school graduated at some rate
+Predictions
+Often, we group two (or more) variables into two:
+
+Outcome variable describes a result
+Dependent
+Endogenous
+Predictor variable(s) are used to explain or predict outcomes
+Explanatory
+Independent
+Exogenous
+The Week
+Two Variables
+Midterm Exam (Wed. PM through Saturday, 72 hours)
+Covers through Week 5
+Notebook + Conceptual Questions
+Concept Qs more specific than quizzes – apply!
+Wrapping Up
+A lot of interesting problems will have two (or more) variables per observation.
+
+We’re going to look at how to measure these variables’ relationships.
+
+Often an outcome and 1 or more predictors.
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="displaying-variables">
+<h2>🎥 Displaying Variables<a class="headerlink" href="#displaying-variables" title="Permalink to this headline">¶</a></h2>
+<p>This video discusses how to display related numeric variables.</p>
+<div class="resource video docutils container" id="083d7d33-e201-4a71-b9c3-adb80127b600">
+<div class="tabbed-set docutils">
+<input checked="checked" id="e686f0d8-18d2-4e43-9886-06e057252fbe" name="48961604-f9d1-4ff3-886d-0d9b63f18331" type="radio">
+</input><label class="tabbed-label" for="e686f0d8-18d2-4e43-9886-06e057252fbe">
+Video (3m45s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=083d7d33-e201-4a71-b9c3-adb80127b600&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="6f3a00b9-d2c4-4dfe-99be-b164cc624b37" name="48961604-f9d1-4ff3-886d-0d9b63f18331" type="radio">
+</input><label class="tabbed-label" for="6f3a00b9-d2c4-4dfe-99be-b164cc624b37">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173208" data-key=AJ4raVQvI1nq>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+DISPLAYING VARIABLES
+Learning Outcomes
+Display relationships between two variables for exploratory analysis.
+Extend this to more than two.
+Photo by Greg Jeanneau on Unsplash
+Scatterplots
+Remember them?
+
+Scatter plots show relationships between two variables:
+Each point is an observation
+One variable on X axis
+Other on Y axis
+
+sns.scatterplot
+plt.scatter
+Including Distributions
+Can include marginal distributions with scatter
+
+Histograms on margins (jointplot)
+“Rug plots” along axes
+
+Useful for exploratory analysis.
+Trend Lines - regplot
+Pairwise Correlations - pairplot
+Wrapping Up
+We want to explore the relationships between variables.
+
+Scatter plots and their variants let us do that, with possible augmentations.
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="correlation">
+<h2>🎥 Correlation<a class="headerlink" href="#correlation" title="Permalink to this headline">¶</a></h2>
+<p>This video discusses how to compute the <em>correlation coefficient</em> between two variables.</p>
+<div class="resource video docutils container" id="ad3579d3-fac2-440a-8289-adb80127b713">
+<div class="tabbed-set docutils">
+<input checked="checked" id="1604fa12-5ff5-4a92-b838-666a30e1c70d" name="3b7633f1-ed1d-47a3-bfa2-5541bd48cfe5" type="radio">
+</input><label class="tabbed-label" for="1604fa12-5ff5-4a92-b838-666a30e1c70d">
+Video (11m12s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ad3579d3-fac2-440a-8289-adb80127b713&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="d7393e07-3317-4e67-945d-b212549b8c36" name="3b7633f1-ed1d-47a3-bfa2-5541bd48cfe5" type="radio">
+</input><label class="tabbed-label" for="d7393e07-3317-4e67-945d-b212549b8c36">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173210" data-key=APP9pqAFcW76hH4>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CORRELATION
+Learning Outcomes
+Compute correlation coefficient
+Understand the relationship between covariance and correlation
+Photo by Scott Webb on Unsplash
+Correlation
+We can see the relationship.
+
+But how correlated are the two variables?
+Variance
+Covariance
+Covariance
+Correlation
+Correlations
+Figure from Wikipedia. CC BY-SA 3.0.
+Correlation and Independence
+Estimating and Testing
+Wrapping Up
+Correlation measures the degree of linear relationship between two variables.
+
+It is a normalized version of covariance.
+
+Pandas: cov and cor.
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In this video, I list the Pandas correlation function as <code class="docutils literal notranslate"><span class="pre">cor</span></code>. The correct name is <code class="docutils literal notranslate"><span class="pre">corr</span></code>.</p>
+</div>
+</div>
+<div class="section" id="regression">
+<h2>🎥 Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h2>
+<p>This video discusses how to fit a line between two variables.</p>
+<div class="resource video docutils container" id="6088a550-4821-461c-bc95-adb80127b798">
+<div class="tabbed-set docutils">
+<input checked="checked" id="f9da42ac-5c60-48e5-befe-cbce83118477" name="59d00861-224c-49ee-a083-08438755d2fb" type="radio">
+</input><label class="tabbed-label" for="f9da42ac-5c60-48e5-befe-cbce83118477">
+Video (6m3s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=6088a550-4821-461c-bc95-adb80127b798&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="14ee8367-ebcb-44fe-8bbf-8320b07bb216" name="59d00861-224c-49ee-a083-08438755d2fb" type="radio">
+</input><label class="tabbed-label" for="14ee8367-ebcb-44fe-8bbf-8320b07bb216">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173213" data-key=ACfoXRGXZ54Fy7M>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+REGRESSION
+Learning Outcomes
+Compute a linear regression with one predictor
+Photo by Andre Benz on Unsplash
+Trend Line
+Where did this come from?
+
+Variables and Model
+Regression Model
+coef – strength of relationship
+R2 – frac. of variance explained
+
+Ignore p-values and standard errors for now
+Wrapping Up
+Regression predicts one value with another.
+
+Lets us go beyond same-scale (paired t-test) to determine strength of relationship.
+Photo by Lucy-Claire on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="correlation-notebook">
+<h2>📓 Correlation Notebook<a class="headerlink" href="#correlation-notebook" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../resources/tutorials/Correlation/"><span class="doc std std-doc">correlation notebook</span></a> shows how to compute the metrics in this week’s videos, and has the code I used to produce the charts in the slides.</p>
+</div>
+<div class="section" id="features">
+<h2>🎥 Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<p>This video introduces the idea of feature engineering</p>
+<div class="resource video docutils container" id="b4157241-24cd-4195-b7f9-adb80127b84a">
+<div class="tabbed-set docutils">
+<input checked="checked" id="5c9460b0-0846-4bba-a165-d6c6b5c9eed2" name="c97847b4-f826-4b65-b862-15eaf003f886" type="radio">
+</input><label class="tabbed-label" for="5c9460b0-0846-4bba-a165-d6c6b5c9eed2">
+Video (4m20s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=b4157241-24cd-4195-b7f9-adb80127b84a&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="3514fcc0-50e2-4d17-b67d-93d95a447db1" name="c97847b4-f826-4b65-b862-15eaf003f886" type="radio">
+</input><label class="tabbed-label" for="3514fcc0-50e2-4d17-b67d-93d95a447db1">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173215" data-key=AMykG3CZK45_454>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+FEATURES
+Learning Outcomes
+Compute new features for observations
+Think about feature relatedness
+Preview: split data
+Photo by Logan Clark on Unsplash
+Features
+Penguins:
+Bill length
+Bill depth
+Flipper length
+Body mass
+Can compute:
+Bill aspect ratio
+
+Augments data with a new feature
+Featured Selection
+Things we’ll want to do:
+Extract features
+Select features
+Rescale, normalize, and transform features
+Combine features into new ones
+
+These can improve performance and interpretability.
+Desired Feature Properties
+Well-distributed
+Normal often easiest to work with
+Interpretable, if we’re doing inference
+Uncorrelated
+Two correlated features may not contribute more value!
+Cause problems with some models!
+Beware
+Don’t look at correlation between outcome and predictors in exploration!
+
+Biases your feature selection
+
+Hold out testing / validation data, then explore your “training data”.
+Wrapping Up
+We want to take care in curating and transforming features.
+
+We’re going to need to split data into pieces soon.
+Photo by James Fitzgerald on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="week-6-quiz">
+<h2>🚩 Week 6 Quiz<a class="headerlink" href="#week-6-quiz" title="Permalink to this headline">¶</a></h2>
+<p>The Week 6 quiz is due before class on Thursday as usual.</p>
+</div>
+<div class="section" id="assignment-3">
+<h2>📩 Assignment 3<a class="headerlink" href="#assignment-3" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../assignments/A3/"><span class="doc std std-doc">Assignment 3</span></a> is due <strong>October 10</strong>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./week6"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../week5/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 5 — Filling In (9/20–24)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../week7/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 7 — Getting Data (Oct. 4–8)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

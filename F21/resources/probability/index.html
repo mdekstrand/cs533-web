@@ -1,0 +1,1145 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes on Probability &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/tabinsert.js"></script>
+    <script src="../../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"E": "\\mathrm{E}", "Field": "\\mathcal{F}", "P": "\\mathrm{P}", "Cov": "\\mathrm{Cov}", "Cor": "\\mathrm{Cor}", "Var": "\\mathrm{Var}", "log": "\\operatorname{log}", "Odds": "\\operatorname{Odds}", "OR": "\\operatorname{OR}", "IND": "\\mathbb{I}", "Reals": "\\mathbb{R}"}}, "HTML-CSS": {"fonts": ["TeX"]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="copyright" title="Copyright" href="../../copyright/" />
+    <link rel="next" title="Common Problems" href="../problems/" />
+    <link rel="prev" title="Notebook Checklist &amp; Guide" href="../notebook-checklist/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tutorials/">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/resources/probability.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fresources/probability.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/resources/probability.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-concepts-and-notation">
+   Set Concepts and Notation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kinds-of-sets">
+     Kinds of Sets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#events">
+   Events
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probability">
+   Probability
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#joint-and-conditional-probability">
+   Joint and Conditional Probability
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#independence">
+   Independence
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#continuous-probability-random-variables">
+   Continuous Probability &amp; Random Variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expectation">
+   Expectation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variance-and-covariance">
+   Variance and Covariance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#properties-of-expected-values">
+   Properties of Expected Values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expectation-of-indicator-functions">
+   Expectation of Indicator Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#odds">
+   Odds
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading">
+   Further Reading
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p>(probability=)</p>
+<div class="tex2jax_ignore mathjax_ignore section" id="notes-on-probability">
+<h1>Notes on Probability<a class="headerlink" href="#notes-on-probability" title="Permalink to this headline">¶</a></h1>
+<p>This document summarizes key concepts in probability theory.
+It is intended to be a concise reference for what we will be using, not a thorough tutorial exposition.</p>
+<p>The concepts in this note are introduced in <a class="reference internal" href="../../week4/"><span class="doc std std-doc">Week 4</span></a>.</p>
+<div class="section" id="set-concepts-and-notation">
+<h2>Set Concepts and Notation<a class="headerlink" href="#set-concepts-and-notation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>A set <span class="math notranslate nohighlight">\(A\)</span> is an <em>unordered</em> collection of distinct elements.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\emptyset\)</span> is the empty set.</p></li>
+<li><p><span class="math notranslate nohighlight">\(A \cup B\)</span> is the <strong>union</strong>: all elements in either <span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(B\)</span> (or both).</p></li>
+<li><p><span class="math notranslate nohighlight">\(A \cap B\)</span> is the <strong>intersection</strong>: all elements in both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(A \setminus B\)</span> is the <strong>set difference</strong>: all elements in <span class="math notranslate nohighlight">\(A\)</span> but not in <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span> is a subset of some larger set <span class="math notranslate nohighlight">\(U\)</span> that contains all the possible elements under consideration, then the <strong>complement</strong> <span class="math notranslate nohighlight">\(A^c = U \setminus A\)</span> is the set of elements <em>not</em> in <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(|A|\)</span> is the <em>cardinality</em> (or <em>size</em>) of <span class="math notranslate nohighlight">\(A\)</span>. It may be infinite.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{P}(A)\)</span> is the <em>power set</em> of <span class="math notranslate nohighlight">\(A\)</span>: the set of all subsets of <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+</ul>
+<div class="section" id="kinds-of-sets">
+<h3>Kinds of Sets<a class="headerlink" href="#kinds-of-sets" title="Permalink to this headline">¶</a></h3>
+<p>There are, broadly speaking, three kinds of sets in terms of their cardinality:</p>
+<ul class="simple">
+<li><p><strong>Finite</strong> sets have a finite number of elements.  There is some natural number <span class="math notranslate nohighlight">\(n\)</span> such that <span class="math notranslate nohighlight">\(|A| = n\)</span>.</p></li>
+<li><p><strong>Countable</strong> sets (or <em>countably infinite</em> sets) are infinite sets with the same cardinality as the set of natural numbers (<span class="math notranslate nohighlight">\(|A| = |\mathbb{N}|\)</span>).  Formally, there exists an isomorphism (a 1:1 onto mapping) between members of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(\mathbb{N}\)</span>.  Natural numbers, integers, rationals, and algebraics (rationals and roots) are all countable sets.</p></li>
+<li><p><strong>Uncountable</strong> sets are infinite sets whose cardinality is larger than that of the natural numbers. The real numbers (<span class="math notranslate nohighlight">\(\mathbb{R}\)</span>) and the power set of the natural numbers (<span class="math notranslate nohighlight">\(\mathcal{P}(\mathbb{N})\)</span>) are two frequently-encountered uncountable sets.</p></li>
+</ul>
+<p>We also talk about discrete and continuous sets:</p>
+<ul class="simple">
+<li><p>A <strong>continuous</strong> set <span class="math notranslate nohighlight">\(A\)</span> with an ordering <span class="math notranslate nohighlight">\(&lt;\)</span> is a set where we can always find an element to fit between any two other elements: for any <span class="math notranslate nohighlight">\(a, b \in A\)</span> such that <span class="math notranslate nohighlight">\(a &lt; b\)</span>, there is a <span class="math notranslate nohighlight">\(c \in A\)</span> such that <span class="math notranslate nohighlight">\(a &lt; c &lt; b\)</span>.</p></li>
+<li><p>A <strong>discrete</strong> set is a set that is not continuous: there are irreducible gaps between elements.</p></li>
+</ul>
+<p>All finite sets are discrete.
+The natural numbers and integers are also discrete.
+The real numbers are continuous.
+Rationals and algebraics are also continuous, but we won’t be using them directly in this class.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> is continuous, the <em>floating-point numbers</em> are actually discrete and, technically, finite (there are only <span class="math notranslate nohighlight">\(2^{64}\)</span> possible values of a 64-bit quantity).
+However, we are usually using floats to represent reals, so for logical, mathematical purposes, we usually treat quantities represented in floats as continuous.
+The representation is an approximation of the true quantities.</p>
+</div>
+</div>
+</div>
+<div class="section" id="events">
+<h2>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h2>
+<p id="index-0">A random process (or a process modeled as random) produces distinct individual outcomes, called <strong><a class="reference internal" href="../../glossary/#term-elementary-event"><span class="xref std std-term">elementary events</span></a></strong>.
+We use <span class="math notranslate nohighlight">\(E\)</span> to denote the set of such outcomes; for a coin flip, <span class="math notranslate nohighlight">\(E = \{H, T\}\)</span>.
+For a random process that produces a count, <span class="math notranslate nohighlight">\(E = \mathbb{N}\)</span>.</p>
+<p id="index-1">Probability is defined over <strong>events</strong>.
+An event <span class="math notranslate nohighlight">\(A\)</span> is a subset of <span class="math notranslate nohighlight">\(E\)</span> (<span class="math notranslate nohighlight">\(A \subseteq E\)</span>).
+If elementary events are events, they are represented as <em>singletons</em>: <span class="math notranslate nohighlight">\(A = \{H\}\)</span> means “coin is heads”.
+<span class="math notranslate nohighlight">\(E\)</span>, the set of all elementary events, is the event “something happened”.</p>
+<p>We use set operations to combine events (for these examples, we consider <span class="math notranslate nohighlight">\(E\)</span> to be a deck of 52 <a class="reference external" href="https://en.wikipedia.org/wiki/Standard_52-card_deck">standard playing cards</a>; <span class="math notranslate nohighlight">\(A\)</span> is “2” and <span class="math notranslate nohighlight">\(B\)</span> is “red card”):</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Illustration<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text"><img alt="Cards, A, and B" src="../../_images/playing-cards.png" /></p>
+</div>
+</details><ul>
+<li><p><span class="math notranslate nohighlight">\(A \cap B\)</span> is the event “both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> happened”; for our example, the conjunction is “red 2”, of which there are 2 (2♥, 2♦).</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Illustration of <span class="math notranslate nohighlight">\(A \cap B\)</span><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text"><img alt="Highlighting A∩B" src="../../_images/playing-cards-aib.png" /></p>
+</div>
+</details></li>
+<li><p><span class="math notranslate nohighlight">\(A \cup B\)</span> is the event “either <span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(B\)</span> (or both) happened”; for our example, the disjunction is “2 or red” — any 2, or any red card; this set has size 28: the 26 red cards (13 of each red suit), plus the two black 2s.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Illustration of <span class="math notranslate nohighlight">\(A \cup B\)</span><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text"><img alt="Highlighting A∪B" src="../../_images/playing-cards-aub.png" /></p>
+</div>
+</details></li>
+<li><p><span class="math notranslate nohighlight">\(A \setminus B\)</span> is the event “<span class="math notranslate nohighlight">\(A\)</span> happened but not <span class="math notranslate nohighlight">\(B\)</span>”. If <span class="math notranslate nohighlight">\(B \subseteq A\)</span>, then <span class="math notranslate nohighlight">\(A \setminus B = \emptyset\)</span>; for our example, the difference is “black 2”, because it is the set of 2s that are not red.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Illustration of <span class="math notranslate nohighlight">\(A \setminus B\)</span><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text"><img alt="Highlighting A\B" src="../../_images/playing-cards-amb.png" /></p>
+</div>
+</details></li>
+</ul>
+<p>With these definitions, we can now define the <em>event space</em>: <span class="math notranslate nohighlight">\(\Field\)</span> is the set of all possible events (subsets of <span class="math notranslate nohighlight">\(E\)</span>).
+This is a set of sets.
+It does not necessarily contain <em>every</em> subset of <span class="math notranslate nohighlight">\(E\)</span>, but it has the following properties:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(E \in \Field\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A \in \Field\)</span>, then its complement <span class="math notranslate nohighlight">\(A^c \in \Field\)</span>. We say <span class="math notranslate nohighlight">\(\Field\)</span> is <em>closed under complement</em>.</p>
+<ul>
+<li><p>Since <span class="math notranslate nohighlight">\(E \in \Field\)</span> and <span class="math notranslate nohighlight">\(E^c = \emptyset\)</span>, <span class="math notranslate nohighlight">\(\emptyset \in \Field\)</span>.</p></li>
+</ul>
+</li>
+<li><p>If <span class="math notranslate nohighlight">\(A_1, A_2, \dots, A_n \in \Field\)</span>, then their union <span class="math notranslate nohighlight">\(\bigcup_i A_i \in \Field\)</span>.  This applies also to unions of <em>countably many</em> sets.  We say <span class="math notranslate nohighlight">\(\Field\)</span> is closed under <em>countable unions</em>.</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(\Field\)</span> is called a <strong>sigma algebra</strong> (or <em>sigma field</em>).
+For a finite set <span class="math notranslate nohighlight">\(E\)</span>, we usually use <span class="math notranslate nohighlight">\(\Field = \mathcal{P}(E)\)</span>, the <em>power set</em> of <span class="math notranslate nohighlight">\(E\)</span>.
+This means that every possible subset of <span class="math notranslate nohighlight">\(E\)</span> (and therefore every conceivable set of elementary events) is an event.</p>
+<p>Here are some additional properties of sigma algebras (these are listed separately from the previous properties because those are the <em>definition</em> of a sigma algebra and these are <em>consequences</em> — we can prove them from the definitions and axioms):</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(A, B \in \Field\)</span>, <span class="math notranslate nohighlight">\(A \cap B \in \Field\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="probability">
+<h2>Probability<a class="headerlink" href="#probability" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have a sigma algebra, we can define the concept of <strong>probability</strong>.
+A probability distribution (or <em>measure</em>) <span class="math notranslate nohighlight">\(\P\)</span> over a sigma algebra <span class="math notranslate nohighlight">\(\Field\)</span> is a function that obeys the following (Kolmogorov’s axioms):</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\P[E] = 1\)</span> — the probability of something happening is 1.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\P[A] \ge 0\)</span> — <strong>non-negativity</strong>: probabilities are not negative.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A_1, A_2, \dots, A_n\)</span> are (countably many) <em>disjoint</em> events in <span class="math notranslate nohighlight">\(\Field\)</span>, then <span class="math notranslate nohighlight">\(\P[\bigcup_i A_i] = \sum_i \P[A_i]\)</span> (<strong>countable additivity</strong>).</p></li>
+</ul>
+<p>A collection of disjoint sets is also called <strong>mutually exclusive</strong>.  What it means is that for any <span class="math notranslate nohighlight">\(A_i, A_j\)</span> in the collection, <span class="math notranslate nohighlight">\(A_i \cap A_j = \emptyset\)</span> — the two events cannot both happen simultaneously.</p>
+<p>We a field of events equipped with a probability measure <span class="math notranslate nohighlight">\((E, \Field, \P)\)</span> a <strong>probability space</strong>.</p>
+<p>Some additional facts about probability:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\P[A] \le 1\)</span> (combined with non-negativity, we have <span class="math notranslate nohighlight">\(0 \le \P[A] \le 1\)</span>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\P[A \cup B] = \P[A] + \P[B] - \P[A \cap B]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\P[A^c] = 1 - \P[A]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\P[A \setminus B] = \P[A] - \P[A \cap B]\)</span></p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A \subseteq B\)</span>, then <span class="math notranslate nohighlight">\(\P[A] \le \P[B]\)</span></p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We have to be careful with <span class="math notranslate nohighlight">\(\P[A \cup B]\)</span> — a common mistake is to attempt to compute it as <span class="math notranslate nohighlight">\(\P[A] + \P[B]\)</span>.  However, this erroneously counts elements in the intersection <span class="math notranslate nohighlight">\(A \cap B\)</span> twice.
+With the examples from before, where <span class="math notranslate nohighlight">\(A\)</span> is 2s and <span class="math notranslate nohighlight">\(B\)</span> is red cards, the red 2s are included in both <span class="math notranslate nohighlight">\(\P[A]\)</span> (since they are 2s) and <span class="math notranslate nohighlight">\(\P[B]\)</span> (since they are red).  Subtracting the joint probability <span class="math notranslate nohighlight">\(\P[A \cap B]\)</span> corrects for the double-counting and produces the correct result.  If <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are disjoint (they can never happen at the same time), then <span class="math notranslate nohighlight">\(\P[A \cap B] = 0\)</span>, and we can see that the probability follows the rules for countable additivity.</p>
+</div>
+</div>
+<div class="section" id="joint-and-conditional-probability">
+<span id="prob-conditional"></span><h2>Joint and Conditional Probability<a class="headerlink" href="#joint-and-conditional-probability" title="Permalink to this headline">¶</a></h2>
+<p>We define the <strong>joint probability</strong> <span class="math notranslate nohighlight">\(\P[A, B] = \P[A \cap B]\)</span>: the probability of both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> happening in the same observation.
+This is sometimes also written <span class="math notranslate nohighlight">\(\P[A; B]\)</span>, and commas and semicolons are sometimes mixed.  This is usually to separate different <em>kinds</em> of events in the probability statement.</p>
+<p>The <strong>conditional probability</strong> <span class="math notranslate nohighlight">\(\P[B|A]\)</span>, read “the probability of <span class="math notranslate nohighlight">\(B\)</span> given <span class="math notranslate nohighlight">\(A\)</span>”, is the probability of <span class="math notranslate nohighlight">\(B\)</span> <em>conditioned on</em> the knowledge that <span class="math notranslate nohighlight">\(A\)</span> has happened.</p>
+<p>Conditional and joint probabilities decompose as follows:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\P[A,B] = \P[A|B] \P[B]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\P[A,B] = \P[B|A] \P[A]\)</span></p></li>
+</ul>
+<p>From this we can derive <strong>Bayes’ theorem</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\P[B|A] = \frac{\P[A|B] \P[B]}{\P[A]}\]</div>
+<p>We can <strong>marginalize</strong> a <strong>joint distribution</strong> by summing. If <span class="math notranslate nohighlight">\(\mathcal{B} = {B_1, B_2, \dots, B_n}\)</span> is a collection of mutually exclusive events that span <span class="math notranslate nohighlight">\(E\)</span>, then:</p>
+<div class="math notranslate nohighlight">
+\[\P[A] = \sum_{B \in \mathcal{B}} \P[A, B]\]</div>
+<p>We call <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> a <em>partition</em> of <span class="math notranslate nohighlight">\(E\)</span>.
+By “span <span class="math notranslate nohighlight">\(E\)</span>”, we mean that for any <span class="math notranslate nohighlight">\(e \in E\)</span>, there is some <span class="math notranslate nohighlight">\(B_i \in \mathcal{B}\)</span> such that <span class="math notranslate nohighlight">\(e \in B_i\)</span>.</p>
+</div>
+<div class="section" id="independence">
+<h2>Independence<a class="headerlink" href="#independence" title="Permalink to this headline">¶</a></h2>
+<p>Two events are <strong>independent</strong> if knowing the outcome of one tells you nothing about the probability of the other.
+The following are true if and only if <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are independent:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\P[A|B] = \P[A]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\P[B|A] = \P[B]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\P[A, B] = \P[A] \P[B]\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="continuous-probability-random-variables">
+<h2>Continuous Probability &amp; Random Variables<a class="headerlink" href="#continuous-probability-random-variables" title="Permalink to this headline">¶</a></h2>
+<p>If <span class="math notranslate nohighlight">\(E\)</span> is continuous (typically <span class="math notranslate nohighlight">\(E = \mathbb{R}\)</span>), then we can’t meaningfully talk about the probabilities of elementary events.
+The probability that an observation is <em>exactly</em> any particular value <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span> is (typically) zero.</p>
+<p>Instead, we define a sigma field where events are <em>intervals</em>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(E = \mathbb{R}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Field\)</span> is the set of <strong>intervals</strong>, their complements, and their countable unions.  It contains infinitesimally small intervals, but not singletons.</p></li>
+</ul>
+<p>This is not the only way to define probabilities over continuous event spaces, but it is the common way of defining probabilities over real values.
+This particular sigma-field is called the <a class="reference external" href="https://mathworld.wolfram.com/BorelSigma-Algebra.html"><em>Borel sigma algebra</em></a>, and we will denote it <span class="math notranslate nohighlight">\((\mathbb{R}, \mathcal{B})\)</span>.</p>
+<p>We often talk about continuous distributions as the distribution of a <strong>random variable</strong> <span class="math notranslate nohighlight">\(X\)</span>.
+A random variable is a variable that takes on random values.
+We can (often) <em>observe</em> or <em>sample</em> a random variable.</p>
+<p>We define continuous probabilities in terms of a <strong>distribution function</strong> <span class="math notranslate nohighlight">\(F_X\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[F_X(x) = \P[X &lt; x]\]</div>
+<p>This is also called the <em>continuous distribution function</em> (CDF).</p>
+<p>We can use it to compute the probability for any interval:</p>
+<div class="math notranslate nohighlight">
+\[\P[x_1 \le X &lt; x_2] = F_X(x_2) - F_X(x_1)\]</div>
+<p>This probability is called the <strong>probability mass</strong> on a particular interval.</p>
+<p>Distributions are often defined by a <strong>probability density function</strong> <span class="math notranslate nohighlight">\(p\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[F(x) = \int_{-\infty}^x p(x_*) dx_*\]</div>
+<p>Unlike probabilities or probability mass, densities <em>can</em> exceed 1.
+When you use <code class="docutils literal notranslate"><span class="pre">sns.distplot</span></code> and it shows the kernel density estimator (KDE), it is showing you an estimate of the density.
+That is why the <span class="math notranslate nohighlight">\(y\)</span> axis is weird.</p>
+<p>We can also talk about joint and conditional continuous probabilities and densities.
+When marginalizing a continuous probability density, we replace the sum with an integral:</p>
+<div class="math notranslate nohighlight">
+\[p(x) = \int p(x,y) dy\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Technically, a random variable for a probability space <span class="math notranslate nohighlight">\((E, \mathcal{F}, P)\)</span> is a function <span class="math notranslate nohighlight">\(f_X: E \to \mathbb{R}\)</span>.
+For our purposes in this class, we can just treat random variables directly as the results of a probability space <span class="math notranslate nohighlight">\((\mathbb{R}, \mathcal{B}, P)\)</span>.</p>
+</div>
+</div>
+<div class="section" id="expectation">
+<h2>Expectation<a class="headerlink" href="#expectation" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>expected value</strong> of a random variable <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(\E[X]\)</span>, is its <em>mean</em>.
+It is computed as the weighted sum over the possible values of <span class="math notranslate nohighlight">\(x\)</span>, where the weight for each value is its probability (or density).
+For discrete <span class="math notranslate nohighlight">\(X\)</span> with probability measure <span class="math notranslate nohighlight">\(P\)</span>, we have:</p>
+<div class="math notranslate nohighlight">
+\[\E[X] = \sum_{x \in X} x \P[x]\]</div>
+<p>If <span class="math notranslate nohighlight">\(X\)</span> is continuous and has probability density <span class="math notranslate nohighlight">\(p\)</span>, we have:</p>
+<div class="math notranslate nohighlight">
+\[\E[X] = \int x p(x) dx\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If we use the technical definition of a random variable, then we denote:</p>
+<div class="math notranslate nohighlight">
+\[\E_P[f_X] = \int f_X(e) \P[e] de\]</div>
+</div>
+<p>We can also talk about the <strong>conditional expectation</strong> <span class="math notranslate nohighlight">\(\E[X | A]\)</span>, the expected value of <span class="math notranslate nohighlight">\(X\)</span> given that we know event <span class="math notranslate nohighlight">\(A\)</span> happened.
+It is defined as <span class="math notranslate nohighlight">\(\E[X|A] = \int x p(x|A) dx\)</span>.</p>
+</div>
+<div class="section" id="variance-and-covariance">
+<span id="prob-variance"></span><h2>Variance and Covariance<a class="headerlink" href="#variance-and-covariance" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>variance</strong> of a random variable <span class="math notranslate nohighlight">\(X\)</span> is the expected value of its squared deviation from its mean:</p>
+<div class="math notranslate nohighlight">
+\[\Var(X) = \E[(X - \E[X])^2]\]</div>
+<p>The <strong>standard deviation</strong> is the square root of variance (<span class="math notranslate nohighlight">\(\sigma_X = \sqrt{\Var(X)}\)</span>).</p>
+<p>The <strong>covariance</strong> of two random variables is the expected value of the product of their deviations from mean:</p>
+<div class="math notranslate nohighlight">
+\[\Cov(X, Y) = \E[(X - \E[X]) (Y - \E[Y])]\]</div>
+<p>The <strong>correlation</strong> <span class="math notranslate nohighlight">\(r_{XY} = \frac{\Cov(X, Y)}{\sigma_X \sigma_Y}\)</span>.</p>
+<p>We can also show that <span class="math notranslate nohighlight">\(\Var(X) = \Cov(X, X)\)</span>.</p>
+<p>Random variables can also be described as <strong>independent</strong> in the same way as events: knowing one tells you nothing about the other.
+If two random variables are independent then their covariance <span class="math notranslate nohighlight">\(\Cov(X, Y) = 0\)</span> (this implication is one-directional — there exist non-independent random variables whose covariance is 0).</p>
+</div>
+<div class="section" id="properties-of-expected-values">
+<h2>Properties of Expected Values<a class="headerlink" href="#properties-of-expected-values" title="Permalink to this headline">¶</a></h2>
+<p>Expected value obeys a number of useful properties (<span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are random variables, and <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>, etc. are real numbers):</p>
+<ul class="simple">
+<li><p><strong>Linearity of expectation</strong>:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\E[X + Y] = \E[X] + \E[Y]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\E[\alpha X] = \alpha \E[X]\)</span></p></li>
+</ul>
+</li>
+<li><p>If <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent, then <span class="math notranslate nohighlight">\(\E[XY] = \E[X] \E[Y]\)</span></p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\E[X] = 0\)</span>, then <span class="math notranslate nohighlight">\(\Var(X) = \E[X^2]\)</span></p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\E[X] = \E[Y] = 0\)</span>, then <span class="math notranslate nohighlight">\(\Cov(X, Y) = \E[X Y]\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="expectation-of-indicator-functions">
+<h2>Expectation of Indicator Functions<a class="headerlink" href="#expectation-of-indicator-functions" title="Permalink to this headline">¶</a></h2>
+<p>Sets can be described as an <em>indicator function</em> (or <em>characteristic function</em>) <span class="math notranslate nohighlight">\(\IND_A: E \to \{0,1\}\)</span>.
+This function is defined as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\IND_A(x) = \begin{cases}
+1 &amp; x \in A \\
+0 &amp; x \not\in A
+\end{cases}\end{split}\]</div>
+<p>Then the <strong>expected value</strong> of this function is the same as the probability of <span class="math notranslate nohighlight">\(A\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\E[\IND_A(X)] = \P[A]\]</div>
+</div>
+<div class="section" id="odds">
+<span id="prob-odds"></span><h2>Odds<a class="headerlink" href="#odds" title="Permalink to this headline">¶</a></h2>
+<p>Another way of computing probability is to compute with <strong>odds</strong>: the ratio of probabilities for or against an event.
+This is given by:</p>
+<div class="math notranslate nohighlight">
+\[\Odds(A) = \frac{\P[A]}{\P[A^c]} = \frac{\P[A]}{1 - \P[A]}\]</div>
+<p>The <strong>log odds</strong> are often computationally convenient, and are the basis of logistic regression:</p>
+<div class="math notranslate nohighlight">
+\[\log \Odds(a) = \log \P[A] - \log (1 - \P[A])\]</div>
+<p>The <a class="reference internal" href="../../glossary/#term-logit-function"><span class="xref std std-term">logit function</span></a> converts probabilities to log-odds.</p>
+<p>We can also compute an <strong>odds ratio</strong> of two outcomes:</p>
+<div class="math notranslate nohighlight">
+\[\OR(A, B) = \frac{\Odds(A)}{\Odds(B)}\]</div>
+</div>
+<div class="section" id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<p>If you want to dive more deeply into probability theory, Michael Betancourt’s case studies are rather mathematically dense but quite good:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://betanalpha.github.io/assets/case_studies/probability_theory.html">Probability Theory (For Scientists and Engineers)</a></p></li>
+<li><p><a class="reference external" href="https://betanalpha.github.io/assets/case_studies/conditional_probability_theory.html">Conditional Probability</a></p></li>
+<li><p><a class="reference external" href="https://betanalpha.github.io/assets/case_studies/probability_on_product_spaces.html">Product Placement</a> (probability over product spaces)</p></li>
+</ul>
+<p>For a book:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://chance.dartmouth.edu/teaching_aids/books_articles/probability_book/amsbook.mac.pdf"><cite class=free>Introduction to Probability<cite></a> by Grinstead and Snell</p></li>
+<li><p><a class="reference external" href="https://bookdown.org/kevin_davisross/probsim-book/"><cite class=free>An Introduction to Probability and Simulation</cite></a> — a hands-on online book using Python simulations</p></li>
+<li><p><cite>A Probability Path</cite> by Sidney Resnick</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./resources"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../notebook-checklist/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Notebook Checklist &amp; Guide</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../problems/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Common Problems</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

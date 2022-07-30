@@ -1,0 +1,24 @@
+name: cs533
+channels:
+- defaults
+dependencies:
+# core libraries
+- python=3.8
+- numpy>=1.17
+- pandas>=1.2
+# statistical libraries
+- statsmodels
+- scikit-learn
+# plotting libraries
+- matplotlib
+- seaborn
+# interaction support
+- notebook
+- jupyterlab
+# extra stuff (used for my own prep)
+- sympy
+# utilities
+- ipywidgets
+- tqdm
+- pip:
+  - seedbank

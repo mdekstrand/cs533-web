@@ -1,0 +1,2049 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 12 — Text (11/8–12) &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabinsert.js"></script>
+    <script src="../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="copyright" title="Copyright" href="../copyright/" />
+    <link rel="next" title="Week 13 — Unsupervised (11/15–19)" href="../week13/" />
+    <link rel="prev" title="Week 11 — More Modeling (11/1–5)" href="../week11/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../resources/tutorials/">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/week12/index.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fweek12/index.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/week12/index.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#content-overview">
+   🧐 Content Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deadlines">
+   📅 Deadlines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#midterm-b">
+   🚩 Midterm B
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unstructured-data">
+   🎥 Unstructured Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unicode-and-encodings">
+   🎥 Unicode and Encodings
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-text-processing-pipeline">
+   🎥 The Text Processing Pipeline
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vectors-and-similarity">
+   🎥 Vectors and Similarity
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classifying-text">
+   🎥 Classifying Text
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spam-filter-example">
+   📓 Spam Filter Example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-12-quiz">
+   🚩 Week 12 Quiz
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignment-6">
+   📩 Assignment 6
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-12-text-11-812">
+<span id="week12"></span><h1>Week 12 — Text (11/8–12)<a class="headerlink" href="#week-12-text-11-812" title="Permalink to this headline">¶</a></h1>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The second midterm is on <strong>Tuesday, November 9, 2021</strong>.</p>
+</div>
+<p>This week we are going to talk about <em>unstructured data</em>, particularly text.</p>
+<div class="section" id="content-overview">
+<h2>🧐 Content Overview<a class="headerlink" href="#content-overview" title="Permalink to this headline">¶</a></h2>
+<div class="module-content docutils">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><strong>Element</strong></th>
+<th class="head"><strong>Length</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#89382d55-ac73-4d9f-a042-adc60183b654"><span>🎥 Unstructured Data</span></a></p></td>
+<td><span>2m57s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#5ab63c26-9df7-46cc-a858-adc60183b70f"><span>🎥 Unicode and Encodings</span></a></p></td>
+<td><span>28m45s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#991b221c-1c78-4914-903f-adc60183b7de"><span>🎥 Text Processing Pipeline</span></a></p></td>
+<td><span>17m36s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#7c588d12-0992-4b66-8337-adc60183b8a1"><span>🎥 Vectors and Similarity</span></a></p></td>
+<td><span>6m58s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#f9571ba1-0629-47a3-bf8a-adc60183b986"><span>🎥 Classifying Text</span></a></p></td>
+<td><span>6m9s</span></td>
+</tr>
+</tbody>
+</table>
+<p><span>This week has </span><strong>1h2m</strong><span> of video and </span><strong>0 words</strong><span> of assigned readings.</span><span> This week’s videos are available in a </span><a class="panopto reference external" href="https://boisestate.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%226686c43b-1af7-4d8c-b577-adc6018332e3%22"><span>Panopto folder</span></a><span> and as a </span><a class="panopto podcast reference external" href="https://boisestate.hosted.panopto.com/Panopto/Podcast/Podcast.ashx?courseid=6686c43b-1af7-4d8c-b577-adc6018332e3&amp;type=mp4"><span>podcast</span></a><span>.</span></p>
+</div>
+</div>
+<div class="section" id="deadlines">
+<h2>📅 Deadlines<a class="headerlink" href="#deadlines" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Midterm B, November 9</p></li>
+<li><p>Quiz 12, November 11</p></li>
+</ul>
+</div>
+<div class="section" id="midterm-b">
+<span id="id1"></span><h2>🚩 Midterm B<a class="headerlink" href="#midterm-b" title="Permalink to this headline">¶</a></h2>
+<p>The second midterm will be in-class (9AM) on <strong>Tuesday, November 9, 2021</strong>.
+It follows the same structure and rules as <a class="reference internal" href="../week6/#midterm-a"><span class="std std-ref">Midterm A</span></a>, and is over
+material through Week 11.</p>
+</div>
+<div class="section" id="unstructured-data">
+<h2>🎥 Unstructured Data<a class="headerlink" href="#unstructured-data" title="Permalink to this headline">¶</a></h2>
+<p>This video introduces the week and describes the key ideas of extracting features from unstructured data.</p>
+<div class="resource video docutils container" id="89382d55-ac73-4d9f-a042-adc60183b654">
+<div class="tabbed-set docutils">
+<input checked="checked" id="0e603ec6-4739-4e13-8287-854cd246a84b" name="3095df15-2687-4a7c-8628-d72479051ecf" type="radio">
+</input><label class="tabbed-label" for="0e603ec6-4739-4e13-8287-854cd246a84b">
+Video (2m57s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=89382d55-ac73-4d9f-a042-adc60183b654&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="44cb2114-1e7f-4225-bed9-902325556e30" name="3095df15-2687-4a7c-8628-d72479051ecf" type="radio">
+</input><label class="tabbed-label" for="44cb2114-1e7f-4225-bed9-902325556e30">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0!74447" data-key=AMot_QArJ-lG6Cs>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+UNSTRUCTURED DATA
+Learning Outcomes
+Introduce processing unstructured data for modeling.
+Understand different types of features from unstructured data.
+Photo by Nikita Kachanovsky on Unsplash
+So Far
+Tabular data – equivalent set of features for each instance
+
+Other types:
+Semi-structured – has defined fields, can vary
+Unstructured – no defined fields
+May have associated semi-structured metadata
+Features from Data
+“Raw” features
+Words
+Pixels
+
+Tabular features
+Size / length
+Sentiment, etc. (mined with other models)
+This Week
+We’re going to:
+Process unstructured text
+Use words (or similar tokens) as features
+Use it to classify (and eventually cluster)
+Wrapping Up
+Unstructured data doesn’t come with nice data-frame features.
+
+We can use direct content as a large feature space, or derive a smaller set of features from the data.
+Photo by Eileen Pan on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Oh, again. Now going to talk about how to start processing unstructured data, particularly text data.</li>
+<li>So this video, we're going to introduce the idea of processing unstructured text, unstructured data modeling,</li>
+<li>going to understand a little bit about some of the different types of features we can try to extract from unstructured data.</li>
+<li>So so far in this class, we've been dealing primarily with tabular data, fully structured data of various forms.</li>
+<li>Or we have for each instance, we have an equivalent set of features. Some feature values might be missing.</li>
+<li>Well, we've got all of these features.</li>
+<li>As I just as we discussed earlier in the class, there's additional types of data, semi's structured data has defined fields got,</li>
+<li>but they can vary significantly in terms of what fields we get for what objects and unstructured data doesn't have defined fields.</li>
+<li>There may be these aren't mutually exclusive.</li>
+<li>You might have some unstructured data like text or images that have structured or some a structure made, a data that come with them.</li>
+<li>You can treat the meta data just like we treat or other structured data.</li>
+<li>But we're gonna be talking this week about how to start working with the unstructured data.</li>
+<li>So to get features from data, there's a few things we can do.</li>
+<li>We can get raw features so we can get words. For example, we got text.</li>
+<li>We might say, well, the words are features and the values associated with those features say are the number of times the word appears.</li>
+<li>We've got image data. We've got pixels. Then we can get some features that are readily convert to a readily think.</li>
+<li>We can think of them in some ten tabular form, like size or length like this.</li>
+<li>The number of characters in a document is a feature. We could also use additional models like there's a sentiment and sentiment inference models that</li>
+<li>will try to determine if a sentence or some text is positive as a positive or negative sentiment.</li>
+<li>In other models that we can apply in order to compute additional features from some of our raw data this week we're going to be processing and strong,</li>
+<li>unstructured text using words as features. The result will be tabular.</li>
+<li>You'll have a column for each word, but we're going to be using words as features no when you use it to build classifiers.</li>
+<li>There's an example notebook in this week's material that walks you through Luke using</li>
+<li>the topics that we're learning in the videos to build a classifier for email spam.</li>
+<li>So to wrap up unstructured data doesn't come with the nice data frame style features.</li>
+<li>You don't get the rows and the columns that are all set up. You can do nice math on the columns.</li>
+<li>We're gonna directly use content is a large feature space and we're using words as features.</li>
+<li>We have as many features as there are different words in the content. We'll also see how to derive.</li>
+<li>We also set up to be able to derive smaller set of features from the data.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="unicode-and-encodings">
+<h2>🎥 Unicode and Encodings<a class="headerlink" href="#unicode-and-encodings" title="Permalink to this headline">¶</a></h2>
+<p>In this video, I describe Unicode and text encodings.</p>
+<div class="resource video docutils container" id="5ab63c26-9df7-46cc-a858-adc60183b70f">
+<div class="tabbed-set docutils">
+<input checked="checked" id="b263d57c-1148-49a0-a2a2-fba1f9106e7a" name="cb429e24-cabd-4611-8bd5-5c37326a56ac" type="radio">
+</input><label class="tabbed-label" for="b263d57c-1148-49a0-a2a2-fba1f9106e7a">
+Video (28m45s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=5ab63c26-9df7-46cc-a858-adc60183b70f&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="0905bbec-1233-4b11-ab6e-7e6d4ddad519" name="cb429e24-cabd-4611-8bd5-5c37326a56ac" type="radio">
+</input><label class="tabbed-label" for="0905bbec-1233-4b11-ab6e-7e6d4ddad519">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0!74443" data-key=AI6OpiTUuG36Hts>
+</div></div>
+<input id="96ad2b25-6795-451a-8557-0a677a8df1ee" name="cb429e24-cabd-4611-8bd5-5c37326a56ac" type="radio">
+</input><label class="tabbed-label" for="96ad2b25-6795-451a-8557-0a677a8df1ee">
+Resources and Links</label><div class="tabbed-content resources docutils">
+<p>Important Python code:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.encode" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.encode()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes.decode" title="(in Python v3.10)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bytes.decode()</span></code></a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.str.encode.html#pandas.Series.str.encode" title="(in pandas v1.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.Series.str.encode()</span></code></a> and <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.str.decode.html#pandas.Series.str.decode" title="(in pandas v1.4.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.Series.str.decode()</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/unicodedata.html#module-unicodedata" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unicodedata</span></code></a></p></li>
+</ul>
+</div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+UNICODE AND ENCODINGS
+Learning Outcomes
+Understand how text is stored in memory and files
+Encode and decode text for storage and communication
+Distinguish between characters, code points, and bytes
+Photo by Mauro Sbicego on Unsplash
+Text
+Input:
+Someone must have slandered Josef K., for one morning, without having done anything truly wrong, he was arrested.
+
+What is this?
+A sentence in the English language (the first of the English translation of The Trial by Franz Kafka)
+A sequence of characters
+A sequence of bytes encoding those characters
+ASCII
+American Standard Code for Information Interchange
+
+English letters, symbols, control codes
+Represented in 7 bits
+Numbers: 48–57
+Uppercase: 65–90
+Lowercase: 97–122
+Beyond ASCII
+Encoding only English is naïve
+Latin and Cyrillic alphabets: extended code pages
+Latin-1: 0–127 ASCII, 128–255 western European accents
+Latin-15: 0–127 ASCII, 128–255 eastern European accents
+Windows-1252: both (latin-1 with eastern EU in reserved space)
+KOI8-R: 0–127 ASCII, 128–255 Russian Cyrillic characters
+Ideograph languages: multi-byte character sets (e.g. Big5, GB2312)
+Must know encoding.
+Very hard to mix encodings and therefore languages (e.g. Turkish and Chinese)
+Unicode
+International standard for text representation
+Text is a sequence of code points
+It is encoded into bytes
+Universal encodings can encode all valid Unicode
+UTF-8, UTF-16, UCS-4
+Historic encodings defined as translations for a subset of Unicode
+Decode KOI8-R to Unicode code points
+Encode to Windows-1252 (may fail!)
+Unicode Coverage
+Goal: all non-fictional written human language
+Includes ancient scripts like Phoenician
+Includes math symbols, IPA, emoji, etc.
+Does not include fictional languages (Klingon, Elvish, etc)
+Python String Types
+Python has two string types:
+str is a text string, a sequence of code points
+s[7] returns the 8th code point in the string
+bytes is a byte string, a sequence of 8-bit bytes
+bs[7] returns the 8th byte in the string
+Convert with:
+str.encode() → bytes
+bytes.decode() → str
+Pandas String Types
+Historically: ‘object’ storing Python strings
+Either bytes or str
+Still the default
+
+Now: ‘string’ type
+Get with .astype('string')
+Or ‘string’ dtype while loading file
+
+Both support string methods as .str.method()
+
+Encoding and Decoding
+Python objects: bytes.decode() / str.encode()
+Pandas series: .str.decode() / .str.encode()
+Code Points and Characters
+Each character is a code point (often written U+004A)
+
+Characters in LATIN-1 use their Extended ASCII numbers
+Combining Characters
+Combining characters modify the preceding character
+Add an accent
+Modify shape
+Assemble complex emoji
+Complex Emoji
+woman running: dark skin tone
+
+U+1F3C3 — runner
+U+1F3FF — skin tone dark
+U+200D — zero-width joiner
+U+2640 — female
+U+FE0F — display as emoji
+Code Points ≠ Characters
+A character can require multiple code points
+len(string) is # of code points, not # of characters
+So it won’t tell you how wide it is when printed
+A character can be encoded multiple ways
+‘ö’ is either U+00F6 or U+006F U+0308 (‘o’ + combining diaresis)
+U+2160 is ROMAN NUMERAL ONE, indistinguishable from U+0049 (LATIN CAPITAL LETTER I)
+Code Point Data
+Unicode database tracks many properties of code points:
+Type (letter, number, punctuation, space, etc.)
+Case
+Many more properties…
+
+Code points divided into blocks
+Python unicodedata module provides access
+Normalization
+Unicode defines normal forms:
+NFD (decomposed): always use combining characters
+NFC (composed): use single code points whenever possible
+NFK[DC]: NFD/NFC with “compatibility characters” replaced
+Roman Numeral One turns into Latin Capital I
+
+Non-normalized strings may not be =
+Normalization Methods
+Python: unicodedata.normalize(form, string)
+'Mötley Crüe'.normalize('NFD’)
+Length may change
+
+Pandas: .str.normalize(form)
+Unicode Subtleties
+str.lower() converts string to lower-case
+
+str.casefold() eliminates case distinctions
+E.g. ‘ß’ becomes ‘ss’
+
+Many rules locale-specific (e.g. sort order)
+locale.strcoll (compare two strings using locale rules)
+locale.strxform (convert strings into comparable strings)
+Universal Encodings
+UTF-8: code points take 1–4 bytes
+ASCII is valid UTF-8
+
+UTF-16: 2 bytes per basic character
+Characters outside Basic Multilingual Plane (BMP) use 4 bytes
+Two-point “surrogate”
+Requires byte order
+
+UCS-4: 4 bytes per character, also requires byte order
+
+Python Internal Representation
+Stores strings with one of:
+Latin-1 (one byte per character)
+UCS-2 (two bytes per character, only BMP)
+UCS-4
+
+Uses most compact representation that can store the string
+
+len(s) returns the number of code points
+
+
+Other Internal Representations
+Many systems use UTF-16
+Java
+JavaScript
+Windows &amp; Mac APIs
+
+But: often treat it as UCS-2
+Java/JS charAt(i) returns UTF-16 code unit
+length is 2-byte pairs
+First Steps of Processing
+Decode the text to convert bytes into text
+Normalize the text to render into consistent form
+Unicode normal form
+Optionally: strip accents (will lose meaning!)
+Optionally: casefold
+Points to Remember
+Always need to know what our encoding is
+Decode bytes to get a text string (seq. of code points)
+Code points do not map 1:1 with characters
+Length of string does not mean printed # of characters
+Normalization makes strings comparable
+Casefolding makes strings comparable case-insensitively
+Sorting is locale-specific
+If you have single-byte text that’s not UTF-8, Latin-1 is common
+Wrapping Up
+“String” is not a simple data type.
+
+Text is encoded both for on-disk storage and in-memory processing.
+Photo by Marcel Kovačič on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video I'm going to talk with you about Unicode and Encodings. How is text actually represented and stored?</li>
+<li>We talked a while ago about encodings and codings for different kinds of data.</li>
+<li>We forecasted that we're going to talk about text we've seen in some of our initial processing.</li>
+<li>Occasionally we need to provide an encoding. What's up with all of that?</li>
+<li>So learning outcomes for the video are few. To understand how text is stored in memory and in files,</li>
+<li>encode and decode text for storage and communication and to distinguish between characters, code points and bytes.</li>
+<li>So we have text, we have some input. We have say here with a first sentence of the book, The Trial by Franz Kafka.</li>
+<li>Someone must have slandered Josef K for one morning without having done anything truly wrong.</li>
+<li>He was arrested and this was a sentence of the English language.</li>
+<li>It's a sequence of words. It's a sequence of characters. And we store it as a sequence of bytes encoding those characters.</li>
+<li>Computer has to store everything in byte. We've talked about how you start flooding poll numbers a little bit here where the text is stored in bytes.</li>
+<li>So for a long time in U.S. based computing, we stored text in what was called ASCII, the American Standard Code for Information Interchange,</li>
+<li>and it assigned a number in the range zero to one hundred and twenty seven seven bits for all the English letters.</li>
+<li>A number of symbols and control codes.</li>
+<li>You'll find the numbers in in range 48 to fifty seven uppercase letters go from sixty five to ninety or lowercase from ninety seven</li>
+<li>to 122 etc. to sign these codes that we could store in bytes and just the lower seven bits of the byte so you could use the top,</li>
+<li>the upper bit for for other control purposes. It was able to store written English text using most of the characters and punctuation.</li>
+<li>That's in common use. So few problems with this one.</li>
+<li>The whole world doesn't speak English,</li>
+<li>and we need to be able to encode a lot of different languages for our languages that use Latin, insert Latin or Cyrillic alphabet.</li>
+<li>This is often able to be done with extended code pages. So Latin one extends ASCII, so the number zero through to 127 are ASCII, 128 through 255.</li>
+<li>So when a bit in a bite, this is the difference where whether the first bit is set or not, the high order bit, is it set or not?</li>
+<li>Are for used for characters with Western European accents and some control characters, Latin fifteen does the same with Eastern European windows.</li>
+<li>Twelve fifty two combines both.</li>
+<li>It's compatible with Latin one, but it uses a range of characters that Latin one reserves for control codes to store the Eastern European accents.</li>
+<li>Califate eight are uses the uses the upper one hundred and twenty seven characters for</li>
+<li>Russian Cyrillic characters and so allows you this to store Russian and English in KEYT r.</li>
+<li>But many languages, such as Chinese, Korean, Japanese,</li>
+<li>they have many more characters that can fit in a bite even if the entire bite was allocated to it.</li>
+<li>And so you use a double bite in code.</li>
+<li>A multi byte character set often uses two bytes per character, such as Big Five for traditional Chinese and Jeab twenty 12,</li>
+<li>which is the Chinese national standard for simplified Chinese, and it also covers Russian.</li>
+<li>Now for a sequence of bytes that's text. In order to properly interpret this text, you have to know the encoding.</li>
+<li>So that's one problem. It's another encoding in order to decode it properly.</li>
+<li>Also, it's very hard to mix encodings and therefore languages because if you've got text that's encoded in GIBI twenty three.</li>
+<li>Twelve. Well, you can't write Turkish on that. So if you've got a document that you're trying to have parts in Chinese and parts in Turkish,</li>
+<li>you have to have a way to switch back and forth between code pages within a single document gets very complex.</li>
+<li>And so Unicode was developed to try to unify these.</li>
+<li>Unicode is an international standard for text representation in which text is represented as a sequence of what's called a code point.</li>
+<li>These code points basically can think about. You can think of a Unicode text string is an array of code points.</li>
+<li>These are code points are encoded into bytes.</li>
+<li>And so here, again, as we saw with other data types, there's this distinction between data and it's encodings.</li>
+<li>We actually kind of have three levels here because you've got characters code</li>
+<li>points and then the bytes that are used to actually store the code points.</li>
+<li>We have universal encoding that can encode all valid Unicode. And as I said, we've got the other encoding that have historically been used.</li>
+<li>Latin, one U.S. ASCII califate are they have been redefined as encodings for subsets of Unicode.</li>
+<li>So if you if you want to process KEYT are in modern program,</li>
+<li>what you do is you decode the K away eight R and Unicode process Unicode and then you can read encode into whatever.</li>
+<li>Now not all encodings can take all characters.</li>
+<li>So if you try to encode Russian text into Windows twelve fifty two, it will fail because Windows twelve fifty two doesn't have the Cyrillic alphabet.</li>
+<li>Unicode is intended to cover all nonfictional human languages, so it includes.</li>
+<li>Any in the goals include any characters use to write any human language spoken today,</li>
+<li>it includes ancient languages that are no longer spoken, such as it has Phoenician characters.</li>
+<li>It includes a lot of things like mass symbols, the international phonetic alphabet emoji and a lot of other symbols.</li>
+<li>You'll sometimes find the people using these for various strange effects, like to get a italics in a tweet or something.</li>
+<li>What it's actually doing is it's going and grabbing naff characters and using those,</li>
+<li>if you want to see sometime, use your computer's assistive technology to read aloud such content.</li>
+<li>And you'll see here what it's doing under the hood.</li>
+<li>And it winds up being very, very difficult for for visually impaired users to engage with because the read aloud is gonna be completely mangled.</li>
+<li>But you've got a lot of different symbols across the space that are being used for human communication.</li>
+<li>Unicode specifically does not include fictional languages. You're not going to find clicking on our Elvish characters in Unicode.</li>
+<li>People have there are portions of Unicode that are reserved for private use force of software, and there are people who have mapped,</li>
+<li>cling on or Elvish characters into those into those code points and then developed fonts that are capable of rendering them,</li>
+<li>but they're not part of the Unicode standard. So to store all of this, python has two string types.</li>
+<li>The SDR is a text string when you write a string. This was your single or your double quote.</li>
+<li>This is what you get. You get a text string and a string is a C ATEC string is a sequence of code points.</li>
+<li>So SRF seven is going to return the eighth, the eighth character or code point does its character and does it as a single,</li>
+<li>does it as a string of a single character.</li>
+<li>But the Owada function o r d will then get you the numeric code point from one of these single character strings.</li>
+<li>Bites as a bite string. And here it's a sequence of eight bit bites.</li>
+<li>If you ask for B.S. subset of a bite string B.S. and you have four B.S. up seven,</li>
+<li>you're going to get the eighth bite in the strings and start from zero. You can convert between them with the end code and decode function.</li>
+<li>So ENCODE takes a text string and encodes it to bytes. Decode takes a bite string and decodes it to stir.</li>
+<li>And both of these you need to provide the Kodak, the name of the Kodak that you want to use UTF eight ASCII,</li>
+<li>Latin one big five, whatever Kodak it is that you want to use.</li>
+<li>Pandas also provide string types historically for pandas one, and it's still supported and still the default,</li>
+<li>you would use an object series to stat stores, python strings, either bite's or Sturr objects.</li>
+<li>Pandas can work with both pandas also now has a string type.</li>
+<li>You can convert an object type storying strings to a panda string type.</li>
+<li>You can also convert a you can also use the string D type when you're loading CSC as V file and then it will.</li>
+<li>Lowden's a panda string, Cullom, both of them. The pandas has these.</li>
+<li>These families have access of type specific methods and accessors that stirred up whatever four</li>
+<li>strings that works on both the objects Cyle Strings series and the the new string data type.</li>
+<li>So, as I said, to encode and decode, you have a python, you can do bytes that decode,</li>
+<li>insert and encode panda series also provides, encode and decode operations off of this Sturr accessor now.</li>
+<li>So you've got these strings. They're sequences of code points. How do those relate to characters?</li>
+<li>So the code points in the simple form. The code points record the numeric values used for different characters.</li>
+<li>So if I write Joseph K, the name of our character from the.</li>
+<li>From the sentence at the beginning, it's going to be recorded as this sequence of code points for A as J.</li>
+<li>O is six F SS seven three E six five.</li>
+<li>These are in hexadecimal. These are hexadecimal numbers. So that abiders. Exactly.</li>
+<li>To two digits. And any character that's in Latin one.</li>
+<li>So in terms of letters, it's English letters, it's Western European accent.</li>
+<li>Their code point is the same as their Latin one encoding number. And so the ASCII numbers are there.</li>
+<li>Unicode code points for the Western European accents. Their Latin one by value is is the Unicode code point.</li>
+<li>So O with an mail out is F six use an amount is F c.</li>
+<li>And so we get these accented characters being stored this way.</li>
+<li>But code points and characters don't necessarily have a one to one relationship.</li>
+<li>So if we have Motley Crue and it's we can encode it, as with the O is the, um, lot of SSX that is the character O with Rumaila.</li>
+<li>But you can also encode. You can also store that same character as two code points, six F, which is O and three oh eight which is combining diary sis.</li>
+<li>And so what that does when it sees that sequences.</li>
+<li>Oh. And then it says OK, complete combining diaries is and put the diaries is on top of it.</li>
+<li>These combined there are a lot of things combining characters that can add accents.</li>
+<li>They can stack on top of each others. You can stick like diaries. Is Anatoliy around a hat or whatever?</li>
+<li>If you see sometimes people writing text has like stacked accents coming off the tops and bottoms that supposed to look like Lovecraftian horror.</li>
+<li>They're doing that with these combining the characters just stack more and more, combining characters on top of each other.</li>
+<li>They can also, in some cases, modify the shape of a character. They can assemble complex emoji.</li>
+<li>There's some other use cases as well.</li>
+<li>But code points have can have these relationships with code point can modify code points that come before in rare occasions after.</li>
+<li>So you don't when you ask a string for its length, that's gonna give you the number of code points, which is not the same as the number of characters.</li>
+<li>So if you did if if we had Motley Crue stored this way and you did a LAN on it,</li>
+<li>you're gonna get 13 instead of 11, even though it's only going to print eleven characters.</li>
+<li>You're going to get you have 13 code points. This does let you assign lots to characters that don't commonly have them, for example, diaries.</li>
+<li>The diaries of the unallowed is usually only applied to. Disavowals.</li>
+<li>And so if you want if you want Spinal Tap. You need to use an which is going to be six B and you need three O eight.</li>
+<li>The combined guy races, there are a few human languages that do use this character, but they have not added a pre combined character,</li>
+<li>Unicode, and they don't need one because you can make one out of the raw end and the combining character correction.</li>
+<li>This is not six. This is six e. So one a complex use for these are complex emojis.</li>
+<li>So emoji can have a number of modifiers and layers on top of them.</li>
+<li>And so if you have the woman with dark skin tone, running emoji.</li>
+<li>The skin tone is actually amplify entered as a Unicode combining modifier.</li>
+<li>And so this this emoji here is actually made up of six or a five code points in sequence runner.</li>
+<li>The modifier for dark skin tone, a joint character, the modifier for female or the character for female.</li>
+<li>And then the another character, which means display as emoji rather than text.</li>
+<li>And it puts all of those together to get a woman running with dark skin tone.</li>
+<li>The politics of this in terms of what's the default and what's the default for different emoji are interesting and worth contemplating.</li>
+<li>But you can use but this idea of being able to combine code points allows you to build up arbitrarily modified characters.</li>
+<li>And so they define many of the more complex emojis are defined by these sets of combinator of combinations,</li>
+<li>rather than defining a separate code point for every possible configuration of a of a particular emoji.</li>
+<li>So the key point here is that Kote points are not equal to characters, a character can require multiple code points.</li>
+<li>And this comes in. This becomes relevant when you'd say compute the string length.</li>
+<li>If you want to say line strings up there, OBC edge cases where it's wrong.</li>
+<li>The only way truly to tell how wide a character,</li>
+<li>how wide a string is going to be and display is to ask a rendering engine to render it in a fort and measure how wide it is.</li>
+<li>Also, though, a character can be encoded multiple ways, as we saw, the oath diaries can be either F six or it can be six F followed by three or eight.</li>
+<li>And what this means is that simple string equality will sometimes.</li>
+<li>You can have equivalent strings that are not equal. We're gonna see in a little bit normalization techniques that let you let let me deal with that.</li>
+<li>But there's no semantic difference between the two ways of encoding the O with a diary source.</li>
+<li>But if when you compare the strings bite, when you compare the strings code point by point, they're not going to be equal.</li>
+<li>Also, you have some things such as Roman numeral. There's a code point for Roman numeral one.</li>
+<li>And there's it's indistinguishable from the Latin capital letter.</li>
+<li>I and it's in their speak for compatibility reasons because some encoding.</li>
+<li>So we had we had all of these different encodings that are encoding text in different ways before we tried to unify everything in the Unicode.</li>
+<li>Jimmy, Twenty three. 12 had encoding, had characters for four latt for Roman numerals,</li>
+<li>and so to translate that into Unicode, they had to have be able to map those into code points.</li>
+<li>It's the code point is it's called a compatibility code point,</li>
+<li>and it's not distinguishable from the Latin letteri, except that it's a different code point.</li>
+<li>So there's a Unico database that tracks many properties of code point to get identifies,</li>
+<li>which ones are these compatability code points and what they're what they're equivalent to?</li>
+<li>It tracks the type you can marks for each code point is a letter, a number of punctuation, a combiner upper lower case.</li>
+<li>There's a lot of different properties in the Unicode database. Also, the code points themselves are divided into blocks like the Latin one supplement.</li>
+<li>The Python Unicode data module is a starting point for being for getting access to this</li>
+<li>database and and making inquiries about your about your about different characters.</li>
+<li>But another thing we can do with these and the Unicode data module gives you a function for this is you can normalize them.</li>
+<li>So Unicode defined some normal forms and SFD normal form decomposed.</li>
+<li>It always uses the combining characters. So if you if you have a A seven.</li>
+<li>So if you have an F six. It's going to translate that to a sex F and a three o eight.</li>
+<li>And the normal form composed using single code points whenever possible.</li>
+<li>So it is going to go the other way around.</li>
+<li>It's going to if it sees a six f three away, it's going to turn it into an F six.</li>
+<li>Then there's also JFK variance, so JFK, DNF, Casey, they do the same thing,</li>
+<li>but they also normalize compatibility character so that Roman numeral one is going to turn into a Latin capital left eye.</li>
+<li>So once you've normalized strings, then it's a lot more likely that two semantically equivalent strings are going to also be</li>
+<li>equal because you don't have the issue of like they're different just because the oh,</li>
+<li>the new plot was was encoded differently. That's normalized.</li>
+<li>So you can more directly compare them.</li>
+<li>You can look up, you can say if you're using Unicode for file names, you can look up the file correctly and know they're going to get it right,</li>
+<li>even if it was typed in or even if it was initially encoded in a different a different encoding.</li>
+<li>So Unico data provides you a method to normalize.</li>
+<li>So I can say a motley crew to normalize and F.D. and it will normalize it to the decomposed normal form.</li>
+<li>PANDAS has normalization with that stirred up normalized normalization, super useful.</li>
+<li>As I said, to in order to make sure that Mottley is only going to be encoded one way,</li>
+<li>even if you've got files that are coming from different systems that might have defaulted to whether they use it composed or decomposed characters.</li>
+<li>There's some other subtleties to Unicode as well, though.</li>
+<li>So the lower method converts a string to lower case, but there can still be distinctions that don't make a semantic difference.</li>
+<li>There's another function case foaled that converts to a lower case and goes farther to eliminate case distinctions.</li>
+<li>For example, the German letter Stronsay will become two S's.</li>
+<li>It's this, it's equivalent, but lower is not going to convert it because it's already it's already lowercase letter.</li>
+<li>But it's going to convert it down to these two S's so that you get that there's absolutely no distinctions there anymore.</li>
+<li>But there's other rules that are locale specific.</li>
+<li>For example, if you want to sort strings and you want to do it correctly, the rules for doing that depend on the language, not just the characters.</li>
+<li>And so your computer has something called a little count each.</li>
+<li>Prosit, you can change locales for a process. Each process has a locale that it's running in.</li>
+<li>The defines a number of things that could define your date formats and things like that.</li>
+<li>But it also defines sort orders.</li>
+<li>And the Python locale module gives you the sterkel function, which allows you to compare two strings based on their locale specific store order.</li>
+<li>And it also gives you an X Asterix form function, which given a string,</li>
+<li>it'll convert it into another string such that just doing a normal lexical graphic code</li>
+<li>point by code point comparison on the resulting strings will sort them in the correct order.</li>
+<li>So if you're going to Sawtell, if you're going to sort a lot.</li>
+<li>It can be useful to say make another column of your data frame that has the store X foreign versions of your strings and then use that as your source.</li>
+<li>Keep one thing to be aware of, though, that when you're doing that,</li>
+<li>your program is going to have different results based on look how in which it's running.</li>
+<li>And so for reproducibility, you might need to specify a particular locale to run your program in.</li>
+<li>So as I said earlier, there are some universal encodings that can encode all Unicode characters,</li>
+<li>UTF eight is probably the most common, particularly for storing files on disk.</li>
+<li>If you have a choice, store your files in UTF eight.</li>
+<li>Could points tape between one and four bites, ASCII is valid UTF eight, because the code points in the range zero through one twenty seven.</li>
+<li>Ah, in the. The code point number is the same as the ASCII number, and also they get stored in one bite and you and UTF eight.</li>
+<li>So ASCII just is immediately UTF eight. Anything outside the ASCII range gets encoded in two to four bytes.</li>
+<li>UTF 16 uses two bytes per basic character. And so any character ins or any character inside what's called the basic multilingual plane,</li>
+<li>which covers most currently spoken human languages, doesn't include emoji or mathematical symbols.</li>
+<li>It will use two bytes. Characters outside of it will use four bytes.</li>
+<li>A couple notes in the UTF 16 encoding and requires you to know the bite order because some computing systems are what's called big endian,</li>
+<li>where the the higher order byte comes before the lower order byte in memory and others are little endian where it's the other way around.</li>
+<li>Intel processors work in little endian.</li>
+<li>And so there's a charac there's a two character or two byte sequence that goes at the beginning of the file that marks its brightwater.</li>
+<li>UTF eight. So UTF eight is a great default in general, and it's particularly a great default for English,</li>
+<li>for European languages, because a lot of them will take one to two bytes.</li>
+<li>But if you're storing text that's written in Chinese or Japanese.</li>
+<li>Most of those characters are going to require three bytes and UTF eight, but only two bytes and UTF 16.</li>
+<li>And so UTF 16 can be a more compact format for storing files, storing text in those languages.</li>
+<li>Then there's UCSF four, which stores four bytes per character. It also requires a buy order and UCSC for it.</li>
+<li>It's just it's the sequence of four byte. It's an array of thirty twos or you and thirty twos.</li>
+<li>And each one just stores the code point directly. There is no special encodings.</li>
+<li>Internally, what Python does is it stores strings in the most compact form it can from the following list.</li>
+<li>If if the string is Latin valid, Latin one, it stores it with one in Latin, one with one byte per character.</li>
+<li>Is that so if if it's code points are all in the range zero to 255. It will store it as Latin one with one bite per character.</li>
+<li>If they aren't. But all of the characters in the string are in the basic multilingual plane.</li>
+<li>Then it all stored in UCSC two, which is two bytes per character, but it can only store text in the BNP.</li>
+<li>And if it's not, if it can't fit in UCSC too, then it stores it in use.</li>
+<li>Yes. Four. So it's an array of in thirty twos. And no matter.</li>
+<li>This is transparent to you as he is a python. When you're writing in Python, you do not see the difference in how it's stored.</li>
+<li>Unless you go get the size of the object. Land is always going to return the number of code points you can get.</li>
+<li>It's just storing it more in the most compact form it can.</li>
+<li>If you're writing a C ext module, then you'll see the difference between the different storage formats of a strength.</li>
+<li>Other systems, many of them use UTF 16.</li>
+<li>So Java, JavaScript, Windows and Mac API as they natively use usually UTF 16 for legacy reasons are often treated as UCSC too.</li>
+<li>So you see, S2 was used in the 90s when there were fewer than 64000 code points in Unicode and you could store them in just two bytes.</li>
+<li>UTF 16. First for four characters in the book Basic Multilingual Plane.</li>
+<li>There's no difference between UTF 16 and UCSD two, Usaia,</li>
+<li>UTF 16 extends UCSC to with the ability to say this character uses an extra pair of bytes to encode the additional characters.</li>
+<li>So if you ask Java or Java script to give you the length of a string,</li>
+<li>it's actually going to give you the number of two byte pairs UTF sixteen code units,</li>
+<li>which will be the length of the number of code points if everything's in the basic multilingual plane.</li>
+<li>But as soon as you've emoji or mathematical symbols in your string, it's gonna be wrong.</li>
+<li>Also, the char at function that gives you an individual code code point is going to give you the UTF 16</li>
+<li>code unit if you need the actual code point for a character that's in the upper parts of Unicode.</li>
+<li>You're gonna need another function. So all this said, when you get some text, there's first two first steps of processing your text.</li>
+<li>The first is to decode the text and convert the bytes into text that you can then process in Unicode.</li>
+<li>Then we may want to normalize the text to put it into a consistent form.</li>
+<li>Unicode normal form is often useful. We might want to strip accents.</li>
+<li>This is going to lose some meaning, but it can make. It can reduce distinctions between words in ways that can occasionally be useful for processing.</li>
+<li>We might want the case for it so that our text is all lower case and we don't have to deal with</li>
+<li>deal with mixed case text because we don't if we don't want to make distinctions between case.</li>
+<li>Some points that you need, you need to remember when processing tax, and I've also linked to a reading that provide some additional material.</li>
+<li>You always need to know what you're encoding is when you're getting text from the</li>
+<li>outside world or you're writing text back out on a modern Mac or Linux system.</li>
+<li>It's going to default to UTF eight on a Windows system.</li>
+<li>It's still usually defaults to code page twelve fifty to. You need to decode bytes in order to get a text string, which is a sequence of code points.</li>
+<li>But even once you have your code points, they don't necessarily map one to one with characters.</li>
+<li>And the length of a string does not mean the printed number of characters because you can have combine hours and things that are going to.</li>
+<li>You can have combiner that are going to make multiple bytes of us. One character that zero with Joyner doesn't show up,</li>
+<li>etc. You can use normalization to improve the comparability of strings so that you say to normalize that.</li>
+<li>So you always use combiner, you never use combine hours.</li>
+<li>And then case folding is a tool that allows you to make strings comparable case insensitively by removing distinctions between upper and lower case.</li>
+<li>You have to pay attention to Lukow as well. If you want to sort things correctly for your current human language,</li>
+<li>you need to do so in a way that's based on the specific locale because different ones have different sorting roles.</li>
+<li>If you have single byte encoding of text and it's not UTF eight, not all byte sequences are valid,</li>
+<li>UTF eight, then Latin one is a common one and Latin one will always succeed.</li>
+<li>If it's wrong, you're going to have some of your accents and other non English characters.</li>
+<li>They will be incorrect. But if you're just trying to get it read in.</li>
+<li>You can start looking at them Latin one is common. Unfortunately, there's not a you can look at it.</li>
+<li>Try different encodings and get the one that gets you meaningful text and language.</li>
+<li>But there's not a there's not a foolproof way to detect the encoding used for text.</li>
+<li>So to wrap up string is not a simple data type. Text is encoded both for on disk storage and in memory processing.</li>
+<li>You've got these multiple layers. We have characters. Characters are represented with code points.</li>
+<li>Code points are encoded in the bytes. There's not the one to one relationships that we might think going up and down the stack,</li>
+<li>but it enables us now to, in a very flexible fashion, represent a wide array of written human language.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/howto/unicode.html">Python Unicode HOWTO</a></p></li>
+<li><p><a class="reference external" href="https://twitter.com/brookLYNevery1/status/1167409916899934209">Twitter thread on the politics of emoji decomposition</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-text-processing-pipeline">
+<h2>🎥 The Text Processing Pipeline<a class="headerlink" href="#the-text-processing-pipeline" title="Permalink to this headline">¶</a></h2>
+<p>This video discusses the basic steps of text processing, beginning with tokenization.
+The result is a document/term matrix, possibly normalized.</p>
+<div class="resource video docutils container" id="991b221c-1c78-4914-903f-adc60183b7de">
+<div class="tabbed-set docutils">
+<input checked="checked" id="aa482e7f-5105-4093-8160-b2acd83e49fb" name="9e0ce289-590e-480d-94a0-60f3221ba337" type="radio">
+</input><label class="tabbed-label" for="aa482e7f-5105-4093-8160-b2acd83e49fb">
+Video (17m36s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=991b221c-1c78-4914-903f-adc60183b7de&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="cd90a692-3254-442d-897f-85663abb1bea" name="9e0ce289-590e-480d-94a0-60f3221ba337" type="radio">
+</input><label class="tabbed-label" for="cd90a692-3254-442d-897f-85663abb1bea">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0!74444" data-key=ACjysnlPGK4m494>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+TEXT PROCESSING PIPELINE
+Learning Outcomes
+Understand the different stages of text processing
+Extract vectors from text
+Know some of the things that are possible beyond what we will discuss in class
+Photo by Andrej Lišakov on Unsplash
+Text Processing
+Input:
+Someone must have slandered Josef K., for one morning, without having done anything truly wrong, he was arrested.
+Output:
+Features
+Vectors
+Scores
+Decisions
+Corpus
+Text Processing Pipeline (term vector)
+Decode
+Normalize Text
+Tokenize
+Remove Stop Words / Filter Tokens
+Stem / Lemmatize
+Vectorize Text
+Normalize Vectors
+&lt;do more things&gt;
+
+Decoding and Normalization
+See previous video
+
+May delay normalization until after tokenization
+Tokenization
+Split text into individual tokens
+
+For now: words (sequences of alphanumeric characters)
+someone must have slandered josef k.
+
+someonemusthaveslanderedjosefk
+Remove Stop Words
+Common utility words not useful for many tasks
+And, or, but, if, etc.
+
+Can remove with:
+List of stop words
+Frequency (words appearing in most documents)
+
+Whether you do this depends on task
+Stemming and Lemmatiziation
+“change”, “changes”, “changed”, “changing” — all the same word
+
+Stemming transforms word forms into common stems
+Not necessarily a word (e.g. ‘chang’)
+Different forms will have the same stem
+English: snowball is a common algorithm
+
+Lemmatization transforms words into ‘lemma’ form
+Normalizes to an actual word (e.g. “change”)
+More computationally intensive
+Vectorizing
+SciKit CountVectorizer
+The SciKit-Learn CountVectorizer gets us to this stage
+fit() learns vocabulary
+transform() turns array of text into (sparse) matrix
+
+CountVectorizer pipeline
+Decode (if necessary)
+Lowercase (optional)
+Strip accents (optional, also normalizes Unicode)
+Tokenize (default: 2+ alphanumeric characters are a word)
+Vectorize (values are term frequencies)
+Problems with Term Frequency
+All words equally important
+Count vector has higher values just for longer documents
+
+Solution?
+Weigh words differently
+Uncommon words higher weight? More likely useful for classification!
+Normalize to use relative frequency instead of absolute count
+TF-IDF
+Normalized TF-IDF
+Text Processing Pipeline (term vector)
+Decode
+Normalize Text
+Tokenize
+Remove Stop Words / Filter Tokens
+Stem / Lemmatize
+Vectorize Text
+Normalize Vectors
+Result: each document has a vector assigning scores to terms
+Alternatives
+N-grams (e.g. bigrams) instead of words
+Either words or characters
+Sentence-level analysis
+Two-level tokenization: words and sentences
+Tag words by part of speech
+Analyze relationships between words
+Transformer architectures
+Neural nets for sequences of words
+Significant power, significant processing cost
+nltk provides a lot of capabilities, can integrate with scikit-learn 
+Wrapping Up
+Term vectors treat each word as a feature, for which documents have scores.
+
+Often normalized to give uncommon words higher weight, and for document length.
+
+
+Photo by Jael Rodriguez on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, we're going to talk about more of the text processing pipeline,</li>
+<li>how do we actually get from tax that we've decoded into features and vectors that we can use in order to do computation?</li>
+<li>So learning outcomes for this video feed understand the different stages of text processing and to be able to extract a</li>
+<li>vector representation from text and also know some of the things that are possible beyond what we will discuss in class.</li>
+<li>So we've got our input, a sentence that we saw in the previous video. Someone must have slandered Joseph K and we output.</li>
+<li>We want to we maybe want to get some features from it as vectors, maybe want to get scores, decisions for some process.</li>
+<li>So first, before we get into how to do that, I want to define a few terms.</li>
+<li>A corpus is a set of textual data that to analyze and a document is a single document within the corpus of a corpus and it's made off of documents.</li>
+<li>So the example that I give you is a spam filter example.</li>
+<li>Our corpus is a bunch of emails. Each email is a document and then a term is a single word within a document.</li>
+<li>We can think of the set of all terms is the vocabulary of of the corpus.</li>
+<li>So we first want to decode a normalized text, as we talked about, in the encoding and decoding video.</li>
+<li>Then we want to tokenized it or split it into individual words. We want to do some filtering on those tokens.</li>
+<li>We want might want to further process them and into some kind of a normal form.</li>
+<li>Then convert these the sequence of tokens, the output of that stops a sequence of tokens.</li>
+<li>We want to convert it into a vector that we then may also further normalize and we can use for various types of processing.</li>
+<li>So that's the pipeline. We're gonna be talking through previous video talking about decoding a normalization.</li>
+<li>Sometimes we might delay some of the normalization until after tokenization. Oftentimes we'll do it first.</li>
+<li>So that we've got we've got the code, the text decoded, the code points.</li>
+<li>We've put them in a normal form. We've maybe lowercase everything or case full of everything.</li>
+<li>We might even have stripped accents at that process as well.</li>
+<li>And then the input, the output of that is the sequence of normalized text that's ready to be tokenized and so on.</li>
+<li>Tokenization where we want to do is we want to split text into individual tokens.</li>
+<li>And these tokens often are words. So we want to grab the words.</li>
+<li>Someone must have slandered Josef K.</li>
+<li>And so Sacket learns default.</li>
+<li>Tolkan Isar uses a sequence of alphanumeric characters that actually use it requires there to be at least two so it will not extract K as a token.</li>
+<li>But but we split this text into individual tokens and still at a sequence of tokens.</li>
+<li>But this becomes the basis basically for any further analysis.</li>
+<li>The next thing we do is we might want to remove stop words and so common utility words like and or or are often not useful depending on the task.</li>
+<li>If you're trying to do an information retrieval task or you're searching for text finding documents that include the word,</li>
+<li>and it's probably not useful because almost every documents going to include the word and or or but or if you want to do document classification,</li>
+<li>the vast majority of your documents are going to have these words. So they're not very useful for.</li>
+<li>Distinguishing between one class of documents and another.</li>
+<li>So we can remove them either with a list of stop words, Saikat learn includes a list of stop words or by using a frequency based analysis.</li>
+<li>So we remove the words that appear the most often.</li>
+<li>Whether or not you do this depends on task and it also depends on the other analysis you're going to do.</li>
+<li>If you're going to be doing an analysis that drink that recovers sentence structure, then you need these words.</li>
+<li>If your. If you're but if you're doing information retrieval, you may well not need them if you're doing classification.</li>
+<li>They're often not useful for a classification task and so they're worth removing.</li>
+<li>Then after we've leave tokenized, we might have removed our stop words. Then we'll do something called we might.</li>
+<li>I'll get it again. Whether or not you do this depends on task. But you can do something called stemming or limitation.</li>
+<li>And the idea here is that words have multiple forms in English. Change changes, change changing.</li>
+<li>These are different forms of the same word. They're different tenses of the same verb.</li>
+<li>And so but if for some purposes, especially search purposes, a lot of this pipeline has its origins in search.</li>
+<li>But then it's used for a lot of other purposes as well. There's no difference if you want to search for change in the corpus.</li>
+<li>You probably want to find documents. It's a changed or changing.</li>
+<li>And so there's two ways of doing this stemming is a relatively simple technique that transforms words into common stems.</li>
+<li>The result is not necessarily a word like a stemming algorithm may well change all of these forms of the word change in CNG.</li>
+<li>But the what the stemming does give you is that different forms of the same word are going to go to the same steps.</li>
+<li>So if you stem all of the word that all of the different forms are going to result in identical tokens in ink for English,</li>
+<li>snowball is a common stemming algorithm. Saikat learned does not provide you with any stemming or limitation.</li>
+<li>To do that, you're going to need to go to another package, limits zation, accomplishes a similar purpose,</li>
+<li>but it transforms words actually in what's called Alema form, which is an actual word, and it's the root form of the word.</li>
+<li>And so these will all become change most likely in your lamma Tizer limited zation is more computationally intensive.</li>
+<li>But the upside of limitation is it gives you actual words rather than these stems.</li>
+<li>So once we've got our tokens, we've we've dropped the ones we don't want to use.</li>
+<li>We've stemmed or DeMatteis, if we if that's appropriate for our task, we then want to vectorized that.</li>
+<li>We want to create what's called a tom vector or a term frequency vector.</li>
+<li>And this vector has one dimension for every term in the entire vocabulary, and its values are the number of times the term appears in the document.</li>
+<li>So. And our example tax, someone must have slandered Joseph Kay.</li>
+<li>We're gonna have a one for someone, one for mosta, one for have a one for slandered, one for Joseph.</li>
+<li>It's also so sparse because each doctor is probably only going to use a fraction of the terms,</li>
+<li>and so we'll use a sparse representation that doesn't actually store all of the zeroes.</li>
+<li>But mathematically, this vector has an entry for every term. And if a term never appears in the document, it gets a zero.</li>
+<li>So in psych, it provides a class called the Count Vector Ricer, which gets us to this stage.</li>
+<li>It tokenized this text. It can do transformation. It can do lowercase.</li>
+<li>And it can decode your Unicode if necessary. Erica, decode into Unicode if necessary.</li>
+<li>The fit method learns the vocabulary and transforms transform turns.</li>
+<li>An array of tax sets a one dimensional ray. Each element is a text string into a sparse matrix that looks like this.</li>
+<li>This is called a Tom Doc or a document term matrix we have on the Y axis.</li>
+<li>We have documents and on the columns, the different columns are terms.</li>
+<li>And it's not recording the zeroes, the empties here are zeros and the term one document one is term one five times term three,</li>
+<li>two times in term for its term for three times.</li>
+<li>And so you get this transform. You get this. The sparse matrix.</li>
+<li>And now for each documents a row and each column is a word. Basically now our words are features and their values are how frequently they appear.</li>
+<li>So when our pipeline. Here's what Count Vectorized can do for you decode lower case.</li>
+<li>It can strip accents if you tell it to strip accents, it's also going to normalize your Unicode.</li>
+<li>It can then tokenized. It then tokenized is your tax.</li>
+<li>It's default tokenization strategy is it treats any sequence of two or more alphanumeric characters as a word.</li>
+<li>And then once it's tokenized it vectorized is and you get back these values that are the term frequency's,</li>
+<li>how often did the word appear in each document? This is what count vector rhetoric gives you super useful.</li>
+<li>You're going to use it as the basis for some of your processing in the assignment.</li>
+<li>Now, there are a few problems for some purposes for using raw term frequency.</li>
+<li>The first is that all words are equally important. If the word have appears tens times and the word hippopotamus appears 10 times.</li>
+<li>It makes no distinction, even though if you're trying for a lot of purposes,</li>
+<li>the fact that a document says hippopotamus, which is a far less common word,</li>
+<li>is probably more meaningful for distinguishing it from other documents than the fact that it has half almost every document has have in it.</li>
+<li>And so this is a solution. There's two pieces of the solution. One is we wait words differently.</li>
+<li>We're going to give uncommon words, words that don't appear in very many documents.</li>
+<li>Higher weight. And this is this winds up being broadly useful because if you're trying to retrieve a document,</li>
+<li>the words that are more unique to that document are probably more useful for trying to retrieve it.</li>
+<li>If we're trying to classify a document, the words that are more unique are probably also going to be more useful for dividing</li>
+<li>distinguishing between one class of documents for another than another example,</li>
+<li>if you're trying to. If you have a collection of of scientific reports and you're trying to distinguish between zoology and botany,</li>
+<li>the word have is probably not useful because both classes of documents probably have it,</li>
+<li>whereas hippopotamus is probably much more common in zoology documents than in a botany document.</li>
+<li>So the other thing that we're going to do is we're going to normalize these</li>
+<li>vectors so that rather than just using an absolute counts in a longer document,</li>
+<li>it just has higher values everywhere. We're going to normalize it so that every documents vector has the same magnitude.</li>
+<li>And this is going to mean long documents don't have substantially higher values than short documents just on the virtue of their length.</li>
+<li>Which makes it easier to compare documents. So the first part of it waiting more waiting,</li>
+<li>giving more weight to less common words is done through something called term frequency, inverse document frequency.</li>
+<li>And the idea here is that we compute a feature value by multiplying the term frequency t.f.</li>
+<li>By the inverse of the document frequency D.F.</li>
+<li>And we take it the way we compute, the way Saikat learn computes the inverse document frequency is if we have N and that's the number of documents.</li>
+<li>We take the log of the number of documents divided by the number of documents</li>
+<li>with the terms of D.F. is the number of documents that have the term tea. And is the total number.</li>
+<li>So. And it's the inverse. So rather than saying D.F. over D.F. of tea over N,</li>
+<li>which would be the fraction of documents that have the term, we do take the inverse of that fraction.</li>
+<li>And over D.F. of tea, we take the log Saikat learn add some ones to both the numerator and the denominator in order to prevent.</li>
+<li>If you've got a term that doesn't appear in any of the documents which the Count Vectorized isn't going to give you one of</li>
+<li>those terms because the vocabulary just doesn't have words not going to be in the vocabulary if it's not in the document.</li>
+<li>But in some other cases, we have a vocabulary that comes from somewhere else. You might adding a one.</li>
+<li>Just make sure you never have division by zero and you're never trying to take a log of zero.</li>
+<li>Other common ones are you're gonna take the log of an over one plus D.F. of T so</li>
+<li>that you just have the one plus in the denominator and not in the numerator.</li>
+<li>That little change is not going to make a significant difference in terms of performance.</li>
+<li>It's a subtle difference in how it's implemented, but it's not going to make a significant computational difference.</li>
+<li>But what this does is a document that appears, if you think about what you have to do to make the value go up.</li>
+<li>The document appears more frequently. You can increase the value by having the document appear more frequently in the terms of increased T.F.</li>
+<li>That'll go up. You can also increase the the value, the TFI D.F. value, which we're calling X.</li>
+<li>You can increase that by having the document appear determined here in you were documents.</li>
+<li>So the more documents it appears in, the closer this is the one where it has,</li>
+<li>if it's if it doesn't appear in very many documents, it's going to be a large number.</li>
+<li>Say a million over 50 or a million. Over five hundred.</li>
+<li>The log of that's going to be high and you can have a much higher TFI D.F. value if the term does not appear in very many documents.</li>
+<li>And that reflects that if the term is more unique to this document than it's more useful for distinguishing this document from other documents.</li>
+<li>That's the key insight here. Less common words are more useful for describing what makes this document different from other documents.</li>
+<li>And if two documents have the same eyes, have the same uncommon words.</li>
+<li>That's really useful for saying they're probably similar if they have the same words.</li>
+<li>But those words are super common, that the documents are probably not very similar.</li>
+<li>So we then normalize our TFI D.F. vector to be what's called a unit vector.</li>
+<li>And what this means is we just divide the vector by its L2 norm.</li>
+<li>If you use the T.F. IDF Vector Isar instead of the Count Vectorized and Saikat, it's going to do everything to count vectorized.</li>
+<li>It does. And then it's going to apply T.F. IDF and it's going to normalize them, the unit vectors by the default.</li>
+<li>You can change some of that, like have it not in do the L2 normalization, but use the TFI the effector.</li>
+<li>It's going to give you unit vectors that apply. They use TFI,</li>
+<li>D.F. adjustment to down wait common terms and give you these factors that are useful too for</li>
+<li>for characterizing documents in terms of how frequently they use relatively uncommon words.</li>
+<li>So now we have our whole text processing pipeline for getting to a term vector.</li>
+<li>We decode normalize. We tokenized. We remove, stop words. We may do some other token filtering as well, like throw out numbers or something.</li>
+<li>You can stammer lemon ties. So both of stopwork removal and the stemming and limitation are optional.</li>
+<li>You don't have to do them. You can. This is the template for the pipeline.</li>
+<li>Different applications and different tasks is going to use different steps of this of this pipeline.</li>
+<li>Then we vectorized the text and we normalized our resulting vectors that we get these nice vector representations of a document.</li>
+<li>The result is each document gets this vector that assigns scores to terms for their relevance to that document.</li>
+<li>And this this is a very high dimensional vector.</li>
+<li>Ten thousand hundred thousand dimensions. So if you stick into a linear model, that's a large number of coefficients.</li>
+<li>But it gives you this vector representation of the resulting text that we can then use for additional tasks processing,</li>
+<li>classifying, clustering, etc. our text. So a few alternatives to some of the design decision for some of the pieces of this pipeline.</li>
+<li>First, we can we don't have to tokenized the words. We can tokenized into what's called an end.</li>
+<li>Gramp's such as a Bigram or a Trigram. And what they are. There are sequences that were so a bigram as pairs of words that appear next to each other.</li>
+<li>You can also do character level bigram. So it's pairs of characters.</li>
+<li>You can also do what's called a skip gram, which pairs of characters that appear in proximity.</li>
+<li>But there might be another word between them.</li>
+<li>You can also do sentence level analysis rather than just splitting into words and putting the words into a vector,</li>
+<li>which is called bag of work, by the well way.</li>
+<li>It's called a bag of words model because you just take the document, we throw it all the words into a bag.</li>
+<li>We don't have the relationships anymore. We can split it not only in the words, but in the sentences.</li>
+<li>We can tag words by parts of speech. We can look at analyze relationships between words.</li>
+<li>Various natural language processing toolkits give you tools for doing that.</li>
+<li>Stanford MLP is one that gives you the ability to do those word relationships.</li>
+<li>Currently, there's a lot of work in an AP Natura. So A.P. natural language processing is the field for studying this.</li>
+<li>If you want to learn a lot more about this processing pipeline and things you can do with text the classes you want to take out an LP and I are.</li>
+<li>Information retrieval. Transformer architectures are deep neural networks that can deal with sequences of words.</li>
+<li>They have significant power for modeling how language works and modeling.</li>
+<li>What's going on in text. But that comes with significant processing cost.</li>
+<li>The Python package and K gives you a lot of tools. It doesn't give you the full sentence analyzer, but gives you a lot more sophisticated tools,</li>
+<li>such as parts of speech, tagging, stemming in limited zation, etc. Then you haven't like it.</li>
+<li>You can also integrate with Saikat,</li>
+<li>learn who can replace the psychic lern count vectorized or TFI the effect Dreiser with a vectorized that uses NLC K to do the analysis.</li>
+<li>If you need more sophisticated text, processing is a part of your application.</li>
+<li>So to conclude, term vectors treat each word as a feature for which documents have scores that often normalize.</li>
+<li>The uncommon words have higher weight and that longer documents don't just have larger vector values.</li>
+<li>Where then when you use these vectors downstream in order to do a variety of computations.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Resources<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer" title="(in scikit-learn v1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CountVectorizer</span></code></a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html#sklearn.feature_extraction.text.TfidfVectorizer" title="(in scikit-learn v1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code></a></p></li>
+<li><p><a class="reference external" href="https://www.nltk.org/">NLTK</a></p></li>
+<li><p><a class="reference external" href="https://stanfordnlp.github.io/stanza/">Stanza</a> (formerly StanfordNLP)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="vectors-and-similarity">
+<h2>🎥 Vectors and Similarity<a class="headerlink" href="#vectors-and-similarity" title="Permalink to this headline">¶</a></h2>
+<p>This video describes the concept of a <em>vector representation</em>, and how to compute the similarity between two documents.</p>
+<div class="resource video docutils container" id="7c588d12-0992-4b66-8337-adc60183b8a1">
+<div class="tabbed-set docutils">
+<input checked="checked" id="8adef36a-87b0-4725-800e-e9de43ef9817" name="b4cca037-2ee5-420f-8412-852df71d2914" type="radio">
+</input><label class="tabbed-label" for="8adef36a-87b0-4725-800e-e9de43ef9817">
+Video (6m58s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=7c588d12-0992-4b66-8337-adc60183b8a1&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="1d39d1b4-2af8-495f-a186-df63b31141a2" name="b4cca037-2ee5-420f-8412-852df71d2914" type="radio">
+</input><label class="tabbed-label" for="1d39d1b4-2af8-495f-a186-df63b31141a2">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0!74446" data-key=AGmudT2sm4-Qqwc>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+VECTORS AND SIMILARITY
+Learning Outcomes
+Understand the value of vector representations of instances.
+Compute similarities between vectors
+Photo by Yogendra Singh on Unsplash
+What Is a Vector?
+Homogenous and Heterogenous Vectors
+An instance’s features form a vector (array of values)
+Different features have different scales (unless standardized)
+Not necessarily meaningful to relate to each other
+
+Homogenous vector representations are particularly useful
+All entries are the same ‘kind’ of thing
+Positions instances in a vector space
+
+Vectors
+Can represent:
+A point in space
+A line from origin to point
+Angles
+Vector Similarity
+Cosine similarity is a common measure of object similarity
+How related are two vectors?
+If vectors are mean-centered, equivalent to Pearson correlation
+
+Very common to do with TF-IDF vectors to compare documents
+Tricks
+Wrapping Up
+Vector representations such as TF-IDF can be used for further computations.
+
+Similarity between vectors is often measured with their cosine, e.g. to compute similarity between documents.
+Photo by Raquel Martínez on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>So now that we have some term vectors, what can we do with them learning outcomes for this video or for you to understand the</li>
+<li>value of vector representations and instances and the compute similarities between vectors?</li>
+<li>So we've talked about vectors from time to time throughout this course.</li>
+<li>But. And you've probably seen you may have seen them in a linear algebra class or statistics class, but a vectors just an array of numbers.</li>
+<li>Got a vector X that's got values X one, X, two, three, X.</li>
+<li>Then we say that it has N dimensions. This can be the row or column of a matrix.</li>
+<li>And we often then the length of the vector, the length of the vector is usually not as dimensionality, the length is usually the L2 norm.</li>
+<li>The sum of the squares, the value of the vector we can think about.</li>
+<li>So in instances, features form an array of form of vector, an array of values like the role of a data frame.</li>
+<li>It's a vector. We can treat it as one. We could create the column as a vector.</li>
+<li>But when we with the features you've been seeing so far on this, we standardize,</li>
+<li>then the features often have different scales, different meanings, not necessarily meaningful to relate them to each other.</li>
+<li>One of the things that's a little different about our about the vectors that we get out of tax is that they're more homogenous, like each.</li>
+<li>Each dimension corresponds to a term. But they all mean the same kind of thing.</li>
+<li>It's the number of times that term has been applied or the relevance of that term</li>
+<li>to the document and the both the voelz heterogeneous and homogenous vectors.</li>
+<li>They they record of that. They we can think of them as giving data points a position in some kind of a vector space.</li>
+<li>So if we've got a two dimensional vector space here, we have vectors A and B,</li>
+<li>we can think of them either as a point in space out here at the end of the arrow or as a line from origin to point.</li>
+<li>So we've got a is at two, three and B is it for one using the standard X Y notation.</li>
+<li>We can compute a variety of things. We can compute C, which is A minus B.</li>
+<li>Which is a factor that would go from B to A. We can computer distance between them, which is the length of that vector, the Euclidean length.</li>
+<li>And we call it would you that is the length because it's the it's the length of this arrow.</li>
+<li>If Pythagorean it's a multidimensional generalization of Pythagoras, of the Pythagorean Theorem.</li>
+<li>Because if you want the length of this arrow,</li>
+<li>then you need to compute the square root to the sum of the squares of its two sides, which are four and one.</li>
+<li>Square, the square, the Miach, some them take the square root and you're going to get square root of 17,</li>
+<li>which is going to be the length of this vector, the length of that that arrow.</li>
+<li>You can also compute what's called an inner product, which is the sum of the products of.</li>
+<li>So two vectors have the same dimensionality. They're both n dimensional vectors.</li>
+<li>If you go across the dimensions and you multiply the vectors values for them and you sum up all of that, then you get what's called the DOT product.</li>
+<li>So for these particular vectors, it's going to be two times four plus three times one, which is going to be you leavens.</li>
+<li>The inner product of these two vectors is 11. You can also think about the angle between them so they have an angle theta.</li>
+<li>And you can often, in terms of what we do at that angle is we compute its cosine.</li>
+<li>We want to get the angle itself. We can compute the arc cosine of this cosine.</li>
+<li>But the coast between two vectors is their inner product divided by the product of their lengths.</li>
+<li>And so it would be that eleven divided by Route 17 and the other A has a length of the square root.</li>
+<li>Of four plus nine, which is 13. So that's going to be the angle between these two vectors, this angle is a common measure of object similarity,</li>
+<li>and we aren't we could do this with any kind of a vector.</li>
+<li>It just happens to be especially useful for these kinds of homogenous vectors, like text vector.</li>
+<li>You can do it for any you can at any data point. You can computer cosine similarity between them.</li>
+<li>If you've got vector representation, it looks at how related are to vectors and it has a useful relationship with the the two</li>
+<li>vectors are have a mean of zero then it's equivalent to the Peerson correlation between them.</li>
+<li>It's very common though to do this with TFI D.F. vectors and a T.F. idea vector is.</li>
+<li>It's going to always have a value of it.</li>
+<li>It's always going to be a positive values. They're all in that upper right quadrant. But it lets you compare.</li>
+<li>It gives you a measure of some very common similarity measure between documents.</li>
+<li>You can also take the distance between the two documents and the vector spaces, the relationship between them.</li>
+<li>A couple of useful tricks first.</li>
+<li>If the two vectors are unit vectors, then the inner product is the cosine because both of the length is a length of one.</li>
+<li>The denominator is one times once. You can just compute an inner product. This is one reason that normalizing TFT effectors to unit vectors is useful.</li>
+<li>And oftentimes, if we're gonna do something that's going to compute cosine similarities,</li>
+<li>we normalize the unit vectors first, then we get these very efficient, cosine similarity.</li>
+<li>Because you just have to compute the inner product between vectors. This is also a useful reason why it's interest.</li>
+<li>It's useful to normal sometimes to normalize a set of feature values, for instance, to a unit vector unit vector normalization that we talked about.</li>
+<li>Transformations in normalizations unit vector normalization is almost never something we want to do to a column in one of our data frames.</li>
+<li>We only want to do it within a row that the feature values of a particular instance, either all of them or some subset of them.</li>
+<li>If we have a matrix whose rows are all unit vectors, then we can compete.</li>
+<li>We can use a matrix multiplication to compute the pairwise similarities between all rows of M and a very optimized fashion.</li>
+<li>We start talking. We're thinking about how you really.</li>
+<li>Lean hard into vectorized and computations, being able to use a matrix matrix, multiply two to compute a large number of similarities at one go.</li>
+<li>It's a very good example of that kind of that kind of thinking.</li>
+<li>And Sipi provides sparse matrix representations to a super, super useful for that view account vectorized or TFI de'ath vectorized.</li>
+<li>Or you're going to get a sci fi sparse matrix out that it doesn't spend space storing all the zeroes.</li>
+<li>So to conclude, vector representations allow us to do a lot of useful computations.</li>
+<li>And one of those is that we can compute the similarity between two documents by taking the cosine between their vectors, their TFI, D.F. of vectors.</li>
+<li>And this gives us a powerful mudgett. We can compute similarity or distance or difference between documents by using their bag of words.</li>
+<li>Term frequency renormalize term frequency remembering.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="classifying-text">
+<h2>🎥 Classifying Text<a class="headerlink" href="#classifying-text" title="Permalink to this headline">¶</a></h2>
+<p id="index-0">This video introduces <em>classifying text</em>, and the use of a <a class="reference internal" href="../glossary/#term-naive-Bayes"><span class="xref std std-term">naïve Bayes</span></a> classifier based on term frequencies.</p>
+<div class="resource video docutils container" id="f9571ba1-0629-47a3-bf8a-adc60183b986">
+<div class="tabbed-set docutils">
+<input checked="checked" id="0c188141-e006-4b9f-9deb-97557da2c03a" name="2158352e-2b89-4c3b-8b62-3c4a055c9e1e" type="radio">
+</input><label class="tabbed-label" for="0c188141-e006-4b9f-9deb-97557da2c03a">
+Video (6m9s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=f9571ba1-0629-47a3-bf8a-adc60183b986&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="b5ee7efb-d0e2-4e16-b7a6-b67ea6f817b8" name="2158352e-2b89-4c3b-8b62-3c4a055c9e1e" type="radio">
+</input><label class="tabbed-label" for="b5ee7efb-d0e2-4e16-b7a6-b67ea6f817b8">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0!74445" data-key=AAWtOZuns7ScbJc>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CLASSIFYING TEXT
+Learning Outcomes
+Use vector-space representations to classify texts
+Classify into more than 2 classes
+Photo from United Nations COVID-19 Response on Unsplash
+Classifying Text
+We want to classify texts
+Spam and not-spam
+Identify news categories
+Separate news from opinion
+Identify fraud
+
+Input: term vectors
+K-NN Classifier
+Naïve Bayes Classifier
+Naïve Bayes
+Wrapping Up
+K-NN and Naïve Bayes can predict multiple classes from vector data, such as term frequency vectors from text.
+
+Spam filter example notebook demonstrates naïve Bayes.
+Photo by Elijah Hail on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, we're going to talk about how to classify text,</li>
+<li>so learning outcomes are to be able to use vector space representations to classify text and also to classify in a more than two classes.</li>
+<li>So there's a lot of various reasons you might want to classify text. You might want to distinguish between spam and not spam.</li>
+<li>We might want to identify news categories. You're going to be doing that in the end.</li>
+<li>The assignment might want to say separate news from opinion or identify fraud or</li>
+<li>a lot of other reasons why we might want to classify texts into different kinds.</li>
+<li>And we're going to be using for this process as our input term vectors. There's been work lately on using more sophisticated representations.</li>
+<li>But we're going to start just with using our term vectors. So really simple way to do it is to use what's called a K nearest neighbor, a classifier.</li>
+<li>And what what it does is it finds the K nearest neighbors to a data point that are closest to the vector space.</li>
+<li>So if we've got some vector space and we have some data points.</li>
+<li>And we maybe have some data points of another class. And we've got one that comes in and we want to classify it.</li>
+<li>Let's say it's here, what it's going to do is it's going to go find the closest data points.</li>
+<li>Maybe it'll be these three and it's going to take a little vote. And inside this green circle, it's a little hard to see.</li>
+<li>But two of them are purple and one of them is red. So it's going to the vote is going to be purple.</li>
+<li>This is K is three, three years neighbors. Two of them were purple. One is red.</li>
+<li>And two, it's going to classify our new data point as purple. He uses some metric.</li>
+<li>Often this metric is the Euclidean distance between the two vectors.</li>
+<li>And it also easily extends to more than two classes because you can have three, four or five classes.</li>
+<li>You can see what the most common class is in your neighborhood. This works fine with TFI, D.F. vectors.</li>
+<li>So you can you can use the TFT effect. Dreiser this. The psychic K neighbors classifier and you can get.</li>
+<li>But don't put those two things in a pipeline and you get a working classifier that can work well on a variety of tasks.</li>
+<li>That uses the term vectors extract from your text in order to do classification.</li>
+<li>Another way is to use what's called a naive Bayes classifier, where here the goal is.</li>
+<li>It tries to estimate the probability in this case, as is spam, the probability of spam given a particular documents text.</li>
+<li>And the way that you and we can use Bayes Theorem to say if we have the probability of a dock of a particular document given tax,</li>
+<li>the probability that if we said, oh, we want to make a spam, what would these words appear in it?</li>
+<li>And the probability of making a spam. And we can divide that then by normalizing constant.</li>
+<li>We can compute the probability of spam given a document. And there's a couple of things that go into this.</li>
+<li>First, we have data. We have a bunch of documents that we can learn what how terms relate to spam.</li>
+<li>And second, we make what's called the naive Bayes assumption, which assumes that terms are independent of each other.</li>
+<li>This assumption is false. But this assumption is very useful because it makes it very computationally simple way to do the classification.</li>
+<li>That also happens to work remarkably well.</li>
+<li>And so then I leave base assumption is that if I say I'm going to write a spam and then my spam, I say Apple.</li>
+<li>The next word I use is the frequency of any other word occurring as independent of that.</li>
+<li>It's the fact that you saw that I said Apple in my spam has no influence on the probability that I am going to say cash in my spam.</li>
+<li>And so since they're independent, we can take the product over the terms and the document of the probability of each term given spam.</li>
+<li>And so what we do is we have four spam. We have a probability distribution over terms for not spam.</li>
+<li>Well, the probability distribution over terms,</li>
+<li>we can learn those probability distributions from labeled data just by counting how common each term is and spams and not spammers.</li>
+<li>So how are words we ever span's you are not spams are labeled as count how often his term appears in each one,</li>
+<li>we use that to derive a probability of using that term.</li>
+<li>If I'm going to write a spam, if I'm going to write a non spam email, so we do that,</li>
+<li>we learned our prior we either we can either set it to even or we can learn it from the data.</li>
+<li>This is called sometimes empirical Bayes psychic learns it from the default.</li>
+<li>So if if 70 percent of our emails are spam, then the probability of spam will be point seven.</li>
+<li>The probability of not spam will be point three. It does that automatically.</li>
+<li>And then given a new document, we compute this probability of spam.</li>
+<li>We also compute the probability of not spam.</li>
+<li>And did we use our prior we use the term probabilities from the data, we can compute the normalizing function by by computing these two probabilities.</li>
+<li>This works well with not you don't want to do TFI D.F. before this,</li>
+<li>you can do it and it mostly works, but to really compute the probabilities, trillion.</li>
+<li>It's going to work on your term. Your term.</li>
+<li>You're just your term frequency vectors. How often the word appears.</li>
+<li>And it's going to naturally learn which words are more useful for distinguishing between spam and not spam.</li>
+<li>Psychic learn implements this in the multinomial and the classifier class.</li>
+<li>So Tarapur, both CNN and Naive Bayes can predict multiple classes from vector data such as term frequency vectors from text.</li>
+<li>If you want to do multiple class accuracy, it's the same as binary accuracy.</li>
+<li>It's just the net, the fraction, the time it was correct.</li>
+<li>The spam filter example notebook demonstrates naive Bayes with the count vector Isar that we've been talking about.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Resources<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier" title="(in scikit-learn v1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.neighbors.KNeighborsClassifier</span></code></a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html#sklearn.naive_bayes.MultinomialNB" title="(in scikit-learn v1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.naive_bayes.MultinomialNB</span></code></a> (<a class="reference internal" href="../glossary/#term-naive-Bayes"><span class="xref std std-term">Naïve Bayes</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="spam-filter-example">
+<h2>📓 Spam Filter Example<a class="headerlink" href="#spam-filter-example" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../resources/tutorials/SpamFilter/"><span class="doc std std-doc">Spam Filter Example</span></a> demonstrates tokenization and classification with text.</p>
+</div>
+<div class="section" id="week-12-quiz">
+<h2>🚩 Week 12 Quiz<a class="headerlink" href="#week-12-quiz" title="Permalink to this headline">¶</a></h2>
+<p>The Week 12 quiz is on Canvas.</p>
+</div>
+<div class="section" id="assignment-6">
+<h2>📩 Assignment 6<a class="headerlink" href="#assignment-6" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../assignments/A6/"><span class="doc std std-doc">Assignment 6</span></a> is available and is due <strong>November 21</strong>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./week12"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../week11/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 11 — More Modeling (11/1–5)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../week13/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 13 — Unsupervised (11/15–19)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

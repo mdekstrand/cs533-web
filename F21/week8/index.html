@@ -1,0 +1,2436 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 8 — Regression (Oct. 11–15) &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabinsert.js"></script>
+    <script src="../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="copyright" title="Copyright" href="../copyright/" />
+    <link rel="next" title="Week 9 — Models &amp; Prediction (Oct. 18–22)" href="../week9/" />
+    <link rel="prev" title="Week 7 — Getting Data (Oct. 4–8)" href="../week7/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../resources/tutorials/">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/week8/index.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fweek8/index.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/week8/index.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#content-overview">
+   🧐 Content Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deadlines">
+   📅 Deadlines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introducing-regression">
+   🎥 Introducing Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistical-modeling">
+   🎥 Statistical Modeling
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#single-regression">
+   🎥 Single Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prediction-and-inference">
+   🎥 Prediction and Inference
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#categorical-predictors">
+   🎥 Categorical Predictors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testing-assumptions">
+   🎥 Testing Assumptions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression-model-assumptions">
+   📃 Regression Model Assumptions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiple-regression">
+   🎥 Multiple Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#measuring-prediction-accuracy">
+   🎥 Measuring Prediction Accuracy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instances-and-sampling">
+   🎥 Instances and Sampling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#supporting-notebooks">
+   📓 Supporting Notebooks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-8-quiz">
+   🚩 Week 8 Quiz
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statsmodels-examples-and-user-guide">
+   📃 StatsModels Examples and User Guide
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bootstrapping-linear-regression">
+   📃 Bootstrapping Linear Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignment-4">
+   📩 Assignment 4
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-8-regression-oct-1115">
+<span id="week8"></span><h1>Week 8 — Regression (Oct. 11–15)<a class="headerlink" href="#week-8-regression-oct-1115" title="Permalink to this headline">¶</a></h1>
+<p>In this week, we are learning about linear regression with StatsModels.
+All the examples will use the StatsModels OLS (ordinary least squares) model, generally with the
+<a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.formula.api.ols.html#statsmodels.formula.api.ols">formula interface</a>.</p>
+<div class="section" id="content-overview">
+<h2>🧐 Content Overview<a class="headerlink" href="#content-overview" title="Permalink to this headline">¶</a></h2>
+<div class="module-content docutils">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><strong>Element</strong></th>
+<th class="head"><strong>Length</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#ce6dd7fd-7632-4853-b165-ac4e011f9745"><span>🎥 Introducing Regression</span></a></p></td>
+<td><span>5m6s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#a32df5bb-b919-439a-98fc-ac4e011f96f7"><span>🎥 Modeling</span></a></p></td>
+<td><span>8m6s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#6974f533-c84a-425f-85c6-ac4e011f97ae"><span>🎥 Single Regression</span></a></p></td>
+<td><span>10m14s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#79719da0-ac88-4bfc-acf7-ac4e011f9777"><span>🎥 Prediction and Inference</span></a></p></td>
+<td><span>8m33s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#dd8e3e53-8776-4c62-9d23-ac5100090a29"><span>🎥 Categorical Predictors</span></a></p></td>
+<td><span>3m41s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#9b75d72f-d616-497f-afda-ac51000909ef"><span>🎥 Testing Assumptions</span></a></p></td>
+<td><span>9m46s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#reading-Regression-Model-Assumptions"><span>📃 Regression Model Assumptions</span></a></p></td>
+<td><span>964 words</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#20d644fc-c4ca-40de-a03f-ac510014254e"><span>🎥 Multiple Regression</span></a></p></td>
+<td><span>19m8s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#5ba717f5-1c46-4118-a89e-ac51001564cd"><span>🎥 Prediction Accuracy</span></a></p></td>
+<td><span>9m12s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ec19853e-2dfb-4774-b192-ac5100142bbb"><span>🎥 Instances and Sampling</span></a></p></td>
+<td><span>9m40s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#reading-Bootstrapping-for-Linear-Regression"><span>📃 Bootstrapping for Linear Regression</span></a></p></td>
+<td><span>1950 words</span></td>
+</tr>
+</tbody>
+</table>
+<p><span>This week has </span><strong>1h23m</strong><span> of video and </span><strong>2914 words</strong><span> of assigned readings.</span><span> This week’s videos are available in a </span><a class="panopto reference external" href="https://boisestate.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22cee8983d-7d3c-4329-8f30-adb8012576fa%22"><span>Panopto folder</span></a><span> and as a </span><a class="panopto podcast reference external" href="https://boisestate.hosted.panopto.com/Panopto/Podcast/Podcast.ashx?courseid=cee8983d-7d3c-4329-8f30-adb8012576fa&amp;type=mp4"><span>podcast</span></a><span>.</span></p>
+</div>
+</div>
+<div class="section" id="deadlines">
+<h2>📅 Deadlines<a class="headerlink" href="#deadlines" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Week 8 Quiz <strong>Thursday Oct. 14 at 8AM</strong></p></li>
+</ul>
+</div>
+<div class="section" id="introducing-regression">
+<h2>🎥 Introducing Regression<a class="headerlink" href="#introducing-regression" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="ce6dd7fd-7632-4853-b165-ac4e011f9745">
+<div class="tabbed-set docutils">
+<input checked="checked" id="fa516be1-ef68-4438-9532-518974b93519" name="c0770836-6b1c-4caa-9539-f3742dbd3e84" type="radio">
+</input><label class="tabbed-label" for="fa516be1-ef68-4438-9532-518974b93519">
+Video (5m6s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ce6dd7fd-7632-4853-b165-ac4e011f9745&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="f603b1cc-fd97-4c4d-bbfd-955623e0126b" name="c0770836-6b1c-4caa-9539-f3742dbd3e84" type="radio">
+</input><label class="tabbed-label" for="f603b1cc-fd97-4c4d-bbfd-955623e0126b">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173250" data-key=AJyw9tJLQ2TII98>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+INTRODUCING REGRESSION
+Learning Outcomes (Week)
+Compute single- and multi-variable linear regressions
+Test for violations of linear model assumptions
+Measure the predictive accuracy of a regression model
+
+Photo by John Rodenn Castillo on Unsplash
+Variables and Model
+What Is a Model?
+A mathematical representation
+
+Of the essential dynamics
+
+Of a system of interest
+Purposes of Modeling
+Understand predictor/outcome relationships
+Correlational, not causal (at least alone)
+Predict future outcomes
+Estimate hypothetical outcomes
+Correct for effects for further analysis
+
+Regression predicts (or estimates) a continuous variable
+Linearity
+Wrapping Up
+Models summarize data generating processes and let us predict future outcomes.
+
+Linear models are a particularly simple but flexible class of models.
+Photo by Drew Graham on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Hello. This week, we're going to talk more about regression. We introduced it when we started talking about two variables.</li>
+<li>We'll be studying a lot more, how to use it and how to evaluate it. In this week's material,</li>
+<li>so are learning outcomes are for you to be able to compute single and multivariable regressions to</li>
+<li>test for violations of their assumptions and to assess the predictive accuracy of a regression model.</li>
+<li>So if you'll remember, we have a dependent variable y called the outcome.</li>
+<li>This case, if we're going to try to predict the Rotten Tomatoes audience rating with the critics rating,</li>
+<li>the regression version of what you did in assignment to. We have our independent variables, X predictors.</li>
+<li>In this case, the all critics rating, and our goal is to try to estimate compute an estimate which we call Y hat.</li>
+<li>That'll be our standard notation for an estimate that tries to.</li>
+<li>We try to estimate the audience rating using the critics rating.</li>
+<li>And so we can learn a linear model, a line where we have an intercept. We have a slope.</li>
+<li>And then we have some residuals. The goal is that we learn these parameters in order to minimize the least squares.</li>
+<li>We're going to be talking more in subsequent videos about what precisely that means.</li>
+<li>But this is the setup. We have this outcome and we want to try to predict it.</li>
+<li>This is a very common setup and data science tasks. A lot of times what we're going to try to do is predict some outcome.</li>
+<li>This is also a really common task in machine learning.</li>
+<li>If you take the machine learning class in the spring, you'll be doing a lot of this.</li>
+<li>So but talk about this. We're gonna be using the term model quite a bit.</li>
+<li>What does that mean? Or model for our purposes? There's lots of different words in the model meetings, the word model.</li>
+<li>It's a mathematical representation of the essential dynamics of a system of interest.</li>
+<li>It's a simplification, but it captures the piece of the system that we're interested in measuring.</li>
+<li>For example, if we. If critics are doing their job of assessing the quality of movie and in fact recommending effectively to audiences,</li>
+<li>we would expect critic ratings to match audience or to map in some respect with audience ratings.</li>
+<li>And so we can look at the relationship to model. It's a gross simplification.</li>
+<li>We can look at the relationship to model. The pathways by which critic ratings and audience ratings might be related.</li>
+<li>So there are several different purposes of modeling. One is to understand the relationships between our predictor and our outcome variables.</li>
+<li>The model itself, these are correlational. They are not causal. You have to have great care when ascribing causality to what we learn.</li>
+<li>But another purpose is to be able to predict future outcomes.</li>
+<li>And this doesn't require the model to be causal or even to be what we call inferentially valid.</li>
+<li>It just means there has to be a strong enough and reliable enough relationship that you can use it for the prediction.</li>
+<li>You can also use it to estimate hypothetical other outcomes. You have to be careful with this.</li>
+<li>But if you've got a model, you can use it to estimate, well, what would happen if the data were like this, but a little bit different.</li>
+<li>And then you can also use them to estimate of the effect of something then you can correct for that effect in later analysis.</li>
+<li>Regression is a type of modeling that predicts or estimates a continuous variable.</li>
+<li>So you've got one or more. We have a continuous outcome variable and we have one or more.</li>
+<li>We have one or more explanatory variables. Or features and that we're going to use them to predict that continuous outcome.</li>
+<li>So a linear we're particularly focused here on linear models, so.</li>
+<li>And because it's linear regression in a linear equation is a variable as an equation where you have a sum.</li>
+<li>This whole thing is a sum of individual scalar multiplication. So X K times a constant.</li>
+<li>X one times a constant. To be zero batur zero times one.</li>
+<li>And so it's a linear model, is a linear equation, is the sum of these together multiples.</li>
+<li>Linear models are incredibly capable. Useful for a wide range of things.</li>
+<li>And also, we can transform many nonlinear problems into a linear problem.</li>
+<li>Either transform our features and now the problem's linear, transform our outcomes and other problems, linear viotti of techniques for doing that.</li>
+<li>So for a large range of problems, linear models are very good first thing to try.</li>
+<li>And there's also a very good baseline comparison for more sophisticated models.</li>
+<li>So we're gonna be learning this week about linear regression models were then later in later weeks, we're going to see linear classification models.</li>
+<li>So to wrap up models, summarize data generating processes and let us predict future outcomes, given that we might not have observed yet.</li>
+<li>And linear models are particularly simple but flexible class of models that we're going to be spending time with over the next weeks.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="statistical-modeling">
+<h2>🎥 Statistical Modeling<a class="headerlink" href="#statistical-modeling" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="a32df5bb-b919-439a-98fc-ac4e011f96f7">
+<div class="tabbed-set docutils">
+<input checked="checked" id="9f6e27a0-f436-4184-94c1-eed49352af11" name="f3fe93c4-1a92-44c0-9a75-7283890f56bd" type="radio">
+</input><label class="tabbed-label" for="9f6e27a0-f436-4184-94c1-eed49352af11">
+Video (8m6s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=a32df5bb-b919-439a-98fc-ac4e011f96f7&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="814b41ef-22e6-44a5-a041-412ac07aacb2" name="f3fe93c4-1a92-44c0-9a75-7283890f56bd" type="radio">
+</input><label class="tabbed-label" for="814b41ef-22e6-44a5-a041-412ac07aacb2">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173252" data-key=AFQ5ZkCaaa2Qn8Q>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+MODELING
+Learning Outcomes
+Understand the relationship of models to reality
+Photo by Andrew Neel on Unsplash
+What Is a Model?
+A mathematical representation
+
+Of the essential dynamics
+
+Of a system of interest
+Things
+“Raw” Data
+Data Set
+Inferences
+Answers
+Phenomena / Experiment
+Data Pipeline
+Data Generating Process
+Things
+“Raw” Data
+Phenomena / Experiment
+Statistical Modeling
+Simplify the DGP to predict an outcome
+Correlational models look at relationships between observables
+No causal claim unless experiment design enables it
+Causal models model DGP more deeply to estimate causality
+Subtle and quick to anger
+
+Simplifications
+Models necessarily simplify the problem
+
+They hopefully capture enough to infer or predict usefully.
+
+Unpredicted value is residual or error.
+Movie Genres
+Movie
+Genre(s)
+Reviews
+?
+Parameters
+Model parameters are numeric values as part of the model.
+
+We estimate them from the data.
+Mean critic rating for each genre (how to handle multiple membership?)
+
+If the model captures the DGP, these are also underlying population parameters.
+Example (adapted from Wikipedia)
+Wrapping Up
+Models simplify a process so we can understand or predict features of interest.
+
+They are simplifications of the data generating process, to learn about it.
+Photo by Scarbor Siu on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Blow, the previous video introduced the idea of modeling, and in this video, we're going to talk more about it.</li>
+<li>So the on the learning outcome is to understand the relationship of models to reality.</li>
+<li>And here we're not talking about walking down runways, wearing various articles of fabric, created things that make ordinary people say,</li>
+<li>how much do they have to pay you for you to put that on and pretend it was clothes or building ships and airplanes and various other things?</li>
+<li>We're going be talking primarily about statistical models.</li>
+<li>So as I said in the previous video, a model is a mathematical representation of the essential dynamics of a system of interest.</li>
+<li>But we have ours. We have our.</li>
+<li>If we think about our data pipeline and our data generating process, we have some things that are out there happening in the world.</li>
+<li>These give rise to either some observable phenomenon or an experiment that we can run that will elucidate.</li>
+<li>These are observable phenomenon. We then collect data from these that are going to be our raw data.</li>
+<li>What are our observations either from the experiment or observations collected from</li>
+<li>the phenomena that then we process into a data set that's useful for our task?</li>
+<li>We have inferences and then finally we hopefully get some answers. But we can think about this top piece here as this is our data generating process.</li>
+<li>The D. G. P. How did our raw data come into existence?</li>
+<li>Things happened that were observable phenomena. We collected the data. How did that happen?</li>
+<li>So in statistical modeling, we simplify the data generating process to be able to predict an outcome.</li>
+<li>There's two, broadly speaking, two kinds of models that we can think about.</li>
+<li>Correlational models, look at relationships between observables and so in our movie data.</li>
+<li>If we want to keep using the movie data as an example, you've got critic.</li>
+<li>And you've got the audience.</li>
+<li>And we can look at correlation between what the critic thinks and what the audience thinks or what the critic thinks and how much.</li>
+<li>Our. Box office revenue or our.</li>
+<li>How many people are rating the movie? But it doesn't make a causal claim.</li>
+<li>We don't have this causal claim that the critic rating causes the audience.</li>
+<li>It's just that the critic rating and the audience are related. There may be a little causation, but we're not making a causal claim here.</li>
+<li>A causal model models the DGP more deeply to estimate causality.</li>
+<li>You have to be really careful with these. There's an entire field called called causal inference that it's looking at.</li>
+<li>How do you rigorously do this when you can't run an experiment? The best way is when you can run an experiment, if you can run an experiment.</li>
+<li>You can often get causality through what's called a randomized controlled trial.</li>
+<li>If you're able to set up an experiment where you've got a group that a group that receives the treatment, you call it a treatment,</li>
+<li>the treatment you want to test and a group that doesn't and they aren't all other way, all other ways equal.</li>
+<li>Randomization is a good way to achieve that. Then you can conclude that your intervention or your treatment caused the outcome.</li>
+<li>But. Randomized controlled trials. Are expensive and often oftentimes they're not very.</li>
+<li>They're not even possible to run feasibly due to the nature of the phenomenon or</li>
+<li>due to the do the nature of the phenomenon or due to the non replicability of it,</li>
+<li>which is a part of the nature. So you can't it's difficult to do randomized controlled trials, say, of national or even state level health policies.</li>
+<li>You can do some state level thing by comparing one state to another. But but if you've got like there's only one United States of America.</li>
+<li>So you can't you can't say, well, what happens in the US with one policy and without one policy because or replicates of the United States.</li>
+<li>Cause you don't really you can't duplicated or even more so the world.</li>
+<li>But there are ways and there are two contexts and times in which you can infer causality from observables and causal inference.</li>
+<li>Is the study of that. So the model necessarily simplifies the problem, we isolate the pieces we care about,</li>
+<li>we might need to have some other pieces involved in order to to what we call control for other effects.</li>
+<li>But. The simplified model, hopefully capture like the goal is not to completely represent the underlying reality.</li>
+<li>The goal is to capture enough that we can predict or infer usefully.</li>
+<li>And then we have the unpredicted value, which is what we call the residual or the error.</li>
+<li>And so if we think about our movies. Movie. Movie. Example. The movie data.</li>
+<li>And again, maybe we think about the genres. So a movie exists and it has some genres.</li>
+<li>And it's in some genres. And we have a difference.</li>
+<li>And it also gets reviews and. The genres might cause some of the reviewing behavior,</li>
+<li>but they're probably both caused by the movie itself and the movie is a Western and the movie gets them reviews.</li>
+<li>And so we can look at the correlation withdrawn under to see if there's a difference.</li>
+<li>But that's not the same thing as claiming the genre causes the review difference.</li>
+<li>What we need to go more deeply is to understand what causes the movie to be in a particular genre.</li>
+<li>Now, when we're modeling, we're also going to be talking about what we call parameters.</li>
+<li>And we've introduced parameters before in the statistical sense,</li>
+<li>in modeling a model parameter is a numeric variable as a part of the model, in a linear model, they're going to be our coefficients.</li>
+<li>We estimate these parameters from the data. And for example, in the before, we might estimate the mean credit rating for each genre.</li>
+<li>We then have a little challenge of how do we handle multiple Shomrim membership's?</li>
+<li>But if the model if the model captures the data generating process and it's an</li>
+<li>accurate reflection of a simplified version of the data generating process,</li>
+<li>then the model parameters will hopefully also correspond to underlying population parameters.</li>
+<li>We don't necessarily get that guarantee, but the goal of a good model for inferential purposes is to get these correspondences</li>
+<li>to underlying population parameters to describe how the mechanism works on the inside.</li>
+<li>So for an example that adapted from Wikipedia. Children grow as they age and older children.</li>
+<li>Therefore we're gonna. If one child is older than another, we expect it to probably be taller.</li>
+<li>There's a lot of variation. There's a lot of variation in the height of five year olds.</li>
+<li>But if we randomly pick a five year old and a six year old, we probably expect the six year old to be a little taller.</li>
+<li>And so we can model this as modeling height as a base offset plus a multiplier of the age.</li>
+<li>And this isn't perfect. I get it. As I said, there's a lot of variation in the heights of five year olds, but it's a starting point for prediction.</li>
+<li>And the residual is what the model can't account for.</li>
+<li>And we model these as we model the residuals as random.</li>
+<li>That doesn't mean they are random. But we can treat these unknowns as a random variable.</li>
+<li>And so we we treat these these residuals as a random variable.</li>
+<li>We're going to have random variable ways of dealing with them. But this is is what we get when we have a model.</li>
+<li>Older children are taller. So we can try to predict it a child's height with their age.</li>
+<li>And then we have this leftover that we can't predict with the age.</li>
+<li>There may well be other things that we could throw in that would allow us to predict that. But we can't predict it with age.</li>
+<li>So to conclude, models simplify a process so we can understand at least pieces of it and predict them.</li>
+<li>They're simplifications, but they're related to the data generating process that we can try to learn about what is actually happening.</li>
+<li>That's giving rise to the data that we see so we can use the data to learn about the world.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Review <a class="reference internal" href="../week4/#7d69ede0-5d1d-4880-9a92-ad9c0183c927" title="week4:sampling"><span>🎥 Sampling and the DGP</span></a></p></li>
+<li><p><a class="reference external" href="https://help.xlstat.com/s/article/what-is-statistical-modeling?language=en_US">What is statistical modeling?</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="single-regression">
+<h2>🎥 Single Regression<a class="headerlink" href="#single-regression" title="Permalink to this headline">¶</a></h2>
+<p>In this video, I introduce single-variable regression.</p>
+<div class="resource video docutils container" id="6974f533-c84a-425f-85c6-ac4e011f97ae">
+<div class="tabbed-set docutils">
+<input checked="checked" id="7b768f58-115c-499a-8c5a-2a43ff6fa372" name="30ca45f8-ca70-47f2-9855-d9522f0d67a6" type="radio">
+</input><label class="tabbed-label" for="7b768f58-115c-499a-8c5a-2a43ff6fa372">
+Video (10m14s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=6974f533-c84a-425f-85c6-ac4e011f97ae&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="8307a051-27e3-4b71-9ce5-cc681eee3bce" name="30ca45f8-ca70-47f2-9855-d9522f0d67a6" type="radio">
+</input><label class="tabbed-label" for="8307a051-27e3-4b71-9ce5-cc681eee3bce">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173257" data-key=AOpDY3zSpDSX2zw>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SINGLE REGRESSION
+Learning Outcomes
+Model a linear relationship between two variables
+Estimate the parameters of this model
+Identify the assumptions needed for the model’s inferential validity
+Photo by Alessio Lin on Unsplash
+Variables and Model
+This is univariate (one-variable) regression
+Regression Model
+Regression Model
+Note: I have extended this plot to have 0 at the left end of the x axis to highlight the intercept. Intercept is where the line crosses 0, not where it crosses the left Y axis.
+DGP
+Movie: *exists*
+Critics: this is ok, I guess
+Audience: 👏
+
+Critic ratings do not cause audience ratings
+Relationship does not need to imply causality
+Fitting Lines
+We can (almost) always fit a line
+Resulting line is least squares
+Can be used to predict
+
+Inference makes assumptions:
+Linear relationship
+Independent observations
+Normal residuals
+Equal variance of residuals
+Result: residuals are i.i.d. normal
+Penguins
+Explains 76% of variance
+1mm flipper ⇔ 49.7g mass
+
+Stats models warns us about condition number – not actually a problem here. But we can still make it go away.
+Penguins
+Wrapping Up
+Linear regression predicts one variable with another using a linear relationship.
+
+Inference makes several key assumptions.
+
+Standardizing variables puts coefficients in units of standard deviations.
+Photo by Gemma Evans on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Oh, and this video, I'm going to talk more about how single regression actually works.</li>
+<li>There's a notebook going with this sequence of videos that's going to include the regressions and is going to give you the codes.</li>
+<li>You can actually see how to run them and how to set up the data in order to get them to work.</li>
+<li>So our goal here is to be able to model a linear relationship between two variables,</li>
+<li>estimate the parameters of this model and identify the assumptions that are needed for the model to be what we call inferentially valid.</li>
+<li>So remember, we've got our dependent, variable, independent variables, we're trying to predict the outcome with the predictors.</li>
+<li>And this is this is a univariate regressions. We're trying to predict our audience ratings.</li>
+<li>They're all critic rating. This won't be the only example I show you today.</li>
+<li>So when we do this with a regression model, we use what I'm using here, the stats models formula interface,</li>
+<li>which lets me write a little a little formula here that says I want to predict the audience ratings.</li>
+<li>This is the outcome. And then we've got this separator here and then I'm trying, so I'm trying to predict that outcome with predictors or features.</li>
+<li>So that's how the that's how the code is set up there.</li>
+<li>You've got fertility, that's our. And it means predict the stuff on the left hand side of the tildy with the stuff on the right.</li>
+<li>Right now, there's just one variable, because as I said, this is univariate or single variable regression.</li>
+<li>And this gives us an intercept.</li>
+<li>Beta Sub-Zero is the intercept. It gives us a coefficient beta sub one.</li>
+<li>For each of these coefficients, we get the coefficient itself.</li>
+<li>So our point zero point one eight three eight.</li>
+<li>The intercept, we can think of the intercept as a coefficient for a variable that's always one and actually internally.</li>
+<li>That's what Stats Models does. It augments your data with one more variable. That's one.</li>
+<li>And. And the intercept is the coefficient for that.</li>
+<li>We also have a standard error of the coefficient and a confidence interval of the coefficient.</li>
+<li>That is, it's just like the confidence intervals that we've had before. It's an estimate of of the precision of this this coefficient.</li>
+<li>There's also a P value which tests the null hypothesis that the coefficient is zero.</li>
+<li>We have a P value for the overall model. And we have a.</li>
+<li>And R-squared, which as I said previously, this is the percent of the variance.</li>
+<li>This is the fraction of the variance that's explained. So. Audience ratings have some variance.</li>
+<li>Forty percent of that variance can be thirty nine point four percent of that variance can be explained with the top critic rating.</li>
+<li>So if we take away the effect of the top critic rating effective, what this means is the residuals,</li>
+<li>the reason, the variance of the residuals will be 60 percent of the variance of the original data.</li>
+<li>Because we've explained 40 percent of the variance. So we we can draw our line here and here, I spread out the x axis.</li>
+<li>We see it across the whole place, the whole the whole frame. So our intercept it or our intercept is right here.</li>
+<li>Where the line crosses zero and that's two point two eight, and then we have a slope of 0.01 eight.</li>
+<li>So if we look at the where it crosses 10. And.</li>
+<li>So if we look at where it crosses 10 and we look at where it crosses the intercept,</li>
+<li>there should be a difference of one point eight because it's going to be 10 times eight point one eight.</li>
+<li>So that's the that's the the structure of this line. We have a slope and we have an intercept.</li>
+<li>And then the variance of the data itself, the variance is.</li>
+<li>The variance is based on this whole height.</li>
+<li>So that's the variance of the data. But if you were to tilt your head until the data so that.</li>
+<li>It's around this line. That's a smaller variance.</li>
+<li>And so that's what the linear route and that's what we're saying when we were talking about the explained variance is that R squared,</li>
+<li>the explained variance is the difference between the overall variance of the data and the variance.</li>
+<li>After we have accounted for the effect that we're modeling, you can see that.</li>
+<li>You can see that the variance is going to decrease if you if you look at it centered around this other line instead of just centered vertically.</li>
+<li>So we get the model. As I said, two point two, eight plus point one eight times the the x axis value.</li>
+<li>So the data generating process we're looking at here as the movie exists, critic gives it a rating, audience gives it a rating.</li>
+<li>Audience is not. This is the Dagg should look Dagg.</li>
+<li>Directed a cyclic graph, we don't deal with cyclic causality.</li>
+<li>We've got the movie producers, critic ratings and producers, audience ratings.</li>
+<li>There might be some slight causal pathway, like if people go watch more movies that are rated highly.</li>
+<li>But what we're measuring is this correlation, though, between between critic rating and audience rating.</li>
+<li>But this is the underlying DGP. We're not saying they cause audience ratings, but the relation.</li>
+<li>But we don't have to have causality for it to be a useful predictor or for there to be a useful</li>
+<li>and meaningful relationship when you want to take out other effects is complicated and subtle.</li>
+<li>So to talk just a little bit about fitting these lines, we can almost basically always fit a line.</li>
+<li>There's a couple of degenerate edge cases where it doesn't work.</li>
+<li>But given two variables, you can fit a line through them and the resulting line is the least squares.</li>
+<li>It's the best linear predictor under the measurement least squares of the resulting error.</li>
+<li>And we can use it to make predictions if we want to do inference. We want to use the model to tell us.</li>
+<li>Oh. An increase of critics' ratings by one star increases audience ratings by point one eight star.</li>
+<li>That's a reliable effect. Then we need to understand the inferential assumptions of the linear regression model.</li>
+<li>Therefore, it assumes that there is a linear relationship. It assumes that our observations are independent.</li>
+<li>It assumes that the residuals are normally distributed. So after we and they have equal variance.</li>
+<li>So effectively these last three, what it manifests says is after we've after we've we have our linear effect,</li>
+<li>then the residuals should be independent and identically distributed from a normal distribution.</li>
+<li>We can have tests for pieces of that later. So if we look, though, at the penguin data.</li>
+<li>So if I'm going to try to predict a penguins body mass using the length of its flipper.</li>
+<li>So we've got our penguin. He has some feet.</li>
+<li>It has a flipper. It has a head and a little beak penguin kind of.</li>
+<li>I'm not very good at drawing, but there is a penguin and we're trying to use its flipper length.</li>
+<li>And we want to predict its mass. We can do that here and we're explaining 76 percent of the variance are square squared is point seven five nine.</li>
+<li>And we have a. We had a coefficient of forty nine point six, eight or six nine.</li>
+<li>What that means is. If a penguin has one millimeter longer flipper than it probably has fit almost 50 grams more mass.</li>
+<li>When we run this code, stats models also warned us about a condition number.</li>
+<li>The specific problem it's talking about, about multicore linearity is not a problem here because we only have one variable.</li>
+<li>We can still make it go away, though. So right now, we're we're regressing our raw values.</li>
+<li>We're regressing. And we we call this we regress against. We're regressing body mass.</li>
+<li>Against the flipper length, that's just the way we talk about it.</li>
+<li>But we're regressing. The body mass and Graham's its original units against the flipper lengthened millimeters,</li>
+<li>which the resulting coefficient is interpretable in the original units.</li>
+<li>So the resulting coefficient is grams per millimeter. But we can also rerun the model doing it normalized with what we call Z scores.</li>
+<li>And a Z score is the value minus the mean.</li>
+<li>And then divide it by the standard deviation. And these are called ze normalize or ze or standardized variables.</li>
+<li>And the result is that they have a mean of one. So zie.</li>
+<li>Z. I. Bar. Excuse me, not zii z.</li>
+<li>BAA equals one. The standard deviation of Z is one.</li>
+<li>Excuse me. Z bar is zero. There I mean of zero and a standard deviation of one.</li>
+<li>And now the coefficients are in standard deviations. We have this coefficient of point eight seven.</li>
+<li>And what that means is an increase in flipper length of one standard deviation results in an increase in body mass.</li>
+<li>Of point eight seven standard deviations. Depending on your particular inferential needs,</li>
+<li>regressing Z's standardized variables can be more interpretable because you're</li>
+<li>talking about in terms of standard deviations rather than in terms of raw units.</li>
+<li>So wrap up linear progression, linear linear regression predicts one variable with another using what we call a linear relationship,</li>
+<li>a sum of scalar multiplications inference. Using this makes several key assumptions.</li>
+<li>We'll be talking more about in a later video. And we can standardize variables that result in a model where the coefficients are in</li>
+<li>units of standard deviation rather than in units of the underlying raw measurements.</li>
+</ul>
+</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Slide Clarification</p>
+<p>On slide 6, where I show the slope, intercept, and variance in a model, I have extended the plot to include 0 at the left end of the <em>x</em>-axis.
+This is to highlight the meaning of the intercept. It is important to note that the intercept is where the line <strong>crosses zero</strong>, not where it crosses the left Y-axis.</p>
+<p>Also, when discussing this slide, I am imprecise but make it sound like the unexplained variance is the remainder after <em>projecting</em> the data onto the line.
+It is the variance remaining after <em>subtracting</em> the line.
+A video in Week 9 provides more clarity on this relationship.</p>
+</div>
+</div>
+<div class="section" id="prediction-and-inference">
+<h2>🎥 Prediction and Inference<a class="headerlink" href="#prediction-and-inference" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="79719da0-ac88-4bfc-acf7-ac4e011f9777">
+<div class="tabbed-set docutils">
+<input checked="checked" id="67f5852b-57c3-4e68-9a5b-c36188c9a827" name="985c83a6-f727-4a5b-ae2c-7b008ca99f64" type="radio">
+</input><label class="tabbed-label" for="67f5852b-57c3-4e68-9a5b-c36188c9a827">
+Video (8m33s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=79719da0-ac88-4bfc-acf7-ac4e011f9777&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="182714d6-a0b4-4a64-8193-cc319824da96" name="985c83a6-f727-4a5b-ae2c-7b008ca99f64" type="radio">
+</input><label class="tabbed-label" for="182714d6-a0b4-4a64-8193-cc319824da96">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173259" data-key=ADukYiT1K4jLngk>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PREDICTION AND INFERENCE
+Learning Outcomes
+Distinguish between prediction and inference
+Understand different meanings of the word ‘inference’
+Photo by Mark Boss on Unsplash
+Prediction and Inference
+Prediction tries to predict the future with the model.
+
+Model does not need to be valid
+Quality &amp; strength: accuracy of predicting unseen data
+Evaluation does need to be valid
+Inference uses the model’s structure and parameters to learn.
+
+Validity depends on assumptions
+Quality &amp; strength: R2, p-value, assumption checks, coefficients
+Inference
+Assumptions:
+Linearity — that this is actually a linear relationship
+Independent observations
+Normal residuals
+Homoskedastic residuals (equal variance)
+Prediction
+Fitting assumptions: none
+
+Testing assumptions: test data excluded from training
+Train-Test
+Data
+Train
+Test
+Model
+Split
+Predict
+Split before exploratory analysis of features.
+Supervised learning – we have thing to predict
+Splitting Data
+Split before exploratory analysis
+If testing multiple versions: split in 3
+Train – train the model
+Tune – optimize model, compare modeling decisions
+Test – final validation, compare with current / previous system
+Other Uses of Inference
+Here: using analysis to understand (“infer”) things about the underlying world
+Sometimes elsewhere: using a trained model to make predictions about specific instance (the “inference” stage of a machine learning pipeline)
+Wrapping Up
+Inference uses a model’s structure and parameters to understand an underlying phenomenon.
+
+Prediction uses a model to predict future observations.
+
+Inference has stronger requirements.
+Photo by NeONBRAND on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>For this video, we're going to talk about prediction and inference,</li>
+<li>learning outcomes for you to be able to distinguish between prediction and inference and understand different meanings of the word inference.</li>
+<li>We've talked about prediction and inference a little bit before. I talked about inferential validity.</li>
+<li>This video, I'm going to talk more about what we mean by these concepts.</li>
+<li>So in prediction, we're trying to predict other values from the model with our penguins.</li>
+<li>We might be able to we might be looking at, OK. That can I predict.</li>
+<li>If I get a if I if you give me the flipper length of a penguin in the future, can I accurately predict its bodyweight for our movies?</li>
+<li>If you give me some critic ratings, I predict its audience response.</li>
+<li>Or can I predict its box office? Proceeds. Porten thing about prediction is that models don't need to be inferentially valid.</li>
+<li>And the quality and strength we estimate the quality and strength of the prediction by actually trying to use it to predict data.</li>
+<li>We haven't allowed it to seen to see. It's important to note the evaluation of the prediction.</li>
+<li>Accuracy does need to be statistically valid. Inference uses the models, structure and parameters to learn about the world.</li>
+<li>So we might want to learn about fundamental relationships, about penguin physiology.</li>
+<li>Its validity depends on assumptions that we introduced last week or in the last video,</li>
+<li>we talked about single very regressions and then we have various measures of its quality and strength.</li>
+<li>R squared is how much variance that explains P value is statistical significance.</li>
+<li>We're going to have checks for its various assumptions and we've got the coefficients which look at the strength of the relationship.</li>
+<li>So what we're trying to do inference we can make a statement of credit rating increases</li>
+<li>as the critic rating in crace of one point increases audience ready by point one.</li>
+<li>There'll be an inferential statement. It's making a claim about the relationship of these things.</li>
+<li>And we measure this with we've got our squared, as we saw in the last video of point three nine four.</li>
+<li>We've got a very small P value and we assume that it's a linear relationship.</li>
+<li>We assume that our observations are independent.</li>
+<li>That we've got these normal residuals and also that the residuals have equal variance or what we call Hommel Skip Mastec.</li>
+<li>I'm never not going to think that homo scare tactic and it's opposite hetero skin mastic are very strange words.</li>
+<li>So that's an inferential kind of claim. We're claiming a relationship and not necessarily causal.</li>
+<li>But we're claiming this correlational relationship prediction looks really similar.</li>
+<li>We can predict audience ratings using the model to point to eight plus one point one eight.</li>
+<li>Our top. And we measure this by saying, oh, what's mean absolute error?</li>
+<li>So if we take the the errors, those Epsilon's residuals,</li>
+<li>we take the absolute value and take the average is two point is point to eight six or the root mean squared errors</li>
+<li>point three five nine root means squared error is a very common measurement to the accuracy of a predictive model.</li>
+<li>And we're not making any assumptions.</li>
+<li>We don't even have to assume linearity. We can for this to be a useful predictor, it'll hopefully be a better predictor if we if it's actually linear.</li>
+<li>But if if all we care about is how accurate it is at predicting, then.</li>
+<li>We don't have to worry about all of our influence, inferential validity assumptions,</li>
+<li>but we also have to be very, very careful about the claims we make.</li>
+<li>We can claim it's useful for predicting, but we can't, from an invalid model, make claims about the underlying phenomenon that we care about.</li>
+<li>It does make the assumption that we have tested it on data that were not available for training.</li>
+<li>So what does that mean? So in a machine, what we call it, a machine learning setting.</li>
+<li>We often have what we call a trained test split. And so we take our input data.</li>
+<li>And we split it into two pieces. This is our input.</li>
+<li>We say 80 percent of the data. 80 percent of comment split goes into our training pool and 10 percent.</li>
+<li>Goes into our testing pool. We then fit our linear regression or whatever other model we're doing.</li>
+<li>We fit or train at. On the training data, it does not get to see the test data.</li>
+<li>So we're letting your model does not include the test data in the fitting process.</li>
+<li>And then we ask the model to predict the test outcomes using the test features.</li>
+<li>And what this does is it tests. It's easy to predict data data.</li>
+<li>I've seen. I just memorize all the data. I've seen it test, though.</li>
+<li>Can I learn a relationship from training data that generalizes to data that was not in the training data?</li>
+<li>And we called particularly we call the kind of learning that we're doing this week supervised learning because we have a thing,</li>
+<li>this continuous outcome variable that we're trying to predict. It's also important, though, to split before the exploratory analysis of features.</li>
+<li>I'm going to be talking more about train test splits in a later video dedicated to experimental setup.</li>
+<li>But this is the basic idea of how we how we set up data to be able to test predictive accuracy because we don't want to be able.</li>
+<li>We don't want to test the model's memory. We want to test its ability to predict things that's never seen before.</li>
+<li>We need to split, as I said before, exploratory analysis,</li>
+<li>because we don't want knowledge of the distribution of our data and our tests of our variables</li>
+<li>in our test data to affect our choice of variables in the model development process.</li>
+<li>And if we're going to be, say, trying different features,</li>
+<li>trying different variants of a model before we settle on the final one, we actually need to split into three partitions.</li>
+<li>We have our training data. We have tuning for optimizing the model, testing the predictive accuracy of different candidates,</li>
+<li>and then we have a test data that's saved for our final validation.</li>
+<li>Again, we're gonna be talking more in detail about why each of these splits is necessary in a later video.</li>
+<li>But I also said that I want you to understand different uses that determine for it.</li>
+<li>So here we're using the word inference to talk about the use of a data analysis of the</li>
+<li>use of a statistical model to understand or infer things about the underlying world.</li>
+<li>So we're trying to understand how movie preference works.</li>
+<li>We're trying to understand penguin physiology or we're trying to understand the hydrodynamics of.</li>
+<li>Of a river or of an a quarter of a marine processing plant.</li>
+<li>And we're trying to use the data we collected and the statistical models and</li>
+<li>analysis that we do of it to draw conclusions about the underlying real world.</li>
+<li>There's some other uses of inference, though, particularly one that comes up in data science,</li>
+<li>in machine learning is sometimes when we have a model we've trained.</li>
+<li>It's we've take her. We fit our linear regression. And we're using it to make predictions for additional for new data points.</li>
+<li>Like maybe you've you've trained up a statistical model that estimates the likelihood that a particular transaction is fraudulent.</li>
+<li>Now you're using that model as transactions are coming in to your online shopping portal and to determine how likely they are to be fraudulent.</li>
+<li>Sometimes that last stage is called in France,</li>
+<li>especially in the deep learning literature on some other machine learning literature is that that's the first stage of the model training stage.</li>
+<li>And the inference stage is if you actually go use the model to make inferences about new new data points that are coming in.</li>
+<li>So to sum up, inference uses a model structure and parameters to try to understand things about the world and draw generalizable knowledge.</li>
+<li>Prediction just uses a model to predict future observations,</li>
+<li>particularly though inference has stronger requirements for its validity than the usefulness of prediction.</li>
+<li>It is important to note, though, that just because you can yolo the statistics inside a predictor if all you care about is its predictive accuracy,</li>
+<li>you have to pay attention to the validity of the statistics you use to test if the predictor is actually a better predictor than something else.</li>
+<li>You can't cheat on those, but if your only goal is predictive accuracy,</li>
+<li>the linear model you're using for it doesn't need to need to meet all the requirements that it needs to meet.</li>
+<li>If you're trying to use it for inference.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="categorical-predictors">
+<h2>🎥 Categorical Predictors<a class="headerlink" href="#categorical-predictors" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="dd8e3e53-8776-4c62-9d23-ac5100090a29">
+<div class="tabbed-set docutils">
+<input checked="checked" id="8309e38a-8238-41f9-92d5-3d2a2181629f" name="1107391e-df98-403f-960e-399636c821de" type="radio">
+</input><label class="tabbed-label" for="8309e38a-8238-41f9-92d5-3d2a2181629f">
+Video (3m41s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=dd8e3e53-8776-4c62-9d23-ac5100090a29&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="731a221a-1b7b-4d4a-8f13-c727476df061" name="1107391e-df98-403f-960e-399636c821de" type="radio">
+</input><label class="tabbed-label" for="731a221a-1b7b-4d4a-8f13-c727476df061">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173270" data-key=AKJTXs7gpzSKE0Q>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CATEGORICAL PREDICTORS
+Learning Outcomes
+Use categorical predictors
+Understand dummy coding
+
+Photo by v2osk on Unsplash
+Categorical Variables
+Unordered, discrete values (called levels)
+Cannot do arithmetic
+What’s gentoo * 3?
+Even when integer-encoded, cannot use as model predictors!
+Linear model coefficients measure change in outcome
+Why should increasing user ID by 1 change outcome predictably?
+One-Hot / Dummy Encoding
+Convert levels to separate integer columns.
+
+Encode with a 1 in the level’s variable, 0 elsewhere
+N-1 Dummy Coding
+Drop one level (typically first)
+
+All 0 encodes the dropped level
+Other levels encoded with a 1 in the proper place
+Results
+Categoricals are encoded as numeric variables
+Can use in models (e.g. multiply by coefficients)
+Wrapping Up
+To use categorical variables in linear models, we need to encode them numerically.
+
+Dummy-coding converts each level into a 0/1 variable indicating whether the observation has that value of the variable.
+Photo by Hamed Daram on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, I want to talk about how to use categorical variables as predictors in our linear models,</li>
+<li>learning outcomes are for you to be able to use a categorical predictor and understand what dummy coding is and why we use it.</li>
+<li>Categorical variables, if you'll recall from earlier in the class or unordered discrete,</li>
+<li>the variables that take on an unordered set of discrete values that are called levels.</li>
+<li>And one of the things about these is we can't do arithmetic. You can't say like Gentoo Penguin Times three.</li>
+<li>That's not a meaningful concept to talk about.</li>
+<li>And even when we're using integers to encode our categorical variables, for example, a movie idee or just any kind of an I.D.,</li>
+<li>we can't use those as model predictors because then they don't have numeric meaning.</li>
+<li>It doesn't mean anything to multiply a movie idea by a coefficient.</li>
+<li>And so we need another way to encode categorical variables if we're going to use them in our linear models.</li>
+<li>And the solution is something called dummy coding. So what we do is we convert each level into a diff separate integer column.</li>
+<li>So our penguin's dataset has three different penguin species, Adelie chinstrap and Gentoo.</li>
+<li>And each of those becomes a column.</li>
+<li>The pandas get dummy's function will get will convert Assiri a categorical series into a data frame of Dumi coded values.</li>
+<li>And so this will give us the. So give us the dummy codings for the penguins.</li>
+<li>And we have a we have one for each for each species.</li>
+<li>This is also called one coding. Particularly when we're doing this, we have one for every level.</li>
+<li>It's call we. It's one hot coding or dumi coding.</li>
+<li>Another way that we can have a one where we have a one in the Adelie caller.</li>
+<li>If that penguin is in a deli and we're gonna have a zero everywhere else because we only have one value of the categorical variable perone.</li>
+<li>Often, though, we need to drop one of the categorical or one of the variables.</li>
+<li>Typically the first one and we do this with the drop first option to get dummies.</li>
+<li>And the Adelie column now, you'll see, is gone. We just have chinstrap and Gentoo.</li>
+<li>And what how it's encoded is at a deli.</li>
+<li>Penguin is all zeroes, but it chinstrap Penguin will have a one in the chinstrap column in a agentive will have a one in the Gentoo column.</li>
+<li>This is going to be particularly useful for linear regression because if we have all of the levels,</li>
+<li>we're going to have problems of fitting our linear regression models. If we just have we have all but one of them,</li>
+<li>then effectively we're treating one of the levels as the default and the other levels are getting the code for what</li>
+<li>happens when your when it's one of the other values instead of the first or the default value that you chose.</li>
+<li>So the results of this are that the category of calls are encoded as numeric variables that we can then use in models.</li>
+<li>We can multiply that, my coefficients, et cetera. We're going to see that in a model coming up.</li>
+<li>Wrap up to use categorically in our linear models or other Neumar models, or we're going to need to do numeric computations on a categorical value.</li>
+<li>We need to encode them numerically dummy coding.</li>
+<li>Let's do this by converting each level into a zero one variable that indicates whether or not the observation has that value of the variable.</li>
+<li>And often we drop one so that four end levels we have N minus one dummy variables and all zero is the.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="testing-assumptions">
+<h2>🎥 Testing Assumptions<a class="headerlink" href="#testing-assumptions" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="9b75d72f-d616-497f-afda-ac51000909ef">
+<div class="tabbed-set docutils">
+<input checked="checked" id="49968588-480c-400f-b434-3481d591f141" name="71afa0f3-841b-44e6-bc25-ee23dd1918a4" type="radio">
+</input><label class="tabbed-label" for="49968588-480c-400f-b434-3481d591f141">
+Video (9m46s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=9b75d72f-d616-497f-afda-ac51000909ef&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="f97fbafb-e8d0-487f-93bd-8859b5197d98" name="71afa0f3-841b-44e6-bc25-ee23dd1918a4" type="radio">
+</input><label class="tabbed-label" for="f97fbafb-e8d0-487f-93bd-8859b5197d98">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173266" data-key=APhGyKu3RTROISc>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+TESTING ASSUMPTIONS
+Learning Outcomes
+Know the assumptions of linear models
+Identify violations of assumptions regarding residuals
+
+Photo by Austin Kehmeier on Unsplash
+Linear Model Assumptions
+Linearity — outcome and predictor have linear relationship.
+Independence — observations are independent of each other
+Normal errors — residuals are normally distributed
+Equal variance — residuals have constant variance (called homoskedasticity; violation is heteroskedasticity)
+
+Last three result in i.i.d. normal residuals
+Linearity
+Fundamental assumption – we wouldn’t run a linear model for things we think aren’t linear.
+
+Scatter plot shows the line seems to fit.
+Independence
+Property of data collection
+Not directly checkable
+Commonly violated by:
+Time series
+Groups or common environments
+Common environments
+Repeated individuals
+Solutions: correlated error models, hierarchical models, mixed effects models
+Normal Errors
+Errors must be (approximately) normally distributed.
+
+Check with a Q-Q plot of residuals.
+
+Violations mean:
+Line still fits
+P-values and CIs are unreliable
+Equal Variance of Errors (homoskedasticity)
+Residuals must have constant variance.
+
+Check with residuals vs. fitted scatterplot or regplot.
+
+Vertical positions should look like random noise.
+
+Violation means model is failing to capture a systematic effect.
+Heteroskedastic Errors
+What to Do
+Prediction? Might not matter.
+Throw away the model – this might not work
+Add, remove, or transform predictors
+Transform outcome
+Go to non-parametric, such as bootstraps or nonparametric regression (won’t have time for NPR)
+Hierarchical or mixed-effects model
+Wrapping Up
+Linear models make four key assumptions necessary for inferential validity.
+
+Plotting the residuals allows us to detect violations of some of them.
+Photo by Neil Thomas on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Hello. And this video, I want to talk about how to test the assumptions that we make in a linear model.</li>
+<li>So we're going to review the linear assumptions. And I want you to be able to identify violations of these assumptions,</li>
+<li>particularly with regards the assumptions about how variables are distribute residuals are distributed.</li>
+<li>So to review the assumptions that a linear model makes are first, that it is linear.</li>
+<li>The outcome of the outcome and the predictor have a linear relationship.</li>
+<li>The next assumption is that we are our observations are independent of each other.</li>
+<li>And then that the of the residuals are normally distributed and have equal variance.</li>
+<li>We call equal variance. Homos get asked to study same variance across the range of fitted values.</li>
+<li>A violation of the equal variance condition is called hetero US city.</li>
+<li>Or we say that the residuals are hetero scholastic.</li>
+<li>The last three of these are supposed to result in independent and identically distributed normal residuals.</li>
+<li>So let's start with linearity. This is the fundamental assumption of a linear model.</li>
+<li>We wouldn't run a linear model if we didn't think that there was a linear relationship to study.</li>
+<li>And so if we want to check this what we are or see whether a linear model is even going to be reasonable to try.</li>
+<li>What we can do is we can do a scatterplot with quite possibly the regression line to see that seems to fit.</li>
+<li>And that looks vaguely linear ish. Independence is difficult to check.</li>
+<li>It's a property of data collection. We don't have tests or plots to say this is independent.</li>
+<li>There are ways certain violations of it will manifest when we go and we plot the results of training a linear model.</li>
+<li>But common ways that it's violated or if we've got time series.</li>
+<li>If you're collecting data over time, it's often what we call auto correlated, which means one day is correlated with the day before.</li>
+<li>They're not independent.</li>
+<li>If you've got data that comes in groups or comes from common environments, for example, if you've got data on patients from five different hospitals,</li>
+<li>patients within a hospital are going to be correlated because that hospital has its own practice, its own doctors, et cetera.</li>
+<li>Also, if you've got multiple measurements for repeated individuals, that is another example of non independence.</li>
+<li>For example, this is what came up when we were working with the paired t test or its related bootstrap tests,</li>
+<li>where you have two observations and there say you've got the midterms and the mid be from the same student.</li>
+<li>They're not independent of each other because a student who's doing well in the class is probably going to do well in both midterms.</li>
+<li>And that violates the independence, the independence. That that violates the independence of those two variables.</li>
+<li>We have the student linked, but if we've got.</li>
+<li>But the students just going to show up as one row in our list of observations that are trained and linear model from.</li>
+<li>But if we have students showing up as multiple rows, for example, the ratings that a user gives to books or movies,</li>
+<li>the ratings by the same user are not fully independent of each other.</li>
+<li>The solutions to this are out of scope for this week for sure.</li>
+<li>But they involve correlated error models, sometimes hierarchical models or mixed effects models to be able to deal with the</li>
+<li>kinds of grouping dynamics that can cause some of the independents violations. But then the nor the errors are supposed to be normally distributed.</li>
+<li>And so the way we do this is we do a Q Q plot of the residuals.</li>
+<li>When you fit a linear model, the resulting object gives you access to the residuals.</li>
+<li>This plot was generated by the notebook that I've linked to in the in the weeks content information.</li>
+<li>So you can go see the code that I used to generate this residual plot from from a linear model fit.</li>
+<li>But you get a Q Q plot of residuals. And this looks pretty good. We've got and the the values are pretty much tracking with the pretty straight line</li>
+<li>right along there of a violation of normality means we still have a line that fits,</li>
+<li>but our P values and our confidence intervals are gonna be unreliable. We have to be careful using the line for using the model for inference.</li>
+<li>And it's not these these assumptions are not all or nothing. The data often aren't perfectly normal, but they're pretty close.</li>
+<li>Also then the next one. The last one is the equal variance of errors or homeless get as density.</li>
+<li>And so the residuals are supposed to have constant variance.</li>
+<li>And the way we check this is we make a scatterplot where the Y axis are the predicted or fitted values.</li>
+<li>So this is the results of our linear regression, linear regression.</li>
+<li>And the that's the x axis, the y axis is the residuals, so this is our EP.</li>
+<li>So this is our Y hats. And this is our epsilons.</li>
+<li>And this lets us see if there are what we're looking for is no patterns, no visible patterns, particularly in the Y axis.</li>
+<li>We might have patterns in the X axis just because there are.</li>
+<li>If there's a categorical variable involved, then the predicted values, the fitted values are going to fall into some chunks.</li>
+<li>But we don't want is any patterns in the Y axis in response to those.</li>
+<li>This looks pretty much like noise. A couple of these have higher ones.</li>
+<li>Another one has lower. But, you know, you expect an outlier or two here and there.</li>
+<li>The main body of these is pretty much the same width all the way across.</li>
+<li>There aren't bands or other patterns that look or we aren't seeing a particular shift, which isn't necessarily a violation of the variance thing.</li>
+<li>What we want. We don't want to see angular shifts in our residuals either violation of this.</li>
+<li>So if we see distinct patterns, what in this plot?</li>
+<li>What that means is that the model is failing to capture a systemic effect because there is a systematic error when you predict low the variance.</li>
+<li>The residuals do something different than when you predict high,</li>
+<li>which indicates there's a important feature that's not being taking a taking care of in the model or taking a cap</li>
+<li>taken account for in the model that is affecting the relationship of your prediction to the actual resulting value.</li>
+<li>Remember, Epsilon is Y. So the the the error epsilon.</li>
+<li>Equals Y. The actual value outcome, variable minus Y hat.</li>
+<li>Our estimated outcome variable from the linear regression. So where we can see some violations of this.</li>
+<li>So this. This variable or so these residuals from another linear model, they have just a little bit more curve.</li>
+<li>To the residuals than we would like to see, they're pretty close to normal.</li>
+<li>But there's a little more curve indicating that the tails aren't quite fitting, the normal distribution.</li>
+<li>But also, if we look at the residual versus fitted plot, we see kind of this funnel shape.</li>
+<li>So for high fitted values, the variance of the residuals is much higher than for low fat values.</li>
+<li>And that's that looks like a larger change and variance than can be explained just by the occasional outlier.</li>
+<li>So we're going to say that these residuals are exhibiting hetero sked activity and therefore we're not going to trust the model that these came from.</li>
+<li>So what do you do if you're doing just doing prediction.</li>
+<li>If your own goal is to predict an outcome, then it might not matter because these assumptions, violations, they're a problem for.</li>
+<li>They're a problem for in France. Not necessarily for prediction.</li>
+<li>You still want to check your prediction and also check the distribution of your prediction errors.</li>
+<li>It might be that it's mostly doing a pretty good job. But when you get to some edge cases, it pretty egregiously fails you.</li>
+<li>You might just not be able to make a linear model work.</li>
+<li>You might need to add or remove or transform some of your predictors or possibly transform the outcome, like take a log, take a square root.</li>
+<li>Do some more feature engineering in order to get features that are going to produce a better a better model.</li>
+<li>You might need to go to some non parametric techniques, such as boot straps.</li>
+<li>There's a thing called a non parametric regression that we're not going to have time to get to.</li>
+<li>But you can go. You can go study that if it might be useful for your problem.</li>
+<li>Sometimes hierarchical or mixed effects models are going to take care of some of the additional effects that are causing your assumption violations,</li>
+<li>particularly independents. But they can help in some other cases as well.</li>
+<li>So to wrap up linear models, make four key assumptions that are necessary for inferences from them to be valid.</li>
+<li>These assumptions aren't all or nothing. There's not a binary. It is or it isn't.</li>
+<li>It's a judgment call that comes in part from experience and careful study of whether it's a violation is too strong and then plotting the plotting,</li>
+<li>the residuals, both plotting a coocoo plot. We can test their normality and plotting the residuals versus the predicted values.</li>
+<li>Allow us to detect violations of some of these assumptions and check the validity of our inferences.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="regression-model-assumptions">
+<h2>📃 Regression Model Assumptions<a class="headerlink" href="#regression-model-assumptions" title="Permalink to this headline">¶</a></h2>
+<p id="reading-Regression-Model-Assumptions">Read <a class="reference external" href="https://www.jmp.com/en_us/statistics-knowledge-portal/what-is-regression/simple-linear-regression-assumptions.html">Regression Model Assumptions</a> from JMP.</p>
+</div>
+<div class="section" id="multiple-regression">
+<h2>🎥 Multiple Regression<a class="headerlink" href="#multiple-regression" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="20d644fc-c4ca-40de-a03f-ac510014254e">
+<div class="tabbed-set docutils">
+<input checked="checked" id="4bc13e6c-0fdd-448d-a6a6-4755fec5062a" name="fe71124f-39e1-4d75-afea-ca0b2bbee4ae" type="radio">
+</input><label class="tabbed-label" for="4bc13e6c-0fdd-448d-a6a6-4755fec5062a">
+Video (19m8s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=20d644fc-c4ca-40de-a03f-ac510014254e&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="73663d38-846b-4269-b62b-b6eaade1847b" name="fe71124f-39e1-4d75-afea-ca0b2bbee4ae" type="radio">
+</input><label class="tabbed-label" for="73663d38-846b-4269-b62b-b6eaade1847b">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173268" data-key=ALxGFTYkfItgS8o>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+MULTIPLE LINEAR REGRESSION
+Learning Outcomes
+Build models with 2 or more predictors
+Compare models using the Adjusted R2 and AIC
+
+Photo by Jen Theodore on Unsplash
+Base Model
+Assumption Checks
+Adding Species
+Do different species have different flipper lengths?
+
+Formula API automatically dummy-codes species.
+
+Intercept: baseline Adelie mass
+Species: increase/decrease in baseline mass for each species
+Adding Species
+Adjusted R2 for multivariate regression
+Adjusts for multiple variables
+
+AIC compares models for same predictor – lower is better fit
+Combines estimation power with model complexity
+Plot &amp; Residuals
+Interaction Effects
+Interaction effects apply to products of variables
+
+Categorical + Numeric: adjust slope by category
+Plot &amp; Residuals
+Specifying Main and Interaction Effects
+Main effect – effect of the variable(s) on their own
+Specified with V1 + V2 + … + Vn
+Interaction effect – interaction (product) of variables
+Specified with V1:V2
+Full effects – main and interaction
+Specified with V1 * V2
+Expands to V1 + V2 + V1:V2
+Sexual Dimorphism
+Flipper/species interaction not significant
+After accounting for species and sex differences, data does not support different flipper/mass slopes for different species.
+Simplified
+Slightly better AIC
+Same Adj. R2
+Species &amp; Sex have subtle interpretation
+Most of the chinstrap difference is that male chinstraps are smaller
+Gentoos and Adelies likely have the same mass dimorphism
+Assumption Checks
+Beware Correlated Predictors
+Correlated predictors cause poor model fits
+Problem is called multicollinearity
+X1
+X2
+Y
+X1 causes X2?
+X2 causes X1?
+X? causes X1 and X2?
+
+Which coefficient gets the common effect?
+
+Can even invert signs!
+Pair Plot – useful for detecting correlations
+Also use a correlation matrix.
+Occam’s Razor
+Given two explanations, prefer the one with fewer assumptions
+
+Application to modeling:
+Prefer simple models
+Features and complexity need to earn their keep
+
+AIC is one embodiment of this.
+
+Wrapping Up
+Linear models can extend to multiple variables.
+
+We can look at separate (main) and interaction effects.
+
+Prefer simple models.
+Photo by Luís Eusébio on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Oh, and this video I'm going to introduce you to doing multiple linear regression where we have more than one predictor variable in our regression.</li>
+<li>So the goal, learning outcomes are for you to be able to build models as two or more predictors and compare models using the adjusted our squared.</li>
+<li>And I see we're also going to see some of the challenges that come about when we're trying to build multiple regression models.</li>
+<li>So we have our base model that I'm using, the penguin model that I've used earlier in the week,</li>
+<li>where I'm predicting the penguins masked by their flippers length.</li>
+<li>And I'm using the normal. And this model, I'm using the normalized version, the scatterplot showing showing the raw flipper length and body mass.</li>
+<li>But in my back in my linear model, I'm using the standardized version.</li>
+<li>So this this coefficient is in units of standard deviations.</li>
+<li>But. When we look at our assumption checks, we see a little bit more of a curve than we might like to see.</li>
+<li>It's pretty much on the line. But we can see. We can see there's definitely a curve to it.</li>
+<li>Also, when we look at our residual versus fitted plots.</li>
+<li>It does seem that there is a decrease in the variance there and also it almost looks like these two blocks are rotated a little bit.</li>
+<li>Like if we rotated this block on the left counterclockwise just a little, we would get better.</li>
+<li>We'll get more equal variance, so it indicates you there's quite possibly something in here that we're not taking advantage</li>
+<li>of when we're trying to do or we're trying to predict the body mass of a penguin.</li>
+<li>So one way we can go looking at this is we can start to add more variables.</li>
+<li>So what if we add species so we can ask you to do different?</li>
+<li>So different species might have different different flipper lengths and different</li>
+<li>species might have different relationships of their flipper linked to their body mass.</li>
+<li>They've got shorter flippers for heavier bodies or longer flippers like the model fit remarkably well.</li>
+<li>But there's still more work to do. So what we can do is we can do this by by regressing the mass against the flipper and the species with the plus.</li>
+<li>The plus says regress against both of them. It's going to create a linear model where there's a term for Flipper and there's a term for species.</li>
+<li>It's automatically going to dummy code the species for us when we use the Formula API.</li>
+<li>So this is coming from the stats models, Formula API as off.</li>
+<li>I imported it from stats models, that formula, that API. You can see that in the notebook where I've got the code that does all of this.</li>
+<li>So it's going to dummy code the species. And so we're going to actually have to it it's going to drop one.</li>
+<li>We're gonna actually have two species terms, one for chinstrap, one for Gentoo.</li>
+<li>If they're both zeros, the default it is in Delhi. And so what we can interpret is that the intercept is the baseline, a mass.</li>
+<li>And then the other two coefficients are the increase or decrease in baseline mass for each of these species.</li>
+<li>So the chinstrap tend to be lighter than the dallies and the Gentoos tend to be heavier.</li>
+<li>And then the flipper coefficient is capturing what's left over in the flipper length.</li>
+<li>We're trying to predict mass by flipper length. Now, we can also see there's the adjusted R squared is no longer equal to the R squared.</li>
+<li>So R squared only is great for one variable.</li>
+<li>But it when we add variables are squared, just keeps going up.</li>
+<li>Adjusted R squared compensates for that to allow us to get a more accurate estimation of the effect of the effectiveness of our overall model.</li>
+<li>We also have this variable, the AIC.</li>
+<li>This is the keiki information criterion and it allows us to compare models for the same predict or for the same outcome and a lower.</li>
+<li>Is a better fit. So the lower the AIC for an outcome we're trying to predict with the same data.</li>
+<li>Only works for models trained in the same data. The better a fit that we.</li>
+<li>It's one way of assessing that the model is probably better, and it combines looking at the bottle's estimation power.</li>
+<li>How much of the variance is it? Is it extracting with the earth the.</li>
+<li>The degree to which the model can explain the data and it discounts it by model complexity, so it prefers models with fewer terms.</li>
+<li>So if we compare that our previous model had an AIC of four eighty seven.</li>
+<li>And this model has an AIC of four fifty five. So the AIC is it is indicating that this is a better fit for our data.</li>
+<li>If we look at our residuals plot, if we look at a plot of this model and I'm going ahead and plotting three different lines,</li>
+<li>one for each species, since that's the way we've broken it down, we can see the the they move the intercepts.</li>
+<li>The slopes are the same. We haven't done anything to change slope. And the residuals versus fitted plot is looking a little bit better.</li>
+<li>We've got a gap in the middle because species are going to cause.</li>
+<li>So when we're since we have the breakdown of the categorical variable, it's going to predict a value, an average value,</li>
+<li>say, around here for a dallies and then over here for Gentoos or Chinstraps because they're smaller.</li>
+<li>And over here for Gentoos. And so it's going to cause things to cluster in the X axis.</li>
+<li>What we want what we want to see is, is are things pretty independent, the y axis.</li>
+<li>And, you know, they aren't really quite there. Also, it looks like these orange ones really might have a different slope.</li>
+<li>So let's go look at interaction effects and interaction effects apply to products of variables.</li>
+<li>And I've changed the plus here to a star to say I want flipper star species and what this does.</li>
+<li>Since one of them's categorical is it allows the slope to adjust by category.</li>
+<li>So what it expands to is we've got our intercept. We've got a more we've got a coefficient for chinstrap and a coefficient for Gentoo.</li>
+<li>We've got a coefficient for Flipper. That's these first three things.</li>
+<li>But then we have coefficients for an R actions of arms, of our dummy variables for the category and the flipper length.</li>
+<li>So we've got another coefficient here that is. Chinstrap.</li>
+<li>That is applied to Chinstrap Times Flipper, since chinstrap is categorical, what this is going to.</li>
+<li>It is the dummy code for a categorical what this is going to do is it's going to add an</li>
+<li>additional coefficient times flipper when it's a chinstrap and not when it's a Gentoo.</li>
+<li>And likewise. Or in a deli. And likewise, this one's going to apply when you've got a Gentoo penguin.</li>
+<li>If if you can also have an interaction between two numeric variables, in which case you're not going to have the expanded dummies.</li>
+<li>But the numeric, the product.</li>
+<li>One of the tricks was one of the nice things with dummy coding, since one means yes is that multiplying that by something basically becomes an if.</li>
+<li>If yes, then you include the other variant values. Otherwise, zero.</li>
+<li>Nice little trick, but it expands this expanded linear model.</li>
+<li>And if we do this now, we can see that our slopes are changing and it is plotting a different slope for those Gentoo penguin's.</li>
+<li>The residuals versus fit and plot is I think it's getting better,</li>
+<li>but we still have it looks like it possibly not as much variance there in the middle.</li>
+<li>Our AIC also went down just a little bit. Down to two 448.</li>
+<li>Now, when we want to specify these effects are the main effect is the separate effects of the individual values,</li>
+<li>the effect of species, the effect of flipper length. And we specify these.</li>
+<li>We have our variables.</li>
+<li>We put plus signs between them and the stats, models, formula, language, the interaction effect is the product of the variables.</li>
+<li>And if we just want to specify the interaction effect, then we can use V1, Colon,</li>
+<li>V2, and then to get the main and the interaction we can specify V1 Star V2.</li>
+<li>And this expands to be one plus V two plus the interaction. So a lot of a lot of animals exhibit sexual dimorphism.</li>
+<li>There is different difference in body sizes for different sexes of the animal.</li>
+<li>And so what if we incorporate sex so we can say, well actually males might be larger or smaller,</li>
+<li>male penguins might be larger or smaller than female penguins. And so what I'm going to do here is I'm going to add I'm going to do a larger model.</li>
+<li>We're going have our flippers. We're gonna have species in our species,</li>
+<li>star sex or species sex and the interaction to allow some species to have a larger</li>
+<li>difference in body mass between male and female penguins and other species.</li>
+<li>And then I'm also going to interact of flipper with species.</li>
+<li>I'm not interacting Flipper with sex here. That we get a lot of variables blowing up.</li>
+<li>And also my own testing, it didn't work very well. But. What what we see when we do this, we can look,</li>
+<li>it's we get p values on these coefficients and we get standard errors and we see for both of the flipper intersect our interaction with species.</li>
+<li>We've got a large P value and we have confidence interval that includes zero.</li>
+<li>So this indicates that after we account for sex differences in penguin body mass.</li>
+<li>There is no longer a difference in the slopes between the the different species of penguin.</li>
+<li>We're relating the flipper length to the to the body mass.</li>
+<li>Also, we're seeing our flipper coefficient go down quite a bit.</li>
+<li>So we also see that a very high P value in a an almost non-existent coefficient of one of our species sex interactions.</li>
+<li>If we were not using the Formula API, if we were building up all of our matrices ourselves, which is annoying.</li>
+<li>I'll let you go look at the stats models, documentation to see how to do that.</li>
+<li>We're gonna see a version of it later on when we're using another library to get rid of that.</li>
+<li>But also, though the coefficient it's learning is basically is almost zero. So it's not really having a significant effect in our model.</li>
+<li>And the complexity of getting rid of just that particular level interaction for our categorical variables is probably not worth it.</li>
+<li>So we drop the we. But also, though, let's look at our AIC here.</li>
+<li>I see here is down to two sixty nine. This is indicating a model that's doing a substantially better job of explaining the data.</li>
+<li>And so. If we. But let's go ahead and drop the flipper species interactions, it's it's not significant.</li>
+<li>And this is a way. This is one part of how we start to do feature selection. How do you figure out what features should be in your model?</li>
+<li>Well, one way is you put a bunch of them in and then you drop ones that aren't significant.</li>
+<li>And you also compare models with them without a particular feature using a metric such as</li>
+<li>I see in order to pick the one that's gonna be doing the better job of fitting your data.</li>
+<li>Those are both valid strategies. So we're gonna drop that interaction.</li>
+<li>AIC went down slightly, adjusted our square to the same, and it's better than the ones we had it for the simple models at the very beginning.</li>
+<li>We've got the slightly better AIC. This made we made a good decision to drop that particular interaction.</li>
+<li>So now we have Flipper and then we have species, sex and these species sex interaction.</li>
+<li>Now the interpretation of this, you have to be careful with interpreting.</li>
+<li>And remember, for each of these categorical there's one that was picked as default.</li>
+<li>In this case, it's the Adelie penguins and it's the female penguins. So all zeroes and are categorical means female Adelie penguins.</li>
+<li>So what we can interpret here is that chinstraps tend to be larger than Adelies, as do, except that's not statistically significant.</li>
+<li>We have to be careful that one's not really a meaningful effect. So Gentoos tend to be larger than a deli's.</li>
+<li>Male penguins tend to be larger than female. And then we've got this not this significant chinstrap and male has a significant effect.</li>
+<li>Gentoo and male does not. And what the way we should try to interpret this is that most of the chinstrap,</li>
+<li>the difference between chinstraps and Adelies seems to be that male chinstraps.</li>
+<li>Are smaller than male Adelies, but the female are more comparable.</li>
+<li>And Gentoos in a deli's likely have the same mass dimorphism.</li>
+<li>So the difference be in mass between a male and a female Gentoo penguin is this is</li>
+<li>probably the same as the difference in mass between a male and a female Adelie penguins,</li>
+<li>because the interaction coefficient is not significant.</li>
+<li>So it takes some subtlety in order to correctly interpret these models.</li>
+<li>But you can start to learn from the coefficients here. Now, let's go look at our assumption checks.</li>
+<li>Now, these assumption checks look very, very good. We don't see that ability to rotate our residuals and fitted.</li>
+<li>We kind of have everything's falling in about. There was some outliers.</li>
+<li>We have a very, very nice straight fit there. And the long the Q Cube plot D assumption checks hold.</li>
+<li>From what we can tell, it looks like we have a relatively good model for predicting a penguin's body mass.</li>
+<li>Now another thing we have to be careful with are correlated predictors.</li>
+<li>We have two or more predictive variables that are correlated with each other in addition to being correlated with the outcome variable.</li>
+<li>And so this problem is called a multikulti charity.</li>
+<li>We've got X when we're trying to predict Y using X one and X two and we're going to learn coefficients.</li>
+<li>Beta one. Beta two. But we've got the correlation between them and there might be a few different things, we might have the X one causes X two.</li>
+<li>It might be the X to causes X one. It might be that there's some third component that causes both of them.</li>
+<li>But the question is, regardless of which way it is. There's a common effect here.</li>
+<li>So there's a component of that is common to both X1 and X2.</li>
+<li>And the problem is, which coefficient beta one or beta two should get this common effect.</li>
+<li>And the ordinary leased squares does not have a way to make that decision.</li>
+<li>It might split it. It might put it all on one is that the other coefficient is small.</li>
+<li>It might put too much on one and then make it possibly even make the other coefficient negative to compensate.</li>
+<li>We have multiple linearity. It's very difficult to interpret your coefficients.</li>
+<li>You might have a fine predictive model, although it's generalizability might be hurt,</li>
+<li>but it's going to be very difficult to interpret your coefficients when you have significant code.</li>
+<li>You have substantial correlations between variables and it's a judgment call as to what substantial is because you may well not have zero.</li>
+<li>But if you've got a correlation of point eight point nine, then you're probably going to have a problem.</li>
+<li>The solution to this? There's a few solutions to this. One is to drop one of the variables.</li>
+<li>Just pick the one that to better predictor and just use it since it's correlated with the other one.</li>
+<li>Another way is you can try to pull out the common component into a separate variable and then remove its effect from X one and X two.</li>
+<li>And then there's another technique called regularization we'll talk about in a week or two that can also help with that.</li>
+<li>When your purpose is prediction, regularization, Hertz interpreted ability for inference.</li>
+<li>So a pair plot. This is a seabourne pair plot. It's useful for detecting correlations.</li>
+<li>So when you're doing the multiple linear regression, it's often useful to do a pair plot between all of your predictor variables.</li>
+<li>And this is what one looks like. The X is sometimes called a scatterplot matrix.</li>
+<li>The X's are also our roads and our columns are all variables.</li>
+<li>And on the diagonals, we've got our distributions of these variables.</li>
+<li>And then in the cells, we have a scatterplot. So this is the flipper length on the Y and the body mass on the G, on the X.</li>
+<li>This is the transpose of that.</li>
+<li>We can also look at a correlation matrix, which shows us numerically the correlation coefficients between pairs, multiple pairs of variables.</li>
+<li>We have the diagonal. It's one because every variable is perfectly correlated with itself.</li>
+<li>And we have a correlation of point five nine between body mass and bill length.</li>
+<li>Point eight, seven between body mass and flipper length.</li>
+<li>And so if you do this and you put your different you put your different predictors into a scatterplot matrix, you put them in the correlation matrix.</li>
+<li>Then you can see which ones are. If you've got some correlations there that you need to potentially be careful of.</li>
+<li>Now or selecting our models, I talked about how the adjusted R-squared and particularly the AIC discount complex models and prefer simple ones.</li>
+<li>And there's a good principle for this.</li>
+<li>So Ockham's Razor says that given two explanations, we should prefer the one that requires fewer assumptions, sometimes gets generalized.</li>
+<li>So we should prefer simple explanations for things. So our application of this to modeling is that we should prefer simple models, fewer variables,</li>
+<li>less weird functions on the variables, et cetera, and that features and complexity need to earn their keep.</li>
+<li>They need to provide a better prediction or a better estimate of the outcome in order to be worth keeping around.</li>
+<li>As I said, AIC encodes is the definition of the value so that you can if two models have the same ability to explain the data.</li>
+<li>It's AIC is going to give a lower value to the one that has fewer features, fewer predictors in it.</li>
+<li>To wrap up, linear models can be extended to multiple variables. There are entire class.</li>
+<li>You can you can take an entire class just on multiple regression analysis.</li>
+<li>So we're only having time to really get into just introduce.</li>
+<li>You can start to use it. You can look separately at May. You can look at the separate or main effects.</li>
+<li>And also interaction effects between different predictors. We want to prefer simple models, though.</li>
+<li>Too much complexity. Our model is less likely to be valid.</li>
+<li>Increases compute complexity and increases the complexity of interpreting it.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="measuring-prediction-accuracy">
+<h2>🎥 Measuring Prediction Accuracy<a class="headerlink" href="#measuring-prediction-accuracy" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="5ba717f5-1c46-4118-a89e-ac51001564cd">
+<div class="tabbed-set docutils">
+<input checked="checked" id="d12a45bf-8566-4055-9f34-1d811f692fdb" name="65bf08c9-3e36-4811-9fde-05b550321584" type="radio">
+</input><label class="tabbed-label" for="d12a45bf-8566-4055-9f34-1d811f692fdb">
+Video (9m12s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=5ba717f5-1c46-4118-a89e-ac51001564cd&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="c2dd7cf4-a80a-4c0f-bca4-759f531a84d6" name="65bf08c9-3e36-4811-9fde-05b550321584" type="radio">
+</input><label class="tabbed-label" for="c2dd7cf4-a80a-4c0f-bca4-759f531a84d6">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173272" data-key=AEe-Etx_iJxpOiw>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PREDICTION ACCURACY
+Learning Outcomes
+Compute the accuracy of a regression’s predictions
+Understand the benefits of RMSE over MAE
+Photo by Sheri Hooley on Unsplash
+Prediction and Inference
+Prediction tries to predict the future with the model.
+Inference uses the model’s structure and parameters to learn.
+Train-Test
+Data
+Train
+Test
+Model
+Split
+Predict
+Split before exploratory analysis of features.
+Supervised learning – we have thing to predict
+Train-Test
+Create test sample:
+test = predictable.sample(frac=0.2)
+
+Filter other data for training:
+train_mask = pd.Series(True, index=predictable.index)
+train_mask[test.index] = False
+train = predictable[train_mask]
+Evaluate
+Fit model on train
+Use fit’s predict method on testpreds = pfit.predict(test)
+Compare predictions to test outcomes
+Mean Absolute Error
+Root Mean Squared Error
+Translating a Formula
+Why RMSE?
+Interpreting Prediction Accuracy
+MAE and RMSE are both in original outcome variable’s units
+“Good enough” depends on application
+What’s needed?
+What’s the “noise floor” (minimum possible error)?
+Can compare error of multiple models on equivalent test data
+Wrapping Up
+We measure a predictor’s accuracy by comparing predictions to test data that wasn’t seen in the training process.
+Photo by Charles Deluvio on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, we're going to talk about how to compute prediction accuracy,</li>
+<li>I gave you a couple examples back in the prediction inference video, but we're going to see here how to actually do it.</li>
+<li>So we're going to compute the accuracy of our regressions predictions and understand the benefits of animacy over MAIG.</li>
+<li>The code for this, you're going to find in the updated version of the correlation notebook from the tutorial section.</li>
+<li>I've also linked to it in the in the resources links in this in this week's material.</li>
+<li>So remember, Prediction tries to predict the future with the model.</li>
+<li>And we don't actually care about how well the models, internal structures map to real world structures.</li>
+<li>Acceptance, so far as we might hope that a model that's more directly connected to reality does a better job of prediction.</li>
+<li>That hope doesn't always hold true. But the way we test the prediction accuracy is through a train test split.</li>
+<li>So we so we take our data. We split it into two parts. We've got the train part.</li>
+<li>We've got the test part. We're going to fit the model on the training data.</li>
+<li>And there are one to ask it to predict the test data and see how well it does.</li>
+<li>So to do the split we can do is if we've got a data frame,</li>
+<li>I've got a data frame predictable that has the values and I've pruned out all of the ones where the predictor won't work.</li>
+<li>So one of the predictors is that a or the outcome is N.A because we just can't predict those with with a linear model.</li>
+<li>So I create a test sample. So I use the sample method on the data frame object.</li>
+<li>So this is a D.F. Use the sample method on the data frame object, and I tell it, I want a fraction of a point too.</li>
+<li>This is gonna pick 20 percent of the data. He uses test data. So now I've got this test data and it keeps the index from the predictable.</li>
+<li>So even if it's just arranged next. Now, test has the values from that index that that correspond to the rows.</li>
+<li>It doesn't change the indexes of your rows.</li>
+<li>So what I can do then to get the training data, I'm the training data should be everything that's not in the test data.</li>
+<li>So I'm going create as a mask. I don't use the mask as a name for a boolean value that's going to select Rose and I initialize it.</li>
+<li>I said it was a serious and I initialize it to true to say, yeah, we want the value and I give it an index.</li>
+<li>That's the same index as our original data frame. So it starts out saying we want to select every row.</li>
+<li>And then what I do is I set the. So I use the test index to select items in here.</li>
+<li>And I set the values where I set the values of the match.</li>
+<li>I set the mask to false everywhere.</li>
+<li>We picked a test row. You can also use dot lock here. I'm not it's a shortcut, but you can use dot lock there if you feel that's clearer.</li>
+<li>And then with this mask, I get our training data by asking the training,</li>
+<li>the predictable by passing the train mask is a logical series to index into predictable.</li>
+<li>And that's going to give me my training data. So compute your test sample.</li>
+<li>Create a mask. That's true. Set it false. Everywhere you pick the test row.</li>
+<li>And then if you pick the remaining truths, you get all of the other data. And that's going to be our training data.</li>
+<li>So then we fit the model on trains. We set up our oh well, if we're using it as well as we set up our lesson train, we we call fit.</li>
+<li>It's going to give us a fit object. Then we call predict.</li>
+<li>We call it predict method. So a fit object from a stat's model's model has a method called predict,</li>
+<li>which we give in another set of data, and it's going to try to predict the outcomes for it.</li>
+<li>So we ask it to predict our test data and then we compare the predictions to the test outcomes.</li>
+<li>Now, something that I haven't quite specifically talked about yet is when we're when we're running code.</li>
+<li>We have a model. And so we're gonna say model. Equals.</li>
+<li>Oh, alas, we're going to our formula. And we also give it our data off.</li>
+<li>And then we get fit equals model dot fit.</li>
+<li>That's the stats model's pattern to the model itself, has the data, the the the the setup, the model that we're gonna be fitting.</li>
+<li>And then when we actually fit the model, we get another object that has the parameters that are result of fitting the model.</li>
+<li>No, if you've used Saikat learn before, we're going to be using Saikat learned later.</li>
+<li>This is a different setup. Stats Models uses a little bit different pattern than Saikat learned does it has these separate model and fit objects.</li>
+<li>But the fit object allows us to compute predictions for the test values that we can then compare to our test outcomes.</li>
+<li>One way to compare them is by taking the mean absolute error. So we take the absolute values of our errors.</li>
+<li>And then we take the mean of them,</li>
+<li>we sum them up and we divide them by and I'm going to let you think a little bit about why we don't want to take the mean error.</li>
+<li>I will note that the mean of our residuals, if we've properly Fedeli Squares module model, the mean of our residuals is zero.</li>
+<li>So the root mean squared error squares, the individual errors rather than computing and absolute value, we compute the square.</li>
+<li>We then take their mean and we take the square root of all of that. The square root puts it back in units of the original of the original values.</li>
+<li>This. So why do we do the root mean square or.</li>
+<li>So to see how to compute the root mean squared error, I have broken it down and I've ever written the code here.</li>
+<li>So if we've got our outcome, if we have a variable called outcome in our test frame,</li>
+<li>we subtract the predictions from the outcome and that computes Y minus Y hat.</li>
+<li>And I've color coded the code to match the part of the formula.</li>
+<li>We then take the square, we multiply the error by itself and that's going to compute the squares.</li>
+<li>We then take the mean of all of that. And that's one that's the sometimes one minus enter the sum divided by the count.</li>
+<li>And then finally, we take the square root. And you can see here, especially as you move past being able to use existing models,</li>
+<li>you're going to need to be able to implement formulas in terms of num pi or PSI Pi or pandas.</li>
+<li>And you've done that some already. But this, I hope, helps you see.</li>
+<li>How do you take a formula like we can write out,</li>
+<li>like our messy and you can break it down into the different num pi operations that you're going to need to perform in order to compute the formula.</li>
+<li>So now why do we use are messy instead of energy? One is that it gives higher weight to larger errors.</li>
+<li>So one is less than two point one is less than two point one squared is much less than two squared.</li>
+<li>Also, though, and this is particularly important, is that it's continuous and differentiable the absolute value.</li>
+<li>If we have X and we have Y, the absolute value is discontinuous at zero.</li>
+<li>You can't take its derivative. You can take the derivative of the square and for a lot of optimization techniques in</li>
+<li>order to learn models that are going to fit well and are going to have low error,</li>
+<li>they rely on the differential ability of the errors. And so are messy.</li>
+<li>Gives us an error metric that has a derivative.</li>
+<li>So to interpret the prediction accuracy, both of these metrics are their units are in the original outcome variable.</li>
+<li>But what is good enough depends on your application. How good do you actually need to be for the purposes you're deploying the model for?</li>
+<li>Also there for a lot of problem, for a lot of cases.</li>
+<li>There's a minimum possible error just due to the intrinsic variance of the data and the intrinsic noise of the data.</li>
+<li>You can't predict. Well, you can maybe try to predict noise.</li>
+<li>But if you've got part of the data that is just random noise of random variation that</li>
+<li>puts a floor on how low your prediction accurate your prediction error can get.</li>
+<li>But with equivalent test data, we can use MAIG in our messy to compare the prediction of effectiveness of multiple different models.</li>
+<li>And that's where they really become useful as they allow us to say,</li>
+<li>is this model better than our current model or better than some simple baseline model?</li>
+<li>The linear models that we're seeing, like they're going to be really hot that we're using this week.</li>
+<li>They're really powerful in their own right. They're also a really good baseline if you are using some more sophisticated model.</li>
+<li>It's useful to include a linear model and the see. Can you beat a linear model? If not, maybe use the linear one.</li>
+<li>So to wrap up, we measure of predictors, accuracy by comparing predictions to the actual outcome variables on test data.</li>
+<li>And it's important that the test data was not seen during the fitting process.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="instances-and-sampling">
+<h2>🎥 Instances and Sampling<a class="headerlink" href="#instances-and-sampling" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="ec19853e-2dfb-4774-b192-ac5100142bbb">
+<div class="tabbed-set docutils">
+<input checked="checked" id="d3fc7d8f-47be-42e8-a0de-2649f29f8d9d" name="6b446cdf-eff7-4f25-9fcc-4cab2b0cfeda" type="radio">
+</input><label class="tabbed-label" for="d3fc7d8f-47be-42e8-a0de-2649f29f8d9d">
+Video (9m40s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ec19853e-2dfb-4774-b192-ac5100142bbb&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="07c644aa-e88a-418b-b0f3-18f3cc9a0797" name="6b446cdf-eff7-4f25-9fcc-4cab2b0cfeda" type="radio">
+</input><label class="tabbed-label" for="07c644aa-e88a-418b-b0f3-18f3cc9a0797">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173274" data-key=ADEFTal_QoMtTcQ>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+INSTANCES AND SAMPLING
+Learning Outcomes
+Identify the instances in a data set
+Determine the correct level at which to sample for the bootstrap or test data
+Bootstrap a CI for a linear regression’s coefficients
+Photo by Mael BALLAND on Unsplash
+Instances
+An observation of a single thing
+Has one or more variables
+The variable values go together – row 0 is one penguin
+Covariance / correlation measure intra-instance relationships
+Sampling
+Goal: bootstrap a confidence interval for flipper/mass correlation
+
+Sample: penguin instances
+Each bootstrap sample has n of them
+
+Compute: correlation coefficient
+
+CI is 95% interval of the bootstrap sample correlation coefficient
+Bootstrapping Linear Models
+We can bootstrap any statistic
+Say, a linear model coefficient!
+Sample rows (penguin instances)
+Fit the model to each sample
+Extract statistic
+Can do multiple statistics simultaneously
+Bootstrap Code
+Related Quantities
+We often compute relationships between variables of an instance
+Paired t-test
+Correlation coefficient
+Linear regression
+
+Keep instances together is the common rule
+Bootstrap Components
+Two pieces to a bootstrap design:
+Statistic(s) to compute
+Sampling strategy
+
+To bootstrap a CI, sample instances
+For single-variable statistic, can just sample values
+Sampling a variable &amp; taking variable from sample are the same
+Two or more variables – must sample instances to keep them together
+Bootstrapping P-values
+Sampling Review
+Wrapping Up
+A cleaned and ready-to-model data set consists of instances.
+
+Most of our sampling procedures should sample instances.
+Photo by Dušan S. on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Oh, and this video, I want to talk about instances in about sampling's,</li>
+<li>so learning how come to be able to identify the instances that's common term for the machine learning we've been calling them observations about.</li>
+<li>So ready to determine the correct level, which the sample for bootstrap or test data and bootstrap code.</li>
+<li>A confidence interval for linear regression. So. And machine learning contacts and data science contacts we often talk about.</li>
+<li>We often call the individual rows of our data from the individual pieces of data.</li>
+<li>We're going to learn from an instance.</li>
+<li>So, for example, we've got our penguin data is one instance is an observation of a single thing, our penguin data.</li>
+<li>Each of these rows represents one penguin, an instance of the penguin, and an instance has one or more variables and the variables go together.</li>
+<li>So the first row is one penguin and we've got it species. We've got it's bill length.</li>
+<li>We've got its body mass coral covariance and correlation measures.</li>
+<li>The relationship between variables on a penguin by penguin or on an instance by instance basis.</li>
+<li>So when we're sampling, for example,</li>
+<li>for a goal is to bootstrap a confidence interval for the correlation between a penguin's flipper length and its body mass.</li>
+<li>We just sample penguin instances and each instance is going to come with a flipper length and a body mass and maybe some other things,</li>
+<li>because if we just sampled flipper lengths, then we would estimate the sampling distribution of flipper lengths.</li>
+<li>But all we could do the same for body masses. But that loses the relationships between flipper links and body masses.</li>
+<li>It samples them as if they were independent variables.</li>
+<li>If we knew if we were trying to test things about the relationship, we need to keep the relationships.</li>
+<li>So we need to keep each body mass with its corresponding flipper length.</li>
+<li>And so we sample penguin instances. Each bootstrap sample will have enough of them.</li>
+<li>We then say computer code, the correlation coefficient. And we compute the ninety five percent interval of this correlation coefficient.</li>
+<li>So we can also bootstrap linear model parameters. We can bootstrap any statistics.</li>
+<li>We could bootstrap the coefficient from a linear model. So we sample rows.</li>
+<li>We fit a model to the sample, we extract the parameter. We can also do multiple statistics simultaneously.</li>
+<li>You'll see that in the code I've posted online.</li>
+<li>But for this one, I'm just gonna show you the code for sampling a single for for using it, for using bootstrapping to estimate a single coefficient.</li>
+<li>In this case, we're going to estimate the flipper coefficient from the model that we developed in the multivariate regression video.</li>
+<li>So I have a bootstrap rose function that takes a data frame and it takes a statistic.</li>
+<li>And it it computes that statistic for our observations. And then computes our bootstrap samples that computes a sample and uses the data frame sample</li>
+<li>method to create a sample with replacement passes that offset to the statistic function,</li>
+<li>and it gives us that set. And then it does our usual thing. We're going to return the observed value and we're going to return our percentiles</li>
+<li>for the bootstrap to get the confidence interval from the bootstrap distribution.</li>
+<li>So we then going to write a function that given a data frame.</li>
+<li>It will fit a model and return the flipper length. So we're going to we're gonna set up our model or our role as model.</li>
+<li>We're gonna give it our formula. We're going to give it the data. And it's going to give us our model object.</li>
+<li>Remember, stats models have a separate model and fit objects.</li>
+<li>We're then going to call fit to get our our results object or are that contains the results of fitting this linear model.</li>
+<li>And then it has a at attribute per rams.</li>
+<li>And we ask, do we get the flipper parameter out of parameter brams the series, we're gonna get the flipper parameter out of it.</li>
+<li>And that gives us. The parameter values, if we do this 10000 times, we're going to get we're going to get 10000 versions of this parameter.</li>
+<li>And if we do this, we get our our coefficient of point three five nine.</li>
+<li>And we get a confidence interval. Point to sixty eight point four, five, four.</li>
+<li>And if you cross-reference with the results of just fitting the model once,</li>
+<li>you'll find that that coefficient matches pretty closely because this model fits relatively well.</li>
+<li>But this lets you bootstrap a coefficient in a way and get confidence intervals that don't make all of the assumptions that a confidence</li>
+<li>interval in a normal linear regression makes gives you some more flexibility and shows the flexibility of being able to do a bootstrap.</li>
+<li>But, you know, we're again, we're bootstrapping the rows, the instances in this case penguins from our data frame.</li>
+<li>Now, we often we often are going to be computing relationships between variables of an instance.</li>
+<li>We're doing that with the linear regression. We did that with the correlation coefficient. We did that with the paired t test.</li>
+<li>Whenever we're trying to compare. Variables on an instance by instance basis, we're trying to compare heights to weights, for example.</li>
+<li>And the variables, the two variables,</li>
+<li>they come from the same instances keeping the instances together as the common roll or sampling supplies to bootstrapping confidence intervals,</li>
+<li>as applies to creating test data. And so but there's two components to doing a bootstrap.</li>
+<li>We talk some about this in our interactive time, but you have the statistic that you need to compute.</li>
+<li>And you have the sampling strategy for doing your bootstrap.</li>
+<li>Solving any bootstrapping problem really comes down to those two things, sort of bootstrap a confidence interval,</li>
+<li>you're always going to sample instances for a singles variable statistic.</li>
+<li>I mean, there's no difference between sampling instances and just sampling out of the column because except the columns faster,</li>
+<li>because you're only getting one variable for it, per instance, anyway.</li>
+<li>But as soon as you have two or more variables, you're doing a correlation coefficient. You're doing a difference between two variables.</li>
+<li>You have to sample instances to keep the variables together so that you preserve the</li>
+<li>relationship because we're trying to bootstrap something about the relationship, such as students tended to do better on tests two or.</li>
+<li>Audience radio audiences tend to be more favorable towards movies than critics or there's a correlation between.</li>
+<li>Flipper length and body body mass.</li>
+<li>So the distinction, though, is when you're bootstrapping to get a p value, then you have to change it because P values require confidence intervals.</li>
+<li>Just bootstrap, just sample instances. That's the rule for P values, though.</li>
+<li>You need to sample from a simulation of the null hypothesis. So for example, H zero is two variables are uncorrelated.</li>
+<li>So X one is no more related to Y one than it is to Y seven. And so then remember, I said.</li>
+<li>When the reason we sample instances is because we need to keep the relationship preserved.</li>
+<li>We can sample independently to destroy the relationship, and it's pretend there is no relationship, which is the null hypothesis.</li>
+<li>So that allows us to simulate the null hypothesis by sampling from the flipper length</li>
+<li>and the body mass independently rather than sampling on a penguin by penguin basis.</li>
+<li>We pretend that there is no relationship. The null hypothesis.</li>
+<li>And if we compute correlations between these resulting samples, what we're going to get is the distribution of correlation coefficients under the no</li>
+<li>hypothesis that there's no relationship between the penguins flipper lengthen its body mass.</li>
+<li>And so then we can we can see. Compare our observed our observed correlation.</li>
+<li>We can compare p value. But we only do this independent sampling here because we're trying to sample from a normal hypothesis.</li>
+<li>If we have one set of instances and we're trying to do a confidence interval or we're trying to do train test sampling for accuracy,</li>
+<li>then we want to sample the instances. So sample instances in general.</li>
+<li>The exceptions are. When you have a P-value or sometimes you're going to need a group level.</li>
+<li>You're going to need a multi-level sampling of some kind when you have values that fall into coherent groups.</li>
+<li>We haven't needed that yet. Also, we're talking.</li>
+<li>We have one collection of the same instances.</li>
+<li>If you do have independent things like you're trying to compare the flipper length between Gentoos and between and the deli's,</li>
+<li>you're not trying to compare two variables on the same instances. You're trying to compare a variable on two different instances.</li>
+<li>Then they are independent and you sample from this from them separately.</li>
+<li>But think about what are you trying to compare here to variables on the same set of instances.</li>
+<li>You're going to want to sample instances unless you're looking at a piece that you're looking for a P value.</li>
+<li>So to wrap up. We've got data. It's ready for us to do modeling on it.</li>
+<li>We usually think of it in terms of it's a set of instances that have different variables.</li>
+<li>Most of our sampling procedures should generally sample instances and then practice.</li>
+<li>I find confidence intervals are often more useful than P values any way.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="supporting-notebooks">
+<h2>📓 Supporting Notebooks<a class="headerlink" href="#supporting-notebooks" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../resources/tutorials/Regressions/"><span class="doc std std-doc">Regression notebook</span></a> with code supporting the Penguin examples</p></li>
+<li><p>The <a class="reference internal" href="../resources/tutorials/Correlation/"><span class="doc std std-doc">correlation notebook</span></a> includes regression to support the movie examples</p></li>
+</ul>
+</div>
+<div class="section" id="week-8-quiz">
+<h2>🚩 Week 8 Quiz<a class="headerlink" href="#week-8-quiz" title="Permalink to this headline">¶</a></h2>
+<p>Complete the Week 8 quiz in Canvas.</p>
+</div>
+<div class="section" id="statsmodels-examples-and-user-guide">
+<h2>📃 StatsModels Examples and User Guide<a class="headerlink" href="#statsmodels-examples-and-user-guide" title="Permalink to this headline">¶</a></h2>
+<p>The following StatsModels pages document its OLS model:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/example_formulas.html">Formula User Guide</a></p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/examples/notebooks/generated/ols.html">OLS Examples</a></p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/stable/regression.html">Linear Regression</a></p></li>
+</ul>
+</div>
+<div class="section" id="bootstrapping-linear-regression">
+<h2>📃 Bootstrapping Linear Regression<a class="headerlink" href="#bootstrapping-linear-regression" title="Permalink to this headline">¶</a></h2>
+<p id="reading-Bootstrapping-for-Linear-Regression">Read <a class="reference external" href="https://olebo.github.io/textbook/ch/18/hyp_regression.html">Bootstrapping for Linear Regression</a>.</p>
+</div>
+<div class="section" id="assignment-4">
+<h2>📩 Assignment 4<a class="headerlink" href="#assignment-4" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../assignments/A4/"><span class="doc std std-doc">Assignment 4</span></a> is due <strong>October 24, 2020</strong>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./week8"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../week7/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 7 — Getting Data (Oct. 4–8)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../week9/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 9 — Models &amp; Prediction (Oct. 18–22)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

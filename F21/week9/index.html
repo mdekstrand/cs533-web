@@ -1,0 +1,1330 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 9 — Models &amp; Prediction (Oct. 18–22) &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabinsert.js"></script>
+    <script src="../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"E": "\\mathrm{E}", "Field": "\\mathcal{F}", "P": "\\mathrm{P}", "Cov": "\\mathrm{Cov}", "Cor": "\\mathrm{Cor}", "Var": "\\mathrm{Var}", "log": "\\operatorname{log}", "Odds": "\\operatorname{Odds}", "OR": "\\operatorname{OR}", "IND": "\\mathbb{I}", "Reals": "\\mathbb{R}"}}, "HTML-CSS": {"fonts": ["TeX"]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="copyright" title="Copyright" href="../copyright/" />
+    <link rel="next" title="Week 10 — Classification (10/25–29)" href="../week10/" />
+    <link rel="prev" title="Week 8 — Regression (Oct. 11–15)" href="../week8/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../resources/tutorials/">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/week9/index.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fweek9/index.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/week9/index.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#content-overview">
+   🧐 Content Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   🎥 Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulation">
+   🎥 Simulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variance-r2-and-the-sum-of-squares">
+   🎥 Variance, R², and the Sum of Squares
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overfitting">
+   🎥 Overfitting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overfitting-simulation">
+   📓 Overfitting Simulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overfitting-example">
+   📃 Overfitting Example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#replication-bias-and-variance">
+   🎥 Replication, Bias, and Variance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bias-variance-tradeoff">
+   📃 Bias-Variance Tradeoff
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optimizing-loss">
+   🎥 Optimizing Loss
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#links">
+     Links
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-9-quiz">
+   🚩 Week 9 Quiz
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practice">
+   ✅ Practice
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignment-4">
+   📩 Assignment 4
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-9-models-prediction-oct-1822">
+<span id="week9"></span><h1>Week 9 — Models &amp; Prediction (Oct. 18–22)<a class="headerlink" href="#week-9-models-prediction-oct-1822" title="Permalink to this headline">¶</a></h1>
+<p>This week talks more about regression, simulation, and introduces the idea of minimizing a loss function.</p>
+<div class="section" id="content-overview">
+<h2>🧐 Content Overview<a class="headerlink" href="#content-overview" title="Permalink to this headline">¶</a></h2>
+<div class="module-content docutils">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><strong>Element</strong></th>
+<th class="head"><strong>Length</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#a2d1d9f8-d7ad-48a6-ae40-adc101862712"><span>🎥 More Regression</span></a></p></td>
+<td><span>3m7s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#62db0f25-63a0-4560-8b1b-adc1018627a1"><span>🎥 Simulation</span></a></p></td>
+<td><span>14m48s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#37aa34f6-00e3-44e1-8ce3-adc101862847"><span>🎥 Variance and Sums of Squares</span></a></p></td>
+<td><span>5m59s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#20efc4ea-3a6e-4e1f-806e-adc1018628e3"><span>🎥 Overfitting</span></a></p></td>
+<td><span>10m31s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#reading-Example-of-overfitting-and-underfitting-in-machine-learning"><span>📃 Example of overfitting and underfitting in machine learning</span></a></p></td>
+<td><span>1180 words</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#08df0de6-cb75-41c3-9a92-adc101862979"><span>🎥 Bias-Variance</span></a></p></td>
+<td><span>9m16s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#reading-Understanding-the-Bias-Variance-Tradeoff"><span>📃 Understanding the Bias-Variance Tradeoff</span></a></p></td>
+<td><span>3000 words</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#22c0bc92-d86a-4611-8df1-adc20162fd56"><span>🎥 Optimizing Loss</span></a></p></td>
+<td><span>15m23s</span></td>
+</tr>
+</tbody>
+</table>
+<p><span>This week has </span><strong>0h59m</strong><span> of video and </span><strong>4180 words</strong><span> of assigned readings.</span><span> This week’s videos are available in a </span><a class="panopto reference external" href="https://boisestate.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22eba298d6-9234-4791-88f6-adc101859673%22"><span>Panopto folder</span></a><span> and as a </span><a class="panopto podcast reference external" href="https://boisestate.hosted.panopto.com/Panopto/Podcast/Podcast.ashx?courseid=eba298d6-9234-4791-88f6-adc101859673&amp;type=mp4"><span>podcast</span></a><span>.</span></p>
+</div>
+</div>
+<div class="section" id="introduction">
+<h2>🎥 Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This video introduces the week.</p>
+<div class="resource video docutils container" id="a2d1d9f8-d7ad-48a6-ae40-adc101862712">
+<div class="tabbed-set docutils">
+<input checked="checked" id="ec9fb3c9-23c4-42c8-b9b7-781529d80d57" name="d3ed5b95-640f-4cb3-b325-0e6e08b81d5c" type="radio">
+</input><label class="tabbed-label" for="ec9fb3c9-23c4-42c8-b9b7-781529d80d57">
+Video (3m7s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=a2d1d9f8-d7ad-48a6-ae40-adc101862712&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="17ba5818-5a45-4f29-bd91-c3216c9b1e18" name="d3ed5b95-640f-4cb3-b325-0e6e08b81d5c" type="radio">
+</input><label class="tabbed-label" for="17ba5818-5a45-4f29-bd91-c3216c9b1e18">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173276" data-key=AHsbW2hF0gaAAXM>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+MODELING AND PREDICTION
+Learning Outcomes (Week)
+Simulate to understand the behavior of a system
+Understand overfitting and apply appropriate design to mitigate it
+Select and engineer features for a model
+Photo by Jamie Street on Unsplash
+Taking Our Bearings
+We’ve seen:
+Basic data operations
+Visualization
+Probability and inference
+Correlations and linear models
+Prediction and inference
+
+Where we’re going:
+Classification
+Mostly prediction going forward
+Evaluating model accuracy
+More data types
+Text
+Time
+Workflows
+
+This Week
+More on variance
+Simulation methods
+Prediction accuracy evaluation
+Features
+Wrapping Up
+We’re going to learn more about building and assessing models.
+
+This will set us up to move from regression to classification.
+Photo by vorster vanzyl on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="simulation">
+<h2>🎥 Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h2>
+<p>This video talks more about simulation as a method for studying statistical techniques, which you are doing in the assignment.
+I also describe more of NumPy’s random number generation facilities.</p>
+<div class="resource video docutils container" id="62db0f25-63a0-4560-8b1b-adc1018627a1">
+<div class="tabbed-set docutils">
+<input checked="checked" id="70528943-c3f0-4e1c-9437-16ca8494b573" name="988e8a56-2675-4a7a-8e9e-fc60c3daf819" type="radio">
+</input><label class="tabbed-label" for="70528943-c3f0-4e1c-9437-16ca8494b573">
+Video (14m48s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=62db0f25-63a0-4560-8b1b-adc1018627a1&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="e505db5f-b214-4176-a851-684a2049c787" name="988e8a56-2675-4a7a-8e9e-fc60c3daf819" type="radio">
+</input><label class="tabbed-label" for="e505db5f-b214-4176-a851-684a2049c787">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173277" data-key=AMmsQqYDB60pYbk>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SIMULATION
+Learning Outcomes
+Simulate data to understand statistical behavior
+Understand the difference between simulation and the bootstrap
+Photo by Markus Spiske on Unsplash
+Simulation
+We can make up data (with a random number generator)
+We know the population parameters (we set them)
+We can take unlimited samples (it’s just an RNG)
+
+Result: we can study the behavior of sampling and statistical methods
+Setting Up the RNG
+Modern: np.random.Generator
+Create with np.random.default_rng()
+Can provide a seed (starting point) - integer
+Recommended!
+Same seed + software versions + platform ⇒ same results
+
+Legacy: np.random functions
+Python standard library also has random module
+Drawing from Distributions
+integers(k, size=n) — n integers in range [0,k)
+integers(j, k, size=n) — n integers in range [j,k)
+random(n) — n floats uniformly from [0,1)
+normals(μ, σ, n) — n normally-distributed floats
+exponential(λ, n) — n exponentially-distributed floats
+
+Random and uniform are not the same thing.
+
+
+More Randomness
+Operating on arrays:
+choice(a, n) — n draws from array a w/ replacement
+permutation(a) — random reordering of a
+
+More distributions: scipy.stats
+
+Go NUTS: PyMC3, STAN
+Example: Mean
+Simulating Means (Law of Large Numbers)
+Simulating Means — Check for Normality
+Exponential
+Simulation
+We have a proof of the Central Limit Theorem
+
+More complex methods are much harder to characterize.
+Simulation lets us explore behavior
+
+Also: useful for learning, gaining intuition
+Not the Bootstrap
+Bootstrap
+Unknown population parameters
+Resample actual observations
+Estimate sampling distribution
+Purpose: estimate population parameters
+Simulation
+Known population parameters
+Sampling from theoretical distributions, making up data
+Characterize sampling distributions &amp; other properties
+Purpose: understand estimate / parameter relationships
+Wrapping Up
+Simulation lets us study the behavior of statistical methods by drawing many samples with known population parameters.
+
+This is commonly used in statistics research. You do it in A4.
+Photo by Aditya Chinchure on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You should set random seeds for all work that will need randomness, including train/test splits for evaluating predictors.</p>
+</div>
+</div>
+<div class="section" id="variance-r2-and-the-sum-of-squares">
+<h2>🎥 Variance, R², and the Sum of Squares<a class="headerlink" href="#variance-r2-and-the-sum-of-squares" title="Permalink to this headline">¶</a></h2>
+<p>This video provides more detail on <em>explained variance</em> and what the <span class="math notranslate nohighlight">\(R^2\)</span> means.</p>
+<div class="resource video docutils container" id="37aa34f6-00e3-44e1-8ce3-adc101862847">
+<div class="tabbed-set docutils">
+<input checked="checked" id="7c1a28aa-f786-49aa-9951-62d31a6ab218" name="f23dbaa6-3a84-4a26-93c1-f5bf618ae6d1" type="radio">
+</input><label class="tabbed-label" for="7c1a28aa-f786-49aa-9951-62d31a6ab218">
+Video (5m59s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=37aa34f6-00e3-44e1-8ce3-adc101862847&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="61bfccc7-b1aa-46d0-a665-d219f650dd9e" name="f23dbaa6-3a84-4a26-93c1-f5bf618ae6d1" type="radio">
+</input><label class="tabbed-label" for="61bfccc7-b1aa-46d0-a665-d219f650dd9e">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173278" data-key=APvhgyfko-eH9MU>
+</div></div>
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+<div class="section" id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://online.stat.psu.edu/stat462/node/95/">Penn State R² notes</a></p></li>
+<li><p><a class="reference external" href="https://online.stat.psu.edu/stat462/node/104/">Penn State Sum of Squares Notes</a></p></li>
+<li><p><a class="reference external" href="https://web.njit.edu/~wguo/Math644_2012/Math644_Chapter%201_part4.pdf">Proof of SSTO = SSR + SSE</a> (on Page 2)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="overfitting">
+<h2>🎥 Overfitting<a class="headerlink" href="#overfitting" title="Permalink to this headline">¶</a></h2>
+<p>This video introduces the idea of <em>overfitting</em>: learning too much from the training data so we can’t predict the testing data.</p>
+<div class="resource video docutils container" id="20efc4ea-3a6e-4e1f-806e-adc1018628e3">
+<div class="tabbed-set docutils">
+<input checked="checked" id="e3c322f3-1039-47d9-af87-facb93146118" name="5745eff1-0a90-495c-b32c-9e0882151784" type="radio">
+</input><label class="tabbed-label" for="e3c322f3-1039-47d9-af87-facb93146118">
+Video (10m31s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=20efc4ea-3a6e-4e1f-806e-adc1018628e3&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="3188f1cb-f772-4dca-a102-6685ccc01bbe" name="5745eff1-0a90-495c-b32c-9e0882151784" type="radio">
+</input><label class="tabbed-label" for="3188f1cb-f772-4dca-a102-6685ccc01bbe">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173279" data-key=ABqv_ZE_MmpDcLk>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PREDICTION AND OVERFITTING
+Learning Outcomes
+Understand overfitting
+Design an evaluation that reduces the likelihood of overfitting
+Understand that we can overfit process not just an individual model
+Photo by Jennifer Burk on Unsplash
+Prediction Goals
+Predict future unseen data
+We can just look at the data we have to learn about it
+We want to forecast or predict the future
+
+One way of thinking about generalizability
+Overfitting
+Overfitting
+Train-Test
+Data
+Train
+Test
+Model
+Split
+Predict
+Test data is unseen
+
+Can model generalize to it?
+Fitting to Data
+The model structure:
+Choice of model (linear, tree, etc.)
+Selection &amp; transformation of features
+Hyper-parameter values
+
+The model parameters:
+Coefficients learned from data
+
+Both can overfit. Train-test addresses parameters.
+Tuning Data
+Data
+Train
+Test
+Train
+Test
+Tune
+Wrapping Up
+Overfitting arises when our model learns too much, so it can’t generalize to new data.
+
+Splitting our data into training, tuning, and testing sets helps with this.
+Photo by Darren Nunis on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="overfitting-simulation">
+<h2>📓 Overfitting Simulation<a class="headerlink" href="#overfitting-simulation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../resources/tutorials/OverfittingSimulation/"><span class="doc std std-doc">Overfitting Simulation notebook</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="overfitting-example">
+<h2>📃 Overfitting Example<a class="headerlink" href="#overfitting-example" title="Permalink to this headline">¶</a></h2>
+<p id="reading-Example-of-overfitting-and-underfitting-in-machine-learning">Read <a class="reference external" href="https://keeeto.github.io/blog/bias_variance/">Example of overfitting and underfitting in machine learning</a>.</p>
+</div>
+<div class="section" id="replication-bias-and-variance">
+<h2>🎥 Replication, Bias, and Variance<a class="headerlink" href="#replication-bias-and-variance" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="08df0de6-cb75-41c3-9a92-adc101862979">
+<div class="tabbed-set docutils">
+<input checked="checked" id="90fdb051-cca2-4ccb-8114-66aba87d43fb" name="fa1b448a-dcf8-490b-a63e-e4bd14618a14" type="radio">
+</input><label class="tabbed-label" for="90fdb051-cca2-4ccb-8114-66aba87d43fb">
+Video (9m16s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=08df0de6-cb75-41c3-9a92-adc101862979&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="1afd1c97-347b-4b84-ace6-f65e9f9c7cba" name="fa1b448a-dcf8-490b-a63e-e4bd14618a14" type="radio">
+</input><label class="tabbed-label" for="1afd1c97-347b-4b84-ace6-f65e9f9c7cba">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173280" data-key=ANKJOxuY0wR0nIQ>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+REPLICATION, BIAS, AND VARIANCE
+Learning Outcomes
+Reason about repeated training on different samples
+Introduce the bias-variance tradeoff
+
+Photo by Nick Reynolds on Unsplash
+Replication
+Remember bootstrapping and simulation?
+Repeated samples
+Compute expectation, variance, etc. of parameters
+
+What about prediction?
+Test Error
+Population
+Test Error (Repeated Training)
+Population
+Bias-Variance Tradeoff
+Variance
+Bias2
+Noise
+Wrapping Up
+Expected test error is the error we expect from predicting new, unobserved data points.
+
+When training from samples, expected error can be decomposed into model bias, model variance, and noise.
+Photo by Mitchell Luo on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bias-variance-tradeoff">
+<h2>📃 Bias-Variance Tradeoff<a class="headerlink" href="#bias-variance-tradeoff" title="Permalink to this headline">¶</a></h2>
+<p id="reading-Understanding-the-Bias-Variance-Tradeoff">Read <a class="reference external" href="http://scott.fortmann-roe.com/docs/BiasVariance.html">Understanding the Bias-Variance Tradeoff</a>.</p>
+<div class="section" id="id1">
+<h3>Resources<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Further reading: <a class="reference external" href="https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote12.html">Lecture 12: Bias-Variance Tradeoff</a>.</p>
+</div>
+</div>
+<div class="section" id="optimizing-loss">
+<h2>🎥 Optimizing Loss<a class="headerlink" href="#optimizing-loss" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="22c0bc92-d86a-4611-8df1-adc20162fd56">
+<div class="tabbed-set docutils">
+<input checked="checked" id="2648fb0e-0ab4-4469-b0e5-e7a8c45e87b8" name="925c6267-a315-47e0-84bb-de90b9b4ff22" type="radio">
+</input><label class="tabbed-label" for="2648fb0e-0ab4-4469-b0e5-e7a8c45e87b8">
+Video (15m23s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=22c0bc92-d86a-4611-8df1-adc20162fd56&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div></div>
+<input id="d3d91a6e-b170-4414-a296-ba560749178b" name="925c6267-a315-47e0-84bb-de90b9b4ff22" type="radio">
+</input><label class="tabbed-label" for="d3d91a6e-b170-4414-a296-ba560749178b">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2174389" data-key=ANo44hVZKAmZpro>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+LOSS AND OPTIMIZATION
+Learning Outcomes
+Understand a loss function
+Optimize model for a loss function
+
+See attached notebook for code!
+Photo by Nick Reynolds on Unsplash
+Least Squares Regression
+Solve Least Squares
+Minimization
+Many problems are minimization (or maximization) problems!
+
+scipy.optimize provides a minimize function
+Model and Loss
+def predict_mass_uv(params, data=penguin_std):    b0, b1 = params    return b0 + data['flipper'] * b1
+
+def squared_loss_uv(params, data=penguin_std):    preds = predict_mass_uv(params, data)    err = data['mass'] - preds    return np.sum(np.square(err))
+Minimization
+init_guess = rng.standard_normal(2)
+result = spopt.minimize(squared_loss_uv, init_guess)
+# get model parametersresult.xarray([1.12829633e-09, 8.71201757e-01])
+Statsmodel OLS model
+General Optimization
+Understand data (features and outcome variables)
+Define loss (or gain/utility) function
+Define predictive model
+Search for parameters that minimize loss function
+Train and Test
+We optimize the loss function on the train data
+Evaluate on the test data
+Sometimes loss function is eval; sometimes not
+Mean squared error: often used for both
+Augmented Loss
+We can add more things to the loss function
+Penalize model complexity
+Penalize “strong” beliefs
+Requires predictive utility to overcome them
+Wrapping Up
+Least squares generalizes into minimizing loss functions.
+
+This is the heart of machine learning, particularly supervised learning.
+Photo by Mitchell Luo on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+</ul>
+</div>
+</div>
+<div class="section" id="links">
+<h3>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize" title="(in SciPy v1.9.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.optimize.minimize()</span></code></a> function.</p></li>
+<li><p>The <a class="reference internal" href="../resources/tutorials/MinimizeRegression/"><span class="doc std std-doc">minimization regression notebook</span></a> notebook.</p></li>
+<li><p>Our introduction to the idea of an <a class="reference internal" href="../glossary/#term-objective-function"><span class="xref std std-term">objective function</span></a>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="week-9-quiz">
+<h2>🚩 Week 9 Quiz<a class="headerlink" href="#week-9-quiz" title="Permalink to this headline">¶</a></h2>
+<p>Take the Week 9 quiz in Blackboard (will be up by end of Saturday).</p>
+<p>Since this is the second of two very closely intertwined weeks, there are questions about <a class="reference internal" href="../week8/#week8" title="week8"><span>📅 Week 8 — Regression (Oct. 11–15)</span></a> in the quiz ads well.</p>
+</div>
+<div class="section" id="practice">
+<h2>✅ Practice<a class="headerlink" href="#practice" title="Permalink to this headline">¶</a></h2>
+<p>There are several ways you can practice the material so far:</p>
+<ul class="simple">
+<li><p>Practice more regressions with World Bank data</p></li>
+<li><p>Measure World Bank data predictive accuracy with train-test evaluation and mean squared error</p></li>
+</ul>
+</div>
+<div class="section" id="assignment-4">
+<h2>📩 Assignment 4<a class="headerlink" href="#assignment-4" title="Permalink to this headline">¶</a></h2>
+<p>Assignment 4 is due <strong>October 24, 2021</strong>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./week9"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../week8/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 8 — Regression (Oct. 11–15)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../week10/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 10 — Classification (10/25–29)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

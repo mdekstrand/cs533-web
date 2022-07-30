@@ -1,0 +1,1800 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 3 — Presentation (9/6–10) &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabinsert.js"></script>
+    <script src="../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="copyright" title="Copyright" href="../copyright/" />
+    <link rel="next" title="Drawing Charts" href="3-6-ChartsFromTheGroundUp/" />
+    <link rel="prev" title="Describing Distributions" href="../week2/2-6-DescribingDistributions/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week2/">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week2/2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../resources/tutorials/">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/week3/index.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fweek3/index.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/week3/index.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#content-overview">
+   🧐 Content Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deadlines">
+   📅 Deadlines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#presentation-goals-and-audiences">
+   🎥 Presentation Goals and Audiences
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-and-notebook">
+   📓 Data and Notebook
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistical-data-presentation">
+   📃 Statistical Data Presentation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introducing-statistical-graphics">
+   🎥 Introducing Statistical Graphics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manipulating-data">
+   🎥 Manipulating Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#missing-data">
+   📓 Missing Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-charts">
+   🎥 Types of Charts
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metrics-and-differences">
+   🎥 Metrics and Differences
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#charts-from-the-ground-up">
+   🎥 Charts from the Ground Up
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plots-in-the-wild">
+   ✅ Plots in the Wild
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finishing-touches">
+   📓 Finishing Touches
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#organizing-and-formatting-notebooks">
+   🎥 Organizing and Formatting Notebooks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notebook-formatting-checklist">
+   📃 Notebook Formatting Checklist
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-3-quiz">
+   🚩 Week 3 Quiz
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#textbook">
+   📖 Textbook
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#futher-reading">
+   📚 Futher Reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practice">
+   ✅ Practice
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignment-1">
+   📩 Assignment 1
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-3-presentation-9-610">
+<span id="week3"></span><h1>Week 3 — Presentation (9/6–10)<a class="headerlink" href="#week-3-presentation-9-610" title="Permalink to this headline">¶</a></h1>
+<p>These are the learning outcomes for this week:</p>
+<ul class="simple">
+<li><p>Create plots for data</p></li>
+<li><p>Identify the appropriate type of plot for data in question</p></li>
+<li><p>Read and interpret a plot</p></li>
+<li><p>Refine a plot to more clearly show data</p></li>
+<li><p>Write a well-organized notebook to present data analysis with text and visuals</p></li>
+</ul>
+<p>We will primarily be using <a class="reference external" href="https://seaborn.pydata.org/">Seaborn</a> and <a class="reference external" href="https://matplotlib.org/">Matplotlib</a> for our graphics, because it is easy to
+get them fully working for both notebook and document-ready graphics in any Anaconda environment and
+efficiently handles very large data sets. There are several other packages that are useful for
+Python data visualization, and in some cases are easier to use. I personally use <a class="reference external" href="https://plotnine.readthedocs.io/en/stable/">plotnine</a> for
+most of my graphics, and <a class="reference external" href="https://plotly.com/python/plotly-fundamentals/">plotly</a> is a very capable package with particularly strong support for
+interactive graphics. The core graphics principles we study in this module will apply to most
+packages you may use in the future.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>I do <strong>not</strong> recommend that you use Plotly for this course.  While it is very good for interactive graphics,
+its support for static graphics to render in printable documents is rather new.</p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Seaborn upgrades</p>
+<p>Seaborn is undergoing some changes in its syntax.  In the old syntax, we pass the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>
+parameters as positional paremeters to a plotting function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">stocks</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the new syntax, which will be required in a future Seaborn release, we use named parameters
+for everything:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">stocks</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All new material going forward will use the new syntax, but it takes time to update all of the
+slides and videos.  You may see the old syntax.  It still works, but it issues a warning to let
+you know the future syntax is changing.</p>
+</div>
+<div class="section" id="content-overview">
+<h2>🧐 Content Overview<a class="headerlink" href="#content-overview" title="Permalink to this headline">¶</a></h2>
+<div class="module-content docutils">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><strong>Element</strong></th>
+<th class="head"><strong>Length</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#cb6d0907-59fa-4a15-96b9-ad9601830ba0"><span>🎥 Goals and Audiences</span></a></p></td>
+<td><span>9m55s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#reading-Statistical-Data-Presentation"><span>📃 Statistical Data Presentation</span></a></p></td>
+<td><span>4300 words</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#f87fc754-ecbd-4970-ad3b-ad9601830c4f"><span>🎥 Statistical Graphics</span></a></p></td>
+<td><span>14m15s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#7ee3707b-0e2d-4a18-8de1-ad9601830ce7"><span>🎥 Manipulating Data</span></a></p></td>
+<td><span>9m18s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#reading-Missing-Data"><span>📃 Missing Data</span></a></p></td>
+<td><span>3850 words</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#9077db8e-b57d-4825-a472-ad9601830d80"><span>🎥 Types of Charts</span></a></p></td>
+<td><span>13m30s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#457472b2-1bb3-455b-9dd4-ad9601830e8b"><span>🎥 Metrics and Differences</span></a></p></td>
+<td><span>6m50s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bb921f27-23a5-4103-afff-ad970182fbb2"><span>🎥 Charts from the Ground Up</span></a></p></td>
+<td><span>22m14s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#80e425d4-f295-4f1b-b73a-ad9601830f06"><span>🎥 Organizing Notebooks</span></a></p></td>
+<td><span>16m50s</span></td>
+</tr>
+</tbody>
+</table>
+<p><span>This week has </span><strong>1h33m</strong><span> of video and </span><strong>8150 words</strong><span> of assigned readings.</span><span> This week’s videos are available in a </span><a class="panopto reference external" href="https://boisestate.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%2272054bfc-c064-4b87-aa01-ad960182a9e7%22"><span>Panopto folder</span></a><span> and as a </span><a class="panopto podcast reference external" href="https://boisestate.hosted.panopto.com/Panopto/Podcast/Podcast.ashx?courseid=72054bfc-c064-4b87-aa01-ad960182a9e7&amp;type=mp4"><span>podcast</span></a><span>.</span></p>
+</div>
+</div>
+<div class="section" id="deadlines">
+<h2>📅 Deadlines<a class="headerlink" href="#deadlines" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="#plots-in-the-wild">Finding a plot</a> before class on Thursday</p></li>
+<li><p>Week 3 quiz at <strong>8am on Thursday</strong></p></li>
+<li><p><span class="xref myst">Assignment 1</span> at <strong>midnight on Sunday</strong></p></li>
+</ul>
+</div>
+<div class="section" id="presentation-goals-and-audiences">
+<h2>🎥 Presentation Goals and Audiences<a class="headerlink" href="#presentation-goals-and-audiences" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="cb6d0907-59fa-4a15-96b9-ad9601830ba0">
+<div class="tabbed-set docutils">
+<input checked="checked" id="5b5b423e-3139-4a9b-b7ef-cd12a3033955" name="8faef386-8fbc-4ff5-8c33-bf66abb18408" type="radio">
+</input><label class="tabbed-label" for="5b5b423e-3139-4a9b-b7ef-cd12a3033955">
+Video (9m55s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=cb6d0907-59fa-4a15-96b9-ad9601830ba0&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/u5IE8pEHcDDj/info/httpscb6d0907-59fa-4a15-96b9-ad9601830ba0-79af2bec-ccdf-4068-89a9-ad9c0067d808mp4invocationid78c07fe5-a30f-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="b1dc7120-a1d5-4783-b7c7-28f67fbd33d8" name="8faef386-8fbc-4ff5-8c33-bf66abb18408" type="radio">
+</input><label class="tabbed-label" for="b1dc7120-a1d5-4783-b7c7-28f67fbd33d8">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173737" data-key=ALZ3EwW8-lyv3jE>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+PRESENTING DATA
+Learning Outcomes (Week)
+Create plots for data
+Identify the appropriate type of plot for data in question
+Read and interpret a plot
+Refine a plot to more clearly show data
+Write a well-organized notebook to present data analysis
+Photo by Austin Distel on Unsplash
+Purposes of Data Presentation
+Guide reader attention to important results
+Focus
+Make it easy to ask the key questions
+Substantiate results and conclusions
+Do so with integrity
+Audiences
+You’ll need to present data to several audiences:
+
+Yourself
+Your collaborators, supervisors, etc.
+Expert readers (know subject, not your work)
+Decision-makers
+The general public
+Guiding Questions
+What did you seek to find out?
+What did you learn?
+Why should the reader trust your conclusions?
+
+Presentation with integrity shows the reader what you learned.
+Dishonest presentation manipulates them.
+Created by W.E.B. Du Bois for the 1900 Paris  Exposition.
+From https://www.loc.gov/resource/ppmsca.33892/
+Created by W.E.B. Du Bois for the 1900 Paris  Exposition.
+From https://www.loc.gov/item/2013650445/
+Wrapping Up
+The goal of good presentation is to guide the reader to what we learned and how we know it.
+
+Effective presentation will highlight the important things without distraction or deception.
+Photo by Ben White on Unsplash
+</div>
+</div>
+</div>
+<div class="section" id="data-and-notebook">
+<h2>📓 Data and Notebook<a class="headerlink" href="#data-and-notebook" title="Permalink to this headline">¶</a></h2>
+<p>These resources are used throughout many of the videos in this class:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../resources/tutorials/CriticScores/"><span class="doc std std-doc">Movie Scores notebook</span></a></p></li>
+<li><p>The <a class="reference external" href="https://grouplens.org/datasets/hetrec-2011/">HETREC data</a></p></li>
+</ul>
+</div>
+<div class="section" id="statistical-data-presentation">
+<h2>📃 Statistical Data Presentation<a class="headerlink" href="#statistical-data-presentation" title="Permalink to this headline">¶</a></h2>
+<p id="reading-Statistical-Data-Presentation">Read <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5453888/">Statistical Data Presentation</a> by Junyong In and Sangseok Lee.</p>
+</div>
+<div class="section" id="introducing-statistical-graphics">
+<h2>🎥 Introducing Statistical Graphics<a class="headerlink" href="#introducing-statistical-graphics" title="Permalink to this headline">¶</a></h2>
+<p>This video introduces basic principles of statistical graphics.</p>
+<div class="resource video docutils container" id="f87fc754-ecbd-4970-ad3b-ad9601830c4f">
+<div class="tabbed-set docutils">
+<input checked="checked" id="b222be20-7995-4171-b5b1-e18fea87a7d4" name="243e390d-b5dd-4463-b1af-2352f597156d" type="radio">
+</input><label class="tabbed-label" for="b222be20-7995-4171-b5b1-e18fea87a7d4">
+Video (14m15s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=f87fc754-ecbd-4970-ad3b-ad9601830c4f&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/C0Z8a62WJxc6/info/httpsf87fc754-ecbd-4970-ad3b-ad9601830c4f-3d7efd1b-793d-4716-bef3-ad9c006aebdcmp4invocationidea100906-a50f-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="37ce8fee-1758-4035-9971-90525020de55" name="243e390d-b5dd-4463-b1af-2352f597156d" type="radio">
+</input><label class="tabbed-label" for="37ce8fee-1758-4035-9971-90525020de55">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173740" data-key=AJRz3rErjz_tmt8>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+STATISTICAL GRAPHICS
+Learning Outcomes
+Understand the value of graphics for presenting data
+Identify the parts of a statistical image
+Understand some pitfalls in graphics
+Graphic by W.E.B. Du Bois, for the 1900 World’s Fair in Paris.
+Example Chart
+Parts to identify:
+X-axis
+Y-axis
+Axis labels
+Data
+From “Enhancing Classroom Instruction with Online News”, by Michael D. Ekstrand, Katherine Landau Wright, and Maria Soledad Pera (Aslib Journal of Information Mangement, online June 2020)
+What Charts Can Reveal
+Patterns (or lack thereof)
+Comparisons
+Compare two bars
+See where points are
+Trends
+Do lines go up or down? Or jaggedy?
+Documenting Charts
+Clearly state:
+What is being presented (what is each point?)
+What values are plotted on the axes
+Often, this is done in the axis label
+Make sure units are clear if relevant
+Sometimes this can be implicit, but if in any doubt: be explicit
+
+The chart + caption should be interpretable on their own!
+Observations may be saved for referencing text.
+Captions, Titles, and Context
+In a paper, a figure has a caption
+Labels the figure
+Can provide interpretive guidance
+Other contexts, we often need a title
+Shorter, doesn’t explain details
+Labels the whole figure
+In notebooks, surrounding text may be sufficient, but title often a good idea for quick reading.
+Pitfalls
+Distorting perspective or distances – make sure lengths accurately represent quantities
+Bar charts start at 0!
+Violating conventions
+Users have expectations, e.g. linear, even spacing
+Don’t Rely on Graphics
+Graphics illustrate an effect
+
+They may help find an effect
+
+They are not conclusive proof of an effect
+Wrapping Up
+Graphics can make data clearer, leverage human perception to understand it.
+
+Graphics are not a replacement for numeric analysis, but give it context.
+
+Clearly label and describe graphics.
+Photo by Susn Matthiessen on Unsplash
+</div>
+</div>
+</div>
+<div class="section" id="manipulating-data">
+<h2>🎥 Manipulating Data<a class="headerlink" href="#manipulating-data" title="Permalink to this headline">¶</a></h2>
+<p>This video goes over the core Pandas data selection and manipulation operations.
+It is primarily a tour guide — the technical content is in the notebooks.</p>
+<div class="resource video docutils container" id="7ee3707b-0e2d-4a18-8de1-ad9601830ce7">
+<div class="tabbed-set docutils">
+<input checked="checked" id="9c853bc7-a208-4b1f-96da-619e2a76db81" name="7b25b4cb-cc83-4c4d-a5a6-3519eb04af07" type="radio">
+</input><label class="tabbed-label" for="9c853bc7-a208-4b1f-96da-619e2a76db81">
+Video (9m18s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=7ee3707b-0e2d-4a18-8de1-ad9601830ce7&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/g9cLYbn0RNUo/info/https7ee3707b-0e2d-4a18-8de1-ad9601830ce7-e6d4df35-320f-4d95-ab81-ad9c006bb089mp4invocationidfcdaf66c-a50f-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="efb9a31d-c8f9-4d18-b265-ee674dcf9e91" name="7b25b4cb-cc83-4c4d-a5a6-3519eb04af07" type="radio">
+</input><label class="tabbed-label" for="efb9a31d-c8f9-4d18-b265-ee674dcf9e91">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173739" data-key=ABw3xd9psf1k5Y8>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+MANIPULATING DATA
+Learning Outcomes
+Know key reshaping operations and corresponding Pandas functions
+Think about the process of transforming data in steps
+
+Tour guide to notebook – it has the actual code.
+Photo by Mika Baumeister on Unsplash
+Data Shapes
+Rows - # of them
+Columns - # and type
+
+Assumption: each row is another observation of the same kind of thing.
+Fixing that will be a topic for later
+R calls this tidy data
+
+Each method returns a new frame
+Selecting Columns
+Have: frame
+Want: same frame, fewer columns
+
+Pick one column: frame['column']
+Pick multiple columns: frame[['c1', 'c2']]
+Remove column(s): frame.drop(columns=['c1', 'c2'])
+Selecting Rows
+Have: frame
+Want: same frame, subset of rows
+
+Select by Boolean mask
+Good for selecting by column values
+Select by position (.iloc)
+Select by index key (.loc)
+If using RangeIndex, these are the same
+
+Collapsing Rows
+Have: frame w/ column(s) identifying group membership
+Want: frame or series  w/ row per group
+
+Group-by + aggregate
+Tall and Wide
+Wide Data – column per variable
+Tall/Long Data – (id, name, value)
+Wide is common source format
+Tall data is useful for plotting, grouping
+
+Wide to tall: melt
+Tall to wide: pivot, pivot_table
+Tall from List
+Have: data frame where one column contains lists
+Want: one row per list element, duplicating other columns
+
+explode
+
+Series / Data Frame
+Data frame to series: select column
+
+Series to frame:
+Create single-column frame w/ to_frame
+Reset index with reset_index
+Pull out one index level with unstack
+
+Strategy
+Decide what you want the end product to look like
+What are your target observations?
+What are your target variables?
+Plot a path from current data to end product
+Wrapping Up
+Pandas has many tools for reshaping data.
+
+Start with the end in mind – work from what you have to what you need.
+
+Read tutorial notebook!
+Photo by Element5 Digital on Unsplash
+</div>
+</div>
+<div class="section" id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="../resources/tutorials/Selection/"><span class="doc std std-doc">Selection Notebook</span></a></p></li>
+<li><p><a class="reference internal" href="../resources/tutorials/Reshaping/"><span class="doc std std-doc">Reshaping Notebook</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="missing-data">
+<h2>📓 Missing Data<a class="headerlink" href="#missing-data" title="Permalink to this headline">¶</a></h2>
+<p id="reading-Missing-Data">Read the <a class="reference internal" href="../resources/tutorials/MissingData/"><span class="doc std std-doc">📓 Missing Data</span></a> tutorial notebook.
+I encourage you to read relevant tutorial notebooks throughout the semester, and link to them when
+appropriate; I am making this one specifically an assigned reading.</p>
+</div>
+<div class="section" id="types-of-charts">
+<h2>🎥 Types of Charts<a class="headerlink" href="#types-of-charts" title="Permalink to this headline">¶</a></h2>
+<p>In this video, I discuss several common types of charts for statistical graphics, and how to choose an appropriate one.
+It complements the “Statistical Data Presentation” reading.</p>
+<div class="resource video docutils container" id="9077db8e-b57d-4825-a472-ad9601830d80">
+<div class="tabbed-set docutils">
+<input checked="checked" id="d3072ba2-dcc7-4d67-9af7-96a681990f97" name="e6043c83-2ff3-4fe2-bd81-e89cc0e0875a" type="radio">
+</input><label class="tabbed-label" for="d3072ba2-dcc7-4d67-9af7-96a681990f97">
+Video (13m30s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=9077db8e-b57d-4825-a472-ad9601830d80&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/9e2iMZAWW7RK/info/https9077db8e-b57d-4825-a472-ad9601830d80-6177ebff-599e-4e9f-bc3d-ad9c006c9db8mp4invocationid994e94ce-a50f-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="e7bf24b4-ed7b-4dc5-84b8-85afaa3aa9d8" name="e6043c83-2ff3-4fe2-bd81-e89cc0e0875a" type="radio">
+</input><label class="tabbed-label" for="e7bf24b4-ed7b-4dc5-84b8-85afaa3aa9d8">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173738" data-key=AGlTa7w8X6LcIkM>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+TYPES OF CHARTS
+Learning Outcomes
+Identify the appropriate type of chart for data and a question
+Understand key rules to avoid common errors
+Photo by KOBU Agency on Unsplash
+Software
+Seaborn (sns)
+Matplotlib (plt)
+Plotnine / ggplot2 (pn)
+Chart Types
+XKCD #688, ⓒ Randall Monroe. Used under CC-BY-NC
+Bar Charts
+Show numeric values grouped by a categorical (or ordinal) variable
+Best with moderate number of categories
+Can have second categorical in bar color
+Y often mean, sum, or count within group
+Can rotate to horizontal bar
+Whiskers: confidence interval
+
+Titanic Passenger Survival Rates by Gender and Passage Class
+From Seaborn gallery
+Bar Charts
+Functions:
+sns.countplot(count by category)
+sns.catplot(mean by category)
+plt.bar
+pn.geom_bar
+
+
+Titanic Passenger Survival Rates by Gender and Passage Class
+From Seaborn gallery
+Bar Chart Rules
+Never start y axis at anything but 0 – skews relative sizes
+If including whiskers: define how they are computed
+If using SNS catplot or countplot without a color group: set color, or they’ll recolor for no reason.
+Histograms
+Bar chart where ‘categorical’ is bins of a numeric value.
+Bar chart showing relative frequency of categorical values also a histogram
+
+Y is either number or fraction of occurrences
+
+Goal is to see relative frequency of different values
+
+One way to graphically describe a distribution.
+Scatter Plots
+Shows two numeric values
+Observations have two numeric variables
+Want to see how they relate
+Does one increase with the other?
+Do points clump in space?
+Are there other patterns? Outliers?
+Restaurant Tips and Bills
+From Seaborn documentation
+Refinements
+Color by categorical variable
+Plot a trend or context line (not shown)
+X can be categorical (point plot or strip plot)
+
+Functions:
+plt.scatter
+sns.scatterplot
+pn.geom_point
+Restaurant Tips and Bills
+From Seaborn documentation
+Line Plots
+Two numeric values
+One y per x value
+Emphasizes progression (or continuity) from one to the next
+Very common for time series
+
+Functions
+sns.lineplot
+plt.line
+pn.geom_line
+From Seaborn tutorial
+Box Plots
+Show distribution of numeric variable grouped by categorical
+Median
+Quartiles
+Min/max
+Outliers (in much software)
+
+Functions:
+sns.boxplot
+plt.boxplot
+pn.geom_box
+From Seaborn gallery
+More Plot Types
+Violin plots (like box, but mean-based)
+Swarm plots (categorical scatter plot)
+Pie (usually best avoid – bar or stacked bar)
+Donut
+Rug (displaying distribution in a margin)
+Learning More
+Class readings
+Textbook
+Seaborn and Matplotlib docs
+Tutorials
+Gallery
+Wrapping Up
+Many types of charts.
+
+Learning good graphics techniques takes time and practice.
+
+Review plotting library galleries!
+Photo by Edgar Chaparro on Unsplash
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Resources<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="../resources/tutorials/Charting/"><span class="doc std std-doc">Notebook</span></a></p></li>
+<li><p><a class="reference external" href="https://seaborn.pydata.org/examples/index.html">Seaborn gallery</a></p></li>
+<li><p><a class="reference external" href="https://seaborn.pydata.org/tutorial.html">Seaborn tutorial</a> — organized topically, <strong>very good resource</strong></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/gallery.html">Matplotlib gallery</a></p></li>
+<li><p><a class="reference external" href="https://plotnine.readthedocs.io/en/stable/gallery.html">Plotnine gallery</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="metrics-and-differences">
+<h2>🎥 Metrics and Differences<a class="headerlink" href="#metrics-and-differences" title="Permalink to this headline">¶</a></h2>
+<p>We talked about the notion of “relative” differences, but what are they?</p>
+<div class="resource video docutils container" id="457472b2-1bb3-455b-9dd4-ad9601830e8b">
+<div class="tabbed-set docutils">
+<input checked="checked" id="3eda04ce-b71c-40b2-9cce-8b65cc4d973f" name="c626f76e-e564-4852-b00a-65cd3859c6e4" type="radio">
+</input><label class="tabbed-label" for="3eda04ce-b71c-40b2-9cce-8b65cc4d973f">
+Video (6m50s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=457472b2-1bb3-455b-9dd4-ad9601830e8b&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/3DXZRowXb42h/info/https457472b2-1bb3-455b-9dd4-ad9601830e8b-544ce784-b9ac-4219-a831-ad9c006d2e16mp4invocationidc2e0082d-a60f-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="866be02b-fdb3-46bd-b66e-039ce2a37f87" name="c626f76e-e564-4852-b00a-65cd3859c6e4" type="radio">
+</input><label class="tabbed-label" for="866be02b-fdb3-46bd-b66e-039ce2a37f87">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173741" data-key=AHCb6UrENZqsRi0>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+STATISTICS AND DIFFERENCES
+Learning Outcomes
+Review statistics (or metrics)
+Compute absolute and relative differences
+Interpret a relative difference
+
+Photo by Franck V. on Unsplash
+Statistics
+We compute various statistics
+Mean
+Median
+Max
+Success rate
+90 %ile
+Count
+Sum
+Many others…
+Often serve as metric for analysis or evaluation
+Comparing Values
+Take two values: population (2018 est.) of
+Boise: 228,790
+Salt Lake City: 200,591
+
+Can compare in two ways:
+Absolute – Boise has 28K more people than SLC
+Relative – Boise has 14.05% more people than SLC
+Absolute Comparison
+Relative Comparison
+Ratio Comparison
+Appropriate Comparison
+Depends on context and problem.
+
+Netflix paid $1M to the team that beat its movie recommender by 10% on their chosen metric
+Difference-in-difference
+Visual Comparison
+Bar charts emphasize relative difference
+
+Point plots emphasize absolute difference
+Also relative difference-in-difference
+Wrapping Up
+There are three primary ways to compare statistics: absolute, relative, and ratio.
+
+Be clear and unambiguous when writing the results of a comparison.
+
+Seek to accurately understand others’ writing.
+Photo by Nick Fewings on Unsplash
+</div>
+</div>
+</div>
+<div class="section" id="charts-from-the-ground-up">
+<h2>🎥 Charts from the Ground Up<a class="headerlink" href="#charts-from-the-ground-up" title="Permalink to this headline">¶</a></h2>
+<p>In this video, I discuss how to design a chart from your questions, goals, and data.</p>
+<div class="resource video docutils container" id="bb921f27-23a5-4103-afff-ad970182fbb2">
+<div class="tabbed-set docutils">
+<input checked="checked" id="2859ea50-b65b-48b0-8e52-f240c0fe427c" name="6d524aa4-61a0-4367-afdd-cf3e22a2bf06" type="radio">
+</input><label class="tabbed-label" for="2859ea50-b65b-48b0-8e52-f240c0fe427c">
+Video (22m14s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=bb921f27-23a5-4103-afff-ad970182fbb2&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/EyFSmG1bL2J4/info/httpsbb921f27-23a5-4103-afff-ad970182fbb2-a99a3566-e841-4af0-9607-ad9c006e1504mp4invocationid5b7bb097-a60f-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="5513220a-5b45-49ab-bd09-815617442811" name="6d524aa4-61a0-4367-afdd-cf3e22a2bf06" type="radio">
+</input><label class="tabbed-label" for="5513220a-5b45-49ab-bd09-815617442811">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173742" data-key=ANGH7yWhHchpLB4>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CHARTS FROM THE GROUND UP
+Learning Outcomes
+Design a chart by thinking first of the questions, goals, and data
+Photo by Ryan Quintal on Unsplash
+What is the Question?
+What question do we want to answer?
+
+How, precisely, did we operationalize it?
+
+What data are we using?
+Specifically, variables
+Example: Titanic Survival
+Question: were passengers in higher classes more likely to survive?
+
+Outcome variable: survival
+Logical variable, 0/1 encoded
+Taking mean yields numeric response!
+Mean is probability of survival (1)
+Also called response variable or dependent variable
+
+Explanatory variable: passage class
+Categorical
+Also called independent variable
+Bar chart
+Showing Relationships
+Most plots show how a numeric variable changes between different values of one or more other variables.
+
+What is the variable to show?
+What do we want to show about it?
+Statistic?
+Distribution?
+How do we want to compare between EV values?
+Even histograms follow this!
+Response: frequency (count, proportion, density)
+Explanatory: value or bin
+Pipeline
+Identifying these informs:
+
+Data processing (e.g. binning, group-aggregate, transform)
+Choice of plot type
+Axes, labels, colors, facets
+Variable Types
+Response is numeric (or transformed to be)
+Categorical → relative frequency
+
+Explanatory can be anything
+Numeric → continuous axis
+Categorical → discrete axis
+Ordinal → discrete axis preserving order; may omit some labels
+One Explanatory Variable
+If EV is continuous: scatter or line
+Scatter plots we sometimes blur response/explanatory
+
+If EV is discrete:
+Bar chart shows statistic, emphasizing relative difference
+Point plot shows statistic, emphasizing absolute difference
+Box or violin plot shows distribution
+Two Explanatory Variables
+Pseudo-3D:
+Contour plot: identify peak(s) &amp; shape
+Heat map: see where high &amp; low points are
+Demonstration
+Two Explanatory Variables
+Pseudo-3D:
+Contour plot: identify peak &amp; shape
+Heat map: see where high &amp; low points are
+
+Other aesthetics for secondary variables:
+color, shape, size
+Occasionally used to indicate second response variable
+
+Titanic by Class and Sex
+More than Two EVs
+Can’t really have more than 1, maybe 2 numeric
+Others can be binned
+
+Facets let us break down the plot by more categorical explanatory variables.
+Facet Plot
+More than Two EVs
+Can’t really have more than 1, maybe 2 numeric
+Others can be binned
+
+Facets let us break down the plot by more categorical explanatory variables.
+
+Pay attention to order. It strongly affects what readers compare.
+Stacking
+Stacking lets us see differences in composition – how do the parts of a whole change?
+
+Stacked bar charts
+Stacked area charts
+
+Can be either raw values or fractions.
+
+
+Transformations
+Sometimes we transform the axis
+Log-10 scale – shows order of magnitude
+Generally don’t do this to bars
+
+Sometimes we transform the data
+Rescale, log, square root
+Normalize by a value
+Be Careful
+Avoid excessive complexity
+Be careful with color (easy to make indistuingishable)
+
+A good graphic reveals the data, and does not distort or obscure
+
+Wrapping Up
+Identify variables and relationships you want to highlight.
+
+Design a plot that illustrates them.
+
+Study plotting library APIs.
+
+
+Photo by Daniel Cheung on Unsplash
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Resources<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="3-6-ChartsFromTheGroundUp/"><span class="doc std std-doc">Supporting notebook</span></a> — code for most of the charts (using Seaborn)</p></li>
+<li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/BoiseState/bookdata-tools/blob/master/LinkageStats.ipynb">Book data statistics notebook</a> — code for the stacked bar charts (using raw Matplotlib)</p></li>
+<li><p>My book experiments have many facet examples — see <a class="reference external" href="https://nbviewer.jupyter.org/github/BoiseState/book-author-gender/blob/master/DataSummary.ipynb">DataSummary</a> and <a class="reference external" href="https://nbviewer.jupyter.org/github/BoiseState/book-author-gender/blob/master/ProfileDataPrep.ipynb">ProfileDataPrep</a>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="plots-in-the-wild">
+<h2>✅ Plots in the Wild<a class="headerlink" href="#plots-in-the-wild" title="Permalink to this headline">¶</a></h2>
+<p>In preparation for Thursday’s class, find a data presentation (plot, table, etc.) in a recent online
+publication, and share it with your team through a post on Piazza (in the ‘discuss’ category) with a
+link, a copy of the image. This can be from a journal paper, a newspaper article, a blog post, or
+another source the class can all access.</p>
+<p>In class we will discuss these plots!</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Don’t spend more than 30 minutes on this assignment.</p>
+</div>
+</div>
+<div class="section" id="finishing-touches">
+<h2>📓 Finishing Touches<a class="headerlink" href="#finishing-touches" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../resources/tutorials/ChartFinishingTouches/"><span class="doc std std-doc">Finishing Touches</span></a> notebook describes how to apply some finishing touches to your plots and save them to files.</p>
+</div>
+<div class="section" id="organizing-and-formatting-notebooks">
+<h2>🎥 Organizing and Formatting Notebooks<a class="headerlink" href="#organizing-and-formatting-notebooks" title="Permalink to this headline">¶</a></h2>
+<p>How should you organize your notebook?
+What makes a good notebook?
+In this video we talk about that!</p>
+<div class="resource video docutils container" id="80e425d4-f295-4f1b-b73a-ad9601830f06">
+<div class="tabbed-set docutils">
+<input checked="checked" id="1f4c0cc7-4e5d-4e45-a643-7aa9db93b4aa" name="f2b0dc5d-16cf-4108-8a0d-df03d439881e" type="radio">
+</input><label class="tabbed-label" for="1f4c0cc7-4e5d-4e45-a643-7aa9db93b4aa">
+Video (16m50s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=80e425d4-f295-4f1b-b73a-ad9601830f06&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/9NoTpP8yQAi3/info/https80e425d4-f295-4f1b-b73a-ad9601830f06-917f40b9-6e6e-4fdb-92ac-ad9c006eabefmp4invocationid3832aaf4-a60f-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="e126d60e-00cb-475a-ba60-53290d0529fa" name="f2b0dc5d-16cf-4108-8a0d-df03d439881e" type="radio">
+</input><label class="tabbed-label" for="e126d60e-00cb-475a-ba60-53290d0529fa">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2173736" data-key=APudMYTIAHl2Ao8>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+ORGANIZING NOTEBOOKS
+Learning Outcomes
+Use Markdown document structure to organize a notebook
+Use Jupyter and Markdown features to format text in a notebook
+Create a notebook that clearly tells the story of a data analysis
+Photo by Kelly Sikkema on Unsplash
+Notebooks as Documents
+The notebook is a document – it is meant to be read
+
+Some structure imposed by code ordering
+
+Factor particularly complex computations out of the notebook!
+Notebook Components
+Notebooks have two types of cells
+
+Code cells, with Python code and its output
+Markdown cells, containing formatted text
+Heading cells are just Markdown cells with headings
+Code Cells
+Keep individual cells relatively short
+A few lines
+One function
+If helpful, show results after cell
+Do this a lot in development
+Too much can make it hard to read the notebook – clean up to ones that help the reader understand
+Good to show after:
+Loading data
+Complex manipulation
+Markdown Cells
+Markdown is a text syntax for simple markup
+
+Inline formatting
+**bold**
+*italics*
+`code` (use this one – it’s useful for function names, etc.)
+LaTeX math: $y = \beta_0 + beta_1 x$
+Markdown Block Elements
+Paragraphs – separated by blank lines
+Bulleted lists – lines start with ‘-’ or ‘*’
+Numbered lists – lines start with ‘1.’, ‘2’. Etc.
+Code blocks – indent 4 spaces, or put between fences (``` lines)
+Block mathematics – $$f(x) = x^2$$ (double-$ means block)
+Headings
+Markdown headings are lines starting with #, ##, etc.
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+These do not mean “big and bold” – they mean “section heading”
+
+Nest them properly
+Start notebook with H1
+All other headings 2 or lower
+Short – section headers, not sentences
+If they wrap, rethink
+Writing Text
+Use the document to tell a story
+What is the goal?
+What is the data? What do we know about it going in?
+Why are we doing each piece of the analysis?
+What is the approach? Don’t repeat the code, but explain the code’s conceptual operation, esp. if not obvious.
+What do we learn from it? (when appropriate, which is most of the time)	
+Around a Result
+What are we going to do?
+If not immediately clear, how are we going to do it?
+&lt;code&gt;
+&lt;results&gt;
+What do we observe?
+Document Structure
+Title and Intro
+What is the notebook for?
+Where does the data come from?
+If appropriate, what’s the research question(s)?
+Set up environment (python libraries?)
+Load data (sometimes merged with setup)
+Show data tables!
+Perform analysis (more sections as needed)
+Summarize / conclude
+Document Maintenance
+You’ll write a lot of cells &amp; outputs while debugging
+Clean up before submitting / sharing
+Remove dead ends, extraneous outputs
+Consider supplementary notebook with discarded alternatives
+Re-run top-to-bottom (Kernel → Restart and Rerun All)
+While editing, code can get out-of-order, and may break!
+Audience and Purpose
+Know your audience and your purpose
+Teaching notebooks (for this class) differ from research notebooks!
+You, your supervisor, and the public are all different!
+Not all audiences are well-served by notebooks
+Often need separate final report
+In notebook, write copies of plots to files
+Wrapping Up
+The notebook is a document.
+
+Take advantage of that structure – use it to tell the story of your analysis.
+
+Pay attention to class examples.
+Photo by Bookblock on Unsplash
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Resources<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://guides.github.com/features/mastering-markdown/">GitHub Markdown guide</a> — most of this syntax works in Jupyter as well</p></li>
+<li><p><a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html">Jupyter’s Markdown docs</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="notebook-formatting-checklist">
+<h2>📃 Notebook Formatting Checklist<a class="headerlink" href="#notebook-formatting-checklist" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../resources/notebook-checklist/"><span class="doc std std-doc">notebook checklist</span></a> will help you make sure your notebooks are well-organized.</p>
+</div>
+<div class="section" id="week-3-quiz">
+<h2>🚩 Week 3 Quiz<a class="headerlink" href="#week-3-quiz" title="Permalink to this headline">¶</a></h2>
+<p>The Week 3 quiz will be over all of the assigned material for this week, and is in Canvas.</p>
+<p>The sections below this are for your further study and practice.</p>
+</div>
+<div class="section" id="textbook">
+<h2>📖 Textbook<a class="headerlink" href="#textbook" title="Permalink to this headline">¶</a></h2>
+<p>This week primarily uses Chapter 9 of <a class="reference internal" href="../resources/documentation/#book-p4da" title="p4da"><cite>📖 Python for Data Analysis</cite></a>, with some material from chapters 8 and 10.</p>
+</div>
+<div class="section" id="futher-reading">
+<h2>📚 Futher Reading<a class="headerlink" href="#futher-reading" title="Permalink to this headline">¶</a></h2>
+<p>For further study on these topics, see:</p>
+<ul class="simple">
+<li><p>The Seaborn and Matplotlib galleries</p></li>
+<li><p><cite>The Visual Display of Quantitative Information</cite> by Edward R. Tufte</p></li>
+<li><p><cite>W. E. B. Du Bois’s Data Portraits: Visualizing Black America</cite>, edited by Whitney Battle-Baptiste and Britt Rusert</p></li>
+</ul>
+</div>
+<div class="section" id="practice">
+<h2>✅ Practice<a class="headerlink" href="#practice" title="Permalink to this headline">¶</a></h2>
+<p>Doing this work well takes a lot of practice.  Create some notebooks and experiment with drawing interesting charts from some of the data sets we have been exploring, or new data you find!
+The HETREC data has a number of variables of different types that are useful for practicing manipulations and visualizations.</p>
+</div>
+<div class="section" id="assignment-1">
+<h2>📩 Assignment 1<a class="headerlink" href="#assignment-1" title="Permalink to this headline">¶</a></h2>
+<p>Assignment 1 is due on <strong>Sunday, Sep. 12</strong> at the end of the day (11:59 pm).</p>
+<p>The <a class="reference internal" href="../resources/tutorials/"><span class="doc std std-doc">tutorial notebooks</span></a> are going to be very useful for this assignment.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./week3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../week2/2-6-DescribingDistributions/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Describing Distributions</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="3-6-ChartsFromTheGroundUp/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Drawing Charts</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

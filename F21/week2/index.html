@@ -1,0 +1,2551 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 2 — Description (8/30–9/3) &#8212; CS 533 Fall 2021</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabinsert.js"></script>
+    <script src="../_static/urlclean.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "mdekstrand/cs533-web");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="copyright" title="Copyright" href="../copyright/" />
+    <link rel="next" title="Introducing Pandas" href="2-2-PandasBasics/" />
+    <link rel="prev" title="Data Types and Operations" href="../week1/1-7-types-operations/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CS 533 Fall 2021</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../">
+   CS 533 Homepage
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Course Info
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus/">
+   Syllabus
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule/">
+   Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../glossary/">
+   Glossary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Content
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week0/">
+   Week 0 — Pre-Class Welcome
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week1/">
+   Week 1 — Questions (8/23–27)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/DemoNotebook/">
+     Demo Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week1/1-7-types-operations/">
+     Data Types and Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   Week 2 — Description (8/30–9/3)
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-2-PandasBasics/">
+     Introducing Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-4-AggregatesAndGroups/">
+     Aggregates and Groups
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-6-DescribingDistributions/">
+     Describing Distributions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week3/">
+   Week 3 — Presentation (9/6–10)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week3/3-6-ChartsFromTheGroundUp/">
+     Drawing Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week4/">
+   Week 4 — Inference (9/13–17)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week5/">
+   Week 5 — Filling In (9/20–24)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week6/">
+   Week 6 — Two Variables (Sep. 27–Oct. 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week7/">
+   Week 7 — Getting Data (Oct. 4–8)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week8/">
+   Week 8 — Regression (Oct. 11–15)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week9/">
+   Week 9 — Models &amp; Prediction (Oct. 18–22)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week10/">
+   Week 10 — Classification (10/25–29)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week11/">
+   Week 11 — More Modeling (11/1–5)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week12/">
+   Week 12 — Text (11/8–12)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week13/">
+   Week 13 — Unsupervised (11/15–19)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week14/">
+   Week 14 — Workflow (11/29–12/3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week15/">
+   Week 15 — What Next? (12/6–10)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/">
+   Rubric
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../assignments/A0/">
+   Assignment 0
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../assignments/A0/A0-Notebook/">
+     CS 533 Assignment 0
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A1/">
+   Assignment 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A2/">
+   Assignment 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A3/">
+   Assignment 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A4/">
+   Assignment 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A5/">
+   Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A6/">
+   Assignment 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/A7/">
+   Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/software/">
+   Software and Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/documentation/">
+   Documentation &amp; Reading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/data/">
+   Data Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/notebook-checklist/">
+   Notebook Checklist &amp; Guide
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/probability/">
+   Notes on Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/problems/">
+   Common Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/onyx/">
+   Remotely Using Onyx
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/git-resources/">
+   Git Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../resources/environments/">
+   Software Environments
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../resources/tutorials/">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/AdvancedPipeline/">
+     Advanced Pipeline Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BooleanSeries/">
+     Tricks with Boolean Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/BuildingData/">
+     Building Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ChartFinishingTouches/">
+     Finishing Touches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Charting/">
+     Drawing Charts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/ClusteringExample/">
+     Clustering Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Correlation/">
+     Correlation and Basic Linear Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/CriticScores/">
+     Charting Movie Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Distributions/">
+     Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/EmpiricalProbabilities/">
+     Empirical Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FetchCHIPapers/">
+     Bibliography Fetch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/FunWithNumbers/">
+     Fun with Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Functions/">
+     Writing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Indexing/">
+     Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/LogitRegressionDemo/">
+     Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MLTimeSeries/">
+     MovieLens Time Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MinimizeRegression/">
+     Rebuilding Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MissingData/">
+     Missing Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/MovieDecomp/">
+     Movie Matrix Decomposition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OneSample/">
+     One Sample
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/OverfittingSimulation/">
+     Overfitting Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PCADemo/">
+     PCA Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/PenguinSamples/">
+     Sampling and Testing the Penguins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Regressions/">
+     Regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Reshaping/">
+     Reshaping Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SamplingDists/">
+     Sampling Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitLogistic/">
+     SciKit Logistic Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitPipeline/">
+     SciKit Pipeline and Transform Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitRegression/">
+     SciKit-Learn Linear Regression Demo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SciKitTransform/">
+     SciKit Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Selection/">
+     Selecting Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/Sessions/">
+     Sessionization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/SpamFilter/">
+     Spam Detector Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/TuningExample/">
+     Tuning Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resources/tutorials/UsingTheCensus/">
+     Using Census Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Site Details
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../copyright/">
+   Copyright and License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/week2/index.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mdekstrand/cs533-web"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mdekstrand/cs533-web/issues/new?title=Issue%20on%20page%20%2Fweek2/index.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/mdekstrand/cs533-web/edit/main/week2/index.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#content-overview">
+   🧐 Content Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deadlines">
+   📅 Deadlines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#describing-data">
+   🎥 Describing Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-dataset">
+   📃 What is a Dataset?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#movielens-data">
+   🌠 MovieLens Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-basics">
+   🎥 Pandas Basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-and-types">
+   🎥 Variables and Types
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datasheets-for-datasets">
+   📃 Datasheets for Datasets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#textbook-chapters">
+   📖 Textbook Chapters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#groups-and-aggregates">
+   🎥 Groups and Aggregates
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#descriptive-statistics">
+   🎥 Descriptive Statistics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#describing-distributions">
+   🎥 Describing Distributions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-sources-and-bias">
+   🎥 Data Sources and Bias
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#week-2-quiz">
+   🚩 Week 2 Quiz
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#codings-and-encodings">
+   🎥 Codings and Encodings
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tutorial-notebooks">
+   📓 Tutorial Notebooks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practice">
+   ✅ Practice
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignment-1">
+   📩 Assignment 1
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-2-description-8-309-3">
+<span id="week2"></span><h1>Week 2 — Description (8/30–9/3)<a class="headerlink" href="#week-2-description-8-309-3" title="Permalink to this headline">¶</a></h1>
+<p>The learning outcomes for this week are:</p>
+<ul class="simple">
+<li><p>To load a data file into Pandas and describe its basic structural characteristics.</p></li>
+<li><p>To identify the type of a variable and descriptive statistics appropriate to it.</p></li>
+<li><p>To describe the distribution of a variable numerically and visually.</p></li>
+<li><p>To describe how data was collected.</p></li>
+<li><p>To reason about limitations of the collection of data.</p></li>
+</ul>
+<p>This week’s material uses chapters 5 and 10 of <a class="reference internal" href="../resources/documentation/#book-p4da" title="p4da"><cite>📖 Python for Data Analysis</cite></a>.</p>
+<div class="section" id="content-overview">
+<h2>🧐 Content Overview<a class="headerlink" href="#content-overview" title="Permalink to this headline">¶</a></h2>
+<div class="module-content docutils">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><strong>Element</strong></th>
+<th class="head"><strong>Length</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#b0f572b6-cc0c-41ec-adee-ad9000efd57c"><span>🎥 Describing Data</span></a></p></td>
+<td><span>6m27s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#reading-What-is-a-Dataset"><span>📃 What is a Dataset?</span></a></p></td>
+<td><span>1950 words</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#d6054cf9-e3dc-4f1e-8d4e-ad9000efd604"><span>🎥 Pandas Basics</span></a></p></td>
+<td><span>8m26s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#afc96ff2-0043-4387-af9b-ad9000efd6b0"><span>🎥 Variables and Types</span></a></p></td>
+<td><span>15m56s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#datasheets"><span>📃 Datasheets for Datasets</span></a></p></td>
+<td><span>4100 words</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#4c5b7bbb-dc57-4484-b160-ad9000efd740"><span>🎥 Groups and Aggregates</span></a></p></td>
+<td><span>14m12s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fd7d2c53-752b-4844-9919-ad9000efd7f2"><span>🎥 Descriptive Statistics</span></a></p></td>
+<td><span>16m32s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#5b6fb252-cd60-478b-aaf7-ad9000efd8b9"><span>🎥 Describing Distributions</span></a></p></td>
+<td><span>10m17s</span></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#824f231f-7cda-42a5-917c-ad9000efd981"><span>🎥 Data Sources and Bias</span></a></p></td>
+<td><span>8m46s</span></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#9c3e036c-fc72-446f-8b20-ad9000efda2e"><span>🎥 Codings and Encodings</span></a></p></td>
+<td><span>8m57s</span></td>
+</tr>
+</tbody>
+</table>
+<p><span>This week has </span><strong>1h30m</strong><span> of video and </span><strong>6050 words</strong><span> of assigned readings.</span><span> This week’s videos are available in a </span><a class="panopto reference external" href="https://boisestate.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22054cd8f5-5bbc-4050-b792-ad9000ef9fca%22"><span>Panopto folder</span></a><span> and as a </span><a class="panopto podcast reference external" href="https://boisestate.hosted.panopto.com/Panopto/Podcast/Podcast.ashx?courseid=054cd8f5-5bbc-4050-b792-ad9000ef9fca&amp;type=mp4"><span>podcast</span></a><span>.</span></p>
+</div>
+</div>
+<div class="section" id="deadlines">
+<h2>📅 Deadlines<a class="headerlink" href="#deadlines" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Week 2 quiz at <strong>8am on Thursday</strong></p></li>
+</ul>
+</div>
+<div class="section" id="describing-data">
+<h2>🎥 Describing Data<a class="headerlink" href="#describing-data" title="Permalink to this headline">¶</a></h2>
+<p>This video introduces the week’s topic: describing data and data sets.
+We discuss the pipeline by which phenomena become a data set.</p>
+<div class="resource video docutils container" id="b0f572b6-cc0c-41ec-adee-ad9000efd57c">
+<div class="tabbed-set docutils">
+<input checked="checked" id="cdfd55de-14f4-4f7d-9785-ba46baf84cb9" name="287f42ba-4ca9-4f92-80ad-b7eff0d145aa" type="radio">
+</input><label class="tabbed-label" for="cdfd55de-14f4-4f7d-9785-ba46baf84cb9">
+Video (6m27s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=b0f572b6-cc0c-41ec-adee-ad9000efd57c&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/6pzE86Qr0AvK/info/httpsb0f572b6-cc0c-41ec-adee-ad9000efd57c-c1d33aa2-63c8-413c-8ada-ad91011fc362mp4invocationida92dc26f-2e09-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="d051d20c-74e9-48ee-9640-8f9b2f74bb5a" name="287f42ba-4ca9-4f92-80ad-b7eff0d145aa" type="radio">
+</input><label class="tabbed-label" for="d051d20c-74e9-48ee-9640-8f9b2f74bb5a">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2172971" data-key=AGb5_joj5Xdvfk0>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+DESCRIBING DATA
+Learning Outcomes (Week)
+To load a data file into Pandas and describe its basic structural characteristics.
+To identify the type of a variable and descriptive statistics appropriate to it.
+To describe the distribution of a variable numerically and visually.
+To describe how data was collected.
+To reason about limitations of the collection of data.
+Photo by Michael Aleo on Unsplash
+What is data?
+Oxford:
+data, n.: Facts and statistics collected together for reference or analysis.
+
+Where does it come from? Where does it go?
+Things
+“Raw” Data
+Data Set
+Inferences
+Answers
+Phenomena / Experiment
+Cleaning Things Up
+Data
+Data set
+Photo by Dan-Cristian Pădureț on Unsplash
+Photo by Brian Kostiuk on Unsplash
+Data sets
+Many definitions, see the reading.
+
+A set of data that is
+Collected or curated
+For a purpose
+Mostly ready-to-use
+Documented
+Examples
+Measure the ground speed of three-toed sloths
+Data set: measured time for sloths moving 5 meters
+May include other sloth attributes (height, weight, etc.)
+
+Movie ratings
+Thing: people enjoy movies
+Phenomena: watch and rate movies
+Data: user-provided ratings of movies
+What We Need To Know
+How much data do we have?
+What kind(s) of data do we have?
+What is the data about?
+How was the data collected?
+How was the data recorded?
+What biases might the data have?
+What do we know about the data generating process?
+
+Reading discusses more!
+Wrapping Up
+Data sets arise from curating or collecting data, resulting from observations, for a purpose.
+
+There are layers between what we want to study and the data we have.
+
+Do the reading!
+Photo by Rick Mason on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>Welcome back. It's the beginning of the material for week two in which we're going to be talking about describing data.</li>
+<li>And so the learning outcomes for this week are for you to be able to actually loaded data,</li>
+<li>file independence and describe its basic structural characteristics.</li>
+<li>How big is the data file? For example, what data types are it?</li>
+<li>We want to be able to identify the type of a variable and descriptive statistics that are appropriate to that variable.</li>
+<li>We also want to be able to describe the distribution of a variable,</li>
+<li>to describe how data was collected and to start to reason about the limitations of that collection process and of the representation of data.</li>
+<li>So before we get into describing data, I want to talk a little bit what is the data that we're talking about?</li>
+<li>Let's start just with a definition from Oxford Dictionary. That data, facts or statistics collected together for reference or analysis.</li>
+<li>That's a good enough definition for what we're going to be talking about.</li>
+<li>So we have it's some data points, some facts of some kind or another that have been that have been assembled or collected together.</li>
+<li>So. Where data comes from. In the broader scheme of what we're trying to do is there's a lot of ways to think about it.</li>
+<li>There's a lot of philosophical questions about what data is and where it comes from.</li>
+<li>But for our purpose, we can think about it in terms of there is some.</li>
+<li>There's something that we want to learn about.</li>
+<li>It might be objects themselves or entities that maybe want to learn something about people or animals or something.</li>
+<li>It might be a process like a social process or a natural process that we want to learn about.</li>
+<li>But that that thing, that conceptual thing results in some kind of a phenomena.</li>
+<li>Either a naturally occurring phenomena that we can observe or an experiment.</li>
+<li>And I want to make that we can use to to observe and elucidate what it is that we're looking at.</li>
+<li>I want to make this distinction here between the thing and what we can observe,</li>
+<li>because it might be that our observations are a layer removed from the thing that we're trying to study.</li>
+<li>For example. It's impossible to observe anything about somewhat directly observe anything about someone's internal mental state.</li>
+<li>But we can make observations of what they do or of what they tell us about what they're thinking and.</li>
+<li>Those observations really valuable, but it's important to maintain the distinction that what we observe, if someone tells us they are feeling happy.</li>
+<li>That observation is just that. They told us they are feeling happy. It's not directly the underlying mental state.</li>
+<li>We have some phenomenon or experiment that then produces raw data that direct what was observed or what was measured as a result of this process.</li>
+<li>The raw data is then transformed, cleaned up, documented and labeled to produce a data set that is basically ready to use for some purpose.</li>
+<li>We then use that data set to make inferences or analysis or whatever else we're going to do,</li>
+<li>which hopefully then give us answers to what it is that we're trying to study, at least partial answers, at least some answers.</li>
+<li>But we have these multiple steps here. We have the thing we could observe. We had the observations themselves.</li>
+<li>We then have the collection and organization and preparation of the observations into something that's usable</li>
+<li>for an inference task or a prediction task or whatever is that we're trying to do with our data science tool.</li>
+<li>One way to summarize it is that the data is the messy pile. The data set is when it's cleaned up and it's ready for us to actually be able to use it.</li>
+<li>So there's a lot of. There's a number of definitions of a data set. One of the readings that I've assigned goes over some of those definitions.</li>
+<li>But the common themes that are widely used across the definitions is that it's data that's collected or curated for a purpose.</li>
+<li>It's mostly ready to use and it's documented for that purpose or for that task.</li>
+<li>That doesn't mean it's the only purpose or task that it can be used for.</li>
+<li>But it usually it was created or assembled for some particular purpose or task.</li>
+<li>It's documented in the context of that. So when we get some data.</li>
+<li>Whether it's raw data, whether it is a processed and ready, ready to use data set, there's a few things that we need to know.</li>
+<li>One is we need to know how much data we have, how many records are there, how many columns, how big is the file?</li>
+<li>What kinds of data do we have? We're going to talk a lot more about we're going to talk more about a number of these.</li>
+<li>What is the data about? What are the things, the entities, the objects that the data is about?</li>
+<li>How was it collected? How was it recorded?</li>
+<li>The biopsy, the data might there might be bias in the selection process.</li>
+<li>The recording process, et cetera, for the for the data.</li>
+<li>We want to know what what is it that we do know about the process that it will be called the data generating process.</li>
+<li>And the data generating process is the combination of the underlying phenomenon,</li>
+<li>the observation method can ism and actually recording his observations into data.</li>
+<li>The reading, as I said, the readings that we have for this week discuss this more.</li>
+<li>So to wrap up datasets arise from curating or collecting data often result from some observations for a particular purpose.</li>
+<li>There are layers between the thing that we actually want to study in the data that we have available.</li>
+<li>And this week we're going to be leveraging the reading.</li>
+<li>So the first week, it was primarily the videos that the textbook and the Python tutorials to supplement and get you more of an on ramp this week.</li>
+<li>The readings are a fairly fundamental piece of what it is that we're going to be discussing and working on.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="what-is-a-dataset">
+<h2>📃 What is a Dataset?<a class="headerlink" href="#what-is-a-dataset" title="Permalink to this headline">¶</a></h2>
+<p id="reading-What-is-a-Dataset">Read <a class="reference external" href="https://blog.ldodds.com/2013/02/09/what-is-a-dataset/">What is a Dataset?</a> by Leigh Dodds.
+This article looks at how the term ‘data set’ is defined by different communities, and the common themes to these definitions.</p>
+<p>This article does reference some concepts we haven’t yet gotten to.
+For example, when they talk about whether the data has been labeled for a particular task, they are referring to labels we would use for a prediction or classification task, which we will discuss in a few weeks when we talk about regression and classification.
+Don’t feel like you need to understand every concept in this article in your first read; understand what you can, and we’ll return to it.</p>
+</div>
+<div class="section" id="movielens-data">
+<h2>🌠 MovieLens Data<a class="headerlink" href="#movielens-data" title="Permalink to this headline">¶</a></h2>
+<p>Download the <a class="reference external" href="https://grouplens.org/datasets/movielens/">MovieLens 25M Dataset</a>.  The Zip file is 250MB, and the files take about 1.2GB uncompressed.</p>
+<p>You can use the smaller 20M or <code class="docutils literal notranslate"><span class="pre">latest-small</span></code> versions for practice if you want to play with a smaller version.</p>
+<p>I will be using this dataset in the demo notebooks for this week.</p>
+<div class="admonition-data-citation admonition">
+<p class="admonition-title">Data Citation</p>
+<p>Harper, F. M. and Konstan, J. A. (2015) ‘The MovieLens Datasets: History and Context’, <cite>ACM Transactions on Interactive Intelligent Systems</cite>, 5(4), pp. 19:1–19:19.
+DOI <a class="reference external" href="http://dx.doi.org/10.1145/2827872">10.1145/2827872</a>.</p>
+<p>This paper is <strong>not</strong> an assigned reading — it is here for your information.</p>
+</div>
+</div>
+<div class="section" id="pandas-basics">
+<h2>🎥 Pandas Basics<a class="headerlink" href="#pandas-basics" title="Permalink to this headline">¶</a></h2>
+<p>In this video, I introduce Pandas and the Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> data structure.
+We see how to load a CSV file and inspect the resulting data frame.</p>
+<div class="resource video docutils container" id="d6054cf9-e3dc-4f1e-8d4e-ad9000efd604">
+<div class="tabbed-set docutils">
+<input checked="checked" id="0c5510df-268a-47e0-b56b-de842ba8f4c3" name="e8ba020a-a47f-4266-aaa2-f5f81882c24c" type="radio">
+</input><label class="tabbed-label" for="0c5510df-268a-47e0-b56b-de842ba8f4c3">
+Video (8m26s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=d6054cf9-e3dc-4f1e-8d4e-ad9000efd604&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/bjt6U7wRKq2C/info/httpsd6054cf9-e3dc-4f1e-8d4e-ad9000efd604-07520140-80a4-4365-81c8-ad9101202ca1mp4invocationidd9304d24-2f09-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video I'm going to introduce loading a data file into pandas and actually starting to see what the shape and the structure of the data is.</li>
+<li>So a lot of the data files that we're going to the learning outcomes of this video are for you to be able to import Python libraries,</li>
+<li>little data file on the pandas, examine the size and data types of a data frame,</li>
+<li>and understand the relationship, particularly between a data frame and a series.</li>
+<li>And we're going to start introducing the concept of an index. Going to see a lot more about that in a later video.</li>
+<li>So most useful Python Modu functions are in modules.</li>
+<li>There are some functions that are just built in, but most of the time we're going to need functions in various modules.</li>
+<li>And before we can use a module, we have to import it.</li>
+<li>So some of the standard imports, basically every one of our notebooks is going to have imports at the top.</li>
+<li>Not to import, not umpired pandas. We've got our basic scientific computing facilities.</li>
+<li>And common practice is to import these with aliases, NDP and PD, so that we can reach refer to them later by shorter names.</li>
+<li>A lot of the files we've been working with, particularly early on,</li>
+<li>are distributed in a format called comma separated value and comma separated value file is.</li>
+<li>It's consists of one line per record and the values are separated by commas.</li>
+<li>That's where it gets its name. So you've got a comma between the different values.</li>
+<li>Also, sometimes in this case it does. The file will have a header.</li>
+<li>So the first row is the names of the columns. It doesn't always have a header, but often it does.</li>
+<li>And it's very convenient when it does. So Pan does lets us read a CSB file through a function called Read CSP.</li>
+<li>And so we call reads ESV and we give it the Amelle twenty five M slash movies.</li>
+<li>That CSB file, which is from the data set that I have you download in the information for the week.</li>
+<li>We get the. We get. A data frame, and as the convention that I showed you in video last week, I,</li>
+<li>I then put just right the variables right, the variable I saves it ends that we can immediately see at Pynt Jupiter.</li>
+<li>Format's a panda's data frame nicely and it shows us the first five rows.</li>
+<li>Shows us the first five rows, the last five rows. We've got an ellipsis in the middle indicating that there's a lead of data.</li>
+<li>It also tells us how big it is. So sixty two thousand rows, three columns.</li>
+<li>So they immediately get one of the questions I said, do we want to know is how much data we have.</li>
+<li>Right here. We already have that answer. We've got. Sixty two thousand rows and three columns.</li>
+<li>So another way we can look at the data frame is we can use the info method and the info method will print out information about the data frame.</li>
+<li>And particularly we're going to see. The it tells us what the index is.</li>
+<li>We have a range index, it tells us the information about the different columns.</li>
+<li>And so we've said that we have a range index from a range index goes from.</li>
+<li>Zero to sixty two thousand.</li>
+<li>So we've got zero to sixty two thousand four hundred and twenty two for sixty two thousand four hundred and twenty three entries,</li>
+<li>a range index just means we're looking up the data. Bye bye.</li>
+<li>Index zero three minus one. We have three columns. One of them movie I.D. is an inch sixty 64 and the other two are object.</li>
+<li>These store strings objects is how so Panda's data types to store a string.</li>
+<li>It can't just store the string directly in the column number. The the num pi arrays we talked about last week.</li>
+<li>They store data compactly, but strings it has to store a pointer to the string.</li>
+<li>And so PANDAS uses that array of extorts pointers to objects that can be any object.</li>
+<li>We happen to know their strengths in this case.</li>
+<li>And we have, as I said, sixty two thousand four hundred and twenty three rows answers to our initial question.</li>
+<li>How much data do we have? Sixty two thousand four hundred twenty three rows each with three columns.</li>
+<li>And we also have. We have. And what kinds of data do we have?</li>
+<li>We have a movie idea that's an integer and we have title and genres that are strings.</li>
+<li>What is the data about? The data is about movies and each row is a movie and the data sheets for data, streets for data sets.</li>
+<li>Paper talks about these as terms of these are instances and they represent speech in each row is an instance and it represents something.</li>
+<li>So in this case, the row is information about a movie and it represents a movie.</li>
+<li>So each column of the data frame is a series.</li>
+<li>As we mentioned last week, a series is an array that has an index associated with it.</li>
+<li>We get a column by accessing the data frame like a dictionary. You can treat a data frame basically as a dictionary that contains columns.</li>
+<li>And so we can get the movie, we can we can get the title column out of the movies data frame.</li>
+<li>And it shows us the titles, the bottom. It says this series has a name title length sixty two thousand four hundred twenty three.</li>
+<li>It's indexed from zero to sixty two thousand four hundred twenty two. And it has a D type of object.</li>
+<li>We're going to learn a lot more about indexes in another video. But a series, as I said, is an array with an index.</li>
+<li>All columns, the data frame share the same index. That's an important link between the different columns.</li>
+<li>There enter data from. So let's load another frame up the ratings frame.</li>
+<li>We can look down at its info. It has four columns.</li>
+<li>It has twenty five million instances. This is why this is called the movie lens.</li>
+<li>Twenty five million data set. It contains twenty five million ratings.</li>
+<li>Just over twenty five million. Twenty five million. Ninety four.</li>
+<li>And each row contains a user I.D. that's an integer and 60 for a movie I.D. that's also an integer, a rating that's a floating point value float 64,</li>
+<li>which is double precision floating point and a timestamp, which is which is also an integer of type and 64.</li>
+<li>The whole thing's a six hundred and twenty three megabytes of memory. Remember, there's not a plus here.</li>
+<li>If you remember, the movies had a plus after that. That's because by default, it just measures the memory taken up by the panda's data frame itself.</li>
+<li>If a column has an object type, it does not measure the size of the objects.</li>
+<li>So for movies, that was an underestimate because we have all these strings. It was not measuring how much memory is taken up by the strings.</li>
+<li>But here we don't have any strings. We don't have any other object types. It's just insane floats.</li>
+<li>So it can tell us directly. This data frames take seven hundred and sixty two point nine megabytes.</li>
+<li>So data can also refer to other data. So ratings are instances.</li>
+<li>This rating file we just loaded. Ratings are instances themselves. But but each connects a user to a movie.</li>
+<li>So we have the rating. But it also references to other kinds of entities or objects, users and movies.</li>
+<li>The rating doesn't just exist on its own, but it's provided by a user for a movie.</li>
+<li>Is work a lot like foreign keys and relational databases? We're going to see later how to do a merge so that we can actually, say,</li>
+<li>link ratings to the to the the movie information that they're associated with.</li>
+<li>So to wrap up a data frame consists of columns. Each column is a series, an array with an index.</li>
+<li>We can quickly find out how many rows, how many there are, and that in a data frame.</li>
+<li>The instances of the data, we can find out what columns there are, what data types those columns.</li>
+<li>Have we talking later this week about more things we can do with that and also more about understanding what the data being stored in these types is.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="2-2-PandasBasics/"><span class="doc std std-doc">Notebook</span></a> (used for slides as well)</p></li>
+<li><p>Textbook section 5.1</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="variables-and-types">
+<h2>🎥 Variables and Types<a class="headerlink" href="#variables-and-types" title="Permalink to this headline">¶</a></h2>
+<p>In this video, we learn the different types of data (<em>variables</em>) that we will encounter.</p>
+<div class="resource video docutils container" id="afc96ff2-0043-4387-af9b-ad9000efd6b0">
+<div class="tabbed-set docutils">
+<input checked="checked" id="417e8a70-a653-4fe0-9b20-3151571400bf" name="f941001a-014c-4625-98ec-949e05b2ca56" type="radio">
+</input><label class="tabbed-label" for="417e8a70-a653-4fe0-9b20-3151571400bf">
+Video (15m56s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=afc96ff2-0043-4387-af9b-ad9000efd6b0&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/KrHGcCnSxkyI/info/httpsafc96ff2-0043-4387-af9b-ad9000efd6b0-753c0fcd-b2eb-4f7d-8d63-ad9101272f10mp4invocationidc1ea84bb-2f09-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="2adf9bde-164b-4d4d-a561-0e82a79e9be6" name="f941001a-014c-4625-98ec-949e05b2ca56" type="radio">
+</input><label class="tabbed-label" for="2adf9bde-164b-4d4d-a561-0e82a79e9be6">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2172975" data-key=AEdM3U338m0PRso>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+VARIABLES, OBSERVATIONS, AND TYPES
+Learning Outcomes
+Know the relationship between Pandas structures and statistical variables
+Identify the type of a statistical variable
+Photo by Fabio Santaniello Bruun on Unsplash
+Things
+“Raw” Data
+Data Set
+Inferences
+Answers
+Phenomena / Experiment
+Data Pipeline
+Observations
+An observation (sometimes called a sample)
+Of the values of one or more variables
+Pertaining to a single object/instance
+Stored in Pandas as a DataFrame
+Variables are columns
+Data: Palmer Penguins
+Penguin Variables
+Species: penguin species (Adelie, Gentoo, Chinstrap)
+Island: island measured (3 options)
+BillLength: length of bill (mm)
+BillDepth: depth of bill (mm)
+FlipLength: length of flipper (mm)
+BodyMass: penguin body mass (g)
+Sex: penguin sex (M or F)
+
+Each about one penguin
+Continuous Variables
+Discrete Variables
+A discrete variable takes on distinct values
+Can have values with no intermediates
+Might not even have order
+Basically all other types of data!
+Many types (next slides)
+
+Stored as: lots of things
+Integer
+Integers are discrete
+Counts, etc.
+Order (4 &lt; 5)
+Example: number of penguins measured
+Often treated continuously, to e.g. compute means
+Average number of cats per cat-owning household (1.8)1
+Stored as: int, sometimes float
+
+1 From American Veterinary Medical Association U.S. Pet Ownership Statistics
+Categorical
+Variable that takes on one of a fixed set of unordered values
+Can compare for equality
+Cannot sort or do arithmetic
+Can sort for convenience, but reflects convention, not meaning
+Example: species (Adelie, Gentoo, Chinstrap)
+Example: user (userId in MovieLens)
+Stored as: string (object), int, pandas Category
+Boolean / Logical
+Variable that is True or False
+Special case of categorical
+Usually stored as int or bool (which is a type of int)
+Ordinal
+Variable that takes on one of a fixed set of ordered values
+Can sort, compare for inequality
+Example: movie ratings (1–5 stars)
+Example: class grades
+Example: Likert scale (strongly agree – strongly disagree)
+Really can’t do arithmetic
+But we sometimes do anyway
+Stored as: int, float, string (with externally-defined order), Pandas Category (in ordered mode)
+Other Types
+Time – usually continuous
+Text – categorical-ish, usually converted to categorical or count
+Images – matrix of ints or reals, will extract features
+Money – often stored as int or float, but be very careful
+Pandas Type Insufficient
+Knowing the Python/NumPy/Pandas type is not sufficient
+
+What is an ‘int64’?
+Categorical? E.g. MovieLens userId, movieId
+Continuous measured with integer precision?
+Ordinal?
+Logical 0/1?
+
+Integers with missing values load as floats!
+A Bit About Entities
+What are the things being observed?
+Databases: we call these entities
+Sometimes straightforward: penguins
+Sometimes complex and linked
+Ratings
+About movies
+# of ratings could be a variable for a movie!
+Wrapping Up
+Many kinds of variables, broadly divided into continuous and discrete.
+
+Conceptual variable types do not map 1:1 to Pandas types.
+
+Need to be documented!
+Photo by Omer Salom on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, I want to talk with you about variables and observations and type,</li>
+<li>so in the previous video we saw how to load a data file in the pandas, how to see how many rows we have, what python types of data.</li>
+<li>But this video, we're going to go from the python types, the conceptual types,</li>
+<li>and start to talk about what kinds of data we collect and we store in these pandas data frames.</li>
+<li>So the learning outcomes for this video are to know the relationship between pandas</li>
+<li>structures and statistical variables and to identify the type of a statistical variable.</li>
+<li>So you've referred back to our data pipeline. We have things that produce Farnam observable phenomena that produce raw data.</li>
+<li>Robbs ovations that we then process into a data set.</li>
+<li>So the core idea when we have something that's going to be a data set that's processed, ready to use for a task.</li>
+<li>Well, we usually have is a table of observations. Each row is one observation.</li>
+<li>The data sheets of reading calls this an instance. Sometimes this is called a sample.</li>
+<li>And this is an observation of the values of one or more variables pertaining to a single object.</li>
+<li>So I'm showing here three rows from a data set. The Palmer penguin's data set.</li>
+<li>That's measurements of penguins in Antarctica. And so each one has several different variables.</li>
+<li>Each row represents.</li>
+<li>So the first row represents, we observed and Adelie penguin on Torgersen Island with a bill length of thirty nine point one millimeters,</li>
+<li>depth of eighteen point seven, et cetera. We store this as a pandas data frame, reach variable as a column.</li>
+<li>But but the variables have their own conceptual properties that we're going to start talking about here.</li>
+<li>So for each penguin we have it species, there are three different species of penguin that are observed in this dataset island.</li>
+<li>There are three different islands on which they're measured.</li>
+<li>We have measurements of the Penguins bill its length and depth, the length of its flipper, the body mass of the penguin and then the penguin sex.</li>
+<li>Each data point, each observation is about one penguin. And we have these different observations.</li>
+<li>We also have that the documentation which you can the you'll find a link to online and the slides,</li>
+<li>the documentation tells us things like the build length.</li>
+<li>That's the length of the bill in millimeters. The penguin body mass is in grams.</li>
+<li>And when we have a data set, it's important to document.</li>
+<li>And we have data whether it's organized and curated and processed into a dataset or it's the Robbs ovations.</li>
+<li>We need to have the first order of things that we need to know besides how much data we have.</li>
+<li>OK, what are the columns? But things like what are the units we can't properly interpret?</li>
+<li>The bill length bill length of thirty nine. Thirty nine what? It's probably not thirty nine feet.</li>
+<li>That would be a very large penguin. But with that we when we're producing a data we need to document all of these things and we're consuming data.</li>
+<li>We need to find the answers to all of these things. So the variables we have can take on a variety of different types,</li>
+<li>and the first type I want to talk about is a continuous variable and a continuous variable can take on any value pop.</li>
+<li>There might be a range that limits the range of values that the variable can take on.</li>
+<li>Mathematically, continuous variables correspond to real numbers.</li>
+<li>And the key idea here that really what makes it continuous is for any two values, we could have a value between them.</li>
+<li>So if we have two penguins, let's say one has a has a flipper length of a 40 millimeters and another has a flipper length of forty five.</li>
+<li>We could have a penguin with a flipper length of forty two millimeters.</li>
+<li>And no matter how close together they are, we could conceivably have a penguin with a flipper length that's in between them.</li>
+<li>That's what makes it continuous. And now.</li>
+<li>Observations are often desk critize, so even if we have something continuous like the penguins flipper length,</li>
+<li>often our observations will be discrete and noisy because we don't have infinitely precise rulers with which to measure penguin flippers.</li>
+<li>But what makes it continuous is conceptual. Lee. It's a continuous variable.</li>
+<li>Even if our actual measurements of it might be disk critize, typically it's stored as a float.</li>
+<li>Occasionally it'll be stored as an. If we only measure to integer private precision, we might store it as an ant instead of a float.</li>
+<li>It is important to note, though, that floating point storage is also it is imprecise.</li>
+<li>It's fine for the vast majority of what we're doing because like if you're taking any kind of a physical or natural measurement.</li>
+<li>The measurement instrument is going to have some imprecision in it.</li>
+<li>The imprecision of storing and a floating point number is far less than the imprecision of most physical instruments.</li>
+<li>Unless you're doing something like high energy physics and a particle accelerator, most of us aren't doing that here.</li>
+<li>So for most for most of our purposes, for measuring safe physical quantities, we don't need to worry about the floating point imprecision.</li>
+<li>The one except the exception is for storing money. A discrete variable, on the other hand, takes on two distinct values.</li>
+<li>And most of our variables are basically going to fall into the category of continuous real number or discrete almost everything else.</li>
+<li>And it can have we can have values that have no intermediates and.</li>
+<li>If I have four eggs, five eggs, I mean, I could take crack and egg and have half the contents.</li>
+<li>But I'm talking about distinct eggs. I have four or five eggs.</li>
+<li>Descript variables might not have an order. There's many different types of discrete variables.</li>
+<li>And I'm going to walk through some of those in these remaining slides.</li>
+<li>So the first is an integer and integers are discrete and they're typically things like count counting.</li>
+<li>Something is our canonical example of an integer. They have an order for it is less than five.</li>
+<li>But. They but you can't have a value in the middle.</li>
+<li>So, for example, the number of penguins measured the size of something is usually an integer.</li>
+<li>We often treat an integer continuously. So, for example, the American Veterinary Medical Association computed that for households that own cats.</li>
+<li>The average number of cats per household is one point eight. Now, you can't actually have point eight of a cat.</li>
+<li>So in terms of the individual, if you were going to take observations and observe how many cats are in each household,</li>
+<li>the number of cats would be an integer. You can't.</li>
+<li>You can't have point eight cats.</li>
+<li>But we then can treat it as a continuous value so we can talk about the average number of cats per household and that's meaningful to talk about.</li>
+<li>Even though nobody actually has one point eight cats, integers are usually stored.</li>
+<li>And sometimes as floats, particularly in.</li>
+<li>If you have missing values, pandas can't represent missing values for in an integer type.</li>
+<li>But so it will store those enties floats if it finds any missing values.</li>
+<li>Categorical variable takes on one of a fixed set of unordered values and.</li>
+<li>We can compare them for a quality, but that's about all we can do.</li>
+<li>There's no order, so we can't sort out. We can't do arithmetic.</li>
+<li>We can't sort for convenience. Like if we have our paint. The penguin species is one example of a categorical variable.</li>
+<li>We can sort by species in alphabetical order. But that's just convention.</li>
+<li>The convention of the English alphabet. It's not intrinsic to the meaning of the different of the different penguin species.</li>
+<li>Said to Athalie is not less than chinstrap is not less than Gentoo.</li>
+<li>They just happened to come in a particular order in the alphabet. Another example is the user in the movie lends data we saw in the previous video.</li>
+<li>The user I.D. column is an integer, but that's not a count.</li>
+<li>It's a user, right? It's an identifier. It's a kind of actually a categorical variable.</li>
+<li>Which user in the system are we talking about? They're each assigned a numeric identifier for computational convenience.</li>
+<li>But if we have users. Seventy five and users three hundred and forty two asking what is user seventy</li>
+<li>five plus user three hundred forty two is a completely meaningless question.</li>
+<li>They're categorical variables. There is no error, arithmetic or comparison operations that we can do between them.</li>
+<li>Categorical variables are stored. They can be stored as strings. They can be stored as integers.</li>
+<li>PAND is also as a category type. That's useful for storing categorical variables.</li>
+<li>A boolean or a logical variable is a special case of a categorical that can either be just has the two values true and false.</li>
+<li>Usually it's stored as an int or a bull. And the bull is just a special case type event.</li>
+<li>The convention typically is that one is true and zero is false.</li>
+<li>And then ordinal values there, like categorical, they take on a fix one of a fixed set of values.</li>
+<li>But those values are ordered. This is the key difference between an ordinary and a categorical and so we can order, we can compare for any quality.</li>
+<li>A few examples of these are classic rates. A is A better grade than B.</li>
+<li>There in this order. But you can't directly do math on them.</li>
+<li>A minus B, we can assign numbers to them to try to do math.</li>
+<li>But but they're just in an order, not an order. A Likert scale.</li>
+<li>If you've taken a survey that asks you to strongly disagree, to strongly agree with something that is ordinal.</li>
+<li>Also a movie rating, like if you if you go and you rate a movie, if you read a product, five stars, four stars on Netflix.</li>
+<li>What you're using a number, but it's ordinal in the sense that.</li>
+<li>We know that with you, if you like something four stars, you're saying you like it more than you like a three star thing.</li>
+<li>But we don't know if you are a five star and a four star and a three star.</li>
+<li>Is the five star movie just as much better than the fourth star as the four star is than the three star?</li>
+<li>Or does it just tell us which order they're in intrinsically?</li>
+<li>All it tells us is the order that you put these movies in.</li>
+<li>But sometimes we do arithmetic anyway, like Amazon computes the average rating for a product.</li>
+<li>Even though ratings are ordinal. Or you have a GPA.</li>
+<li>That's computing the average of your ordinal grades. They're stored as insur floats or strings with an externally defined order wave.</li>
+<li>If we have us if we haven't a no variable started and stored in a string,</li>
+<li>we have to have something that tells us what order of those values actually go in.</li>
+<li>Also, the panda's category type has an ordered modes. You can tell it, this is a categorical variable and it is ordered.</li>
+<li>There's other types of data we're going to encounter time. We usually are going to treat is continuous.</li>
+<li>Like it might be stored as written out as a date.</li>
+<li>But if we're actually going to work with time, we're probably going to convert it into a continuous variable.</li>
+<li>Common common encodings for that are either a number of seconds or a number of years, sometimes a number of milliseconds.</li>
+<li>Text is categorical ish, but we're usually can convert it into categorical or account variables.</li>
+<li>We'll talk more about that later. We actually get to processing. Text images are stored as matrices of insur real's.</li>
+<li>We may also extract features from them that become other kinds of variables. Money is often stored as an interim float,</li>
+<li>but we have to be careful because the imprecision of floating point numbers can</li>
+<li>cause a problem when we're using money for the purposes of causing finding,</li>
+<li>of creating financial transactions for the kinds of things we might be doing with money here in this class.</li>
+<li>It's not going to be a problem. Nobody loses money if you have a little imprecision in computing.</li>
+<li>The average price of of a ton of potatoes,</li>
+<li>it really becomes a problem when you feed that back in to an into actual financial</li>
+<li>transaction systems because it is impossible to precisely represent 10 cents.</li>
+<li>It's just a hair under or over 10 cents. When you store it in a floating point value.</li>
+<li>So the other thing I want to highlight here, though,</li>
+<li>is that knowing the python were no higher Panda's data type of variable is not sufficient to know its type in a statistical sense.</li>
+<li>Suppose we have a variable that's that's an in 64. Well, what's in that?</li>
+<li>Is it a categorical variable like our movie and user I.D. and movie lens?</li>
+<li>Is it a continuous variable that happens to be measured with integer precision in the penguins data set when you download it?</li>
+<li>The body mass is integers because they were just measuring to the whole Graham.</li>
+<li>They didn't measure fractional grams. But as conceptually mass really is is a continuous value.</li>
+<li>It's just we don't have our measurements aren't that precise.</li>
+<li>Is it ordinal or is it is it zeros and ones that are representing the logical variable?</li>
+<li>I said before integers is missing values also lotas float.</li>
+<li>So there's a we can look at the data, we can look at the data types, we can look at that itself to try to start to get a sense of what it does.</li>
+<li>But knowing that is not sufficient to know what type of data we're dealing with for the purposes of handling it properly.</li>
+<li>I want to talk to us a little bit about entities or instances that I introduced in last time and that are talked about in the reading.</li>
+<li>So we want to be clear when we have a we have a data frame, a data, a data table.</li>
+<li>What are the things being observed in this set of observations? But what's being observed if you've taken the database's class?</li>
+<li>We called these entities. But sometimes this is pretty straightforward.</li>
+<li>For example, this penguin dataset. Each row represents the measurements of one penguin.</li>
+<li>But sometimes they're complex and linked, such as the rating data table.</li>
+<li>Each instance is a rating. But that's a rating about movies.</li>
+<li>And we can also derive things such as. We could count the number of ratings for each movie, and that could be a variable for a movie.</li>
+<li>We could do this aggregation. We're going to see how to do aggregations in a little bit.</li>
+<li>That gives us a new variable number of ratings. That becomes a variable for observations of movies.</li>
+<li>So wrap up,</li>
+<li>there are many different kinds of variables broadly divided into continuous and discrete with several specific types of discrete variables.</li>
+<li>These conceptual variable types do not map one to one dependance data types.</li>
+<li>You need more information in order to know how to properly interpret and work with a variable.</li>
+<li>So the data source that you're working with needs to be documented.</li>
+<li>And if you're creating a data source, you need to document what all of the columns mean and how they're being encoded and stored.</li>
+</ul>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this video, I present categorical and ordinal variables as <strong>fixed</strong> and <strong>finite</strong>. While this describes any
+categorical and ordinal variables you are likely to encounter, this is not strictly speaking correct.  It is
+possible for a categorical or ordinal variable to be (countably) infinite.</p>
+</div>
+<div class="section" id="id1">
+<h3>Resources<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/allisonhorst/palmerpenguins">Palmer Penguins data set</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="datasheets-for-datasets">
+<h2>📃 Datasheets for Datasets<a class="headerlink" href="#datasheets-for-datasets" title="Permalink to this headline">¶</a></h2>
+<p id="datasheets">Read <a class="reference external" href="https://arxiv.org/abs/1803.09010">Datasheets for Datasets</a> by Timnit Gebru et al.</p>
+</div>
+<div class="section" id="textbook-chapters">
+<h2>📖 Textbook Chapters<a class="headerlink" href="#textbook-chapters" title="Permalink to this headline">¶</a></h2>
+<p>This week’s material uses chapters 5 and 10 of <a class="reference internal" href="../resources/documentation/#book-p4da" title="p4da"><cite>📖 Python for Data Analysis</cite></a>.
+We aren’t getting to everything in those chapters though.</p>
+</div>
+<div class="section" id="groups-and-aggregates">
+<h2>🎥 Groups and Aggregates<a class="headerlink" href="#groups-and-aggregates" title="Permalink to this headline">¶</a></h2>
+<p>In this video, we discuss how compute aggregate statistics in Pandas.</p>
+<div class="resource video docutils container" id="4c5b7bbb-dc57-4484-b160-ad9000efd740">
+<div class="tabbed-set docutils">
+<input checked="checked" id="7e959a83-618b-475c-afca-af76373f8859" name="9efff750-2a7c-4179-a3ea-5ba3ac3219a9" type="radio">
+</input><label class="tabbed-label" for="7e959a83-618b-475c-afca-af76373f8859">
+Video (14m12s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=4c5b7bbb-dc57-4484-b160-ad9000efd740&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/SEFMio42I509/info/https4c5b7bbb-dc57-4484-b160-ad9000efd740-94330698-4916-4a28-9b48-ad9101273819mp4invocationid8cd5deeb-2f09-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="f4382df2-5778-4d2b-ac3d-499451f33028" name="9efff750-2a7c-4179-a3ea-5ba3ac3219a9" type="radio">
+</input><label class="tabbed-label" for="f4382df2-5778-4d2b-ac3d-499451f33028">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0!72980" data-key=APZCbpVCLFI74-U>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+GROUPS AND AGGREGATES
+Learning Outcomes
+Compute aggregate values from a Pandas series
+Compute grouped aggregate values from a Pandas data frame
+Order a data frame
+Join two Pandas data frames for additional context
+Photo by jean wimmerlin on Unsplash
+Data Frame
+Aggregates
+What’s the mean rating?
+
+ratings['rating'].mean()
+
+Use data frame
+Select column rating
+Compute mean
+
+What’s the conceptual problem here?
+Aggregate Functions
+Many aggregates:
+mean
+median
+mode
+min / max
+sum
+count
+std (standard deviation)
+var (variance)
+All are methods on pandas Series.
+Count and Length
+Total size of series, including missing values:
+series.size
+len(series)
+
+Number of values, not including missing data:
+series.count()
+Quantiles
+Grouped Aggregates
+Remember: # of ratings per movie could be a movie variable?
+
+ratings.groupby('movieId')['rating'].count()
+
+Yields a Series:
+indexed by movieId
+Values are # of ratings per movie
+We’re only aggregating one series
+If we did the other way, we wouldn’t have a movieid to group by!
+Multiple Aggregates
+See notebook…
+Sorting
+Sometimes we want to sort data:
+sort_values(col) re-sorts the data
+
+Sometimes we just need that to get the largest or smallest:
+nlargest(n, col) gets n rows with largest values of col
+nsmallest(n, col) gets the smallest
+Joining
+Joining two frames lets us combine data
+Simplest: join on common index
+set_index sets the index
+join joins two frames (by default on their indexes)
+Can specify join columns
+
+More later (including in readings)
+Aggregating Aggregates
+Our movie-level rating statistics are just more variables!
+
+That can be aggregated.
+
+Practice: compute the mean # of ratings per movie
+Wrapping Up
+Aggregates combine a series or array into a single value
+
+Can compute over whole series, or over groups.
+
+Join combines frames
+Photo by Dwayne Legrand on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video, I'm going to show you how to do grouping and aggregate operations and pandas sort of learning</li>
+<li>outcomes are few to be able to compute an aggregate aggregate values from a panda series,</li>
+<li>compute grouped aggregate values from a PANDAS data frame, and also be able to order a data frame,</li>
+<li>pick the larger the rows with the largest values for some series.</li>
+<li>And then finally join two pandas data frames to get context for the results that we just computed in the first part.</li>
+<li>So we have a data frame, so this is the movie lends data that we used and some of the earlier videos.</li>
+<li>So we have the data frame and we've got this ratings table that has the user I.D., movie, I.D. rating and timestamp columns.</li>
+<li>It's twenty five million rose by four columns. So an aggregate.</li>
+<li>If we want to ask the question, what does the mean rating? So all of the rating values users has ever given.</li>
+<li>What's the mean value? And this is this is the code we would use to do this.</li>
+<li>And there's a few pieces. There's. So we're using this data frame.</li>
+<li>There's a few pieces. We're using this data frame. There's a few pieces.</li>
+<li>We're using this data frame. And we're we're then selecting a column.</li>
+<li>Remember, this is the court. This is how we select a column. And then the result of that operation, this whole operation here is a series.</li>
+<li>And so then we call the mean method on the series and we get the mean we get the mean rating.</li>
+<li>Think a little bit about the previous video to think a moment about what the conceptual problem here is, the common operation.</li>
+<li>But there is a little conceptual problem with it in terms of what it actually means.</li>
+<li>There's a variety of different aggregate functions that we have in pandas.</li>
+<li>We've got mean median mode. We've got the minimum and the maximum.</li>
+<li>You can some you can count. You can compute standard deviation and variance.</li>
+<li>There is there are several others as well.</li>
+<li>These are all methods on a PANDAS series. If you have a series, this is a method.</li>
+<li>You've got the serious object dot. And then this function parentheses to call it, and you're going to compute that aggregate statistics.</li>
+<li>So let's see these in action. So I'm going to compute the mean rating and we get three point five.</li>
+<li>I can compute the sum. There's an alternate form. All of these are also available as functions in the num pi module.</li>
+<li>That ticker, an array and a series is a kind of array for some of the functions.</li>
+<li>There are slight differences between the panda's versions and the num pi versions, but mean and some are the same.</li>
+<li>So if we want to get the size of a series, there's a couple of different ways so we can ask the series for its size or do a line on it.</li>
+<li>Those are the same operation and they will give us the total length of the series, including missing values.</li>
+<li>If we've got a series that has missing values and we haven't seen missing values yet,</li>
+<li>but they're going to come up later and we want to count how many values we actually have.</li>
+<li>That's what the series count does count. Method does. So we can see those.</li>
+<li>The size, the land, those are the same. Also, we can get a series is an array and a raise in the number PI world have a shape we can get shape,</li>
+<li>which is the same as the size except as a tuple, because arrays can have more than one dimension.</li>
+<li>This weird syntax here where we have a number with a comma after it inside parentheses.</li>
+<li>That's the python syntax for a tuple consisting of exactly one value.</li>
+<li>It's a little bit of a weird syntax, but it comes up in a few places. But that's what that means.</li>
+<li>It's a tuple with exactly one value. Then we can count the number of ratings and since we don't have any missing ratings, it returns the same number.</li>
+<li>So. Another thing we can do that. That's a form of an aggregate is to get a Quantrell and the quanti all takes a parameter that is the fraction.</li>
+<li>And what it does is, is this the parameter as a fraction? We want to find the value.</li>
+<li>If we sorted the if we sort of the series from low smallest to largest.</li>
+<li>And we went that fraction along it, so point five would be the middle. The median value, we're gonna see median in the next video.</li>
+<li>What's the value that's there? So we can go we can see those run.</li>
+<li>The median rating is three point five. If we ask for the Quanti or point two, we're going to get the.</li>
+<li>We're going to if we ask for quanti or point two, we get 3.0.</li>
+<li>And what this means, it's it's point to the way across 80 percent of the ratings are 3.0 or higher.</li>
+<li>On a five star scale. So think a little bit about why that might be.</li>
+<li>We've seen so far aggregates that work over a single serious evalu to take the series.</li>
+<li>We get one value, but sometimes we want to be able to group and compute aggregates per group.</li>
+<li>So remember this. This data frame has movie.</li>
+<li>The ratings are for movies. And they're provided by users, so maybe we want to get rather than just the mean overall rating.</li>
+<li>Maybe you won't want to do is we want to find the average number of ratings per movie.</li>
+<li>This would give us a measure of popularity. We could say, well, the movie that's rated the most frequently is the most popular.</li>
+<li>We could also look at the average rating per movie. And so we can do this with the group by.</li>
+<li>So group by. Returns an object that allows us to perform grouped operations on a data frame.</li>
+<li>And so we give it the column name that we want to group by. In this case, movie I.D., we can group by more than one column at a time.</li>
+<li>We're only doing one for now. Then we can we can do the.</li>
+<li>We then in this group are we're going to say we only want to work on one column.</li>
+<li>And otherwise, it's going to count the ratings and the time stamps and back, so they're going to be the same count.</li>
+<li>So we're gonna say we're gonna to group by movie idea. They're going to say within each group.</li>
+<li>We only want to work with the rating. And then we want to do is we want to count it all of the aggregate values.</li>
+<li>The functions that we've seen before work on a per group basis as well. And.</li>
+<li>Do note, though, that we are grouping by grouping the whole data frame by movie I.D. before we select the column.</li>
+<li>If we did it the other way around, we were okay, select red and well,</li>
+<li>now we don't have a movie idea to group by because we've pulled the rating out of the movie.</li>
+<li>This order is important. So we group by movie I.D. That's another column in the frame and we use the rating column.</li>
+<li>So let's see this in action. So we want to count the number of ratings per movie and what it gives us is a series whose index?</li>
+<li>Is the movie I.D.? And whose value is the number of movies for that movie?</li>
+<li>We haven't really seen indexes yet. We haven't really worked with them much yet.</li>
+<li>But that's what it's doing here. We're indexing the data front. It's resulting in a series that's indexed.</li>
+<li>And this is the thing. Serious ads on top of a normal non pie array is that we have this index that tells us, oh, this is for movie one.</li>
+<li>This is for movie two thousand two hundred nine thousand one hundred and seventy one.</li>
+<li>We can also compute multiple aggregates at the same time.</li>
+<li>So the the AG, there's an AG function that allows you to to specify movies, to aggregate functions, to call you, specify them by name.</li>
+<li>So here I'm doing the group by that we did before. And then I'm AG.</li>
+<li>Calling AG to say I want to aggregate the values values this column.</li>
+<li>But I'm giving it a list of two different aggregation functions, mean and count.</li>
+<li>And when I run this, I get a data frame. That's indexed by movie I.D., but then it has two columns and the columns are named after the function,</li>
+<li>so have a mean function that's the result of mean and account function.</li>
+<li>That's the result of count. And because I know that I did this on the rating column, I know these are the mean and the count to the ratings.</li>
+<li>So we can see that movie I.D. has a mean rating of three point eighty nine and.</li>
+<li>And the number of ratings is fifty seven thousand three hundred and nine.</li>
+<li>So sometimes you want to sort out data. So sort values will resource an entire data frame.</li>
+<li>And by a specific column, you get a column numbers.</li>
+<li>We could resource this whole data frame by by, say, the number of ratings.</li>
+<li>Sometimes we also want to just get the largest or small. Sometimes the reason we want to sort.</li>
+<li>Is I want I'd want to know the five movies with the most ratings.</li>
+<li>In which case, we don't necessarily need to sort the entire thing. And largest. And then smallest.</li>
+<li>Let us just get the rose with the with the end largest or smallest values for a particular column.</li>
+<li>So if I go over and do this.</li>
+<li>So I want to get the 10 movies with the most ratings I can call and largest and tell it, I want 10 and I want to do it by count.</li>
+<li>And it gives me the 10 movies with the with the most ratings sorted in decreasing order of count.</li>
+<li>And we see movie ads. Three hundred and fifty six gives has eighty one thousand movies with a mean a 4.0 five.</li>
+<li>But this doesn't tell us what movie that is. What we can do.</li>
+<li>Remember, we have this movie is table two that gives us the movie titles. We can join the tables together.</li>
+<li>And the simplest way to join is to join on a common index. There's a set index method that lets you set a column is the index.</li>
+<li>You can also specify columns to join by. We're going to see more of this later, particularly.</li>
+<li>I'm going to make a note book that walks you through the different indexing operations.</li>
+<li>And you can also read about them in more detail in the text book.</li>
+<li>But. If we want to see, so I'm going to say.</li>
+<li>So I'm going to take our movie's frame that as a movie column and I'm going to join it with movie stats and movie stats.</li>
+<li>Remember, it's the result of our aggregate its index. Is the movie I.D. and so on when to call?</li>
+<li>I'm going to tell it. I want to join movies on movie stats and I'm going to tell it on movie I.D. movies doesn't have a useful index.</li>
+<li>Its index is just the positions. But on whereas when I use the on keyword in join what it does.</li>
+<li>Is it. It tells it to join the left feet.</li>
+<li>The left table movies, to use that color movie ideas column and join it with the index in the other table.</li>
+<li>So movie starts has an index and it expects the movie idea, column and movies to match up with the index in movie stats.</li>
+<li>And so the resulting frame. Has our title in our genre does.</li>
+<li>And then it has the mean and the count for each of these movies.</li>
+<li>So now if I say and largest of this movie info frame, I see that the most frequently rated movie with 81000 movie ratings is Forrest Gump.</li>
+<li>So another thing you can do is so the movie level rating statistics to be computed, this count.</li>
+<li>This mean those are just more variables.</li>
+<li>Remember, in the earlier we talked about, we can make some of the variables you might observe are actually aggregates from other things.</li>
+<li>Well, these are just more variables. So now we have sweet. So if we have an observation of a movie, it has an I.D., it has a title.</li>
+<li>It has on Rose. And it has the number of people who've rated it in the mean rating.</li>
+<li>These also can be aggregated. So in the downloads for this video, you're going to find the notebook that I was just using for practice.</li>
+<li>What I'd like you to do is to go in and compute the mean number of ratings per movie.</li>
+<li>Maybe use some additional exploration as well.</li>
+<li>But that's going to let you start to see how we can build from these aggregates into into additional structures.</li>
+<li>And also emphasize that. A data frame is just a data frame.</li>
+<li>Mike, we give it meaning in terms of observations. But the fact that a data frame resulted from an aggregate doesn't make it special in any way.</li>
+<li>We can aggregate the results of of of an aggregate because it's just another data frame.</li>
+<li>Everything's a data frame or a series and pandas. So to wrap up aggregates, combine a series or array into a single value.</li>
+<li>That's what it means to aggregate. We can do this over an entire series.</li>
+<li>We can also do this on a group by group basis.</li>
+<li>If we have another column that provides us with grouping information so we can compute the average Beacon computer Mean Asama or whatever per group,</li>
+<li>you might have this like if you have if you have records of financial transactions, you might want to compute.</li>
+<li>Well, what was what was our total profit in each month.</li>
+<li>So you could group by year, maybe as you grew by month,</li>
+<li>maybe group by year and month and take a some of the of the profit margin on each of your transactions.</li>
+<li>And then finally join Combine's frames, we can start to put two frames together in order to get context for values.</li>
+<li>We're going to see a lot of other uses for join later.</li>
+<li>But this that's in this context that lets us get context for understanding what's going on in a value.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Resources<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="2-4-AggregatesAndGroups/"><span class="doc std std-doc">Notebook for this video</span></a></p></li>
+<li><p>Textbook 10.1–10.2</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="descriptive-statistics">
+<h2>🎥 Descriptive Statistics<a class="headerlink" href="#descriptive-statistics" title="Permalink to this headline">¶</a></h2>
+<p>In this video, we discuss descriptive statistics for numeric variables.</p>
+<div class="resource video docutils container" id="fd7d2c53-752b-4844-9919-ad9000efd7f2">
+<div class="tabbed-set docutils">
+<input checked="checked" id="c55e8a2d-0408-45d3-a5c4-894c73716f75" name="3ddefb6e-d5e0-4b35-b05b-8fb074f8032b" type="radio">
+</input><label class="tabbed-label" for="c55e8a2d-0408-45d3-a5c4-894c73716f75">
+Video (16m32s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=fd7d2c53-752b-4844-9919-ad9000efd7f2&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/d9GmZtVxfSV0/info/httpsfd7d2c53-752b-4844-9919-ad9000efd7f2-7c7c7abc-0256-4d5b-a428-ad9101277c2amp4invocationid891d3622-3009-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="943424fa-6851-499f-9379-d63e56d19261" name="3ddefb6e-d5e0-4b35-b05b-8fb074f8032b" type="radio">
+</input><label class="tabbed-label" for="943424fa-6851-499f-9379-d63e56d19261">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2172978" data-key=AF4pIDEqeSJMSR8>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+DESCRIPTIVE STATISTICS
+Learning Outcomes
+Know what a statistic is
+Identify whether a mean or a median is more appropriate
+Describe the central tendency and spread of a data series
+Photo by Fabio Santaniello Bruun on Unsplash
+Statistic
+A statistic is a value computed from a collection of data
+
+Often summarizes (observations of) a variable
+Descriptive Questions
+Where is the variable centered?
+How large does it tend to be?
+Called meaure of central tendency
+How spread out is it?
+
+Mean
+What is a Mean?
+What does the mean measure?
+If every instance had the same value, what would it be?
+“Points per player”
+
+How do you change it?
+Increase total (score more points)
+It doesn’t matter where – one person can do all of it!
+Spread - Variance and Standard Deviation
+What is Variance?
+What does variance measure?
+The mean squared distance from the mean
+If mean is center, how far away do values tend to be?
+If mean is expectation, how far off does it tend to be?
+Square penalizes large differences more
+Standard deviation translates back to original units
+Computing Statistics
+Pandas:
+Series.mean()
+Series.std()
+Series.var()
+
+Note: np.std and np.var compute population std and var, not sample
+Change with ddof=1
+
+Outliers
+Outliers are particularly large or small values
+
+Outliers draw the mean towards them! (also affect SD)
+Median
+What value divides upper half from lower half?
+Sort values
+Pick middle one
+If even number: take mean of middle 2
+
+0  0  0  2  2  7  8  8  15  45
+
+How to increase? Increase small values.
+Spread – Range and IQR
+The range is max – min
+
+The inter-quartile range is distance between 1st and 3rd quartiles (width of “middle 50%”)
+
+0  0  0  2  2  |  7  8  8  15  45
+Quick Summary
+&gt;&gt;&gt; movie_info['count'].describe()count    59047.000000mean       423.393144std       2477.885821min          1.00000025%          2.00000050%          6.00000075%         36.000000max      81491.000000Name: count, dtype: float64
+Mean, Median, and Skew
+What question do we want to answer?
+If we distributed the points equally, how many would each have?
+
+If we randomly selected a player, are they equally likely to have more or less points?
+Mode
+The most common value
+doesn’t work great for continuous values
+fantastic for categorical variables!
+
+Wrapping Up
+Mean and median describe where a value tends to be.
+
+Standard deviation, variance, range, and IQR measure how spread out it is.
+
+Mean-based computationally useful; median-based robust to outliers.
+Photo by Brylee Hawkins on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video I'm going to talk about, descriptive statistics are learning outcomes are first no, what a statistic is.</li>
+<li>We talk about statistics. What is a statistic? Identify whether the mean or the median is more appropriate for summarizing some data.</li>
+<li>And also to be able to strive both the central tendency and the spread of a data series.</li>
+<li>So a statistic is a value that collect computed from a collection of data.</li>
+<li>And it often summarizes a variable or particularly summarizes observations of a variable.</li>
+<li>You've probably seen means medians, et cetera, before. Those are all examples of statistics.</li>
+<li>In other contexts. We can get an additional statistic. But it's this one.</li>
+<li>Excuse me. We can get additional statistics.</li>
+<li>But if there's one value that summarizes the observations of a variable and it becomes useful for a variety of things.</li>
+<li>So when we have a we have a variable. We have if we have a set of observations, there's a few different questions we want to ask of it.</li>
+<li>And the readings talk about some conceptual questions, but these are getting at some just direct.</li>
+<li>How are is the actual data values themselves laid out?</li>
+<li>So one is where's the variables centered? This is called a measure of central tendency, a measure.</li>
+<li>If it's a numeric variable, it measures how large is of value tend to be.</li>
+<li>We also want to ask how spread out it is around that value.</li>
+<li>So ways to do this. The mean of a data series is the sum divided by the number.</li>
+<li>And so we have some data points here.</li>
+<li>These are the scores of each of the players on the Chicago Bulls in the nineteen ninety eight game six of the NBA finals.</li>
+<li>So we add up all of the values we're going to get. Eighty seven. There's ten of them.</li>
+<li>And we we have a mean of eight point seven. This is often informally called an average.</li>
+<li>When someone says average, they're usually talking about the mean.</li>
+<li>But average itself is not a very specific term. It just means one of these measures of central tendency.</li>
+<li>And so we want to be precise about. We often use it in informal discussion when we want to be precise.</li>
+<li>Average is not a good enough term. We need something like mean, but the mean measures.</li>
+<li>If every instance had the same value, what would it be?</li>
+<li>If if the total is some resource or quantity, how much if it was evenly distributed among all the instances, how much would it be?</li>
+<li>So all points per player kind of value. And if we go back, we think back to the question.</li>
+<li>That I I told you to ask in the first week when we have a statistic. We have a metric.</li>
+<li>How do I change this? Or if I have a definition that's defined as better, how do I improve it?</li>
+<li>But how do you move this? Well, the way you move this is you increase the total score, more points.</li>
+<li>But crucially, it does not matter where the total is increased among your data points.</li>
+<li>One one value can get all of the increase in total to produce an increase in mean.</li>
+<li>So we see a strong suit like there's an outlier here, Michael Jordan scored forty five points.</li>
+<li>He could score 10 more points and that would have the same effect on the mean as every player scoring.</li>
+<li>One more point. So. We want to measure how spread out the values are, one measure is the standard deviation.</li>
+<li>So this is sample standard media. So the sample standard deviation and what it is, we take the mean.</li>
+<li>X Bar is the main river from the previous slide. We subtract the mean from each value and then we square it and squaring does two things.</li>
+<li>One. It makes it makes everything positive. We want to make all the values positive.</li>
+<li>There's usually two ways to do it. Take the absolute value or take the square. But also squaring emphasizes larger values.</li>
+<li>More one of the reasons it's really useful.</li>
+<li>A third reason squaring is useful that does is that in a variety of contexts you'll see in future classes, particularly around machine learning.</li>
+<li>It's really useful to have differentiable statistics and you can take the derivative of the square of the square.</li>
+<li>But if we didn't have this square root, we would get the sample variance as squared.</li>
+<li>But this is a measure of what this measures is the mean squared difference from distance from the mean.</li>
+<li>If we just wanted to measure the mean distance, the total distance from the mean is.</li>
+<li>Zero. Because we're subtracting the mean from every value.</li>
+<li>And if you push through the algebra of that, I'll leave that as an exercise for you in order to better understand the algebra of these statistics.</li>
+<li>But the sum of a bunch of values, minus the mean is zero.</li>
+<li>So we needed to be positive. And what this measures is if the mean is the center or the expectation of our values.</li>
+<li>How far away do values tend to be are if if it if the variance or the standard deviation is small?</li>
+<li>That means the value is tightly clustered around the mean.</li>
+<li>And if it's large, that means they're spread out quite a bit around the mean,</li>
+<li>the state taking the square root of the variance means that the result is back in the original units rather than the square of the units.</li>
+<li>And we can see here the standard DeeVee. So I've plotted here we have the mean.</li>
+<li>And then we've got the standard deviation. I've plotted these points are one standard deviation away from the mean and each direction we</li>
+<li>see that's pretty spread out in this particular data set because we have quite a bit of spread.</li>
+<li>There's a number of values that are clustered over here. But then we've got this value over here.</li>
+<li>So to compute these, we use some of the methods that we talked about in the group and aggregate video mean SDD is the standard deviation vare.</li>
+<li>One note is that the number high versions of standard deviation and variance compute a slightly different statistic.</li>
+<li>The population standard deviation and variance instead of the sample standard deviation and variance.</li>
+<li>You can change this by passing a d o f option to them when you call them.</li>
+<li>The difference is that they divide by N instead of N minus one.</li>
+<li>And we'll but when we're computing the standard deviation or the variance of a set of data that we've collected,</li>
+<li>that's a set of observations of the things we care about. We generally are going to want the sample standard deviation or variance.</li>
+<li>So outliers are particularly large or small values and they draw the mean towards them and they also affect the standard deviation,</li>
+<li>one of the reasons why the standard deviation was so large.</li>
+<li>So we've got Michael Jordan's score over here and that that pulls the outlier or that pulls the mean quite a bit.</li>
+<li>So the red the red line, again, is our mean, the blue line.</li>
+<li>That's what the mean we would compute if we didn't have Michael Jordan's score of forty five.</li>
+<li>That's so much larger than everybody else's. So we can see that one value is pulling the mean quite a bit to the right.</li>
+<li>This is one of the downsides of using the mean.</li>
+<li>So when we have a heavily skewed distribution like this, the skew is what we call it, when there's I mean,</li>
+<li>there's a lot of stuff in one place and there's a few values that are way off in one direction.</li>
+<li>We can have outliers without skew. We can have some very large and very small outliers.</li>
+<li>If we if they're relatively balanced, they actually don't affect the mean too much because one pulls it way high, the other polls it way low.</li>
+<li>It's when we were outliers tend to skew off in one direction that the mean starts to become a problem.</li>
+<li>So the median is another way of measuring how where values tend to be and the way we computed that we sort the values and pick the middle one.</li>
+<li>If there's an even number of values, we take the mean of the middle, too. So we have.</li>
+<li>So we have five, ten values. So right in here is going to be the dividing line between them.</li>
+<li>It's two and seven. The mean of two and seven is four point five.</li>
+<li>So the median X tildy of our of our series is 4.5.</li>
+<li>Now if we ask how do we move the median?</li>
+<li>So remember, we can move the mean by just scoring more points, even if Michael Jordan is the one who scores all of the more points.</li>
+<li>But the only way to increase the median is to increase the small values.</li>
+<li>And similarly, you decrease the median by decreasing the large values.</li>
+<li>And so no matter how many score points, more points, Michael Jordan scores.</li>
+<li>We don't move the median. We can only move the median by having the players who scored the fewest points, scored more points and the.</li>
+<li>We could have that that seven scored another point than we would. We would move the median just a little bit.</li>
+<li>But primarily, we need to have the smallest values,</li>
+<li>need to increase in order to increase our median and or at least the values in the smaller half of the distribution.</li>
+<li>One can't really common use for medians as it is when we're talking about income and wealth.</li>
+<li>Statistics mean income for a region is almost never reported.</li>
+<li>What you report, you usually report the median income because income is usually a skewed distribution.</li>
+<li>A few people have a very large income. A lot more people have a significantly smaller income.</li>
+<li>And the mean would would be pretty high if the mean would be pretty high,</li>
+<li>because you have these large incomes, the median wage ends up being reflecting the typical experience.</li>
+<li>Of of people in the population when we have skewed values, so like standard deviation is a mean based measure of spread.</li>
+<li>A. Measure of spread more connected to the median is the range which we often want to compute in general.</li>
+<li>What's the maximum minus the minimum? And then the inter cortical range and the inter cortical range.</li>
+<li>So the median is the point is the fiftieth percentile or the point five court quanti all.</li>
+<li>The inter cortical range is the distance between the first and third quartiles.</li>
+<li>The point, seven point two five point seventy five positions. If you split the data in half at the median, it's the medians of the two halves.</li>
+<li>And so in our data set, we've got it split into two halves are lower, quartile is zero, value is zero.</li>
+<li>Our upper one is eight. So the intercourse range is eight. And this gives you it gives you the width of the middle 50 percent of the data.</li>
+<li>And so it gives you a measure of how spread out the data is. That is similarly robust outliers like the median is.</li>
+<li>So if we want to, we can get a quick summary of a data series with the described method.</li>
+<li>The described method prints its results, it does not return,</li>
+<li>it makes for a few subtle differences in what you're doing in the room or what you're going to see in the room when you run it in a notebook.</li>
+<li>But it gives us the count. It gives us the mean and standard deviation.</li>
+<li>We have our main based metrics of central tendency and spread,</li>
+<li>and then it gives us the minimum maximum and gives us the men the max and then the the points of off of the quartiles so that we can see the median.</li>
+<li>This is gonna be our median. And then we can also see the inter cortical range, two to thirty six.</li>
+<li>This particular data set, this is a heavily,</li>
+<li>heavily skewed data set because one way we can see that it's skewed is that the median is significantly less than the mean.</li>
+<li>That's evident. That's indication of scale. That mean is pulled way up.</li>
+<li>Also, if you look at the seventy fifth percentile is thirty six.</li>
+<li>But the mean is four hundred and twenty three. So.</li>
+<li>If you pick a movie at random, it's very unlikely to have the mean or larger number of ratings.</li>
+<li>I don't know exactly where. What what quantity of 423 is going to be at.</li>
+<li>But probably somewhere over 80 percent, possibly even over 90.</li>
+<li>So. 80, 90 percent of the movies.</li>
+<li>So this is the number of ratings per movie. 80 to 90 percent of the movies have less than the mean number of ratings.</li>
+<li>It's really emphasizes this difference between the mean and the median.</li>
+<li>So how do you pick the mean works well for centered values. There's no excessively large or small values, especially skewed in one direction.</li>
+<li>The mean is going to be approximately equal to the median.</li>
+<li>A lot of other computations, as well as our ability to try to predict future values, really depend on the mean.</li>
+<li>And also the mean is the central tendency so that if we take the total deviation from it, we get zero.</li>
+<li>Now, the median is significantly more robust to outliers.</li>
+<li>And so we're just trying to describe data and we have a strong skew.</li>
+<li>We have outliers on one side of the data. Then we're it's of gives us a statistic that is not as strongly affected by them.</li>
+<li>And if we think that as a as I indicated,</li>
+<li>as we think back to the question of how do I change this value if we're using the statistic as our evaluation criteria, as our target or our goal?</li>
+<li>That becomes very important because if our goal is to raise the mean, say, if our goal is to raise the main number of ratings,</li>
+<li>we could do that by just getting a bunch of more ratings for the most popular movies.</li>
+<li>But if our goal is to raise the median number of ratings, we can only do that by getting more people watching.</li>
+<li>And rating less popular movies becomes a huge difference. It divides high into low the median value.</li>
+<li>Is such that if you picked a random random observation, it's equally likely to be greater or less than the median.</li>
+<li>That's not true for the mean. But it doesn't tell you, like, how far away the values are on its own.</li>
+<li>So it's limited in its ability to generate predictions.</li>
+<li>So when we when we think about what's when we want to do it really comes down to the question we want to answer.</li>
+<li>And then also the other things are going to use it for. So the mean is answering.</li>
+<li>If we distributed the points equally, how many would each player have? And the median gets to the distribution of players about the around the value.</li>
+<li>We want to find one that players are equally likely to have more or less.</li>
+<li>Another one, quick, is the mode, it's the most common value. It doesn't work for continuous, doesn't really work for continuous variables.</li>
+<li>It's really, really useful for categorical variables. If you got a categorical variable that has like three codes.</li>
+<li>The mode want to know which one. The common is super, super valuable thing.</li>
+<li>It's also useful for integers in any other discrete variable. So wrap up the mean and the median, describe where a value tends to be stick.</li>
+<li>Standard deviation, variance range and enter cortical range. Measure how spread out it is.</li>
+<li>The mean is very computationally useful. We're going to need it a lot.</li>
+<li>But it's very sensitive to outliers, median based. The median and the median based statistics like the ICU are are more robust outliers.</li>
+<li>One of the things we're also going to see later on is we we can do data transformations</li>
+<li>to get data to be less skewed and then we compute the mean and the transform</li>
+<li>space and we can wind up with methods that are going to be give us the computational</li>
+<li>benefits of the mean while also not having the outliers causing as many problems.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="describing-distributions">
+<h2>🎥 Describing Distributions<a class="headerlink" href="#describing-distributions" title="Permalink to this headline">¶</a></h2>
+<p>This video introdues the concept of <em>distributions</em>, and how we can see the shape and layout of our data.</p>
+<div class="resource video docutils container" id="5b6fb252-cd60-478b-aaf7-ad9000efd8b9">
+<div class="tabbed-set docutils">
+<input checked="checked" id="48cf4482-9bdd-49d5-affd-a0931d2b8fb1" name="6856f9b9-c843-420a-8aec-2ed18865493a" type="radio">
+</input><label class="tabbed-label" for="48cf4482-9bdd-49d5-affd-a0931d2b8fb1">
+Video (10m17s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=5b6fb252-cd60-478b-aaf7-ad9000efd8b9&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/dvE0eIW6C7iF/info/https5b6fb252-cd60-478b-aaf7-ad9000efd8b9-da4db524-f4a8-4f36-9570-ad9101277730mp4invocationid7aa5eb4c-3009-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="ecd7cd74-6799-47de-9619-2e72e81893c5" name="6856f9b9-c843-420a-8aec-2ed18865493a" type="radio">
+</input><label class="tabbed-label" for="ecd7cd74-6799-47de-9619-2e72e81893c5">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2172985" data-key=AFKFlxWtifklVVE>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+DESCRIBING DISTRIBUTIONS
+Learning Outcomes
+Provide numerical descriptions of a distribution
+Visualize the distribution of a variable
+Photo by Leohoho on Unsplash
+What Questions?
+What is the average value?
+Mean, median
+How spread out is the data?
+Standard deviation, IQR
+Is it skewed?
+What does it look like?
+Numeric Descriptions
+Previous video!
+
+&gt;&gt;&gt; numbers.describe()count    10000.000000mean         5.006208std          0.998461min          1.41039225%          4.33046850%          4.99063675%          5.678746max          9.081399dtype: float64
+Histograms
+Shows how common different values are
+X-axis: values
+Y-axis: frequency (count or relative)
+
+Bins controls division points
+Pick for clarity and integrity!
+
+import matplotlib.pyplot as plt
+This data is symmetrical (not skewed)
+&gt;&gt;&gt; plt.hist(numbers, bins=25)
+Real Data – Average Movie Rating
+&gt;&gt;&gt; plt.hist(movie_info['mean'])
+&gt;&gt;&gt; movie_info['mean'].describe()
+count    59047.000000mean         3.071374std          0.739840min          0.50000025%          2.68750050%          3.15000075%          3.500000max          5.000000Name: mean, dtype: float64
+Slight left skew
+Mean less than median
+Longer tail on the left of the histogram
+Real Data – Movie Rating Count
+&gt;&gt;&gt; plt.hist(movie_info['mean’], bins=100)
+&gt;&gt;&gt; movie_info['count'].describe()count    59047.000000
+mean       423.393144
+std       2477.885821
+min          1.000000
+25%          2.000000
+50%          6.000000
+75%         36.000000
+max      81491.000000
+Name: count, dtype: float64
+Very strong right skew
+Mean much greater than median
+Most movies have far fewer ratings than mean!
+Hard to really see in a histogram
+Alternate Histogram
+hist = movie_info['count'].value_counts()plt.scatter(hist.index, hist)plt.yscale('log')plt.ylabel('Number of Movies’)plt.xscale('log')plt.xlabel('Number of Ratings’)
+
+Points rather than bars
+One point per rating count
+Plotted on logarithmic axis
+The mode is 1 (100)
+
+Power law distribution (almost)
+Artifact
+Movie mean rating, more bins
+
+Certain values more common!
+1, 2, 3, 4, 5, 2.5, 3.5…
+These are exact rating values
+Because so many movies have only one rating!
+&gt;&gt;&gt; plt.hist(movie_info['mean'], bins=50)
+Categorical Distributions
+Categorical distributions with bar charts
+
+spec_counts = penguins['species'].value_counts()plt.bar(spec_counts.index, spec_counts)plt.xlabel('Species’)plt.ylabel('# of Penguins’)
+
+Adelie is most common
+
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video I'm going to talk with you about how to describe distribution,</li>
+<li>so I said one of the learning outcomes with this week is that we can describe the distribution of a variable both numerically and graphically.</li>
+<li>And we saw some of that in the descriptive statistics in the previous video.</li>
+<li>We're going to go deeper into that in this video. So we want to be able to learning outcomes for for this particular video or to be able to provide</li>
+<li>numerical descriptions of the distribution and visualize the distribution of a variable.</li>
+<li>So the question when we ask, how is a variable distributed? There's a few questions that we want to.</li>
+<li>A few things we want to break that down into four specific questions.</li>
+<li>First, what is the average value mean or medium, whichever is appropriate?</li>
+<li>How spread out is the data? This these two things really give us a lot.</li>
+<li>Where is the data? How spread out is it? Tell us a lot about it.</li>
+<li>But then we want to look at is it skewed? Does it do values tend high?</li>
+<li>Or do they tend low with respect to that that average value?</li>
+<li>And then what does the data actually look like visually?</li>
+<li>So the numeric descriptions, the previous videos, descriptive statistics give us quite a few.</li>
+<li>The described method gives us a quick way to generate several of them.</li>
+<li>So I generated a ten thousand random numbers. And they've got a mean and a median, both of about five.</li>
+<li>They're spread out. Excuse me, a standard deviation about one.</li>
+<li>So these numbers visualized or we can visualize them in what we call a histogram and a histogram shows how common different values are.</li>
+<li>The x axis are the values themselves. And the Y axis is how frequent that value is.</li>
+<li>It can be either account, the number of values, the number of observations that are about that value, or it can be relative.</li>
+<li>The percent or fraction of observations. This is account one. We can see it goes up to twelve.</li>
+<li>The Y axis goes up to twelve hundred. When we had a continuous variable, the number of Binz control the division points.</li>
+<li>So I said Binz equals twenty five. That divides the variable into twenty five.</li>
+<li>The range of the of the variable as we've observed it in the twenty five bins of equal width.</li>
+<li>And so for each bean it's showing how many values fall into that bean.</li>
+<li>So the largest bit is just over twelve hundred centered right at five.</li>
+<li>This data is also symmetrical. There's no skew to it.</li>
+<li>There's a little bit of variation in the size stapes, the two sides, just the way things fall into the bins.</li>
+<li>But there's no significant skew. It's evenly distributed around the mean, the mean and the median are equal reflecting that.</li>
+<li>This this function, the highest function comes from the library matplotlib.</li>
+<li>So the import for that is import matplotlib, that pie plot. The typical name for that is PLDT.</li>
+<li>And that gives us functions to do. Plotting matplotlib is one of the fundamental plotting libraries for Python.</li>
+<li>A lot of other plotting libraries such as Seabourne, Plot Nine, et cetera, are built on top of matplotlib.</li>
+<li>So if we want to look at some real data, we can look at the average rating for movies.</li>
+<li>So remember, we have this movie data set. We've computed each movies average rating.</li>
+<li>Well, how are those average? How are those average ratings distributed? So, I mean, is three point seven the median is three point one five.</li>
+<li>The there's a little bit of a what we call a left skew and the left skew this the direction and the skew is how far out.</li>
+<li>The longer tail goes. So left skew means we have a longer tail on the left and the data is more bunched up on the right.</li>
+<li>We have a longer tail on the left of the histogram. We can see that. That gives us a slight left skew.</li>
+<li>The mean is slightly less than the median. That's also an indicator of left skew.</li>
+<li>But it's not very skewed. The mean and the median are pretty close in this case.</li>
+<li>We can also look at the movie rating count. So this is the distribution. So we have a variable.</li>
+<li>So for each movie, we've got these two variables, its average rating and and the number of people who rated it.</li>
+<li>And so we can look at the distribution of the movie rating count. This distribution is very, very heavily skewed.</li>
+<li>A very strong right skew. The mean is much greater than the median for twenty three versus six.</li>
+<li>Morreau, most this means most movies are going to have far fewer ratings in the mean and it's hard to</li>
+<li>like the histogram shows us that it's skewed and shows us this huge spike at the small values.</li>
+<li>But it's hard to really see what's happening with the distribution here.</li>
+<li>So an alternate way that we can plot the distribution is.</li>
+<li>So here's the word histogram. It just means the tabulation of how frequent each value is.</li>
+<li>So we can compute the frequency of each value.</li>
+<li>And the panda's method value counts. Does that. And so what we can what it computes.</li>
+<li>It's a serious. Where the index is the values of the original series. And the value is the number of times that value appeared.</li>
+<li>And so if we do that, we can then make a scatterplot and a scatterplot is where we plot some value on the X versus some value on the Y.</li>
+<li>And the index, the index is an array. So our x axis and the scatterplot is the index, which is the actual values themselves.</li>
+<li>And the Y index is the value of the earth in the array, which is how many times that value appeared in the original array.</li>
+<li>And we're then we're going to do something. We're going to rescale it using what we call a log scale.</li>
+<li>So you'll notice the Y, the X and the Y axes tend to the zero, tend to the one, tend to the to tend to the three.</li>
+<li>Rather than being evenly spaced, they're evenly spaced.</li>
+<li>The logarithms are evenly spaced and effectively since we're using ten base ten logarithms here.</li>
+<li>What this does is it shows us, rather than the values themselves, that shows us the order of magnitude of each of the values.</li>
+<li>And so. We can see one tend to the zero is the mode.</li>
+<li>It's the most frequent one, that's the top point. And also we can see that the first part of the the first part of it is a lot, almost a line.</li>
+<li>And when we have a line, we have a plot like this where the x axis is the number of ratings,</li>
+<li>the y axis excuse me, the X axis is our value in the Y axis is how frequent that value is.</li>
+<li>In this case, how many movies have that many ratings? And it's on a logarithmic.</li>
+<li>It's on a log log scale. We when we see a line on a log log scale in this chart that indicates that what we're looking at is</li>
+<li>a what's called a power law distribution or something that's close to a power law distribution.</li>
+<li>And this is a common distribution that arises when we're talking about the popularity of various results of human activity.</li>
+<li>It shows up in how frequently different words are used. It shows up in a lot of different human activity contexts.</li>
+<li>If you look at, say, a social network. And you look at the popularity of different accounts.</li>
+<li>You have accounts like Lady Gaga and beyond, say, have very, very popular Twitter accounts.</li>
+<li>I have a moderately popular but much less popular Twitter account.</li>
+<li>And a lot of people are down around 100 or 200 followers.</li>
+<li>It's very common for the debt, for distributions of that kind of activity to fall to look like this.</li>
+<li>And this kind of a chart where we have the scatterplot of X and Y axes is a good way</li>
+<li>to see it and a good way to get a handle on what the state is actually looking like.</li>
+<li>And we have this strong power law skew. So one of the artifacts of this I'm replanting our mean ratings here, except with more beans,</li>
+<li>50 beans, instead of the default 10, we can we see the same basic shape.</li>
+<li>We also see that a few values are much, much more common. Those values are one, two, three, four, five, two point five, three point five.</li>
+<li>And the reason this is so these are exact rating values. Three point five is an exact.</li>
+<li>You can rate it will be three point five. You can't rate a movie. Three point seven eight.</li>
+<li>And so what the reason is. Look at how many movies have one rating.</li>
+<li>Or two ratings. And if a movie only has one rating, it's mean rating is going to be the rating.</li>
+<li>And so we're going to get a lot of movies since the most since this one rating is by far the most common popularity level of a movie.</li>
+<li>We're gonna have a lot of movies. Where they're mean is exactly one of the possible rating values like three.</li>
+<li>And so we see these spikes here in the distribution when we look at it in a more fine grained way,</li>
+<li>just because there are so many movies that don't have very many ratings.</li>
+<li>So we've seen numerical distributions, whether they're continuous, whether they're integer or other kinds of account data.</li>
+<li>We've seen continuous distributions for a categorical distribution or go to as what's called a bar chart.</li>
+<li>And so I'm again using value counts here to count the number of penguins.</li>
+<li>So from the earlier video, the penguin dataset count the number of penguins of each species.</li>
+<li>And then I'm plotting a bar chart that's showing us the the number of penguins that have each each species.</li>
+<li>And we can see that the Adelie penguin is the most common here.</li>
+<li>But the bar chart is going to be a really simple way to to view the distribution of a categorical variable.</li>
+<li>Seabourne, which is an additional library we're going to see later, provides really convenient ways to do this.</li>
+<li>But here I'm showing you the map, the raw matplotlib code, so that you can see how does the chart actually get generated?</li>
+<li>It gets generated by counting, doing the value count, counting how many times each species appears.</li>
+<li>And then we plot a bar chart whose x axis is the species and y axis is the number of times that species appears in the data set.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Resources<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="2-6-DescribingDistributions/"><span class="doc std std-doc">Notebook</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="data-sources-and-bias">
+<h2>🎥 Data Sources and Bias<a class="headerlink" href="#data-sources-and-bias" title="Permalink to this headline">¶</a></h2>
+<div class="resource video docutils container" id="824f231f-7cda-42a5-917c-ad9000efd981">
+<div class="tabbed-set docutils">
+<input checked="checked" id="512d2c21-2251-4c97-b013-ae0af9dcfd4a" name="6c4dc615-c561-41d1-8efe-4f97104eb1f1" type="radio">
+</input><label class="tabbed-label" for="512d2c21-2251-4c97-b013-ae0af9dcfd4a">
+Video (8m46s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=824f231f-7cda-42a5-917c-ad9000efd981&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/5JOFYbj92Elt/info/https824f231f-7cda-42a5-917c-ad9000efd981-17a11971-cdab-48ab-8f77-ad9101278d7emp4invocationid36100777-3009-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="068af28b-0564-4f8b-bfcb-020d8e94a0cd" name="6c4dc615-c561-41d1-8efe-4f97104eb1f1" type="radio">
+</input><label class="tabbed-label" for="068af28b-0564-4f8b-bfcb-020d8e94a0cd">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2172983" data-key=AAJ1g0hwAUBmF1c>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+SOURCES AND BIAS
+Learning Outcomes
+Understand what bias means
+Identify sources of bias in a observations of a variable
+Photo by MILKOVÍ on Unsplash
+Estimating
+Goal: estimate the value of a parameter
+Things
+“Raw” Data
+Data Set
+Inferences
+Answers
+Phenomena / Experiment
+Data Pipeline
+Estimating
+Goal: estimate the value of a parameter
+True value in the world or population
+Estimated by a statistic
+
+Example: estimate approval of our company
+Parameter: net approval (% of people who have a positive opinion)
+Statistic: % of a sample of people who say they have a positive opinion
+Goal: statistic is approximately parameter
+A Few Sources of Bias
+Selection bias
+Some people more likely to be contacted
+
+Response bias
+Some people are more likely to respond
+
+Measurement bias
+Measurement skews one way or another
+
+
+
+Population
+Contacted
+Responds
+Opinion
+Non-Uniform Bias
+Bias may not affect all groups equally
+Under-representation
+Over-representation
+Measurement skews
+E.g. standardized test scores reflect socio-economic status
+Documenting
+Clearly and fully document data collection process!
+
+See Datasheets for Datasets reading
+Enables further and future analysis of collection process!
+Helps future users assess if biases affect their problem
+
+Wrapping Up
+Goal is for data to accurately reflect population, and statistics to approximate parameters.
+
+Various sources of bias can impede this.
+Photo by Enayet Raheem on Unsplash
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Resources<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Olteanu, Alexandra and Castillo, Carlos and Diaz, Fernando and Kiciman, Emre, Social Data: Biases, Methodological Pitfalls, and Ethical Boundaries (December 20, 2016). <cite>Frontiers in Big Data</cite> 2:13. doi: <a class="reference external" href="https://dx.doi.org/10.3389/fdata.2019.00013">10.3389/fdata.2019.00013</a>, Available at SSRN: <a class="reference external" href="http://dx.doi.org/10.2139/ssrn.2886526">http://dx.doi.org/10.2139/ssrn.2886526</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="week-2-quiz">
+<h2>🚩 Week 2 Quiz<a class="headerlink" href="#week-2-quiz" title="Permalink to this headline">¶</a></h2>
+<p>The Week 2 quiz will be over the material <strong>above</strong> this point.</p>
+</div>
+<div class="section" id="codings-and-encodings">
+<h2>🎥 Codings and Encodings<a class="headerlink" href="#codings-and-encodings" title="Permalink to this headline">¶</a></h2>
+<p>This video talks more about how data is encoded, and what we need to document about that.</p>
+<div class="resource video docutils container" id="9c3e036c-fc72-446f-8b20-ad9000efda2e">
+<div class="tabbed-set docutils">
+<input checked="checked" id="5d89e998-9290-4e63-b8cb-9850ae5a31ac" name="8069d376-a112-46cb-b86f-87ec2281ea49" type="radio">
+</input><label class="tabbed-label" for="5d89e998-9290-4e63-b8cb-9850ae5a31ac">
+Video (8m57s)</label><div class="tabbed-content player docutils">
+<div class="video-container video-embed">
+<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=9c3e036c-fc72-446f-8b20-ad9000efda2e&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+</div><p class="aux-links"><a class="amara reference external" href="https://amara.org/en/videos/eBfsWrEfTnUo/info/https9c3e036c-fc72-446f-8b20-ad9000efda2e-c0247da3-42e1-4d9b-9515-ad910127a4damp4invocationid5cc9289b-3009-ec11-a9e9-0a1a827ad0ec/"><span>Edit subtitles on Amara</span></a></p>
+</div>
+<input id="45f0b78b-6e13-4f0b-b75c-0023c095c1b8" name="8069d376-a112-46cb-b86f-87ec2281ea49" type="radio">
+</input><label class="tabbed-label" for="45f0b78b-6e13-4f0b-b75c-0023c095c1b8">
+Slides</label><div class="tabbed-content slides docutils">
+<div class=slide-container data-id="495979F9A431DDB0%2172987" data-key=APm1GElna_P6o40>
+</div></div>
+</div>
+<div class="slides text hidden docutils">
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+CODINGS AND ENCODINGS
+Learning Outcomes
+Recognize when a variable needs a codebook or dictionary
+Understand the difference between a variable and its encoding
+Transform an encoding to another
+Photo by KOBU Agency on Unsplash
+Recording Data
+All data we record must be encoded: how do we actually store it?
+
+The encoding and the value encoded are not the same!
+
+Warmup example:
+27
+Twenty-seven
+0x1B
+
+Basic Encodings
+Numbers:
+Binary integer
+Floating-point binary number
+Decimal number (ASCII or BCD)
+
+Encodings can be lossy – floating-point loses precision, integer truncation
+41 D8 00 00
+00 00 00 1B
+32 37 00
+Documenting Numbers
+The syntactic encoding is not enough to interpret number!
+
+How was it measured?
+What are the units?
+Has it been transformed?
+Are there sentinel values? (e.g. -99 for unknown)
+Categorical Codes
+We need a codebook to define the codes (or levels)
+
+What are the codes? (numeric or string)
+Numeric common, esp. in older data sets
+How are they defined?
+What are the rules for deciding which one to apply?
+
+Meta-question: who decided definitions and how?
+
+Examples
+Penguin species: Adelie, Chinstrap, Gentoo – from bio taxonomy
+Species name as a string
+
+German credit checking account status
+A11 – overdrawn
+A12 – 0 to 200 DM
+A13 – at least 200 DM, or at least a year of salary deposits
+A14 – no checking account
+Categorical Encoding
+Directly store in string or integer
+One-hot encoding
+One variable per code / level
+Exactly one is 1
+Dummy coding
+One variable per code / level except for one
+At most one is 1 (all 0s mean the omitted variable)
+Wrapping Up
+Data must be coded and encoded in order for us to process and analyze it.
+
+The process of coding affects the data!
+
+Representation must be documented for us to properly understand.
+Photo by Alexander Schimmeck on Unsplash
+</div>
+<div class="captions text hidden docutils">
+<ul class="simple">
+<li>This video I'm going to talk with you about coding and coding data learning outcomes are to recognize when a variable might</li>
+<li>need a code book or a dictionary to give it more explanation to understand the difference between a variable in its encoding,</li>
+<li>the transforming and coding to another. We start to think about what we're going to need in order to do that.</li>
+<li>So the data we've been talking about needs to be encode. It needs to be stored somehow.</li>
+<li>So the variables we talked about in the earlier video, we actually have to record those values in some way.</li>
+<li>It's important to recognize that the encoding and the value that we're encoding and the value that is encoded in that coding are not the same.</li>
+<li>We could have the number twenty seven and we can write it in multiple different way.</li>
+<li>This is warm up example. We could write the digits to seven.</li>
+<li>We can write out the word 27. We could write it out and hexadecimal zero x one B. The value is twenty seven, but we have different ways of writing it.</li>
+<li>So to encode numeric data, we can encode it as a binary integer.</li>
+<li>And in these, each of these I'm showing the hexes, decimal values of the bytes used to encode it.</li>
+<li>So we can encoded as a binary integer, we could encode it as a floating point.</li>
+<li>Binary number. Looks very different, doesn't it?</li>
+<li>We could encode it as a decimal number. Those are the codes for the ASCII codes for the digits.</li>
+<li>Two and seven, when we save the CSB file, it's stored as text.</li>
+<li>So it's storing the decimal digits. There's another format called binary code,</li>
+<li>a decimal that's used on some mainframes and other systems for efficiently storing the actual decimal values.</li>
+<li>Encodings can also be Lawsie. A floating point, for example, loses precision.</li>
+<li>And we can encode we can record things as integers and it truncates whatever decimal part they may have had.</li>
+<li>So this is just for encoding numbers. We've had these four ways of encoding, but that's the syntactic encoding of.</li>
+<li>OK. This is stored as decimal characters. This is stored as a 32 bit integer is not enough to interpret it.</li>
+<li>No, because we need to know how it was measured. We need to know what the units are.</li>
+<li>Is this millimeters ft.</li>
+<li>Crocodiles may have been transformed somehow some data sets, they center the values or they take the logarithm of their values.</li>
+<li>We also need to know if there are any sensible values because it's not uncommon to get a data set where it's numbers.</li>
+<li>But then there's a special value that you use to indicate, say, unknown data.</li>
+<li>So we might have. We might have. The number of classes a student took in a day, one, two, seven, whatever.</li>
+<li>And if we don't know, we record ninety nine. Data recordings today tend to actually just exclude the value.</li>
+<li>But there's lots of historical data out there,</li>
+<li>lots of historical data processing systems that use specific values to to indicate things such as unknown.</li>
+<li>We need to know if any of those values are in the data. When we have categorical data, we need to know how the data is, what we call coded.</li>
+<li>So the categorical data. There's a few different values the variable can take on.</li>
+<li>We call these codes or levels of the categorical variable. We need to know what they are.</li>
+<li>We also need to know how they're stored. Are they stored numeric or string some data sets?</li>
+<li>We have a string like our penguins. We just wrote down the string. But some maybe there'll be numbers zero.</li>
+<li>One, two, three, four. And when you when you the code book to tell us what those numbers are.</li>
+<li>In any case, we know how the data was recorded. But we didn't know what they are. We also need to know how they're defined the.</li>
+<li>What does a particular value for this categorical variable mean?</li>
+<li>We need to know.</li>
+<li>It's useful to know what rules were to use to decide which code to apply for some things that might be fairly straightforward and obvious,</li>
+<li>but for others it might not be. Also, there's a made a question around coding categorical data about who decided the definitions and how</li>
+<li>were the how was this set of codes decided upon and given the definitions that they were given.</li>
+<li>One example of this is in census data.</li>
+<li>The Category four rate, the way race is collected, that's changed throughout the history of the United States.</li>
+<li>The set of categories, whether you have to pick one or whether it's a check, all that apply, etc., that changed throughout the throughout the course.</li>
+<li>And it becomes a very political process about how do you define what how it is that we record race when we are collecting census data.</li>
+<li>That then has strong effects for how we understand. The representation and distribution of race in the country, so few examples.</li>
+<li>So the penguin data set we looked at. The species is a categorical variable and it's written down.</li>
+<li>It just with the name of the species, Adelie chinstrap or Gentoo in the Rorty.</li>
+<li>There's a raw version of the data that has the full biological species name.</li>
+<li>These come for biological taxonomy. There's another data set that is used for some things that is credit information for German loan applicants.</li>
+<li>And it has various variables. One of its variables is the status of the applicants checking account.</li>
+<li>And it has the codes a11 for overdrawn a twelve for between zero and hundred deutschmarks,</li>
+<li>a A13 for either at least 200 deutschmarks, or they've had their salary to positive for a year.</li>
+<li>And then A14 means no checking account. And so we've got these categorical codes.</li>
+<li>We have the if you see a 12 in the data, you do not know what it means without looking at the code book.</li>
+<li>Even if it does look obvious, it's good to look at the code book category, but then we actually go to record categorical data.</li>
+<li>A lot of times, especially in the raw data, that we're get the data files that we load, it's going to be directly stored as a string or an integer.</li>
+<li>We're gonna have a column for the categorical variable and it has the value in there, but.</li>
+<li>For computational purposes, we're often going to need to encode it differently because you can't compute on A13 a couple different encodings there.</li>
+<li>One is one hot encoding where each different coder level gets a variable.</li>
+<li>A logical variable, but we encode it with an integer zero or one.</li>
+<li>And so for the German credit, we're going to have a eleven, twelve, thirteen, fourteen.</li>
+<li>There are all different variables we could for the penguins. We would have three variables, one for each species, and exactly one of them is one.</li>
+<li>So when a deli penguin would have one, the Adelie variable and zero in a chinstrap and Gentoo.</li>
+<li>Another option is what's called dummy coding, which is very, very similar, except one of the codes doesn't get a variable.</li>
+<li>So it all zeroes in the variables for the categorical variable.</li>
+<li>I mean, it's the admitted one and a one at any of them means that one.</li>
+<li>Why we need that is going to. It's going to come up when we start talking about linear modeling.</li>
+<li>But it's a very common statistical way of encoding a variable. The variables that we use for this are called indicator variables.</li>
+<li>So if we're transforming our penguins into either one hot or dummy code variables, we say that we have an indicator variable for chinstrap.</li>
+<li>And it's one if the if the penguin is a chinstrap and zero if it is not.</li>
+<li>So data has to be coded and encoded in order for us to process and analyze that, we actually have to store it somehow.</li>
+<li>And the process of coding affects are the data that we have when we go when we do an analysis.</li>
+<li>When we do an inference. The way that the data was coded affects how we view and how we understand the things that the data are actually about.</li>
+<li>Sometimes this is relatively straightforward. The penguin species,</li>
+<li>although the way the penguins got divided into their various species and got those species names is is a historical social process.</li>
+<li>But with other things that are very that are have very contested social definitions, such as how do you indicate race?</li>
+<li>It becomes a very strong lens that affects how we understand the underlying</li>
+<li>reality that the data is supposed to represent and that the representation,</li>
+<li>the coding, the codebook,</li>
+<li>the definitions that need to be documented thoroughly in order for us to properly understand the data that we're working with.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>Resources<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://float.exposed/0x3dcccccd">float.exposed</a> - explore floating-point numbers</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="tutorial-notebooks">
+<h2>📓 Tutorial Notebooks<a class="headerlink" href="#tutorial-notebooks" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../resources/tutorials/"><span class="doc std std-doc">tutorial notebooks</span></a> contain more info on the Python code, including more systematic overviews of the different Python and Pandas features.
+I recommend you particularly pay attention to the <a class="reference internal" href="../resources/tutorials/#python-and-data"><span class="std std-ref">Python and Data</span></a> tutorials.</p>
+<p><strong>We will not get to all Pandas features you might need in videos.</strong>
+These notebooks, the <a class="reference internal" href="../resources/documentation/#book-p4da" title="p4da"><cite>📖 Python for Data Analysis</cite></a> textbook, and the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/index.html">Pandas User Guide</a> all provide additional information on Pandas, NumPy, and SciPy.</p>
+</div>
+<div class="section" id="practice">
+<h2>✅ Practice<a class="headerlink" href="#practice" title="Permalink to this headline">¶</a></h2>
+<p>In a few videos, I have used the <em>Palmer Penguins</em> data set.</p>
+<ul class="simple">
+<li><p>Download <a class="reference download internal" download="" href="../_downloads/5eb90f05ac1f9831ef94aa3fdd4387a3/penguins.csv"><code class="xref download docutils literal notranslate"><span class="pre">../resources/data/penguins.csv</span></code></a> (provided under CC-0)</p></li>
+<li><p>Look at the documentation and references in the <a class="reference external" href="https://github.com/allisonhorst/palmerpenguins">source repository</a></p></li>
+<li><p>Describe the distributions of the different variables numerically and graphically</p></li>
+<li><p>See how many questions from <em>Datasheets for Datasets</em> you can find answers to in the penguin data documentation</p></li>
+</ul>
+<p>For more practice, you can look at the paper for the MovieLens data and try to answer Datasheets questions for it too!</p>
+</div>
+<div class="section" id="assignment-1">
+<h2>📩 Assignment 1<a class="headerlink" href="#assignment-1" title="Permalink to this headline">¶</a></h2>
+<p>Start working on <a class="reference internal" href="../assignments/A1/"><span class="doc std std-doc">Assignment 1</span></a>.  It is due at the end of Week 3.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./week2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../week1/1-7-types-operations/" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Data Types and Operations</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="2-2-PandasBasics/" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introducing Pandas</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Michael D. Ekstrand<br/>
+        
+            &copy; <a href="../copyright/">Copyright</a> 2021.<br/>
+          <div class="extra_footer">
+            <script data-goatcounter="https://cs533.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
