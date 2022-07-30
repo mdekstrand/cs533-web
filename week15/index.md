@@ -25,7 +25,7 @@ This video reviews the concepts we have discussed this term and puts them into t
 :slide-auth: AHfNFdGccgu4HVE
 :::
 
-(midterm-m)
+(midterm-m)=
 ## {{mquiz}} Makeup Exam
 
 The makeup midterm is **{date}`wk15 tue long`** in class.  It covers the entire semester, with an emphasis on material since the 2nd midterm.

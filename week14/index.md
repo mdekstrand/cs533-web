@@ -180,7 +180,7 @@ Read my [case study on reproducibility and bug-hunting](https://md.ekstrandom.ne
 
 Take **Quiz 14** in {{LMS}}.
 
-(w15-more-examples)=
+(w14-more-examples)=
 ## {{mnotebook}} More Examples
 
 My [book author gender](https://github.com/BoiseState/book-author-gender) project is an example of an advanced workflow with DVC.
