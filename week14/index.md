@@ -95,8 +95,6 @@ Sometimes it is adjusted to Extract, Load, Transform.
 :slide-auth: AEmcmPne5UWF0ts
 :::
 
-{{ media.vidtext('14-5 - ETL') }}
-
 ### Resources
 
 - [ETL — Understanding It and Effectively Using It](https://medium.com/hashmapinc/etl-understanding-it-and-effectively-using-it-f827a5b3e54d)

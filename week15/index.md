@@ -116,8 +116,6 @@ How do you put the results of your data science project into product?
 :slide-auth: ADSmmu5pFo5O0Ks
 :::
 
-{{ media.vidtext('15-6 - Production Applications') }}
-
 ## {{mvideo}} Topics to Learn
 
 This video goes over some useful topics to learn to fill out more of your data science education.
