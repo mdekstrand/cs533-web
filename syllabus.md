@@ -4,6 +4,9 @@ stylesheet: stylesheets/syllabus.css
 
 # Syllabus
 
+:::{updated} F21
+:::
+
 The purpose of this course is for students to learn how to engage in the scientific process using
 data-centric concepts and methods and to *think like a data scientist* by critically analyzing their
 own work and the work of others.

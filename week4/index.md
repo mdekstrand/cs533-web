@@ -1,5 +1,8 @@
 # Week 4 — Inference (9/13–17)
 
+:::{updated} F21
+:::
+
 These are the learning outcomes for the week:
 
 - Understand the elements of probability

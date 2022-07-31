@@ -1,5 +1,8 @@
 # Week 12 — Text ({date}`wk12 range`)
 
+:::{updated} F21
+:::
+
 :::{attention}
 The second midterm is on **{date}`wk12 tue xlong`**.
 :::

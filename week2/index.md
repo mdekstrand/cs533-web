@@ -1,5 +1,8 @@
 # Week 2 — Description (8/30–9/3)
 
+:::{updated} F21
+:::
+
 The learning outcomes for this week are:
 
 - To load a data file into Pandas and describe its basic structural characteristics.

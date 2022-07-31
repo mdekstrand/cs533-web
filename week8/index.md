@@ -1,5 +1,8 @@
 # Week 8 — Regression (Oct. 11–15)
 
+:::{updated} F21
+:::
+
 In this week, we are learning about linear regression with StatsModels.
 All the examples will use the StatsModels OLS (ordinary least squares) model, generally with the
 [formula interface](https://www.statsmodels.org/stable/generated/statsmodels.formula.api.ols.html#statsmodels.formula.api.ols).

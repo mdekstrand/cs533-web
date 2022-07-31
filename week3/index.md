@@ -1,5 +1,8 @@
 # Week 3 — Presentation (9/6–10)
 
+:::{updated} F21
+:::
+
 These are the learning outcomes for this week:
 
 * Create plots for data

@@ -1,5 +1,8 @@
 # Assignment 4
 
+:::{updated} F21
+:::
+
 Assignment 4 has two purposes:
 
 - To give you more experience with linear regression

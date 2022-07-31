@@ -1,5 +1,8 @@
 # Week 6 — Two Variables (Sep. 27–Oct. 1)
 
+:::{updated} F21
+:::
+
 :::{attention}
 The first midterm exam is on Tuesday.
 :::

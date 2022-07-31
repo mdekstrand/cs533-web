@@ -1,5 +1,8 @@
 # Assignment 5
 
+:::{updated} F21
+:::
+
 This assignment is designed to develop and assess your ability to build classifiers and reason about
 their effectiveness. You will use SciKit-Learn classifiers; it is possible to do part of the
 assignment with statsmodels, but some of the models only exist in SciKit-Learn.

@@ -1,5 +1,8 @@
 # Assignment 3
 
+:::{updated} F21
+:::
+
 The purpose of Assignment 3 is to give you experience integrating data from multiple sources to explore a two-variable question.
 
 It is due **October 10, 2020** at the end of the day (11:59 PM). Submit your `.ipynb` and PDF files to {{LMS}}.

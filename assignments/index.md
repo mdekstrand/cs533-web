@@ -1,5 +1,8 @@
 # Assignments
 
+:::{updated} F21
+:::
+
 - [Assignment 0](./A0/index.md) (due **{date}`wk1 sun long`**)
 - [Assignment 1](./A1/index.md) (due **{date}`wk3 sun long`**)
 - [Assignment 2](./A2/index.md) (due **{date}`wk5 sun long`**)

@@ -1,5 +1,8 @@
 # Week 14 — Workflow ({date}`wk14 range`)
 
+:::{updated} F21
+:::
+
 In this week, we are going to talk more about *workflows*.
 What does it look like to build a practical data science pipeline?
 

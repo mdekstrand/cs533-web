@@ -1,5 +1,8 @@
 # Week 1 — Questions (8/23–27)
 
+:::{updated} F21
+:::
+
 The key learning outcomes for this week are:
 
 - Ask and refine questions that can be answered with data

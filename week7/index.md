@@ -1,5 +1,8 @@
 # Week 7 — Getting Data (Oct. 4–8)
 
+:::{updated} F21
+:::
+
 This week has the following learning outcomes:
 
 - Locate data sources

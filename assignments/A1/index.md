@@ -1,5 +1,8 @@
 # Assignment 1
 
+:::{updated} F21
+:::
+
 This assignment is to give you experience with exploratory analysis and describing a data set.
 
 It is due on **Sunday, September 12, 2020** at the end of the day (11:59 PM).

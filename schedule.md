@@ -1,5 +1,8 @@
 # Schedule
 
+:::{updated} F21
+:::
+
 Following is a tentative schedule.  Topics may shift a little bit depending on how the semester goes.
 
 | Week  |      Start       |                Topic                |           Due           |
