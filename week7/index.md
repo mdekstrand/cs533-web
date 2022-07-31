@@ -1,4 +1,4 @@
-# Week 7 — Getting Data (Oct. 4–8)
+# Week 7 — Getting Data ({date}`wk7 range`)
 
 :::{updated} F21
 :::

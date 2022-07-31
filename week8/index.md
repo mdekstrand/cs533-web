@@ -1,4 +1,4 @@
-# Week 8 — Regression (Oct. 11–15)
+# Week 8 — Regression ({date}`wk8 range`)
 
 :::{updated} F21
 :::

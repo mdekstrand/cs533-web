@@ -1,4 +1,4 @@
-# Week 2 — Description (8/30–9/3)
+# Week 2 — Description ({date}`wk2 range`)
 
 :::{updated} F21
 :::

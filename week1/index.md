@@ -1,4 +1,4 @@
-# Week 1 — Questions (8/23–27)
+# Week 1 — Questions ({date}`wk1 range`)
 
 :::{updated} F21
 :::

@@ -1,4 +1,4 @@
-# Week 9 — Models & Prediction (Oct. 18–22)
+# Week 9 — Models & Prediction ({date}`wk9 range`)
 
 :::{updated} F21
 :::

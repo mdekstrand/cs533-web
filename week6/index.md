@@ -1,4 +1,4 @@
-# Week 6 — Two Variables (Sep. 27–Oct. 1)
+# Week 6 — Two Variables ({date}`wk6 range`)
 
 :::{updated} F21
 :::

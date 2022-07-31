@@ -20,7 +20,7 @@ Following is a tentative schedule.  Topics may shift a little bit depending on h
 |  11   | {date}`wk11 mon` | [Evaluating Models][W11]            |         [A5][]          |
 |  12   | {date}`wk12 mon` | [Text][W12]                         |     [E2](midterm-b)     |
 |  13   | {date}`wk13 mon` | [Unsupervised][W13]                 |         [A6][]          |
-| *Th*  |      11/22       | *Thanksgiving*                      |                         |
+| *Th*  |      11/21       | *Thanksgiving*                      |                         |
 |  14   | {date}`wk14 mon` | [Workflow][W14]                     |                         |
 |  15   | {date}`wk15 mon` | [What's Next?][W15]                 | [EX](midterm-m), [A7][] |
 |   F   | {date}`wk16 mon` | Finals week                         |          Final          |

@@ -1,4 +1,4 @@
-# Week 4 — Inference (9/13–17)
+# Week 4 — Inference ({date}`wk4 range`)
 
 :::{updated} F21
 :::

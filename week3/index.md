@@ -1,4 +1,4 @@
-# Week 3 — Presentation (9/6–10)
+# Week 3 — Presentation ({date}`wk3 range`)
 
 :::{updated} F21
 :::

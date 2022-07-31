@@ -1,4 +1,4 @@
-# Week 5 — Filling In (9/20–24)
+# Week 5 — Filling In ({date}`wk5 range`)
 
 :::{updated} F21
 :::
