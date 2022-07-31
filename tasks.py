@@ -7,7 +7,7 @@ import re
 from xml.etree import ElementTree as et
 from io import BytesIO
 
-from ruamel import yaml
+import yaml
 
 from invoke import task, call
 import requests
