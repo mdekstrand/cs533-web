@@ -47,7 +47,7 @@ I am [Michael Ekstrand](https://md.ekstrandom.net), an assistant professor in th
 Science.
 
 Office
-:   CCP 255
+:   CCP 354
 
 E-mail
 :   <michaelekstrand@boisestate.edu> (but please use Piazza for non-grade class questions)
