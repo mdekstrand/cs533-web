@@ -123,6 +123,7 @@ one copy for both of you, and indicate your partner's name in the Blackboard sub
 
 I will drop the lowest assignment grade.
 
+(exams)=
 ## Exams and Final
 
 There will be two midterm exams and a final.

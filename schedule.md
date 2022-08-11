@@ -26,8 +26,7 @@ Following is a tentative schedule.  Topics may shift a little bit depending on h
 | F    | {date}`wk16 mon` | Finals week                         | Final                   |           |
 
 Assignments are due at **midnight on Sunday** at the end of the week in which they are listed. For
-example, A0 is due at midnight, {date}`wk1 sun long`.  Exams are in class on Tuesdays the weeks they are
-listed (including the final).
+example, A0 is due at midnight, {date}`wk1 sun long`.  Exam timing is described in [course structure](exams).
 
 [A0]: assignments/A0/index.md
 [A1]: assignments/A1/index.md
