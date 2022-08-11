@@ -5,11 +5,7 @@
 
 The first assignment is to make sure that you can successfully run code and submit results.
 
-It is due **August 29, 2021** at midnight.
-
-## Revision Log
-
--   **Aug. 25, 2021:** Fixed Seaborn warning in solution & corrected outstanding mentions of Blackboard.
+It is due **{date}`wk1 sun long`** at midnight.
 
 ## Prerequisites
 

@@ -142,6 +142,10 @@ class UpdateBannerDirective(SphinxDirective):
         if update_term >= self.current_term:
             return []  # nothing to do, we are up to date!
 
+        for node in self.state.document.traverse(title):
+            node.children.insert(0, inline('', '🚧 '))
+            node.children.append(inline('', ' 🚧'))
+
         if self.content:
             content = self.content
         else:
@@ -152,7 +156,7 @@ for the **{term_name} {term_year}** term.
             """.format(term_name=update_term.term_name, term_year=update_term.year).strip()]
 
         cstr = '\n'.join('content')
-        node = admonition(cstr, classes=['warning'])
+        node = admonition(cstr, classes=['warning', 'update'])
 
         tn = title('', '', inline('', 'Page Not Final — Under Review'))
         node += tn
