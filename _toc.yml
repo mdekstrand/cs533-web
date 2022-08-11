@@ -3,7 +3,14 @@ root: index
 parts:
 - caption: Course Info
   chapters:
-  - file: syllabus
+  - file: syllabus/index
+    sections:
+    - file: syllabus/covid
+      title: BSU COVID-19 Statement
+    - file: syllabus/logistics
+    - file: syllabus/resources
+    - file: syllabus/structure
+    - file: syllabus/policies
   - file: schedule
   - file: glossary
 - caption: Content
@@ -49,6 +56,7 @@ parts:
   - file: assignments/A7/index
 - caption: Resources
   chapters:
+  - file: resources/index
   - file: resources/software
   - file: resources/documentation.md
   - file: resources/data/index.md

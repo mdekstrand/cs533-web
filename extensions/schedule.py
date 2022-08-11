@@ -151,7 +151,8 @@ class UpdateBannerDirective(SphinxDirective):
         else:
             content = ["""
 This page has not yet been updated for the current term.  It is here for your reference,
-but do not treat it as final until this admonition has been removed.  It was last updated
+but do not treat it as final until this admonition has been removed.  Content may change
+significantly, videos may be replaced, etc.  This page was last updated
 for the **{term_name} {term_year}** term.
             """.format(term_name=update_term.term_name, term_year=update_term.year).strip()]
 
