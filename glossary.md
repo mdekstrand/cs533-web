@@ -16,6 +16,10 @@ aggregate
 
     Introduced in {video}`week2:group-aggregate`.
 
+aleatoric uncertainty
+    Uncertainty that arises due to inherent randomness, such that further information will not make us more certain.
+    Contrast {term}`epistemic uncertainty`.
+
 arithmetic mean
     The most common type of {term}`mean`, computed from a sequence of observations as $\bar{x} = \frac{1}{n} \sum_i x_i$.
     When using the term “mean” without an additional qualifier, this is the type of mean we mean.
@@ -137,6 +141,10 @@ environment variable
         $env:MY_VAR="contents"
 
     Set an environment variable *before* running commands that need to be governed by it.
+
+epistemic uncertainty
+    Uncertainty that arises due to incomplete knowledge about a process or future outcomes.
+    Contrast {term}`aleatoric uncertainty`.
 
 Euclidean norm
     See {term}`L₂ Norm`.
