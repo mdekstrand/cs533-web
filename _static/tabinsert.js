@@ -1,14 +1,11 @@
 function setupTabStuff() {
   console.log('setting up slide tabs');
-  $('.tabbed-set').each(function() {
-    let elt = $('.tabbed-content.slides', this)[0];
+  $('.sd-tab-set').each(function() {
+    let elt = $('.sd-tab-content.slides', this)[0];
     if (!elt) return;
     console.log('found slides', elt);
     let inp = $(elt).prev().prev();
     console.log('found input', inp);
-    if (inp.tagName != 'input') {
-      console.warn('unexpected element:', inp);
-    }
     inp.on('change', function(evt) {
       if (inp[0].checked) {
         console.log('activating embed');

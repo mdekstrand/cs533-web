@@ -2,57 +2,59 @@
 Sphinx extension to implement video support
 """
 
+from venv import create
 import warnings
 from pathlib import Path
 from docutils import nodes
 from docutils.parsers.rst import directives
 from sphinx.util.docutils import SphinxDirective
 from sphinx.util.nodes import make_id
+from sphinx_design.shared import create_component
 import srt
 
 _vid_root = Path('videos')
 
 
 def rst_video_tab(video_id, length=None, title='Video', amara=None):
-    vcc = nodes.container("", type="tabbed", new_group=False, selected=False, classes=["tabbed-container", "video"])
+    tab = create_component('tab-item', classes=['sd-tab-item', 'video'])
     if length:
-        title += f" ({length})"
-    vl = nodes.rubric("Video", title, classes=["tabbed-label"])
-    vcc += vl
-    vc = nodes.container("", is_div=True, classes=["tabbed-content", "player"])
+        title = title + f" ({length})"
+    label = nodes.rubric("Video", title, classes=["sd-tab-label"])
+    tab += label
+    body = create_component('tab-content', classes=["sd-tab-content", "player"])
 
     vid = nodes.raw('', f"""
 <div class="video-container video-embed">
 <iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id={video_id}&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 </div>
     """.strip(), format='html')
-    vc += vid
-    vcc += vc
+    body += vid
+    tab += body
 
     if amara:
-        vl = nodes.paragraph("", classes=['aux-links'])
+        label = nodes.paragraph("", classes=['aux-links'])
         amr = nodes.reference('', '', classes=['amara'], internal=False)
         amr['refuri'] = amara
         amr += nodes.inline('', 'Edit subtitles on Amara')
-        vl += amr
-        vc += vl
+        label += amr
+        body += label
 
-    return vcc
+    return tab
 
 
 def rst_slide_tab(slide_id, slide_auth):
-    scc = nodes.container("", type="tabbed", new_group=False, selected=False, classes=["tabbed-container", "slides"])
-    sl = nodes.rubric("Slides", "Slides", classes=["tabbed-label"])
-    scc += sl
-    sc = nodes.container("", is_div=True, classes=["tabbed-content", "slides"])
+    tab = create_component('tab-item', classes=['sd-tab-item', 'slides'])
+    label = nodes.rubric("Slides", "Slides", classes=["sd-tab-label"])
+    tab += label
+    body = create_component('tab-content', classes=["sd-tab-content", "slides"])
 
     sid = nodes.raw('', f"""
 <div class=slide-container data-id="{slide_id}" data-key={slide_auth}>
 </div>
     """.strip(), format='html')
-    sc += sid
-    scc += sc
-    return scc
+    body += sid
+    tab += body
+    return tab
 
 
 class VideoDirective(SphinxDirective):
@@ -109,7 +111,9 @@ class VideoDirective(SphinxDirective):
             w = self.state.reporter.error(f'Video name {name} has no video ID')
             result.append(w)
 
-        box = nodes.container('', classes=["resource", "video"])
+        box = create_component(
+            'tab-set', classes=['sd-tab-set', 'resource', 'video']
+        )
         result.append(box)
 
         if video_id:
@@ -125,15 +129,14 @@ class VideoDirective(SphinxDirective):
             box += rst_video_tab(alt_id, title=self.options['alt-title'], amara=self.options.get('alt-amara', None))
 
         if self.content:
-            rcc = nodes.container("", type="tabbed", new_group=False, selected=False,
-                                  classes=["tabbed-container"])
-            rl = nodes.rubric("Resources and Links", "Resources and Links", classes=["tabbed-label"])
-            rcc += rl
-            rc = nodes.container("", is_div=True, classes=["tabbed-content", "resources"])
-            self.state.nested_parse(self.content, self.content_offset, rc)
+            res_tab = create_component('tab-item', classes=['sd-tab-item'])
+            rt_label = nodes.rubric("Resources and Links", "Resources and Links", classes=["sd-tab-label"])
+            res_tab += rt_label
+            rt_content = create_component('tab-content', classes=['sd-tab-content', 'resources'])
+            self.state.nested_parse(self.content, self.content_offset, rt_content)
 
-            rcc += rc
-            box += rcc
+            res_tab += rt_content
+            box += res_tab
 
         if name:
             tfile = _vid_root / f'{name}.slides.txt'
@@ -142,7 +145,7 @@ class VideoDirective(SphinxDirective):
                 hid = nodes.container('', is_div=True, classes=['slides', 'text', 'hidden'])
                 tn = nodes.Text(text)
                 hid += tn
-                box += hid
+                result.append(hid)
 
             sffile = _vid_root / f'{name}.srt'
             if sffile.exists():
@@ -153,7 +156,7 @@ class VideoDirective(SphinxDirective):
                     tn = nodes.Text(sub.content)
                     kids += nodes.list_item('', tn)
                 hid += kids
-                box += hid
+                result.append(hid)
             else:
                 w = self.state.reporter.warning(f'Video file {name}.srt does not exist')
                 result.append(w)
