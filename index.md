@@ -2,7 +2,7 @@
 
 Welcome to CS 533, *Introduction to Data Science*, for Fall 2022.
 
-:::{updated} F21
+:::{updated} F22
 
 The CS 533 updates for Fall 2022 are a work in progress. Feel free to peruse the
 site, but it is definitely not final right now.
@@ -12,7 +12,7 @@ This web site is the central information point for the class, where I will be di
 
 Points of interest include:
 
-*  The [syllabus](syllabus)
+*  The [syllabus](syllabus/index)
 *  {{LMS}} (for grades and submitting assignments)
 *  Piazza (for Q&A and announcements)
 *  {module}`week0` — start here!
