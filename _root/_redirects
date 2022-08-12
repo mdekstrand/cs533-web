@@ -1,5 +1,5 @@
 # to-update redirects
-/   /F21    302
+/   /F22    302
 /current/*  /F21/:splat 302
 
 # old redirects
