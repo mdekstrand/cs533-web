@@ -22,7 +22,7 @@ FULL_DIR = BUILD_DIR / 'site'
 CUR_DIR = BUILD_DIR / 'dirhtml'
 CUR_DEPLOY_DIR = FULL_DIR / CURRENT
 
-INVENTORY_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRYResrBniEP6Ponj_it8hJ7n9fO2P-_Xojq3JnVnIqn3QDUbCr-_x9CxSj4veUfg9-3OpNBFRL9Y34/pub?gid=0&single=true&output=csv'
+INVENTORY_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTfaz9ZdI_DNh3SpID1D71dCZrA1YIDraBlf9aou_hcqYLjudQd4Mw0GIpfL_ViYz73UfYhamtk9oEC/pub?gid=0&single=true&output=csv'
 
 
 def _msg(fmt, *args):
