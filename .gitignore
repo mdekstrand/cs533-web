@@ -15,5 +15,6 @@ onedrive.toml
 __pycache__/
 *.pyc
 *.pyo
+.tool-versions
 # Local Netlify folder
 .netlify
