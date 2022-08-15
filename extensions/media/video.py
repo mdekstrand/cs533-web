@@ -31,7 +31,7 @@ def rst_video_tab(video_id, length=None, title='Video', amara=None):
     body += vid
     tab += body
 
-    if amara:
+    if amara and False:  # drop amara links
         label = nodes.paragraph("", classes=['aux-links'])
         amr = nodes.reference('', '', classes=['amara'], internal=False)
         amr['refuri'] = amara
