@@ -17,6 +17,6 @@
   },
   "homepage": "https://cs533.ekstrandom.net",
   "devDependencies": {
-    "netlify-cli": "^6.10.3"
+    "netlify-cli": "^10.17.4"
   }
 }
