@@ -1,6 +1,6 @@
 # Course Policies
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 Our work within the [course structure](structure) is governed by the following
@@ -19,7 +19,7 @@ announcement regarding the change.  I will also state whether the revision chang
 
 ## Late Work
 
-For the assignments, you have a budget of 4 late days to use throughout the
+For the assignments, you have a budget of **6 late days** to use throughout the
 semester, at your discretion.
 
 *   Each late day extends an assignment deadline by 24 hours with no penalty.

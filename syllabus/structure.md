@@ -1,6 +1,6 @@
 # Course Structure
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 This class uses a flipped-classroom design.  I will primarily not be lecturing in class; instead,
