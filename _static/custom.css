@@ -49,3 +49,9 @@ a.free::after, cite.free::after {
     top: 0;
     left: 0;
 }
+
+@media print {
+    :root {
+        --pst-font-size-base: 12pt;
+    }
+}
