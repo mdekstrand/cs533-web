@@ -20,26 +20,26 @@ parts:
     sections:
     - file: week1/DemoNotebook
     - file: week1/1-7-types-operations
-  - file: week2/index
-    sections:
-    - file: week2/2-2-PandasBasics.ipynb
-    - file: week2/2-4-AggregatesAndGroups.ipynb
-    - file: week2/2-6-DescribingDistributions.ipynb
-  - file: week3/index
-    sections:
-    - file: week3/3-6-ChartsFromTheGroundUp.ipynb
-  - file: week4/index
-  - file: week5/index
-  - file: week6/index
-  - file: week7/index
-  - file: week8/index
-  - file: week9/index
-  - file: week10/index
-  - file: week11/index
-  - file: week12/index
-  - file: week13/index
-  - file: week14/index
-  - file: week15/index
+  # - file: week2/index
+  #   sections:
+  #   - file: week2/2-2-PandasBasics.ipynb
+  #   - file: week2/2-4-AggregatesAndGroups.ipynb
+  #   - file: week2/2-6-DescribingDistributions.ipynb
+  # - file: week3/index
+  #   sections:
+  #   - file: week3/3-6-ChartsFromTheGroundUp.ipynb
+  # - file: week4/index
+  # - file: week5/index
+  # - file: week6/index
+  # - file: week7/index
+  # - file: week8/index
+  # - file: week9/index
+  # - file: week10/index
+  # - file: week11/index
+  # - file: week12/index
+  # - file: week13/index
+  # - file: week14/index
+  # - file: week15/index
 - caption: Assignments
   chapters:
   - file: assignments/index
@@ -47,13 +47,13 @@ parts:
   - file: assignments/A0/index
     sections:
     - file: assignments/A0/A0-Notebook.ipynb
-  - file: assignments/A1/index
-  - file: assignments/A2/index
-  - file: assignments/A3/index
-  - file: assignments/A4/index
-  - file: assignments/A5/index
-  - file: assignments/A6/index
-  - file: assignments/A7/index
+  # - file: assignments/A1/index
+  # - file: assignments/A2/index
+  # - file: assignments/A3/index
+  # - file: assignments/A4/index
+  # - file: assignments/A5/index
+  # - file: assignments/A6/index
+  # - file: assignments/A7/index
 - caption: Resources
   chapters:
   - file: resources/index

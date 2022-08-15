@@ -1,9 +1,10 @@
 # Schedule
 
-:::{updated} F21
+:::{updated} F22
 :::
 
-Following is a tentative schedule.  Topics may shift a little bit depending on how the semester goes.
+Following is a tentative schedule.  Precise topics may shift as I do some
+revisions, but the deadlines are set.
 
 | Week | Start            | Topic                               | Due                     | Thu. Loc. |
 | :--: | :--------------: | ----------------------------------- | :---------------------: | :-------: |
