@@ -23,7 +23,7 @@ If you already know Python, the Python parts should mostly be review.
 
 This week has the following deadlines:
 
-- [Pre-class inventory](#pre-class-inventory) at **11:59 pm on Tuesday**
+- [Pre-class inventory](#pre-class-inventory) at **noon on Wednesday**
 - [Week 1 quiz](#week-1-quiz) at **8am on Thursday**
 - [Assignment 0](#assignment-0) at **11:59 pm on Sunday**
 
@@ -94,7 +94,7 @@ On Tuesday, we will:
 
 ## {{mtask}} Pre-Class Inventory
 
-Fill out the [pre-class skill inventory and survey](https://forms.gle/mNgETf37Sr2RqdTd7) by **11:59 pm on Tuesday**.
+Fill out the pre-class skill inventory and survey by **noon on Tuesday**.
 
 ## {{mtask}} Install Software
 
