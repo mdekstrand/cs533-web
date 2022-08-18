@@ -1,4 +1,4 @@
-# Course Logistics
+# Course & Instructor
 
 :::{updated} F22
 :::
