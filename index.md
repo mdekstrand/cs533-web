@@ -14,7 +14,7 @@ Points of interest include:
 
 *  The [syllabus](syllabus/index)
 *  {{LMS}} (for grades and submitting assignments)
-*  Piazza (for Q&A and announcements)
+*  [Piazza](https://piazza.com/boisestate/fall2022/cs533001/home) (for Q&A and announcements)
 *  {module}`week0` — start here!
 
 I ask that you direct **all course questions** through Piazza, even if the question is just to me.
