@@ -1,6 +1,6 @@
 # Assignment 0
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 The first assignment is to make sure that you can successfully run code and submit results.
