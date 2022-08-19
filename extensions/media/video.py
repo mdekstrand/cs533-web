@@ -117,7 +117,7 @@ class VideoDirective(SphinxDirective):
         result.append(box)
 
         if video_id:
-            box += rst_video_tab(video_id, length, amara=self._get_param('amara', 'Amara URL'))
+            box += rst_video_tab(video_id, length)
 
         slide_id = self._get_param('slide-id', 'Slide ID')
         if slide_id:
@@ -126,7 +126,7 @@ class VideoDirective(SphinxDirective):
 
         alt_id = self.options.get('alt-id', None)
         if alt_id:
-            box += rst_video_tab(alt_id, title=self.options['alt-title'], amara=self.options.get('alt-amara', None))
+            box += rst_video_tab(alt_id, title=self.options['alt-title'])
 
         if self.content:
             res_tab = create_component('tab-item', classes=['sd-tab-item'])
