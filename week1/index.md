@@ -74,7 +74,7 @@ The first videos of this class go with chapters 1 and 2 of {book}`tlds`.
 
 ## {{mclass}} Tuesday Class
 
-On Tuesday, we will:
+On Tuesday, we will meet on Zoom and do the following:
 
 - Introduce the class
 - Start working on defining and clarifying questions
