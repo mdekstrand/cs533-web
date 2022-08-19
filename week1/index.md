@@ -1,6 +1,6 @@
 # Week 1 — Questions ({date}`wk1 range`)
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 The key learning outcomes for this week are:
