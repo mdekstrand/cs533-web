@@ -63,6 +63,10 @@ To install Anaconda on your computer:
 
 2.  Run the installer.
 
+3.  Install the additional packages we need by running the following at a command prompt:
+
+        conda install -c conda-forge plotnine
+
 (miniconda)=
 ## Saving Space with Miniconda
 
@@ -79,7 +83,7 @@ that has support for more hardware platforms (including Linux and Mac on ARM-bas
 
 2.  Install the base packages we will need:
 
-        conda install pandas scipy scikit-learn notebook ipython \
+        conda install -c conda-forge pandas scipy scikit-learn notebook ipython \
             seaborn statsmodels
 
 ## Additional Packages
