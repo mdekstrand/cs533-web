@@ -36,7 +36,7 @@ E-mail
 
 Office Hours (tentative)
 :   Tue 10:30–11:30 AM
-:   Online [by appointment](https://calendly.com/mdekstrand)
+:   Online by appointment ([📅 schedule on Calendly](https://calendly.com/mdekstrand))
 
 I generally respond to course questions during normal hours (9a–5p M–F).
 I may occasionally reply to a question in an evening or on the weekend, but do not plan on it.
