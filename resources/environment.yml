@@ -1,9 +1,9 @@
 name: cs533
 channels:
-- defaults
+- conda-forge
 dependencies:
 # core libraries
-- python=3.8
+- python=3.9
 - numpy>=1.17
 - pandas>=1.2
 # statistical libraries
@@ -12,6 +12,7 @@ dependencies:
 # plotting libraries
 - matplotlib
 - seaborn
+- plotnine
 # interaction support
 - notebook
 - jupyterlab
@@ -20,5 +21,4 @@ dependencies:
 # utilities
 - ipywidgets
 - tqdm
-- pip:
-  - seedbank
+- seedbank

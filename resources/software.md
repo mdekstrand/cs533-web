@@ -4,8 +4,9 @@ Most of the software you will need is available through Anaconda, a distribution
 software for Python (and R). It is the easiest way to install Python with the packages we need. The
 one additional piece of software we will need is Git.
 
-We are using **Python 3.8** (or newer — Python 3.9 is fine) in this class.  Older versions of Python
-may work, but I will be testing my example code and instructions with Python 3.8.
+We are using **Python 3.8** (or newer — Python 3.9 or 3.10 is fine) in this
+class.  Older versions of Python may work, but I will be testing my example code
+and instructions with Python 3.8.
 
 :::{ltip} Department Computers
 If you want to use the department's computer lab for your work, see the [Onyx setup instructions](onyx-install) as well
@@ -48,11 +49,11 @@ as the Python package. You can search for Conda packages on [anaconda.org](https
 
 ## Installing Anaconda Python
 
-!!! note Platform Support
-
-    The full Anaconda distribution works on x86_64 platforms - most Windows and Linux computers, and Macs
-    with Intel processors.  If you have a Mac with an M1 processor, or an ARM-based Linux computer, go to
-    the [miniconda instructions](miniconda) and use the Miniforge installer.
+:::{note} Platform Support
+The full Anaconda distribution works on x86_64 platforms - most Windows and Linux computers, and Macs
+with Intel processors.  If you have a Mac with an M1 processor, or an ARM-based Linux computer, go to
+the [miniconda instructions](miniconda) and use the Miniforge installer.
+:::
 
 To install Anaconda on your computer:
 
@@ -86,16 +87,39 @@ that has support for more hardware platforms (including Linux and Mac on ARM-bas
         conda install -c conda-forge pandas scipy scikit-learn notebook ipython \
             seaborn statsmodels
 
-## Additional Packages
+## Installing Additional Packages
 
-I use {py:mod}`seedbank` in many of my examples for seeding the random number generator. Seedbank is not currently available through the main Anaconda channel, so you will needt
+If you need to install additional packages, I recommend using `conda` to install
+the Conda packages, when they are available. The name usually, but not always,
+matches the name in PyPI (used by `pip`).  If a package is available in Conda,
+any binary components are pre-compiled (so you don't need a working C compiler)
+and are usually more optimized than the precompiled wheels available via `pip`.
+You can search Conda packages at [anaconda.org](https://anaconda.org/); the
+`main` channel contains the packages available through the default Anaconda or
+Miniconda installation, and the `conda-forge` channel is a community-maintained
+repository of packages that has most of what's in `main` along with many
+packages not yet in the main repository.  `plotnine` is only (currently)
+available in `conda-forge`, but packages can usually be mixed and matched, so
+you can install it in a default environment.
+
+It is fine to use `pip` to install packages that are not available in Conda.  It
+also works to use it to install packages that are, but I do not recommend this,
+particularly for core compute packages such as `numpy`, `scipy`, and
+`scikit-learn` — the versions in Conda are more optimized.
+
+:::{note} `conda-forge`
+I personally just use the `conda-forge` channel for all of my Anaconda environments, but the
+primary installers default to main.
+:::
+
+### seedbank
+
+I use {py:mod}`seedbank` in many of my examples for seeding the random number generator. Seedbank is not currently available through the main Anaconda channel, so you will need
 to install it with `pip`:
 
     pip install seedbank
 
 Do this *after* installing your other packages with `conda`, so seedbank doesn't try to pull in a non-Conda NumPy.
-
-It is fine to use `pip` to install packages that are not available in Conda.  It also works to use it to install packages that are, but I do not recommend this, particularly for core compute packages such as `numpy`, `scipy`, and `scikit-learn` — the versions in Conda are more optimized.
 
 ## Installing Git and Command-Line Tools
 
