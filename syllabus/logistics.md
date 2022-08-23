@@ -32,7 +32,7 @@ Office
 :   CCP 354
 
 E-mail
-:   <michaelekstrand@boisestate.edu> (but please use Piazza for non-grade class questions)
+:   `michaelekstrand@boisestate.edu` (but please use Piazza for non-grade class questions)
 
 Office Hours (tentative)
 :   Tue 10:30–11:30 AM
