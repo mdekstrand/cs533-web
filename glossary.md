@@ -558,7 +558,7 @@ variable
 
     In **programming**, a name used to refer to a piece of data.  The following Python code assigns the value 3 to the variable `x`:
 
-    ```{python}
+    ```python
     x = 3
     ```
 
