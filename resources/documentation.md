@@ -25,6 +25,15 @@ reference. This is a mix of material from others (most of it) and that I have wr
     You can read this book for free [through the Boise State Library](https://boisestate.on.worldcat.org/v2/oclc/984515080).
     :::
 
+An additional book you may find useful:
+
+-   :::{book} hands
+    :title: A Hands-On Introduction to Data Science
+    :author: Chirag Shah
+    :publisher: Cambridge
+
+    :::
+
 ## Software Documentation
 
 Quick links to software documentation:

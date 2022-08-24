@@ -13,6 +13,10 @@ Our primary textbooks are:
 
 > <cite>Think Like a Data Scientist</cite> by Brian Godsey (Manning, ISBN 978-1633430273)
 
+A good additional data science text is:
+
+> <cite>A Hands-On Introduction to Data Science</cite> by Chirag Shah (Cambridge)
+
 If you want a more thorough treatment of the core Python language traditional book format, I recommend:
 
 > <cite>Learn Python the Hard Way</cite> by Zed Shaw

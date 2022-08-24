@@ -5,7 +5,7 @@
 
 This assignment is to give you experience with exploratory analysis and describing a data set.
 
-It is due on **Sunday, September 12, 2020** at the end of the day (11:59 PM).
+It is due on **{date}`wk3 sun long``** at the end of the day (11:59 PM).
 Submit your `.ipynb` and PDF files to {{LMS}}.
 
 :::{tip}
@@ -17,13 +17,6 @@ In writing requirements, I often write such that the first sentence of a paragra
 the high-level idea of that requirement, and the subsequent sentences (and possibly additional paragraphs or
 bullet points) dive in to the details of what is expected for that requirement.
 :::
-
-## Revision Log
-
--   **Sep. 7, 2021** - corrected mention of nonexistence Pandas function “recode”, and clarified the hint.
-    Clarified the hint about consulting the [📓 Building Data notebook](../../resources/tutorials/BuildingData.ipynb)
-    for working with admissions policies.
-    No requirements changes.
 
 ## Learning Outcomes
 
@@ -47,10 +40,10 @@ This is a medium-sized data set. For this assignment, we will only work with the
 
 On this site, you will find a few things:
 
--   The data itself.  We want “Most Recent Institution-Level Data”
+-   The data itself.  We want “**Most Recent Institution-Level Data**”.
 -   The documentation.  Of particular note:
-    - The Data Dictionary contains concise definitions of key fields
-    - The Technical Documentation for Institution-Level Data Files contains more thorough discussion of the different variables, and on pages 33–37 describes where the data came from and how was collected.
+    - The “**Data Dictionary**” contains concise definitions of key fields
+    - The “**Technical Documentation for Institution-Level Data Files**” contains more thorough discussion of the different variables, and on pages 33–37 describes where the data came from and how was collected.
 
 The lack of direct links is deliberate.
 I want you to navigate the site yourself to find the relevant files, so you gain experience collecting information about a data set.
@@ -104,15 +97,15 @@ You will need to compare the variable names available in your data with the desc
 
 For the 4/L4 distinction (4-year vs. less-than-4-year), are any schools in both categories?  If not, does it make sense to combine two variables into one completion rate variable?  The {py:meth}`pandas.Series.combine_first` method will combine two series.  To fill in the missing values in `s1` with values from `s2`, do:
 
-    s1.combine_first(s2)
+    combined = s1.combine_first(s2)
 
 The [Missing Data notebook](../../resources/tutorials/MissingData.ipynb) provides hints for working with missing values in general.
 
 :::{tip}
-If you know SQL, Pandas `combine_first` works like SQL `COALESCE`.
+If you know SQL, Pandas {py:meth}`~pandas.Series.combine_first` works like SQL `COALESCE`.
 :::
 
-For the other options (pooling, 100/150%), read the documentation about completion rates, and pick the variables to use.  **Justify your decision.**
+For the other options (pooling, 100/150%), read the documentation about completion rates, and pick the variables to use based on what would make the most sense in the context of the assignment.  **Justify your decision.**
 
 :::{admonition} Selecting Variables
 :class: tip
