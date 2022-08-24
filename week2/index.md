@@ -148,6 +148,15 @@ In this video, we discuss descriptive statistics for numeric variables.
 :name: 2-5 - Descriptive Statistics
 :::
 
+### Terms
+
+This video introduces the following terms:
+
+- {term}`mean`
+- {term}`median`
+- {term}`standard deviation`
+- {term}`variance`
+
 ## {{mvideo}} Describing Distributions
 
 This video introdues the concept of _distributions_, and how we can see the shape and layout of our data.
@@ -186,12 +195,9 @@ The Week 2 quiz will be over the material **above** this point.
 
 This video talks more about how data is encoded, and what we need to document about that.
 
-:::{video}
-:id: 9c3e036c-fc72-446f-8b20-ad9000efda2e
-:length: 8m57s
-:slide-id: 495979F9A431DDB0%2172987
-:slide-auth: APm1GElna_P6o40
+:::{video} encodings
 :name: 2-8 - Codings and Encodings
+:length: 8m57s
 :::
 
 ### Resources

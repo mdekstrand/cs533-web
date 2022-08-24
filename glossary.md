@@ -114,6 +114,11 @@ embedding
 
     As a verb, to convert an instance to such a representation.
 
+encoding
+    How we record a piece of data (especially an observation of a {term}`variable`) in the computer system.
+
+    Introduced in {video}`week2:encodings`.
+
 entropy
     A measure of the “uninformitiveness” or uncertainty represented by a probability distribution.  For a discrete distribution,
     it is computed as:
@@ -121,7 +126,7 @@ entropy
     $$H(X) = - \sum_x \P[x] \log_2 \P[x]$$
 
     The entropy is the expected number of bits required to record a draw from the distribution (or a message resolving the uncertainty)
-    using an efficient encoding, assuming the recipient knows the distribution and the encoding. 
+    using an efficient {term}`encoding`, assuming the recipient knows the distribution and the encoding. 
 
     Introduced in {video}`week13:entropy`.
 
@@ -449,9 +454,15 @@ standard deviation
 
     $$\sigma_X = \sqrt{\frac{\sum_i (x_i - \bar{x})^2}{n}}$$
 
-    When computing the standard deviation from a sample, we instead compute the **sample standard deviation**:
+    Sometimes we compute the **sample standard deviation**:
 
     $$s = \sqrt{\frac{\sum_i (x_i - \bar{x})^2}{n - 1}}$$
+
+    The sample standard deviation is an {term}`unbiased estimator` of the population standard deviation;
+    computing the standard deviation (divided by $n$ instead of $n-1$) technically has a small bias when
+    used to estimate the population standard deviation, but in reasonably large data sets this difference
+    is miniscule, and often is [not very important](https://dansblog.netlify.app/posts/2021-10-11-n-sane-in-the-membrane/)
+    (there are usually more impactful discrepancies between the sample estimate and population s.d. than this bias).
 
     The standard deviation is the square root of the {term}`variance`.
 
@@ -540,6 +551,16 @@ validation set
     A widely-used name for the {term}`tuning set`.  Sometimes validation and test are switched, so an author will talk about trying out different models with their test set and doing the final evaluation with a validation set.  I avoid the term due to this confusion.
 
     See {term}`test set` for more details.
+
+variable
+    In **statistics**, a particular data value that can be observed.  For example, the a penguin's mass is a variable for penguin entities.
+    A {term}`random variable` is a variable that takes on random values (or unknown values, where we model the unknowns with randomness).
+
+    In **programming**, a name used to refer to a piece of data.  The following Python code assigns the value 3 to the variable `x`:
+
+    ```{python}
+    x = 3
+    ```
 
 variance
     A measure of the spread of a random variable (which may be observable quantities in the population).
