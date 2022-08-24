@@ -5,7 +5,7 @@
 
 This assignment is to give you experience with exploratory analysis and describing a data set.
 
-It is due on **{date}`wk3 sun long``** at the end of the day (11:59 PM).
+It is due on **Sunday, {date}`wk3 sun long`** at the end of the day (11:59 PM).
 Submit your `.ipynb` and PDF files to {{LMS}}.
 
 :::{tip}
