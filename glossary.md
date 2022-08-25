@@ -88,6 +88,12 @@ covariance
 
     Defined in {video}`week6:correlation` and [Notes on Probability](prob-variance). Used extensively in [Assignment 4](a4-covariance).
 
+cumulative distribution function
+    A function describing a distribution by defining the fraction of elements that are less than a particular value ($F_X(x) = \P[X < x]$).
+    Also called a **CDF**.
+
+    Discussed in [Notes on Probability](random-variables).  See {term}`empirical CDF`.
+
 degrees of freedom
     The number of observations in a series that can independently vary to affect a calculation.
     This is usually the number of observations, minus the number of intermediate statistics.
@@ -113,6 +119,11 @@ embedding
     Introduced in {module}`week13`.
 
     As a verb, to convert an instance to such a representation.
+
+empirical CDF
+    A {term}`cumulative distribution function` computed from data.
+
+    Introduced in {video}`week2:distributions`.
 
 encoding
     How we record a piece of data (especially an observation of a {term}`variable`) in the computer system.

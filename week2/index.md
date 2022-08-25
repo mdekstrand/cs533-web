@@ -16,7 +16,7 @@ This week's material uses chapters 5 and 10 of {book}`p4da`.
 ## {{moverview}} Content Overview
 
 :::{module} week2
-:folder: 054cd8f5-5bbc-4050-b792-ad9000ef9fca
+:folder: 425b953d-0fcc-4e5d-84a5-aefc01698714
 :::
 
 ## {{mcal}} Deadlines
@@ -29,10 +29,7 @@ This video introduces the week's topic: describing data and data sets.
 We discuss the pipeline by which phenomena become a data set.
 
 :::{video}
-:id: b0f572b6-cc0c-41ec-adee-ad9000efd57c
 :length: 6m27s
-:slide-id: 495979F9A431DDB0%2172971
-:slide-auth: AGb5_joj5Xdvfk0
 :name: 2-1 - Describing Data
 :::
 
@@ -87,10 +84,7 @@ We see how to load a CSV file and inspect the resulting data frame.
 In this video, we learn the different types of data (_variables_) that we will encounter.
 
 :::{video}
-:id: afc96ff2-0043-4387-af9b-ad9000efd6b0
 :length: 15m56s
-:slide-id: 495979F9A431DDB0%2172975
-:slide-auth: AEdM3U338m0PRso
 :name: 2-3 - Variables and Types
 :::
 
@@ -124,10 +118,7 @@ We aren't getting to everything in those chapters though.
 In this video, we discuss how compute aggregate statistics in Pandas.
 
 :::{video} group-aggregate
-:id: 4c5b7bbb-dc57-4484-b160-ad9000efd740
 :length: 14m12s
-:slide-id: 495979F9A431DDB0!72980
-:slide-auth: APZCbpVCLFI74-U
 :name: 2-4 - Groups and Aggregates
 :::
 
@@ -141,10 +132,7 @@ In this video, we discuss how compute aggregate statistics in Pandas.
 In this video, we discuss descriptive statistics for numeric variables.
 
 :::{video} descriptive-statistics
-:id: fd7d2c53-752b-4844-9919-ad9000efd7f2
 :length: 16m32s
-:slide-id: 495979F9A431DDB0%2172978
-:slide-auth: AF4pIDEqeSJMSR8
 :name: 2-5 - Descriptive Statistics
 :::
 
@@ -159,13 +147,10 @@ This video introduces the following terms:
 
 ## {{mvideo}} Describing Distributions
 
-This video introdues the concept of _distributions_, and how we can see the shape and layout of our data.
+This video introduces the concept of _distributions_, and how we can see the shape and layout of our data.
 
-:::{video}
-:id: 5b6fb252-cd60-478b-aaf7-ad9000efd8b9
-:length: 10m17s
-:slide-id: 495979F9A431DDB0%2172985
-:slide-auth: AFKFlxWtifklVVE
+:::{video} distributions
+:length: 11m59s
 :name: 2-6 - Describing Distributions
 :::
 
@@ -176,10 +161,7 @@ This video introdues the concept of _distributions_, and how we can see the shap
 ## {{mvideo}} Data Sources and Bias
 
 :::{video}
-:id: 824f231f-7cda-42a5-917c-ad9000efd981
 :length: 8m46s
-:slide-id: 495979F9A431DDB0%2172983
-:slide-auth: AAJ1g0hwAUBmF1c
 :name: 2-7 - Data Sources and Bias
 :::
 

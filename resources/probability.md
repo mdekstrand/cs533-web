@@ -160,6 +160,7 @@ The following are true if and only if $A$ and $B$ are independent:
 - $\P[B|A] = \P[B]$
 - $\P[A, B] = \P[A] \P[B]$
 
+(random-variables)=
 ## Continuous Probability & Random Variables
 
 If $E$ is continuous (typically $E = \mathbb{R}$), then we can't meaningfully talk about the probabilities of elementary events.
