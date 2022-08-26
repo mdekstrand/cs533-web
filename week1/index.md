@@ -167,6 +167,14 @@ This video introduces Python control structures and code layout.
 :name: 1-6 - Control Structures
 :::
 
+## {{mdoc}} Further Python study
+
+If you would like further study on Python fundamentals, especially if programming in general is new to you, here are some resources:
+
+- Python comes with a [quite good tutorial](https://docs.python.org/3/tutorial/)
+- [Learn Python the Hard Way](https://learnpythonthehardway.org/python3/) is quite in-depth, and extensive lecture videos are available.
+- [Lecture notes from MIT's intro to Python course](https://ocw.mit.edu/courses/6-189-a-gentle-introduction-to-programming-using-python-january-iap-2011/pages/lectures/)
+
 ## {{mvideo}} Scientific Python
 
 This video introduces NumPy {py:class}`numpy.ndarray`, the fundamental numeric array data structure for scientific computing.
