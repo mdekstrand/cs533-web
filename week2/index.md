@@ -1,6 +1,6 @@
 # Week 2 — Description ({date}`wk2 range`)
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 The learning outcomes for this week are:
