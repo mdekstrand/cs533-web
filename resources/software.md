@@ -19,12 +19,20 @@ as the instructions for [remotely using Onyx](onyx.md).
 
 Our primary software is:
 
--  [Anaconda Python](https://www.anaconda.com/distribution/) (install this in your Onyx home directory for use there)
+-  [Anaconda Python](https://www.anaconda.com/distribution/)
 
-To complete assignments on department computers, you also need:
+:::{tip}
+The main Anaconda distribution includes all software we will be using
+except the `plotnine` Python package and [git](install-git). If you are using
+your own computer, and you don't know what else to do, [install
+Anaconda](install-anaconda) and you will be good to go.
+:::
+
+If you are using the department's Onyx computers to complete your assignment, you will need:
 
 -  An SSH client (MobaXterm for Windows, `ssh` on Mac or Linux)
 -  The [Boise State VPN](https://bsuvpn-offcampus.boisestate.edu/) for convenient access to Onyx nodes
+-  Install Anaconda Python in your Onyx home directory, following the Linux instructions.
 
 For building more advanced workflows, there are many text editors you can use.
 I use [Visual Studio Code][VSC], which has very good [remote editing support](https://code.visualstudio.com/docs/remote/remote-overview)
@@ -34,8 +42,10 @@ The rest of this document walks through some details.
 
 ## About Conda
 
-Anaconda (and Miniconda, described at the end of this document) is a scientific software distribution.
-It is built around the Conda package manager.
+Anaconda (and Miniconda, described at the end of this document) is a scientific
+software distribution. That is, it is a collection of software such as Python,
+Jupyter, and Pandas for supporting scientific computation.  It is built around
+the Conda package manager, which it uses to actually install the software.
 
 Conda installs precompiled binary versions of software, including but not limited to Python
 packages. The versions of Scientific Python software distributed through Conda are compiled against
@@ -47,12 +57,11 @@ install it with `pip`. However, since we are using Conda, it works better to ins
 version of a package (with `conda`) if possible. It will usually, but not always, have the same name
 as the Python package. You can search for Conda packages on [anaconda.org](https://anaconda.org).
 
+(install-anaconda)=
 ## Installing Anaconda Python
 
-:::{note} Platform Support
-The full Anaconda distribution works on x86_64 platforms - most Windows and Linux computers, and Macs
-with Intel processors.  If you have a Mac with an M1 processor, or an ARM-based Linux computer, go to
-the [miniconda instructions](miniconda) and use the Miniforge installer.
+:::{tip}
+If you don't know what to do, and are working on your own computer, do this.
 :::
 
 To install Anaconda on your computer:
@@ -62,9 +71,16 @@ To install Anaconda on your computer:
     If your computer has a 64-bit operating system (most do, *except* for Windows on ARM platforms like the Surface X),
     download the 64-bit version of Anaconda.  Make sure you get the Python 3 verision (it is the default).
 
-2.  Run the installer.
+2.  Run the installer.  On **macOS** and **Windows**, the installer is a normal
+    installer that you can run by double-clicking.  On **Linux** it is a shell
+    script, which you can run with the following command in your terminal:
 
-3.  Install the additional packages we need by running the following at a command prompt:
+        /bin/bash Anaconda3-2022.05-Linux-x86_64.sh
+
+    Replace the file name with the name of the installer file you downloaded.
+
+3.  Install the additional packages we need by running the following at terminal
+    (normal terminal on macOS and Linux, an “Anaconda Prompt” on Windows):
 
         conda install -c conda-forge plotnine
 
@@ -73,19 +89,17 @@ To install Anaconda on your computer:
 
 We don't need all of Anaconda.  If you want to save disk space, [Miniconda][] is a much smaller
 distribution that just contains Python and the Conda package manager, so you can install the
-packages you need yourself.  [Miniforge][] is an equivalent community-maintained distribution
-that has support for more hardware platforms (including Linux and Mac on ARM-based chips).
+packages you need yourself.
 
 [miniconda]: https://docs.conda.io/en/latest/miniconda.html
 [miniforge]: https://github.com/conda-forge/miniforge
 
-1.  [Download the installer][miniconda] for your platform and run it.  On M1 Macs and ARM-based Linux, get the
-    appropriate installer from [miniforge][].
+1.  [Download the installer][miniconda] for your platform and run it.
 
 2.  Install the base packages we will need:
 
         conda install -c conda-forge pandas scipy scikit-learn notebook ipython \
-            seaborn statsmodels
+            seaborn statsmodels plotnine
 
 ## Installing Additional Packages
 
@@ -121,6 +135,7 @@ to install it with `pip`:
 
 Do this *after* installing your other packages with `conda`, so seedbank doesn't try to pull in a non-Conda NumPy.
 
+(install-git)=
 ## Installing Git and Command-Line Tools
 
 We will be using Git later in the semester.
