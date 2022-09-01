@@ -1,1 +1,5 @@
-[{"version": "F20", "title": "F20", "aliases": []}, {"version": "F21", "title": "F21", "aliases": []}]
+[
+    {"version": "F20", "title": "F20", "aliases": []},
+    {"version": "F21", "title": "F21", "aliases": []},
+    {"version": "F22", "title": "F22", "aliases": []}
+]
