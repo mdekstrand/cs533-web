@@ -1,6 +1,6 @@
 # Week 3 — Presentation ({date}`wk3 range`)
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 These are the learning outcomes for this week:
