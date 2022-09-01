@@ -72,3 +72,9 @@ parts:
 - caption: Site Details
   chapters:
   - file: copyright
+  - file: versions
+    sections:
+      - title: Fall 2021
+        url: https://cs533.ekstrandom.net/F21
+      - title: Fall 2020
+        url: https://cs533.ekstrandom.net/F20
