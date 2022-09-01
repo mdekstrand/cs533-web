@@ -1,0 +1,12 @@
+= Syllabus: Introduction to Data Science
+Michael Ekstrand <michaelekstrand@boisestate.edu>
+v0.1, 2017-05-16
+
+This chapter of the course comprises the course syllabus.
+The remaining parts and chapters will contain the various content and exercises.
+
+* link:outcomes.adoc[Goals and Learning Outcomes]
+* link:logistics.adoc[Course Logistics]
+* link:resources.adoc[Textbook and Resources]
+* link:assessment.adoc[Assessment Plan]
+* link:policies.adoc[Course Policies]

@@ -1,0 +1,11 @@
+html, body, .book.font-family-1, .book-summary {
+    font-family: "Lato", sans-serif;
+}
+
+.book.font-family-0 {
+    font-family: "Merriweather", serif;
+}
+
+td.halign-center {
+    text-align: center;
+}

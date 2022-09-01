@@ -1,0 +1,104 @@
+@section-divider-colour: fade(#939da3, 30);
+@admonition-content-color: #777;
+@admonition-tip-color: #111;
+@admonition-note-color: #19407c;
+@admonition-warning-color:#bf6900;
+@admonition-caution-color: #bf3400;
+@admonition-important-color: #bf0000;
+
+// Reset border styling.
+.admonitionblock table td, 
+.admonitionblock table th {
+  border: 0 !important;
+}
+
+.admonitionblock > table {
+    border-collapse: separate !important;
+    border: 0 !important;
+    background: 0 0;
+    width: 100%;
+    margin-top: 1.8em !important;
+    margin-bottom: 1.8em !important;
+}
+
+.admonitionblock > table td.icon {
+    text-align: center;
+    width: 80px;
+}
+.admonitionblock > table td.icon img {
+    max-width: none;
+}
+.admonitionblock > table td.icon .title {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.admonitionblock > table td.content {
+    padding-left: 1.125em;
+    padding-right: 1.5em;
+    border-left: 1px solid @section-divider-colour !important;
+    color: inherit;
+}
+.admonitionblock > table td.content >:last-child >:last-child {
+    margin-bottom: 0;
+ }
+ span.icon > .fa {
+  cursor: default;
+}
+
+.admonitionblock td.icon {
+  [class^="fa icon-"] {
+    font-size: 2.5em !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    cursor: default;
+  }
+
+  .icon-note {
+    color: @admonition-note-color;
+  }
+
+  .icon-tip {
+    text-shadow: 1px 1px 2px rgba(155, 155, 0, .8);
+    color: @admonition-tip-color;
+  }
+
+  .icon-warning {
+    color: @admonition-warning-color;
+  }
+
+  .icon-caution {
+    color: @admonition-caution-color;
+  }
+
+  .icon-important {
+    color: @admonition-important-color;
+  }
+}
+
+.conum[data-value] {
+  display: inline-block;
+  color: #fff !important;
+  text-align: center;
+  font-size: 0.75em;
+  width: 1.67em;
+  height: 1.67em;
+  line-height: 1.67em;
+  font-style: normal;
+  font-weight: bold;
+
+  & * {
+    color: #fff !important;
+  }
+
+  &  b {
+    display: none;
+  }
+
+  &:after {
+    content: attr(data-value);
+  }
+
+  pre & {
+    position: relative;
+    top: -0.125em;
+  }
+ }

@@ -1,0 +1,31 @@
+= Week 7 (Oct. 2–6)
+
+== Pre-Class Reading
+
+* https://medium.com/simple-ai/classification-versus-regression-intro-to-machine-learning-5-5566efd4cb83[Classification Vs. Regression]
+* https://stats.idre.ucla.edu/r/dae/logit-regression/[Logit Regression]
+
+== Monday
+
+Logistic Regression and Classification
+
+[[monday-downloads]]
+=== Downloads
+
+Download the link:ref://../notebooks/LogisticDemo.ipynb[demo notebook] (link:ref://../notebooks/LogisticDemo.html[HTML export]).
+
+*Update:* the link:ref://../notebooks/LogisticDemoFilled.ipynb[completed notebook] (link:ref://../notebooks/LogisticDemoFilled.html[HTML export]).
+
+=== Outline
+
+* What is classification?
+* How do we adapt linear models to do classification?
+* How do we measure classifier effectiveness?
+** ROC curves
+** Precision and recall
+* Does the data mean what we hope it does?
+
+== Wednesday
+
+* More Classification
+* Prep for Exam (Oct. 11)

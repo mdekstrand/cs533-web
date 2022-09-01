@@ -1,0 +1,130 @@
+= Git for Data Science
+
+This document is to help you get started using Git for data science projects.  It is not a self-contained tutorial, but aims to build on existing excellent works to help you make effective use of git.
+
+== What is Git? Why?
+
+Serious programming and scientific endeavors usually benefit from some kind of _version control_: a record of past versions of the project so that you can recover old code and know exactly what version of code or analysis scripts you are working with.  Git also provides a very good way to ship code between computers, so you can move things from your local computer to a compute server.
+
+== Installing Git
+
+We will need both git and an add-on package called https://git-lfs.github.com/[git-lfs].
+
+. On Linux, install them from your repository:
++
+.....
+sudo apt-get install git git-lfs
+sudo yum install git git-lfs
+.....
+. On Mac, it's easiest to use https://brew.sh/[homebrew]:
++
+.....
+brew install git git-lfs
+.....
+. On Windows, you can download the binary installers for both Git and Git-LFS, or you can use a package manager such as http://scoop.sh/[scoop].
+
+For at least Windows, and likely other platforms, `git` and `git-lfs` are also available via Conda:
+
+.....
+conda install git
+conda install -c conda-forge git-lfs
+.....
+
+== Introducing Git
+
+There are many, many tutorials and resources to get started with Git.  Here are a few:
+
+. https://try.github.io/levels/1/challenges/1[Try Git], a hands-on interactive tutorial
+. https://git-scm.com/videos[Git Basics videos]
+. _Version Control by Example_, particularly chapters http://ericsink.com/vcbe/html/basics.html[2], http://ericsink.com/vcbe/html/dvcs_basics.html[4], and http://ericsink.com/vcbe/html/git_example.html[8]
+. The https://git-scm.com/book/en/v2[_Pro Git_] book, if you want a more in-depth treatment
+
+Git has extensive built-in reference documentation, but that can be quite difficult to parse.  Run e.g. `git help commit` to read it.
+
+You may also find the https://git-man-page-generator.lokaltog.net/[Git manpage generator] entertaining.
+
+== GUIs
+
+Git is primarily a command-line tool.  If you like a GUI, https://www.sourcetreeapp.com/[SourceTree] works on Windows and Mac.
+
+== Directory Layout
+
+It helps to have a planned layout for your projects. Particular tools may encourage different layouts, but I usaully use something like this:
+
+. Notebooks go in the root directory
+. Input data goes in a directory called `data`
+. Output files go in a directory called `output` (this may change depending on what other tools I use)
+. Sometimes I have a directory called `temp` for temporary or scratch files
+
+== Ignoring Files
+
+We don't want to commit everything to Git.
+
+IMPORTANT: A key rule for happy Git usage: commit inputs, not outputs.
+
+Data science work will break this rule a little bit, but in general we don't want to commit our output files or temporary working files.  We want to commit analysis code and documentation, and often final analysis output, but that's it.
+
+Git lets us tell it to ignore files by listing them in a file called https://git-scm.com/docs/gitignore[`.gitignore`].  In the top-level of your project, create such a file with the following contents:
+
+[source,gitignore]
+.....
+# ignore Jupyter checkpoint files
+.ipynb_checkpoints
+# if you use node.js, exclude the node libraries
+node_modules
+# excluded editor temp files
+.*.swp
+*~
+# we usually don't want log files
+*.log
+# if our outputs go in a directory 'output', exclude it too
+/output
+/temp
+.....
+
+Depending on the other tools you use, you may want to exclude additional files.
+
+== Working with Data
+
+Git works well for small files, particularly source code; it is ok for images and small binary files as well.
+
+However, it does not work as well on its own for large files, such as input data sets.  For that, we have two options:
+
+. Ignore data in `.gitignore` and manage it separately (e.g. have a script that downloads and unpacks it)
+. Store data in `git-lfs` (Large File Storage)
+
+Either of these works, and which one we should use depends on the project and our available resources (BitBucket provides 1GB of large file storage for free, which may not be enough if you have a lot of projects).
+
+=== Using git-lfs
+
+To use `git-lfs`, you need to first install the software, and then set it up for your repository:
+
+.....
+git lfs install
+.....
+
+Then we _track_ files with `git-lfs` prior to adding them:
+
+.....
+git lfs track 'data/*.csv'
+.....
+
+Then we can add the files:
+
+.....
+git add data/*.csv
+.....
+
+And see that they're added to LFS:
+
+.....
+git lfs ls-files
+.....
+
+And finally commit:
+
+.....
+git commit
+.....
+
+When we `git push`, it will push the LFS files separately to the LFS store.

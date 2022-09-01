@@ -1,0 +1,50 @@
+= Assignment 6/7
+:stem: latexmath
+
+Part 1 (A6) is due **November 27, 2017** at 11:59 PM.  Part 2 (A7) is due **December 13, 2017**.
+
+This is an open-ended assignment, where you will engage in some analysis of your own.  I give you a list of data sets, and you need to (1) present some exploratory analysis and preliminary research questions, and (2) a report answering those questions.
+
+== Data Set Selection
+
+Here are some data sets you can consider using:
+
+* https://grouplens.org/datasets/movielens/[MovieLens 20M] — 20M user-provided ratings of movies, along with movie tag data.
+* http://dblp.uni-trier.de/xml/[Computer Science Bibliography (DBLP)] — citation information for basically all computer science papers.
+* HCI Bibliography — the complete data set from A5 (e-mail me for this).  This has fewer venues than DBLP, as it is only HCI, but it includes paper abstracts.
+* https://dumps.wikimedia.org/backup-index.html[Wikipedia dumps] (I recommend using a small one like Simple English).
+* Major League Baseball http://www.retrosheet.org/gamelogs/index.html[game logs] or http://www.retrosheet.org/game.htm[play-by-play records].
+* Stock trading data. You can obtain one year of history for a stock from Google with the following URL: `https://www.google.com/finance/historical?output=csv&q=GOOG` (replace `GOOG` with the ticker symbol for the stock you want).
+* http://jmcauley.ucsd.edu/data/amazon/[Amazon product and review data].
+* https://snap.stanford.edu/data/soc-LiveJournal1.html[LiveJournal data set]
+* American Community Survey (from the US Census data)
+* http://csmining.org/index.php/spam-assassin-datasets.html[SpamAssassin data corpus] - a bunch of spam and non-spam e-mails
+
+If there is another data set you would like to use, ask me. There's a good chance it will be ok.
+
+== Part 1 (A6) - Explore and Define questions
+
+By **November 27, 2017**, you need to do the following:
+
+* Convert and clean up your data so that it is usable for analysis (it is in tidy format)
+* Do initial exploration of the data
+* Define research questions for the rest of your analysis
+
+Submit an HTML export of a notebook with the following content:
+
+. High-level description of the project goal.
+. Description of the data source, your conversion process, and the resulting data tables (what kinds of records they store, what attributes you store, etc.).
+. Summary statistics and distributions - table sizes, means/medians and ranges of relevant variables, histograms or other suitable plots to show data distributions, etc.
+. 3–5 research questions or prediction objectives you will attempt to analyze with the data.
+. A brief plan for carrying out the analysis (what methods you will try, how you will assess their effectiveness, etc.)
+
+All of the techniques we have used in class, and reasonble ones we haven't are fair game.  You can use regression, classification, clustering, dimensionality reduction, graph analysis, etc.
+
+Your proposed research should be nontrivial, including at least one significant model that you train and evaluate. Target something with a conceptual complexity comparable to A3 or A5; it does not need to have as much repetative work as A5.
+
+== Part 2 (A7) - Implement Research Plan
+
+Carry out your proposed research!  At the end of this, submit:
+
+* A 5–10 page report with your research questions and results. This should be organized to communicate, without attention to the order in which things need to be run.
+* An HTML export of your Jupyter notebook that contains the actual analysis.  All figures from your report should appear in this document, in their appropriate computational context.

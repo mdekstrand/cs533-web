@@ -1,0 +1,19 @@
+= Week 3 (Sep. 4–8)
+
+IMPORTANT: There is *no class* on Monday, Sep. 4, due to Labor Day.
+
+== Wednesday (Sep. 6)
+
+=== Pre-Class Work
+
+Read Chapter 5 in _Think Like a Data Scientist_
+
+Watch this video.
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0OSS-IWcfzQ" frameborder="0" allowfullscreen></iframe>
+++++
+
+=== In-Class
+
+* link:ref://../notebooks/SamplingDistributions.ipynb[Sampling Distributions notebook] (link:ref://../notebooks/SamplingDistributions.html[HTML export])

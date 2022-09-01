@@ -1,0 +1,16 @@
+= Week 5
+
+This week, we're going to try what has been suggsted: a more lecture-style class on Monday, and a full team application class on Wednesday.
+
+I'd still like to use the team classroom layout on Monday, to give some flexibility for the lecture to be active and to incorporate a readiness test.
+
+== Pre-Class Reading
+
+To be read before Monday's class.
+
+- [R for Data Science Chapter 22](http://r4ds.had.co.nz/model-intro.html)
+- _Think like a Data Scientst_ Chapter 7
+
+== Class Notebooks
+
+* link:ref://../notebooks/Class51Modeling.ipynb[Monday notebook] (link:ref://../notebooks/Class51Modeling.html[HTML export])

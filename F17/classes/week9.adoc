@@ -1,0 +1,6 @@
+= Week 9 (Oct. 16–20)
+
+== Pre-Class Prep
+
+* Read chapters 6 and 10 in _Think Like a Data Scientist_
+* Assignment 3 is due Monday night

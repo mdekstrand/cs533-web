@@ -1,0 +1,35 @@
+= Assessment Plan
+v0.1, 2017-05-16
+
+There will be a variety of assessment and feedback opportunities throughout the class.  The key ones that will feed into your final grade are defined below.
+
+[cols="<3,^2,^1,<5", options="header"]
+.Assessment Overview
+|===
+| Category | Frequency  | Weight | Purpose
+
+| Pre-Class Quizzes
+| ~Weekly
+| 5%
+| Check reading comprehension and prepare for class.
+
+| In-Class Quizzes & Activites
+| Most days
+| 5%
+| Check understanding and adjust class activities.
+
+| Assignments
+| Biweekly
+| 50%
+| Practice and demonstrate analysis and interpretation skills.
+
+| Midterm
+| Twice
+| 25%
+| Mid-stream check of course knowledge and skills.
+
+| Final Exam
+| Once
+| 15%
+| Assess overall knowledge of course concepts.
+|===

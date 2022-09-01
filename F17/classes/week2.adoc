@@ -1,0 +1,22 @@
+= Week 2 (Aug. 28 — Sep 1)
+
+== Resources Useful for Assignment 1
+
+* The http://r4ds.had.co.nz/[R for Data Science] book, particularly http://r4ds.had.co.nz/transform.html[Chapter 5].
+* The http://dplyr.tidyverse.org/articles/dplyr.html[dplyr introduction]
+
+IMPORTANT: Use `dplyr` verbs. Many R tutorials you will find on the Internet will teach you old ways of working with R, which are much more error-prone and difficult to read. I have tried to select R resources that start you out with `dplyr` and the rest of the `tidyverse` right away, because they make R code so much easier to read and write.
+
+== Monday, Aug. 28
+
+=== Pre-Class Work
+
+* Take the [experience survey](https://goo.gl/forms/Na6atBp4hLOeOs0U2) by *Friday*
+* Read http://r4ds.had.co.nz/exploratory-data-analysis.html[R for Data Science Chapter 7]
+* Read the link:../notebooks/DiscreteProbIntro.html[Discrete Probability Introduction] notebook
+
+== Wednesday, Aug. 30
+
+=== Pre-Class Work
+
+* Read the link:../notebooks/ContinuousProbIntro.html[Continuous Probability Introduction] notebook

@@ -1,0 +1,14 @@
+= Documentation
+
+The book http://r4ds.had.co.nz/[R for Data Science] will be our main starting point for documentation, in addition to the function documentation built in to R. However, we will be using Jupyter instead of RStudio.
+
+R and many libraries also have online manuals:
+
+* https://cran.r-project.org/manuals.html[Core R Manuals]
+* http://dplyr.tidyverse.org/[dplyr]
+* http://ggplot2.tidyverse.org/[ggplot2]
+* http://readr.tidyverse.org/[readr]
+
+== Further Reading
+
+* If you want to read more about Bayesian statistics, I recommend Peter Hoff's http://boisestate.worldcat.org/oclc/432708578[A First Course in Bayesian Statistical Methods].

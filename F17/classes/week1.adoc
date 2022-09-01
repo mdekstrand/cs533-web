@@ -1,0 +1,21 @@
+= Week 1 (Aug. 21–25)
+
+== Monday, Aug. 21
+
+IMPORTANT: There is *no class* on Monday, Aug. 21, due to the solar eclipse.
+
+== Wednesday, Aug. 23
+
+=== Pre-Class Preparation
+
+. Install link:../resources/software.adoc#install[Conda and R] on the laptop you will be bringing to class, or in your Onyx home directory.
+. Join the course Slack (see invite in your e-mail).
+. Create an account on https://bitbucket.org[BitBucket] if you do not already have one.
+. Read Chapters 1 and 2 in _Think like a Data Scientist_.
+
+=== In-Class Work
+
+* link:../notebooks/HelloWorld.ipynb[Hello, World notebook]
+* https://1drv.ms/p/s!ArDdMaT5eVlJhJpjNYrZK8wO61mTeQ[Slides]
+* link:../notebooks/TBLPerfDemo.html[Active learning notebook] (https://drive.google.com/drive/folders/0Bx9p6cw5gSMGaHJyVHkyYjNQWjA?usp=sharing[data and source])
+** http://www.pnas.org/content/111/23/8410[Paper on active learning]

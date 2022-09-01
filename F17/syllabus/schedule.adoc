@@ -1,0 +1,95 @@
+= Schedule
+
+Following is a *tentative* course schedule.  The _Date_ column lists the *Monday* of each week. 
+
+Each class will have readings and exercises before class; see link:../classes/[class meeting notes] for more details.
+
+[cols="2*^1,<5,^1"]
+|===
+| Week | Date | Topic | Due
+
+| link:../classes/week1.adoc[1]
+| 21 Aug
+| Intro & Setup (No class Monday — eclipse)
+| 
+
+| link:../classes/week2.adoc[2]
+| 28 Aug
+| Probability, Statistics, and Code
+|
+
+| link:../classes/week3.adoc[3]
+| 4 Sep
+| Sampling Distributions
+| link:../notebooks/Assignment1.html[A1]
+
+| link:../classes/week4.adoc[4]
+| 11 Sep
+| Working with Code and Data
+|
+
+| link:../classes/week5.adoc[5]
+| 18 Sep
+| Modeling and the DS Process
+| 
+
+| 6
+| 25 Sep
+| Regression
+| link:../assignments/assignment2.adoc[A2]
+
+| 7
+| 2 Oct
+| Classification
+| A3
+
+| 8
+| 9 Oct
+| Process Round 2: Evaluation Protocols
+|
+
+| 9
+| 16 Oct
+| 
+|
+
+| 10
+| 23 Oct
+| Goals and Discrimination
+|
+
+| link:../classes/week11.adoc[11]
+| 30 Oct
+| Text Processing
+| A4
+
+| 12
+| 6 Nov
+|
+|
+
+| 13
+| 13 Nov
+| Graph-Structured Data
+| MB, A5
+
+|
+| 20 Nov
+2+| _Thanksgiving break_
+
+| 14
+| 27 Nov
+|
+| A6, A7 Proposal
+
+| 15
+| 4 Dec
+| Data Science in Production 
+|
+
+| F
+| 11 Dec
+| _Final exam (*Mon, 11 Dec, 12:30–2:30 p.m.*)_
+| A7
+
+|===

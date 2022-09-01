@@ -1,0 +1,82 @@
+= Working on Onyx
+
+You can do your work on the CS department's Onyx cluster.  To access Onyx, connect via SSH to `onyx.boisestate.edu`.
+
+Working directly on the `onyx` head node will not work for our data analysis projects — you wil need to work on an individual Onyx node.
+
+=== Accessing Onyx Nodes
+
+. You first need an ssh client. For Windows use http://mobaxterm.mobatek.net/download-home-edition.html[MobaXterm]; on Linux and Mac the client should already be installed and accessible from the command line. 
+
+. Connect to Onyx through `ssh`. You will do this through the command line (MobaXterm on Windows) using your Boise State username and password. It should look something like this:
++
+.....
+[s_benjaminpeterson.ENG401348]> ssh -Y benjaminpeterson@onyx.boisestate.edu
+benjaminpeterson@onyx.boisestate.edu's password:
+.....
+
+. Once connected to Onyx there are 143 possible nodes that can be accessed. The nodes are named `onyxnode01`–`onyxnode143`. Your home drive is shared between all nodes. Any files you save in your home drive will be accessible on any node that you login to.
+
+. To check which nodes are online you can run the following command: pdsh –a uptime. If you get this response the node is turned off:
++
+.....
+michaelekstrand@onyx ~> pdsh -a uptime
+onyxnode10: Connection closed by 192.168.10.10
+pdsh@onyx: onyxnode10: ssh exited with exit code 255
+.....
++
+The load information will also give you a hint as to how busy that node is.
+
+. To access a node type the following from the command line: `ssh onyxnodexx`. Replace the `xx` with the correct node number:
+.....
+michaelekstrand@onyx ~> ssh onyxnode47
+.....
+
+=== Conda on Onyx
+
+Onyx already has a copy of `conda` installed, but it is system-wide so you cannot use it to manage your own packages. Therefore, you should install Miniconda in your home directory and use that instead of the system-wide conda:
+
+.....
+$ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+$ /bin/sh Miniconda3-latest-Linux-x86_64.sh
+.....
+
+=== Notes on Onyx Nodes
+
+Your user prompt will tell you which node you are on, in case you forget. 
+
+Before doing computationally-intensive tasks on a node, it is good to make sure that no one else is using it; the `w` command will tell you who is using the system.
+
+The `tmux` program will let you detach from long-running processes and keep from killing them if you lose your connection.
+
+To transfer files between your local computer and Onyx, use CyberDuck or MobaXterm’s built-in file transfer. Since home directories are shared, you can transfer files directly to your home directory on `onyx.boisestate.edu` and they will be available on all nodes.
+
+=== Accessing Onyx Notebooks
+
+The Onyx nodes live behind a firewall, so it is difficult to remotely access notebooks.  One useful tool for doing this is `ngrok`; you can find information on using it with Jupyter on https://md.ekstrandom.net/blog/2016/04/remote-analysis-with-jupyter-and-ngrok/[Michael Ekstrand's blog].
+
+In order to use `ngrok`, you need to do a few things:
+
+. Create an account on https://ngrok.io.
+. In your ‘Auth’ tab, you will find a authtoken. Copy it!
+. Run the following command on any Onyx node — just once is enough for the rest of the term:
++
+.....
+$ ngrok authtoken <auth token>
+.....
+
+Once that initial setup is done, you can make tunnels for your notebook servers:
+
+. Start `tmux`
+. Start `jupyter notebook` in your project directory
+. Split the terminal (`Ctrl+b "`)
+. Start `ngrok` in the second terminal
++
+.....
+ngrok http 8888
+.....
++
+You will need to look at the `jupyter notebook` output to see the actual port to use.
+. Connect to the specified HTTPS URL in your browser. It will ask you for a token; copy that from the Jupyter console output.
+
+See the blog post for more details.

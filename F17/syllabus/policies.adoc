@@ -1,0 +1,33 @@
+= Policies
+
+== Announcements
+
+From time to time, I will make announcements regarding the course materials, structure (such as assignment due dates, changes, or corrections), etc., either in class or via Slack. You are responsible for these announcements. However, you should all be on Slack regularly, so seeing announcements shouldn't be a big problem 🙂.
+
+== Late Work
+
+You have a budget of **4** late days to use on assignments throughout the semester, at your discretion.  Each late day extends an assignment deadline by 24 hours with no penalty.  When submitting an assignment using a late day, state with your submission the number of days you are using.  I would appreciate it if you notify me prior to the deadline of your intention to use one or more late days, but this is not mandatory.
+
+Late days are indivisible; submitting an assignment 12 hours late requires an entire late day.
+
+This policy is designed to accommodate most ordinary need for extensions or late submissions. Therefore, *no other late work will be accepted*. Assignments must be turned in on time and you must take exams at their scheduled times.
+
+Exceptions to this policy will only be granted in extreme circumstances. Any requests for individual exceptions must be submitted by e-mail so that I have a record of the request and my response.
+
+== Conduct and Classroom Civility
+
+I expect you to behave in a civil, respectful manner in all class interactions, both in official meetings such as lectures and out-of-class activities, and to contribute to a constructive learning environment.  The https://www.recurse.com/manual#sub-sec-social-rules[Recurse Center Social Rules] are a good source of guidance on how to maintain a constructive and educational environment.
+
+If you experience or witness harassment of any form, please let me know.
+
+== Academic Integrity
+
+As both a scientist and a student, you are expected to do your own work, attribute sources, and respect the legal and moral rights of others with respect to their work; as a student, you are also required to abide by the https://deanofstudents.boisestate.edu/scp-codeofconduct/[Student Code of Conduct].  While I aim to allow you to make reasonable use of resources, cheating (including copying code, using unauthorized resources during tests, etc.) will not be tolerated. If you are found to be cheating, the penalty may range from failing the assignment to failing the course, and will also be reported to the university.
+
+== Disability Accommodations
+
+If you need particular accommodations to be able to fully participate in this course, please talk with me as soon as possible.  For format changes such as extended time for exams, I may ask that you provide documentation from the Office of Disability Services, so if you have such documentation please bring it.
+
+== Safety Information
+
+You can find information about safety in the College of Engineering and the City Plaza building (where Computer Science is located) here: http://coen.boisestate.edu/cs/safetydocument

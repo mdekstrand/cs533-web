@@ -1,0 +1,19 @@
+= Course Logistics
+
+Class Meetings:: MW 12:00–1:15 p.m. in CCP 260
+Prerequisites:: Either CS 321 and Math 360/361, or Math 451.
+Instructor:: Michael D. Ekstrand <michaelekstrand@boisestate.edu>
+Office Hours:: CCP 255; Tuesdays 10–11 AM and Wednesdays 1:30–2:30 PM. Other times by appointment.
+Web Site:: You are reading it
+
+== Class Preparation
+
+See the link:../classes/[class meetings] section for details on our class sessions and pre-class exercises.  *You will have work to do before most classes.*
+
+You should bring a laptop, if you have one, to class.
+
+== Online Services
+
+Online class discussions will be on the https://bsu-cs533-f17.slack.com[CS 533 Slack].  You should have received an invite by the end of the first day of class.
+
+You will also need an account on https://bitbucket.org[BitBucket].  If you have used GitHub, BitBucket is a similar service; however, it has unlimited free private accounts, making it easier to use in the classroom setting.

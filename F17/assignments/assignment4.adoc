@@ -1,0 +1,93 @@
+= Assignment 4
+
+*Due on Nov. 1, 2017 at 11:59 PM.*
+
+== Revisions
+
+Oct. 30, 2017::
+* Corrected FPR and FNR definitions (Wikipedia is correct)
+
+== Readings
+
+* https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing/[ProPublica article]
+* https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm[ProPublica technical description]
+* https://www.documentcloud.org/documents/2998391-ProPublica-Commentary-Final-070616.html[Northpointe Rebuttal]
+* https://www.propublica.org/article/technical-response-to-northpointe[ProPublica Response]
+
+== Getting Started
+
+Download the `compas-scores-two-years.csv` file from the https://github.com/propublica/compas-analysis/[ProPublica analysis data].  This contains the raw data you need.
+
+Some of the particularly interesting variables:
+
+sex::
+The defendant's sex
+
+race::
+The defendant's race
+
+decile_score::
+The defendant's COMPAS decile score for recidivism.
+
+score_text::
+The defendant's COMPAS risk score (low/medium/high) for recidivism.
+
+v_decile_score::
+The defendant's COMPAS decile score for violent recidivism.
+
+v_score_text::
+The defendant's COMPAS risk score for violent recidivism.
+
+is_recid::
+Whether the defendant recidiviated.
+
+is_violent_recid::
+Whether the defendent committed a violent crime after being released.
+
+== Filtering data
+
+ProPublica documents a number of filtering steps to perform before using the data.  From https://github.com/propublica/compas-analysis/blob/master/Compas%20Analysis.ipynb[their notebook]:
+
+[quote]
+_____
+There are a number of reasons remove rows because of missing data:
+
+* If the charge date of a defendants Compas scored crime was not within 30 days from when the person was arrested, we assume that because of data quality reasons, that we do not have the right offense.
+* We coded the recidivist flag -- is_recid -- to be -1 if we could not find a compas case at all.
+* In a similar vein, ordinary traffic offenses -- those with a c_charge_degree of 'O' -- will not result in Jail time are removed (only two of them).
+* We filtered the underlying data from Broward county to include only those rows representing people who had either recidivated in two years, or had at least two years outside of a correctional facility.
+
+[source,r]
+.....
+df = dplyr::select(raw_data, age, c_charge_degree, race, age_cat, score_text, sex, priors_count, 
+                    days_b_screening_arrest, decile_score, is_recid, two_year_recid, c_jail_in, c_jail_out) %>% 
+        filter(days_b_screening_arrest <= 30) %>%
+        filter(days_b_screening_arrest >= -30) %>%
+        filter(is_recid != -1) %>%
+        filter(c_charge_degree != "O") %>%
+        filter(score_text != 'N/A')
+.....
+_____
+
+== Requirements
+
+Your task is to analyze the accuracy of the classifier with respect to actual post-release recidivism.  How good is at predicting recidivism? How accurate is it at predicting violent recidivism?
+
+Start by doing some basic analysis of the accuracy:
+
+. Plot ROC curves for recidivism and violent recidivism, using the decile scores as the predictor.
+. Compute the precision (PPV), recall, false positive rate, and false negative rate for predicting both recidivism and violent recidivism, using 'High Risk' as the threshold for 'will recidivate'.
+
+Now we want to look at racial disparities; we will consider Caucasian, Black, and Hispanic.
+
+. Draw a bar chart that shows, for each race, and separately for violent and non-violent scoring, the likelihood that a defendant with each of the three risk score levels recidivates.  The X axis should be risk score, and the Y axis should be likelihood of recidivism; `facet_grid` by race and whether we are looking at violent or general recidivism.
+. Compute the False Positive Rate for each race: what fraction of defendants who do not recidivate receive a high risk score?
+. Compute the False Negative Rate for each race: what fraction of defendants who receive do recidivate receive a low risk score?
+. Compute the Positive Predictive Value (or Precision) for each race.
+. Compute the Negative Predictive Value for each race (what fraction of low-risk defendents do recidiviate).
+. Plot ROC curves for each race (overlayed on top of each other — map the `color` and `linetype` aesthetics to race).
+
+Finally, write:
+
+. Based on these analyses, write 1-2 paragraphs about how members of different races experience the prediction system.
+. Write 1–2 paragraphs about why you think different metrics tell different stories. How can PPV be similar but FPR or FNR be different? Think about a confusion matrix to help you with this.

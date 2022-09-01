@@ -1,0 +1,22 @@
+= Core Software
+
+We will be primarily using https://www.r-project.org/[R] with the https://www.tidyverse.org/[Tidyverse], and other R packages as needed.  We will use http://jupyter.org/[Jupyter] with https://irkernel.github.io/[IRkernel] to interact with R.
+
+[#install]
+== Installation
+
+We will be using https://conda.io/miniconda.html[Conda] to manage R installations. It is the easiest way to install R, add-on modules, Jupyter, and get everything working together.
+
+`conda` is a package manager for Python and other languages, and Miniconda is a base Conda installation.  The larger 'Anaconda' suite contains Conda with a complete Python scientific computing environment; since we are using primarily R, Miniconda will let us save space. The underlying software is the same.
+
+To install:
+
+. Download and install a 64-bit https://conda.io/miniconda.html[Miniconda] for your platform.
+. Open a shell with Miniconda active (on Windows, opening a PowerShell terminal after installing Miniconda should be sufficient; on Linux or Mac, you may need to start a new terminal).
+. Install R:
++
+.....
+$ conda install r r-tidyverse r-irkernel notebook
+.....
+
+NOTE: For our purposes, it does not matter whether you use the Python 2.7 or Python 3 version of Miniconda, and either version can install the other in an ‘environment’.  Python 2.7 is less likely to break other software on your system.

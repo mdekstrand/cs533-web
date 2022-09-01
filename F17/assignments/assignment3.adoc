@@ -1,0 +1,155 @@
+= Assignment 3
+
+This assignment is due on *Oct. 16* at *11:59 p.m.*.
+
+For this assignment, you will again e-mail me an HTML export of a notebook.
+
+== Revisions
+
+[horizontal]
+Oct. 8::
+Clarified discrimination protected class
+
+== Context
+
+For this assignment, you will use logistic regression (a variant of linear regression) to build a credit-scoring model.  This project consists of several parts:
+
+. Import and explore the data
+. Build a credit model using a logsistic regression
+. Evaluate the accuracy of the credit model
+. Evaluate whether the credit model results in unwanted discrimination
+. Reflect on the limitations of the provided data
+
+I expect that your notebook will likely follow the same structure as this document.
+
+== The Data
+
+You'll work with the https://archive.ics.uci.edu/ml/datasets/statlog+(german+credit+data)[German Credit Data] data set.  You can download it from that site by clicking the ‘Data Folder’ link.
+
+The data is space-delimited; read it with:
+
+[source,r]
+.....
+credit_raw = read_delim("german.data.txt", delim=" ",
+                        col_names=c(…))
+.....
+
+In the `c(…)` for `col_names`, provide strings that name each of the columns.  There are 21 columns; the first 20 columns are the _data attributes_ described on the data set page, and the 21st is the outcome column. An outcome of 1 means the loan was a good credit risk, and an ouctome of 2 means it was a bad credit risk.
+
+=== Data Types
+
+You will need to process the data into meaningful types. By default, `read_csv` will read characters, integers, and numeric values.  However, you will want to make some conversions.
+
+Logical::
+Columns representing a boolean value should be represented as a `logical` column, storing `TRUE` and `FALSE` values.  For example, you can convert the `outcome` field to a logical `GoodRisk` field by writing:
++
+[source,r]
+.....
+credit_raw %>% mutate(GoodRisk = outcome == 1)
+.....
+
+Factor::
+Categorical data, such as the type of job, should be represented as an R `factor`. The `factor` and `as.factor` functions let you convert character vectors to factor vectors.
+
+Ordered Factor::
+Some columns, such as the employment status, may make most sense as _ordered_ factors: they are categorical, but one level is less than the next.  The `ordered=TRUE` parameter to `as.factor` can accomplish this.
+
+=== Preparing for Evaluation
+
+So your machine learning process doesn't cheat, split the data into training and testing data right away.  Use 10% of the data for testing.  The `sample_n` function can sample a data frame.
+
+=== Exploring the Data
+
+Produce appropriate plots, tables, and text to understand the distribution of the various attributes and the outcome variable, and to look at potential relationships.
+
+You may find bar charts, histograms, and box plots useful. It is unlikely that you will find scatter plots very useful for this particular problem, since the outcome variable is logical.
+
+== Build Models
+
+Build a logistic regression to predict whether a borrower is a good credit risk.
+
+Logistic regressions use the `glm` function, which works very much like `lm`:
+
+[source,r]
+.....
+model = glm(outcome ~ pred1 + pred2 + pred3*pred4, data=data,
+            family=binomial())
+.....
+
+The `family` option tells `glm` to predict binomial (logical) outcomes, and will do so with a logistic regression by default.  The regression output (predictions) are numeric scores; you can convert them into binary outcomes by setting a threshold, and accepting any prediction over the threshold as `TRUE`.
+
+Find the best model that you can!  The `stepAIC` function may be useful in automating some of the feature selection, but you want to put some thought into feature selection as well.
+
+Present your model code, show the results of fitting different models, and describe the features you select in your final model.  Consider interaction features (`f1 * f2*`) that you think might be relevant.
+
+If you want to split your training data into train and tune data to do your feature selection based on classification accuracy, that is fine! But before next step, you should train your final model over the whole set of training data.
+
+== Evaluate Model Effectiveness
+
+Once you have 1—3 models that you like, evaluate their effectiveness on the test data you withheld at the beginning of the project.
+
+Report the following:
+
+- An *ROC curve*.  The https://cran.r-project.org/web/packages/plotROC/index.html[plotROC] package is very useful for drawing these.
+- The *cost*, as defined by the data set provider; a false positive (classifying a bad credit risk as good) has a cost of 5, and a false negative (classifying a good credit risk as bad) has a cost of 1.  Plot the cost as a function of the threshold (the threshold on the x axis, and the cost over the test data at that threshold on the y axis).
+- The threshold that produces minimal cost.
+- For that threshold and 2 others, the *precision* and *recall*.
+
+== Evaluate Discrimination
+
+Discrimination is an important consideration in credit decisions.  Many groups have been or still are subject to unjust discrimination; in the U.S., women and racial minorities have historically been denied credit when a others with a similar economic condition would receive credit.  Credit scoring can improve this situation, and indeed has improved the ability of racial minorities to obtain credit in the United States.  But this is not automatic — we must test our models for discrimination.
+
+For our purposes, we will consider 2 groups of borrowsers as at-risk for discrimination:
+
+- Non-single women (as opposed to men)
+- Foreign workers
+
+=== Direct Discrimination
+
+The first kind of discrimination is *direct discrimination*: does the model use one of these features directly?
+
+Examine your model and see whether directly discriminates on the basis of either of these features. Write what you find.
+
+=== Indirect Discrimination
+
+The second kind of discrimination is *indirect*: where the protected characteristic is not directly used, but correlates with other features that _are_ used.  In the United States, some forms of indirect discrimination are illegal.
+
+Indirect discrimination can be tricky to detect.  One useful step is to look for correlations between the protected characteristic and the features used in your model.  Generate plots that show these relationships.
+
+Another useful way to detect indirect discrimination is to generate a _second_ model that attempts to predict the main model's output using the protected characteristic(s).  You can train a logistic regression that predicts the main model's decisions, or you can train a linear regression that predicts the main model's scores.  If you can effectively predict a significant portion of the main model's results, that is evidence that the model may be indirectly discriminatory.  You can also attempt to predict the main model's _errors_ using the protected characteristics.
+
+Try all three of these methods.
+
+Does it look like your model is indirectly discriminatory against members of our protected classes? Why or why not?
+
+Does changing the cost weights (from the evaluation section), for example decreasing the cost of a false positive, result in a more or less discriminatory model?
+
+NOTE: There is far more to discrimination detection and removal than we have time to get to in this assignment, and much of it requires more sophisticated statistical methods than we have yet covered. This assignment hopefully gives you a starting point, though.
+
+== Limitations
+
+As we have discussed, our data is always limited, possibly in important ways.  Write 2–5 paragraphs about the limitations of the data, supported with plots if you think they would be helpful, and the impact these limitations have on your model and evaluation.  Some points to consider:
+
+* Is the ground truth accurate? What does that mean for modeling?
+* If the data arises from an historically-discriminatory process, what does that mean for the model? What does that mean for our attempts to measure discrimination?
+* What are some limitations of our attempts to detect unjust, illegal, or unwanted discrimination?
+
+== Grading
+
+Within each category, your grade will be based on three things:
+
+* Reasonableness and justification of attempts (e.g. do you have appropriate plot types, do you have good justifications for your choice of plots, variables, and models, etc.) [25%]
+* Correctness of code, results, and inferences [40%]
+* Presentation of motivations, results, and conclusions [15%]
+* Using good coding practices as we have discussed in class and readings [10%]
+
+Do note that there can be some interaction between these — poor presentation can mean that I do not follow your justification or inference, and therefore cannot judge its correctness or validity.
+
+I will weight the categories as follows:
+
+* 10% setup and data loading
+* 15% data exploration
+* 25% modeling
+* 30% evaluation
+* 15% discrimination analysis
+* 5% discussion of limitations

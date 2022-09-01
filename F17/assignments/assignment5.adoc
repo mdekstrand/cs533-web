@@ -1,0 +1,191 @@
+= Assignment 5
+:stem: latexmath
+
+**Due Nov. 17, 2017 at 11:59 PM.**
+
+For this assignment, you will explore the use of language in a selection of academic publications.  The data I am providing is taken from the https://archive.org/details/jstor_ejc[JSTOR Early Journal Collection], and is in the public domain in the United States.  You can download the whole EJC archive if you would like more data to play with.
+
+I am providing the data in an SQLite database instead of a CSV file, because it works better with large text. You do not need to know any SQL for this assignment: with the `dbplyr` package, `dplyr` can read directly from the database (and `dplyr` verbs get translated directly to SQL, so as much computation as possible happens directly in the database engine).
+
+== Revision Log
+
+Nov. 14, 2017::
+* Fixed `spread` calls in examples
+* Updated due date
+* Fixed rubric
+
+== Prerequisites
+
+* The `tidytext` package (Conda `r-tidytext`)
+* The `rsqlite` and `dbplyr` packages (Conda `r-rsqlite`, `r-dbplyr`)
+* The https://drive.google.com/file/d/0Bx9p6cw5gSMGVkM2dVJUY2E4eFk/view?usp=sharing[data file]
+
+Unzip the data file. The unzipped file will take approximately 1.1 GB on disk.
+
+NOTE: This assignment works with a much larger data set than previous assignments.  It will probably require more than 4GB of memory by the time you are done.
+
+== Getting Started
+
+Load your standard libraries, and in addition the `tidytext` and `dbplyr` libraries.
+
+To access the database, create a database connection:
+
+[source,r]
+.....
+db = src_sqlite('ejc-trimmed.db')
+.....
+
+This database contains two tables: `journals` lists the journals (by ID and an abbreviated code), and `articles` has the articles themselves (the `journal` field of this table contains the title of the journal as it appeared when the article was published).
+
+To access a specific table, use the `tbl` verb:
+
+[source,r]
+.....
+articles = db %>% tbl('articles')
+journals = db %>% tbl('journals')
+.....
+
+After these assignments, `articles` and `journals` will be R `tbl` objects; they're like data frames, except they haven't been loaded into memory yet. You can use the normal `dplyr` verbs like `select`, `filter`, `group_by`, `summarize`, etc. on them.
+
+The `collect` verb will slurp put a table into memory as a data frame; this is useful at the end of several dplyr operations.  The `head` function also works, and is a good way to see what the tables look like and get a feel for your column names:
+
+[source,r]
+.....
+head(articles)
+.....
+
+You'll need to use `tidytext` tokenization in order to split article text (the `text` column) into words that we can analyze; tidytext requires that we first load data into memory.  For example, the following will get all articles from the _Philosophical Transactions of the Royal Society_ published in 1700, and tokenize them:
+
+[source,r]
+.....
+royal_1700_tokens = db_out %>% tbl('journals') %>%
+    filter(name == 'RoyalPhil') %>%
+    inner_join(db_out %>% tbl('articles')) %>%
+    filter(year == 1700) %>%
+    select(doi, title, pub_date, text) %>%
+    collect() %>%  # pull the data into memory so we can use it
+    unnest_tokens(word, text)
+.....
+
+If you're curious, you can see the SQL query:
+
+[source,r]
+.....
+db_out %>% tbl('journals') %>%
+    filter(name == 'RoyalPhil') %>%
+    inner_join(db_out %>% tbl('articles')) %>%
+    filter(year == 1700) %>%
+    select(doi, title, pub_date, text) %>%
+    show_query()
+.....
+
+It's kinda messy, but it works.
+
+== Preliminary Exploration
+
+. Plot a use-by-rank distribution of the words used in the corpus, separately for each journal.  You should see a Ziph distribution, like in http://tidytextmining.com/tfidf.html[Text Mining].
+. Show the 10 most common words in each journal.
+
+== Word Distributions
+
+The main objective of this assignment is to examine the change in language use over time (looking year-over-year).
+
+There are three high-level research questions.  You should answer these separately for each journal, and over the enitre corpus; and you should consider them both for article text, and for just article titles (word use in article titles is interesting!).
+
+. What 5–10 words see the greatest *increase* in use over time?
+. What 5–10 words see the greatest *decrease* in use over time?
+. What 5–10 words are the most *consistently frequently used*?
+
+For these, you need to think about and appropriate way to measure _and normalize_ in order to answer the question appropriately.  Describe and justify your decisions in your notebook.
+
+Your analysis should include one or more plots for each journal that shows words and their change in use over time (the _x_-axis should be year, the _y_-axis your metric of use, and a different-colored line for each word).
+
+== Text Similarity
+
+It can be fun to compare text for its similarity.  One way to do this is with _term frequency_: how frequently a word appears in a document or group of documents.  The term frequence for a term _t_ in a document _D_ is the number of times _t_ appears divided by the total number of terms in _D_.  We usually remove stop words prior to computing TF vectors.
+
+NOTE: A TF vector for a single 'document' is a probability distribution!  Specifically, it is the probability of getting a particular word if you randomly select a word from the document.
+
+If you have a data frame `journal_word_counts` that has the number of times each word appears in each journal, you can compute the TF with:
+
+[source,r]
+.....
+journal_tf = journal_word_counts %>%
+    group_by(jnl_id) %>%
+    mutate(tf = count / sum(count))
+.....
+
+This treats each _journal_ as a single document, and computes its term frequencies; you can also consider individual articles.
+
+You can then _spread_ the TF to get a data frame whose columns are the term frequencies in each journal:
+
+[source,r]
+.....
+term_freqs = journal_tf %>%
+    inner_join(journals) %>%
+    select(name, word, tf) %>%
+    spread(name, tf, fill=0)
+.....
+
+We can then compute a correlations between two journals' term vectors with `cor`, or the whole set with:
+
+[source,r]
+.....
+term_freqs %>% select(-word) %>% cor()
+.....
+
+. What two journals are the most similar? Which two are the least similar?
+
+=== Divergence Over Time
+
+From the late 1700s until the 1860s, we have data for both the American philosophical transactions ('AmPhil') and the British Royal Society philosophical transactions ('RoyalPhil').  Further, it seems plausible to expect that the American writings would stat out similar to British, and then diverge as American culture diverged from British.  Let's look at the deviation over time using the https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence[K-L divergence], a measurement of how much one probability distribution deviates from another.
+
+The K-L divergence between two probability distributions stem:[P] and stem:[Q] is defined as follows:
+
+[stem]
++++++
+D(P|Q) = - \sum_t P(t) \mathrm{log}_2 \frac{Q(i)}{P(i)}
++++++
+
+This metric is _asymmetric_: it measures how much stem:[P] deviates from stem:[Q], which is not necessarily the same as the other way around.  Use the Royal Society term frequencies as the base distribution stem:[Q], and American as stem:[P]. One way to think of this is that we are measuring how unexpected the langauge in American articles would be to someone familiar with British articles; a K-L divergence of 0 is no surprise, and larger divergences are completely alien.
+
+There is one last little trick needed for the K-L divergence: it doesn't behave well when there are zero probabilities, but the TF is zero for every word that never appears in a document.  The way to fix this is to modify the TF formula so that instead of computing stem:[n_t / \sum_t n_t], we compute stem:[\frac{n_t + 1}{(\sum_t n_t) + |T|}], where stem:[|T|] is the number of different terms in our set of texts.  This will be easiest to implement if you write a `text_divergence` function that takes two vectors of _counts_, not vectors of term frequencies, and computes the K-L divergence between their frequencies.
+
+Then you can do something like this:
+
+[source,r]
+.....
+sim_over_time = journal_year_word_counts %>%
+    group_by(name, year, word) %>%
+    summarize(count = n()) %>%
+    spread(name, count, fill=0) %>%
+    group_by(year) %>%
+    summarize(divergence = text_divergence(AmPhil, RoyalPhil))
+.....
+
+Then plot the divergence over time!
+
+NOTE: Ponder: why is this trick for fixing K-L divergence a reasonable thing to do?
+
+== Extra Credit: Computer Science Titles
+
+For 10% extra credit (on this assignment's grade), download the http://dblp.uni-trier.de/faq/How+can+I+download+the+whole+dblp+dataset[DBLP data set] and look at the three word distribution research questions in the titles of computer science research papers.
+
+== Grading
+
+Within each category, your grade will be based on three things:
+
+* Reasonableness and justification of attempts (e.g. do you have appropriate plot types, do you have good justifications for your choice of plots, variables, and measurements, etc.) [25%]
+* Correctness of code, results, and inferences [45%]
+* Presentation of motivations, results, and conclusions [15%]
+* Using good coding practices as we have discussed in class and readings [5%]
+
+Do note that there can be some interaction between these — poor presentation can mean that I do not follow your justification or inference, and therefore cannot judge its correctness or validity.
+
+I will weight the categories as follows:
+
+* 10% setup and data loading
+* 20% preliminary exploration
+* 50% word distributions
+* 15% journal similarities
+* 5% Am/Brit similarity over time

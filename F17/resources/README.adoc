@@ -1,0 +1,5 @@
+= Resources
+
+. link:documentation.adoc[Documentation]
+. link:software.adoc[Installing Software]
+. link:onyx.adoc[Using Onyx nodes]

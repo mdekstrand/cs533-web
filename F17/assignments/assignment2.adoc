@@ -1,0 +1,147 @@
+= Assignment 2
+:stem: latexmath
+
+== Goals
+
+This assignment will exercise the following skills:
+
+. Creating and managing projects with `git`
+. Loading data from files
+. Aggregating data with `dplyr`
+. Detecting product associations
+
+IMPORTANT: As of Sep. 8, this assignment description will get you started. I may add a few questions, but will do so no later than Sep. 15.
+
+== Data Set
+
+For this project, you will use the https://grouplens.org/datasets/hetrec-2011/[Last.FM data from HetRec 2011].  This data set consists of several tab-separated value files, each of which has a different set of records:
+
+`artists.dat`::
+Information about music artists.
+
+`tags.dat`::
+Information about tags (mapping from tag IDs to tags).
+
+`user_artists.dat`::
+The number of times each user has listened to each artist.
+
+`user_taggedartists.dat`::
+Tags users have applied to artists; this file uses IDs, so you will need to join with the other files to make it readable.
+
+You can read each of these files with the http://readr.tidyverse.org/reference/read_delim.html[`read_tsv()`] function from `readr`.
+
+== Getting Started
+
+Create a new Git repository, both locally and on BitBucket (your BitBucket repository should be private), to store your work.
+
+Unpack the files into the `data` directory, and add them with `git lfs`:
+
+.....
+git lfs track '*.dat'
+git add data
+.....
+
+NOTE: For this project, you will *share your Git repository with me* to submit it, and I need to be able to re-run your notebook.
+
+Create a Jupyter notebook to contain your data analysis.
+
+*Do not* commit the HTML export of your notebook.
+
+== Necessary Functions
+
+For this assignment, you'll need quite a few `dplyr` functions:
+
+. `inner_join` to merge tables
+. `group_by` and `summarize` to aggregate data
+. `arrange` to sort data
+
+And probably some more!  We'll be working some examples in class to help with this.
+
+For example, to count the number of users playing each artist and the number of times the artist has been played, you can write:
+
+[source,r]
+......
+artists = read_tsv('artists.dat')
+plays = read_tsv('user_artists.dat')
+plays %>% 
+    group_by(artistID) %>% 
+    summarize(userCount=n(),
+              totalPlays=sum(weight)) %>%
+    inner_join(select(artists, artistID=id, name=name))
+......
+
+Think about what this code does a bit — I think you will find it instructive in how to put together `dplyr` pipelines.
+
+== Exploring the Data
+
+Answer the following questions:
+
+. Plot the distribution of *play counts* per artist
+. Plot the distribution of *unique users* playing each artist
+. Plot the distribution of *play counts* per user
+. Plot the distribution of *unique artists* per user
+. What is the mean artists-per-user? Users-per-artist? Plays per user/artist pair?
+. What are the 10 artists with the most plays?
+. What are the 10 artists with the most unique playing users?
+
+== Association Rules
+
+One common problem in sales and media is identifying _related products_: if a user likes Nickelback, what other artists might we be able to recommend?
+
+One way to do this is through _association rules_: look at other artists listened to by users who like Nickelback.  We can think of a very simple association rule as a conditional probability.  If we denote by stem:[A_u] the set of artists played by user stem:[u], we can compute the association between artists stem:[a] and stem:[b] by:
+
+[stem]
+++++
+P(b \in A_u | a \in A_u)
+++++
+
+You will probably find it useful to make use of the identity stem:[P(X|Y) = P(X,Y)/P(Y)].  We can estimate stem:[P(X,Y)] from _co-plays_, the number of users who have listened to both artists in a pair.
+
+QUESTION: What is the most commonly-played pair of artists?
+
+Estimating the joint probabilities can be tricky. A naive solution to compute the joint probabilities between all pairs of items is stem:[O(n^2)] probability computations.
+
+We can take advantage of the fact that two artists that never appear together have a co-play count of 0, and that the `artists.dat` table links artists to plays.
+
+[source,r]
+.....
+coplays = plays %>% 
+    select(a1=artistID, userID) %>% 
+    inner_join(select(plays, a2=artistID, userID)) %>%
+    filter(a1 != a2) %>%
+    group_by(a1, a2) %>%
+    summarize(count = n())
+.....
+
+Now that we have our coplay counts, you can answer the following:
+
+. What pair of artists has been co-played the most often?
+. How many users have listened to both Nickelback and Britney Spears?
+. What is the probability that a randomly-selected user has listened to both Nickelback and Britney Spears?
+. Given that a user has listened to Nickelback, what is the probability that they have also listened to Britney Spears?
+. Given that a user has listened to Aretha Franklin, what 10 artists are they most likely to have listened to?
+
+=== Extending Association Rules
+
+Naive association rules have the problem that they tend to favor popular items.  For a popular artist such as Katy Perry, many people listen to her no matter what else they listen to; stem:[P(\textrm{katy perry}|X)] is high no matter what stem:[X] is.  (Except that Katy Perry isn't in our data set because it's old.)
+
+What we can do instead is measure _lift_, which measures how positively coupled two items are by measuring how much more likely the user is to listen to both of them than they would be if the two items were completely independent.
+
+[stem]
+++++
+\textrm{lift(X,Y)} = \frac{P(X,Y)}{P(X)P(Y)}
+++++
+
+There are other formulas we can use as well, but this one will get us started.
+
+. What 10 artists have the highest lift with respect to Aretha Franklin?
+. What is the lift of Nickelback and Britney Spears?
+. What is the lift of Britney Spears and Ozzy Ozborne?
+
+== Submitting
+
+. Push your notebook & data to a repository on your BitBucket account
+. Give my user (`mdekstrand`) read access to your repository
+. Send me an e-mail with a link to your repository
+
+The assignment is due on *Monday, Sep. 25* by midnight.

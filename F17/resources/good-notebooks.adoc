@@ -1,0 +1,81 @@
+= Writing Good Notebooks
+
+Writing good Jupyter notebooks is something of an art; this page is to give you some ideas and general guidelines to make your notebooks more readable.
+
+== Write to be Read
+
+[quote, Donald Knuth]
+Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.
+
+A good Jupyter notebook is, first and foremost, a document to be read by humans.  It contains code and outputs, but those are for the purpose of providing information to the reader.  Everything in a good notebook must serve the purpose of communicating, or be a subsidiary point to communicating.
+
+IMPORTANT: *Rule 1:* Can another person read this and understand (1) what I am trying to do, (2) what I conclude, and (3) why my conclusions are supported by the data?
+
+There are three key components of this:
+
+. Clear, understandable code that is free of needless clutter.  The reader needs to be able to check that you are actually computing what you claim to be computing.
+. Clear writing that explains the question, the method, and illuminates the results.
+. An understanding of your audience.
+
+There are some things about Jupyter that make overall readability a bit challenging; in particular, there isn't a good way to define functions and routines elsewhere (unless you just write an R script), so the top part of a notebook is often full of preliminaries that set up for the real substance of the notebook.
+
+On the last point — audience — for this class, you can assume that your audience understands the material we have covered in class and in the readings.  So you do not need to explain, for example, how a linear regression works.  You do need to explain why you chose the features and transformations that you did.  You need to explain what the results mean in terms of your problem.
+
+== Pay Attention to Flow
+
+A good notebook has a clear, logical flow.  Part of this is determined by the natural flow of data processing:
+
+1. Load libraries
+2. Load data
+3. Pre-process data so it is useful for analysis
+4. Present basic data descriptions (distributions, summary statistics, data sizes)
+5. Carry out and interpret the main analysis
+
+Within individual parts of a document, however, flow also matters.  There are different ways to approach it; what I like to do in most notebooks is the following:
+
+1. Explain what I am going to do and why
+2. Do it (code)
+3. Interpret results
+
+I don't like to put the results before the code; it breaks the top-down flow of the narrative.
+
+IMPORTANT: *Rule 2:* Does my document read from the top down, with each piece building only on things that came before?
+
+It is also good to make individual questions or arguments compact, so that the reader doesn't lose the flow while reading.  Rather than laying out several questions, then computing, then explaining answers, answer the questions one at a time. Otherwise, in the middle of a lot of code, the reader can forget what the point was.
+
+IMPORTANT: *Rule 3:* Are my questions and arguments compact?
+
+== Pay Attention to Code Flow
+
+This rule is easier to check: at all times, you should be able to re-run your notebook from top to bottom and get the correct results.
+
+IMPORTANT: *Rule 4:* Does my document run correctly from top-to-bottom?
+
+Code blocks cannot depend on variables defined later in the document.
+
+The correctness cannot depend on which of three different code blocks you ran — store the results of code variants in different variables.
+
+This is important for _reproducibility_: enabling someone else to rerun and reuse your results.
+
+It is also good to put code with the question that it is answering.  This sometimes competes with code reuse, but keeping code with its questions makes it easier to verify that the answer to _that question_ is correct.
+
+It is also crucial to route data through variables as much as possible; avoid copying and pasting data.  This improves reproducibility, because you don't need to take manual steps to make the notebook correct.
+
+IMPORTANT: *Rule 5:* Can my document re-run and produce correct results without human intervention?
+
+== Avoid Extraneous Code and Output
+
+IMPORTANT: *Rule 6:* Does all code and output advance the narrative?
+
+Unnecessary code and output makes it more difficult to see the central point of the notebook.  It is common to put in additional code and outputs for debugging, but before submitting or publishing a notebook you should either remove such outputs or weave them into the narrative.  The latter is often possible; if you argue for why the output helps you understand the correctness of the preceeding or following code, it can strengthen the document.
+
+This doesn't mean omit _all_ output that isn't directly used to answer a question. When I compute a new object, I often dump a quick head or summary, just so that the reader can see the output of the code we just ran and better understand it.
+
+It's easier to read if you stick to one output per code block.
+
+Also, break up blocks of code with explanatory text.  _Why_ are you doing what you are doing?
+
+== Examples
+
+* https://github.com/mdekstrand/rat-tumors/blob/master/RatTumors.ipynb[Rat Tumors] — this notebook works through an example from Chapter 5 of _Bayesian Data Analysis_, 3rd Edition, by Gelman et al. It is a solid but not excellent notebook.
+* link:../notebooks/DemographicsOfCool.html[MovieLens Demographic Evaluation] — this notebook is a work-in-progress of enhancing one of my papers, http://md.ekstrandom.net/research/pubs/demographics-of-cool[The Demographics of Cool].

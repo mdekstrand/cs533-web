@@ -1,0 +1,3 @@
+= Assignments
+
+. link:assignment1.adoc[Assignment 1] (due Sept. 6)

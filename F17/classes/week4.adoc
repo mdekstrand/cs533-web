@@ -1,0 +1,17 @@
+= Week 4 (Sep. 11–15)
+
+This week, we will be primarily discussing how to work with code and data.
+
+link:../assignments/assignment2.adoc[Assignment 2] is now available.
+
+== Monday (Sep. 11)
+
+=== Pre-Class Reading
+
+- Work the link:../notebooks/SamplingDistributions.ipynb[Sampling Distribution] notebook
+- link:../resources/git.adoc[Git for Data Science] (and referenced readings)
+- http://r4ds.had.co.nz/data-import.html[_R for Data Science_ Chapter 11]
+
+== Wednesday (Sep. 13)
+
+. No new readings for Wednesday; there may be an example to work between classes

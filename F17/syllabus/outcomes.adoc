@@ -1,0 +1,15 @@
+= Course Goals and Learning Outcomes
+
+The purpose of this course is for students to learn how to engage in the scientific process using data-centric concepts and methods and to _think like a data scientist_ by critically analyzing their own work and the work of others.
+
+== Course Learning Outcomes
+
+It is my goal that after completing this course successfully, you will be able to:
+
+. Explore a data set to determine whether and how it might illuminate questions of interest.
+. Define and operationalize a research question such that a data analysis could produce meaningful knowledge.
+. Use best practices to carry out analyses in a documented, reproducible, and efficient fashion.
+. Present the results of a data analysis with appropriate visuals and written argument.
+. Identify weaknesses in a data analysis and assess their impact on the correctness and utility of the results.
+. Assess ethical implications of an analysis in terms of both classical human subject research ethics and contemporary concerns such as fairness and bias.
+. Understand the space of data science techniques and applications, and relate future learning to this framework.

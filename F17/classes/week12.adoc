@@ -1,0 +1,9 @@
+= Week 12 (Nov. 6–10)
+
+== Monday
+
+* link:ref://../notebooks/LatentFeatureIntro.html[Latent Feature Intro] (link:ref://../notebooks/LatentFeatureIntro.ipynb[raw notebook])
+
+== Wednesday
+
+* link:ref://../notebooks/EJCDemo.html[Topic Modeling Demo] (link:ref://../notebooks/EJCDemo.ipynb[raw notebook])

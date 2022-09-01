@@ -1,0 +1,18 @@
+= Week 6 (Sep. 25–29)
+
+This week's topic will be _linear models_ and simple relationships.
+
+== Pre-Class Reading
+
+To read before Monday:
+
+* http://r4ds.had.co.nz/model-basics.html[R for Data Science Chapter 23]
+
+== Monday (Sep. 25)
+
+* link:../assignments/assignment2.adoc[Assignment 2] *is due*
+* link:ref://../notebooks/Class61LinearModels.ipynb[Monday notebook] (link:ref://../notebooks/Class61LinearModels.html[HTML export])
+
+== Wednesday (Sep. 29)
+
+* link:ref://../notebooks/LinearModelingExercise.ipynb[Linear modeling exercise] (link:ref://../notebooks/LinearModelingExercise.html.html[HTML export])

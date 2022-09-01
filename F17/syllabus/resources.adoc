@@ -1,0 +1,7 @@
+= Textbook and Resources
+
+https://www.manning.com/books/think-like-a-data-scientist:[_Think Like a Data Scientist_] by Brian Godsey. Manning; ISBN 9781633430273.
+
+http://r4ds.had.co.nz/[_R for Data Science_] by Garrett Grolemund and Hadley Wickham. Available online, and is http://shop.oreilly.com/product/0636920034407.do[printed by O'Reilly].
+
+The course web site contains link:resources.adoc[additional resources], and the pre-class preparation material will often have additional online readings.
