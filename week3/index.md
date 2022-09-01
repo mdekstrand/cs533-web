@@ -105,7 +105,7 @@ This video introduces basic principles of statistical graphics.
 ## {{mvideo}} Manipulating Data
 
 This video goes over the core Pandas data selection and manipulation operations.
-It is primarily a tour guide — the technical content is in the notebooks.
+It is primarily a tour guide — the technical content is in following notebooks.
 
 :::{video}
 :id: 7ee3707b-0e2d-4a18-8de1-ad9601830ce7
@@ -115,10 +115,30 @@ It is primarily a tour guide — the technical content is in the notebooks.
 :name: 3-3 - Manipulating Data
 :::
 
-### Resources
+## {{mnotebook}} Selecting Data
 
-- [Selection Notebook](../resources/tutorials/Selection.ipynb)
-- [Reshaping Notebook](../resources/tutorials/Reshaping.ipynb)
+:::{reading}
+:title: Selecting Data
+:url: ../resources/tutorials/Selection.html
+:length: 1866 words
+:::
+
+Read the [{{mnotebook}} Selecting Data] tutorial notebook to learn how to select data from a data frame.
+
+I encourage you to read relevant tutorial notebooks throughout the semester, and link to them when
+appropriate; I am making three ones this week specifically assigned readings.
+
+
+## {{mnotebook}} Reshaping Data
+
+:::{reading}
+:title: Reshaping Data
+:url: ../resources/tutorials/Reshaping.html
+:length: 2363 words
+:::
+
+Read the [{{mnotebook}} Reshaping Data](../resources/tutorialsReshaping.ipynb) tutorial notebook to learn
+how to manipulate the shape of data frames in various ways, including merging two data frames into one.
 
 ## {{mnotebook}} Missing Data
 
@@ -129,8 +149,6 @@ It is primarily a tour guide — the technical content is in the notebooks.
 :::
 
 Read the [{{mnotebook}} Missing Data](../resources/tutorials/MissingData.ipynb) tutorial notebook.
-I encourage you to read relevant tutorial notebooks throughout the semester, and link to them when
-appropriate; I am making this one specifically an assigned reading.
 
 ## {{mvideo}} Types of Charts
 
