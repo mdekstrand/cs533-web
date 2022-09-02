@@ -68,8 +68,6 @@ sphinx:
     media: extensions
     cleanups: extensions
     schedule: extensions
-  extra_extensions:
-    - docs_versions_menu
   config:
     primary_domain: res
     term: F22
