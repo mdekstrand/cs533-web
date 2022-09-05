@@ -123,7 +123,7 @@ It is primarily a tour guide — the technical content is in following notebooks
 :length: 1866 words
 :::
 
-Read the [{{mnotebook}} Selecting Data] tutorial notebook to learn how to select data from a data frame.
+Read the [{{mnotebook}} Selecting Data](../resources/tutorials/Selection.ipynb) tutorial notebook to learn how to select data from a data frame.
 
 I encourage you to read relevant tutorial notebooks throughout the semester, and link to them when
 appropriate; I am making three ones this week specifically assigned readings.
@@ -137,7 +137,7 @@ appropriate; I am making three ones this week specifically assigned readings.
 :length: 2363 words
 :::
 
-Read the [{{mnotebook}} Reshaping Data](../resources/tutorialsReshaping.ipynb) tutorial notebook to learn
+Read the [{{mnotebook}} Reshaping Data](../resources/tutorials/Reshaping.ipynb) tutorial notebook to learn
 how to manipulate the shape of data frames in various ways, including merging two data frames into one.
 
 ## {{mnotebook}} Missing Data
