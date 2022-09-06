@@ -35,7 +35,7 @@ E-mail
 :   `michaelekstrand@boisestate.edu` (but please use Piazza for non-grade class questions)
 
 Office Hours (tentative)
-:   Tue 10:30–11:30 AM
+:   Thu 1–2 pm
 :   Online by appointment ([📅 schedule on Calendly](https://calendly.com/mdekstrand))
 
 I generally respond to course questions during normal hours (9a–5p M–F).
