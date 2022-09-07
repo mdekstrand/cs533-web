@@ -23,7 +23,7 @@ proceeding to Week 6.
 
 ## {{mcal}} Deadlines
 
-- Week 4 Quiz on **{date}`wk4 thu** at 8AM
+- Week 4 Quiz on **{date}`wk4 thu`** at 8AM
 
 ## {{mvideo}} Introduction
 
