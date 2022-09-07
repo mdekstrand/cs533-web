@@ -10,15 +10,10 @@ These are the learning outcomes for the week:
 - Understand the key relationships between discrete and continuous probability
 - Compute and interpret a confidence interval
 
-## Revision Log
-
-Thu, Sep. 16
-:   updated quiz to reflect changed release/deadline
-
 ## {{moverview}} Content Overview
 
 ```{module} week4
-:folder: 8a5c2081-e745-4084-ad98-ad9c018384ea
+:folder: ed4af4be-ea6c-4ff0-82ac-af09015d5d25
 ```
 
 This week is at the upper end for total video of any week in the course, and also has some of the
@@ -28,7 +23,7 @@ proceeding to Week 6.
 
 ## {{mcal}} Deadlines
 
-- Week 3 Quiz on **Monday, Sep. 20** at 12PM
+- Week 4 Quiz on **{date}`wk4 thu** at 8AM
 
 ## {{mvideo}} Introduction
 
@@ -120,7 +115,7 @@ possible events or observations, and cancelling the $n$.
 ## {{mvideo}} Confidence
 
 :::{video} confidence
-:length: 13m6s
+:length: 9m44s
 :name: 4-7 - Confidence
 :::
 
