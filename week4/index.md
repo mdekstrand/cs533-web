@@ -170,4 +170,4 @@ For a book:
 
 ## {{massignment}} Assignment 2
 
-[Assignment 2](../assignments/A2/index.md) is due on **September 26**.
+[Assignment 2](../assignments/A2/index.md) is due on **{date}`wk5 sun full`**.
