@@ -3,7 +3,7 @@
 Quick links to some of the data we use in this class:
 
 - [Palmer Penguins](https://github.com/allisonhorst/palmerpenguins) ({download}`local CSV version <penguins.csv>`)
-- [HETREC Movie Data](https://grouplens.org/datasets/hetrec-2011/)
+- [HETREC Movie Data](https://grouplens.org/datasets/hetrec-2011/) (several files here are in Latin1 encoding — pass `encoding='latin1'` to {py:func}`~pandas.read_csv` when loading them)
 - [MovieLens data sets](https://grouplens.org/datasets/movielens/)
 - [World Bank Indicators](https://data.worldbank.org/)
 - US Census
