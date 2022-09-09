@@ -1,6 +1,6 @@
 # Week 4 — Inference ({date}`wk4 range`)
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 These are the learning outcomes for the week:
@@ -154,6 +154,7 @@ If you want to dive more deeply into probability theory, Michael Betancourt's ca
 
 For a book:
 
+- [Probability for Data Science](https://probability4datascience.com/)
 - [Introduction to Probability](https://www.dartmouth.edu/~chance/teaching_aids/books_articles/probability_book/amsbook.mac.pdf) by Grinstead and Snell
 - [An Introduction to Probability and Simulation](https://bookdown.org/kevin_davisross/probbook/) - a hands-on online book using Python simulations
 
