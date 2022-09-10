@@ -29,7 +29,7 @@ parts:
     sections:
     - file: week3/3-6-ChartsFromTheGroundUp.ipynb
   - file: week4/index
-  # - file: week5/index
+  - file: week5/index
   # - file: week6/index
   # - file: week7/index
   # - file: week8/index
@@ -48,7 +48,7 @@ parts:
     sections:
     - file: assignments/A0/A0-Notebook.ipynb
   - file: assignments/A1/index
-  # - file: assignments/A2/index
+  - file: assignments/A2/index
   # - file: assignments/A3/index
   # - file: assignments/A4/index
   # - file: assignments/A5/index
