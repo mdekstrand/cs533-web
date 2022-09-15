@@ -1,6 +1,11 @@
 # Week 5 — Filling In ({date}`wk5 range`)
 
-:::{updated} F21
+:::{updated} F22
+:::
+
+:::{note}
+This week's material is 95% complete. I am working preparing one more reading to tie some concepts together
+with examples from a different data set, but the rest of the material is set.
 :::
 
 This week introduces one new statistical concept — the {term}`hypothesis test` — and is otherwise about **practice** and **solidifying concepts**.
@@ -81,6 +86,15 @@ It also introduces {term}`degrees of freedom`.
 :length: 12m24s
 :name: 5-3 - T-tests
 :::
+
+## {{mnotebook}} Tying It Together
+
+:::{reading}
+:length: 2000 words
+:title: Cookbook 1
+:::
+
+I will be adding a notebook reading here to tie together some Week 4 and 5 material.
 
 ## {{mvideo}} Epistemology
 
