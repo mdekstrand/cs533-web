@@ -98,6 +98,11 @@ The subsequent videos are to help you better understand and contextualize materi
 
 ## {{mnotebook}} One Sample Notebook
 
+:::{reading}
+:length: 653 words
+:title: One Sample T-test and Q-Q Plot
+:::
+
 The [One Sample notebook](../../resources/tutorials/OneSample.ipynb) demonstrates how to compute a one-sample *t*-test, and draw a Q-Q plot to compare a distribution with normal.
 
 ### Resources

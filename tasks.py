@@ -69,7 +69,7 @@ def serve(c, full_site=False, port=8000, rebuild=False):
         if full_site:
             build_site(c)
 
-    _ignore_re = re.compile(r'^(\.[\\/])?_build[\\/]')
+    _ignore_re = re.compile(r'(^(\.[\\/])?_build|.*\..ipynb_checkpoints)[\\/]')
 
     def ignore(p):
         return _ignore_re.match(p)
