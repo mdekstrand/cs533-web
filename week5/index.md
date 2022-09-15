@@ -27,8 +27,8 @@ Our learning outcomes are:
 ## {{mcal}} Deadlines
 
 - Week 5 Quiz is due on **Thursday** at 8AM.
-- [Assignment 2](../assignments/A2/index.md) is due on **Sunday, Sep. 26** at 11:59 PM.
-- Midterm A is next week, on **Tuesday, Sep. 28**.
+- [Assignment 2](../assignments/A2/index.md) is due on **{date}`wk5 sun xlong`** at 11:59 PM.
+- Midterm A is next week, on **{date}`wk6 wed long`**.
 
 ## {{mnotebook}} Assignment 1 Solution
 
@@ -171,4 +171,4 @@ The [tutorial notebooks](tutorials) include many useful things, and have a coupl
 
 ## {{massignment}} Assignment 2
 
-[Assignment 2](../assignments/A2/index.md) is due on **September 26**.
+[Assignment 2](../assignments/A2/index.md) is due on **{date}`wk5 sun xlong`**.
