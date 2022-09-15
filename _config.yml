@@ -100,5 +100,3 @@ sphinx:
       sklearn: [https://scikit-learn.org/stable/, null]
       statsmodels: [https://www.statsmodels.org/stable/, null]
       seedbank: [https://seedbank.lenskit.org/en/stable, null]
-    docs_versions_menu_conf:
-      json_file: '/versions.json'
