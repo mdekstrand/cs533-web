@@ -26,7 +26,6 @@ parts:
     - file: week2/2-4-AggregatesAndGroups.ipynb
     - file: week2/2-6-DescribingDistributions.ipynb
   - file: week3/index
-    sections:
   - file: week4/index
   - file: week5/index
   # - file: week6/index
