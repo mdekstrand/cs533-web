@@ -8,7 +8,7 @@ These are the learning outcomes for the week:
 - Understand the elements of probability
 - Interpret and write conditional probabilities for events
 - Understand the key relationships between discrete and continuous probability
-- Compute and interpret a confidence interval
+- Compute and interpret a {term}`confidence interval`
 
 ## {{moverview}} Content Overview
 
@@ -113,6 +113,8 @@ possible events or observations, and cancelling the $n$.
 - [Sampling notebook](../resources/tutorials/SamplingDists.ipynb)
 
 ## {{mvideo}} Confidence
+
+This video introduces {term}`confidence interval`s.
 
 :::{video} confidence
 :length: 9m44s

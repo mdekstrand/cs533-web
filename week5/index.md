@@ -27,14 +27,14 @@ Our learning outcomes are:
 
 ## {{mnotebook}} Assignment 1 Solution
 
-I will post the Assignment 1 solution to {{LMS}} (sorry, I'm not posting it to the entire Internet).
+The Assignment 1 solution is on Piazza.
 
 ## {{mdoc}} Course Glossary
 
 If you haven't yet, I highly recommend consulting the [course glossary](../../resources/glossary.md).
 Please post on Piazza if you have suggested additions!
 
-The midterm is also likely to be useful in studying for the exam.
+The glossary is also likely to be useful in studying for the exam next week.
 
 ## {{mnotebook}} Writing Functions
 

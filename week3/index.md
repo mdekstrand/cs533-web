@@ -197,7 +197,7 @@ In this video, I discuss how to design a chart from your questions, goals, and d
 
 ### Resources
 
-- [Supporting notebook](3-6-ChartsFromTheGroundUp.ipynb) — code for most of the charts (using Seaborn)
+- [Supporting notebook](../resources/tutorials/ChartsFromTheGroundUp.ipynb) — code for most of the charts (using Seaborn)
 - [Book data statistics notebook](https://nbviewer.jupyter.org/github/BoiseState/bookdata-tools/blob/master/LinkageStats.ipynb) — code for the stacked bar charts (using raw Matplotlib)
 - My book experiments have many facet examples — see [DataSummary](https://nbviewer.jupyter.org/github/BoiseState/book-author-gender/blob/master/DataSummary.ipynb) and [ProfileDataPrep](https://nbviewer.jupyter.org/github/BoiseState/book-author-gender/blob/master/ProfileDataPrep.ipynb).
 
