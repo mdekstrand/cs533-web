@@ -25,6 +25,46 @@ studies and work — documents that will communicate results to your colleagues,
 This is a class about doing data science, including communicating it, not just about writing
 data science code.
 
+## Writing and Formatting
+
+[cm]: https://commonmark.org/help/
+
+The text cells of notebooks use [Markdown syntax][cm] for formatting, and
+support LaTeX math, delimited with `$` characters. For example, this code:
+
+```markdown
+The equation $a^n + b^n = c^n$ does not hold for integers $n>2$.
+```
+
+will yield:
+
+> The equation $a^n + b^n = c^n$ does not hold for integers $n>2$.
+
+It also supports block-mode math.
+
+I encourage you to make judicious use of Markdown formatting to highlight important points and make
+your notebooks easier to read.
+
+One thing that is important to pay attention to is use of section headings, as discussed in the
+lecture videos.  Section headings are indicated with `#` characters, as in:
+
+```markdown
+# Document Title
+
+## Level 2 heading
+```
+
+Section headings are a crucial tool for structuring your document and making it
+easier to read.  It's important to note, however, that these have actual
+meaning: `##` does not mean “large bold font”; it means “level 2 heading”.  If
+you look at the navigation menus on the right-hand side of the pages on the
+course web site, these are extracted from the headings in the text.  Properly
+structuring headings makes your document easier to read (see above, that a
+notebook is a document), and also enables tooling that to support navigating the
+document.  JupyterLab and extensions to the notebook server both provide
+notebook outlines using the section headings.  Section headings should also be
+short.
+
 ## Process
 
 I recommend that you leave time before submitting your assignments to go back through the notebook
