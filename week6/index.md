@@ -124,4 +124,4 @@ The Week 6 quiz is due before class on Thursday as usual.
 
 ## {{massignment}} Assignment 3
 
-[Assignment 3](../../assignments/A3/index.md) is due **October 10**.
+[Assignment 3](../../assignments/A3/index.md) is due **{date}`wk7 sun long`**.
