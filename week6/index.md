@@ -4,7 +4,7 @@
 :::
 
 :::{attention}
-The first midterm exam is on Tuesday.
+The first midterm exam is released on Wednesday.
 :::
 
 This week's learning outcomes are:
@@ -23,19 +23,23 @@ Since we have the exam this week, the lecture load is significantly reduced.
 
 ## {{mcal}} Deadlines
 
-- Midterm A **Tuesday 9:00–10:15 AM** (in class)
+- Midterm A **Saturday at Midnight**
 - Quiz 6 **Thursday by 8AM**
 
 (midterm-a)=
 ## {{mquiz}} Midterm A
 
-The first midterm is on Tuesday.  It is written to take about an hour, and covers material
-up through and including Week 5.
+The first midterm is released on Wednesday on Canvas.  It is written to take about an
+hour, and covers material up through and including Week 5.  It does not include
+Week 6.
 
 ### Format
 
-The exam is a written in-person exam.  It will contain a variety of questions to assess your ability
-to understand and apply concepts from the class.  Question formats include:
+The first part of the exam is a short programming exercise.
+
+The second part is a conceptual exam. it will contain a variety of questions to
+assess your ability to understand and apply concepts from the class.  Question
+formats include:
 
 - Multiple-choice
 - True/false
@@ -51,9 +55,8 @@ I may ask you to do a range of things on the exam, including (but not limited to
 
 ### Exam Rules
 
-- You may have **1 note sheet**, letter- or A4-sized, single-sided.  (For the final, you will be allowed a two-sided note sheet.)
-- You should not need a calculator, but may bring one if you wish.
-- You may answer in either pen or pencil.
+- Notes, books, class materials are allowed
+- Asking other humans for help on the exam is not allowed
 
 ### Study Tips
 
