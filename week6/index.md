@@ -1,6 +1,6 @@
 # Week 6 — Two Variables ({date}`wk6 range`)
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 :::{attention}
@@ -29,9 +29,9 @@ Since we have the exam this week, the lecture load is significantly reduced.
 (midterm-a)=
 ## {{mquiz}} Midterm A
 
-The first midterm is released on Wednesday on Canvas.  It is written to take about an
+The first midterm is released on Wednesday on Canvas, and is due **Saturday at midnight**.  It is written to take about an
 hour, and covers material up through and including Week 5.  It does not include
-Week 6.
+Week 6.  Once you begin the exam, you will have 4 hours to complete it; if you have a technical problem with that (e.g. losing internet connectivity), let me know to reset the clock.
 
 ### Format
 
@@ -120,7 +120,7 @@ This video introduces the idea of feature engineering
 
 ## {{mquiz}} Week 6 Quiz
 
-The Week 6 quiz is due before class on Thursday as usual.
+Due to the exam, there is **no quiz** this week. I will make sure this does not negatively impact anyone's grade.
 
 ## {{massignment}} Assignment 3
 
