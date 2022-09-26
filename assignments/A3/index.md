@@ -1,11 +1,8 @@
 # Assignment 3
 
-:::{updated} F21
-:::
-
 The purpose of Assignment 3 is to give you experience integrating data from multiple sources to explore a two-variable question.
 
-It is due **October 10, 2020** at the end of the day (11:59 PM). Submit your `.ipynb` and PDF files to {{LMS}}.
+It is due **{date}`wk7 sun xlong`** at the end of the day (11:59 PM). Submit your `.ipynb` and PDF files to {{LMS}}.
 
 :::{note}
 This assignment is not structured step-by-step like the first two.  I describe the data, and the questions you need to answer,
@@ -17,11 +14,6 @@ and you need to build a well-structured notebook that answers them.
 
 Read the entire assignment before you begin!
 :::
-
-## Revision Log
-
-Sep. 30, 2021
-:   Fixed lingering reference to 3 mortality rates.
 
 ## Concept
 
@@ -38,6 +30,15 @@ We are going to operationalize these as follows:
 -   Unit of analysis: state (we will discuss implications of this!)
 
 For more background, read [Healthy People 2020's description of social determinants of health](https://www.healthypeople.gov/2020/topics-objectives/topic/social-determinants-of-health).
+
+:::{admonition} Correlation and Causation
+:class: note
+
+This analysis is **purely correlational**, not causal.  It will not provide evidence as to whether or not poverty **causes** particular health outcomes — much more sophisticated analysis techniques would be needed for such conclusions; you can learn such techniques in the Econometrics classes.
+
+Correlational analyses are still useful, however, because they allow us to locate possible effects for further inquiry.  If poverty and mortality is
+correlated, than analysis that seeks to identify the relevant causes (e.g. poverty itself, some specific effect aspect of poverty, or another thing causing both poverty and mortality) can inform potential future interventions.  Be careful in your reporting, however, that you do not claim causality.
+:::
 
 ## Data
 
@@ -97,7 +98,7 @@ The census API puts an underscore (`_`) between th evariable group code (`B05010
 The explorer also includes excerpts from the full census technical documentation providing more detail about the different variables and their codings.
 :::
 
-### Infectious Deseases — GHDx
+### Infectious Diseases — GHDx
 
 We will obtain infectious disease mortality rates from the [Global Health Data Exchange](http://ghdx.healthdata.org/record/ihme-data/united-states-infectious-disease-mortality-rates-county-1980-2014).
 These files contain county- and state-level mortality data from the U.S. from 1980 to 2014.
@@ -175,18 +176,30 @@ You may need to convert the data type of the FIPS code column.  Once you have th
 
 Submit a notebook using the data above to do the following (all for year 2014 data):
 
-1.  (20%) Describe, both numerically and graphically, the distribution of state poverty rates.
-2.  (30%) Show the relationship of poverty rates to mortality rates of two different disease families — Meningitis and Diarrheal deseases — using appropriate plots.
-3.  (20%) Quantify the relationship between poverty and each of the 2 mortality rates in (2) by computing correlation coefficients with bootstrapped confidence intervals for each disease.
+1.  (20%) Describe, both numerically and graphically, the distribution of state
+    poverty rates, as well as a chart or table showing the poverty rate for each
+    state.  A table showing the poverty rate and relevant mortality rates for
+    each state, as an input to the remaining sections, would be very helpful to
+    the reader.
+2.  (30%) Show the relationship of poverty rates to mortality rates of two
+    different disease families — Meningitis and Diarrheal diseases — using
+    appropriate plots.
+3.  (20%) Quantify the relationship between poverty and each of the 2 mortality
+    rates in (2) by computing correlation coefficients with bootstrapped
+    confidence intervals for each disease.
 4.  (20%) Repeat (2) and (3) for infant mortality.
-5.  (10%) Write 2–3 paragraphs about what you learn from these data.  Discuss also limitations that you see in the data and analysis!
+5.  (10%) Write 2–3 paragraphs about what you learn from these data.  Discuss
+    also limitations that you see in the data and analysis!  This should include
+    insights from the analysis, not just a rehearsal of the tasks you performed.
 
-:::{admonition} Correlation and Causation
-:class: note
-
-All this analysis can look at is whether the states with higher poverty rates also tend to have better or worse health outcomes.
-We can draw no conclusions about *causality* between these variables.
-:::
+For each aspect, it is not sufficient to simply present the results of the
+computations. Your notebook text needs to interpret the numeric results and
+plots in the context of the problem and research question(s). What do the
+numbers **mean**?  For example, if the confidence interval of a correlation
+coefficient includes 0, what does this mean about the correlation?  Data
+science, as we have discussed, is about quantitative insight on questions. Your
+assignment needs to make the connection between the computation and the goals
+and questions so that you the data can turn into actual insight.
 
 :::{tip}
 The [Correlation Notebook](../../resources/tutorials/Correlation.ipynb) shows how to bootstrap a confidence interval for a correlation.

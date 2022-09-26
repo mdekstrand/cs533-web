@@ -3,11 +3,6 @@
 :::{updated} F22
 :::
 
-:::{note}
-This week's material is 95% complete. I am working preparing one more reading to tie some concepts together
-with examples from a different data set, but the rest of the material is set.
-:::
-
 This week introduces one new statistical concept — the {term}`hypothesis test` — and is otherwise about **practice** and **solidifying concepts**.
 I'm also going to take a step back and give some more context to some of the things we're talking about.
 
