@@ -23,8 +23,7 @@ Since we have the exam this week, the lecture load is significantly reduced.
 
 ## {{mcal}} Deadlines
 
-- Midterm A **Saturday at Midnight**
-- Quiz 6 **Thursday by 8AM**
+- Midterm A **Tuesday 9:00–10:15 AM** (in class)
 
 (midterm-a)=
 ## {{mquiz}} Midterm A
