@@ -111,6 +111,7 @@ I may expand or revise it as we progress through the semester.
     -   Is mathematical notation used to precisely define measurements when it will increase clarity?
 -   Do all outputs help advance the notebook's story?  Have you removed ones only for debugging or trying things out?
 -   Do charts & conclusion-supporting outputs have surrounding text explaining their purpose and any extra information needed for accurate interpretation?
+-   Do all relevant outputs have clear and accurate interpretation?
 
 ### Graphics
 
