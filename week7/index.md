@@ -168,4 +168,4 @@ These aren't part of the assigned reading, but are for you to learn more.
 
 ## {{massignment}} Assignment 3
 
-Assignment 3 is due on **{date}`wk7 xlong`** at the end of the day.
+Assignment 3 is due on **{date}`wk7 sun xlong`** at the end of the day.
