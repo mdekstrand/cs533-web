@@ -27,8 +27,6 @@ What are we talking about this week?  I also discuss general principles that wil
 :::{video}
 :name: 7-1 - Data
 :length: 8m22s
-:slide-id: 495979F9A431DDB0%2173225
-:slide-auth: APts3vR7Lc59NkI
 :::
 
 ## {{mvideo}} Finding Data
@@ -38,8 +36,6 @@ Where do we go to find data?
 :::{video}
 :name: 7-2 - Finding Data
 :length: 7m25s
-:slide-id: 495979F9A431DDB0%2173227
-:slide-auth: AIXRrNdcFNGB7sE
 :::
 
 ### Resources
@@ -55,8 +51,6 @@ In this video I describe different formats in which you may find data.
 :::{video}
 :name: 7-3 - Data Formats
 :length: 13m55s
-:slide-id: 495979F9A431DDB0%2173229
-:slide-auth: AL8FsyUoRQ7_NXs
 :::
 
 ### Resources
@@ -70,8 +64,6 @@ This video talks about the key ideas of integrating multiple data sources.
 :::{video}
 :name: 7-4 - Integrating Data
 :length: 11m40s
-:slide-id: 495979F9A431DDB0%2173230
-:slide-auth: AKZU3thNfrXQ1v0
 :::
 
 ## {{mvideo}} Values and Types
@@ -81,8 +73,6 @@ This video discusses how to deal with and clean up various data types.
 :::{video}
 :name: 7-5 - Values and Types
 :length: 8m15s
-:slide-id: 495979F9A431DDB0%2173233
-:slide-auth: AHyCBqpfJRcrq68
 :::
 
 ### Resources
@@ -110,8 +100,6 @@ This video provides a **very brief** overview of some of the ethical issues in d
 :::{video}
 :name: 7-6 - Ethics
 :length: 14m10s
-:slide-id: 495979F9A431DDB0%2173240
-:slide-auth: AHtpuXAGUcIYFNI
 :::
 
 ## {{mdoc}} The Belmont Report
@@ -148,8 +136,6 @@ I am providing it so you can see the principles in this week's material applied 
 :::{video}
 :name: 7-7 - Real Example
 :length: 48m57s
-:slide-id: 495979F9A431DDB0%2173242
-:slide-auth: AF1TnxA02bYHuSA
 :::
 
 ### Resources
@@ -165,8 +151,6 @@ This video talks about general principles for processing and integration workflo
 :::{video}
 :name: 7-8 - Workflow Advice
 :length: 5m24s
-:slide-id: 495979F9A431DDB0%2173241
-:slide-auth: AMRLqk4xIA_OSL0
 :::
 
 ## {{mdoc}} Further Reading
