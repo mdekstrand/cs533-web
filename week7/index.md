@@ -1,6 +1,6 @@
 # Week 7 — Getting Data ({date}`wk7 range`)
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 This week has the following learning outcomes:
