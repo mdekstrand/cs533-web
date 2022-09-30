@@ -15,6 +15,10 @@ This week has the following learning outcomes:
 :folder: 3e59e9f-4955-4cea-a709-adb8012572f7
 :::
 
+The long video does not require as careful a study as the rest — it is here for
+you to see a worked, real-world example, but I will not be expecting you to
+reconstruct its various details.
+
 ## {{mcal}} Deadlines
 
 - Week 7 Quiz **Thursday Oct. 7 at 8AM**
@@ -164,4 +168,4 @@ These aren't part of the assigned reading, but are for you to learn more.
 
 ## {{massignment}} Assignment 3
 
-Assignment 3 is due on **Oct. 10** at the end of the day.
+Assignment 3 is due on **{date}`wk7 xlong`** at the end of the day.
