@@ -42,14 +42,14 @@ def rst_video_tab(video_id, length=None, title='Video', amara=None):
     return tab
 
 
-def rst_slide_tab(slide_id, slide_auth):
+def rst_slide_tab(file):
     tab = create_component('tab-item', classes=['sd-tab-item', 'slides'])
     label = nodes.rubric("Slides", "Slides", classes=["sd-tab-label"])
     tab += label
     body = create_component('tab-content', classes=["sd-tab-content", "slides"])
 
     sid = nodes.raw('', f"""
-<div class=slide-container data-id="{slide_id}" data-key={slide_auth}>
+<div class=slide-container data-file="/_downloads/{file}">
 </div>
     """.strip(), format='html')
     body += sid
@@ -119,10 +119,18 @@ class VideoDirective(SphinxDirective):
         if video_id:
             box += rst_video_tab(video_id, length)
 
-        slide_id = self._get_param('slide-id', 'Slide ID')
-        if slide_id:
-            slide_auth = self._get_param('slide-auth', 'Slide Auth')
-            box += rst_slide_tab(slide_id, slide_auth)
+        if name:
+            path = Path(self.env.doc2path(self.env.docname)).parent
+            slide_fn = name + '.pptx'
+            slides = path / slide_fn
+            if slides.exists():
+                dlfn = self.env.dlfiles.add_file(self.env.docname, str(slides))
+                box += rst_slide_tab(dlfn)
+
+        # slide_id = self._get_param('slide-id', 'Slide ID')
+        # if slide_id:
+        #     slide_auth = self._get_param('slide-auth', 'Slide Auth')
+        #     box += rst_slide_tab(slide_id, slide_auth)
 
         alt_id = self.options.get('alt-id', None)
         if alt_id:

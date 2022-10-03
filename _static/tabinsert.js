@@ -12,9 +12,13 @@ function setupTabStuff() {
         $('.slide-container', elt).each(function() {
           console.log('container', this);
           if (!this.dataset.loaded) {
-            let sid = this.dataset.id;
-            let skey = this.dataset.key;
-            $(this).append(`<iframe class=slide-embed src="https://onedrive.live.com/embed?resid=${sid}&amp;authkey=${skey}&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>`)
+            // let sid = this.dataset.id;
+            // let skey = this.dataset.key;
+            let embed = new URL('https://view.officeapps.live.com/op/embed.aspx');
+            let base = window.location;
+            let slideURL = new URL(dataset.file, base);
+            embed.searchParams.append('src', slideURL.toString());
+            $(this).append(`<iframe class=slide-embed src="${embed}" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>`)
             this.dataset.loaded = true;
           }
         });
