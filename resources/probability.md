@@ -115,7 +115,8 @@ A collection of disjoint sets is also called **mutually exclusive**.  What it me
 We a field of events equipped with a probability measure $(E, \Field, \P)$ a
 **probability space**.
 
-(probability-mass)= What this probability measure does is that it describes how
+(probability-mass)= 
+What this probability measure does is that it describes how
 “much” of the total probability is associated with event. This is sometimes
 called the *{term}`probability mass`*, because probability acts like a conserved
 quantity (like mass or energy in physics). There is a total probability of 1
