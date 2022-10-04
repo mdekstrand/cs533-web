@@ -16,7 +16,9 @@ function setupTabStuff() {
             // let skey = this.dataset.key;
             let embed = new URL('https://view.officeapps.live.com/op/embed.aspx');
             let base = window.location;
-            let slideURL = new URL(this.dataset.file, base);
+            let path = base.pathname.replace(/(^\/\w+)\/.*/, '$1');
+            path = path + this.dataset.file;
+            let slideURL = new URL(path, base);
             embed.searchParams.append('src', slideURL.toString());
             $(this).append(`<iframe class=slide-embed src="${embed}" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>`)
             this.dataset.loaded = true;
