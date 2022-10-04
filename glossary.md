@@ -407,6 +407,9 @@ prediction
     Using a model to estimate or predict a score or label from explanatory variables for instances that were not seen during training.
     Contrasts with {term}`inference` as one of the major goals of modeling, discussed in {video}`week8:pred-inf`.
 
+probability mass
+    The amount of probability on a particular event.  Discussed in [:mdoc: Notes on Probability](probability-mass).
+
 $p$-value
     In hypothesis testing, the probability that the null hypothesis ($H_0$) would produce a value as large as the observed value; if the observed statistic is $x$ and $X$ is a random variable representing the sampling and analysis process, this is $\P[X > x | H_0 \text{ is true}]$.
 

@@ -115,14 +115,15 @@ A collection of disjoint sets is also called **mutually exclusive**.  What it me
 We a field of events equipped with a probability measure $(E, \Field, \P)$ a
 **probability space**.
 
-What this probability measure does is that it describes how “much” of the total
-probability is associated with event. This is sometimes called the *probability
-mass*, because probability acts like a conserved quantity (like mass or energy
-in physics). There is a total probability of 1 (from the first axiom $\P[E] =
-1$); the probability measure over other events tells us how likely they are
-relative to other events by quantifying how much of the probability mass is
-placed on them: if $\P[A] = 0.5$, that tells us that half the probability mass
-is on event $A$.  This then has a variety of interpretations:
+(probability-mass)= What this probability measure does is that it describes how
+“much” of the total probability is associated with event. This is sometimes
+called the *{term}`probability mass`*, because probability acts like a conserved
+quantity (like mass or energy in physics). There is a total probability of 1
+(from the first axiom $\P[E] = 1$); the probability measure over other events
+tells us how likely they are relative to other events by quantifying how much of
+the probability mass is placed on them: if $\P[A] = 0.5$, that tells us that
+half the probability mass is on event $A$.  This then has a variety of
+interpretations:
 
 - Interpreted as a description of long-run frequencies, if we repeated the
   random process infinitely many times, half of the times should be $A$.
