@@ -106,15 +106,44 @@ Here are some additional properties of sigma algebras (these are listed separate
 Now that we have a sigma algebra, we can define the concept of **probability**.
 A probability distribution (or *measure*) $\P$ over a sigma algebra $\Field$ is a function that obeys the following (Kolmogorov's axioms):
 
-- $\P[E] = 1$ — the probability of something happening is 1.
-- $\P[A] \ge 0$ — **non-negativity**: probabilities are not negative.
-- If $A_1, A_2, \dots, A_n$ are (countably many) *disjoint* events in $\Field$, then $\P[\bigcup_i A_i] = \sum_i \P[A_i]$ (**countable additivity**).
+1.  $\P[E] = 1$ — the probability of something happening is 1.
+2.  $\P[A] \ge 0$ — **non-negativity**: probabilities are not negative.
+3.  If $A_1, A_2, \dots, A_n$ are (countably many) *disjoint* events in $\Field$, then $\P[\bigcup_i A_i] = \sum_i \P[A_i]$ (**countable additivity**).
 
 A collection of disjoint sets is also called **mutually exclusive**.  What it means is that for any $A_i, A_j$ in the collection, $A_i \cap A_j = \emptyset$ — the two events cannot both happen simultaneously.
 
-We a field of events equipped with a probability measure $(E, \Field, \P)$ a **probability space**.
+We a field of events equipped with a probability measure $(E, \Field, \P)$ a
+**probability space**.
 
-Some additional facts about probability:
+What this probability measure does is that it describes how “much” of the total
+probability is associated with event. This is sometimes called the *probability
+mass*, because probability acts like a conserved quantity (like mass or energy
+in physics). There is a total probability of 1 (from the first axiom $\P[E] =
+1$); the probability measure over other events tells us how likely they are
+relative to other events by quantifying how much of the probability mass is
+placed on them: if $\P[A] = 0.5$, that tells us that half the probability mass
+is on event $A$.  This then has a variety of interpretations:
+
+- Interpreted as a description of long-run frequencies, if we repeated the
+  random process infinitely many times, half of the times should be $A$.
+- Interpreted as an expectation of future observations of currently-unobserved
+  outcomes, $A$ is just as likely as it is not.
+
+The non-negativity axiom keeps us from trying to assign negative probabilities
+to events because they won't be meaningful, and the countable additivity axiom
+ensures that probabilities “make sense” in a way consistent with describing a
+distribution of mass across the various events.  If we have two distinct,
+disjoint events, then the probability mass assigned to the pair is the sum of
+their individual masses; the axiom generalizes this to countable sets of
+disjoint events.
+
+:::{lnote} Aside
+There do exist probability frameworks in which negative probability makes sense,
+but they are unusual and we won't be needing them.
+:::
+
+Some additional facts about probability that can be derived from the above
+axioms:
 
 - $\P[A] \le 1$ (combined with non-negativity, we have $0 \le \P[A] \le 1$)
 - $\P[A \cup B] = \P[A] + \P[B] - \P[A \cap B]$
@@ -292,7 +321,61 @@ We can also compute an **odds ratio** of two outcomes:
 
 $$\OR(A, B) = \frac{\Odds(A)}{\Odds(B)}$$
 
+## Interpretation
+
+So far, this document has focused on probability as a mathematical object: we
+have a probability space obeying a set of axioms, and we can do various things
+with it.  We have not, however, discussed what a probability *is*.  Is it a
+description of frequencies?  Something else?
+
+Under the **instrumentalist** school of thought, the mathematical definition
+above *is* what a probability is.  Probability is a measure over a sigma algebra
+that satisfies Kolmogorov's axioms, nothing more, nothing less.  In this view,
+all other interpretations of probability are simply applications of probability.
+
+**Frequentism** defines probability as the long-run behavior of infinite
+sequences: the probability of an event is the fraction of times it would appear
+if we repeated the experiment or observation infinitely many independent times.
+$\P[H] = 0.5$ because, if we flip a coin infinitely many times, half of the
+results will be heads.
+
+**Subjectivism** or **subjective Bayesianism** defines probability as a
+consistent description of the beliefs of a rational agent.  That is, it
+describes what the agent currently believes about as-yet-unobserved outcomes.
+$\P[H] = 0.5$ because, prior to flipping a coin, the agent believes heads to be
+just as likely as tails.
+
+There are variants on these theories and other theories as well.  They may seem
+similar, but they are very different in terms of their implications and
+application.  For one thing, under frequentism, probabilities only make sense in
+the context of repeated (or theoretically repeatable) random events, and we
+cannot talk about the probability of a fixed but unknown thing, such as a
+population parameter.  Under subjective Bayesianism, because probability is
+about the agent's subjective state of belief, we *can* talk about the
+probability of a population parameter, because all we are doing is describing
+the agent's belief about the parameter's value.
+
+:::{note}
+When I use the term *subjective* above, I am not using it in a perjorative or
+negative sense. I am using it in its philosophical sense: it is the agent's
+internal state, which is not necessarily shared with other agents.  Different
+rational agents may have different current beliefs, each entirely rational and
+well-justified, because they have access to different prior information. There
+is nothing positive or negative about this; it is just a fact.
+:::
+
+I personally am an instrumentalist who usually reaches for subjective
+Bayesianism when backed into a corner and asked to interpret a probability.  One
+of the benefits of instrumentalism as a philosophy is that it is perfectly fine
+with both frequentist and Bayesian concepts, because they are both just
+applications of probability theory.
+
 ## Further Reading
+
+[This thread by Michael
+Betancourt](https://twitter-thread.com/t/1576885053044699138) provides a good
+overview of the *instrumentalist* idea of probability, which treats
+probabilities simply as their mathematical objects. It influenced how I write about mass above.
 
 If you want to dive more deeply into probability theory, Michael Betancourt's case studies are rather mathematically dense but quite good:
 
@@ -302,6 +385,7 @@ If you want to dive more deeply into probability theory, Michael Betancourt's ca
 
 For a book:
 
-- [<cite class=free>Introduction to Probability<cite>](https://chance.dartmouth.edu/teaching_aids/books_articles/probability_book/amsbook.mac.pdf) by Grinstead and Snell
+- [<cite class=free>Introduction to Probability for Data Science</cite>](https://probability4datascience.com/) by Stanley H. Chan
+- [<cite class=free>Introduction to Probability</cite>](https://chance.dartmouth.edu/teaching_aids/books_articles/probability_book/amsbook.mac.pdf) by Grinstead and Snell
 - [<cite class=free>An Introduction to Probability and Simulation</cite>](https://bookdown.org/kevin_davisross/probsim-book/) — a hands-on online book using Python simulations
 - <cite>A Probability Path</cite> by Sidney Resnick
