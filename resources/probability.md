@@ -364,12 +364,6 @@ well-justified, because they have access to different prior information. There
 is nothing positive or negative about this; it is just a fact.
 :::
 
-I personally am an instrumentalist who usually reaches for subjective
-Bayesianism when backed into a corner and asked to interpret a probability.  One
-of the benefits of instrumentalism as a philosophy is that it is perfectly fine
-with both frequentist and Bayesian concepts, because they are both just
-applications of probability theory.
-
 ## Further Reading
 
 [This thread by Michael
