@@ -36,12 +36,13 @@ These notebooks are on basic Python data manipulation:
 4.  [Sampling Distributions](SamplingDists.ipynb) (from {module}`week4`)
 5.  [Magic Numbers](MagicNumbers.ipynb) (demonstration of where various “magic” numbers come from)
 6.  [One Sample T-test and Distribution Comparison](OneSample.ipynb)
-7.  [Correlation](Correlation.ipynb)
-8.  [Regressions](Regressions.ipynb) (goes with [Week 8](../../week8/index.md))
-9.  [Logistic Regression](LogitRegressionDemo.ipynb)
-10. [Sampling and Testing the Penguins](PenguinSamples.ipynb)
-11. [Linear Models with scipy `minimize`](MinimizeRegression.ipynb)
-12. [Overfitting Simulation example](OverfittingSimulation.ipynb)
+7.  [Confidence](Confidence.ipynb)
+8.  [Correlation](Correlation.ipynb)
+9.  [Regressions](Regressions.ipynb) (goes with [Week 8](../../week8/index.md))
+10. [Logistic Regression](LogitRegressionDemo.ipynb)
+11. [Sampling and Testing the Penguins](PenguinSamples.ipynb)
+12. [Linear Models with scipy `minimize`](MinimizeRegression.ipynb)
+13. [Overfitting Simulation example](OverfittingSimulation.ipynb)
 
 ## SciKit-Learn and ML Models
 
