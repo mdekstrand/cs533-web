@@ -1,6 +1,6 @@
 # Assignment 4
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 Assignment 4 has two purposes:
@@ -8,7 +8,7 @@ Assignment 4 has two purposes:
 - To give you more experience with linear regression
 - To introduce simulation as a means of studying the behavior of statistical techniques
 
-This assignment is due **October 24, 2020** at the end of the day.  Upload your `.ipynb` and `.pdf` files to {{LMS}}.
+This assignment is due **{date}`wk9 sun xlong`** at the end of the day.  Upload your `.ipynb` and `.pdf` files to {{LMS}}.
 
 :::{lnote} Notation
 In this writeup, I will use capital letters (e.g. $X$) for random variables, and lowercase variables (e.g. $x$) for individual samples (or *draws*) from those random variables.
@@ -41,37 +41,59 @@ for i in range(ITER_COUNT):
 You can use either Python lists or NumPy arrays for storing your results from repetitions.
 :::
 
-## Revision Log
-
-Oct. 12, 2021
-:   Clarified the [last task](a4-correlated) of the [warmup section](a4-warmup) to document it needs 100-, 1000-, and 10000-draw simulations.
+:::{ltip} Structure
+There are **many pieces** to this assignment. Pay attention to your narrative text and heading structure to make your notebook readable.
+:::
 
 ## Simulation
 
-One common way to understand the behavior of statistical techniques is to use *simulation* (often called *Monte Carlo simulation*).
-In a simulation, we use a psuedorandom number generator to make up data that follows particular patterns (or lack of patterns).
-We call this data *synthetic data*.
+One common way to understand the behavior of statistical techniques is to use
+*simulation* (often called *Monte Carlo simulation*). In a simulation, we use a
+psuedorandom number generator to make up data that follows particular patterns
+(or lack of patterns). We call this data *synthetic data*.
 
-We then apply a statistical technique, such as correlation coefficient or a linear regression, to the synthetic data, and see how closely its results match the parameters we put in to our simulation.
-If the analysis reliably estimates the simulation's parameters, we say it *recovers* the parameters.
-We can do this many times to estimate that reliability — we can run the simulation 1000 times, for example, and examine the *distribution* of the error of its parameter estimates to see if it is unbiased, and how broad the errors are.
+We then apply a statistical technique, such as correlation coefficient or a
+linear regression, to the synthetic data, and see how closely its results match
+the parameters we put in to our simulation. If the analysis reliably estimates
+the simulation's parameters, we say it *recovers* the parameters. We can do this
+many times to estimate that reliability — we can run the simulation 1000 times,
+for example, and examine the *distribution* of the error of its parameter
+estimates to see if it is unbiased, and how broad the errors are.
 
-This technique is commonly used in statistics research (that is, research about statistics itself, rather than research that uses statistics to study other topics) in order to examine the behavior of statistical methods.
-By simulating samples of different sizes from a population with known parameters, we can compare the results of analyzing those samples with the actual values the statistical method is supposed to estimate.
-Further, by mapping its behavior over a *range* of scenarios, we can gain insight into what a statistical technique is likely doing with the particular data we have in front of us.
+This technique is commonly used in statistics research (that is, research about
+statistics itself, rather than research that uses statistics to study other
+topics) in order to examine the behavior of statistical methods. By simulating
+samples of different sizes from a population with known parameters, we can
+compare the results of analyzing those samples with the actual values the
+statistical method is supposed to estimate. Further, by mapping its behavior
+over a *range* of scenarios, we can gain insight into what a statistical
+technique is likely doing with the particular data we have in front of us.
 
-This is distinct from bootstrapping.
-In bootstrapping, we are resampling our sample to try to estimate the sampling distribution of a statistic with respect to the population our sample was drawn from; we have actual data, but do not know the actual population parameters.
-In simulation, we know the population parameters, and do not have any actual data because we make it all up with the random number generator.
+This is distinct from bootstrapping. In bootstrapping, we are resampling our
+sample to try to estimate the sampling distribution of a statistic with respect
+to the population our sample was drawn from; we have actual data, but do not
+know the actual population parameters. In simulation, we know the population
+parameters, and do not have any actual data because we make it all up with the
+random number generator.
+
+One further and important point on simulation: when we are simulating a data
+generating process, we **know** whether or not it satisfies the assumptions the
+statistical technique we are studying.  We know, for example, whether or not our
+observations are independent, or whether the residuals are i.i.d. normal. We can
+also **strategically violate** those assumptions to see how the method responds:
+what does its output look like when its assumptions do not hold?  How
+substantial is the impact of different assumption violation?
 
 ## Generating Random Numbers
 
-NumPy's {py:class}`Generator <numpy.random.Generator>` class is the starting point for generating random numbers.
-It has methods for generating numbers from a range of distributions.
-For more sophisticated distributions, the various distributions in the {py:mod}`scipy.stats` also support random draws.
+NumPy's {py:class}`Generator <numpy.random.Generator>` class is the starting
+point for generating random numbers. It has methods for generating numbers from
+a range of distributions. For more sophisticated distributions, the various
+distributions in the {py:mod}`scipy.stats` also support random draws.
 
-Random number generators have a *seed* that is the starting point for picking numbers.
-Two identical generators with the same seed will produce the same sequence of values.
+Random number generators have a *seed* that is the starting point for picking
+numbers. Two identical generators with the same seed will produce the same
+sequence of values.
 
 We can create a generator with {py:func}`np.random.default_rng <numpy.random.default_rng>`:
 
@@ -79,20 +101,33 @@ We can create a generator with {py:func}`np.random.default_rng <numpy.random.def
 rng = np.random.default_rng(20201014)
 ```
 
-This will return a {py:class}`numpy.random.Generator`, just like {py:func}`numpy.random.default_rng`.
+This will return a {py:class}`numpy.random.Generator`, just like
+{py:func}`numpy.random.default_rng`.
 
-In my class examples, I have been using the current date as my seed.
-If you do not specify a seed, it will pick a fresh one every time you start the program; for reproducibility, it is advised to pick a seed for any particular analysis.
-It's also useful to re-run the analysis with a different seed and double-check that none of the conclusions changed.
+In my class examples, I have been using the current date as my seed. If you do
+not specify a seed, it will pick a fresh one every time you start the program;
+for reproducibility, it is advised to pick a seed for any particular analysis.
+It's also useful to re-run the analysis with a different seed and double-check
+that none of the conclusions changed.
 
-We can then use the random number generator to generate random numbers from various distributions.
-It's important to note that *random* does not mean *uniform* — then uniform distribution is just one kind of random distribution.
+We can then use the random number generator to generate random numbers from
+various distributions. It's important to note that *random* does not mean
+*uniform* — then uniform distribution is just one kind of random distribution.
 
 For example, we can draw 100 samples from the standard normal distribution ($\mu = 0$, $\sigma = 1$)
-using {py:meth}`standard_normal() <numpy.random.Generator.standard_normal>`:
+using {py:meth}`~numpy.random.Generator.standard_normal`:
 
 ```python
 xs = rng.standard_normal(100)
+```
+
+This is just a convenient shorthand for the
+{py:meth}`~numpy.random.Generator.normal` method that allows us to draw samples
+from a normal distribution with any mean and standard deviation (the method
+documentation calls these *location* and *scale*):
+
+```python
+xs = rng.normal(0, 1, 100)
 ```
 
 :::{admonition} SeedBank
@@ -101,7 +136,7 @@ xs = rng.standard_normal(100)
 If you wish to use SeedBank to manage your RNG seeds, you can do:
 
 ```python
-seedbank.initialize(20201014)
+seedbank.initialize(20221007)
 rng = seedbank.numpy_rng()
 ```
 :::
@@ -270,6 +305,20 @@ fit.params['X']
 
 {{mtask}} Fit a model to data with $\alpha=1$ and $\beta=4$. Are the resulting model parameters what you expect? How did $R^2$ change, and why? Do the linear model assumptions still hold? What are the distributions of the slope, intercept, and $R^2$ if you do this 1000 times?
 
+Now, let's look at increasing the amount of noise $\sigma_\epsilon$.  We'll do this with:
+
+$$\begin{align*}
+x & \sim \mathrm{Normal}(0, 1) \\
+\epsilon & \sim \mathrm{Normal{0, 5}} \\
+y & = 5 - 2 x + \epsilon
+\end{align*}$$
+
+{{mtask}} Fit a model to data generated with these parameters.  Are the resulting model parameters what you expect?  What about the $R^2$?  Do the linear model assumptions still hold?
+
+:::{tip}
+The residual vs. fitted plot may look circular. Is this a violation?  To better understand it, consider running with $x \sim \mathrm{Uniform}(-3, 3)$ — does this change affect any of our linear model assumptions?
+:::
+
 ## Nonlinear Data (15%)
 
 {{mtask}} Generate 1000 data points with the following distributions and formula:
@@ -301,21 +350,34 @@ The NumPy function {py:func}`numpy.exp` computes $e^x$.
 {{mtask}} Generate 1000 data points with the model:
 
 $$\begin{align*}
-y & = 10 + 0.3x + \epsilon \\
-\epsilon & \sim \mathrm{Normal}(0, 1) \\
-x & \sim \mathrm{Gamma}(2, 1)
+y & = -10 + 5 x + \epsilon \\
+\epsilon & \sim \mathrm{Normal}(0, 30) \\
+x & \sim \mathrm{Uniform}(0, 100)
 \end{align*}$$
 
 - Plot the distributions of $X$ and $Y$
 - Fit a linear model predicting $y$ with $x$
 - How well does this model fit? How much of the variance does it explain? Do the assumptions seem to hold?  Does the linear regression seem appropriate to the data?
 
-:::{ltip} Gamma Distributions
+{{mtask}} Generate 1000 data points with the model:
 
-You can draw 1000 samples from the $\mathrm{Gamma}(2, 1)$ distribution with {py:meth}`numpy.random.Generator.gamma`:
+$$\begin{align*}
+y & = 10 + 2x + \epsilon \\
+\epsilon & \sim \mathrm{Normal}(0, 1) \\
+x & \sim \mathrm{Exponential}(5)
+\end{align*}$$
+
+- Plot the distributions of $X$ and $Y$
+- Fit a linear model predicting $y$ with $x$
+- How well does this model fit? How much of the variance does it explain? Do the assumptions seem to hold?  Does the linear regression seem appropriate to the data?
+
+:::{ltip} Exponential Distributions
+
+You can draw 1000 samples from the $\mathrm{Exponential}(5)$ distribution with
+{py:meth}`~numpy.random.Generator.exponential` method:
 
 ```python
-rng.gamma(2, 1, 1000)
+rng.exponential(5, 1000)
 ```
 :::
 
