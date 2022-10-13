@@ -1,6 +1,6 @@
 # Week 9 — Models & Prediction ({date}`wk9 range`)
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 This week talks more about regression, simulation, and introduces the idea of minimizing a loss function.
