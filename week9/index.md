@@ -38,6 +38,15 @@ I also describe more of NumPy's random number generation facilities.
 You should set random seeds for all work that will need randomness, including train/test splits for evaluating predictors.
 :::
 
+## {{mnotebook}} Random Numbers
+
+:::{reading}
+:title: Random Numbers
+:length: 1044 words
+:::
+
+Read the [Random Numbers](/resources/tutorials/RandomNumbers.ipynb) notebook.
+
 ## {{mvideo}} Variance, R², and the Sum of Squares
 
 This video provides more detail on *explained variance* and what the $R^2$ means.

@@ -39,10 +39,11 @@ These notebooks are on basic Python data manipulation:
 7.  [Confidence](Confidence.ipynb)
 8.  [Correlation](Correlation.ipynb)
 9.  [Regressions](Regressions.ipynb) (goes with [Week 8](../../week8/index.md))
-10. [Logistic Regression](LogitRegressionDemo.ipynb)
-11. [Sampling and Testing the Penguins](PenguinSamples.ipynb)
-12. [Linear Models with scipy `minimize`](MinimizeRegression.ipynb)
-13. [Overfitting Simulation example](OverfittingSimulation.ipynb)
+10. [Random Numbers](RandomNumbers.ipynb)
+11. [Logistic Regression](LogitRegressionDemo.ipynb)
+12. [Sampling and Testing the Penguins](PenguinSamples.ipynb)
+13. [Linear Models with scipy `minimize`](MinimizeRegression.ipynb)
+14. [Overfitting Simulation example](OverfittingSimulation.ipynb)
 
 ## SciKit-Learn and ML Models
 
