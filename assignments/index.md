@@ -1,6 +1,6 @@
 # Assignments
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 - [Assignment 0](./A0/index.md) (due **{date}`wk1 sun long`**)
