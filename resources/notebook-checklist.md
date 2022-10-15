@@ -20,6 +20,10 @@ from the assignment description (e.g. including the questions verbatim in block 
 entirely acceptable), but you're going to need to do more writing and structuring to present
 your results in a readable document.
 
+The document also needs to include the Jupyter outputs — the reader should be
+able to read it without re-running the code, although the code is there so they
+can.
+
 The reason for this is so that you learn to produce outputs that will be useful for your future
 studies and work — documents that will communicate results to your colleagues, adviser, etc.
 This is a class about doing data science, including communicating it, not just about writing
@@ -133,4 +137,5 @@ The [Data Visualization Checklist](https://depictdatastudio.com/checklist/) is u
 
 ### Post-Export
 
+-   Does PDF export include all outputs?
 -   Are plots correctly displayed in the resulting PDF?  See [common problems](prob-mangled-pdf) for solutions.
