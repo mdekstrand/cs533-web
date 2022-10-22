@@ -1,13 +1,13 @@
 # Assignment 5
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 This assignment is designed to develop and assess your ability to build classifiers and reason about
 their effectiveness. You will use SciKit-Learn classifiers; it is possible to do part of the
 assignment with statsmodels, but some of the models only exist in SciKit-Learn.
 
-It is due **Sunday, November 7 at 11:59 pm**.
+It is due **{date}`wk11 sun xlong` at 11:59 pm**.
 Submit your notebook and its PDF export to {{LMS}}.
 
 Throughout your writeup, **justify your decisions** based on theoretical knowledge, the background
@@ -16,11 +16,6 @@ reading, or what you observe in the data.
 :::{tip}
 Read the **entire assignment** before beginning.
 :::
-
-## Revision Log
-
-November 2, 2021
-:   Revised [initial model](#initial-logistic-model-25) to expand on what was meant and clarify terms lost in assignment revision.
 
 ## Context and Data
 
@@ -50,7 +45,7 @@ Some things you will likely need to do include:
 - Convert the outcome variable into usable form for prediction.
 - Convert other categorical variables into appropriate dummy or indicator variables.
 - Bin some features. For example, the authors recommend looking at whether the term is at least 240 months to determine if a transaction is backed by real estate or not (longer-term loans are backed by real estate).
-- Convert date fields into more usable form (Pandas date-time features let you parse them and convert them).  For example, you may want only the year, or you may want to identify whether a loan was due during the Great Recession.
+- Convert date fields into more usable form (Pandas date-time features let you parse them and convert them).  For example, you may want only the year.
 - Compute interaction features or derived features.  For example, you may want to compute the fraction of the loan that was guaranteed by the SBA and use it as a feature.
 
 Note that one of the fields is the chargeoff amount.  **Do not use this field as a feature** — why is this?
@@ -76,7 +71,7 @@ What will be far more effective is to *summarize*, and to build your final model
 * A list of the features you are using, with a brief justification for each.  This can be a bullet list of the features with a short sentence about why it is a useful feature.
 * A list of features you tried that didn't work.  Again, can be a bullet list.
 
-This will make it significantly easier for us to see the key pieces of your result.
+This will make it significantly easier for me to see the key pieces of your result.
 
 As noted in the [notebook guide](../../resources/notebook-checklist.md), there are, in general, two ways to get to this:
 
@@ -85,9 +80,9 @@ As noted in the [notebook guide](../../resources/notebook-checklist.md), there a
 
 I do both, depending on the project and on how messy my exploratory notebook is.
 
-If you want to submit your exploratory notebook as a separate file, that's fine (encouraged, even!), but we need the PDF of your final cleaned one to grade.
+If you want to submit your exploratory notebook as a separate file, that's fine (encouraged, even!), but I need the PDF of your final cleaned one to grade.
 
-## Data Prep and Exploration (30%)
+## Data Prep and Exploration (20%)
 
 1.  Load the data and do your initial preparation.  How many observations and variables do you have?
 2.  Select a 25% sample of the data for use in testing.
@@ -95,35 +90,88 @@ If you want to submit your exploratory notebook as a separate file, that's fine 
 4.  What is the accuracy, precision, and recall of the majority-class classifier on the test data?
 5.  Identify some variables that, based on your understanding and reading (e.g. the source paper!) are likely to be useful for predicting default.  Describe them, your motivation, their distribution, and their relationship to outcomes (in the training data).  Do feature transformations you find useful here as well.  You may need to create interaction features, or do other feature transformations.
 
-## Initial Logistic Model (25%)
+:::{admonition} Class Imbalance
+:class: note
 
-Build a logistic regression model using no more than 8 features to predict default on this subset. Likely useful features include whether it is a new business, a real estate transaction, the proportion guaranteed by SBA, and whether it was active during the recession.
+You will see that the classes on this data set are quite imbalanced.  Some propose resampling to
+make the classes balanced for training.  If you want to consider that, think about: is such a classifier
+being evaluated on the original problem?  Can you correct it to evaluate on the original problem?
+:::
 
-If you want to experiment with different features, create a tuning set that is a subset of the training set, and use it to evaluate the accuracy of your model with them. Test the final accuracy of **one model** on the test data using the accuracy metric.
+:::{admonition} Missing Data
+:class: warning
 
-## Lasso Regression (15%)
+Treat missing data with care in this assignment.  You may wish to drop or impute
+(either a default value or a mean), depending on the feature.  Do **not** just call `dropna`,
+because this will throw away a lot of instances! Only discard an instance if you actually
+can't use it.
+:::
+
+## Subset Model (20%)
+
+**Subset** your training and test data to only include data from California, for
+business with NAICS codes starting with 53 (Real Estate and Rental and Leasing).
+This mirrors the subsetting used in the source material assignment.
+
+Build a logistic regression model using no more than 5 features to predict
+default on this subset. Likely useful features include whether it is a new
+business, a real estate transaction, the proportion guaranteed by SBA, and
+whether it was active during the recession.
+
+If you want to experiment with different features, create a tuning set that is a
+subset of the training set, and use it to evaluate the accuracy of your model
+with them. Test the final accuracy of one model on the test data using the
+accuracy metric.
+
+## Full Model (20%)
+
+Extend your model from the subset data set (California/53) to the full data set.
+Do you need to add state & industry terms? Do you need to use interaction terms?
+Are there additional features that are useful?
+
+Use a tuning set to make these decisions. Test one model from this section on
+the test data.
+
+:::{note}
+For this and the other logistic regression sections, spend some time looking for
+good features, but **time-box it**: use the best model you can create in a few
+hours.  It's very hard to get logistic regression to demonstrate particularly strong
+performance on this data set.
+:::
+
+## Regularized Regression (15%)
 
 Use a lasso regression (``penalty='lasso'`` in {py:class}`LogisticRegression <sklearn.linear_model.LogisticRegression>`) to train a model with many features and automatically select the most useful ones.
 Use either a tuning set or {py:class}`sklearn.linear_model.LogisticRegressionCV` to select a useful value for there regularization strength (``C``).
 
 Note that while lasso regression will automatically *select* features, it can only work with the features you give it — you still need to transform data into useful form for influencing the predictor.
 
+Also extend from Lasso to ElasticNet (``penalty='elasticnet'``, you will also need ``solver='saga'``; if you use {py:class}`sklearn.linear_model.LogisticRegressionCV`, you will need to pass it a list of L1 ratios as well as ``C`` values).
+
 You might want to experiment with some more or different features on a tuning set!
 
-Test **one** model from this section on the test data.
-
-## ElasticNet (10%)
-
-Extend from Lasso to ElasticNet (``penalty='elasticnet'``, you will also need ``solver='saga'``; if you use {py:class}`sklearn.linear_model.LogisticRegressionCV`, you will need to pass it a list of L1 ratios as well as ``C`` values).
-
-Again, test **one** model on the test data.
+Test **two** model from this section on the test data: one with lasso regression and one with ElasticNet.
 
 ## Random Forest (10%)
 
-Let's try one more classifier: a **random forest** ({py:class}`sklearn.ensemble.RandomForestClassifier`).
-Consider trying different hyperparameters, such as the number of estimators, with some tuning data.
+Let's now try a different type of classifier: a **random forest** ({py:class}`sklearn.ensemble.RandomForestClassifier`).
+Consider trying different hyperparameters, such as the number of estimators, with some tuning data or with SciKit-Learn's cross-validation ({py:class}`~sklearn.model_selection.GridSearchCV`).  You may want to
+include features you excluded from the logistic regression — random forests are able to make good use of a wide range 
+of feature types without much need for transformation.
 
 Test **one** random forest model on the test data.
+
+## XGBoost (5%)
+
+[XGBoost]: https://xgboost.readthedocs.io/
+
+Finally, try an [XGBoost][] classifier.  It is similar to a random forest, but
+it uses a different mechanism for building its decision trees.  The
+{py:class}`xgboost.XGBRegressor` class provides an implementation of XGBoost
+that works exactly like a SciKit-Learn model.  You will first need to install
+the `py-xgboost` package from Conda or the `xgboost` package with `pip`.
+
+Test **one** XGBoost model on the test data.
 
 ## Final Summary and Reflection (10%)
 
@@ -140,7 +188,11 @@ Compute the **cost** of each classifier by assigning a cost of 5 to a false posi
 Show the cost of your different models in an appropriate chart.
 
 The last analysis is to show overall the *false negative rate* for your different models.
-After showing the overall FNR, break down the false positive rate and the precision by business status, and show each model's FNR and precision for new and existing businesses separately (I recommend a bar charts with model on the X axis, FNR or precision on the y, and different bar colors for new and existing businesses).
+After showing the overall FNR, break down the false positive rate and the
+precision by business status, and show each model's FNR and precision for new
+and existing businesses separately (I recommend a bar charts with model on the X
+axis, FNR or precision on the y, and different bar colors for new and existing
+businesses).
 Does your model perform comparably well for new and existing businesses?
 
 :::{note}
@@ -151,9 +203,15 @@ Write 2-3 paragraphs about what you learn about your model performance and the u
 
 ## Expected Time
 
-- Data Prep and Exploration: 2 hours
-- Full Model: 3 hours (iterating with exploration for more features on the tune data)
-- Lasso Regression: 30 minutes (not counting cross-validation compute time)
-- ElasticNet: 30 minutes (not counting cross-validation compute time)
+These time estimates do **not** include compute time for hyperparameter search
+with cross-validation.  Some of those runs can take an hour or two, depending on
+your computer capacity.
+
+- Data Prep and Exploration: 1.5 hours
+- Subset Model: 1.5 hours (iterating with exploration for more features on the tune data)
+- Full Model: 1.5 hours (iterating with exploration for more features on the tune data)
+- Lasso Regression: 30 minutes
+- ElasticNet: 30 minutes
 - Random Forest: 1 hour
+- xgboost: 30 minutes (reuse random forest effort)
 - Summary, Reflection, and Cleanup: 2.5 hours

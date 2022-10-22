@@ -1,7 +1,9 @@
 # Week 10 — Classification ({date}`wk10 range`)
 
-:::{updated} F21
+:::{updated} F22
 :::
+
+This week we introduce **classification** as a prediction task, with methods for evaluating classifiers.
 
 ## {{moverview}} Content Overview
 
