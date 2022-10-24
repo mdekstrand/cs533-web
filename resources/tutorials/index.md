@@ -13,13 +13,14 @@ This semester, I am teaching with plotnine instead of Seaborn, but
 These notebooks are on basic Python data manipulation:
 
 1. [Fun with Numbers](FunWithNumbers.ipynb)
-2. [Writing and Using Functions](Functions.ipynb)
-3. [Selecting Data](Selection.ipynb)
-4. [Reshaping Data](Reshaping.ipynb)
-5. [Building Data](BuildingData.ipynb) — building up arrays and data series
-6. [Indexing](Indexing.ipynb)
-7. [Missing Data](MissingData.ipynb)
-8. [Tricks with Boolean Series](BooleanSeries.ipynb)
+2. [Types and Operations](TypesAndOperations.ipynb)
+3. [Writing and Using Functions](Functions.ipynb)
+4. [Selecting Data](Selection.ipynb)
+5. [Reshaping Data](Reshaping.ipynb)
+6. [Building Data](BuildingData.ipynb) — building up arrays and data series
+7. [Indexing](Indexing.ipynb)
+8. [Missing Data](MissingData.ipynb)
+9. [Tricks with Boolean Series](BooleanSeries.ipynb)
 
 ## Visualization
 
