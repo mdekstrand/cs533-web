@@ -154,6 +154,7 @@ This video introduces fundamental Python data types and operations, along with v
 ### Resources
 
 - [Slide deck notebook](1-7-types-operations)
+- [Tutorial notebook](../resources/tutorials/TypesAndOperations.ipynb) with the same content
 - [Python tutorial](https://docs.python.org/3/tutorial/index.html)
 - Textbook 2.3, 3.1
 - Tutorial notebook [Fun with Numbers](../resources/tutorials/FunWithNumbers.ipynb)
