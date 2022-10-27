@@ -1,6 +1,6 @@
 # Week 11 — More Modeling ({date}`wk11 range`)
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 In this week, we're going to learn more about model building, that will be useful in Assignment 5:
