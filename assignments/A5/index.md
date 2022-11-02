@@ -17,6 +17,11 @@ reading, or what you observe in the data.
 Read the **entire assignment** before beginning.
 :::
 
+## Revision Log
+
+- **Nov. 2:** corrected lasso regression to specify `l1` instead of `lasso`, and
+  point to the documentation on solvers.
+
 ## Context and Data
 
 For this assignment, you will work with a data set of loans issued to small businesses, provided by the U.S. Small Business Administration.
@@ -141,8 +146,13 @@ performance on this data set.
 
 ## Regularized Regression (15%)
 
-Use a lasso regression (``penalty='lasso'`` in {py:class}`LogisticRegression <sklearn.linear_model.LogisticRegression>`) to train a model with many features and automatically select the most useful ones.
+Use a lasso regression (``penalty='l1'`` in {py:class}`LogisticRegression <sklearn.linear_model.LogisticRegression>`) to train a model with many features and automatically select the most useful ones.
 Use either a tuning set or {py:class}`sklearn.linear_model.LogisticRegressionCV` to select a useful value for there regularization strength (``C``).
+
+:::{note}
+{py:class}`~sklearn.linear_model.LogisticRegression` supports multiple different *solvers*. The default solver does not support L1 regression.
+Look at its documentation to see how to change the solver to one that supports L1 regression.
+:::
 
 Note that while lasso regression will automatically *select* features, it can only work with the features you give it — you still need to transform data into useful form for influencing the predictor.
 
