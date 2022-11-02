@@ -300,6 +300,8 @@ majority-class classifier
     A classifier that classifies every data point with the most common class from the training data.
     If 72% of the training data is in class A, the majority-class classifier will classify every test point as A, no matter what its input feature values are.
 
+    Described in {video}`week10:baselines`.
+
 marginal probability
     The probability of a single event, or distribution of a single dimension, $P(A)$.
     Primarily used when we are talking about the probability of events (or expectation of variables) along one dimension of a *product space*, such as the suit or number of a card from a deck of playing cards.
