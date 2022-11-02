@@ -309,7 +309,7 @@ Now, let's look at increasing the amount of noise $\sigma_\epsilon$.  We'll do t
 
 $$\begin{align*}
 x & \sim \mathrm{Normal}(0, 1) \\
-\epsilon & \sim \mathrm{Normal{0, 5}} \\
+\epsilon & \sim \mathrm{Normal}(0, 5) \\
 y & = 5 - 2 x + \epsilon
 \end{align*}$$
 
