@@ -34,8 +34,8 @@ parts:
   - file: week9/index
   - file: week10/index
   - file: week11/index
-  # - file: week12/index
-  # - file: week13/index
+  - file: week12/index
+  - file: week13/index
   # - file: week14/index
   # - file: week15/index
 - caption: Assignments
@@ -50,8 +50,8 @@ parts:
   - file: assignments/A3/index
   - file: assignments/A4/index
   - file: assignments/A5/index
-  # - file: assignments/A6/index
-  # - file: assignments/A7/index
+  - file: assignments/A6/index
+  - file: assignments/A7/index
 - caption: Resources
   chapters:
   - file: resources/index
