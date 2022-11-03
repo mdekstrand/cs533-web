@@ -1,10 +1,10 @@
 # Week 12 — Text ({date}`wk12 range`)
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 :::{attention}
-The second midterm is on **{date}`wk12 tue xlong`**.
+The second midterm is this week.
 :::
 
 This week we are going to talk about *unstructured data*, particularly text.
@@ -17,15 +17,16 @@ This week we are going to talk about *unstructured data*, particularly text.
 
 ## {{mcal}} Deadlines
 
-- Midterm B, {date}`wk12 tue long`
-- Quiz 12, {date}`wk12 thu long`
+- Midterm B, {date}`wk12 sat long`
+- **No quiz** due to midterm.
 
 (midterm-b)=
 ## {{mquiz}} Midterm B
 
-The second midterm will be in-class (9AM) on **{date}`wk12 tue xlong`**.
-It follows the same structure and rules as [Midterm A](midterm-a), and is over
-material through Week 11.
+The second midterm will be released on in the evening on **{date}`wk12 wed
+xlong`, and due at **midnight, {date}`wk12 sat xlong`. It follows the same
+structure and rules as [Midterm A](midterm-a), and is over material through Week
+11.
 
 ## {{mvideo}} Unstructured Data
 
@@ -103,10 +104,6 @@ This video introduces *classifying text*, and the use of a {term}`naïve Bayes` 
 ## {{mnotebook}} Spam Filter Example
 
 The [Spam Filter Example](../../resources/tutorials/SpamFilter.ipynb) demonstrates tokenization and classification with text.
-
-## {{mquiz}} Week 12 Quiz
-
-The Week 12 quiz is on {{LMS}}.
 
 ## {{massignment}} Assignment 6
 
