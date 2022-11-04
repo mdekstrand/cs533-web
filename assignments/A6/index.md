@@ -1,6 +1,6 @@
 # Assignment 6
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 This assignment is designed to develop your ability to process data sets, use scikit-learn models, and analyze their output.
