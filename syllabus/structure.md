@@ -119,7 +119,7 @@ run Python notebooks. You must complete this assignment individually.
 The other assignments (A1–7) are full assignments doing data science with Python. You may do up to
 **3** of these assignments with a partner, and must complete 4 individually. You may choose which
 assignments you solo and which are a group effort. When doing an assignment with a partner, submit
-one copy for both of you, and indicate your partner's name in the Blackboard submission comments.
+one copy for both of you, and indicate your partner's name in the {{LMS}} submission comments.
 
 I will drop the lowest assignment grade.
 
