@@ -1,6 +1,6 @@
 # Week 13 — Unsupervised ({date}`wk13 range`)
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 In this week, we are going to talk more about *unsupervised learning* — learning without labels.
