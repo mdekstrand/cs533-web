@@ -13,8 +13,8 @@ This is the last week of class. We're going to recap, and talk about what's next
 
 ## {{mcal}} Deadlines
 
-- [Makeup Midterm](midterm-m), {date}`wk15 tue long`
-- Quiz 14, {date}`wk15 thu long`
+- [Makeup Midterm](midterm-m), {date}`wk15 sat long`
+- Quiz 15, {date}`wk15 thu long`
 - [Assignment 7](../assignments/A7/index.md), {date}`wk15 sun long`
 
 ## {{mvideo}} Recap
@@ -24,17 +24,21 @@ This video reviews the concepts we have discussed this term and puts them into t
 :::{video}
 :name: 15-1 - Recap
 :length: 6m23s
-:slide-id: 495979F9A431DDB0%2173432
-:slide-auth: AHfNFdGccgu4HVE
 :::
 
 (midterm-m)=
 ## {{mquiz}} Makeup Exam
 
-The makeup midterm is **{date}`wk15 tue long`** in class.  It covers the entire semester, with an emphasis on material since the 2nd midterm.
-The rules and format are the same as for [Midterm A](midterm-a).
+The makeup midterm due **{date}`wk15 sat long`** and operates on the same
+schedule as the other midterms.  It covers the entire semester, with an emphasis
+on material since the 2nd midterm. The rules and format are the same as for
+[Midterm A](midterm-a).
 
-I encourage you to come and take the exam, as it is the single best way to prepare for the final.  You can at any time leave the exam, and take it with you; I will only grade it if you turn it in, and there is no problem with showing up, looking at it, even filling it out, and deciding you like your current grades well enough to not turn it in.
+I encourage you to come and take the exam, as it is the single best way to
+prepare for the final.  You can at any time leave the exam, and take it with
+you; I will only grade it if you turn it in, and there is no problem with
+showing up, looking at it, even filling it out, and deciding you like your
+current grades well enough to not turn it in.
 
 :::{warning}
 If you turn in the makeup exam to be graded, its grade will replace the lower of your Midterm A and B grades, **even if that lowers your final grade**.
@@ -48,8 +52,6 @@ This video introduces a fundamental assumption of predictive modeling and the wa
 :::{video}
 :name: 15-2 - Drift
 :length: 7m13s
-:slide-id: 495979F9A431DDB0%2173435
-:slide-auth: AE55Qg7-c1ba2sg
 :::
 
 ### Resources
@@ -63,8 +65,6 @@ Time is an important kind of data that we haven't spent much time with — this 
 :::{video}
 :name: 15-3 - Time Series Operations
 :length: 11m16s
-:slide-id: 495979F9A431DDB0%2173433
-:slide-auth: AOYczBP6aJFAe9Q
 :::
 
 ### Resources
@@ -82,8 +82,6 @@ Regression models require that the data be *independent*. This video introduces 
 :::{video}
 :name: 15-4 - Correlated Errors
 :length: 13m50s
-:slide-id: 495979F9A431DDB0%2173434
-:slide-auth: AM4VHU5-GJ5MWCQ
 :::
 
 ### Resources
@@ -99,8 +97,6 @@ This video talks about going from an analysis and its notebooks to a publishable
 :::{video}
 :name: 15-5 - Publishing Projects
 :length: 9m55s
-:slide-id: 495979F9A431DDB0%2173436
-:slide-auth: AADUJlRHFQaO_HA
 :::
 
 ### Resources
@@ -115,8 +111,6 @@ How do you put the results of your data science project into product?
 :::{video}
 :name: 15-6 - Production Applications
 :length: 7m28s
-:slide-id: 495979F9A431DDB0%2173437
-:slide-auth: ADSmmu5pFo5O0Ks
 :::
 
 ## {{mvideo}} Topics to Learn
@@ -126,8 +120,6 @@ This video goes over some useful topics to learn to fill out more of your data s
 :::{video}
 :name: 15-7 - Topics to Learn
 :length: 6m25s
-:slide-id: 495979F9A431DDB0%2173438
-:slide-auth: AJKQaSqNcdTrWcc
 :::
 
 ## {{mvideo}} General Tips
@@ -137,13 +129,11 @@ Some final closing tips and suggestions for you to think about as you take the n
 :::{video}
 :name: 15-8 - General Tips
 :length: 10m25s
-:slide-id: 495979F9A431DDB0%2173439
-:slide-auth: AMQPBtshRrNaHoc
 :::
 
 ## {{mquiz}} No Quiz 15
 
-There is no quiz for this week.
+Take **Quiz 15** in {{LMS}}.
 
 ## {{mdoc}} Farewell
 
