@@ -1,6 +1,6 @@
 # Week 15 — What Next? ({date}`wk15 range`)
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 This is the last week of class. We're going to recap, and talk about what's next, both for learning and for putting what you've learned to practical use.

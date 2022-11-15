@@ -1,6 +1,6 @@
 # Assignment 7
 
-:::{updated} F21
+:::{updated} F22
 :::
 
 This assignment is designed for you to practice the things that we've put together this semester, along with extracting data directly from an online API and splitting a data pipeline into multiple stages with scripts acquiring and pre-processing data.
