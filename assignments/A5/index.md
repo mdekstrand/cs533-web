@@ -19,6 +19,7 @@ Read the **entire assignment** before beginning.
 
 ## Revision Log
 
+- **Nov. 9** (for future reference): corrected reference to XGB class.
 - **Nov. 2:** corrected lasso regression to specify `l1` instead of `lasso`, and
   point to the documentation on solvers.
 
@@ -177,7 +178,7 @@ Test **one** random forest model on the test data.
 
 Finally, try an [XGBoost][] classifier.  It is similar to a random forest, but
 it uses a different mechanism for building its decision trees.  The
-{py:class}`xgboost.XGBRegressor` class provides an implementation of XGBoost
+{py:class}`xgboost.XGBClassifier` class provides an implementation of XGBoost
 that works exactly like a SciKit-Learn model.  You will first need to install
 the `py-xgboost` package from Conda or the `xgboost` package with `pip`.
 
