@@ -45,6 +45,7 @@ These notebooks are on basic Python data manipulation:
 12. [Sampling and Testing the Penguins](PenguinSamples.ipynb)
 13. [Linear Models with scipy `minimize`](MinimizeRegression.ipynb)
 14. [Overfitting Simulation example](OverfittingSimulation.ipynb)
+15. [Random Sampling](RandomSearchWorks.ipynb)
 
 ## SciKit-Learn and ML Models
 

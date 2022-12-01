@@ -140,6 +140,7 @@ There is an error on slide 9. Where it says “≤ 0.5” it should say “≤ 0
 - [RandomizedSearchCV](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html)
 - [scikit-optimize](https://scikit-optimize.github.io/stable/)
 - [BayesSearchCV example](https://scikit-optimize.github.io/stable/auto_examples/sklearn-gridsearchcv-replacement.html)
+- [Random Search demonstration](../resources/tutorials/RandomSearchWorks.ipynb)
 
 ## {{mnotebook}} Tuning Example
 
