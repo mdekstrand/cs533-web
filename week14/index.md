@@ -184,6 +184,11 @@ Read [software environments](../resources/environments.md).
 
 Read my [case study on reproducibility and bug-hunting](https://md.ekstrandom.net/blog/2021/11/reproducibility).
 
+## {{mnotebook}} Example Script and Notebook
+
+You can find an example, with walkthrough of how to run it with the command line on GitHub CodeSpaces,
+in [this example repo](https://github.com/mdekstrand/cs533-script-demo).
+
 ## {{mquiz}} Weekly Quiz 14
 
 Take **Quiz 14** in {{LMS}}.
