@@ -131,6 +131,10 @@ How can we move beyond `GridSearchCV` in our quest to tune hyperparameters?
 :slide-auth: ACJeAazU69nVuOI
 :::
 
+:::{note}
+There is an error on slide 9. Where it says “≤ 0.5” it should say “≤ 0.05”.
+:::
+
 ### Resources
 
 - [RandomizedSearchCV](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html)
