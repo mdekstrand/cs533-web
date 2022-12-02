@@ -158,7 +158,7 @@ The exam follows the same format as the [midterms](midterm-a).
 ### Study Tips
 
 - Review the previous quizzes, assignments, and midterms.
-- Sit for the makeup midterm, even if you do not plan to turn it in.
+- Read through the makeup midterm, even if you do not plan to turn it in.
 - Review lecture slides to see where you are unclear on concepts and need to review.
 - Skim assigned readings, particularly the section headings to remind yourself what was in them.
 - Review the [course glossary](../glossary.md), keeping in mind that it does contain terms we haven't gotten to yet.
