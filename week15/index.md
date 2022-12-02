@@ -149,7 +149,7 @@ I hope to see many of you in future courses!
 
 ## {{mquiz}} Final Exam
 
-The final exam will be on **Tuesday, Dec. 14, 2021** at 9:30 AM.
+The final exam will be on {{LMS}}.  It will be available for 72 hours beginning on **{date}`wk16 mon xlong`.
 
 ### Format
 
