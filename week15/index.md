@@ -149,32 +149,11 @@ I hope to see many of you in future courses!
 
 ## {{mquiz}} Final Exam
 
-The final exam will be on {{LMS}}.  It will be available for 72 hours beginning on **{date}`wk16 mon xlong`.
+The final exam will be on {{LMS}}.  It will be available for 72 hours beginning on **{date}`wk16 mon xlong`**.
 
 ### Format
 
-The exam follows the same format as the midterms. It will be a written in-person exam with a variety of questions to assess your ability to understand and apply concepts from the class.  Question formats include:
-
-- Multiple-choice
-- True/false
-- Matching
-- Fill-in-the-blank
-- Short answer
-- Computation
-
-I may ask you to do a range of things on the exam, including (but not limited to):
-
-- Define a concept
-- Compute a metric from a small quantity of data
-- Interpret a chart
-
-The final exam will be a little less than twice as long as the midterms, to fit in the scheduled period.
-
-### Exam Rules
-
-- You may have **1 note sheet**, letter- or A4-sized, **two-sided**.
-- You should not need a calculator, but may bring one if you wish.
-- You may answer in either pen or pencil.
+The exam follows the same format as the [midterms](midterm-a).
 
 ### Study Tips
 
