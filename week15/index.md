@@ -5,6 +5,11 @@
 
 This is the last week of class. We're going to recap, and talk about what's next, both for learning and for putting what you've learned to practical use.
 
+## Revisions
+
+- Dec. 5: clarified that there is **no week 15 quiz** — there was previously a
+  disagreement between the heading and the text.
+
 ## {{moverview}} Content Overview
 
 :::{module} week15
@@ -14,7 +19,6 @@ This is the last week of class. We're going to recap, and talk about what's next
 ## {{mcal}} Deadlines
 
 - [Makeup Midterm](midterm-m), {date}`wk15 sat long`
-- Quiz 15, {date}`wk15 thu long`
 - [Assignment 7](../assignments/A7/index.md), {date}`wk15 sun long`
 
 ## {{mvideo}} Recap
@@ -133,7 +137,7 @@ Some final closing tips and suggestions for you to think about as you take the n
 
 ## {{mquiz}} No Quiz 15
 
-I guess the heading and the note disagree, but there is **no quiz 15** — makeup midterm instead.
+There is **no quiz 15** — makeup midterm instead.
 
 :::{note}
 We have had a few weeks without quizzes (3, by my count).
