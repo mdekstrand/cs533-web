@@ -133,7 +133,14 @@ Some final closing tips and suggestions for you to think about as you take the n
 
 ## {{mquiz}} No Quiz 15
 
-Take **Quiz 15** in {{LMS}}.
+I guess the heading and the note disagree, but there is **no quiz 15** — makeup midterm instead.
+
+:::{note}
+We have had a few weeks without quizzes (3, by my count).
+When setting the final grade, I am going to ensure that you are held harmless for weeks without quizzes (basically,
+give you the quiz grade you would have received if we had a full 15 quizzes, and you had a perfect score on the
+skipped quizzes).
+:::
 
 ## {{mdoc}} Farewell
 
