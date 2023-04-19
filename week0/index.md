@@ -18,6 +18,8 @@ Welcome to class!
 :name: 0 - Welcome
 ```
 
+<div style="position: relative; padding-top: 56.25%;"><iframe src="https://iframe.mediadelivery.net/embed/114107/ba755d8f-2294-4cf8-8611-efe0dc4355d1?autoplay=false&preload=false" loading="lazy" style="border: none; position: absolute; top: 0; height: 100%; width: 100%;" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true"></iframe></div>
+
 ## Course Design
 
 This is a **flipped classroom** course.  Online videos — like the one you just watched — along with
