@@ -1,5 +1,6 @@
 import * as toml from "std/toml/mod.ts";
 import { deepMerge } from "std/collections/deep_merge.ts";
+import { basename } from "std/path/mod.ts";
 import docopt from "docopt";
 
 const doc = `
@@ -7,6 +8,7 @@ List BunnyCDN videos.
 
 Usage:
   video-upload.js [options] --list
+  video-upload.js [options] --upload [--delete] FILE...
 
 Options:
   -o FILE
@@ -34,14 +36,22 @@ async function loadSettings() {
     return settings;
 }
 
-async function invokeAPI(method, path) {
+async function invokeAPI(method, path, body) {
   const base = new URL(`https://video.bunnycdn.com/library/${settings.videos.library_id}/`)
   const url = new URL(path, base);
+  const headers = {
+    AccessKey: settings.videos.access_key,
+  };
+  if (body && typeof(body) == 'object') {
+    headers['content-type'] = 'application/json';
+    body = JSON.stringify(body);
+  }
+
+  console.debug('%s %s', method, path);
   const res = await fetch(url, {
     method,
-    headers: {
-      AccessKey: settings.videos.access_key,
-    }
+    headers,
+    body,
   });
   if (!res.ok) {
     console.error('%s %s: failed with code %d', method, path, res.status);
@@ -65,6 +75,42 @@ async function listVideos() {
   }
   for (const video of manifest.items) {
     console.info('video %s (%s): %f', video.title, video.guid, video.length);
+    if (video.hasMP4Fallback) {
+      console.warn('  %cMP4 fallback detected', 'color: red');
+    }
+  }
+}
+
+async function uploadVideos(files) {
+  const manifest = await fetchVideoList();
+  const videos = {};
+  for (const vid of manifest.items) {
+    videos[vid.title] = vid;
+  }
+  for (const file of files) {
+    const name = basename(file);
+    let vid = videos[name];
+    let collectionId;
+    if (vid) {
+      collectionId = vid.collectionId;
+      if (options['--delete']) {
+        console.info('video %s exists, deleting', vid.guid);
+        await invokeAPI('DELETE', `videos/${vid.guid}`);
+      } else {
+        console.warn('video %s already exists, but not deleting');
+      }
+    }
+
+    console.info('video creating video %s', name);
+    vid = await invokeAPI('POST', 'videos', {title: name, collectionId});
+    console.info('uploading %s to %s', file, vid.guid);
+    const stream = await Deno.open(file, {read: true});
+    try {
+      await invokeAPI('PUT', `videos/${vid.guid}`, stream);
+      console.info('upload completed');
+    } finally {
+      await stream.close();
+    }
   }
 }
 
@@ -73,4 +119,6 @@ const options = docopt(doc);
 
 if (options['--list']) {
   await listVideos();
+} else if (options['--upload']) {
+  await uploadVideos(options['FILE']);
 }
