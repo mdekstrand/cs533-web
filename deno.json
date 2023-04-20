@@ -1,0 +1,6 @@
+{
+    "imports": {
+        "std/": "https://deno.land/std@0.184.0/",
+        "docopt": "https://deno.land/x/docopt@v1.0.7/mod.ts"
+    }
+}

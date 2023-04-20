@@ -18,3 +18,4 @@ __pycache__/
 .tool-versions
 # Local Netlify folder
 .netlify
+*.local.toml
