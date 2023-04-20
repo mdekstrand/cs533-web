@@ -24,12 +24,6 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: 🕸 Set up Node
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16'
-        cache: 'npm'
-
     - name: 💰 Cache Python environment
       uses: actions/cache@v2
       with:
@@ -48,12 +42,6 @@ jobs:
         which pip
         pip install -r requirements.txt
 
-    - name: 🥅 Install Node modules
-      run: |
-        npm ci
-      env:
-        NODE_ENV: development
-
     - name: 🌿 Prepare Git branch
       run: |
         git branch archive origin/archive
@@ -65,7 +53,7 @@ jobs:
 
     - name: 📢 Publish
       run: |
-        netlify deploy --dir=_build/site --prod
+        go run github.com/mdekstrand/deploy-to-netlify@latest -d _build/site
       env:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
