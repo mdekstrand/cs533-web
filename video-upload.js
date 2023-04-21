@@ -8,6 +8,7 @@ List BunnyCDN videos.
 
 Usage:
   video-upload.js [options] --list
+  video-upload.js [options] --list-collections
   video-upload.js [options] --upload [--delete] FILE...
 
 Options:
@@ -66,6 +67,11 @@ async function fetchVideoList() {
   return manifest;
 }
 
+async function fetchCollections() {
+  const manifest = await invokeAPI('GET', 'collections');
+  return manifest;
+}
+
 async function listVideos() {
   const manifest = await fetchVideoList();
   const outfn = options['-o'];
@@ -80,6 +86,19 @@ async function listVideos() {
     }
   }
 }
+
+async function listCollections() {
+  const manifest = await fetchCollections();
+  const outfn = options['-o'];
+  if (outfn) {
+    console.info('saving to %s', outfn);
+    await Deno.writeTextFile(outfn, JSON.stringify(manifest));
+  }
+  for (const col of manifest.items) {
+    console.log('collection %s (%s)', col.title, col.guid);
+  }
+}
+
 
 async function uploadVideos(files) {
   const manifest = await fetchVideoList();
@@ -115,6 +134,8 @@ const options = docopt(doc);
 
 if (options['--list']) {
   await listVideos();
+} else if (options['--list-collections']) {
+  await listCollections();
 } else if (options['--upload']) {
   await uploadVideos(options['FILE']);
 }
