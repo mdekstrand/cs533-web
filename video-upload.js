@@ -42,7 +42,7 @@ async function invokeAPI(method, path, body) {
   const headers = {
     AccessKey: settings.videos.access_key,
   };
-  if (body && typeof(body) == 'object') {
+  if (body && typeof(body) == 'object' && !body.getReader) {
     headers['content-type'] = 'application/json';
     body = JSON.stringify(body);
   }
@@ -105,12 +105,8 @@ async function uploadVideos(files) {
     vid = await invokeAPI('POST', 'videos', {title: name, collectionId});
     console.info('uploading %s to %s', file, vid.guid);
     const stream = await Deno.open(file, {read: true});
-    try {
-      await invokeAPI('PUT', `videos/${vid.guid}`, stream);
-      console.info('upload completed');
-    } finally {
-      await stream.close();
-    }
+    await invokeAPI('PUT', `videos/${vid.guid}`, stream.readable);
+    console.info('upload completed');
   }
 }
 
