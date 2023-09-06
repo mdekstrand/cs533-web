@@ -28,7 +28,7 @@ def rst_video_tab(video, length=None, title='Video', amara=None):
 
     vid = nodes.raw('', f"""
 <div class="video-container video-embed">
-<iframe src="https://iframe.mediadelivery.net/embed/{lib_id}/{vid_id}" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="true" allow="autoplay; encrypted-media; picture-in-picture;"></iframe>
+<iframe src="https://iframe.mediadelivery.net/embed/{lib_id}/{vid_id}?autoplay=false" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="true" allow="autoplay; encrypted-media; picture-in-picture;"></iframe>
 </div>
     """.strip(), format='html')
     body += vid
