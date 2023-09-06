@@ -148,4 +148,5 @@ The tunnel makes `localhost:8888` on your computer route to `localhost:8888` on 
 
 ```{video}
 :id: 8e280072-b2c3-4cb3-a629-ac210160137f
+:name: 1-4a - Using Jupyter on Onyx
 ```
