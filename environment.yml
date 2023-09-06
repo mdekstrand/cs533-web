@@ -1,0 +1,10 @@
+name: cs533
+channels:
+- conda-forge
+dependencies:
+- jupyter-book =0.13
+- sphinx>=4
+- srt
+- invoke
+- requests
+- arrow

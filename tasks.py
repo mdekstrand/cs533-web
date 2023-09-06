@@ -48,6 +48,18 @@ def fetch_inventory(c, skip_if_exists=False):
     out.write_bytes(res.text.encode('utf8'))
 
 
+@task
+def fetch_video_list(c, skip_if_exists=False):
+    "Fetch list of videos"
+    out = Path('videos/manifest.json')
+    id = os.environ['BUNNY_STREAMS_LIB']
+    key = os.environ['BUNNY_STREAMS_KEY']
+    params = {'itemsPerPage': 200}
+    headers = {'AccessKey': key}
+    res = requests.get(f'https://video.bunnycdn.com/library/{id}/videos', params=params, headers=headers)
+    out.write_bytes(res.text.encode('utf8'))
+
+
 @task(pre=[call(fetch_inventory, skip_if_exists=True)])
 def build(c, rebuild=False, builder='dirhtml'):
     """
