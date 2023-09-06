@@ -69,6 +69,7 @@ class VideoDirective(SphinxDirective):
         'name': directives.path,
         'amara': directives.path,
         'alt-id': directives.unchanged,
+        'alt-name': directives.unchanged,
         'alt-title': directives.unchanged,
         'alt-amara': directives.path,
     }
@@ -76,8 +77,9 @@ class VideoDirective(SphinxDirective):
     required_arguments = 0
     optional_arguments = 1
 
-    def _get_video(self):
-        name = self.options.get('name', None)
+    def _get_video(self, name=None):
+        if name is None:
+            name = self.options.get('name', None)
         if name:
             dom = self.env.get_domain('res')
             return dom.lookup_video(name)
