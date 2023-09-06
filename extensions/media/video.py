@@ -15,7 +15,7 @@ import srt
 _vid_root = Path('videos')
 
 
-def rst_video_tab(video_id, length=None, title='Video', amara=None):
+def rst_video_tab(video, length=None, title='Video', amara=None):
     tab = create_component('tab-item', classes=['sd-tab-item', 'video'])
     if length:
         title = title + f" ({length})"
@@ -23,9 +23,12 @@ def rst_video_tab(video_id, length=None, title='Video', amara=None):
     tab += label
     body = create_component('tab-content', classes=["sd-tab-content", "player"])
 
+    lib_id = video['videoLibraryId']
+    vid_id = video['guid']
+
     vid = nodes.raw('', f"""
 <div class="video-container video-embed">
-<iframe src="https://boisestate.hosted.panopto.com/Panopto/Pages/Embed.aspx?id={video_id}&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<iframe src="https://iframe.mediadelivery.net/embed/{lib_id}/{vid_id}" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="true" allow="autoplay; encrypted-media; picture-in-picture;"></iframe>
 </div>
     """.strip(), format='html')
     body += vid
@@ -92,7 +95,7 @@ class VideoDirective(SphinxDirective):
         result = []
 
         name = self.options.get('name', None)
-        video_id = self._get_param('id', 'Panopto ID')
+        vid = self._get_video()
         length = self.options.get('length', None)
         key = None
         if self.arguments:
@@ -102,13 +105,14 @@ class VideoDirective(SphinxDirective):
 
         dom = self.env.get_domain('res')
 
-        if video_id:
-            tgt_node = nodes.target('', '', ids=[video_id])
+        if vid:
+            guid = vid['guid']
+            tgt_node = nodes.target('', '', ids=[guid])
             self.set_source_info(tgt_node)
             result.append(tgt_node)
-            dom.note_video(key, video_id, name, length)
+            dom.note_video(key, guid, name, length)
         else:
-            w = self.state.reporter.error(f'Video name {name} has no video ID')
+            w = self.state.reporter.error(f'Video name {name} not found')
             result.append(w)
 
         box = create_component(
@@ -116,8 +120,8 @@ class VideoDirective(SphinxDirective):
         )
         result.append(box)
 
-        if video_id:
-            box += rst_video_tab(video_id, length)
+        if vid:
+            box += rst_video_tab(vid, length)
 
         if name:
             path = Path(self.env.doc2path(self.env.docname)).parent
@@ -132,9 +136,10 @@ class VideoDirective(SphinxDirective):
         #     slide_auth = self._get_param('slide-auth', 'Slide Auth')
         #     box += rst_slide_tab(slide_id, slide_auth)
 
-        alt_id = self.options.get('alt-id', None)
-        if alt_id:
-            box += rst_video_tab(alt_id, title=self.options['alt-title'])
+        alt_name = self.options.get('alt-name', None)
+        alt_vid = self._get_video(alt_name) if alt_name else None
+        if alt_vid:
+            box += rst_video_tab(alt_vid, title=self.options['alt-title'])
 
         if self.content:
             res_tab = create_component('tab-item', classes=['sd-tab-item'])

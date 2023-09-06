@@ -6,6 +6,7 @@ import shutil
 import re
 from xml.etree import ElementTree as et
 from io import BytesIO
+import json
 
 import yaml
 
@@ -51,13 +52,15 @@ def fetch_inventory(c, skip_if_exists=False):
 @task
 def fetch_video_list(c, skip_if_exists=False):
     "Fetch list of videos"
-    out = Path('videos/manifest.json')
+    out = Path('videos/manifest.jsonl')
     id = os.environ['BUNNY_STREAMS_LIB']
     key = os.environ['BUNNY_STREAMS_KEY']
     params = {'itemsPerPage': 200}
     headers = {'AccessKey': key}
     res = requests.get(f'https://video.bunnycdn.com/library/{id}/videos', params=params, headers=headers)
-    out.write_bytes(res.text.encode('utf8'))
+    with out.open('w', encoding='utf8') as outf:
+        for item in res.json()['items']:
+            print(json.dumps(item), file=outf)
 
 
 @task(pre=[call(fetch_inventory, skip_if_exists=True)])

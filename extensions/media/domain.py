@@ -6,6 +6,7 @@ from pathlib import Path
 import re
 import csv
 from dataclasses import dataclass
+import json
 
 from docutils import nodes
 from sphinx.application import Sphinx
@@ -110,15 +111,15 @@ class CourseDomain(Domain):
 
     def lookup_video(self, name):
         if self._vid_inventory is None:
-            path = Path('_build/inventory.csv')
+            path = Path('videos/manifest.jsonl')
             if path.exists():
                 with path.open('r') as f:
-                    self._vid_inventory = list(csv.DictReader(f))
+                    self._vid_inventory = [json.loads(line) for line in f if line.strip()]
             else:
                 self._vid_inventory = []
 
         for vid in self._vid_inventory:
-            if vid['Title'] == name:
+            if vid['title'] == f'{name}.mp4':
                 return vid
 
     def note_module(self, key, title, *, reset=True):

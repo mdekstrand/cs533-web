@@ -111,6 +111,7 @@ It also shows you how to prepare a notebook to submit as an assignment.
 :length: 9m30s
 :name: 1-4 - Our First Python
 :alt-id: 6711ca83-10fb-4e4d-8a09-aef6015f4caf
+:alt-name: 1-4a - Using Jupyter on Onyx
 :alt-title: Onyx Video
 :::
 
