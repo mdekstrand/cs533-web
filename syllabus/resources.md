@@ -3,7 +3,7 @@
 :::{updated} F22
 :::
 
-The [Resources page](resources/index.md) on the course web site has a more complete list of resources that I will update throughout the semester.
+The [Resources page](../resources/index.md) on the course web site has a more complete list of resources that I will update throughout the semester.
 
 ## Textbook
 
@@ -40,4 +40,4 @@ all major platforms (Windows, Linux, and MacOS, the latter on both Intel and
 Apple Silicon processors).
 
 Further information about software, and links to documentation, can be found in the
-[course resources](./resources/index.md).
+[course resources](../resources/index.md).

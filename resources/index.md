@@ -1,7 +1,7 @@
 # Resource Overview
 
 - [Documentation & Readings](documentation.md)
-- [Data Sets](datasets.md)
+- [Data Sets](datasets/index.md)
 - [Notebook Checklist](notebook-checklist.md)
 - [Common Problems](problems.md)
 - [Remotely Using Onyx](onyx.md)

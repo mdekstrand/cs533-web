@@ -213,7 +213,7 @@ We define continuous probabilities in terms of a **distribution function** $F_X$
 
 $$F_X(x) = \P[X < x]$$
 
-This is also called the {term}`cumultaive distribution function` (CDF).
+This is also called the {term}`cumulative distribution function` (CDF).
 
 We can use it to compute the probability for any interval:
 

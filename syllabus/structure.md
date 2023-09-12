@@ -69,12 +69,12 @@ class and a synchronous team quiz (see [Quizzes](#quizzes)). Thursday class
 activities will contribute to your grade.
 
 Approximately half of the Thursday meetings will be remote via Zoom, and half of
-them in-person.  See the [course schedule](schedule.md) for the schedule of
+them in-person.  See the [course schedule](../schedule.md) for the schedule of
 in-person vs. remote course meetings.
 
 On **Tuesdays**, I will be logged in to Zoom during the normal class time for
 open discussion and Q&A on the course material, assignments, etc.  On weeks when
-an assignment is due (see the [schedule](schedule.md)), we will also use the
+an assignment is due (see the [schedule](../schedule.md)), we will also use the
 class period for collaborative problem-solving about the assignment.
 
 One final note on classes: taking care of our health, individually and as a
