@@ -13,5 +13,5 @@ dependencies:
 - seedbank
 - jupyterlab
 - pip:
-  - tinytag ~=1.5
+  - tinytag ==1.9.*
 category: dev

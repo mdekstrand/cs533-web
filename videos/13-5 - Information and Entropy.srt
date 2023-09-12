@@ -1,0 +1,380 @@
+1
+00:00:05,060 --> 00:00:12,680
+Hello. In this video, I want to introduce the idea of information theory and particularly the concept of entropy
+
+2
+00:00:12,680 --> 00:00:18,050
+that we use to measure information or to measure the complexity of a distribution.
+
+3
+00:00:18,050 --> 00:00:23,960
+So learning outcomes for this video are for you to understand the relationship of entropy and uncertainty and to be
+
+4
+00:00:23,960 --> 00:00:31,040
+able to use entropy to measure the amount of information in a signal or the complexity of a probability distribution.
+
+5
+00:00:31,040 --> 00:00:38,540
+So want to start by thinking about what does it mean to quantify information? If I tell you Apple, how much information did I just give?
+
+6
+00:00:38,540 --> 00:00:45,940
+You might seem like a kind of abstract question, but it turns out to be a question that we can work on answering.
+
+7
+00:00:45,940 --> 00:00:54,730
+Would the amount of information you would say that I gave you by saying Apple Change, if you knew in advance that I would say an English word?
+
+8
+00:00:54,730 --> 00:01:03,820
+Would it change if you knew that I would say the name of fruit? Maybe the name of a regional fruit or that I would name the fruit in the picture?
+
+9
+00:01:03,820 --> 00:01:09,370
+The idea we want to get out of here is if you knew already that I was being named the fruit in the picture,
+
+10
+00:01:09,370 --> 00:01:20,180
+then me telling you Apple gives you less information than it would if your previous knowledge is that I would give you the name of our fruit.
+
+11
+00:01:20,180 --> 00:01:25,790
+It's the key principle here is that information is the resolution of uncertainty.
+
+12
+00:01:25,790 --> 00:01:36,930
+If we want to start to try to quantify information or talk about how much information is in a message or is in a signal or is in a possible message,
+
+13
+00:01:36,930 --> 00:01:41,780
+what we want to do is we want to measure the amount of uncertainty that it resolves.
+
+14
+00:01:41,780 --> 00:01:47,420
+If you already know that I'm going to say Apple, when I tell you Apple, I'm giving you no information.
+
+15
+00:01:47,420 --> 00:01:49,730
+But if you know that I'm going to name a fruit,
+
+16
+00:01:49,730 --> 00:02:00,890
+then I give you the amount of information communicated by the fact that I say Apple is based on the space of possible fruits that I could give you.
+
+17
+00:02:00,890 --> 00:02:06,230
+If you know that I'm going to say the name of a fruit that grows in the Pacific Northwest.
+
+18
+00:02:06,230 --> 00:02:09,440
+Then, you know, I'm not going to say banana. I might say Apple.
+
+19
+00:02:09,440 --> 00:02:15,780
+I might say blackberry or huckleberry, but bananas and tropical fruits are not going to be in the sets.
+
+20
+00:02:15,780 --> 00:02:21,440
+You have more information, which means that there's less you have more background knowledge,
+
+21
+00:02:21,440 --> 00:02:26,570
+which means that there's less uncertainty that's resolved by me communicating the message Apple,
+
+22
+00:02:26,570 --> 00:02:36,270
+which means there's less information in what I'm communicating. We measure this in bits and the fundamental a bit one bit.
+
+23
+00:02:36,270 --> 00:02:45,910
+It's like the bit on your computer. If we flip a fair coin, so the probability of heads and probability of tails are equal, they're both point five.
+
+24
+00:02:45,910 --> 00:02:52,120
+If you know, I'm going to flip a fair coin, I flip it and I tell you heads, that communicates one bit of information.
+
+25
+00:02:52,120 --> 00:02:59,810
+And this is computed with the formula. The probability which is zero point five.
+
+26
+00:02:59,810 --> 00:03:07,310
+Times the log, which is negative one logs of values that are less than one are always negative, so.
+
+27
+00:03:07,310 --> 00:03:13,760
+Zero point five times negative, one, zero point five times negative, one push that all through and you get one.
+
+28
+00:03:13,760 --> 00:03:21,080
+This is one bit of information and we call this the entropy of flipping a fair coin.
+
+29
+00:03:21,080 --> 00:03:27,800
+The entropy of this probability distribution, the probability distribution characterizes the uncertainty.
+
+30
+00:03:27,800 --> 00:03:32,400
+There's two outcomes. Both are equally likely. We have no one from.
+
+31
+00:03:32,400 --> 00:03:35,990
+All we know is it's going to be one of these two outcomes. Both are equally likely.
+
+32
+00:03:35,990 --> 00:03:41,850
+We have no information about which one it's going to be. Uncertainty that's being resolved,
+
+33
+00:03:41,850 --> 00:03:50,160
+is that which coin of these two equally likely possible or which which of these two equally likely possibilities occurred?
+
+34
+00:03:50,160 --> 00:03:57,240
+That's the information we can receive. We call that one bit of information. One bit is which one of two equally likely possibilities.
+
+35
+00:03:57,240 --> 00:04:05,490
+The general version of the entropy formula looks like this. It's the sum over the possible messages of the probability of that message.
+
+36
+00:04:05,490 --> 00:04:09,810
+Times the log base, two of the probability of that message.
+
+37
+00:04:09,810 --> 00:04:13,410
+And this is the result of this is in bits.
+
+38
+00:04:13,410 --> 00:04:19,710
+You can do it with a natural log in which case it's called gnats, but usually we use the base to log for computing entropy.
+
+39
+00:04:19,710 --> 00:04:23,370
+There's a minus sign before it because probabilities are between zero and one.
+
+40
+00:04:23,370 --> 00:04:27,960
+All of our log probabilities are going to be negative, so we stick a minus sign in front of the whole thing.
+
+41
+00:04:27,960 --> 00:04:31,560
+And now we get we get positive number of bits.
+
+42
+00:04:31,560 --> 00:04:40,260
+And what it measures is it measures the expected number of bits that's needed to encode a message that resolves this uncertainty.
+
+43
+00:04:40,260 --> 00:04:47,460
+Using an efficient encoding and then efficient encoding takes advantage of the fact if the outcomes are not equally
+
+44
+00:04:47,460 --> 00:04:56,040
+likely in efficient encoding takes advantage of that fact to use shorter encoding for more common messages.
+
+45
+00:04:56,040 --> 00:05:05,700
+And so if you if you have this kind of an efficient encoding, what's the expected number of bits that are required to come in to write down a message
+
+46
+00:05:05,700 --> 00:05:13,870
+or encode a message that resolves the uncertainty in this probability distribution?
+
+47
+00:05:13,870 --> 00:05:18,280
+So if we're going to apply this, we have a fair die each six outcomes.
+
+48
+00:05:18,280 --> 00:05:22,630
+Each one is equally likely than the entropy of this. Die is two point five eight five.
+
+49
+00:05:22,630 --> 00:05:27,250
+You can run this computation through Python with your calculator to confirm that.
+
+50
+00:05:27,250 --> 00:05:32,590
+Now, if we have an unfair die where the probability is proportional to a VAT to its value,
+
+51
+00:05:32,590 --> 00:05:38,450
+so rolling a six is six times more likely than rolling a one.
+
+52
+00:05:38,450 --> 00:05:46,370
+We can represent this with the probability is going to be the probability of six is equal to six over twenty one.
+
+53
+00:05:46,370 --> 00:05:59,240
+Probability of one is equal to one over twenty one. The entropy of this distribution is two point three, nine eight.
+
+54
+00:05:59,240 --> 00:06:06,890
+It's lower so that the uniform distribution over a set of outcomes is the maximum entropy distribution over those outcomes.
+
+55
+00:06:06,890 --> 00:06:11,960
+Because if if some outcomes are more common than others, we can use shorter sequences to encode those.
+
+56
+00:06:11,960 --> 00:06:16,110
+For example, we could use one four to encode the most common value of six.
+
+57
+00:06:16,110 --> 00:06:23,210
+Or we could use zero one to encode a five. And if we do this kind of an encoding,
+
+58
+00:06:23,210 --> 00:06:30,170
+more common outcomes are shorter so we can decrease the average number of bits it requires to encode a message
+
+59
+00:06:30,170 --> 00:06:39,550
+that resolves the uncertainty of which die outcome is going to happen based on this shared background knowledge.
+
+60
+00:06:39,550 --> 00:06:43,420
+So a couple of a few of the key points here, so entropy measures the distribution,
+
+61
+00:06:43,420 --> 00:06:49,570
+and we're treating this distribution as a measure of uncertainty or of a measure of certainty or uncertainty or a measure of belief.
+
+62
+00:06:49,570 --> 00:06:54,790
+It quantifies how, how likely. Prior to receiving the message,
+
+63
+00:06:54,790 --> 00:07:03,350
+it quantifies how likely we think that how would likely different messages are based on our current knowledge is quantifies the uncertainty.
+
+64
+00:07:03,350 --> 00:07:09,340
+Someone received the message. We know how much uncertainty was being reduced.
+
+65
+00:07:09,340 --> 00:07:16,390
+This is a very Bayesian perspective on on probability, and it approximates the information requirements.
+
+66
+00:07:16,390 --> 00:07:24,150
+We usually do not have a full, accurate probabilistic model that completely and accurately describes our current state of knowledge.
+
+67
+00:07:24,150 --> 00:07:32,220
+We have an approximation, usually that approximation is as higher entropy than the actual full model will be,
+
+68
+00:07:32,220 --> 00:07:38,590
+but we have this approximation and we can use that then to approximate the information requirements.
+
+69
+00:07:38,590 --> 00:07:43,080
+The actual exact, precise amount of information is very, very difficult to compute.
+
+70
+00:07:43,080 --> 00:07:49,410
+But if we have a distribution that does a reasonable job of characterizing our prior knowledge,
+
+71
+00:07:49,410 --> 00:07:56,880
+we can use that to estimate the amount of uncertainty reduced. We can use that to quantify information we can use.
+
+72
+00:07:56,880 --> 00:08:01,230
+Though entropy is a building block, particularly as the measure of a complexity of a distribution,
+
+73
+00:08:01,230 --> 00:08:08,340
+we can use it or the uninformative ness of a distribution. We can use it to build a number of others, a number of other constructs.
+
+74
+00:08:08,340 --> 00:08:15,120
+And I'm not going to give you the definitions of all these in this video. My purpose here is just to introduce you to the idea of entropy.
+
+75
+00:08:15,120 --> 00:08:20,340
+You can go read a lot more about these if you'd like, you're going to see them in other classes,
+
+76
+00:08:20,340 --> 00:08:27,240
+but we can talk about the conditional entropy, which is if I know the value of X, then how much information does Y?
+
+77
+00:08:27,240 --> 00:08:34,500
+How much uncertainty does why reduce, which is different than if I didn't know the value of X. We could talk about the mutual information,
+
+78
+00:08:34,500 --> 00:08:39,760
+how much the two variables tell us about each other. We there's can I give you the discrete formula?
+
+79
+00:08:39,760 --> 00:08:45,870
+You can also apply information theory to continuous random variables. We can talk about transmission rates.
+
+80
+00:08:45,870 --> 00:08:53,700
+So far, we've talked about bits. We can talk about the number of bits per second that you can transmit over over a communication channel.
+
+81
+00:08:53,700 --> 00:08:59,250
+Information theory originated in or out of the early information theory.
+
+82
+00:08:59,250 --> 00:09:08,760
+Work was done in the context of quantifying how much information you can transmit over various kinds of radio channels and things.
+
+83
+00:09:08,760 --> 00:09:14,190
+We can talk about the difference between two distributions so far, these have talked about different Spacelab events,
+
+84
+00:09:14,190 --> 00:09:17,310
+but we have the same space of events, but two different distributions.
+
+85
+00:09:17,310 --> 00:09:20,700
+We can talk about the difference between them with either what's called the cold back leave,
+
+86
+00:09:20,700 --> 00:09:27,940
+their divergence that measures how different they are or the cross entropy, which we can derive from the K.L. divergence.
+
+87
+00:09:27,940 --> 00:09:32,230
+We can use these for a variety of things, we can use them to measure the complexity, the distribution,
+
+88
+00:09:32,230 --> 00:09:40,030
+the uncertainty that's going to be reduced by observing a draw from that distribution, we can use it to measure the differences in distribution.
+
+89
+00:09:40,030 --> 00:09:46,510
+This can be good for optimization. If we have some empirical data and we want to learn a distribution that approximates it,
+
+90
+00:09:46,510 --> 00:09:55,390
+we can do that by minimizing the scale divergence or minimizing the cross entropy to get our our our distribution as
+
+91
+00:09:55,390 --> 00:10:01,270
+close as possible to say the empirical data that we're observing or another distribution that we have access to.
+
+92
+00:10:01,270 --> 00:10:09,550
+So to wrap up information reduces uncertainty, and we measure information by measuring the amount of uncertainty that it reduces.
+
+93
+00:10:09,550 --> 00:10:14,080
+There are a number then of derived metrics that allow us to compare distributions,
+
+94
+00:10:14,080 --> 00:10:20,260
+compare or allow us to see how much observing one outcome informs us about another outcome,
+
+95
+00:10:20,260 --> 00:10:31,931
+and we measure all of this through a framework called entropy.
+

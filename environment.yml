@@ -2,6 +2,8 @@ name: cs533
 channels:
 - conda-forge
 dependencies:
+- python=3.10
+- pip
 - jupyter-book =0.13
 - sphinx>=4
 - srt

@@ -1,0 +1,45 @@
+CS 533INTRO TO DATA SCIENCE
+Michael Ekstrand
+INFORMATION AND ENTROPY
+Learning Outcomes
+Understand the relationship of information and uncertainty.
+Use entropy to measure the amount of information in a signal.
+Photo by Jon Tyson on Unsplash
+Messages and Information
+“Apple”
+
+How much information did I just give you?
+
+What if you knew:
+I would say an English word
+I would say a fruit
+I would say a regional fruit
+I would name the fruit in the picture
+Photo by Marek Studzinski on Unsplash 
+What is Information?
+Information is the resolution of uncertainty.
+
+The quantity of information is the amount of uncertainty it resolves.
+Depends on background knowledge
+Impossible to measure precisely in most cases
+Bits
+Entropy
+Entropy Applied
+Key Points
+Entropy measures a distribution
+Treats probability distribution as measure of certainty (or belief)
+ Very Bayesian perspective
+Approximates information requirements
+Usually don’t have a full, accurate probabilistic model
+More Entropy
+Use Cases
+Measures complexity of a distribution
+Measure differences in distributions
+Good for fitting distributions – minimize different to target
+Wrapping Up
+Information reduces uncertainty.
+
+We measure uncertainty with entropy, the expected number of bits needed to efficiently resolve the uncertainty.
+
+Derived metrics let us compare distributions.
+Photo by Andrew Coop on Unsplash 
