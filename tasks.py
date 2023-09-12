@@ -7,6 +7,7 @@ import re
 from xml.etree import ElementTree as et
 from io import BytesIO
 import json
+from base64 import b64encode
 
 import yaml
 
@@ -22,6 +23,8 @@ BUILD_DIR = Path('_build')
 FULL_DIR = BUILD_DIR / 'site'
 CUR_DIR = BUILD_DIR / 'dirhtml'
 CUR_DEPLOY_DIR = FULL_DIR / CURRENT
+VIDEO_DIR = Path('videos')
+VIDEO_MANIFEST = VIDEO_DIR / 'manifest.jsonl'
 
 INVENTORY_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTfaz9ZdI_DNh3SpID1D71dCZrA1YIDraBlf9aou_hcqYLjudQd4Mw0GIpfL_ViYz73UfYhamtk9oEC/pub?gid=0&single=true&output=csv'
 
@@ -38,15 +41,41 @@ def info(c):
 @task
 def fetch_video_list(c, skip_if_exists=False):
     "Fetch list of videos"
-    out = Path('videos/manifest.jsonl')
     id = os.environ['BUNNY_STREAMS_LIB']
     key = os.environ['BUNNY_STREAMS_KEY']
     params = {'itemsPerPage': 200}
     headers = {'AccessKey': key}
     res = requests.get(f'https://video.bunnycdn.com/library/{id}/videos', params=params, headers=headers)
-    with out.open('w', encoding='utf8') as outf:
+    with VIDEO_MANIFEST.open('w', encoding='utf8') as outf:
         for item in res.json()['items']:
             print(json.dumps(item), file=outf)
+
+
+@task
+def upload_subtitles(c):
+    "Upload video subtitles"
+    key = os.environ['BUNNY_STREAMS_KEY']
+    headers = {'AccessKey': key}
+    with VIDEO_MANIFEST.open('r', encoding='utf8') as mf:
+        for line in mf:
+            obj = json.loads(line)
+            lib = obj['videoLibraryId']
+            guid = obj['guid']
+            title = obj['title']
+            srt = VIDEO_DIR / title
+            srt = srt.with_suffix('.srt')
+            if srt.exists():
+                captions = srt.read_bytes()
+                upload = {
+                    'srclang': 'en',
+                    'label': 'Captions',
+                    'captionsFile': b64encode(captions).decode('ascii')
+                }
+                url = f'https://video.bunnycdn.com/library/{lib}/videos/{guid}/captions/en'
+                print('uploading {}'.format(srt))
+                requests.post(url, json=upload, headers=headers)
+            else:
+                print('{} not found'.format(srt))
 
 
 @task()
