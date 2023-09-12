@@ -162,7 +162,7 @@ This video introduces the concept of _distributions_, and how we can see the sha
 
 :::{video}
 :length: 8m46s
-:name: 2-7 - Data Sources and Bias
+:name: 2-7 - Sources and Bias
 :::
 
 ### Resources
