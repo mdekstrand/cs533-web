@@ -36,20 +36,6 @@ def info(c):
 
 
 @task
-def fetch_inventory(c, skip_if_exists=False):
-    out = BUILD_DIR / 'inventory.csv'
-    if skip_if_exists and out.exists():
-        _msg('inventory already fetched')
-        return
-
-    _msg('downloading inventory CSV')
-    res = requests.get(INVENTORY_CSV)
-    _msg('saving to %s', out)
-    BUILD_DIR.mkdir(exist_ok=True)
-    out.write_bytes(res.text.encode('utf8'))
-
-
-@task
 def fetch_video_list(c, skip_if_exists=False):
     "Fetch list of videos"
     out = Path('videos/manifest.jsonl')
@@ -63,7 +49,7 @@ def fetch_video_list(c, skip_if_exists=False):
             print(json.dumps(item), file=outf)
 
 
-@task(pre=[call(fetch_inventory, skip_if_exists=True)])
+@task()
 def build(c, rebuild=False, builder='dirhtml'):
     """
     Build the current site.
