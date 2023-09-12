@@ -47,7 +47,7 @@ What is the iterative process involved?
 
 :::{video} workflow
 :length: 14m29s
-:name: 11-3 - Workflow
+:name: 11-3 - Workflow and Iteration
 :id: 71b1aa35-8435-4eae-ae32-ac660033ee09
 :slide-id: 495979F9A431DDB0%2173324
 :slide-auth: AGk8GhY4fx1Mnm8
@@ -59,7 +59,7 @@ In this video, I introduce SciKit *pipelines* that put multiple transformations 
 
 :::{video}
 :length: 7m19s
-:name: 11-4 - SciKit Pipelines
+:name: 11-4 - Pipelines
 :id: f448da70-c2d2-4c1b-942b-ac66003656a1
 :slide-id: 495979F9A431DDB0%2173328
 :slide-auth: ACahS4jRCAE3ueU
