@@ -1,0 +1,360 @@
+1
+00:00:04,470 --> 00:00:10,000
+Blow and this video, I'm going to introduce our week three module on presenting data.
+
+2
+00:00:10,000 --> 00:00:14,110
+So our learning outcomes for this week are for you to be able to create plots from data,
+
+3
+00:00:14,110 --> 00:00:18,910
+identify the appropriate plot for type of plot for data in question.
+
+4
+00:00:18,910 --> 00:00:24,130
+I want you to be able to read and interpret a plot, refine a plot more clearly, show its data,
+
+5
+00:00:24,130 --> 00:00:34,030
+but then also put these plots and our other presentations in discussions of data into a well-organized notebook to present your data analysis.
+
+6
+00:00:34,030 --> 00:00:41,260
+Before we dove into how to actually present data, I want to start with talking about some of the purposes of data presentation,
+
+7
+00:00:41,260 --> 00:00:45,190
+because these purposes should guide your presentation design decisions.
+
+8
+00:00:45,190 --> 00:00:49,750
+They should guide your evaluation of your own presentations and those of others.
+
+9
+00:00:49,750 --> 00:00:56,050
+They'll also guide my evaluation of your presentation when you are submitting assignments.
+
+10
+00:00:56,050 --> 00:01:02,320
+And one of the first things we need to do is guide the reader attention to important results.
+
+11
+00:01:02,320 --> 00:01:07,900
+And effective presentation is not going to have every piece of thing in it.
+
+12
+00:01:07,900 --> 00:01:12,820
+It's going to draw focus and attention to the important results and make it easy for
+
+13
+00:01:12,820 --> 00:01:17,710
+your reader to ask the key questions around the data analysis you're presenting.
+
+14
+00:01:17,710 --> 00:01:22,420
+But then it also needs to substantiate the results and conclusions.
+
+15
+00:01:22,420 --> 00:01:30,010
+So when we're presenting the data, we want to guide the reader to focus on what it is that we want them to learn,
+
+16
+00:01:30,010 --> 00:01:39,430
+but also in a context that gives them the information needed to assess the validity of the conclusions that we're presenting.
+
+17
+00:01:39,430 --> 00:01:44,710
+And we want to do so with integrity. It's easy to make charts that highlight the result.
+
+18
+00:01:44,710 --> 00:01:50,440
+You want the user to see whether or not or not that result is rigorously defensible from the data.
+
+19
+00:01:50,440 --> 00:01:57,730
+And we want to avoid making those kinds of misleading data visualizations and presentations.
+
+20
+00:01:57,730 --> 00:02:03,910
+So in doing this, we want to be able to think about the audience and you're gonna be presenting data to several different audiences.
+
+21
+00:02:03,910 --> 00:02:05,710
+The first audience is yourself.
+
+22
+00:02:05,710 --> 00:02:12,770
+When you're working with a data set, when you're trying to understand what you're learning from it, the results of your inferences,
+
+23
+00:02:12,770 --> 00:02:21,070
+your presenting data to yourself, and you need the presentation to be clear so that you understand what it is that you're learning from the data.
+
+24
+00:02:21,070 --> 00:02:26,980
+So you see the next question to asks. You're not misleading yourself in the data analysis process.
+
+25
+00:02:26,980 --> 00:02:34,000
+But those kinds of charts don't necessarily need the same level of Polish that a chart for an external audience.
+
+26
+00:02:34,000 --> 00:02:39,880
+Would your collaborators, supervisors, et cetera, need to be able to see the data, see what you're learning?
+
+27
+00:02:39,880 --> 00:02:43,690
+Maybe it's in the weekly meeting you have with your research advisor.
+
+28
+00:02:43,690 --> 00:02:47,130
+You're presenting them with the results that you found.
+
+29
+00:02:47,130 --> 00:02:53,340
+They are people who have a lot of knowledge of the project you're working on another problem base you're working on.
+
+30
+00:02:53,340 --> 00:02:58,230
+They're gonna help you guide and refine your questions.
+
+31
+00:02:58,230 --> 00:03:06,660
+Again, they perhaps don't need as much Polish as a final published result, but they're not just the ones that you're creating internally for yourself.
+
+32
+00:03:06,660 --> 00:03:08,550
+You're going to be presenting to expert readers.
+
+33
+00:03:08,550 --> 00:03:15,030
+If you write a scientific paper, the readers are probably usually wouldn't have some level of expertize in the topic that you're talking about.
+
+34
+00:03:15,030 --> 00:03:20,550
+They may know. They'll probably know the subject in general, but they may not know your specific work.
+
+35
+00:03:20,550 --> 00:03:28,650
+You may be presenting this to decision makers, especially if you're doing a data science project in an industrial or corporate environment.
+
+36
+00:03:28,650 --> 00:03:29,820
+You're providing data.
+
+37
+00:03:29,820 --> 00:03:39,240
+That's going to inform the decisions that your boss, who may not have significant statistical expertize or data expertize that may,
+
+38
+00:03:39,240 --> 00:03:45,840
+but they're going to be using those decision, those the data and the the data that you present in order to make decisions.
+
+39
+00:03:45,840 --> 00:03:52,170
+And then finally, you may occasionally be be producing or presenting data for the general public at large.
+
+40
+00:03:52,170 --> 00:03:57,120
+Each of these audiences is going to require different things from your data presentation.
+
+41
+00:03:57,120 --> 00:04:04,830
+So you need to understand who it is that you're presenting the data to in order to make appropriate data presentation decisions.
+
+42
+00:04:04,830 --> 00:04:14,940
+When we're presenting the data, here are some questions that are going to help us understand what it is that we need to guide the reader towards.
+
+43
+00:04:14,940 --> 00:04:22,110
+So we need to be clear on the reader needs to come away knowing what we sought to find out.
+
+44
+00:04:22,110 --> 00:04:30,360
+This might be just explicitly stating our research questions, but they need to know the purpose that the data we're presenting is supposed to serve.
+
+45
+00:04:30,360 --> 00:04:36,630
+What are they supposed to learn from it? We then they didn't then need to see what we do learn.
+
+46
+00:04:36,630 --> 00:04:43,110
+And then they need to see the supporting evidence, the context to trust the conclusions.
+
+47
+00:04:43,110 --> 00:04:48,330
+It's not just enough to say here's the results, but in many cases you need to provide enough data,
+
+48
+00:04:48,330 --> 00:04:56,190
+enough context that they not only see what you learned, but they see why you believe it is true.
+
+49
+00:04:56,190 --> 00:05:04,350
+And presentation with integrity shows the reader and really makes it clear to the reader what we learned.
+
+50
+00:05:04,350 --> 00:05:08,370
+The evidentiary support behind it, why it flows from the data.
+
+51
+00:05:08,370 --> 00:05:17,280
+Whereas dishonest presentation manipulates them into the conclusion without having the rigorous foundation underneath it.
+
+52
+00:05:17,280 --> 00:05:26,790
+So I want to show you an example of a very bad graphic that came up out of the state of Georgia earlier this year.
+
+53
+00:05:26,790 --> 00:05:40,980
+They presented campaign ad hundred network television, a graph that's purporting to show Kofod cases in various high population counties over time.
+
+54
+00:05:40,980 --> 00:05:49,170
+But if you look closely at the Y at the X axis of this graph and you'll see this more clearly when you go and look at the slides,
+
+55
+00:05:49,170 --> 00:05:57,660
+the axis is not sorted. It starts with the twenty eighth of April and then it goes to the twenty seventh, followed by the twenty ninth.
+
+56
+00:05:57,660 --> 00:06:01,470
+Then May 1st. Then April 30th. At the end we have May 2nd.
+
+57
+00:06:01,470 --> 00:06:06,420
+May 7th. April 26. May 3rd. It violates the expected convention.
+
+58
+00:06:06,420 --> 00:06:12,030
+And what they're what you'd need to do to show a trend over time that time goes from left to right.
+
+59
+00:06:12,030 --> 00:06:18,960
+They're sorting things in. They're putting things out of order to show the trend.
+
+60
+00:06:18,960 --> 00:06:26,880
+They want. In a way that's not substantiated by the data and it takes a lot of work to make a chart.
+
+61
+00:06:26,880 --> 00:06:35,480
+This bat. I'm not sure how to do it in any of the statistical software I actually use, but this is a this is an egregious example,
+
+62
+00:06:35,480 --> 00:06:42,220
+but it's an example of one of the things that can happen when where when we focus on.
+
+63
+00:06:42,220 --> 00:06:47,220
+The effect we want to demonstrate over the evidentiary support for it.
+
+64
+00:06:47,220 --> 00:07:04,960
+I want to contrast with a. I want to contrast with a chart from W edi w e, b do BWAS charts created for the nineteen hundred parece X position.
+
+65
+00:07:04,960 --> 00:07:11,250
+And these were a series of charts for an exhibition to show the economic, educational,
+
+66
+00:07:11,250 --> 00:07:19,660
+etc. progress of black Americans from emancipation to the turn of the century.
+
+67
+00:07:19,660 --> 00:07:23,500
+And he made a series of charts showing economic situations and things.
+
+68
+00:07:23,500 --> 00:07:28,090
+And here's a bar chart that clearly shows the result.
+
+69
+00:07:28,090 --> 00:07:35,350
+The distribution of economic statuses for farmers after a year of farm labor.
+
+70
+00:07:35,350 --> 00:07:39,250
+And it shows we have the first categories of bankrupt and in debt.
+
+71
+00:07:39,250 --> 00:07:46,570
+And then we have four different or five different levels of of non-negative return up to clearing.
+
+72
+00:07:46,570 --> 00:07:53,160
+Fifty dollars or more. And it shows them the bars are proportional to the length of the data.
+
+73
+00:07:53,160 --> 00:07:55,290
+Very clearly highlights these things.
+
+74
+00:07:55,290 --> 00:08:03,720
+It then also does a creative thing of pulls out the separate bar that it indicates is the composite of all of the non-negative bars.
+
+75
+00:08:03,720 --> 00:08:08,760
+And we can see that even if you if you add all of that, they non-negative bars together.
+
+76
+00:08:08,760 --> 00:08:13,860
+It's not as many farmers as as the indebt category.
+
+77
+00:08:13,860 --> 00:08:17,490
+That's not a very standard thing. These charts were hand drawn.
+
+78
+00:08:17,490 --> 00:08:25,260
+But it's a creative use of the visualization to highlight in a way that's supported by the data,
+
+79
+00:08:25,260 --> 00:08:35,910
+the relative distributions of a different in return levels for black American farmers at the time.
+
+80
+00:08:35,910 --> 00:08:42,990
+Another one, that's another one that's creative here is this spiral bar chart.
+
+81
+00:08:42,990 --> 00:08:49,080
+Again, it's an unusual thing, but the lines, we can see them going progressively longer.
+
+82
+00:08:49,080 --> 00:08:55,680
+And if this were just a part of normal horizontal bar chart without the spiral that the smallest line,
+
+83
+00:08:55,680 --> 00:09:00,570
+the first line, 1975, would be so small you couldn't even see us.
+
+84
+00:09:00,570 --> 00:09:07,050
+This gives more space. And it shows good visualization doesn't just mean following the checklist of rules.
+
+85
+00:09:07,050 --> 00:09:16,920
+It means presenting the data in a way that the conclusions and the takeaways are clear and they're rigorously supported by the underlying data.
+
+86
+00:09:16,920 --> 00:09:20,850
+There's no visual tricks to make things look larger or smaller than they are.
+
+87
+00:09:20,850 --> 00:09:27,990
+It transparently shows the connection between the conclusion and the underlying data that support it.
+
+88
+00:09:27,990 --> 00:09:33,850
+So to wrap up, the goal of good presentation is to guide the reader to what we learned and how we know it.
+
+89
+00:09:33,850 --> 00:09:41,460
+Effective. Presentation is going to highlight the important things for the reader to understand without distraction or deception.
+
+90
+00:09:41,460 --> 00:09:55,533
+And we're going to see throughout more of this week and throughout more the semester how practically to go about doing that.
+

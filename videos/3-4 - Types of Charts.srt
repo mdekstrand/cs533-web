@@ -1,0 +1,536 @@
+1
+00:00:04,510 --> 00:00:05,680
+Welcome back. This video,
+
+2
+00:00:05,680 --> 00:00:10,480
+I'm going to walk you through some of the different types of charts that we're going to be learning how to create outcomes or
+
+3
+00:00:10,480 --> 00:00:16,720
+be able to identify the appropriate type of chart for data in a question and understand key rules to avoid common errors.
+
+4
+00:00:16,720 --> 00:00:20,880
+I'm not going to be showing the detailed code for these chart types in the video.
+
+5
+00:00:20,880 --> 00:00:24,640
+You're going to be able to find that in the documentation link from here. And also,
+
+6
+00:00:24,640 --> 00:00:28,600
+I'm going to be preparing a notebook that demonstrates various of these charting
+
+7
+00:00:28,600 --> 00:00:34,330
+types with the actual code to create them using the software we discussing.
+
+8
+00:00:34,330 --> 00:00:44,470
+So common software for this or Seabourne and matplotlib, those are going to be the primary ones that we're working with this semester.
+
+9
+00:00:44,470 --> 00:00:49,330
+When I'm showing the function names, Seabourne is commonly input imported S.A.S.
+
+10
+00:00:49,330 --> 00:00:52,870
+So as an ascot function is going to be a seabourne function PLDT,
+
+11
+00:00:52,870 --> 00:00:59,860
+the function is going to be a matplotlib of function and also showing the function you can use in plot nine or Ares g.G plot too,
+
+12
+00:00:59,860 --> 00:01:04,600
+if you want to use those instead. I often use plot nine for a lot of my graphics.
+
+13
+00:01:04,600 --> 00:01:10,060
+That's just for reference though. We're not going to be getting into much detail on Plot nine in the course of this course.
+
+14
+00:01:10,060 --> 00:01:16,130
+So there's a variety of different types of charts. Some of them are showing relative proportions.
+
+15
+00:01:16,130 --> 00:01:23,860
+Some of them are showing how different amounts relate to each other. Some of them are showing positions and an x y coordinate space.
+
+16
+00:01:23,860 --> 00:01:30,070
+A bar chart is a very common type of chart that shows numeric values grouped by a categorical or ordinal variable.
+
+17
+00:01:30,070 --> 00:01:31,780
+Sometimes they're grouped by New America as well.
+
+18
+00:01:31,780 --> 00:01:37,600
+But usually our x axis is a categorical variable of some kind best with a moderate number of categories.
+
+19
+00:01:37,600 --> 00:01:41,950
+We can use a second categorical variable to say color the bars.
+
+20
+00:01:41,950 --> 00:01:50,170
+So this chart shows the survival rates of Titanic passengers or the X axis is the passage class for second or third class.
+
+21
+00:01:50,170 --> 00:01:55,660
+And then the bars are colored based on the gender of the of the passenger.
+
+22
+00:01:55,660 --> 00:01:58,000
+And so we can see the different survival rates.
+
+23
+00:01:58,000 --> 00:02:06,250
+The y axis on a bar chart is often a mean or a sum or a count within the cap of the group determined by our categorical variables.
+
+24
+00:02:06,250 --> 00:02:12,970
+Sometimes these will be horizontal. So the horizontal bar chart, the categorical is on the Y and the bars run horizontally.
+
+25
+00:02:12,970 --> 00:02:17,080
+This also shows some whiskers that come from a confidence interval.
+
+26
+00:02:17,080 --> 00:02:24,760
+It's very easy to generate a default, relatively good confidence interval with Seabourne so tough to pluck to plot
+
+27
+00:02:24,760 --> 00:02:30,730
+these Seabourne has the count plot function which lets which does a quick,
+
+28
+00:02:30,730 --> 00:02:36,970
+basically categorical histogram. How many observations are in each are in each category.
+
+29
+00:02:36,970 --> 00:02:41,830
+The cap plot variable will plot by default a mean value for each category.
+
+30
+00:02:41,830 --> 00:02:47,860
+And if you have it, do the mean plotting. It will also compute. Ninety five percent confidence intervals.
+
+31
+00:02:47,860 --> 00:02:53,350
+That's what's being shown in this in this plot here.
+
+32
+00:02:53,350 --> 00:03:00,050
+And then you can also use the bat, the bar function or the plot nine Geon Bar.
+
+33
+00:03:00,050 --> 00:03:04,340
+So if you rules about bar charts first is never start the Y axis on a bar chart.
+
+34
+00:03:04,340 --> 00:03:13,320
+Anything but zero. And so the reason for this we can see here is that.
+
+35
+00:03:13,320 --> 00:03:17,270
+So the top one. So these are these are looking at the mean average ratings.
+
+36
+00:03:17,270 --> 00:03:22,770
+We take you to movies, mean rating, and then we compute the mean of the average ratings within a genre.
+
+37
+00:03:22,770 --> 00:03:33,570
+What is that? So if we look here, the difference between horror and IMAX, it's a notable difference, but it's a difference of about point five or so.
+
+38
+00:03:33,570 --> 00:03:40,080
+The difference between sci fi and short is a difference of a little under one, probably.
+
+39
+00:03:40,080 --> 00:03:46,170
+But when we start the Y axis at 2.5 instead of zero,
+
+40
+00:03:46,170 --> 00:03:51,840
+what happens is the differences look much larger than they are because the human eye, naturally it's not.
+
+41
+00:03:51,840 --> 00:04:01,050
+We not only want to see the difference, but we want to it's very natural for us to compare the difference to the bar length because these are bars.
+
+42
+00:04:01,050 --> 00:04:06,620
+They have length, they have an area since they're all the same with the length is proportional to the area.
+
+43
+00:04:06,620 --> 00:04:12,660
+Braking length area. Proportionality is a good way to confuse your readers,
+
+44
+00:04:12,660 --> 00:04:20,910
+but it looks like IMAX movies have twice as high an average rating as horror movies because the bar is twice as high, but they don't.
+
+45
+00:04:20,910 --> 00:04:25,770
+It's really a shift from about 2.8 to three point three or three point four.
+
+46
+00:04:25,770 --> 00:04:33,090
+And so it creates a distortion that makes the different like it highlights the differences, but it makes the differences look larger than they are.
+
+47
+00:04:33,090 --> 00:04:39,210
+So when I talked about integrity and avoiding deception, when I was introducing statistical graphics,
+
+48
+00:04:39,210 --> 00:04:45,750
+this is what I was talking about, the differences there. It's just not as big as it looks like it is.
+
+49
+00:04:45,750 --> 00:04:47,460
+And we truncate our bar charts.
+
+50
+00:04:47,460 --> 00:04:55,050
+So if you have the general rule here to generalize beyond bar charts is if something has a length that varies based on the data,
+
+51
+00:04:55,050 --> 00:05:04,470
+that length needs to actually represent the value, not the value, minus something because you started the axis somewhere else.
+
+52
+00:05:04,470 --> 00:05:06,960
+So if you're including Whiskers, like I did in the previous chart,
+
+53
+00:05:06,960 --> 00:05:14,040
+define how they're computed and also as one thing to just be careful of seaboard's cat platen count plot.
+
+54
+00:05:14,040 --> 00:05:21,270
+If you aren't using the color for a second variable, they will just make every bar a different color for no particular reason,
+
+55
+00:05:21,270 --> 00:05:25,010
+which it creates something that's different when it doesn't need to be so.
+
+56
+00:05:25,010 --> 00:05:29,520
+It causes the reader to look for a difference that isn't actually their best avoided.
+
+57
+00:05:29,520 --> 00:05:32,640
+You can fix that by just specifying the color.
+
+58
+00:05:32,640 --> 00:05:40,050
+We saw histograms last week in a histogram as a bar chart, but a categorical was Binz or ranges of a numerical value.
+
+59
+00:05:40,050 --> 00:05:46,800
+Also, though, if we have a bar chart that's showing the relative frequency of categorical variables that can also be called a histogram,
+
+60
+00:05:46,800 --> 00:05:50,730
+the Y axis is either the number or the fraction of occurrences in this case.
+
+61
+00:05:50,730 --> 00:05:58,170
+So we can that. The key thing, though, is the different heights of the bars that I see visually, the relative frequency of different values.
+
+62
+00:05:58,170 --> 00:06:01,680
+So it really makes it visually clear how the data is shaped.
+
+63
+00:06:01,680 --> 00:06:07,950
+We can see Skewes and things like that. Is there one way to graphically describe a distribution?
+
+64
+00:06:07,950 --> 00:06:12,120
+A scatterplot shows two numeric variables. So each observation is a dot.
+
+65
+00:06:12,120 --> 00:06:16,800
+Each observation has two numeric variables. And we put the one variable on the x axis.
+
+66
+00:06:16,800 --> 00:06:22,290
+The other variable on the Y axis and put the dot at where its variable values would intersect.
+
+67
+00:06:22,290 --> 00:06:26,700
+This is really useful for seeing how two variables relate. Does one increase with the other Duplin?
+
+68
+00:06:26,700 --> 00:06:30,840
+Do points clump or cluster in an interesting way? Other interesting patterns.
+
+69
+00:06:30,840 --> 00:06:43,050
+It helps us find outliers. So this this is scatterplot is showing the tip versus the total bill for a bunch of restaurant bills.
+
+70
+00:06:43,050 --> 00:06:45,540
+And each each observation is a bill.
+
+71
+00:06:45,540 --> 00:06:55,380
+And then the x axis is the the under the total bill on the Y axis is the tip that the that the the customer added to the bill.
+
+72
+00:06:55,380 --> 00:07:02,790
+And we a couple of refinements we can do here. We can color or change to the point tight by a categorical variable.
+
+73
+00:07:02,790 --> 00:07:08,140
+So on this one, we've changed it so that the points are different color.
+
+74
+00:07:08,140 --> 00:07:13,310
+So those dinners are blue circles and the lunches are orange AXA's.
+
+75
+00:07:13,310 --> 00:07:19,130
+We could also add a trend line or some other kind of a line to show some context, for example, on this chart,
+
+76
+00:07:19,130 --> 00:07:27,170
+we might want to plot a line that shows that the 20 percent point and that let us easily see where we're going over 20 percent,
+
+77
+00:07:27,170 --> 00:07:33,650
+how that the tips are distributed relative to it to a 20 percent mark.
+
+78
+00:07:33,650 --> 00:07:41,170
+We can also X can be a categorical variable when that happens. We call this a point plot or a strip plot.
+
+79
+00:07:41,170 --> 00:07:47,020
+Functions for doing this are scatter scatterplot and then plotlines John Point,
+
+80
+00:07:47,020 --> 00:07:50,800
+the Seabourne documentation has some examples of more of these align plot.
+
+81
+00:07:50,800 --> 00:07:59,350
+It's like a scatterplot that we have to numeric variables. However, we it emphasizes the progression or continuity from one variable to the next.
+
+82
+00:07:59,350 --> 00:08:04,930
+By combining them with a line, it really works best. We have one Y per X value that we want to plot.
+
+83
+00:08:04,930 --> 00:08:11,260
+If we've got more than one, it really starts getting very, very jagged. It's very common for Time series.
+
+84
+00:08:11,260 --> 00:08:15,430
+So this is another example from the Seabourne tutorial not labeled super well.
+
+85
+00:08:15,430 --> 00:08:22,510
+I don't know what the value actually is, but it shows that we have some kind of a value that's changing over time and it's going negative.
+
+86
+00:08:22,510 --> 00:08:29,710
+That was zero. The Y axis is at the top and the values otherwise our negative functions to create.
+
+87
+00:08:29,710 --> 00:08:36,370
+These are line plot from seabourne, line from a matplotlib and Gyeom line from plot nine.
+
+88
+00:08:36,370 --> 00:08:41,380
+A box plot shows the distribution of a numeric variable grouped by a categorical.
+
+89
+00:08:41,380 --> 00:08:46,630
+So the bar chart just showed us, say, the average value, maybe with confidence interval.
+
+90
+00:08:46,630 --> 00:08:51,820
+The box plot actually shows us the distribution and it does so in a way that's based on the median.
+
+91
+00:08:51,820 --> 00:09:01,050
+So the median, the the horizontal line in the middle of the box is the median value, the top and bottom of the box.
+
+92
+00:09:01,050 --> 00:09:06,750
+Are the first and third quarter close to the bottom of the first quartile and the top as the third quartile.
+
+93
+00:09:06,750 --> 00:09:12,630
+And what that means is twenty five percent of the values are below the bottom of the box.
+
+94
+00:09:12,630 --> 00:09:17,700
+Twenty five percent in the bottom half. Twenty five percent here and then twenty five percent above.
+
+95
+00:09:17,700 --> 00:09:21,390
+We then show these these whiskers that extend out to the minimum,
+
+96
+00:09:21,390 --> 00:09:27,390
+a maximum of the data and a number of plotting packages will do some kind of an outlier detection.
+
+97
+00:09:27,390 --> 00:09:37,470
+This is using seabourne default outlier detection. So if the max is very high and what the rule it uses by default is it allows the whisker to be.
+
+98
+00:09:37,470 --> 00:09:44,460
+So you've got the IQ are the inter quartile range. That's the height of the box. It allows the whisker to be one point five times that tall.
+
+99
+00:09:44,460 --> 00:09:50,880
+And if you have any data points that are further away than that, it plots them as individual points, makes it easy to see outliers.
+
+100
+00:09:50,880 --> 00:09:57,930
+You can change. It's that the whisker goes all the way up to the max, but it lets you quickly see and compare between different groups.
+
+101
+00:09:57,930 --> 00:10:03,210
+The median, the first and third quartiles and the men in the max to the data.
+
+102
+00:10:03,210 --> 00:10:11,520
+Very useful for comparing observations of a variable when you're grouped by some categorical functions
+
+103
+00:10:11,520 --> 00:10:19,680
+for doing this or box plot from both Seabourne and matplotlib and then Gyeom block box from plot nine.
+
+104
+00:10:19,680 --> 00:10:25,710
+A few more plots, a violin plot. It's like a box plot, except it's based around the mean and has curved sides.
+
+105
+00:10:25,710 --> 00:10:30,120
+The swarm plot is a kind of another kind of a categorical scatterplot.
+
+106
+00:10:30,120 --> 00:10:38,860
+It's usually best to avoid pie charts, especially 3D pie charts, or a lot of the of our software is not going to produce 3D charts very easily.
+
+107
+00:10:38,860 --> 00:10:46,620
+Don't try to go make a 3D chart. They're almost always more confusing, especially like the 3D bars that you have from vintage PowerPoint.
+
+108
+00:10:46,620 --> 00:10:57,750
+But even a pie chart, just because the human perception is not super great at accurately comparing angular areas.
+
+109
+00:10:57,750 --> 00:11:00,120
+So usually a bar chart,
+
+110
+00:11:00,120 --> 00:11:07,680
+restacked bar chart is going to be a better option than a pie chart or a donut chart is sometimes a better option where you've got to circle.
+
+111
+00:11:07,680 --> 00:11:14,250
+This is one place where I disagree with the reading. The reading that I gave you recommends pie charts for showing relative proportions.
+
+112
+00:11:14,250 --> 00:11:19,170
+I recommend usually avoiding those use a bar chart is a stacked bar chart if you need to show you
+
+113
+00:11:19,170 --> 00:11:25,230
+want to show multiple proportions of different or relative proportions within different categories.
+
+114
+00:11:25,230 --> 00:11:29,670
+There's another kind of plot that's not a plot on its own, but it's combined with other kinds of plots.
+
+115
+00:11:29,670 --> 00:11:34,830
+That's a rug plot useful for just displaying distributions at a margin.
+
+116
+00:11:34,830 --> 00:11:40,500
+So to learn more, I've gone I've taken a whirlwind tour through a number of different plot types, the class readings.
+
+117
+00:11:40,500 --> 00:11:46,170
+So the paper that I assigned you to read, it talks through the use cases for a number of different plot types.
+
+118
+00:11:46,170 --> 00:11:50,160
+I'm going to be providing tutorial notebooks that walk you through different plot types.
+
+119
+00:11:50,160 --> 00:11:54,660
+The textbook talks about graph plotting and data visualization.
+
+120
+00:11:54,660 --> 00:11:58,190
+The Seabourne and matplotlib docs are extensive. And for what?
+
+121
+00:11:58,190 --> 00:12:04,230
+If you're using another plodding library, its documentation as well. Most plotting libraries also have a gallery student.
+
+122
+00:12:04,230 --> 00:12:10,740
+Go through the gallery, look for a plot that has a feature you want in your plot or that you think might be useful for displaying your data.
+
+123
+00:12:10,740 --> 00:12:14,580
+Click on it and they'll give you the code to show you how they made that plot.
+
+124
+00:12:14,580 --> 00:12:22,650
+You might want to combine pieces from multiple plots. In practice, it takes a lot of trial and error to really get the hang of your plot and library
+
+125
+00:12:22,650 --> 00:12:27,630
+and figure out how to make it show you the data in the way you really want it to.
+
+126
+00:12:27,630 --> 00:12:32,730
+Learning one plotting library really deep is useful for a lot of the a lot of the python ones,
+
+127
+00:12:32,730 --> 00:12:37,350
+especially the ones that are oriented towards static charts. They're built on top of matplotlib.
+
+128
+00:12:37,350 --> 00:12:41,910
+So Seabourne is a convenience API on top of matplotlib. If you're using Seabourne,
+
+129
+00:12:41,910 --> 00:12:49,500
+you're also going to need to use matplotlib calls a lot of the time when the seabourne gets you 90 percent of the way there,
+
+130
+00:12:49,500 --> 00:12:55,470
+but not quite all the way. So to wrap up, there are many different types of charts that have different use cases.
+
+131
+00:12:55,470 --> 00:13:01,020
+Learning graphics techniques takes time and practice takes some of the example notebooks that I'm providing.
+
+132
+00:13:01,020 --> 00:13:05,730
+Take some of the galleries from the examples from, say, the Seabourne Gallery.
+
+133
+00:13:05,730 --> 00:13:11,670
+Play with them, play with them with some data that I'm giving you, play with them with some data that you have elsewhere.
+
+134
+00:13:11,670 --> 00:13:30,957
+But it takes time and practice and spend some time with the galleries of the of the the plotting libraries you're using.
+
